@@ -64,7 +64,27 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html)
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.html");
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Html);    
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Saves the document to stream
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close();
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+}
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
 
@@ -122,7 +142,28 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Docx);    
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Export the Word document to HTML file
+    HTMLExport htmlExport = new HTMLExport();
+    htmlExport.SaveAsXhtml(document, stream);
+    //Closes the document
+    document.Close();
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.html", "application/html", stream);
+}
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
