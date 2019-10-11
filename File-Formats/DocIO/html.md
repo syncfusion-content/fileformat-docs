@@ -35,13 +35,13 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.html")), FormatType.Html))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.html")), FormatType.Html))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
 	await document.SaveAsync(stream, FormatType.Docx);
 	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
+	Save(stream, "HTMLtoWord.docx");
 	document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -49,7 +49,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Sample.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
 {
@@ -59,7 +59,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html)
      document.Close();
      stream.Position = 0;
      //Download Word document in the browser
-     return File(stream, "application/msword", "Result.docx");
+     return File(stream, "application/msword", "HTMLtoWord.docx");
 }
 {% endhighlight %}
 
@@ -70,7 +70,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.html");
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Sample.html");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Html);    
     //Creates an instance of memory stream
@@ -80,7 +80,7 @@ using (WordDocument document = new WordDocument())
     //Closes the document
     document.Close();
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HTMLtoWord.docx", "application/msword", stream);
 }
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -113,13 +113,13 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx")), FormatType.Docx))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
 	await document.SaveAsync(stream, FormatType.Html);
 	//Saves the stream as Word file in local machine
-	Save(stream, "Result.html");
+	Save(stream, "WordToHtml.html");
 	document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -127,7 +127,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -137,7 +137,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
      document.Close();
      stream.Position = 0;
      //Download Word document in the browser
-     return File(stream, "application/chrome", "Result.html");
+     return File(stream, "application/chrome", "WordToHtml.html");
 }
 {% endhighlight %}
 
@@ -148,7 +148,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Docx);    
     //Creates an instance of memory stream
@@ -159,7 +159,7 @@ using (WordDocument document = new WordDocument())
     //Closes the document
     document.Close();
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.html", "application/html", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToHtml.html", "application/html", stream);
 }
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
