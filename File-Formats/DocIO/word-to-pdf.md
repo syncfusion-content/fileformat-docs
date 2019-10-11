@@ -2049,7 +2049,7 @@ wordDocument.Close()
 
 ## Font Substitution
 
-Essential DocIO uses the specified fonts [(WTextRange.CharacterFormat.Font)] (https://help.syncfusion.com/cr/cref_files/wpf/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.WCharacterFormat~Font.html) to layout and render the text in Word to PDF/Image. All the fonts used in the Word document must be installed in production machine. If the used fonts wasn't installed in production machine, then Essential DocIO uses the "Microsoft Sans Serif" as a default font to layout and render the text, which may leads to preservation difference in generated PDF/Image as each fonts has different glyphs for characters. You can refer [here](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production-machine) to know about the missed fonts.
+The Essential DocIO substitutes the unavailable fonts to Microsoft Sans Serif in Word to PDF conversion. This leads to preservation difference in generated PDF as each fonts has different glyphs for characters. To avoid this, the Essential DocIO library allows you to set an alternate font for the missing font used in the Word document.
 
 ### Use alternate font instead of "Microsoft Sans Serif":
 
