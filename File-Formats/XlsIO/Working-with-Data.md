@@ -535,7 +535,7 @@ ExcelImportDataOptions class contains the following properties:
 FirstRow - Specifies first row from where the data should be imported.
 FirstColumn - Specifies first column from where the data should be imported.
 IncludeHeader - Specifies whether class properties names must be imported or not.
-PreserveTypes - Indicates whether XlsIO should preserve column types from Data. By default, preserve type is FALSE. Setting it to True will import data based on column type, otherwise will import based on value type.
+PreserveTypes - Indicates whether XlsIO should preserve column types from Data. By default, preserve type is TRUE. Setting it to True will import data based on column type, otherwise will import based on value type.
 
 The following code snippet illustrates how to import collection objects into a worksheet using ImportData method with ExcelImportDataOptions class.
 
