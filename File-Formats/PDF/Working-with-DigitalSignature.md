@@ -1562,6 +1562,249 @@ else
 
 {% endtabs %}
 
+## Externally sing a PDF document 
+
+You can sign the PDF document from external digital signature created from various sources such as HSM, USB token, smart card, or other cloud services such as DigiSign.
+
+The following code example shows how to sign the PDF document from external signature.
+{% tabs %}
+{% highlight c# %}
+ 
+//Load existing PDF document
+PdfLoadedDocument document = new PdfLoadedDocument("PDF_Succinctly.pdf");
+
+//Creates a digital signature 
+PdfSignature signature = new PdfSignature(document, document.Pages[0], null, "DigitalSignature");
+
+signature.ComputeHash += Signature_ComputeHash;
+
+//Save the PDF document
+document.Save("ExternalSignature.pdf");
+
+//Close the document
+document.Close(true);
+
+
+void Signature_ComputeHash(object sender, PdfSignatureEventArgs arguments)
+{
+//Get the document bytes
+byte[] documentBytes = arguments.Data;
+
+SignedCms signedCms = new SignedCms(new ContentInfo(documentBytes), detached: true);
+
+//Compute the signature using the specified digital ID file and the password
+X509Certificate2 certificate = new X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123");
+
+var cmsSigner = new CmsSigner(certificate);
+//Set the digest algorithm SHA256
+
+cmsSigner.DigestAlgorithm = new Oid("2.16.840.1.101.3.4.2.1");
+
+signedCms.ComputeSignature(cmsSigner);
+
+//Embed the encoded digital signature to the PDF document
+arguments.SignedData = signedCms.Encode();
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+ 
+'Load existing PDF document
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
+
+'Creates a digital signature 
+Dim signature As PdfSignature = New PdfSignature(document, document.Pages(0), Nothing, "DigitalSignature")
+
+signature.ComputeHash += Signature_ComputeHash
+
+'Save the PDF document
+document.Save("ExternalSignature.pdf")
+
+'Close the document
+document.Close(True)
+
+
+Private Sub Signature_ComputeHash(ByVal sender As Object, ByVal arguments As PdfSignatureEventArgs)
+
+'Get the document bytes
+Dim documentBytes As Byte() = arguments.Data
+
+Dim signedCms As SignedCms = New SignedCms(New ContentInfo(documentBytes), detached:=True)
+
+'Compute the signature using the specified digital ID file and the password
+Dim certificate As X509Certificate2 = New X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123")
+
+Dim cmsSigner = New CmsSigner(certificate)
+
+'Set the digest algorithm SHA256
+cmsSigner.DigestAlgorithm = New Oid("2.16.840.1.101.3.4.2.1")
+
+signedCms.ComputeSignature(cmsSigner)
+'Embed the encoded digital signature to the PDF document
+
+arguments.SignedData = signedCms.Encode()
+End Sub
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Get the stream from the document
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
+
+//Load an existing signed PDF document
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature
+PdfSignature signature = new PdfSignature(document, document.Pages[0], null, "DigitalSignature");
+
+signature.ComputeHash += Signature_ComputeHash;
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, " ExternalSignature.pdf");
+
+
+private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs ars)
+{
+
+//Get the document bytes
+byte[] documentBytes = ars.Data;
+
+SignedCms signedCms = new SignedCms(new ContentInfo(documentBytes), detached: true);
+
+//Compute the signature using the specified digital ID file and the password
+X509Certificate2 certificate = new X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123");
+
+var cmsSigner = new CmsSigner(certificate);
+
+//Set the digest algorithm SHA256
+cmsSigner.DigestAlgorithm = new Oid("2.16.840.1.101.3.4.2.1");
+
+signedCms.ComputeSignature(cmsSigner);
+
+//Embed the encoded digital signature to the PDF document
+ars.SignedData = signedCms.Encode();
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Get the stream from the document
+FileStream documentStream = new FileStream("PDF_Succinctly.pdf ", FileMode.Open, FileAccess.Read);
+
+//Load the existing PDF document
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature 
+PdfSignature signature = new PdfSignature(document, document.Pages[0], null, "DigitalSignature");
+
+signature.ComputeHash += Signature_ComputeHash;
+
+MemoryStream ms = new MemoryStream();
+
+document.Save(ms);
+
+document.Close(true);
+
+
+private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs ars)
+{
+//Get the document bytes
+byte[] documentBytes = ars.Data;
+
+SignedCms signedCms = new SignedCms(new ContentInfo(documentBytes), detached: true);
+
+//Compute the signature using the specified digital ID file and the password
+X509Certificate2 certificate = new X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123");
+
+var cmsSigner = new CmsSigner(certificate);
+
+//Set the digest algorithm SHA256
+cmsSigner.DigestAlgorithm = new Oid("2.16.840.1.101.3.4.2.1");
+
+signedCms.ComputeSignature(cmsSigner);
+
+//Embed the encoded digital signature to the PDF document
+ars.SignedData = signedCms.Encode();
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF_Succinctly.pdf");
+
+//Load an existing signed PDF document
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature
+PdfSignature signature = new PdfSignature(document, document.Pages[0], null, "DigitalSignature");
+
+signature.ComputeHash += Signature_ComputeHash;
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExternalSignature.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("ExternalSignature.pdf", "application/pdf", stream);
+}
+
+
+private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs ars)
+{
+
+//Get the document bytes
+byte[] documentBytes = ars.Data;
+
+SignedCms signedCms = new SignedCms(new ContentInfo(documentBytes), detached: true);
+
+//Compute the signature using the specified digital ID file and the password
+
+X509Certificate2 certificate = new X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123");
+
+var cmsSigner = new CmsSigner(certificate);
+
+//Set the digest algorithm SHA256
+cmsSigner.DigestAlgorithm = new Oid("2.16.840.1.101.3.4.2.1");
+
+signedCms.ComputeSignature(cmsSigner);
+
+//Embed the encoded digital signature to the PDF document
+ars.SignedData = signedCms.Encode();
+
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 
 ## Adding a signature validation appearance based on the signature 
 
