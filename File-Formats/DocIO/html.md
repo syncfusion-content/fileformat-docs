@@ -1,6 +1,6 @@
 ---
 title: Word Document to HTML conversion | DocIO | Syncfusion
-description: Converting Word document to HTML using DocIO
+description: This section illustrates how to convert Word document to HTML using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
