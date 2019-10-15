@@ -35,13 +35,13 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.html")), FormatType.Html))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.html")), FormatType.Html))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
 	await document.SaveAsync(stream, FormatType.Docx);
 	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
+	Save(stream, "HTMLtoWord.docx");
 	document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -49,7 +49,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Sample.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
 {
@@ -59,7 +59,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html)
      document.Close();
      stream.Position = 0;
      //Download Word document in the browser
-     return File(stream, "application/msword", "Result.docx");
+     return File(stream, "application/msword", "HTMLtoWord.docx");
 }
 {% endhighlight %}
 
@@ -70,7 +70,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.html");
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Sample.html");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Html);    
     //Creates an instance of memory stream
@@ -80,7 +80,7 @@ using (WordDocument document = new WordDocument())
     //Closes the document
     document.Close();
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HTMLtoWord.docx", "application/msword", stream);
 }
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -113,13 +113,13 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx")), FormatType.Docx))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
 	await document.SaveAsync(stream, FormatType.Html);
 	//Saves the stream as Word file in local machine
-	Save(stream, "Result.html");
+	Save(stream, "WordToHtml.html");
 	document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -127,7 +127,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -137,7 +137,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
      document.Close();
      stream.Position = 0;
      //Download Word document in the browser
-     return File(stream, "application/chrome", "Result.html");
+     return File(stream, "application/chrome", "WordToHtml.html");
 }
 {% endhighlight %}
 
@@ -148,7 +148,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Docx);    
     //Creates an instance of memory stream
@@ -159,7 +159,7 @@ using (WordDocument document = new WordDocument())
     //Closes the document
     document.Close();
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.html", "application/html", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToHtml.html", "application/html", stream);
 }
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -280,6 +280,179 @@ export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+### Customize Image Data
+
+Essential DocIO provides an ImageNodeVisited event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this ImageNodeVisited event. The following code example illustrates loading and saving image data in a specific location during importing and exporting HTML files.
+
+{% tabs %}
+{% highlight c# %}
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location/web path
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open("Input.html", FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path
+document.SaveOptions.ImageNodeVisited += SaveImage;
+//Saves the document as HTML
+document.Save("Output.html", FormatType.Html);
+//Unhooks the ImageNodeVisited event after exporting HTML
+document.SaveOptions.ImageNodeVisited -= SaveImage;
+//Closes the WordDocument instance
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates a new instance of WordDocument
+Dim document As WordDocument = New WordDocument()
+'Hooks the ImageNodeVisited event to open the image from a specific location/web path
+AddHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
+'Opens the input HTML document
+document.Open("Input.html", FormatType.Html)
+'Unhooks the ImageNodeVisited event after loading HTML
+RemoveHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
+'Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path
+AddHandler document.SaveOptions.ImageNodeVisited, AddressOf SaveImage
+'Saves the document as HTML
+document.Save("Output.html", FormatType.Html)
+'Unhooks the ImageNodeVisited event after exporting HTML
+RemoveHandler document.SaveOptions.ImageNodeVisited, AddressOf SaveImage
+'Closes the WordDocument instance
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Open the file as Stream
+FileStream docStream = new FileStream(@"Input.html", FileMode.Open, FileAccess.Read);
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location/web path
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open(docStream, FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path
+document.SaveOptions.ImageNodeVisited += SaveImage;
+//Creates an instance of memory stream
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to MemoryStream
+document.Save(stream, FormatType.Html);
+//Unhooks the ImageNodeVisited event after exporting HTML
+document.SaveOptions.ImageNodeVisited -= SaveImage;
+stream.Position = 0;
+return File(stream, "application/chrome", "Output.html"); 
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location/web path.
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open(assembly.GetManifestResourceStream("Sample.Data.Input.html"), FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path.
+document.SaveOptions.ImageNodeVisited += SaveImage;
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Html);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.html", "application/html", stream);
+//Unhooks the ImageNodeVisited event after exporting HTML
+document.SaveOptions.ImageNodeVisited -= SaveImage;
+//Closes the document
+document.Close();
+{% endhighlight %}
+{% endtabs %}
+
+Event Handler:
+
+{% tabs %}
+{% highlight c# %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //Read the image as stream. The image should be preserved in specified (args.Uri) path.
+    args.ImageStream = File.OpenRead(args.Uri);
+}
+private void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    System.Drawing.Image image = System.Drawing.Image.FromStream(args.ImageStream);
+    //Gets the image from stream and saves it to disk.
+    image.Save(@"img.png");
+    //Sets the Uri for the image. It will be written as image source within the exported HTML. 
+    args.Uri = @"img.png";
+    //You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
+    'Read the image as stream. The image should be preserved in specified (args.Uri) path.
+    args.ImageStream = File.OpenRead(args.Uri)
+    'You can also write logic to get the image stream from web path.
+End Sub
+
+Private Sub SaveImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
+    Dim image As System.Drawing.Image = System.Drawing.Image.FromStream(args.ImageStream)
+    'Gets the image from stream and saves it to disk.
+    image.Save("img.png")
+    'Sets the Uri for the image. It will be written as image source within the exported HTML. 
+    args.Uri = "img.png"
+    'You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
+End Sub
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //Read the image as stream. The image should be preserved in specified (args.Uri) path.
+    args.ImageStream = File.OpenRead(args.Uri);
+}
+private void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(args.ImageStream);
+    //Gets the image from stream and saves it to disk.
+	FileStream stream = new FileStream(@"img.png", FileMode.OpenOrCreate);
+	byte[] imageByte = image.ImageData;
+	stream.Write(imageByte, 0, imageByte.Length);
+	stream.Flush();
+	stream.Close();    
+    //Sets the Uri for the image. It will be written as image source within the exported HTML. 
+    args.Uri = @"img.png";
+    //You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //Read the image as stream. The image should be preserved in specified (args.Uri) path.
+    args.ImageStream = File.OpenRead(args.Uri);
+}
+private void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(args.ImageStream);
+    //Gets the image from stream and saves it to disk.
+	MemoryStream outputStream = new MemoryStream();
+	outputStream.Write(image.ImageData, 0, image.ImageData.Length);
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(@"ImageName.png", "application/png", outputStream);    
+    //Sets the Uri for the image. It will be written as image source within the exported HTML. 
+    args.Uri = @"img.png";
+    //You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
+}
+{% endhighlight %}
+{% endtabs %}
+
+N> The above event calling is mandatory in ASP.NET Core and Xamarin platforms to preserve the images in HTML importing and exporting.
 
 ## Supported and unsupported items
 
