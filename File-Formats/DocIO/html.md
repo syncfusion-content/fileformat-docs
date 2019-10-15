@@ -444,7 +444,7 @@ private void SaveImage(object sender, ImageNodeVisitedEventArgs args)
     //Gets the image from stream and saves it to disk.
 	MemoryStream outputStream = new MemoryStream();
 	outputStream.Write(image.ImageData, 0, image.ImageData.Length);
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(@"ImageName.png", "application/png", outputStream);    
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(@"img.png", "application/png", outputStream);    
     //Sets the Uri for the image. It will be written as image source within the exported HTML. 
     args.Uri = @"img.png";
     //You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
