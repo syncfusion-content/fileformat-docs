@@ -1,6 +1,6 @@
 ---
 title: Working with Digital Signature | Syncfusion
-description: How to create a Digital Signature in the PDF document
+description: This section explains how to create a Digital Signature in the PDF document by using Syncfusion Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG
