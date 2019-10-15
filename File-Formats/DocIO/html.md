@@ -295,12 +295,8 @@ document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 document.Open("Input.html", FormatType.Html);
 //Unhooks the ImageNodeVisited event after loading HTML
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
-//Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path
-document.SaveOptions.ImageNodeVisited += SaveImage;
 //Saves the document as HTML
 document.Save("Output.html", FormatType.Html);
-//Unhooks the ImageNodeVisited event after exporting HTML
-document.SaveOptions.ImageNodeVisited -= SaveImage;
 //Closes the WordDocument instance
 document.Close();
 {% endhighlight %}
@@ -314,17 +310,29 @@ AddHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
 document.Open("Input.html", FormatType.Html)
 'Unhooks the ImageNodeVisited event after loading HTML
 RemoveHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
-'Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path
-AddHandler document.SaveOptions.ImageNodeVisited, AddressOf SaveImage
 'Saves the document as HTML
 document.Save("Output.html", FormatType.Html)
-'Unhooks the ImageNodeVisited event after exporting HTML
-RemoveHandler document.SaveOptions.ImageNodeVisited, AddressOf SaveImage
 'Closes the WordDocument instance
 document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location/web path
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Saves the document as HTML
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Html);
+Save(stream, "Output.html");
+//Closes the WordDocument instance
+document.Close(); 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -338,14 +346,10 @@ document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 document.Open(docStream, FormatType.Html);
 //Unhooks the ImageNodeVisited event after loading HTML
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
-//Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path
-document.SaveOptions.ImageNodeVisited += SaveImage;
 //Creates an instance of memory stream
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 document.Save(stream, FormatType.Html);
-//Unhooks the ImageNodeVisited event after exporting HTML
-document.SaveOptions.ImageNodeVisited -= SaveImage;
 stream.Position = 0;
 return File(stream, "application/chrome", "Output.html"); 
 {% endhighlight %}
@@ -361,14 +365,10 @@ document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 document.Open(assembly.GetManifestResourceStream("Sample.Data.Input.html"), FormatType.Html);
 //Unhooks the ImageNodeVisited event after loading HTML
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
-//Hooks the ImageNodeVisited event to write the image to a specific location - absolute/web path.
-document.SaveOptions.ImageNodeVisited += SaveImage;
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Html);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.html", "application/html", stream);
-//Unhooks the ImageNodeVisited event after exporting HTML
-document.SaveOptions.ImageNodeVisited -= SaveImage;
 //Closes the document
 document.Close();
 {% endhighlight %}
@@ -383,15 +383,6 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
     //Read the image as stream. The image should be preserved in specified (args.Uri) path.
     args.ImageStream = File.OpenRead(args.Uri);
 }
-private void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-{
-    System.Drawing.Image image = System.Drawing.Image.FromStream(args.ImageStream);
-    //Gets the image from stream and saves it to disk.
-    image.Save(@"img.png");
-    //Sets the Uri for the image. It will be written as image source within the exported HTML. 
-    args.Uri = @"img.png";
-    //You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
-}
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -400,15 +391,17 @@ Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEven
     args.ImageStream = File.OpenRead(args.Uri)
     'You can also write logic to get the image stream from web path.
 End Sub
+{% endhighlight %}
 
-Private Sub SaveImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
-    Dim image As System.Drawing.Image = System.Drawing.Image.FromStream(args.ImageStream)
-    'Gets the image from stream and saves it to disk.
-    image.Save("img.png")
-    'Sets the Uri for the image. It will be written as image source within the exported HTML. 
-    args.Uri = "img.png"
-    'You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
-End Sub
+{% highlight UWP %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //"App" is the class of Portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	string imagePath = args.Uri.ToString();
+    //Read the image as stream. The image should be preserved in specified (args.Uri) path
+    args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -417,19 +410,6 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
     //Read the image as stream. The image should be preserved in specified (args.Uri) path.
     args.ImageStream = File.OpenRead(args.Uri);
 }
-private void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-{
-    Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(args.ImageStream);
-    //Gets the image from stream and saves it to disk.
-	FileStream stream = new FileStream(@"img.png", FileMode.OpenOrCreate);
-	byte[] imageByte = image.ImageData;
-	stream.Write(imageByte, 0, imageByte.Length);
-	stream.Flush();
-	stream.Close();    
-    //Sets the Uri for the image. It will be written as image source within the exported HTML. 
-    args.Uri = @"img.png";
-    //You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
-}
 {% endhighlight %}
 
 {% highlight XAMARIN %}
@@ -437,17 +417,6 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //Read the image as stream. The image should be preserved in specified (args.Uri) path.
     args.ImageStream = File.OpenRead(args.Uri);
-}
-private void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-{
-    Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(args.ImageStream);
-    //Gets the image from stream and saves it to disk.
-	MemoryStream outputStream = new MemoryStream();
-	outputStream.Write(image.ImageData, 0, image.ImageData.Length);
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(@"img.png", "application/png", outputStream);    
-    //Sets the Uri for the image. It will be written as image source within the exported HTML. 
-    args.Uri = @"img.png";
-    //You can also write logic to upload image to file server and provide the uploaded web path to write within the exported HTML.
 }
 {% endhighlight %}
 {% endtabs %}
