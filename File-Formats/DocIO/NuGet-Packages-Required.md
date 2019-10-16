@@ -116,7 +116,7 @@ Install-Package Syncfusion.DocIO.UWP
 </table>
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
-N> 3. Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. You can use the above WPF or Windows Forms platform NuGet packages for .NET Core 3.0 targeting applications and use the same “C# tab” code examples for it.
+N> 3. Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. You can use the above WPF or Windows Forms platform NuGet packages for .NET Core 3.0 targeting applications and use the same "C# tab" code examples for it.
 
 ## Converting Word document to PDF
 
