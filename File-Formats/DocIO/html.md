@@ -435,6 +435,62 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
+### Export image as base64
+
+The following code snippets shows preserving Word document Image as base64 embedded images in Word to HTML conversion.
+
+{% tabs %}
+{% highlight C# %}
+//Create new instance for Word document
+WordDocument document = new WordDocument();
+//Adds one section and one paragraph to the document
+document.EnsureMinimal();
+//Adds picture into the paragraph
+IWPicture picture = document.LastParagraph.AppendPicture(System.Drawing.Image.FromFile("Image.png"));
+//Exports the text form fields as editable
+document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
+//Export the Word document image as Base64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = true;
+//Sets style sheet type
+document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
+//Sets name for style sheet
+document.SaveOptions.HtmlExportCssStyleSheetFileName = "CssFile.css";
+//Saves the document as html file
+document.Save("ExportToImageBase64.html", FormatType.Html);
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Create new instance for Word document
+Dim document As WordDocument = New WordDocument
+'Adds one section and one paragraph to the document
+document.EnsureMinimal()
+'Adds picture into the paragraph
+Dim picture As IWPicture = document.LastParagraph.AppendPicture(System.Drawing.Image.FromFile("Image.png"))
+'Exports the text form fields as editable
+document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
+'Export the Word document image as Base64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = True
+'Sets style sheet type
+document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
+'Sets name for style sheet
+document.SaveOptions.HtmlExportCssStyleSheetFileName = "CssFile.css"
+'Saves the document as html file
+document.Save("ExportToImageBase64.html", FormatType.Html)
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports export image as base64 in WPF, Windows Forms, ASP.NET Web and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//DocIO supports export image as base64 in WPF, Windows Forms, ASP.NET Web and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports export image as base64 in WPF, Windows Forms, ASP.NET Web and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% endtabs %}
+
 ## Supported and unsupported items
 
 The following document elements and attributes are supported by DocIO in Word to HTML and HTML to Word conversions.
