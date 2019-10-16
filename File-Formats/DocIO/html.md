@@ -390,6 +390,7 @@ You can customize the Word to HTML conversion with the following options:
 * Specify to export the header and footer of the Word document in the HTML
 * Specify to consider Text Input field as a editable fields or text
 * Specify the CSS style sheet type and its name
+* Export the images as base64
 
 N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
 
@@ -410,6 +411,8 @@ document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
 //Sets name for style sheet
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
+//Export the Word document image as Base64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = true;
 //Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html");
 document.Close();
@@ -429,65 +432,11 @@ document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
 'Sets name for style sheet
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
+'Export the Word document image as Base64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = True
 'Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
-{% endhighlight %}
-{% endtabs %}
-
-### Export image as base64
-
-The following code snippets shows preserving Word document Image as base64 embedded images in Word to HTML conversion.
-
-{% tabs %}
-{% highlight C# %}
-//Create new instance for Word document
-WordDocument document = new WordDocument();
-//Adds one section and one paragraph to the document
-document.EnsureMinimal();
-//Adds picture into the paragraph
-IWPicture picture = document.LastParagraph.AppendPicture(System.Drawing.Image.FromFile("Image.png"));
-//Exports the text form fields as editable
-document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
-//Export the Word document image as Base64 embedded image
-document.SaveOptions.HTMLExportImageAsBase64 = true;
-//Sets style sheet type
-document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
-//Sets name for style sheet
-document.SaveOptions.HtmlExportCssStyleSheetFileName = "CssFile.css";
-//Saves the document as html file
-document.Save("ExportToImageBase64.html", FormatType.Html);
-{% endhighlight %}
-
-{% highlight VB.NET %}
-'Create new instance for Word document
-Dim document As WordDocument = New WordDocument
-'Adds one section and one paragraph to the document
-document.EnsureMinimal()
-'Adds picture into the paragraph
-Dim picture As IWPicture = document.LastParagraph.AppendPicture(System.Drawing.Image.FromFile("Image.png"))
-'Exports the text form fields as editable
-document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
-'Export the Word document image as Base64 embedded image
-document.SaveOptions.HTMLExportImageAsBase64 = True
-'Sets style sheet type
-document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
-'Sets name for style sheet
-document.SaveOptions.HtmlExportCssStyleSheetFileName = "CssFile.css"
-'Saves the document as html file
-document.Save("ExportToImageBase64.html", FormatType.Html)
-{% endhighlight %}
-
-{% highlight UWP %}
-//DocIO supports export image as base64 in WPF, Windows Forms, ASP.NET Web and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-//DocIO supports export image as base64 in WPF, Windows Forms, ASP.NET Web and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight XAMARIN %}
-//DocIO supports export image as base64 in WPF, Windows Forms, ASP.NET Web and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% endtabs %}
 
