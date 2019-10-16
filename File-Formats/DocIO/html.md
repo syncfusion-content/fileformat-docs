@@ -228,11 +228,11 @@ N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not s
 N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
-### Customize Image Data
+### Customize image data
 
-Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
+The Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
 
-The following code example shows how to load image data based on image source path during importing HTML files.
+The following code example shows how to load image data based on image source path when importing the HTML files.
 
 {% tabs %}
 {% highlight c# %}
@@ -283,7 +283,7 @@ Save(stream, "HtmlToWord.docx");
 //Closes the WordDocument instance
 document.Close(); 
 
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -324,12 +324,12 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HtmlToWord.docx", "app
 //Closes the document
 document.Close();
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
 
-The following code example shows how to read the image from the specified path when importing HTML files
+The following code example shows how to read the image from the specified path when importing the HTML files.
 
 {% tabs %}
 {% highlight c# %}
@@ -378,7 +378,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
-N> The above event calling is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images HTML conversions.
+N> Calling the above events is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
 
 ### Customizing the Word to HTML conversion
 
