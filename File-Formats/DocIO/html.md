@@ -285,7 +285,7 @@ document.Close()
 
 Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
 
-The following code example shows how to load image data based on image source path during importing HTML files.`
+The following code example shows how to load image data based on image source path during importing HTML files.
 
 {% tabs %}
 {% highlight c# %}
@@ -297,7 +297,7 @@ document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 document.Open("Input.html", FormatType.Html);
 //Unhooks the ImageNodeVisited event after loading HTML
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
-//Saves the document as HTML
+//Saves the Word document
 document.Save("HtmlToWord.docx", FormatType.Docx);
 //Closes the WordDocument instance
 document.Close();
@@ -312,7 +312,7 @@ AddHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
 document.Open("Input.html", FormatType.Html)
 'Unhooks the ImageNodeVisited event after loading HTML
 RemoveHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
-'Saves the document as HTML
+'Saves the Word document
 document.Save("HtmlToWord.docx", FormatType.Docx)
 'Closes the WordDocument instance
 document.Close()
@@ -329,7 +329,7 @@ document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), FormatType.Html);
 //Unhooks the ImageNodeVisited event after loading HTML
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
-//Saves the document as HTML
+//Saves the Word document
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 Save(stream, "HtmlToWord.docx");
