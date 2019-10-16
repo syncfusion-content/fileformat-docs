@@ -69,6 +69,7 @@ Syncfusion.DocIO.Universal<br/></td></tr>
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Starting with v15.3.0.x, a new Visual Studio add-in "Syncfusion Reference Manager" for WPF, and Windows Forms platforms is included. Using this add-in, you can easily add the necessary reference assemblies to your projects in an automated way. Please refer to this [link](https://help.syncfusion.com/extension/syncfusion-reference-manager/overview) for more information.
+N> 4. Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. You can use the above WPF or Windows Forms platform assemblies for .NET Core 3.0 targeting applications and use the same “C# tab” code examples for it.
 
 ## Converting Word document to PDF
 
