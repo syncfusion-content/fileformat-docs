@@ -15,7 +15,7 @@ The following code example shows how to convert the HTML file into Word document
 {% tabs %}
 {% highlight c# %}
 //Loads the HTML document against transitional schema validation
-WordDocument document = new WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional);
+WordDocument document = new WordDocument("Input.html", FormatType.Html, XHTMLValidationType.Transitional);
 //Saves the Word document
 document.Save("HTMLtoWord.docx", FormatType.Docx);
 //Closes the document
@@ -24,7 +24,7 @@ document.Close();
 
 {% highlight vb.net %}
 ' Loads the HTML document against transitional schema validation 
-Dim document As New WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional)
+Dim document As New WordDocument("Input.html", FormatType.Html, XHTMLValidationType.Transitional)
 'Saves the Word document
 document.Save("HTMLtoWord.docx", FormatType.Docx)
 'Closes the document
@@ -35,7 +35,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.html")), FormatType.Html))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.html")), FormatType.Html))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
@@ -49,7 +49,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Sample.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Input.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
 {
@@ -70,7 +70,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Sample.html");
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Input.html");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Html);    
     //Creates an instance of memory stream
@@ -113,7 +113,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx")), FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
@@ -127,7 +127,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -148,7 +148,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Docx);    
     //Creates an instance of memory stream
@@ -283,20 +283,22 @@ document.Close()
 
 ### Customize Image Data
 
-Essential DocIO provides an ImageNodeVisited event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this ImageNodeVisited event. The following code example illustrates loading and saving image data in a specific location during importing and exporting HTML files.
+Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
+
+The following code example shows how to load image data based on image source path during importing HTML files.`
 
 {% tabs %}
 {% highlight c# %}
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
-//Hooks the ImageNodeVisited event to open the image from a specific location/web path
+//Hooks the ImageNodeVisited event to open the image from a specific location
 document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 //Opens the input HTML document
 document.Open("Input.html", FormatType.Html);
 //Unhooks the ImageNodeVisited event after loading HTML
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
 //Saves the document as HTML
-document.Save("Output.html", FormatType.Html);
+document.Save("HtmlToWord.docx", FormatType.Docx);
 //Closes the WordDocument instance
 document.Close();
 {% endhighlight %}
@@ -304,14 +306,14 @@ document.Close();
 {% highlight vb.net %}
 'Creates a new instance of WordDocument
 Dim document As WordDocument = New WordDocument()
-'Hooks the ImageNodeVisited event to open the image from a specific location/web path
+'Hooks the ImageNodeVisited event to open the image from a specific location
 AddHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
 'Opens the input HTML document
 document.Open("Input.html", FormatType.Html)
 'Unhooks the ImageNodeVisited event after loading HTML
 RemoveHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
 'Saves the document as HTML
-document.Save("Output.html", FormatType.Html)
+document.Save("HtmlToWord.docx", FormatType.Docx)
 'Closes the WordDocument instance
 document.Close()
 {% endhighlight %}
@@ -321,7 +323,7 @@ document.Close()
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
-//Hooks the ImageNodeVisited event to open the image from a specific location/web path
+//Hooks the ImageNodeVisited event to open the image from a specific location
 document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 //Opens the input HTML document
 document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), FormatType.Html);
@@ -329,10 +331,13 @@ document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), Fo
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
 //Saves the document as HTML
 MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Html);
-Save(stream, "Output.html");
+document.Save(stream, FormatType.Docx);
+Save(stream, "HtmlToWord.docx");
 //Closes the WordDocument instance
 document.Close(); 
+
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -340,7 +345,7 @@ document.Close();
 FileStream docStream = new FileStream(@"Input.html", FileMode.Open, FileAccess.Read);
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
-//Hooks the ImageNodeVisited event to open the image from a specific location/web path
+//Hooks the ImageNodeVisited event to open the image from a specific location
 document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 //Opens the input HTML document
 document.Open(docStream, FormatType.Html);
@@ -349,9 +354,9 @@ document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
 //Creates an instance of memory stream
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
-document.Save(stream, FormatType.Html);
+document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-return File(stream, "application/chrome", "Output.html"); 
+return File(stream, "application/msword", "HtmlToWord.docx"); 
 {% endhighlight %}
 
 {% highlight XAMARIN %}
@@ -359,37 +364,39 @@ return File(stream, "application/chrome", "Output.html");
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
-//Hooks the ImageNodeVisited event to open the image from a specific location/web path.
+//Hooks the ImageNodeVisited event to open the image from a specific location
 document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 //Opens the input HTML document
-document.Open(assembly.GetManifestResourceStream("Sample.Data.Input.html"), FormatType.Html);
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), FormatType.Html);
 //Unhooks the ImageNodeVisited event after loading HTML
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
 MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Html);
+document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.html", "application/html", stream);
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HtmlToWord.docx", "application/msword", stream);
 //Closes the document
 document.Close();
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
 
-Event Handler:
+The following code example shows how to read the image from the specified path when importing HTML files
 
 {% tabs %}
 {% highlight c# %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
-    //Read the image as stream. The image should be preserved in specified (args.Uri) path.
-    args.ImageStream = File.OpenRead(args.Uri);
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = System.IO.File.OpenRead(args.Uri);
 }
 {% endhighlight %}
 
 {% highlight vb.net %}
 Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
-    'Read the image as stream. The image should be preserved in specified (args.Uri) path.
-    args.ImageStream = File.OpenRead(args.Uri)
-    'You can also write logic to get the image stream from web path.
+    'Read the image from the specified (args.Uri) path
+    args.ImageStream = System.IO.File.OpenRead(args.Uri)
 End Sub
 {% endhighlight %}
 
@@ -399,7 +406,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
     //"App" is the class of Portable project
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 	string imagePath = args.Uri.ToString();
-    //Read the image as stream. The image should be preserved in specified (args.Uri) path
+    //Read the image from the specified (args.Uri) path
     args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
 }
 {% endhighlight %}
@@ -407,21 +414,24 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% highlight ASP.NET Core %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
-    //Read the image as stream. The image should be preserved in specified (args.Uri) path.
-    args.ImageStream = File.OpenRead(args.Uri);
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = System.IO.File.OpenRead(args.Uri);
 }
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
-    //Read the image as stream. The image should be preserved in specified (args.Uri) path.
-    args.ImageStream = File.OpenRead(args.Uri);
+    //"App" is the class of Portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	string imagePath = args.Uri.ToString();
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
 }
 {% endhighlight %}
 {% endtabs %}
 
-N> The above event calling is mandatory in ASP.NET Core and Xamarin platforms to preserve the images in HTML importing and exporting.
+N> The above event calling is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images HTML conversions.
 
 ## Supported and unsupported items
 
