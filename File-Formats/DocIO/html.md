@@ -279,9 +279,9 @@ document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
 //Saves the Word document
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-Save(stream, "HtmlToWord.docx");
 //Closes the WordDocument instance
 document.Close(); 
+Save(stream, "HtmlToWord.docx");
 
 //Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
@@ -289,7 +289,7 @@ document.Close();
 
 {% highlight ASP.NET Core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"Input.html", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Input.html", FileMode.Open, FileAccess.Read);
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
 //Hooks the ImageNodeVisited event to open the image from a specific location
@@ -302,6 +302,8 @@ document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 document.Save(stream, FormatType.Docx);
+//Closes the WordDocument instance
+document.Close(); 
 stream.Position = 0;
 return File(stream, "application/msword", "HtmlToWord.docx"); 
 {% endhighlight %}
@@ -319,10 +321,10 @@ document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), Fo
 document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HtmlToWord.docx", "application/msword", stream);
 //Closes the document
 document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HtmlToWord.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
@@ -378,7 +380,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
-N> Calling the above events is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
+N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
 
 ### Customizing the Word to HTML conversion
 
