@@ -1,6 +1,6 @@
 ---
 title: NuGet Packages Required | Syncfusion
-description: NuGet Packages required to use DocIO
+description: This section illustrates the NuGet packages required to use Syncfusion Word library (Essential DocIO) in various platforms and frameworks
 platform: file-formats
 control: DocIO
 documentation: UG
