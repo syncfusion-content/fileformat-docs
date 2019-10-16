@@ -228,59 +228,6 @@ N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not s
 N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
-### Customizing the Word to HTML conversion
-
-You can customize the Word to HTML conversion with the following options:
-
-* Extract the images used in the HTML document at the specified file directory
-* Specify to export the header and footer of the Word document in the HTML
-* Specify to consider Text Input field as a editable fields or text
-* Specify the CSS style sheet type and its name
-
-N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
-
-The following code sample shows how to customize Word to HTML conversion.
-
-{% tabs %}
-{% highlight c# %}
-//Loads an existing document
-WordDocument document = new WordDocument("Template.docx");
-HTMLExport export = new HTMLExport();
-//The images in the input document are copied to this folder
-document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
-//The headers and footers in the input are exported
-document.SaveOptions.HtmlExportHeadersFooters = true;
-//Exports the text form fields as editable
-document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
-//Sets the style sheet type
-document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
-//Sets name for style sheet
-document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
-//Saves the document as html file
-export.SaveAsXhtml(document, "WordtoHtml.html");
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net %}
-'Loads an existing document
-Dim document As New WordDocument("Template.docx")
-Dim export As New HTMLExport()
-'The images in the input document are copied to this folder
-document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
-'The headers and footers in the input are exported
-document.SaveOptions.HtmlExportHeadersFooters = True
-'Exports the text form fields as editable
-document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
-'Sets the style sheet type
-document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
-'Sets name for style sheet
-document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
-'Saves the document as html file
-export.SaveAsXhtml(document, "WordtoHtml.html")
-document.Close()
-{% endhighlight %}
-{% endtabs %}
-
 ### Customize Image Data
 
 Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
@@ -432,6 +379,59 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% endtabs %}
 
 N> The above event calling is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images HTML conversions.
+
+### Customizing the Word to HTML conversion
+
+You can customize the Word to HTML conversion with the following options:
+
+* Extract the images used in the HTML document at the specified file directory
+* Specify to export the header and footer of the Word document in the HTML
+* Specify to consider Text Input field as a editable fields or text
+* Specify the CSS style sheet type and its name
+
+N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
+
+The following code sample shows how to customize Word to HTML conversion.
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing document
+WordDocument document = new WordDocument("Template.docx");
+HTMLExport export = new HTMLExport();
+//The images in the input document are copied to this folder
+document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
+//The headers and footers in the input are exported
+document.SaveOptions.HtmlExportHeadersFooters = true;
+//Exports the text form fields as editable
+document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
+//Sets the style sheet type
+document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
+//Sets name for style sheet
+document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
+//Saves the document as html file
+export.SaveAsXhtml(document, "WordtoHtml.html");
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing document
+Dim document As New WordDocument("Template.docx")
+Dim export As New HTMLExport()
+'The images in the input document are copied to this folder
+document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
+'The headers and footers in the input are exported
+document.SaveOptions.HtmlExportHeadersFooters = True
+'Exports the text form fields as editable
+document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
+'Sets the style sheet type
+document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
+'Sets name for style sheet
+document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
+'Saves the document as html file
+export.SaveAsXhtml(document, "WordtoHtml.html")
+document.Close()
+{% endhighlight %}
+{% endtabs %}
 
 ## Supported and unsupported items
 
