@@ -390,6 +390,7 @@ You can customize the Word to HTML conversion with the following options:
 * Specify to export the header and footer of the Word document in the HTML
 * Specify to consider Text Input field as a editable fields or text
 * Specify the CSS style sheet type and its name
+* Export the images as Base-64 embedded images
 
 N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
 
@@ -410,6 +411,8 @@ document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
 //Sets name for style sheet
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
+//Export the Word document image as Base-64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = true;
 //Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html");
 document.Close();
@@ -429,6 +432,8 @@ document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
 'Sets name for style sheet
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
+'Export the Word document image as Base-64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = True
 'Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
