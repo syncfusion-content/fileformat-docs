@@ -162,6 +162,67 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
+{% endtabs %}
+
+## Remove encryption
+
+The following code example shows how to remove the encryption from encrypted Word document. 
+
+{% tabs %}  
+
+{% highlight c# %}
+//Opens an encrypted Word document
+WordDocument document = new WordDocument ("Template.docx", "password");
+//Remove encryption in Word document
+document.RemoveEncryption();
+//Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Opens an encrypted Word document
+Dim document As New WordDocument("Template.docx", "password")
+'Remove encryption in Word document
+document.RemoveEncryption()
+‘Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %} 
+
+{% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Create new Word document instance
+using (WordDocument document = new WordDocument())
+{
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+	//Loads or opens an existing Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Docx, "password");
+	//Remove encryption in Word document
+	document.RemoveEncryption();
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	document.Save(stream, FormatType.Docx);
+	//Closes the Word document instance
+	document.Close();
+	//Saves the stream as Word file in local machine
+	Save(stream, "Sample.Docx");	
+}
+
+//Refer to the following link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Protecting Word document from editing
