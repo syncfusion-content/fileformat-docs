@@ -1,6 +1,6 @@
 ---
 title: Working with Paragraph | Syncfusion
-description: This section describes about the child elements of a Paragraph  
+description: This section describes about the child elements of a Paragraph in Word document using Syncfusion Word library (Essential DocIO) 
 platform: file-formats
 control: DocIO
 documentation: UG
