@@ -801,6 +801,7 @@ WTextBody textBody = document.Sections[0].Body;
 WParagraph paragraph = textBody.Paragraphs[1];
 //Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
 bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
 if(!isRTL)
     paragraph.ParagraphFormat.Bidi = true;
 //Saves the Word document
@@ -818,6 +819,7 @@ Dim textBody As WTextBody = document.Sections(0).Body
 Dim paragraph As WParagraph = textBody.Paragraphs(1)
 'Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
 Dim isRTL As Boolean = paragraph.ParagraphFormat.Bidi
+'Sets RTL direction for a paragraph
 If Not isRTL Then
     paragraph.ParagraphFormat.Bidi = True
 End If
@@ -838,6 +840,7 @@ WTextBody textBody = document.Sections[0].Body;
 WParagraph paragraph = textBody.Paragraphs[1];
 //Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
 bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
 if(!isRTL)
     paragraph.ParagraphFormat.Bidi = true;
 //Saves and closes the Word document instance
@@ -862,6 +865,7 @@ WTextBody textBody = document.Sections[0].Body;
 WParagraph paragraph = textBody.Paragraphs[1];
 //Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
 bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
 if(!isRTL)
     paragraph.ParagraphFormat.Bidi = true;
 //Saves and closes the Word document instance
@@ -885,6 +889,7 @@ WTextBody textBody = document.Sections[0].Body;
 WParagraph paragraph = textBody.Paragraphs[1];
 //Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
 bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
 if(!isRTL)
     paragraph.ParagraphFormat.Bidi = true;
 //Saves and closes the Word document instance
