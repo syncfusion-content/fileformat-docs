@@ -1,6 +1,6 @@
 ---
 title: Working with Paragraph | Syncfusion
-description: This section describes about the child elements of a Paragraph in Word document using Syncfusion Word library (Essential DocIO) 
+description: This section describes about how to work with the child elements of Paragraph in Word document using Syncfusion Word library (Essential DocIO) 
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -799,10 +799,10 @@ WordDocument document = new WordDocument("Template.docx");
 WTextBody textBody = document.Sections[0].Body;
 //Gets the paragraph at index 1
 WParagraph paragraph = textBody.Paragraphs[1];
-//Gets or sets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi;
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
 if(!isRTL)
-    document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi = true;
+    paragraph.ParagraphFormat.Bidi = true;
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
@@ -816,10 +816,10 @@ Dim document As WordDocument = New WordDocument("Template.docx")
 Dim textBody As WTextBody = document.Sections(0).Body
 'Gets the paragraph at index 1
 Dim paragraph As WParagraph = textBody.Paragraphs(1)
-'Gets or sets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-Dim isRTL As Boolean = document.Sections(0).Paragraphs(0).ParagraphFormat.Bidi
+'Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+Dim isRTL As Boolean = paragraph.ParagraphFormat.Bidi
 If Not isRTL Then
-    document.Sections(0).Paragraphs(0).ParagraphFormat.Bidi = True
+    paragraph.ParagraphFormat.Bidi = True
 End If
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -836,10 +836,10 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 WTextBody textBody = document.Sections[0].Body;
 //Gets the paragraph at index 1
 WParagraph paragraph = textBody.Paragraphs[1];
-//Gets or sets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi;
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
 if(!isRTL)
-    document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi = true;
+    paragraph.ParagraphFormat.Bidi = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -860,10 +860,10 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 WTextBody textBody = document.Sections[0].Body;
 //Gets the paragraph at index 1
 WParagraph paragraph = textBody.Paragraphs[1];
-//Gets or sets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi;
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
 if(!isRTL)
-    document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi = true;
+    paragraph.ParagraphFormat.Bidi = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
@@ -883,10 +883,10 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 WTextBody textBody = document.Sections[0].Body;
 //Gets the paragraph at index 1
 WParagraph paragraph = textBody.Paragraphs[1];
-//Gets or sets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi;
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
 if(!isRTL)
-    document.Sections[0].Paragraphs[0].ParagraphFormat.Bidi = true;
+    paragraph.ParagraphFormat.Bidi = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
