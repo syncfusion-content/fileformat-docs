@@ -1,6 +1,6 @@
 ---
 title: Word document to PDF Conversion | DocIO | Syncfusion
-description: Converting Word document to PDF using DocIO
+description: This section illustrate how to convert Word document to PDF using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -2157,7 +2157,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight ASP.NET CORE %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Docx);
 
