@@ -1,6 +1,6 @@
 ---
 title: Loading & Saving document | DocIO | Syncfusion
-description: This section illustrate how to load and save the Word document
+description: This section illustrates how to load and save the Word document in Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -264,7 +264,73 @@ using (WordDocument document = new WordDocument())
 //DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
+
+## Opening the read only documents
+
+You can open the ready only documents or read only streams using the OpenReadOnly method. If the Word document for reading is opened by any other application such as Microsoft Word, then the same document can be opened using DocIO in ReadOnly mode. The following code sample demonstrates the same.
+
+{% tabs %}  
+  
+{% highlight c# %}
+//Creates an empty WordDocument instance
+WordDocument document = new WordDocument();
+//Loads or opens an existing word document using read only stream.
+document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an empty WordDocument instance 
+Dim document As WordDocument = New WordDocument
+'Loads or opens an existing word document using read only stream.
+document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx)
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %} 
+
+{% endtabs %}
+
+You can also open an existing encrypted document in read only mode using the overloads as mentioned follows,
+
+{% tabs %}  
+  
+{% highlight c# %}
+//Creates an empty WordDocument instance
+WordDocument document = new WordDocument();
+//Loads or opens an existing encrypted word document using read only stream.
+document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx , "password");
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an empty WordDocument instance 
+Dim document As WordDocument = New WordDocument
+'Loads or opens an existing encrypted word document using read only stream.
+document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx, "password")
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %} 
+
+{% endtabs %} 
 
 ## Saving a Word document to file system
 
