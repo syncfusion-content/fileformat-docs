@@ -1,6 +1,6 @@
 ---
 title: Loading & Saving document | DocIO | Syncfusion
-description: This section illustrates how to load and save the Word document in Word document using Syncfusion Word library (Essential DocIO)
+description: This section illustrates how to load and save the Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -266,7 +266,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-## Opening the read only documents
+## Opening the read only Word document
 
 You can open the ready only documents or read only streams using the OpenReadOnly method. If the Word document for reading is opened by any other application such as Microsoft Word, then the same document can be opened using DocIO in ReadOnly mode. The following code sample demonstrates the same.
 
