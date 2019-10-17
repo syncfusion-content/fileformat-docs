@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Overview
 
-Essential PDF is a feature rich .NET PDF class library developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP and Xamarin applications without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
+Essential PDF is a feature rich .NET PDF class library developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin applications and Unity platform without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
 
 ## Key Features of Essential PDF
 

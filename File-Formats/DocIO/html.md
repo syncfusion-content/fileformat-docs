@@ -1,6 +1,6 @@
 ---
 title: Word Document to HTML conversion | DocIO | Syncfusion
-description: Converting Word document to HTML using DocIO
+description: This section illustrates how to convert Word document to HTML using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -15,7 +15,7 @@ The following code example shows how to convert the HTML file into Word document
 {% tabs %}
 {% highlight c# %}
 //Loads the HTML document against transitional schema validation
-WordDocument document = new WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional);
+WordDocument document = new WordDocument("Input.html", FormatType.Html, XHTMLValidationType.Transitional);
 //Saves the Word document
 document.Save("HTMLtoWord.docx", FormatType.Docx);
 //Closes the document
@@ -24,7 +24,7 @@ document.Close();
 
 {% highlight vb.net %}
 ' Loads the HTML document against transitional schema validation 
-Dim document As New WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional)
+Dim document As New WordDocument("Input.html", FormatType.Html, XHTMLValidationType.Transitional)
 'Saves the Word document
 document.Save("HTMLtoWord.docx", FormatType.Docx)
 'Closes the document
@@ -35,13 +35,13 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.html")), FormatType.Html))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.html")), FormatType.Html))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
 	await document.SaveAsync(stream, FormatType.Docx);
 	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
+	Save(stream, "HTMLtoWord.docx");
 	document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -49,7 +49,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Input.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
 {
@@ -59,7 +59,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html)
      document.Close();
      stream.Position = 0;
      //Download Word document in the browser
-     return File(stream, "application/msword", "Result.docx");
+     return File(stream, "application/msword", "HTMLtoWord.docx");
 }
 {% endhighlight %}
 
@@ -70,7 +70,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.html");
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Input.html");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Html);    
     //Creates an instance of memory stream
@@ -80,7 +80,7 @@ using (WordDocument document = new WordDocument())
     //Closes the document
     document.Close();
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HTMLtoWord.docx", "application/msword", stream);
 }
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -113,13 +113,13 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
 	await document.SaveAsync(stream, FormatType.Html);
 	//Saves the stream as Word file in local machine
-	Save(stream, "Result.html");
+	Save(stream, "WordToHtml.html");
 	document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -127,7 +127,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -137,7 +137,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
      document.Close();
      stream.Position = 0;
      //Download Word document in the browser
-     return File(stream, "application/chrome", "Result.html");
+     return File(stream, "application/chrome", "WordToHtml.html");
 }
 {% endhighlight %}
 
@@ -148,7 +148,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Docx);    
     //Creates an instance of memory stream
@@ -159,7 +159,7 @@ using (WordDocument document = new WordDocument())
     //Closes the document
     document.Close();
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.html", "application/html", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToHtml.html", "application/html", stream);
 }
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -228,6 +228,160 @@ N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not s
 N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
+### Customize image data
+
+The Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
+
+The following code example shows how to load image data based on image source path when importing the HTML files.
+
+{% tabs %}
+{% highlight c# %}
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open("Input.html", FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Saves the Word document
+document.Save("HtmlToWord.docx", FormatType.Docx);
+//Closes the WordDocument instance
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates a new instance of WordDocument
+Dim document As WordDocument = New WordDocument()
+'Hooks the ImageNodeVisited event to open the image from a specific location
+AddHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
+'Opens the input HTML document
+document.Open("Input.html", FormatType.Html)
+'Unhooks the ImageNodeVisited event after loading HTML
+RemoveHandler document.HTMLImportSettings.ImageNodeVisited, AddressOf OpenImage
+'Saves the Word document
+document.Save("HtmlToWord.docx", FormatType.Docx)
+'Closes the WordDocument instance
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Saves the Word document
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the WordDocument instance
+document.Close(); 
+Save(stream, "HtmlToWord.docx");
+
+//Refer to the following link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Open the file as Stream
+FileStream docStream = new FileStream("Input.html", FileMode.Open, FileAccess.Read);
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open(docStream, FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Creates an instance of memory stream
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to MemoryStream
+document.Save(stream, FormatType.Docx);
+//Closes the WordDocument instance
+document.Close(); 
+stream.Position = 0;
+return File(stream, "application/msword", "HtmlToWord.docx"); 
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Input.html"), FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HtmlToWord.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+{% endtabs %}
+
+The following code example shows how to read the image from the specified path when importing the HTML files.
+
+{% tabs %}
+{% highlight c# %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = System.IO.File.OpenRead(args.Uri);
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
+    'Read the image from the specified (args.Uri) path
+    args.ImageStream = System.IO.File.OpenRead(args.Uri)
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //"App" is the class of Portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	string imagePath = args.Uri.ToString();
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = System.IO.File.OpenRead(args.Uri);
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //"App" is the class of Portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	string imagePath = args.Uri.ToString();
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
+}
+{% endhighlight %}
+{% endtabs %}
+
+N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
+
 ### Customizing the Word to HTML conversion
 
 You can customize the Word to HTML conversion with the following options:
@@ -236,6 +390,7 @@ You can customize the Word to HTML conversion with the following options:
 * Specify to export the header and footer of the Word document in the HTML
 * Specify to consider Text Input field as a editable fields or text
 * Specify the CSS style sheet type and its name
+* Export the images as Base-64 embedded images
 
 N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
 
@@ -256,6 +411,8 @@ document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
 //Sets name for style sheet
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
+//Export the Word document image as Base-64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = true;
 //Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html");
 document.Close();
@@ -275,6 +432,8 @@ document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
 'Sets name for style sheet
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
+'Export the Word document image as Base-64 embedded image
+document.SaveOptions.HTMLExportImageAsBase64 = True
 'Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
