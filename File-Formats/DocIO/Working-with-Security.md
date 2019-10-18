@@ -190,7 +190,7 @@ using (WordDocument document = new WordDocument())
 {
 	//Loads or opens an existing Word document from stream
 	Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
-	//Loads or opens an existing Word document through Open method of WordDocument class
+	//Loads or opens an existing Word document using the Open method of WordDocument class
 	document.Open(inputStream, FormatType.Docx, "password");
 	//Remove encryption in Word document
 	document.RemoveEncryption();
