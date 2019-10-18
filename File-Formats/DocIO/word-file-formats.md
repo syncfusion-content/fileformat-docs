@@ -1,6 +1,6 @@
 ---
 title: Word file format conversions | DocIO | Syncfusion
-description: Word file format conversions supported in DocIO
+description: This section illustrates Word file format conversions supported in DocIO using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG

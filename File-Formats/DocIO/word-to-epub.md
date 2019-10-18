@@ -1,6 +1,6 @@
 ---
 title: Converting Word document to EPUB | Syncfusion
-description: Converting Word document to EPUB using DocIO
+description: This section illustrates how to converting Word document to EPUB using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
