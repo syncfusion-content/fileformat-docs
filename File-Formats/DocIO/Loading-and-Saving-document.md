@@ -275,14 +275,14 @@ You can open the ready only documents or read only streams using the OpenReadOnl
 {% highlight c# %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
-//Loads or opens an existing word document using read only stream.
+//Loads or opens an existing word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx);
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Creates an empty WordDocument instance 
 Dim document As WordDocument = New WordDocument
-'Loads or opens an existing word document using read only stream.
+'Loads or opens an existing word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx)
 {% endhighlight %}
 
@@ -300,21 +300,21 @@ document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx)
 
 {% endtabs %}
 
-You can also open an existing encrypted document in read only mode using the overloads as mentioned follows,
+You can also open an existing encrypted document in read only mode using the overloads as mentioned below.
 
 {% tabs %}  
   
 {% highlight c# %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
-//Loads or opens an existing encrypted word document using read only stream.
+//Loads or opens an existing encrypted word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx , "password");
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Creates an empty WordDocument instance 
 Dim document As WordDocument = New WordDocument
-'Loads or opens an existing encrypted word document using read only stream.
+'Loads or opens an existing encrypted word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx, "password")
 {% endhighlight %}
 
