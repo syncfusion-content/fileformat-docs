@@ -72,7 +72,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -128,7 +128,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight asp.net core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -149,7 +149,7 @@ pdfDocument.Close();
 
 {% highlight XAMARIN %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -174,6 +174,7 @@ N> 2. Word to PDF conversion is supported in Blazor server-side application alon
 N> 3. Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF.
 N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 N> 5. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
+N> 6. "DocIO supports Word to PDF conversion in UWP DocIORenderer." For further information, please refer [here](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
 
 ## Word to PDF conversion in Linux OS
 
@@ -237,7 +238,7 @@ The following code sample shows how to convert the Word document to PDF using di
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -257,7 +258,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -301,7 +302,7 @@ The following code sample shows how to embed the TrueType fonts into the convert
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -321,7 +322,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -343,7 +344,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -400,7 +401,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight ASP.NET Core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -421,7 +422,7 @@ pdfDocument.Close();
 
 {% highlight Xamarin %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -451,7 +452,7 @@ The following code sample shows how to embed the complete TrueType fonts into th
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -471,7 +472,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -493,7 +494,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -550,7 +551,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight ASP.NET Core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -571,7 +572,7 @@ pdfDocument.Close();
 
 {% highlight Xamarin %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -601,7 +602,7 @@ The following code sample shows how to preserve document structured tags in the 
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 DocToPDFConverter converter = new DocToPDFConverter();
 //Sets true to preserve document structured tags in the converted PDF document 
@@ -617,7 +618,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 Dim converter As New DocToPDFConverter()
 'Sets true to preserve document structured tags in the converted PDF document 
@@ -635,7 +636,7 @@ wordDocument.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -692,7 +693,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight asp.net core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -713,7 +714,7 @@ pdfDocument.Close();
 
 {% highlight XAMARIN %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -743,7 +744,7 @@ The following code sample shows how to preserve Word document headings as bookma
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 DocToPDFConverter converter = new DocToPDFConverter();
 //Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
@@ -759,7 +760,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 Dim converter As New DocToPDFConverter()
 'Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
@@ -777,7 +778,7 @@ wordDocument.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -834,7 +835,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight asp.net core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -855,7 +856,7 @@ pdfDocument.Close();
 
 {% highlight XAMARIN %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -885,7 +886,7 @@ The following code sample shows how to preserve Word document form field as PDF 
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 DocToPDFConverter converter = new DocToPDFConverter();
 //Sets true to preserve the Word document form field as editable PDF form field in PDF document
@@ -901,7 +902,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 Dim converter As New DocToPDFConverter()
 'Sets true to preserve the Word document form field as editable PDF form field in PDF document
@@ -919,7 +920,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -977,7 +978,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight asp.net core %}
 // Open the file as Stream
-FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -998,7 +999,7 @@ pdfDocument.Close();
 
 {% highlight XAMARIN %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1028,7 +1029,7 @@ The following code sample shows how to customize the image quality of charts and
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1050,7 +1051,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1092,7 +1093,7 @@ The following code sample shows how to reduce the Main Memory usage while conver
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1114,7 +1115,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1136,7 +1137,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -1193,7 +1194,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight ASP.NET Core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1214,7 +1215,7 @@ pdfDocument.Close();
 
 {% highlight Xamarin %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1245,7 +1246,7 @@ The following code sample shows how to set the PdfConformanceLevel while convert
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1265,7 +1266,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1287,7 +1288,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -1344,7 +1345,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight ASP.NET Core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1365,7 +1366,7 @@ pdfDocument.Close();
 
 {% highlight Xamarin %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1395,7 +1396,7 @@ The following code sample shows how to exclude the alternate chunk parts in Word
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1415,7 +1416,7 @@ wordDocument.Close();
 
 {% highlight vb.net %}
 'Loads an existing Word document
-Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
@@ -1437,7 +1438,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -1494,7 +1495,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% highlight ASP.NET Core %}
 //Open the file as Stream
-FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1515,7 +1516,7 @@ pdfDocument.Close();
 
 {% highlight Xamarin %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1544,7 +1545,7 @@ The following code sample shows how to preserve the complex script text in the c
 
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType.Docx);     
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 DocToPDFConverter converter = new DocToPDFConverter();
 //Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
@@ -1581,7 +1582,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -1659,7 +1660,7 @@ pdfDocument.Close();
 
 {% highlight Xamarin %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Instantiation of DocIORenderer for Word to PDF conversion
@@ -1733,7 +1734,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
@@ -1815,7 +1816,7 @@ pdfDocument.Close();
 
 {% highlight Xamarin %}
 //Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic);
 //Instantiates DocIORenderer instance for Word to PDF conversion
@@ -1847,7 +1848,7 @@ The following code sample shows how to preserve revision marks in a generated PD
 
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument =new WordDocument();
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 //Creates an instance of the DocToPDFConverter
@@ -1888,7 +1889,7 @@ pdfDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Sets revision types to preserve track changes in  Word when converting to PDF
@@ -1967,7 +1968,7 @@ pdfDocument.Close();
 {% highlight Xamarin %}
 //Load the Word document as stream
 Stream docStream =
-typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Sets revision types to preserve track changes in  Word when converting to PDF
@@ -1999,7 +2000,7 @@ The following code sample shows how to preserve Ole Equation as bitmap image in 
 
 {% highlight c# %}
 //Loads an existing Word document
-WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType.Docx);     
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 DocToPDFConverter converter = new DocToPDFConverter();
 //Sets a value indicating whether to preserve the Ole Equation as bitmap image while converting a Word document to PDF

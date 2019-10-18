@@ -23,7 +23,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-Loads the existing Word document 
+'Loads the existing Word document 
 Dim document As New WordDocument("Template.docx")
 'Saves the document as ODT file
 document.Save("WordToODT.odt", FormatType.Odt)
@@ -32,10 +32,10 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -54,9 +54,9 @@ async void Save(MemoryStream streams, string filename)
     if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
     {
         FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
+        savePicker.DefaultFileExtension = ".odt";
         savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".odt" });
         stFile = await savePicker.PickSaveFileAsync();
     }
     else
@@ -83,7 +83,7 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -100,7 +100,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();

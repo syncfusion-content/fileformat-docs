@@ -18,7 +18,7 @@ The Essential DocIO converts the RTF document into Word document and vice versa.
 {% tabs %}
 {% highlight c# %}
 //Loads an existing document
-WordDocument document = new WordDocument("Sample.rtf", FormatType.Rtf);
+WordDocument document = new WordDocument("Input.rtf", FormatType.Rtf);
 //Saves the Word document as RTF file
 document.Save("RtfToWord.docx", FormatType.Docx);
 //Closes the document
@@ -27,7 +27,7 @@ document.Close();
 
 {% highlight vb.net %}
 'Loads an existing document
-Dim document As New WordDocument("Sample.rtf", FormatType.Rtf)
+Dim document As New WordDocument("Input.rtf", FormatType.Rtf)
 'Saves the Word document as RTF file
 document.Save("RtfToWord.docx", FormatType.Docx)
 'Closes the document
@@ -38,7 +38,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.rtf")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.rtf")),
               FormatType.Rtf))
 {
     MemoryStream stream = new MemoryStream();
@@ -53,7 +53,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.rtf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Input.rtf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
 {
@@ -70,7 +70,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.rtf")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.rtf")),
               FormatType.Rtf))
 {
     MemoryStream stream = new MemoryStream();
@@ -111,7 +111,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -159,7 +159,7 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -176,7 +176,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();

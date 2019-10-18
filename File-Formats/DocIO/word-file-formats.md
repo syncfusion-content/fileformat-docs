@@ -25,6 +25,7 @@ DocIO supports the following WordprocessingML:
 * Microsoft Word 2010
 * Microsoft Word 2013
 * Microsoft Word 2016
+* Microsoft Word 2019
 
 The following code example explains how to create a new Word document with few lines of code.
 
@@ -37,7 +38,7 @@ document.EnsureMinimal();
 //Append text to the last paragraph of the document
 document.LastParagraph.AppendText("Hello World");
 //Save and close the Word document
-document.Save("Result.docx");
+document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
@@ -49,7 +50,7 @@ document.EnsureMinimal()
 'Append text to the last paragraph of the document
 document.LastParagraph.AppendText("Hello World")
 'Save and close the Word document
-document.Save("Result.docx")
+document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
@@ -66,7 +67,7 @@ using (WordDocument document = new WordDocument())
     //Saves the Word file to MemoryStream
     await document.SaveAsync(stream, FormatType.Docx);
     //Saves the stream as Word file in local machine
-    Save(stream, "Result.docx");
+    Save(stream, "Sample.docx");
     document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -87,7 +88,7 @@ using (WordDocument document = new WordDocument())
     document.Close();
     stream.Position = 0;
     //Download Word document in the browser
-    return File(stream, "application/msword", "Result.docx");
+    return File(stream, "application/msword", "Sample.docx");
 }
 {% endhighlight %}
 
@@ -106,7 +107,7 @@ using (WordDocument document = new WordDocument())
     //Save the stream as a file in the device and invoke it for viewing
 
     Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Result.docx", "application/msword", stream);
+                        .SaveAndView("Sample.docx", "application/msword", stream);
     //Closes the document              
     document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -129,7 +130,7 @@ document.EnsureMinimal();
 //Append text to the last paragraph of the document
 document.LastParagraph.AppendText("Hello World");
 //Save and close the Word document
-document.Save("Result.dotx");
+document.Save("Sample.dotx");
 document.Close();
 {% endhighlight %}
 
@@ -141,7 +142,7 @@ document.EnsureMinimal()
 'Append text to the last paragraph of the document
 document.LastParagraph.AppendText("Hello World")
 'Save and close the Word document
-document.Save("Result.dotx")
+document.Save("Sample.dotx")
 document.Close()
 {% endhighlight %}
 
@@ -158,7 +159,7 @@ using (WordDocument document = new WordDocument())
     //Saves the Word file to MemoryStream
     await document.SaveAsync(stream, FormatType.Docx);
     //Saves the stream as Word file in local machine
-    Save(stream, "Result.dotx");
+    Save(stream, "Sample.dotx");
     document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
@@ -179,7 +180,7 @@ using (WordDocument document = new WordDocument())
     document.Close();
     stream.Position = 0;
     //Download Word document in the browser
-    return File(stream, "application/msword", "Result.dotx");
+    return File(stream, "application/msword", "Sample.dotx");
 }
 {% endhighlight %}
 
@@ -194,7 +195,7 @@ using (WordDocument document = new WordDocument())
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Dotx);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.dotx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.dotx", "application/msword", stream);
     //Closes the document              
     document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -238,7 +239,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.dotm", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.dotm", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Dotm))
 {
@@ -252,7 +253,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Dotm)
     document.Close();
     stream.Position = 0;
     //Download Word document in the browser
-    return File(stream, "application/msword", "Result.docm");
+    return File(stream, "application/msword", "Sample.docm");
 }
 {% endhighlight %}
 
@@ -296,13 +297,13 @@ document.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.WordML);
     //Saves the stream as Word file in local machine
-    Save(stream, "WordToWrodML.xml");
+    Save(stream, "WordToWordML.xml");
     //Closes the Word document
     document.Close();
 }
@@ -311,7 +312,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -328,7 +329,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -370,7 +371,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.xml")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")),
               FormatType.WordML))
 {
     MemoryStream stream = new MemoryStream();
@@ -385,7 +386,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.WordML))
 {
@@ -402,7 +403,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.WordM
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.xml")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")),
               FormatType.WordML))
 {
     MemoryStream stream = new MemoryStream();
@@ -519,7 +520,7 @@ using (WordDocument document = new WordDocument())
     //Saves the Word file to MemoryStream
     await document.SaveAsync(stream, FormatType.Doc);
     //Saves the stream as Word file in local machine
-    Save(stream, "Result.doc");
+    Save(stream, "BinaryDocument.doc");
     document.Close();
 }
 
@@ -573,7 +574,7 @@ using (WordDocument document = new WordDocument())
     document.Close();
     stream.Position = 0;
     //Download Word document in the browser
-    return File(stream, "application/msword", "Result.doc");
+    return File(stream, "application/msword", "BinaryDocument.doc");
 }
 {% endhighlight %}
 
@@ -589,7 +590,7 @@ using (WordDocument document = new WordDocument())
     document.Save(stream, FormatType.Doc);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Result.doc", "application/msword", stream);
+                        .SaveAndView("BinaryDocument.doc", "application/msword", stream);
     //Closes the document              
     document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -604,7 +605,7 @@ The following code shows, how to convert the DOC file into DOCX file format usin
 {% tabs %}
 {% highlight c# %}
 //Loads an existing document
-WordDocument document = new WordDocument("Sample.doc", FormatType.Doc);
+WordDocument document = new WordDocument("Template.doc", FormatType.Doc);
 //Saves the binary document(.doc) as Word Document(.docx) file
 document.Save("DocToWord.docx", FormatType.Docx);
 //Closes the document
@@ -613,7 +614,7 @@ document.Close();
 
 {% highlight vb.net %}
 'Loads an existing document
-Dim document As New WordDocument("Sample.doc", FormatType.Doc)
+Dim document As New WordDocument("Template.doc", FormatType.Doc)
 ' Saves the binary document(.doc) as Word Document(.docx) file
 document.Save("DocToWord.docx", FormatType.Docx)
 'Closes the document
@@ -624,7 +625,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.doc")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.doc")),
               FormatType.Doc))
 {
     MemoryStream stream = new MemoryStream();
@@ -639,7 +640,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.doc", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.doc", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Doc))
 {
@@ -656,7 +657,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Doc))
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.doc")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.doc")),
               FormatType.Doc))
 {
     MemoryStream stream = new MemoryStream();
@@ -677,7 +678,7 @@ The following code shows, how to convert the DOCX file into DOC file format usin
 {% tabs %}
 {% highlight c# %}
 //Loads an existing document
-WordDocument document = new WordDocument("Sample.docx", FormatType.Docx);
+WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Saves the Word Document(.docx) as binary document(.doc) file
 document.Save("DocxToBinary.doc", FormatType.Doc);
 //Closes the document
@@ -686,7 +687,7 @@ document.Close();
 
 {% highlight vb.net %}
 'Loads an existing document
-Dim document As New WordDocument("Sample.docx", FormatType.Docx)
+Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Saves the Word Document(.docx) as binary document(.doc) file 
 document.Save("DocxToBinary.doc", FormatType.Doc)
 'Closes the document
@@ -697,7 +698,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -745,7 +746,7 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -762,7 +763,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -836,7 +837,7 @@ document.Close();
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
     //Loads or opens an existing Word document through Open method of WordDocument class 
     document.Open(fileStreamPath, FormatType.Automatic);
     //Enables flag to maintain compatibility with same Word version
@@ -860,7 +861,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Automatic);
     //Enables flag to maintain compatibility with same Word version
@@ -901,7 +902,7 @@ document.Settings.SkipIncrementalSaveValidation = true;
 //Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
 document.Open(fileName);
 //Saves the Word Document
-document.Save("Result.doc", FormatType.Doc);
+document.Save("Sample.doc", FormatType.Doc);
 //Closes the document
 document.Close();
 {% endhighlight %}
@@ -914,7 +915,7 @@ document.Settings.SkipIncrementalSaveValidation = True
 'Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
 document.Open(fileName)
 'Saves the Word Document
-document.Save("Result.doc", FormatType.Doc)
+document.Save("Sample.doc", FormatType.Doc)
 'Closes the document
 document.Close()
 {% endhighlight %}
@@ -925,7 +926,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     // Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.doc");
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.doc");
     //Sets flag to skip old file format exception while opening document
     document.Settings.SkipIncrementalSaveValidation = true;
     //Loads or opens an existing Word document through Open method of WordDocument class
@@ -934,7 +935,7 @@ using (WordDocument document = new WordDocument())
     //Saves the Word file to MemoryStream
     await document.SaveAsync(stream, FormatType.Doc);
     //Saves the stream as Word file in local machine
-    Save(stream, "Result.doc");
+    Save(stream, "Sample.doc");
     document.Close();
 }
 
@@ -979,7 +980,7 @@ async void Save(MemoryStream streams, string filename)
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    FileStream fileStreamPath = new FileStream(@"Data/Hello World.doc", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    FileStream fileStreamPath = new FileStream("Template.doc", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
     //Sets flag to skip old file format exception while opening document
     document.Settings.SkipIncrementalSaveValidation = true;
     //Loads or opens an existing Word document through Open method of WordDocument class 
@@ -990,7 +991,7 @@ using (WordDocument document = new WordDocument())
     document.Close();
     stream.Position = 0;
     //Download Word document in the browser
-    return File(stream, "application/msword", "Result.doc");
+    return File(stream, "application/msword", "Sample.doc");
 }
 {% endhighlight %}
 
@@ -1001,7 +1002,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument())
 {
     //Loads or opens an existing Word document from stream
-    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.doc");
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.doc");
     //Sets flag to skip old file format exception while opening document
     document.Settings.SkipIncrementalSaveValidation = true;
     //Loads or opens an existing Word document through Open method of WordDocument class
@@ -1010,7 +1011,7 @@ using (WordDocument document = new WordDocument())
     document.Save(stream, FormatType.Doc);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Result.doc", "application/msword", stream);
+                        .SaveAndView("Sample.doc", "application/msword", stream);
     //Closes the document              
     document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
