@@ -2047,21 +2047,21 @@ wordDocument.Close()
 
 ## Font Substitution
 
-When the necessary fonts used in the Word document has not been installed in the production machine, then Essential DocIO uses the ”Microsoft Sans Serif” as default font for rendering the text. This leads to preservation difference in generated PDF as each fonts has different glyphs for characters. To know more about the default font substitution, please refer [here](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production).
+When the necessary fonts used in the Word document has not been installed in the production machine, then Essential DocIO uses the ”Microsoft Sans Serif” as default font for rendering the text. This leads to preservation difference in generated PDF as each font has different glyphs for characters. To learn more about the default font substitution, click [here](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production).
 
 To avoid this, the Essential DocIO library allows you to set an alternate font for the missing font used in the Word document.
 
 ### Use alternate font from installed fonts
 
-You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using [SubstituteFont](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base%7ESyncfusion.DocIO.DLS.FontSettings%7ESubstituteFont_EV.html) event.
+You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using the [SubstituteFont](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base%7ESyncfusion.DocIO.DLS.FontSettings%7ESubstituteFont_EV.html) event.
 
-The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font wasn't installed in machine. 
+The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font not installed in the machine. 
 
 {% tabs %}
 {% highlight C# %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
-//Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
+//Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Hooks the font substitution event
 wordDocument.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
@@ -2084,7 +2084,7 @@ pdfDocument.Close();
 {% highlight VB.NET %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
-'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
+'Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Hooks the font substitution event
 AddHandler wordDocument.FontSettings.SubstituteFont, AddressOf FontSettings_SubstituteFont
@@ -2123,7 +2123,7 @@ document.Close();
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples.
 Save(stream, "WordToPDF.pdf");
 //Closes the PDF document
 pdfDocument.Close();
@@ -2193,7 +2193,7 @@ return File(outputStream, "application/pdf", "WordtoPDF.pdf");
 {% highlight XAMARIN %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
-//Loads the stream into Word Document
+//Loads the stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Docx);
 //Hooks the font substitution event
 wordDocument.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
@@ -2212,7 +2212,7 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 pdfDocument.Close();
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
@@ -2226,8 +2226,8 @@ The following code example shows how to set the **alternate installed font** ins
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
-    //If "Arial Unicode MS" font wasn't installed, then it uses the "Arial" font
-    //For other missing fonts uses the "Times New Roman"
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
     else
@@ -2238,8 +2238,8 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 {% highlight vb.net %}
 Private Sub FontSettings_SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
     'Sets the alternate font when a specified font is not installed in the production environment
-    'If "Arial Unicode MS" font wasn't installed, then it uses the "Arial" font
-    'For other missing fonts uses the "Times New Roman"
+    'If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    'For other missing fonts, uses the "Times New Roman"
     If args.OriginalFontName = "Arial Unicode MS" Then
         args.AlternateFontName = "Arial"
     Else
@@ -2252,8 +2252,8 @@ End Sub
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
-    //If "Arial Unicode MS" font wasn't installed, then it uses the "Arial" font
-    //For other missing fonts uses the "Times New Roman"
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
     else
@@ -2265,8 +2265,8 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
-    //If "Arial Unicode MS" font wasn't installed, then it uses the "Arial" font
-    //For other missing fonts uses the "Times New Roman"
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
     else
@@ -2278,8 +2278,8 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
-    //If "Arial Unicode MS" font wasn't installed, then it uses the "Arial" font
-    //For other missing fonts uses the "Times New Roman"
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
     else
@@ -2340,7 +2340,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 
 {% endtabs %}
 
-N> The above event will be triggered only if the specified font was not installed in production machine.
+N> The above event will be triggered only if the specified font is not installed in production machine.
 
 ## Unsupported elements in Word to PDF conversion
 
