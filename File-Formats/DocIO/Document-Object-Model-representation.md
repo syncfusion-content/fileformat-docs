@@ -1,6 +1,6 @@
 ---
-title: Document Object Model representation
-description: This section describes about DOM structure 
+title: Document Object Model representation of Word library | Syncfusion
+description: Learn about the Document Object Model (DOM) structure of elements such as section, paragraph, table, text body etc. present in a Word document.
 platform: file-formats
 control: DocIO
 documentation: UG

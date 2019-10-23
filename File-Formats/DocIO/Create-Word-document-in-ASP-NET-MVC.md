@@ -1,12 +1,12 @@
 ---
-title: Create Word document in ASP.NET MVC | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in ASP.NET MVC application using Syncfusion .NET Word (Essential DocIO) library
+title: Create or Generate Word document in ASP.NET MVC | Syncfusion
+description: Learn how to create or generate a Word document in ASP.NET MVC using Syncfusion .NET Word (DocIO) library [without Microsoft Word or interop libraries].
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Create Word document in ASP.NET MVC
+# Create or Generate Word document in ASP.NET MVC
 
 Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/word-framework/net/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in ASP.NET MVC**.
 
