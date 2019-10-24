@@ -1,12 +1,12 @@
 ---
-title: Create Word document in Xamarin | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in Xamarin application using Syncfusion Xamarin Word (Essential DocIO) library
+title: Create or Generate Word document in Xamarin | Syncfusion
+description: Learn how to create or generate a Word document in Xamarin using Syncfusion Xamarin Word (DocIO) library [without Microsoft Word or interop libraries].
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Create Word document in Xamarin
+# Create or Generate Word document in Xamarin
 
 Syncfusion Essential DocIO is a [Xamarin Word library](https://www.syncfusion.com/word-framework/xamarin/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or **interop** dependencies. Using this library, you can **create a Word document in Xamarin**.
 
