@@ -1,11 +1,11 @@
 ---
-title: Create a PDF file with texts, images and tables | Syncfusion
-description: This section explains creating a simple PDF document with basic elements
+title: Create or Generate PDF file in C# and VB.NET | Syncfusion
+description: Learn how to create or generate a PDF file in C# and VB.NET with elements like text, image and table using Syncfusion .NET PDF library without Adobe. 
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Getting Started
+# Create or Generate PDF file in C# and VB.NET
 
 To create a PDF document from scratch and saving it to disk or stream, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
 

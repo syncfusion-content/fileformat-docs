@@ -1,12 +1,12 @@
 ---
-title: Create, read, and edit PDF document in Blazor | Syncfusion 
-description: Create, read, and edit PDF document in Blazor using Syncfusion .NET Core PDF (Essential PDF) library
+title: Create or Generate PDF file in Blazor | Syncfusion
+description: Learn how to create or generate a PDF file in Blazor with easy steps using Syncfusion .NET Core PDF library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Create, read, and edit PDF document in Blazor
+# Create or Generate PDF file in Blazor
 
 Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) used to create, read, and edit PDF documents in Blazor. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
