@@ -1,6 +1,6 @@
 ---
 title: Open and Save Word document in C# and VB.NET | Syncfusion
-description: This page describles how to open and save the Word document from or to file system, and stream in C# and VB.NET using Syncfusion .NET Word library.
+description: This page describes how to open and save the Word document from or to file system, and stream in C# and VB.NET using Syncfusion .NET Word library.
 platform: file-formats
 control: DocIO
 documentation: UG
