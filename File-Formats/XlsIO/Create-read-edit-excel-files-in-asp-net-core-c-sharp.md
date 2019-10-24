@@ -1,6 +1,6 @@
 ---
 title: Create, read, and edit Excel files in ASP.NET Core | Syncfusion
-description: Explains how to create, read, and edit Excel files in ASP.NET Core applications using Syncfusion XlsIO.
+description: Learn how to create, read, and edit Excel files in ASP.NET Core applications using Syncfusion Essential XlsIO (a .NET Excel library).
 platform: aspnet-core
 control: XlsIO
 documentation: UG
