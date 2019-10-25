@@ -1,12 +1,12 @@
 ---
-title: Create Excel file in C#, VB.NET | Getting started | Syncfusion
-description: Learn how to create an excel file from data source or scratch; export & import Excel data; create formatted excel report by filling data like Mail merge.
+title: Create or Generate Excel file in C# and VB.NET | Syncfusion
+description: Learn how to create or generate an Excel file from scratch in C# and VB.NET. Also, export & import Excel data; create formatted Excel report by filling data.
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Getting Started - Create Excel File in C# and VB.NET
+# Create or Generate Excel File in C# and VB.NET
 
 This section explains how to create a simple Excel file in C# and VB.NET using XlsIO. The following assemblies must be referred in your application to create and manipulate the Excel document.
 

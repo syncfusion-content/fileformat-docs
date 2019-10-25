@@ -1,6 +1,6 @@
 ---
 title: Create, read, and edit Excel files in Windows Forms | Syncfusion
-description: Explains how to create, read, and edit Excel files in Windows Forms applications using Syncfusion XlsIO.
+description: Learn how to create, read, and edit Excel files in Windows Forms applications using Syncfusion Essential XlsIO (a .NET Excel library).
 platform: windowsforms
 control: XlsIO
 documentation: UG
