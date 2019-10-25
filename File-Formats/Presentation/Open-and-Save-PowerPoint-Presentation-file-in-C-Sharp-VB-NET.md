@@ -1,11 +1,11 @@
 ---
-title: Loading and saving the PowerPoint Presentation
-description: Loading and saving the Presentation; Modifying the Presentation
+title: Open and Save PowerPoint file in C# and VB.NET | Syncfusion
+description: This page describes how to open and save a PowerPoint presentation from or to file system, and stream in C# and VB.NET using Syncfusion .NET PowerPoint library.
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Load and save the Presentation
+# Open and Save PowerPoint presentation file in C# and VB.NET
 
 ## Opening an existing Presentation from file system
 

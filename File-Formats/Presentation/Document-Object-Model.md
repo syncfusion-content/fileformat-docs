@@ -1,6 +1,6 @@
 ---
-title: Document Object Model of the Essential Presentation library
-description: The Document Object Model of the Essential Presentation library
+title: Document Object Model of Presentation library | Syncfusion
+description: Learn about the Document Object Model (DOM) structure of elements such as slide, paragraph, table, text body etc. present in a PowerPoint presentation.
 platform: file-formats
 control: Presentation
 documentation: UG
@@ -9,6 +9,6 @@ documentation: UG
 
 In order to create and modify a PowerPoint Presentation, you need to know how the elements are organized in Essential Presentation’s document object model (DOM). The following figure illustrates this DOM.
 
-![](DocumentObjectModel_images/DocumentObjectModel_img1.png)
+![Document Object Model of Presentation library](DocumentObjectModel_images/DocumentObjectModel_img1.png)
 
 

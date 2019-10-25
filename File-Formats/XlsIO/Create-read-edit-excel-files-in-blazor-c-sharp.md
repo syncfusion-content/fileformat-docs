@@ -1,6 +1,6 @@
 ---
 title: Create, read, and edit Excel files in Blazor | Syncfusion
-description: Explains how to create, read, and edit Excel files in Blazor applications using Syncfusion XlsIO.
+description: Learn how to create, read, and edit Excel files in Blazor applications using Syncfusion Essential XlsIO (a .NET Excel library).
 platform: file-formats
 control: XlsIO
 documentation: UG

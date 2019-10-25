@@ -1,11 +1,11 @@
 ---
-title: Loading and saving document | Syncfusion
-description: This section explains loading and saving a PDF document
+title: Open and Save PDF file in C# and VB.NET | Syncfusion
+description: This page describes how to open and save PDF file from or to file system, and stream in C# and VB.NET using Syncfusion .NET PDF library.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Loading & saving document
+# Open and Save PDF file in C# and VB.NET
 
 ## Opening an existing PDF document
 

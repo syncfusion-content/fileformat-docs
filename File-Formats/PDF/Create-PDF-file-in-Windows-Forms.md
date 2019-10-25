@@ -1,29 +1,30 @@
 ---
-title: Working with ASP.NET MVC | Syncfusion
-description: This section explains how to load and save PDF document in ASP.NET MVC
+title: Create or Generate PDF file in Windows Forms | Syncfusion
+description: Learn how to create or generate a PDF file in Windows Forms with easy steps using Syncfusion .NET PDF library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
----
-# Working with ASP.NET MVC
+--- 
 
-In your ASP.NET MVC application, add the following assemblies to use Essential PDF:
+# Create or Generate PDF file in Windows Forms
+
+ In your Windows Forms application, add the following assemblies to use Essential PDF:  
 
 * Syncfusion.Pdf.Base
 * Syncfusion.Compression.Base
 
 For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
-## Steps to create PDF document in ASP.NET MVC
+## Steps to create PDF document in Window Forms:
 
-Create a new ASP.NET MVC application project.
-![Creation1](MVC_images/Creation1.jpg)
+Create a new Windows Forms application project.
+![Creation1](WF_images/Creation1.jpeg)
 
-Install the [Syncfusion.Pdf.AspNet.Mvc](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
-![Creation2](MVC_images/Creation2.jpg)
+Install the [Syncfusion.Pdf.WinForms](https://www.nuget.org/packages/Syncfusion.Pdf.WinForms/) NuGet package as a reference to your  .NET Framework applications from [NuGet.org](https://www.nuget.org/).
+![Creation1](WF_images/Creation2.jpeg)
 
-A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
- 
+Include the following namespaces in the Form1.Designer.cs file.
+
 {% highlight c# %}
 
 using Syncfusion.Pdf;
@@ -32,57 +33,72 @@ using System.Drawing;
 
 {% endhighlight %}
 
-A default action method named Index will be present in HomeController.cs. Right-click on this action method and select Go To View, where you will be directed to its associated view page Index.cshtml.
-
-Add a new button in the Index.cshtml as follows.
+Add a new button in Form1.Designer.cs to create PDF document as follows.
 
 {% highlight c# %}
 
-@{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
+private Button btnCreate;
+private Label label;
+  
+private void InitializeComponent()
 {
-<div>
-    <input type="submit" value="Create Document" style="width:150px;height:27px" />
-</div>
-}
-Html.EndForm();
+  btnCreate = new Button();
+  label = new Label();
+  
+  //Label
+  label.Location = new System.Drawing.Point(0, 40);
+  label.Size = new System.Drawing.Size(426, 35);
+  label.Text = "Click the button to generate PDF file by Essential PDF";
+  label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+  
+  //Button
+  btnCreate.Location = new System.Drawing.Point(180, 110);
+  btnCreate.Size = new System.Drawing.Size(85, 26);
+  btnCreate.Text = "Create PDF";
+  btnCreate.Click += new EventHandler(btnCreate_Click); 
+                               
+  //Create PDF
+  ClientSize = new System.Drawing.Size(450, 150);
+  Controls.Add(label);
+  Controls.Add(btnCreate);
+  Text = "Create PDF";
 }
 
 {% endhighlight %}
 
-Add a new action method named CreateDocument in HomeController.cs and include the following code snippet to create an PDF file and download it.
+Create the btnCreate_Click event and add the following code in btnCreate_Click to create PDF file with simple text.
 
 {% highlight c# %}
-
-//Create an instance of PdfDocument.
+ 
 using (PdfDocument document = new PdfDocument())
 {
-//Add a page to the document
-PdfPage page = document.Pages.Add();
+  //Add a page to the document
+  PdfPage page = document.Pages.Add();
 
-//Create PDF graphics for the page
-PdfGraphics graphics = page.Graphics;
+  //Create PDF graphics for a page
+  PdfGraphics graphics = page.Graphics;
 
-//Set the standard font
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+  //Set the standard font
+  PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 
-//Draw the text
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+  //Draw the text
+  graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
 
-// Open the document in browser after saving it
-document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
+  //Save the document
+  document.Save("Output.pdf");
 }
 
-{% endhighlight %} 
+{% endhighlight %}
 
-A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1076048215.zip )
+A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-123272332 )
 
-By executing the program, you will get the PDF file as follows.
-![Hell world](GettingStarted_images/Hello World.jpg)
+By executing the program, you will get the PDF document as follows.
+![output](GettingStarted_images/Hello World.jpg)
 
 ## Creating a PDF document with image
 
 The following code example shows how to create a PDF document with an image.
- 
+
 {% highlight c# %}
 
 //Create a new PDF document.
@@ -92,11 +108,11 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
 //Load the image from the disk.
-PdfBitmap image = new PdfBitmap(Server.MapPath("~/Autumn Leaves.jpg"));
+PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
 //Draw the image
 graphics.DrawImage(image, 0, 0);
-// Open the document in browser after saving it
-doc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
+//Save the document.
+doc.Save("Output.pdf");
 //Close the document.
 doc.Close(true);
 
@@ -129,8 +145,8 @@ dataTable.Rows.Add(new object[] { "E05", "Gary" });
 pdfGrid.DataSource = dataTable;
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new PointF(10, 10));
-// Open the document in browser after saving it
-doc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
+//Save the document.
+doc.Save("Output.pdf");
 //close the document
 doc.Close(true);
 
@@ -138,7 +154,7 @@ doc.Close(true);
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings.html).
- 
+
 {% highlight c# %}
 
 //Creates a new PDF document
@@ -150,7 +166,7 @@ document.PageSettings.Margins.All = 50;
 PdfPage page = document.Pages.Add();
 PdfGraphics graphics = page.Graphics;
 
-{% endhighlight %} 
+{% endhighlight %}
 
 1. Essential PDF has APIs similar to the .NET GDI plus which helps to draw elements to the PDF page just like 2D drawing in .NET. 
 2. Unlike System.Drawing APIs all the units are measured in point instead of pixel. 
@@ -158,15 +174,14 @@ PdfGraphics graphics = page.Graphics;
 4. Essential PDF provides the rendered bounds for each and every elements added through [PdfLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutResult.html) objects. This can be used to add successive elements and prevent content overlap.
 
 The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
- 
+
 {% highlight c# %}
 
 //Loads the image from disk
-PdfImage image = PdfImage.FromFile(Server.MapPath("~/AdventureCycle.jpg"));
+PdfImage image = PdfImage.FromFile("AdventureCycle.jpg");
 RectangleF bounds = new RectangleF(176, 0, 390, 130);
 //Draws the image to the PDF page
 page.Graphics.DrawImage(image, bounds);
-
 
 {% endhighlight %}
 
@@ -177,7 +192,7 @@ The following methods can be used to add text to a PDF document.
 
 The ```PdfTextElement``` provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. This is not available in the ```DrawString``` method. 
 
-The following code example adds the necessary text such as address, invoice number and date to create a basic invoice application.
+The following code example adds the necessary text such as address, invoice number and date to create a basic invoice application. 
  
 {% highlight c# %}
 
@@ -216,7 +231,7 @@ Essential PDF provides two types of table models. The difference between both th
 [Difference between PdfLightTable and PdfGrid](/file-formats/pdf/working-with-tables#difference-between-pdflighttable-and-pdfgrid "difference-between-pdflighttable-and-pdfgrid")
 
 Since the invoice document requires only simple cell customizations, the given code example explains how to create a simple invoice table by using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
-
+ 
 {% highlight c# %}
 
 //Creates the datasource for the table
@@ -260,19 +275,17 @@ PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, re
 {% endhighlight %}
 
 The following code example shows how to save the invoice document to disk and dispose the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) object.
-
+ 
 {% highlight c# %}
 
-// Open the document in browser after saving it
-document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
-
+//Saves and closes the document.
+document.Save("Sample.pdf");
 document.Close(true);
 
 {% endhighlight %}
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-
-![InvoiceSample](GettingStarted_images/GettingStarted_img1.jpeg)
+![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
 
 ## Filling forms
 
@@ -285,14 +298,14 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Form Filling](GettingStarted_images/GettingStarted_img2.jpeg)
+![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
 {% highlight c# %}
 
 //Loads the PDF form.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(Server.MapPath("~/JobApplication.pdf"));
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"JobApplication.pdf");
 //Loads the form
 PdfLoadedForm form = loadedDocument.Form;
 //Fills the textbox field by using index
@@ -308,32 +321,31 @@ radioButtonCollection[0].Checked = true;
 (form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
 //Checks the 'retiree' checkbox field
 (form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
-// Open the document in browser after saving it
-loadedDocument.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
+//Saves and closes the document
+loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
 
 The filled form is shown in adobe reader application as follows.
-
-![JobApplication](GettingStarted_images/GettingStarted_img3.jpeg)
+![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
 
 ## Merge PDF Documents
 
 Essential PDF supports merging multiple PDF documents from disk and stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~Merge.html) method. You can merge the multiple PDF documents from disk by specifying the path of the documents in a string array.
 
 Refer to the following code example to merge multiple documents from disk.
-
+ 
 {% highlight c# %}
 
 //Creates the new PDF document
 PdfDocument finalDoc = new PdfDocument();
 // Creates a string array of source files to be merged.
-string[] source = System.IO.Directory.GetFiles(Server.MapPath("~/DataFolder"),"*.pdf");
+string[] source = { "file1.pdf, file2.pdf" };
 // Merges PDFDocument.
 PdfDocument.Merge(finalDoc, source);
-// Open the document in browser after saving it
-finalDoc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
+//Saves the final document
+finalDoc.Save("Sample.pdf");
 //closes the document
 finalDoc.Close(true);
 
@@ -345,14 +357,14 @@ You can merge the PDF document streams by using the following code example.
 
 //Creates the destination document
 PdfDocument finalDoc = new PdfDocument();
-Stream stream1 = System.IO.File.OpenRead(Server.MapPath("~/file1.pdf"));
-Stream stream2 = System.IO.File.OpenRead(Server.MapPath("~/file2.pdf"));
+Stream stream1 = File.OpenRead("file1.pdf");
+Stream stream2 = File.OpenRead("file2.pdf");
 // Creates a PDF stream for merging.
 Stream[] streams = { stream1, stream2 };
 // Merges PDFDocument.
 PdfDocumentBase.Merge(finalDoc, streams);
-//Open the document in browser after saving it
-finalDoc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
+//Saves the document
+finalDoc.Save("sample.pdf");
 //closes the document
 finalDoc.Close(true);
 
