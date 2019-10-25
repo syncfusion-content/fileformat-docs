@@ -1,64 +1,81 @@
 ---
-title: Working with ASP.NET | Syncfusion
-description: This section explains how to load and save PDF document in ASP.NET
+title: Create or Generate PDF file in Xamarin | Syncfusion
+description: Learn how to create or generate a PDF file in Xamarin with easy steps using Syncfusion Xamarin PDF library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with ASP.NET
+# Create or Generate PDF file in Xamarin
 
-In your ASP.NET application, add the following assemblies to use Essential PDF:
+In your Xamarin application, add the following assemblies to use Essential PDF:
 
-* Syncfusion.Pdf.Base
-* Syncfusion.Compression.Base
+* Syncfusion.Compression.Portable.dll
+* Syncfusion.Pdf.Portable.dll 
 
 For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
-## Steps to create PDF document in ASP.NET Web Forms
+## Steps to create PDF document in Xamarin
 
-Create a new ASP.NET Web application project.
-![Creation1](Asp.Net_images/Creation1.jpg)
+Create a new C# Xamarin.Forms application project.
+![Creation1](Xamarin_images/Creation1.jpg)
 
-Install the [Syncfusion.Pdf.AspNet](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet/) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
-![Creation1](Asp.Net_images/Creation2.jpg)
+Select a project template and required platforms to deploy the application. In this application, the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing, refer here.
 
-Add a new Web Form in ASP .NET project. Right-click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
+N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-Add a new button in the MainPage.aspx as follows.
+![Creation2](Xamarin_images/Creation2.jpg)
+
+Install the [Syncfusion.Xamarin.PDF](https://www.nuget.org/packages/Syncfusion.Xamarin.PDF/) NuGet package as a reference to your.NET Framework applications from [NuGet.org](https://www.nuget.org/).
+![Creation3](Xamarin_images/Creation3.jpg)
+
+Add new Forms XAML page in portable project if there is no XAML page is defined in the App class. Otherwise, proceed to the next step.
+
+a.  To add the new XAML page, right-click the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
+
+b.	In App class of portable project (App.cs), replace the existing constructor of App class with the following code snippet, which invokes the MainXamlPage.
 
 {% highlight c# %}
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    <asp:Button ID="Button1" runat="server" Text="Create Document" OnClick="OnButtonClicked" />
-    </div>
-    </form>
-</body>
-</html>
-
-{% endhighlight %} 
-
-Include the following namespaces in your MainPage.aspx.cs file.
-   
-{% highlight c# %}
-
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Graphics;
-using System.Drawing;
+public App()
+{
+    // The root page of your application
+    MainPage = new MainXamlPage();
+}
 
 {% endhighlight %}
 
-Include the following code snippet in the click event of the button in MainPage.aspx.cs to create the PDF file and download it.
+In the MainXamlPage.xaml, add new button as follows.
+
+{% highlight c# %}
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GettingStarted. MainXamlPage">
+<StackLayout VerticalOptions="Center">
+  
+<Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+  
+</StackLayout>
+</ContentPage>
+{% endhighlight %}
+
+Include the following namespace in the MainXamlPage.xaml.cs file.
 
 {% highlight c# %}
 
-using (PdfDocument document = new PdfDocument())
-{
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
+
+{% endhighlight %}
+
+Include the following code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PDF file and save it in a stream. 
+ 
+{% highlight c# %}
+
+// Create a new PDF document
+PdfDocument document = new PdfDocument();
+
 //Add a page to the document
 PdfPage page = document.Pages.Add();
 
@@ -71,17 +88,69 @@ PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text
 graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
 
-// Open the document in browser after saving it
-document.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
-}
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application / pdf", stream);
 
 {% endhighlight %}
 
-A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1393143578.zip )
+Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP ) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>File Name</th>
+	<th>Summary</th>
+  </tr>
+  <tr>
+    <td>portable project</td>
+    <td>ISave.cs </td>
+	<td>Represent the base interface for save operation</td>	
+  </tr>
+  <tr>
+    <td rowspan="2">iOS Project</td>
+    <td>SaveIOS.cs</td>
+	<td>Represent the base interface for save operation</td>	
+  </tr>
+   <tr>    
+    <td>PreviewControllerDS.cs</td>
+	<td>Helper class for viewing the PDF file in iOS device</td>	
+  </tr>
+  <tr>
+    <td>Android project</td>
+    <td>SaveAndroid.cs</td>
+	<td>Save implementation for Android device</td>	
+  </tr>
+  <tr>
+    <td>WinPhone project</td>
+    <td>SaveWinPhone.cs</td>
+	<td>Save implementation for Windows Phone device</td>	
+  </tr>
+  <tr>
+    <td>UWP project</td>
+    <td>SaveWindows.cs</td>
+	<td>Save implementation for UWP device.</td>	
+  </tr>
+  <tr>
+    <td>Windows(8.1) project </td>
+    <td>SaveWindows81.cs</td>
+	<td>Save implementation for WinRT device.</td>	
+  </tr>     
+</table>
+
+Compile and execute the application. This creates a simple PDF document.
+
+Download the complete work sample from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample1541042202.zip )
 
 By executing the program, you will get the PDF document as follows.
-![output](GettingStarted_images/Hello World.jpg)
-
+![HellWorld](GettingStarted_images/Hello World.jpg)
+ 
 ## Creating a PDF document with image
 
 The following code example shows how to create a PDF document with an image.
@@ -94,21 +163,28 @@ PdfDocument doc = new PdfDocument();
 PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
+//Load the image as stream
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
 //Load the image from the disk.
-PdfBitmap image = new PdfBitmap(Server.MapPath("~/Autumn Leaves.jpg"));
+PdfBitmap image = new PdfBitmap(imageStream);
 //Draw the image
 graphics.DrawImage(image, 0, 0);
+////Save the document to the stream
+MemoryStream stream = new MemoryStream();
 //Save the document.
-doc.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
+doc.Save(stream);
 //Close the document.
 doc.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
 {% endhighlight %}
 
 ## Creating a PDF document with table
 
 The following code example shows how to create a PDF document with a simple table.
-
+ 
 {% highlight c# %}
 
 //Create a new PDF document.
@@ -117,25 +193,32 @@ PdfDocument doc = new PdfDocument();
 PdfPage page = doc.Pages.Add();
 //Create a PdfGrid.
 PdfGrid pdfGrid = new PdfGrid();
-//Create a DataTable.
-DataTable dataTable = new DataTable();
-//Add columns to the DataTable
-dataTable.Columns.Add("ID");
-dataTable.Columns.Add("Name");
-//Add rows to the DataTable.
-dataTable.Rows.Add(new object[] { "E01", "Clay" });
-dataTable.Rows.Add(new object[] { "E02", "Thomas" });
-dataTable.Rows.Add(new object[] { "E03", "Andrew" });
-dataTable.Rows.Add(new object[] { "E04", "Paul" });
-dataTable.Rows.Add(new object[] { "E05", "Gary" });
+//Add values to list
+List<object> data = new List<object>();
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "Andrew" };
+Object row4 = new { ID = "E04", Name = "Paul" };
+Object row5 = new { ID = "E05", Name = "Gray" };
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new PointF(10, 10));
-// Open the document in browser after saving it
-doc.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
-//close the document
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//Close the document.
 doc.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
 {% endhighlight %}
 
@@ -161,12 +244,13 @@ PdfGraphics graphics = page.Graphics;
 4. Essential PDF provides the rendered bounds for each and every elements added through [PdfLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutResult.html) objects. This can be used to add successive elements and prevent content overlap.
 
 The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
-
+ 
 {% highlight c# %}
 
-//Loads the image from disk
-PdfImage image = PdfImage.FromFile(Server.MapPath("~/AdventureCycle.jpg"));
+//Loads the image as stream
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.AdventureCycle.jpg");
 RectangleF bounds = new RectangleF(176, 0, 390, 130);
+PdfImage image = PdfImage.FromStream(imageStream);
 //Draws the image to the PDF page
 page.Graphics.DrawImage(image, bounds);
 
@@ -241,10 +325,10 @@ headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontSty
 //Adds cell customizations
 for (int i = 0; i < header.Cells.Count; i++)
 {
-  if (i == 0 || i == 1)
-    header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
-  else
-    header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+if (i == 0 || i == 1)
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 }
 
 //Applies the header style
@@ -259,19 +343,25 @@ layoutFormat.Layout = PdfLayoutType.Paginate;
 //Draws the grid to the PDF page.
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
-{% endhighlight %}
+{% endhighlight %} 
 
 The following code example shows how to save the invoice document to disk and dispose the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) object.
  
 {% highlight c# %}
 
-//Save the PDF
-document.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
 document.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
 {% endhighlight %}
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
+
 ![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
 
 ## Filling forms
@@ -288,7 +378,7 @@ The following guide shows how to fill a sample PDF form as shown.
 ![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
-
+ 
 {% highlight c# %}
 
 //Loads the PDF form.
@@ -308,38 +398,54 @@ radioButtonCollection[0].Checked = true;
 (form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
 //Checks the 'retiree' checkbox field
 (form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
-//Saves and closes the document
-loadedDocument.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
 loadedDocument.Close(true);
 
-{% endhighlight %}
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+
+{% endhighlight %}  
 
 The filled form is shown in adobe reader application as follows.
+
 ![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
 
 ## Merge PDF Documents
 
-Essential PDF supports merging multiple PDF documents from disk and stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~Merge.html) method. You can merge the multiple PDF documents from disk by specifying the path of the documents in a string array.
+Essential PDF supports merging multiple PDF documents from stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~Merge.html) method.
 
-Refer to the following code example to merge multiple documents from disk.
+You can merge the PDF document streams by using the following code example.
  
 {% highlight c# %}
 
-//Creates the new PDF document
+//Creates a PDF document
 PdfDocument finalDoc = new PdfDocument();
-// Creates a string array of source files to be merged.
-string[] source = System.IO.Directory.GetFiles(Server.MapPath("~/DataFolder"),"*.pdf");
+//Loads the Pdf as a stream.
+Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
+// Creates a PDF stream for merging
+Stream[] streams = { stream1, stream2 };
 // Merges PDFDocument.
-PdfDocument.Merge(finalDoc, source);
-// Open the document in browser after saving it
-finalDoc.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
-//closes the document
+PdfDocumentBase.Merge(finalDoc, streams);
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+finalDoc.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
 finalDoc.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
 {% endhighlight %}
 
-  
-  
+
+
+
 
 
 
