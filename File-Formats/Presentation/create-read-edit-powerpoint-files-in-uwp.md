@@ -1,12 +1,12 @@
 ---
-title: Create and edit PowerPoint files in UWP |Syncfusion|
-description: A UWP PowerPoint library to create, read and edit PowerPoint files in UWP applications. Supports text, shape, chart, table and combine PowerPoints.
+title: Create and edit PowerPoint file in UWP | Syncfusion
+description: Learn how to create, read, and edit PowerPoint presentation in UWP application using Syncfusion UWP PowerPoint library [without Microsoft office or interop].
 platform: file-formats
 control: PowerPoint
 documentation: ug
 ---
 
-# Create, read and edit a PowerPoint file in UWP
+# Create, read, and edit a PowerPoint file in UWP
 
 You can create or edit a PowerPoint file in UWP with Syncfusion PowerPoint library. The below are the steps.
 
