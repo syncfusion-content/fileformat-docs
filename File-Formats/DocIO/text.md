@@ -1,6 +1,6 @@
 ---
 title: Word document to Text Conversion | DocIO | Syncfusion
-description: This section illustrates how to converting Word document to Text using Syncfusion Word library (Essential DocIO)
+description: This section illustrates how to perform Word document to Text conversion using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -171,18 +171,17 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Txt))
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.txt")),
-              FormatType.Txt))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.txt")), FormatType.Txt))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("TextToWord.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TextToWord.docx", "application/msword", stream);
     //Closes the Word document
     document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
@@ -287,8 +286,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Gets the document text
     string text = document.GetText();
@@ -303,13 +301,13 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     MemoryStream stream = new MemoryStream();
     newdocument.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Sample.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
     //Closes the Word document
     newdocument.Close();
     document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}

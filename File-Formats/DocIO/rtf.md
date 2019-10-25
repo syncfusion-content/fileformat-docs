@@ -1,6 +1,6 @@
 ---
 title: RTF conversions | DocIO | Syncfusion
-description: This section illustrates RTF to Word conversion and Word to RTF conversions using Syncfusion Word library (Essential DocIO)
+description: This section illustrates how to perform RTF to Word conversion and Word to RTF conversions using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -176,18 +176,17 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Rtf);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("WordToRtf.rtf", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToRtf.rtf", "application/msword", stream);
     //Closes the Word document
     document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+	
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}

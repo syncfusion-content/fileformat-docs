@@ -100,8 +100,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Odt);
