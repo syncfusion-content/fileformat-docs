@@ -2296,17 +2296,21 @@ The following code example shows how to use the alternate fonts instead of "Micr
 {% highlight c# %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font as stream when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Arial")
-        args.AlternateFontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    //Sets the alternate font when a specified font is not installed in the production environment
+	if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+	    args.AlternateFontStream =  new FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+	else
+	    args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
 {% highlight vb.net %}
 Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-    'Sets the alternate font as stream when a specified font is not installed in the production environment
-    If args.OriginalFontName = "Arial" Then
-        args.AlternateFontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+    'Sets the alternate font when a specified font is not installed in the production environment
+    If args.OrignalFontName = "Arial Unicode MS" && args.FontStyle == FontStyle.Regular Then
+        args.AlternateFontStream = New FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+    Else
+	    args.AlternateFontName = "Times New Roman"
     End If
 End Sub
 {% endhighlight %}
@@ -2314,27 +2318,33 @@ End Sub
 {% highlight UWP %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font as stream when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Arial")
-        args.AlternateFontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+    //Sets the alternate font when a specified font is not installed in the production environment
+    if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.TTF");
+    else
+        args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font as stream when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Arial")
-        args.AlternateFontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    //Sets the alternate font when a specified font is not installed in the production environment
+    if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = new FileStream("Arial.TTF", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    else
+	    args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font as stream when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Arial")
-        args.AlternateFontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+    //Sets the alternate font when a specified font is not installed in the production environment
+    if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.TTF");
+    else
+	    args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
