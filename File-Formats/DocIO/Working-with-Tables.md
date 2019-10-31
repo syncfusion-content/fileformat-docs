@@ -1,6 +1,6 @@
 ---
 title: Working With Tables | DocIO | Syncfusion
-description: This section illustrates how to work with Tables
+description: This section illustrates how to work with Tables in Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -11,6 +11,8 @@ A table in Word document is used to arrange document content in rows and columns
 
 1. A row is a collection of cells and it is represented by an instance of `WTableRow`. Each row must contain at least one cell.
 2. A cell can contain one or more paragraphs and tables. An instance of `WTableCell` represents a table cell. Each table cell must contain at least one paragraph.
+
+N> Adding more than 63 columns not supported in Word document using Microsoft Word application. It shows alert when you attempt to insert table with more than 64 columns, which is a one of the behaviors of Microsoft Word and Essential DocIO does the same.
 
 The following image illustrates how a table in Word document is organized in EssentialDocIO’s DOM:
 

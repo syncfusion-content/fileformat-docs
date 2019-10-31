@@ -354,7 +354,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //"App" is the class of Portable project
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	string imagePath = args.Uri.ToString();
+    string imagePath = args.Uri.ToString();
     //Read the image from the specified (args.Uri) path
     args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
 }
@@ -373,7 +373,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //"App" is the class of Portable project
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	string imagePath = args.Uri.ToString();
+    string imagePath = args.Uri.ToString();
     //Read the image from the specified (args.Uri) path
     args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
 }
