@@ -19,7 +19,7 @@ Refer to the following links for assemblies required based on platforms to conve
 
 The following namespaces are required to compile the code: 
 
-For WPF, Windows Forms, ASP.NET and ASP.NET MVC applications
+**For WPF, Windows Forms, ASP.NET and ASP.NET MVC applications**
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.OfficeChart
@@ -27,7 +27,7 @@ For WPF, Windows Forms, ASP.NET and ASP.NET MVC applications
 * using Syncfusion.OfficeChartToImageConverter
 * using Syncfusion.Pdf
 
-For ASP.NET Core and Xamarin applications
+**For ASP.NET Core and Xamarin applications**
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.DocIORenderer
@@ -231,7 +231,7 @@ The Essential DocIO provides settings while performing Word to PDF conversion me
 
 ### Fast rendering
 
-This setting allows you to convert PDF faster by using direct PDF rendering approach rather than EMF rendering approach.
+This setting allows you to **convert PDF faster** by using direct PDF rendering approach rather than EMF rendering approach.
 
 The following code sample shows how to convert the Word document to PDF using direct PDF rendering approach. 
 
@@ -295,7 +295,7 @@ You can customize the TrueType fonts embedding in two ways as follows:
 
 #### Embed Subset Fonts
 
-This setting allows you to embed the particular font information (glyphs) from the TrueType fonts used for the rendered characters in converted PDF document.
+This setting allows you to **embed the particular font information** (glyphs) from the TrueType fonts used for the rendered characters in converted PDF document.
 
 The following code sample shows how to embed the TrueType fonts into the converted PDF document.
 
@@ -595,7 +595,7 @@ pdfDocument.Close();
 
 ### Accessible PDF document
 
-This setting allows you to determine whether to preserve document structured tags in the converted PDF document for accessibility (508 compliance) support. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for people with vision or cognitive impairments who may not able to see or understand the object
+This setting allows you to determine whether to preserve document structured tags in the converted **PDF document for accessibility (508 compliance) support**. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for **people with vision or cognitive impairments** who may not able to see or understand the object
 
 The following code sample shows how to preserve document structured tags in the converted PDF document.
 
@@ -737,7 +737,7 @@ pdfDocument.Close();
 
 ### Word document headings to PDF bookmarks
 
-This setting allows you to determine whether to preserve Word document headings (i.e., paragraph with heading style and outline level) as bookmarks in the converted PDF document. As per Microsoft Word behavior, either Word document headings or bookmarks can be exported as PDF bookmarks. By default, DocIO preserves Word documents bookmarks as PDF bookmarks in converted PDF document.
+This setting allows you to determine whether to **preserve Word document headings** (i.e., paragraph with heading style and outline level) as bookmarks in the converted PDF document. As per Microsoft Word behavior, either Word document headings or bookmarks can be exported as PDF bookmarks. By default, DocIO preserves Word documents bookmarks as PDF bookmarks in converted PDF document.
 
 The following code sample shows how to preserve Word document headings as bookmarks in the converted PDF document.
 
@@ -879,7 +879,7 @@ pdfDocument.Close();
 
 ### Word document form field to PDF form field.
 
-This setting allows you to determine whether to preserve Word document form fields (Text form field, Checkbox form field and Drop-down form field) as PDF form fields in the converted PDF document. This features helps in creating fillable PDF forms from Word document.
+This setting allows you to determine whether to **preserve Word document form fields** (Text form field, Checkbox form field and Drop-down form field) as PDF form fields in the converted PDF document. This features helps in **creating fillable PDF forms from Word document**.
 
 The following code sample shows how to preserve Word document form field as PDF form field in the converted PDF document.
 
@@ -1022,7 +1022,7 @@ pdfDocument.Close();
 
 ### Image quality 
 
-This setting allows you to determine the quality of the charts and JPEG images in the converted PDF document.
+This setting allows you to determine the **quality of the charts and JPEG images** in the converted PDF document.
 
 The following code sample shows how to customize the image quality of charts and JPEG images in the converted PDF document.
 
@@ -1086,7 +1086,7 @@ wordDocument.Close()
 
 ### Identical image optimization 
 
-This setting reduces the Main Memory usage in Word to PDF conversion by reusing the identical images.
+This setting **reduces the Main Memory usage** in Word to PDF conversion by reusing the identical images.
 
 The following code sample shows how to reduce the Main Memory usage while converting Word to PDF by reusing the identical images.
 
@@ -1537,7 +1537,7 @@ pdfDocument.Save(outputStream);
 
 ### Complex Script Text
 
-This setting allows you to preserve the complex script text in the converted PDF document.
+This setting allows you to **preserve the complex script text** in the converted PDF document.
 
 The following code sample shows how to preserve the complex script text in the converted PDF document.
 
@@ -1842,7 +1842,7 @@ pdfDocument.Close();
 
 ### Track changes in Word-to-PDF conversion
 
-The following code sample shows how to preserve revision marks in a generated PDF when converting Word documents with tracked changes or revisions.
+The following code sample shows how to **preserve revision marks in a generated PDF** when converting Word documents with tracked changes or revisions.
 
 {% tabs %}  
 
