@@ -1,6 +1,6 @@
 ---
 title: Converting Word document to EPUB | Syncfusion
-description: Converting Word document to EPUB using DocIO
+description: This section illustrates how to convert Word document to EPUB using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -51,7 +51,7 @@ document.SaveOptions.HtmlExportHeadersFooters = true;
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.EPub);
 //Saves the stream as Word file in local machine
-Save(stream, "Sample.epub");
+Save(stream, "WordToEPub.epub");
 //Closes the document
 document.Close();
 

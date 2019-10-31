@@ -1,6 +1,6 @@
 ---
 title: RTF conversions | DocIO | Syncfusion
-description: RTF to Word conversion and Word to RTF conversions using DocIO
+description: This section illustrates how to perform RTF to Word conversion and Word to RTF conversions using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -18,7 +18,7 @@ The Essential DocIO converts the RTF document into Word document and vice versa.
 {% tabs %}
 {% highlight c# %}
 //Loads an existing document
-WordDocument document = new WordDocument("Sample.rtf", FormatType.Rtf);
+WordDocument document = new WordDocument("Input.rtf", FormatType.Rtf);
 //Saves the Word document as RTF file
 document.Save("RtfToWord.docx", FormatType.Docx);
 //Closes the document
@@ -27,7 +27,7 @@ document.Close();
 
 {% highlight vb.net %}
 'Loads an existing document
-Dim document As New WordDocument("Sample.rtf", FormatType.Rtf)
+Dim document As New WordDocument("Input.rtf", FormatType.Rtf)
 'Saves the Word document as RTF file
 document.Save("RtfToWord.docx", FormatType.Docx)
 'Closes the document
@@ -38,7 +38,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.rtf")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.rtf")),
               FormatType.Rtf))
 {
     MemoryStream stream = new MemoryStream();
@@ -53,7 +53,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.rtf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Input.rtf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
 {
@@ -70,7 +70,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.rtf")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.rtf")),
               FormatType.Rtf))
 {
     MemoryStream stream = new MemoryStream();
@@ -111,7 +111,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -159,7 +159,7 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -176,18 +176,17 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Rtf);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("WordToRtf.rtf", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToRtf.rtf", "application/msword", stream);
     //Closes the Word document
     document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+	
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}
