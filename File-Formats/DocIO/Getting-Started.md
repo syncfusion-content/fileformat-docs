@@ -1,11 +1,11 @@
 ---
-title: Create or Generate Word document in C# and VB.NET | Syncfusion
-description: Learn how to create or generate a Word document in C# and VB.NET using Syncfusion .NET Word (DocIO) library [without Microsoft Word or interop libraries].
+title: Create a simple Word document in C#, VB.NET | Syncfusion
+description: This section illustrate how to create a new Word document from scratch
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Create or Generate Word document in C# and VB.NET
+# Getting Started
 
 In this page, you can see how to create a simple Word document by using Essential DocIO’s API. For creating and manipulating a Word document, the following assemblies are required to be referenced in your application.
 
