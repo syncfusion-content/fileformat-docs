@@ -1,6 +1,6 @@
 ---
 title: Word document to Text Conversion | DocIO | Syncfusion
-description: Converting Word document to Text using DocIO
+description: This section illustrates how to perform Word document to Text conversion using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -33,7 +33,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -81,7 +81,7 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -98,7 +98,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
@@ -139,7 +139,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.txt")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.txt")),
               FormatType.Txt))
 {
     MemoryStream stream = new MemoryStream();
@@ -154,7 +154,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Txt))
 {
@@ -171,18 +171,17 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Txt))
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.txt")),
-              FormatType.Txt))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.txt")), FormatType.Txt))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("TextToWord.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TextToWord.docx", "application/msword", stream);
     //Closes the Word document
     document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
@@ -233,7 +232,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
     //Gets the document text
@@ -249,7 +248,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     MemoryStream stream = new MemoryStream();
     await newdocument.SaveAsync(stream, FormatType.Docx);
     //Saves the stream as Word file in local machine
-    Save(stream, "Result.docx");
+    Save(stream, "Sample.docx");
     //Closes the Word document
     document.Close();
     newdocument.Close();
@@ -259,7 +258,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -280,15 +279,14 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
     newdocument.Close();
     stream.Position = 0;
     //Download Word document in the browser
-    return File(stream, "application/msword", "Result.docx");
+    return File(stream, "application/msword", "Sample.docx");
 }
 {% endhighlight %}
 
 {% highlight Xamarin %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Gets the document text
     string text = document.GetText();
@@ -303,13 +301,13 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     MemoryStream stream = new MemoryStream();
     newdocument.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Result.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
     //Closes the Word document
     newdocument.Close();
     document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}

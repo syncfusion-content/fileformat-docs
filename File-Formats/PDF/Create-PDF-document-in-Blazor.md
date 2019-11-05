@@ -1,12 +1,12 @@
 ---
-title: Create, read, and edit PDF document in Blazor | Syncfusion 
-description: Create, read, and edit PDF document in Blazor using Syncfusion .NET Core PDF (Essential PDF) library
+title: Create or Generate PDF file in Blazor | Syncfusion
+description: Learn how to create or generate a PDF file in Blazor applications with easy steps using Syncfusion .NET Core PDF library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Create, read, and edit PDF document in Blazor
+# Create or Generate PDF file in Blazor
 
 Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) used to create, read, and edit PDF documents in Blazor. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
@@ -22,20 +22,20 @@ For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assembli
 
 Step 1: Create a new C# Blazor server-side application project. Select Blazor App from the template and click the Next button.
 
-![Create Blazor Server Side application in Visual Studio](Create_PDF_Blazor/Blazor_create_project.png)
+![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_create_project.png)
 
 Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 
 
-![Create Blazor Server Side application in Visual Studio](Create_PDF_Blazor/Blazor_images_Server_Creation.png)
+![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_images_Server_Creation.png)
 
 Step 3: Choose Blazor Server App from the dashboard and click Create button to create a new Blazor server-side application.
 
-![Create Blazor Server Side application in Visual Studio](Create_PDF_Blazor/Blazor_images_Server.png)
+![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_images_Server.png)
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
-![Add PDF reference to the project](Create_PDF_Blazor/Blazor_reference.png)
+![Add PDF reference to the project](Create-PDF-Blazor/Blazor_reference.png)
 
 Step 5: Create a new cs file named  ``ExportService`` under ``Data`` folder and include the following namespaces in the file.
 
@@ -220,11 +220,11 @@ Step 8: Add the following JavaScript function in the  ``_Host.cshtml`` available
 
 By executing the program, you will get the following output in the browser.
 
-![Blazor Server-side browser output](Create_PDF_Blazor/Blazor_browser_output.png)
+![Blazor Server-side browser output](Create-PDF-Blazor/Blazor_browser_output.png)
 
 Click the Export to PDF button, and you will get the PDF document with the following output.
 
-![Blazor Server-side PDF output](Create_PDF_Blazor/Blazor_PDF_output.png)
+![Blazor Server-side PDF output](Create-PDF-Blazor/Blazor_PDF_output.png)
 
 N> It is recommended to use Blazor Server-Side application to reduce the pay back load which is high in Blazor Client-Side.
 
@@ -234,19 +234,19 @@ N> It is recommended to use Blazor Server-Side application to reduce the pay bac
 
 Step 1: Create a new C# Blazor client-side application project. Select Blazor App from the template and click the Next button.
 
-![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_create_project.png)
+![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_create_project.png)
 
 Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 
-![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_Client_NewProject.png)
+![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_Client_NewProject.png)
 
 Step 3: Blazor WebAssembly App from the dashboard and click Create button to create a new Blazor client-side application. 
 
-![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_Client_Template.png)
+![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_Client_Template.png)
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
-![Add PDF reference to the project](Create_PDF_Blazor/Blazor_Client_NuGet.png)
+![Add PDF reference to the project](Create-PDF-Blazor/Blazor_Client_NuGet.png)
 
 Step 5: Next, include the following namespaces in that  ``FetchData.razor`` file.
 
@@ -383,8 +383,8 @@ Step 8: Add the following JavaScript function in the ``index.html`` available un
 {% endtabs %}
 By executing the program, you will get the following output in the browser.
 
-![Blazor Client-side browser output](Create_PDF_Blazor/Blazor_Client_WebResult.png)
+![Blazor Client-side browser output](Create-PDF-Blazor/Blazor_Client_WebResult.png)
 
 Click the Export to PDF button and you will get the PDF document with the following output.
 
-![Blazor Client-side PDF output](Create_PDF_Blazor/Blazor_PDF_output.png)
+![Blazor Client-side PDF output](Create-PDF-Blazor/Blazor_PDF_output.png)
