@@ -2046,6 +2046,313 @@ wordDocument.Close()
 
 {% endtabs %}
 
+## Font Substitution
+
+When the necessary fonts used in the Word document has not been installed in the production machine, then Essential DocIO uses the ”Microsoft Sans Serif” as default font for rendering the text. This leads to preservation difference in generated PDF as each font has different glyphs for characters. To learn more about the default font substitution, click [here](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production).
+
+To avoid this, the Essential DocIO library allows you to set an alternate font for the missing font used in the Word document.
+
+### Use alternate font from installed fonts
+
+You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using the [SubstituteFont](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base%7ESyncfusion.DocIO.DLS.FontSettings%7ESubstituteFont_EV.html) event.
+
+The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font not installed in the machine. 
+
+{% tabs %}
+{% highlight C# %}
+//Loads an existing Word document
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
+//Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
+wordDocument.ChartToImageConverter = new ChartToImageConverter();
+//Hooks the font substitution event
+wordDocument.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+//Creates an instance of the DocToPDFConverter
+DocToPDFConverter converter = new DocToPDFConverter();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+//Unhooks the font substitution event after converting to PDF
+wordDocument.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+//Closes the instance of Word document object
+wordDocument.Close();
+//Releases the resources occupied by DocToPDFConverter instance
+converter.Dispose();
+//Saves the PDF file
+pdfDocument.Save("WordtoPDF.pdf");
+//Closes the instance of PDF document object
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Loads an existing Word document
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+'Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
+wordDocument.ChartToImageConverter = New ChartToImageConverter()
+'Hooks the font substitution event
+AddHandler wordDocument.FontSettings.SubstituteFont, AddressOf FontSettings_SubstituteFont
+'Creates an instance of the DocToPDFConverter
+Dim converter As DocToPDFConverter = New DocToPDFConverter
+'Converts Word document into PDF document
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+'Unhooks the font substitution event after converting to PDF
+RemoveHandler wordDocument.FontSettings.SubstituteFont, AddressOf FontSettings_SubstituteFont
+'Closes the instance of Word document object
+wordDocument.Close()
+'Releases the resources occupied by DocToPDFConverter instance
+converter.Dispose()
+'Saves the PDF file
+pdfDocument.Save("WordtoPDF.pdf")
+'Closes the instance of PDF document object
+pdfDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads an existing Word document
+WordDocument document = new WordDocument();
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Hooks the font substitution event
+document.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+DocIORenderer docIORenderer = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+//Unhooks the font substitution event after converting to PDF
+document.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+//Releases all resources used by the Word document and DocIO Renderer objects
+docIORenderer.Dispose();
+document.Close();
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+pdfDocument.Save(stream);
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples.
+Save(stream, "WordToPDF.pdf");
+//Closes the PDF document
+pdfDocument.Close();
+
+//Saves the PDF document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Open the file as Stream
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
+//Loads file stream into Word document
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Docx);
+//Hooks the font substitution event
+wordDocument.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Unhooks the font substitution event after converting to PDF
+wordDocument.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+wordDocument.Dispose();
+//Saves the PDF file
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+outputStream.Position = 0;
+//Download Word document in the browser
+return File(outputStream, "application/pdf", "WordtoPDF.pdf");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Load the Word document as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+//Loads the stream into Word document
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Docx);
+//Hooks the font substitution event
+wordDocument.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Unhooks the font substitution event after converting to PDF
+wordDocument.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+wordDocument.Dispose();
+//Saves the PDF file
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+{% endtabs %}
+
+###### Event Handler to use alternate installed font
+
+The following code example shows how to set the **alternate installed font** instead of "Microsoft Sans Serif" during Word to PDF conversion.
+
+{% tabs %}
+{% highlight c# %}
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+        args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+Private Sub FontSettings_SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+    'Sets the alternate font when a specified font is not installed in the production environment
+    'If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    'For other missing fonts, uses the "Times New Roman"
+    If args.OriginalFontName = "Arial Unicode MS" Then
+        args.AlternateFontName = "Arial"
+    Else
+        args.AlternateFontName = "Times New Roman"
+    End If
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+        args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+        args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
+    //For other missing fonts, uses the "Times New Roman"
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+        args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+{% endtabs %}
+
+###### Event Handler to use alternate font without installing
+
+The following code example shows how to use the alternate fonts instead of "Microsoft Sans Serif" **without installing the fonts** into production machine.
+
+{% tabs %}
+{% highlight c# %}
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+	if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+	    args.AlternateFontStream =  new FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+	else
+	    args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+    'Sets the alternate font when a specified font is not installed in the production environment
+    If args.OrignalFontName = "Arial Unicode MS" && args.FontStyle == FontStyle.Regular Then
+        args.AlternateFontStream = New FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+    Else
+	    args.AlternateFontName = "Times New Roman"
+    End If
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+    if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.TTF");
+    else
+        args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+    if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = new FileStream("Arial.TTF", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    else
+	    args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment
+    if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.TTF");
+    else
+	    args.AlternateFontName = "Times New Roman";
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+N> The above event will be triggered only if the specified font is not installed in production machine.
+
 ## Unsupported elements in Word to PDF conversion
 
 The following table shows the unsupported elements of Word to PDF conversion.
