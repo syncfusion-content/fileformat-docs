@@ -1,12 +1,12 @@
 ---
-title: Open and Save Excel file using C# and VB.NET | Syncfusion
-description: This page describes how to open and save an existing Excel file from or to file system, and stream in C# and VB.NET using Syncfusion .NET Excel library.
+title: Loading and saving workbook
+description: Explains various load and save operations in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Open and Save Excel file in C# and VB.NET
+# Loading and Saving Workbook
 
 ## Opening an existing workbook
 

@@ -1,11 +1,11 @@
 ---
 title: Create, read, and edit Excel files in ASP.NET | Syncfusion
-description: Learn how to create, read, and edit Excel files in ASP.NET Web Forms applications using Syncfusion Essential XlsIO (a .NET Excel library).
+description: Explains how to create, read, and edit Excel files in ASP.NET applications using Syncfusion XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# Create, read, and edit Excel files in ASP.NET Web Forms
+# Create, read, and edit Excel files in ASP.NET
 
 [Syncfusion Excel library for ASP.NET platform](https://www.syncfusion.com/excel-framework/net) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
