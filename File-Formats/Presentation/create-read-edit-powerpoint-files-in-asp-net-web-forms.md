@@ -1,12 +1,12 @@
 ---
-title: Create and edit PowerPoint file in ASP.NET Web Forms | Syncfusion
-description: Learn how to create, read, and edit PowerPoint presentation in ASP.NET Web Forms using Syncfusion .NET PowerPoint library [without Microsoft office or interop].
+title: Create and edit PowerPoint files in ASP.NET |Syncfusion|
+description: ASP.NET PowerPoint library to create, read, edit and convert PowerPoint files in ASP.NET applications.
 platform: file-formats
 control: PowerPoint
 documentation: ug
 ---
 
-# Create, read, and edit a PowerPoint file in ASP.NET
+# Create, read and edit a PowerPoint file in ASP.NET
 
 You can create or edit a PowerPoint file in ASP.NET with Syncfusion PowerPoint library. The below are the steps.
 

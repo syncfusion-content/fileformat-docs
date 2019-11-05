@@ -1,12 +1,12 @@
 ---
-title: Create and edit PowerPoint file in ASP.NET MVC | Syncfusion
-description: Learn how to create, read, and edit PowerPoint presentation file in ASP.NET MVC using Syncfusion .NET PowerPoint library [without Microsoft office or interop].
+title: Create and edit PowerPoint files in ASP.NET MVC |Syncfusion|
+description: ASP.NET MVC PowerPoint library to create, read, edit and convert PowerPoint files in ASP.NET MVC applications.
 platform: file-formats
 control: PowerPoint
 documentation: ug
 ---
 
-# Create, read, and edit a PowerPoint file in ASP.NET MVC
+# Create, read and edit a PowerPoint file in ASP.NET MVC
 
 You can create or edit a PowerPoint file in ASP.NET MVC with Syncfusion PowerPoint library. The below are the steps.
 

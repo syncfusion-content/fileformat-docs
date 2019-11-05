@@ -1,11 +1,11 @@
 ---
-title: Create or Generate PowerPoint file in C# and VB.NET | Syncfusion
-description: Learn how to create or generate PowerPoint presentation in C# and VB.NET using Syncfusion .NET PowerPoint library [without Microsoft office or interop library].
+title: Getting Started with Essential Presentation library |Syncfusion|
+description: Getting started with Essential Presentation library; Creating a PowerPoint Presentation; Modifying the existing PowerPoint presentation
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Create or Generate PowerPoint presentation file in C# and VB.NET
+# Getting Started
 
 ## Creating a simple PowerPoint Presentation with basic elements from scratch
 

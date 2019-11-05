@@ -1,12 +1,12 @@
 ---
-title: Create or Generate PowerPoint file in Blazor | Syncfusion
-description: Learn how to create or generate PowerPoint presentation file in Blazor using Syncfusion .NET Core PowerPoint library [without Microsoft office or interop].
+title: Create PowerPoint document in Blazor | PowerPoint | Syncfusion 
+description: A .NET Core PowerPoint library to create, read and edit PowerPoint files in Blazor applications. Supports text, shape, chart, table and combine PowerPoints.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
 
-# Create or Generate PowerPoint presentation file in Blazor
+# Create PowerPoint document in Blazor
 
 Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net-core) used to create, read, and edit **PowerPoint** documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **create a PowerPoint document in Blazor**.
 
