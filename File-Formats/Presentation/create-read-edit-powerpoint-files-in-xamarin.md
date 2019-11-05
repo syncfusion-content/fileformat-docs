@@ -1,12 +1,12 @@
 ---
-title: Create and edit PowerPoint file in Xamarin | Syncfusion
-description: Learn how to create, read, and edit PowerPoint presentation file in Xamarin using Syncfusion Xamarin PowerPoint library [without Microsoft office or interop].
+title: Create and edit PowerPoint files in Xamarin |Syncfusion|
+description: Xamarin PowerPoint library to create, read, edit and convert PowerPoint files in Xamarin.Forms, Xamarin.Android and Xamarin.iOS platforms
 platform: file-formats
 control: PowerPoint
 documentation: UG
 keywords: Working with presentation library in Xamarin Platform
 ---
-# Create, read, and edit a PowerPoint file in Xamarin
+# Create, read and edit a PowerPoint file in Xamarin
 
 You can create or edit a PowerPoint file in Xamarin with Syncfusion PowerPoint library. The below are the steps.
 
