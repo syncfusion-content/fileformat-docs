@@ -472,7 +472,6 @@ document.Close();
 newDocument.Save("Result.docx", FormatType.Docx);
 //Releases the resources hold by WordDocument instance
 newDocument.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -1536,7 +1535,6 @@ BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
 bookmarkNavigator.MoveToBookmark("Northwind");
 //Gets the bookmark content as WordDocumentPart
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 //Loads the Word document with bookmark NorthwindDB
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
