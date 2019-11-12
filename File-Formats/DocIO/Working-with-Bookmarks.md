@@ -467,6 +467,8 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Close the template Word document
 document.Close();
 newDocument.Save("Result.docx", FormatType.Docx);
@@ -485,6 +487,8 @@ bookmarkNavigator.MoveToBookmark("Northwind")
 Dim wordDocumentPart As WordDocumentPart = bookmarkNavigator.GetContent()
 'Saves the WordDocumentPart as separate Word document
 Dim newDocument As WordDocument = wordDocumentPart.GetAsWordDocument()
+'Close the WordDocumentPart instance
+wordDocumentPart.Close()
 'Close the template Word document
 document.Close()
 newDocument.Save("Result.docx", FormatType.Docx)
@@ -504,6 +508,8 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Close the template Word document
 document.Close();
 //Saves the Word file to MemoryStream
@@ -529,6 +535,8 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Closes the template document
 document.Close();
 MemoryStream stream = new MemoryStream();
@@ -551,6 +559,8 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Close the template document
 document.Close();
 //Saves the Word document to  MemoryStream
@@ -1435,6 +1445,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Closes the template document
 templateDocument.Close();
 document.Save("Result.docx", FormatType.Docx);
@@ -1458,6 +1470,8 @@ bookmarkNavigator = New BookmarksNavigator(document)
 bookmarkNavigator.MoveToBookmark("NorthwindDB")
 'Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart)
+'Close the WordDocumentPart instance
+wordDocumentPart.Close()
 'Closes the template document
 templateDocument.Close()
 document.Save("Result.docx", FormatType.Docx)
@@ -1482,6 +1496,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Closes the template document
 templateDocument.Close();
 //Saves the Word file to MemoryStream
@@ -1513,6 +1529,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Closes the template document
 templateDocument.Close();
 //Saves the Word document to MemoryStream
@@ -1543,6 +1561,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
 //Closes the template document
 templateDocument.Close();
 //Saves the Word document to  MemoryStream
