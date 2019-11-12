@@ -467,10 +467,12 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the template Word document
+document.Close();
 newDocument.Save("Result.docx", FormatType.Docx);
 //Releases the resources hold by WordDocument instance
 newDocument.Close();
-document.Close();
+
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -484,10 +486,11 @@ bookmarkNavigator.MoveToBookmark("Northwind")
 Dim wordDocumentPart As WordDocumentPart = bookmarkNavigator.GetContent()
 'Saves the WordDocumentPart as separate Word document
 Dim newDocument As WordDocument = wordDocumentPart.GetAsWordDocument()
+'Close the template Word document
+document.Close()
 newDocument.Save("Result.docx", FormatType.Docx)
 'Releases the resources hold by WordDocument instance
 newDocument.Close()
-document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -502,6 +505,8 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the template Word document
+document.Close();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await newDocument.SaveAsync(stream, FormatType.Docx);
@@ -509,7 +514,6 @@ await newDocument.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Result.docx");
 //Releases the resources hold by WordDocument instance
 newDocument.Close();
-document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -526,10 +530,10 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Closes the template document
+document.Close();
 MemoryStream stream = new MemoryStream();
 newDocument.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
 newDocument.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -548,6 +552,8 @@ bookmarkNavigator.MoveToBookmark("Northwind");
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 //Saves the WordDocumentPart as separate Word document
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the template document
+document.Close();
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 newDocument.Save(stream, FormatType.Docx);
@@ -557,7 +563,6 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Releases the resources hold by WordDocument instance
 newDocument.Close();
-document.Close();
 {% endhighlight %}
 
 {% endtabs %}  
@@ -1423,8 +1428,6 @@ BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
 bookmarkNavigator.MoveToBookmark("Northwind");
 //Gets the bookmark content as WordDocumentPart
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-//Closes the template document
-templateDocument.Close();
 //Loads the Word document with bookmark NorthwindDB
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -1433,6 +1436,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Closes the template document
+templateDocument.Close();
 document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
@@ -1446,8 +1451,6 @@ Dim bookmarkNavigator As New BookmarksNavigator(templateDocument)
 bookmarkNavigator.MoveToBookmark("Northwind")
 'Gets the bookmark content as WordDocumentPart
 Dim wordDocumentPart As WordDocumentPart = bookmarkNavigator.GetContent()
-'Closes the template document
-templateDocument.Close()
 'Loads the Word document with bookmark NorthwindDB
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
@@ -1456,6 +1459,8 @@ bookmarkNavigator = New BookmarksNavigator(document)
 bookmarkNavigator.MoveToBookmark("NorthwindDB")
 'Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart)
+'Closes the template document
+templateDocument.Close()
 document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
@@ -1470,8 +1475,6 @@ BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
 bookmarkNavigator.MoveToBookmark("Northwind");
 //Gets the bookmark content as WordDocumentPart
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-//Closes the template document
-templateDocument.Close();
 //Loads the Word document with bookmark NorthwindDB
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -1480,6 +1483,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Closes the template document
+templateDocument.Close();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -1500,8 +1505,6 @@ BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
 bookmarkNavigator.MoveToBookmark("Northwind");
 //Gets the bookmark content as WordDocumentPart
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-//Closes the template document
-templateDocument.Close();
 //Loads the Word document with bookmark NorthwindDB
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1511,6 +1514,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Closes the template document
+templateDocument.Close();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -1531,8 +1536,7 @@ BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
 bookmarkNavigator.MoveToBookmark("Northwind");
 //Gets the bookmark content as WordDocumentPart
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-//Closes the template document
-templateDocument.Close();
+
 //Loads the Word document with bookmark NorthwindDB
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -1541,6 +1545,8 @@ bookmarkNavigator = new BookmarksNavigator(document);
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 //Replaces the bookmark content with word body part
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Closes the template document
+templateDocument.Close();
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
