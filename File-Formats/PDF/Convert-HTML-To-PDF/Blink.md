@@ -1969,3 +1969,23 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+## Troubleshooting
+
+<table>
+	<tr>
+		<td>HTML conversion support in Azure</td>
+	</tr>
+	<tr>
+		<td>Azure App Service</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<td>Azure Functions</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<td>Azure Cloud Service</td>
+		<td>Yes</td>
+	</tr>
+</table>

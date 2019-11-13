@@ -404,3 +404,21 @@ The issue may be due to the slow Internet connection or due to the behavior that
 </td>
 </tr>
 </table>
+
+<table>
+	<tr>
+		<td>HTML conversion support in Azure</td>
+	</tr>
+	<tr>
+		<td>Azure App Service</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<td>Azure Functions</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<td>Azure Cloud Service</td>
+		<td>Yes</td>
+	</tr>
+</table>
