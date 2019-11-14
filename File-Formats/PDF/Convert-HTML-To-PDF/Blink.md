@@ -2242,18 +2242,18 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 
 <table>
 	<tr>
-		<td>HTML conversion support in Azure</td>
+		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
 	</tr>
 	<tr>
-		<td>Azure App Service</td>
+		<th style="font-size:14px">Azure App Service</th>
 		<td>No</td>
 	</tr>
 	<tr>
-		<td>Azure Functions</td>
+		<th style="font-size:14px">Azure Functions</th>
 		<td>No</td>
 	</tr>
 	<tr>
-		<td>Azure Cloud Service</td>
+		<th style="font-size:14px">Azure Cloud Service</th>
 		<td>Yes</td>
 	</tr>
 </table>
