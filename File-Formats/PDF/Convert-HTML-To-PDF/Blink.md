@@ -2075,7 +2075,33 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>For converting HTML to PDF in Blink, you need to refer to the Newtonsoft.Json assembly or NuGet package with version 6.0.8 or above in the application, otherwise conversion will get failed.
+<td>For converting HTML to PDF in Blink, you need to refer to the Newtonsoft.Json assembly or NuGet package with version 6.0.8 in the application, otherwise conversion will get failed.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>The exception may occurs if the Newtonsoft.Json assembly or NuGet package version is above 6.0.8.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>The Newtonsoft.Json package version is above 6.0.8, then include the following assembly binding redirection in the web.config file.
+<br><br/>
+{% highlight html %}
+
+<runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-8.0.0.0" newVersion="8.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+</runtime>
+{% endhighlight %}
+
 </td>
 </tr>
 
@@ -2102,7 +2128,7 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>This exception occurs when the Microsoft ClientWebSocket implementation is not available for Windows 7/Windows server 2008 environments.
+<td>The exception may occurs in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
 </td>
 </tr>
 <tr>
@@ -2165,14 +2191,21 @@ Please check the HTML file or URL is rendered properly in Chrome browser’s pri
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome this issue, add suitable delay for the conversion using the AdditionalDelay property of the HTMLConverter. 
+<td>To overcome this issue, add suitable delay for the conversion using the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~AdditionalDelay.html) property of the HTMLConverter. 
+<br><br/>
+{% highlight c# %}
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+settings.AdditionalDelay = 2000;
+
+{% endhighlight %}
 </td>
 </tr>
 
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>While converting the HTML string to PDF, the resource path (Base URL) becomes invalid.
+<td>While converting HTML string to PDF, the resources may be missed due to the invalid Base URL.
 </td>
 </tr>
 <tr>
