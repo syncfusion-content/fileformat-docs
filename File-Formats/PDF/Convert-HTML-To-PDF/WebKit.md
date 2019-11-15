@@ -3594,18 +3594,18 @@ Issue
 
 <table>
 	<tr>
-		<td>HTML conversion support in Azure</td>
+		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
 	</tr>
 	<tr>
-		<td>Azure App Service</td>
+		<th style="font-size:14px">Azure App Service</th>
 		<td>Yes (Except Free/Shared plan)</td>
 	</tr>
 	<tr>
-		<td>Azure Functions</td>
+		<th style="font-size:14px">Azure Functions</th>
 		<td>Yes (Except consumption plan)</td>
 	</tr>
 	<tr>
-		<td>Azure Cloud Service</td>
+		<th style="font-size:14px">Azure Cloud Service</th>
 		<td>Yes</td>
 	</tr>
 </table>
