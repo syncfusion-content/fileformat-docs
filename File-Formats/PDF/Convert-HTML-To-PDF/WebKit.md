@@ -3593,7 +3593,24 @@ Issue
 </table>
 
 <table>
+	<tr>
+		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
+	</tr>
+	<tr>
+		<th style="font-size:14px">Azure App Service</th>
+		<td>Yes (Except Free/Shared plan)</td>
+	</tr>
+	<tr>
+		<th style="font-size:14px">Azure Functions</th>
+		<td>Yes (Except consumption plan)</td>
+	</tr>
+	<tr>
+		<th style="font-size:14px">Azure Cloud Service</th>
+		<td>Yes</td>
+	</tr>
+</table>
 
+<table>
 <th style="font-size:14px">Issue
 </th>
 <th style="font-size:14px">Failed to convert Webpage Exception in Server
