@@ -2088,7 +2088,7 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>The Newtonsoft.Json package version is above 6.0.8, then include the following assembly binding redirection in the web.config file.
+<td>The Newtonsoft.Json package version is above 6.0.8, then include the following assembly binding redirection in the app.config/web.config file.
 <br><br/>
 {% highlight html %}
 
@@ -2134,7 +2134,7 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>When converting HTML to PDF using Blink in Windows 7/Windows server 2008 environment, add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
+<td>To overcome the exception in Windows 7/Windows server 2008 environment, kindly add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
 </td>
 </tr>
 
