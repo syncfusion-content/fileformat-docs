@@ -224,6 +224,7 @@ Now, SkiaSharp.Linux NuGet will be generated in the mentioned output directory a
 Frequently Asked Questions
 * [How to copy necessary fonts to Linux containers?](https://help.syncfusion.com/file-formats/docio/faq#how-to-copy-necessary-fonts-to-linux-containers)
 * [How to set culture / locale in Docker containers (Windows & Linux containers)?](https://help.syncfusion.com/file-formats/docio/faq#how-to-set-culturelocale-in-docker-containers-windows-and-linux-containers)
+* [How to copy necessary Microsoft compatible fonts to Linux?](https://help.syncfusion.com/file-formats/docio/faq#How-to-copy-necessary-Microsoft-compatible-fonts-to-Linux)
 * [How to resolve LibSkiaSharp not found Exception?](https://help.syncfusion.com/file-formats/docio/faq#how-to-resolve-libskiasharp-not-found-exception)
 
 ## Customization settings
