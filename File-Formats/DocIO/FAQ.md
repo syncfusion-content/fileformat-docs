@@ -4168,6 +4168,22 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 
  {% endtabs %}  
  
+## How to copy necessary Microsoft compatible fonts to Linux
+
+The fonts present in the location(in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
+
+Use the following code example to install the Microsoft compatible fonts to linux.
+
+{% tabs %} 
+
+{% highlight Linux %}
+sudo apt-get install ttf-mscorefonts-installer
+{% endhighlight %}
+
+{% endtabs %} 
+
+After the installation, the necessary Microsoft compatible fonts will be available in this location "/usr/share/fonts/truetype/msttcorefonts", which will be considered for conversion.
+ 
 ## How to set culture/locale in Docker containers (Windows and Linux containers)
  
 By default, Culture/Locale that is specified in the container image will be used in Docker containers.
