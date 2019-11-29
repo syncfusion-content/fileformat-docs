@@ -1,6 +1,6 @@
 ---
 title: FAQ/How to | DocIO | Syncfusion
-description: This section illustrates about FAQs in Essential Syncfusion Word library (Essential DocIO)
+description: This section illustrates about Frequently Asked Questions in Essential Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
