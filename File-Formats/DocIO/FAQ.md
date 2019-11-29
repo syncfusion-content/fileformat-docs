@@ -1,6 +1,6 @@
 ---
 title: FAQ/How to | DocIO | Syncfusion
-description: This section illustrates about FAQs
+description: This section illustrates about Frequently Asked Questions in Essential Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -4167,6 +4167,22 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 {% endhighlight %}
 
  {% endtabs %}  
+ 
+## How to copy necessary Microsoft compatible fonts to Linux
+
+The fonts present in the location(in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
+
+Use the following code example to install the Microsoft compatible fonts to linux.
+
+{% tabs %} 
+
+{% highlight Linux %}
+sudo apt-get install ttf-mscorefonts-installer
+{% endhighlight %}
+
+{% endtabs %} 
+
+After the installation, the necessary Microsoft compatible fonts will be available in this location "/usr/share/fonts/truetype/msttcorefonts", which will be considered for conversion.
  
 ## How to set culture/locale in Docker containers (Windows and Linux containers)
  
