@@ -27,7 +27,7 @@ Package manager console command
 </thead>
 <tr>
 <td>
-Windows Forms
+Windows Forms, Console Application (Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.DocIO.WinForms.nupkg
@@ -45,6 +45,17 @@ Syncfusion.DocIO.Wpf.nupkg
 </td>
 <td>
 Install-Package Syncfusion.DocIO.Wpf
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+Syncfusion.DocIO.ClientProfile.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.ClientProfile
 </td>
 </tr>
 <tr>
@@ -82,7 +93,7 @@ Install-Package Syncfusion.DocIO.AspNet.Mvc5
 </tr>
 <tr>
 <td>
-ASP.NET Core and Blazor
+ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 Syncfusion.DocIO.Net.Core.nupkg
@@ -138,7 +149,7 @@ Package manager console command
 </thead>
 <tr>
 <td>
-Windows Forms
+Windows Forms, Console Application (Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.DocToPdfConverter.WinForms.nupkg
@@ -156,6 +167,17 @@ Syncfusion.DocToPdfConverter.Wpf.nupkg
 </td>
 <td>
 Install-Package Syncfusion.DocToPdfConverter.Wpf
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+Syncfusion.DocToPdfConverter.ClientProfile.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocToPdfConverter.ClientProfile
 </td>
 </tr>
 <tr>
@@ -193,7 +215,7 @@ Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc5
 </tr>
 <tr>
 <td>
-ASP.NET Core and Blazor
+ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 Syncfusion.DocIORenderer.Net.Core.nupkg
@@ -241,7 +263,7 @@ Package manager console command
 </thead>
 <tr>
 <td>
-Windows Forms
+Windows Forms, Console Application (Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.OfficeChartToImageConverter.WinForms.nupkg
