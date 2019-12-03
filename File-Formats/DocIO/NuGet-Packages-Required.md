@@ -93,7 +93,7 @@ Install-Package Syncfusion.DocIO.AspNet.Mvc5
 </tr>
 <tr>
 <td>
-ASP.NET Core , Console Application (Targeting .NET Core) and Blazor
+ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 Syncfusion.DocIO.Net.Core.nupkg
