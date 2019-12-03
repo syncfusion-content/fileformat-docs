@@ -18,7 +18,7 @@ To work with PDF documents, the following NuGet packages need to be installed in
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -75,7 +75,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting NET Core)  
+ASP.NET Core (Targeting NET Core)<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
@@ -117,7 +117,7 @@ For converting HTML to PDF using IE rendering engine, the following NuGet packag
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -169,7 +169,7 @@ For converting HTML to PDF using QtWebkit rendering engine, the following NuGet 
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -210,7 +210,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core  
+ASP.NET Core<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
@@ -230,7 +230,7 @@ For converting HTML to PDF using Blink rendering engine, the following NuGet pac
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -278,7 +278,7 @@ For recognizing text from the scanned PDF document, the following NuGet packages
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -332,7 +332,7 @@ For converting Word document into PDF, the following NuGet packages need to be i
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -381,7 +381,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core  
+ASP.NET Core<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
@@ -413,7 +413,7 @@ For converting Excel document into PDF, the following NuGet packages need to be 
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -462,7 +462,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .NET Core)  
+ASP.NET Core (Targeting .NET Core)<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
@@ -494,7 +494,7 @@ For converting PowerPoint Presentation to PDF, the following NuGet packages need
 </tr>
 <tr>
 <td>
-Windows Forms  
+Windows Forms<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -535,7 +535,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .NET Core)  
+ASP.NET Core (Targeting .NET Core)<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
