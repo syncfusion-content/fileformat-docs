@@ -1,6 +1,6 @@
 ---
 title: Required NuGet Packages for PowerPoint library |Syncfusion|
-description: Required NuGet Packages for PowerPoint library
+description: This section illustrates the NuGet packages required to use Syncfusion PowerPoint library (Essential Presentation) in various platforms and frameworks
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -18,7 +18,7 @@ To work with PowerPoint Presentations, install the following NuGet packages in y
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms, Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.Presentation.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/)'| markdownify }}
@@ -30,6 +30,14 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.Presentation.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -66,7 +74,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core and Blazor
+ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 {{'[Syncfusion.Presentation.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/)'| markdownify }}
@@ -98,7 +106,7 @@ For converting PowerPoint Presentation into PDF, install the following NuGet pac
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms, Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.PresentationToPDFConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/)'| markdownify }}
@@ -110,6 +118,14 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.PresentationToPDFConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.PresentationToPDFConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -138,7 +154,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP, ASP.NET Core and Blazor
+UWP, ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
@@ -172,7 +188,7 @@ For converting a PowerPoint Presentation to image, install the following NuGet p
 <tbody>
 <tr>
 <td>
-Windows Forms
+Windows Forms, Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.Presentation.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/)'| markdownify }}
@@ -184,6 +200,14 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.Presentation.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -220,7 +244,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core and Blazor
+ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
@@ -254,7 +278,7 @@ The following NuGet package should be installed additionally to convert the char
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms, Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.OfficeChartToImageConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.OfficeChartToImageConverter.WinForms/)'| markdownify }}
@@ -302,7 +326,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core and Blazor
+ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
