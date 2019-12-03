@@ -1,5 +1,5 @@
 ---
-title: NuGet Packages for PDF
+title: NuGet Packages for PDF | Syncfusion
 description: NuGet Packages for PDF library
 platform: file-formats
 control: PDF
