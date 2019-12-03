@@ -1,6 +1,6 @@
 ---
 title: NuGet Packages for PDF | Syncfusion
-description: NuGet Packages for PDF library
+description: This section illustrates the NuGet packages required to use Syncfusion PDF library (Essential PDF) in various platforms and frameworks
 platform: file-formats
 control: PDF
 documentation: UG
@@ -479,7 +479,7 @@ Xamarin
 </tr>
 </table>
 
-N> Excel to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications. 
+N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards
 
 ## Converting Presentation document to PDF
 
@@ -552,7 +552,7 @@ Xamarin
 </tr>
 </table>
 
-N> Presentation to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications.   
+N> PowerPoint Presentation to PDF conversion is supported from .NET Standard 1.4 onwards for ASP.NET Core and Xamarin.
 
 ## NuGet Package Installation and Uninstallation
 
