@@ -18,7 +18,8 @@ To work with PDF documents, the following NuGet packages need to be installed in
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.Pdf.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.WinForms/)'| markdownify }}
@@ -30,6 +31,14 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.Pdf.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.Pdf.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -66,7 +75,8 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting NET Core)
+ASP.NET Core (Targeting NET Core)  
+Console Application (Targeting .NET Core)
 </td>
 <td>
 {{'[Syncfusion.Pdf.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/)'| markdownify }}
@@ -107,7 +117,8 @@ For converting HTML to PDF using IE rendering engine, the following NuGet packag
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.HtmlToPdfConverter.IE.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.WinForms/)'| markdownify }}
@@ -158,7 +169,8 @@ For converting HTML to PDF using QtWebkit rendering engine, the following NuGet 
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms/)'| markdownify }}
@@ -198,7 +210,8 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core  
+Console Application (Targeting .NET Core)
 </td>
 <td>
 {{'[Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/)'| markdownify }}
@@ -217,7 +230,8 @@ For converting HTML to PDF using Blink rendering engine, the following NuGet pac
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.HtmlToPdfConverter.Blink.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.WinForms/)'| markdownify }}
@@ -264,7 +278,8 @@ For recognizing text from the scanned PDF document, the following NuGet packages
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.PDF.OCR.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/)'| markdownify }}
@@ -317,7 +332,8 @@ For converting Word document into PDF, the following NuGet packages need to be i
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.DocToPdfConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/)'| markdownify }}
@@ -329,6 +345,14 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.DocToPdfConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.DocToPdfConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -357,7 +381,8 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core  
+Console Application (Targeting .NET Core)
 </td>
 <td>
 {{'[Syncfusion.DocIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)'| markdownify }}
@@ -388,7 +413,8 @@ For converting Excel document into PDF, the following NuGet packages need to be 
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.ExcelToPDFConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms/)'| markdownify }}
@@ -400,6 +426,14 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.ExcelToPDFConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.ExcelToPDFConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -426,6 +460,23 @@ ASP.NET MVC5
 {{'[Syncfusion.ExcelToPDFConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+ASP.NET Core (Targeting .NET Core)  
+Console Application (Targeting .NET Core)
+</td>
+<td>
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+</td>
+</tr>
 </table>
 
 N> Excel to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications. 
@@ -443,7 +494,8 @@ For converting PowerPoint Presentation to PDF, the following NuGet packages need
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms  
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.PresentationToPdfConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/)'| markdownify }}
@@ -479,6 +531,23 @@ ASP.NET MVC5
 </td>
 <td>
 {{'[Syncfusion.PresentationToPdfConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Targeting .NET Core)  
+Console Application (Targeting .NET Core)
+</td>
+<td>
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
 </td>
 </tr>
 </table>
