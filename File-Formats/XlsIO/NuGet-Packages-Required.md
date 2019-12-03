@@ -76,7 +76,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .NET Core)<br/>
+ASP.NET Core (Targeting .NET Core),<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
@@ -138,7 +138,7 @@ WPF
 .NET Framework 3.5 or 4.0 Client Profile
 </td>
 <td>
-{{'[Syncfusion.XlsIO.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.ClientProfile/)'| markdownify }}
+{{'[Syncfusion.ExcelToPdfConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -168,7 +168,8 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and ASP.NET Core (Targeting .NET Core)<br/>
+UWP,<br/> 
+ASP.NET Core (Targeting .NET Core),<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
@@ -259,7 +260,8 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and ASP.NET Core (Targeting .NET Core)<br/>
+UWP,<br/>
+ASP.NET Core (Targeting .NET Core),<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
@@ -350,7 +352,8 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and ASP.NET Core (Targeting .NET Core)<br/>
+UWP,<br/>
+ASP.NET Core (Targeting .NET Core),<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
