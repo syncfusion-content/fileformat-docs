@@ -1,6 +1,6 @@
 ---
 title: Working with Text Extraction | Syncfusion
-description: This section explains how to extract text from the particular page of the PDF document
+description: This section explains how to extract text and its bounds from a particular page or the entire PDF document.
 platform: file-formats
 control: PDF
 documentation: UG
@@ -444,31 +444,67 @@ N> Layout based text extraction may take additional processing time when compare
 
 ### Working with Lines
 
-You can get the line and its properties that contains texts by using [TextLine](https://help.syncfusion.com/cr/xamarin/Syncfusion.Pdf.Portable~Syncfusion.Pdf.TextLine.html). Refer to the following code sample.
+You can get the line and its properties that contains texts by using `TextLine`. Refer to the following code sample.
 
 {% tabs %}
 
 {% highlight C# %}
 
-//PDF supports getting the lines and its properties using TextLine only in Xamarin platform.
+// Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+
+// Get the first page of the loaded PDF document
+PdfPageBase page = loadedDocument.Pages[0];
+
+TextLines lineCollection = new TextLines();
+
+// Extract text from the first page
+string extractedText = page.ExtractText(out lineCollection);
+
+// Gets specific line from the collection
+TextLine line = lineCollection[0];
+
+// Gets bounds of the line
+RectangleF lineBounds = line.Bounds;
+
+// Gets text in the line
+string text = line.Text;
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-//PDF supports getting the lines and its properties using TextLine only in Xamarin platform.
+' Load the existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
+
+' Get the first page of the loaded PDF document
+Dim page As PdfPageBase = loadedDocument.Pages(0)
+
+Dim lineCollection As TextLines = New TextLines()
+
+' Extract text from the first page
+Dim extractedText As String = page.ExtractText(lineCollection)
+
+' Gets specific line from the collection
+Dim line As TextLine = lineCollection(0)
+
+' Gets bounds of the line
+Dim lineBounds As RectangleF = line.Bounds
+
+' Gets text in the line
+Dim text As String = line.Text
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
-//PDF supports getting the lines and its properties using TextLine only in Xamarin platform.
+//PDF supports getting the lines and its properties using TextLine only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports getting the lines and its properties using TextLine only in Xamarin platform.
+//PDF supports getting the lines and its properties using TextLine only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
@@ -511,31 +547,73 @@ List<TextWord> textWordCollection = line.WordCollection;
 
 ### Working with words
  
-You can get the single word and its properties by using [TextWord](https://help.syncfusion.com/cr/xamarin/Syncfusion.Pdf.Portable~Syncfusion.Pdf.TextWord.html). Refer to the following code sample.
+You can get the single word and its properties by using `TextWord`. Refer to the following code sample.
 
 {% tabs %}
 
 {% highlight C# %}
 
-//PDF supports getting the word and its properties using TextWord only in Xamarin platform. 
+// Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+
+// Get the first page of the loaded PDF document
+PdfPageBase page = loadedDocument.Pages[0];
+
+TextLines lineCollection = new TextLines();
+
+// Extract text from the first page
+string extractedText = page.ExtractText(out lineCollection);
+
+// Gets specific line from the collection
+TextLine line = lineCollection[0];
+
+// Gets bounds of the line
+RectangleF lineBounds = line.Bounds;
+
+// Gets text in the line
+string text = line.Text;
+
+// Gets collection of the words in the line
+List<TextWord> textWordCollection = line.WordCollection;
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-//PDF supports getting the word and its properties using TextWord only in Xamarin platform.
+' Load the existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
+
+' Get the first page of the loaded PDF document
+Dim page As PdfPageBase = loadedDocument.Pages(0)
+
+Dim lineCollection As TextLines = New TextLines()
+
+' Extract text from the first page
+Dim extractedText As String = page.ExtractText(lineCollection)
+
+' Gets specific line from the collection
+Dim line As TextLine = lineCollection(0)
+
+' Gets bounds of the line
+Dim lineBounds As RectangleF = line.Bounds
+
+' Gets text in the line
+Dim text As String = line.Text
+
+' Gets collection of the words in the line
+Dim textWordCollection As List(Of TextWord) = line.WordCollection
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
-//PDF supports getting the word and its properties using TextWord only in Xamarin platform.
+//PDF supports getting the word and its properties using TextWord only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports getting the word and its properties using TextWord only in Xamarin platform.
+//PDF supports getting the word and its properties using TextWord only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
