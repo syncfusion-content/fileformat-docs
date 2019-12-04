@@ -1,6 +1,6 @@
 ---
 title: Working with image extraction | Syncfusion
-description: This section explains extracting image from PDF document using Essential PDF
+description: This section explains extracting images and image information from PDF document using Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG
