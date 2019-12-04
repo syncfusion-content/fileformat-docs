@@ -444,7 +444,7 @@ N> Layout based text extraction may take additional processing time when compare
 
 ### Working with Lines
 
-You can get the line and its properties that contains texts by using `TextLine` API. Refer to the following code sample.
+You can get the line and its properties that contains texts by using `TextLine`. Refer to the following code sample.
 
 {% tabs %}
 
@@ -547,7 +547,7 @@ List<TextWord> textWordCollection = line.WordCollection;
 
 ### Working with words
  
-You can get the single word and its properties by using `TextWord` API. Refer to the following code sample.
+You can get the single word and its properties by using `TextWord`. Refer to the following code sample.
 
 {% tabs %}
 
