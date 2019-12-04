@@ -104,7 +104,7 @@ loadedDocument.Close(true);
 
 {% endtabs %}  
 
-N> 1. Essential PDF supports extracting images from PDF with [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in ASP.NET Core.
+N> To extract the images from PDF page in .NET Core, you need to include [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in .NET Core project.
 
 
 ## Image informations
@@ -200,4 +200,4 @@ loadedDocument.Close(true);
 
 {% endtabs %}
 
-N> 1. Essential PDF supports extracting image information from PDF page with [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in ASP.NET Core.
+N> To extract the image information from PDF page in .NET Core, you need to include [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in .NET Core project.
