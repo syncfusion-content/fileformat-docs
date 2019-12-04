@@ -98,28 +98,7 @@ loadedDocument.Close(true);
 
 {% highlight Xamarin %}
 
-
-//Load an existing PDF
-
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Load the first page
-
-PdfPageBase pageBase = loadedDocument.Pages[0];
-
-//Extract images from first page
-
-Image[] extractedImages = pageBase.ExtractImages();
-
-//Close the document
-
-loadedDocument.Close(true);
-
-
-
-
+//PDF supports extracting the images from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
@@ -215,26 +194,7 @@ loadedDocument.Close(true);
 
 {% highlight Xamarin %}
 
-
-//Load an existing PDF
-
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Load the first page
-
-PdfPageBase pageBase = loadedDocument.Pages[0];
-
-//Extracts all the images info from first page
-
-PdfImageInfo[] imagesInfo= pageBase.GetImagesInfo();
-
-//Close the document
-
-loadedDocument.Close(true);
-
-
+//PDF supports extracting the image information from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
