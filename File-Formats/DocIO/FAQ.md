@@ -4172,11 +4172,11 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 
 The fonts present in the location(in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
 
-Use the following code example to install the Microsoft compatible fonts to linux.
+Use the following code example to install the Microsoft compatible fonts to Linux.
 
 {% tabs %} 
 
-{% highlight Linux %}
+{% highlight Kconfig %}
 sudo apt-get install ttf-mscorefonts-installer
 {% endhighlight %}
 
