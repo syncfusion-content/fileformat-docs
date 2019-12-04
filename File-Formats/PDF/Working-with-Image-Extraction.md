@@ -1,34 +1,34 @@
 ---
 title: Working with image extraction | Syncfusion
-description: This section explains extracting images and image information from PDF document using Essential PDF
+description: This section explains extracting image from PDF document using Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with image extraction
+# Working with Image Extraction
 
-Essential PDF provides the support to extract images from a particular page or an entire PDF document.You can extract the images from a page using the [ExtractImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ExtractImages().html) method in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
+Essential PDF provides the support to extract images from a particular page or an entire PDF document. You can extract the images from a page using the [ExtractImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ExtractImages().html) method in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
 
-Please refer the below code snippet to extract the images from a PDF page.
+Refer to the following code snippet to extract the images from a PDF page.
 
 {% tabs %}  
 
 {% highlight c# %}
 
 
-//Load an existing PDF.
+//Load an existing PDF
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-//Load first page.
+//Load the first page
 
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
-//Extract images from first page.
+//Extract images from first page
 
 Image[] extractedImages = pageBase.ExtractImages();
 
-//close the document
+//Close the document
 
 loadedDocument.Close(true);
 
@@ -41,19 +41,19 @@ loadedDocument.Close(true);
 {% highlight vb.net %}
 
 
-'Load an existing PDF.
+'Load an existing PDF
 
 Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-'Load first page.
+'Load the first page
 
 Dim pageBase As PdfPageBase = loadedDocument.Pages(0)
 
-'Extract images from first page.
+'Extract images from first page
 
 Dim extractedImages As Image() = pageBase.ExtractImages()
 
-'close the document.
+'Close the document
 
 loadedDocument.Close(True)
 
@@ -65,28 +65,28 @@ loadedDocument.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports extract the images from PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//PDF supports extracting the images from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
 
-//Load an existing PDF.
+//Load an existing PDF
 
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
-//Load first page.
+//Load the first page
 
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
-//Extract images from first page.
+//Extract images from first page
 
 Image[] extractedImages = pageBase.ExtractImages();
 
-//close the document
+//Close the document
 
 loadedDocument.Close(true);
 
@@ -99,21 +99,21 @@ loadedDocument.Close(true);
 {% highlight Xamarin %}
 
 
-//Load an existing PDF.
+//Load an existing PDF
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
-//Load first page.
+//Load the first page
 
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
-//Extract images from first page.
+//Extract images from first page
 
 Image[] extractedImages = pageBase.ExtractImages();
 
-//close the document
+//Close the document
 
 loadedDocument.Close(true);
 
@@ -130,24 +130,24 @@ N> 1. Essential PDF supports extracting images from PDF with [Syncfusion.Pdf.Ima
 
 ## Image informations
 
-To extract the image properties like bounds, image index etc. from a page, you can use [ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ImagesInfo.html) property in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
+To extract the image properties such as bounds, image index, and more from a page, you can use the [ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ImagesInfo.html) property in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
 
-Please refer the below code snippet to extract the image info from PDF page.
+Refer to the following code snippet to extract the image info from a PDF page.
 
 {% tabs %}  
 
 {% highlight c# %}
 
 
-//Load an existing PDF.
+//Load an existing PDF
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-//Load the first page.
+//Load the first page
 
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
-//Extracts all the images info from first page.
+//Extracts all the images info from first page
 
 PdfImageInfo[] imagesInfo= pageBase.ImagesInfo;
 
@@ -162,19 +162,19 @@ loadedDocument.Close(true);
 {% highlight vb.net %}
 
 
-'Load an existing PDF.
+'Load an existing PDF
 
 Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-'Load first page.
+'Load the first page
 
 Dim pageBase As PdfPageBase = loadedDocument.Pages(0)
 
-'Extracts all the images info from first page.
+'Extracts all the images info from first page
 
 Dim imagesInfo As PdfImageInfo() = pageBase.ImagesInfo
 
-'Close the document.
+'Close the document
 
 loadedDocument.Close(True)
 
@@ -184,24 +184,24 @@ loadedDocument.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports extract the images from PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//PDF supports extracting the images from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
 
-//Load an existing PDF.
+//Load an existing PDF
 
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
-//Load the first page.
+//Load the first page
 
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
-//Extracts all the images info from first page.
+//Extracts all the images info from first page
 
 PdfImageInfo[] imagesInfo= pageBase.GetImagesInfo();
 
@@ -216,17 +216,17 @@ loadedDocument.Close(true);
 {% highlight Xamarin %}
 
 
-//Load an existing PDF.
+//Load an existing PDF
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
-//Load the first page.
+//Load the first page
 
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
-//Extracts all the images info from first page.
+//Extracts all the images info from first page
 
 PdfImageInfo[] imagesInfo= pageBase.GetImagesInfo();
 
