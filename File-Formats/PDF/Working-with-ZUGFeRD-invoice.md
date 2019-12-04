@@ -15,13 +15,19 @@ The Essential PDF provides support to create PDF document with ZUGFeRD invoice.
 
 The Essential PDF has support to create PDF document with PDF/A-3b conformance, which allow to add external file to the PDF document as attachment.
 
-The ZUGFeRD has three conformance levels
+The ZUGFeRD has two versions, ZugferdVersion 1.0 and ZugferdVersion 2.0. The Zugferd 2.0 is an updated version of Zugferd 1.0.
+
+The ZUGFeRD has five conformance levels
 
 * Basic: Represents the structured data for simple invoices. Additional information can be included as free text.
 * Comfort: Represents the structured data for fully automated invoice processing.
 * Extended: Represents the additional structured data for exchanging invoice across different industry segments.
+* Minimum: Represents the basic invoice details compatible with the French Standard Factur-X.
+* EN16931: Represents the fully compliant with the EU Standard, though it only defines the core elements of an invoice.
 
-Using PDF/A-3b conformance, you can create a ZUGFeRD invoice.
+N> * The ZUGFeRD conformance levels “Minimum” and “EN16931” are only supported in ZugferdVersion2.0.
+
+Using PDF/A-3b conformance, you can create a ZUGFeRD invoice with ZugferdVersion2.0. By default, ZugferdVersion1.0 used. 
 
 {% tabs %} 
 
@@ -31,7 +37,12 @@ Using PDF/A-3b conformance, you can create a ZUGFeRD invoice.
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+//Specifies ZugferdVersion and Zugferd Conformance Level
+            
+document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
+
 
 {% endhighlight %}
 
@@ -41,7 +52,11 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B) 
 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
+'Specifies ZugferdVersion and Zugferd Conformance Level
+
+document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931
 
 {% endhighlight %}
 
@@ -51,7 +66,11 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+//Specifies ZugferdVersion and Zugferd Conformance Level
+            
+document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 {% endhighlight %}
 
@@ -61,7 +80,11 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+//Specifies ZugferdVersion and Zugferd Conformance Level
+            
+document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 {% endhighlight %}
 
@@ -71,7 +94,11 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+//Specifies ZugferdVersion and Zugferd Conformance Level
+            
+document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 {% endhighlight %}
 
