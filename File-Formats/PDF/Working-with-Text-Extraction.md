@@ -450,49 +450,49 @@ You can get the line and its properties that contains texts by using `TextLine`.
 
 {% highlight C# %}
 
-	// Load the existing PDF document
-	PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+// Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-	// Get the first page of the loaded PDF document
-	PdfPageBase page = loadedDocument.Pages[0];
+// Get the first page of the loaded PDF document
+PdfPageBase page = loadedDocument.Pages[0];
 
-	TextLines lineCollection = new TextLines();
+TextLines lineCollection = new TextLines();
 
-	// Extract text from the first page
-	string extractedText = page.ExtractText(out lineCollection);
+// Extract text from the first page
+string extractedText = page.ExtractText(out lineCollection);
 
-	// Gets specific line from the collection
-	TextLine line = lineCollection[0];
+// Gets specific line from the collection
+TextLine line = lineCollection[0];
 
-	// Gets bounds of the line
-	RectangleF lineBounds = line.Bounds;
+// Gets bounds of the line
+RectangleF lineBounds = line.Bounds;
 
-	// Gets text in the line
-	string text = line.Text;
+// Gets text in the line
+string text = line.Text;
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-    ' Load the existing PDF document
-	Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
-    
-	' Get the first page of the loaded PDF document
-	Dim page As PdfPageBase = loadedDocument.Pages(0)
-    
-	Dim lineCollection As TextLines = New TextLines()
-    
-	' Extract text from the first page
-	Dim extractedText As String = page.ExtractText(lineCollection)
-    
-	' Gets specific line from the collection
-	Dim line As TextLine = lineCollection(0)
-	
-	' Gets bounds of the line
-    Dim lineBounds As RectangleF = line.Bounds
-	
-	' Gets text in the line
-    Dim text As String = line.Text
+' Load the existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
+
+' Get the first page of the loaded PDF document
+Dim page As PdfPageBase = loadedDocument.Pages(0)
+
+Dim lineCollection As TextLines = New TextLines()
+
+' Extract text from the first page
+Dim extractedText As String = page.ExtractText(lineCollection)
+
+' Gets specific line from the collection
+Dim line As TextLine = lineCollection(0)
+
+' Gets bounds of the line
+Dim lineBounds As RectangleF = line.Bounds
+
+' Gets text in the line
+Dim text As String = line.Text
 
 {% endhighlight %}
 
@@ -553,55 +553,55 @@ You can get the single word and its properties by using `TextWord`. Refer to the
 
 {% highlight C# %}
 
-	// Load the existing PDF document
-	PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+// Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-	// Get the first page of the loaded PDF document
-	PdfPageBase page = loadedDocument.Pages[0];
+// Get the first page of the loaded PDF document
+PdfPageBase page = loadedDocument.Pages[0];
 
-	TextLines lineCollection = new TextLines();
+TextLines lineCollection = new TextLines();
 
-	// Extract text from the first page
-	string extractedText = page.ExtractText(out lineCollection);
+// Extract text from the first page
+string extractedText = page.ExtractText(out lineCollection);
 
-	// Gets specific line from the collection
-	TextLine line = lineCollection[0];
+// Gets specific line from the collection
+TextLine line = lineCollection[0];
 
-	// Gets bounds of the line
-	RectangleF lineBounds = line.Bounds;
+// Gets bounds of the line
+RectangleF lineBounds = line.Bounds;
 
-	// Gets text in the line
-	string text = line.Text;
-	
-	// Gets collection of the words in the line
-	List<TextWord> textWordCollection = line.WordCollection;
+// Gets text in the line
+string text = line.Text;
+
+// Gets collection of the words in the line
+List<TextWord> textWordCollection = line.WordCollection;
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-    ' Load the existing PDF document
-	Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
-    
-	' Get the first page of the loaded PDF document
-	Dim page As PdfPageBase = loadedDocument.Pages(0)
-    
-	Dim lineCollection As TextLines = New TextLines()
-    
-	' Extract text from the first page
-	Dim extractedText As String = page.ExtractText(lineCollection)
-    
-	' Gets specific line from the collection
-	Dim line As TextLine = lineCollection(0)
-	
-	' Gets bounds of the line
-    Dim lineBounds As RectangleF = line.Bounds
-	
-	' Gets text in the line
-    Dim text As String = line.Text
-	
-	' Gets collection of the words in the line
-	Dim textWordCollection As List(Of TextWord) = line.WordCollection
+' Load the existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
+
+' Get the first page of the loaded PDF document
+Dim page As PdfPageBase = loadedDocument.Pages(0)
+
+Dim lineCollection As TextLines = New TextLines()
+
+' Extract text from the first page
+Dim extractedText As String = page.ExtractText(lineCollection)
+
+' Gets specific line from the collection
+Dim line As TextLine = lineCollection(0)
+
+' Gets bounds of the line
+Dim lineBounds As RectangleF = line.Bounds
+
+' Gets text in the line
+Dim text As String = line.Text
+
+' Gets collection of the words in the line
+Dim textWordCollection As List(Of TextWord) = line.WordCollection
 
 {% endhighlight %}
 
