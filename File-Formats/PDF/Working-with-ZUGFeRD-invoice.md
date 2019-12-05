@@ -27,6 +27,63 @@ The ZUGFeRD has five conformance levels
 
 N> * The ZUGFeRD conformance levels “Minimum” and “EN16931” are only supported in ZugferdVersion2.0.
 
+Using PDF/A-3b conformance, you can create a ZUGFeRD invoice.
+
+{% tabs %} 
+
+{% highlight c# %}
+
+//Create ZUGFeRD invoice PDF
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create ZUGFeRD invoice PDF
+
+Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B) 
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create ZUGFeRD invoice PDF
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create ZUGFeRD invoice PDF
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create ZUGFeRD invoice PDF
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+
 Using PDF/A-3b conformance, you can create a ZUGFeRD invoice with ZugferdVersion2.0. By default, ZugferdVersion1.0 used. 
 
 {% tabs %} 
@@ -37,12 +94,9 @@ Using PDF/A-3b conformance, you can create a ZUGFeRD invoice with ZugferdVersion
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-//Specifies ZugferdVersion and Zugferd Conformance Level
+//Specifies ZugferdVersion 
             
 document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
-
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
-
 
 {% endhighlight %}
 
@@ -52,11 +106,9 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B) 
 
-'Specifies ZugferdVersion and Zugferd Conformance Level
+'Specifies ZugferdVersion 
 
 document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0
-
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931
 
 {% endhighlight %}
 
@@ -66,11 +118,9 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-//Specifies ZugferdVersion and Zugferd Conformance Level
+//Specifies ZugferdVersion
             
 document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
-
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 {% endhighlight %}
 
@@ -80,11 +130,9 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-//Specifies ZugferdVersion and Zugferd Conformance Level
+//Specifies ZugferdVersion
             
 document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
-
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 {% endhighlight %}
 
@@ -94,11 +142,9 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-//Specifies ZugferdVersion and Zugferd Conformance Level
+//Specifies ZugferdVersion 
             
 document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
-
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.EN16931;
 
 {% endhighlight %}
 
