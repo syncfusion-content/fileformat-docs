@@ -22,7 +22,7 @@ The ZUGFeRD has five conformance levels
 * Basic: Represents the structured data for simple invoices. Additional information can be included as free text.
 * Comfort: Represents the structured data for fully automated invoice processing.
 * Extended: Represents the additional structured data for exchanging invoice across different industry segments.
-* Minimum: Represents the basic invoice details compatible with the French Standard Factor-X.
+* Minimum: Represents the basic invoice details compatible with the French Standard Factur-X.
 * EN16931: Represents the fully compliant with the EU Standard, though it only defines the core elements of an invoice.
 
 N> * The ZUGFeRD conformance levels “Minimum” and “EN16931” are only supported in ZugferdVersion2.0.
