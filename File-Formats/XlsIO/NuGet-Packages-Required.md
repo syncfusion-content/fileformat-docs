@@ -1,6 +1,6 @@
 ---
 title: NuGet Packages for XlsIO | Syncfusion
-description: NuGet Packages for XlsIO library
+description: This section illustrates the NuGet packages required to use Syncfusion Excel library (Essential XlsIO) in various platforms and frameworks.
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -18,7 +18,8 @@ To work with Excel documents, the following NuGet packages need to be installed 
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms,<br/>
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms/)'| markdownify }}
@@ -34,7 +35,16 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms, ASP.NET Core(Targeting .NET Framework)
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.XlsIO.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.ClientProfile/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web Forms,<br/>
+ASP.NET Core (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet/)'| markdownify }}
@@ -66,7 +76,8 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .net core application)
+ASP.NET Core (Targeting .NET Core),<br/>
+Console Application (Targeting .NET Core)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/)'| markdownify }}
@@ -107,7 +118,8 @@ For converting Excel document into PDF, the following NuGet packages need to be 
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms,<br/>
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.ExcelToPDFConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms/)'| markdownify }}
@@ -123,7 +135,16 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.ExcelToPdfConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.ClientProfile/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web Forms,<br/>
+ASP.NET Core (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.ExcelToPDFConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet/)'| markdownify }}
@@ -147,7 +168,9 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and .NET Core
+UWP,<br/> 
+ASP.NET Core (Targeting .NET Core),<br/>
+Console Application (Targeting .NET Core)
 </td>
 <td>
 {{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
@@ -187,7 +210,8 @@ For converting an Excel worksheet to image, the following NuGet packages need to
 <tbody>
 <tr>
 <td>
-Windows Forms
+Windows Forms,<br/>
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms/)'| markdownify }}
@@ -203,7 +227,16 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+{{'[Syncfusion.XlsIO.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.ClientProfile/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web Forms,<br/>
+ASP.NET Core (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet/)'| markdownify }}
@@ -227,7 +260,9 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and .NET Core
+UWP,<br/>
+ASP.NET Core (Targeting .NET Core),<br/>
+Console Application (Targeting .NET Core)
 </td>
 <td>
 {{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
@@ -267,7 +302,8 @@ The below NuGet package need to be installed additionally to convert the charts 
 </tr>
 <tr>
 <td>
-Windows Forms
+Windows Forms,<br/>
+Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.ExcelChartToImageConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.WinForms/)'| markdownify }}
@@ -283,7 +319,8 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms
+ASP.NET Web Forms,<br/>
+ASP.NET Core (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.ExcelChartToImageConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet/)'| markdownify }}
@@ -307,7 +344,9 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and .NET Core
+UWP,<br/>
+ASP.NET Core (Targeting .NET Core),<br/>
+Console Application (Targeting .NET Core)
 </td>
 <td>
 {{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
