@@ -24,7 +24,7 @@ N> 2. To know more details about PDF/X standard refer [https://en.wikipedia.org/
 
 N> Essential PDF supports PDF conformances only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
-## Adding support for PDF/A-1b conformance.
+## PDF/A-1b conformance.
 
 
 You can create a PDF/A-1b document by specifying the conformance level as ```Pdf_A1B``` through [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfConformanceLevel.html) Enum when creating the new PDF document, as shown below.
@@ -267,7 +267,7 @@ else
 
 {% endtabs %}  
 
-## Adding support for PDF/A-2b conformance.
+## PDF/A-2b conformance.
 
 You can create a PDF/A-2b document by specifying the conformance level as ```Pdf_A2B``` through [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfConformanceLevel.html) Enum when creating the new PDF document as follows.
 
@@ -495,7 +495,7 @@ else
 
 {% endtabs %}  
 
-## Adding support for PDF/A-3b conformance.
+## PDF/A-3b conformance.
 
 The PDF/A-3b conformance supports the external files as attachment to the PDF document, so you can attach any document format such as Excel, Word, HTML, CAD, or XML files.
 
@@ -811,7 +811,7 @@ else
 {% endtabs %}  
 
 
-## Adding support for PDF/A-1a conformance.
+## PDF/A-1a conformance.
 
 PDF/A-1a conformance includes all PDF/A-1b requirements in addition to the features intended to improve a document's accessibility. PDF/A-1a conformance additionally have crucial properties of Tagged PDF.
 
@@ -1056,7 +1056,7 @@ else
 {% endtabs %}  
 
 
-## Adding support for PDF/A-2a conformance.
+## PDF/A-2a conformance.
 
 PDF/A-2a conformance includes all PDF/A-2b requirements in addition to the features intended to improve a document's accessibility. PDF/A-2a conformance additionally have crucial properties of Tagged PDF.
 
@@ -1287,7 +1287,7 @@ else
 {% endtabs %}  
 
 
-## Adding support for PDF/A-3a conformance.
+## PDF/A-3a conformance.
 
 PDF/A-3a conformance includes all PDF/A-3b requirements in addition to the features intended to improve a document's accessibility. PDF/A-3a conformance additionally have crucial properties of Tagged PDF.
 
@@ -1601,7 +1601,7 @@ else
 {% endtabs %}  
 
 
-## Adding support for PDF/A-2u conformance.
+## PDF/A-2u conformance.
 
 PDF/A-2u conformance includes all PDF/A-2b requirements, and additionally Unicode mapping for all text in the document. 
 
@@ -1832,7 +1832,7 @@ else
 {% endtabs %}  
 
 
-## Adding support for PDF/A-3u conformance.
+## PDF/A-3u conformance.
 
 PDF/A-3u conformance includes all PDF/A-3b requirements, and additionally Unicode mapping for all text in the document. 
 
@@ -2146,7 +2146,7 @@ else
 {% endtabs %}  
 
 
-## Adding support for PDF/X-1a conformance.
+## PDF/X-1a conformance.
 
 You can create a PDF/X-1a document by specifying the conformance level as ```Pdf_X1A2001``` through [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfConformanceLevel.html) Enum when creating the new PDF document, as shown below.
 
@@ -2239,7 +2239,7 @@ document.Close(True)
 {% endtabs %}  
 
 
-## Converting PDF to PDF/A-1b.
+## PDF to PDF/A-1b conversion
 
 An existing PDF document can be converted to PDF/A-1b conformance document, by setting the [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~Conformance.html) value in the [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) to ```Pdf_A1B``` of  [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfConformanceLevel.html). Refer the below code snippet to achieve the same.
 
