@@ -1837,7 +1837,7 @@ X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
 //Create LTV with your public certificates
 
-signature.CreateLtv(new List<X509Certificate2> { x509 });
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
 
 //Save and close the PDF document
 
@@ -1871,7 +1871,7 @@ Dim x509 As X509Certificate2 = New X509Certificate2("PDF.pfx", "password123")
 
 'Create LTV with your public certificates
 
-signature.CreateLtv(New List(Of X509Certificate2) From { x509 })
+signature.CreateLongTermValidity(New List(Of X509Certificate2) From { x509 })
 
 'Save and close the PDF document
 
@@ -1909,7 +1909,7 @@ X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
 //Create LTV with your public certificates
 
-signature.CreateLtv(new List<X509Certificate2> { x509 });
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
 
 //Save the PDF document
 
@@ -1953,7 +1953,7 @@ X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
 //Create LTV with your public certificates
 
-signature.CreateLtv(new List<X509Certificate2> { x509 });
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
 
 //Save the PDF document
 
@@ -2009,7 +2009,7 @@ X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
 //Create LTV with your public certificates
 
-signature.CreateLtv(new List<X509Certificate2> { x509 });
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
 
 //Save the PDF document
 
