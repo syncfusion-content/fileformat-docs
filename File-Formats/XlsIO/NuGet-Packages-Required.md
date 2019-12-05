@@ -319,14 +319,6 @@ WPF
 </tr>
 <tr>
 <td>
-.NET Framework 3.5 or 4.0 Client Profile
-</td>
-<td>
-{{'[Syncfusion.XlsIO.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.ClientProfile/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
 ASP.NET Web Forms,<br/>
 ASP.NET Core (Targeting .NET Framework)
 </td>
