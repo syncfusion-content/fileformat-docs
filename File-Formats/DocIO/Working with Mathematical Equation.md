@@ -9,15 +9,15 @@ documentation: UG
 
 Equations in Word document are combination of mathematical symbols or text. For example, you can create a Fourier series equation in Word document.
 
-![Mathematical equation in Microsoft Word document](WorkingwithMathematicalEquation_images/WorkingwithMathematicalEquation_img1.jpeg)
+![Mathematical equation in Microsoft Word document](WorkingwithMathematicalEquation_images/Mathematical Equation.png)
 
-N>You can use mathematical equation only in documents that are saved in the Open XML Format and cannot be used in the Word 97-2003 document (.doc) format.
+N> You can use mathematical equation only in documents that are saved in the Open XML Format and cannot be used in the Word 97-2003 document (.doc) format.
 
 ## Types of equation
 
 The following different structures of equation can be created by using the Essential DocIO.
 
-![Different structures of equation in Microsoft Word application](WorkingwithMathematicalEquation_images/WorkingwithMathematicalEquation_img2.jpeg)
+![Different structures of equation in Microsoft Word application](WorkingwithMathematicalEquation_images/EquationStructures.png)
 
 * Accent
 * Bar
@@ -129,7 +129,7 @@ Save(stream, "Sample.docx ");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE   %}
+{% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -194,8 +194,11 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Bar
+
 You can add a bar (which adds horizontal line on top or bottom) to the equation. The following code example shows how to add a bar to the equation.
+
 {% tabs %}
 {% highlight c# %}
 //Creates a new Word document
@@ -220,6 +223,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -241,6 +245,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -268,7 +273,8 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
-{% highlight ASP.NET CORE   %}
+
+{% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -293,6 +299,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -321,8 +328,11 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
 ### Box
+
 You can add a box to the equation. The following code example shows how to add a box to the equation.
+
 {% tabs %}
 {% highlight c# %}
 //Creates a new Word document
@@ -364,6 +374,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -401,6 +412,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -442,9 +454,11 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "Sample.docx");
-//Please refer the below link to save Word document in UWP platform //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+//Please refer the below link to save Word document in UWP platform 
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
-{% highlight ASP.NET CORE   %}
+
+{% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -488,6 +502,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -534,7 +549,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Border box
+
 You can add a box with the borders on four sides and strikethrough on horizontal, vertical, and diagonal directions to the equation. The following code example shows how to add a border box to the equation.
 {% tabs %}
 {% highlight c# %}
@@ -574,8 +591,8 @@ officeMathRunElement.Item = new WTextRange(document);
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
-
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -611,6 +628,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -653,7 +671,8 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
-{% highlight ASP.NET CORE   %}
+
+{% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -695,6 +714,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -739,7 +759,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Delimiter
+
 You can add a delimiter (parenthesis, square brackets and other characters) to the equation. The following code example shows how to a add delimiter to the equation. 
 {% tabs %}
 {% highlight c# %}
@@ -773,6 +795,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -800,6 +823,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -835,7 +859,8 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
-{% highlight ASP.NET CORE   %}
+
+{% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -870,6 +895,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -907,7 +933,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Equation array
+
 You can create a one dimensional array of equations in Word document. The following code example shows how to create an array of equations.
 {% tabs %}
 {% highlight c# %}
@@ -946,8 +974,8 @@ officeMathRunElement.Item = new WTextRange(document);
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
-
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -981,6 +1009,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1022,6 +1051,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1063,6 +1093,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1106,7 +1137,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Fraction
+
 You can create a fraction equation with a numerator and denominator in Word document. The following code example shows how to create a fraction equation.
 {% tabs %}
 {% highlight c# %}
@@ -1138,6 +1171,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -1163,6 +1197,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1196,6 +1231,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1229,6 +1265,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1264,7 +1301,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Function
+
 You can create trigonometric functions in a Word document. The following code example shows how to create a function.  
 {% tabs %}
 {% highlight c# %}
@@ -1295,6 +1334,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -1319,6 +1359,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1384,6 +1425,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1418,7 +1460,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Group character
+
 You can group mathematical equations by adding a grouping character at above or below to the corresponding equations. The following code example shows how to create an equation with grouping character.
 {% tabs %}
 {% highlight c# %}
@@ -1450,6 +1494,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -1475,6 +1520,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1508,6 +1554,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1541,6 +1588,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1576,7 +1624,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Limit
+
 You can add upper limit or lower limit to the mathematical equation. The following code example shows how to create limit equation.
 {% tabs %}
 {% highlight c# %}
@@ -1616,6 +1666,7 @@ document.Save("Sample.docx");
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -1647,6 +1698,7 @@ document.Save("Sample.docx")
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1688,6 +1740,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1729,6 +1782,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1772,7 +1826,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Matrix
+
 You can create a matrix equation in a Word document. The following code example shows how to create a matrix equation. 
 {% tabs %}
 {% highlight c# %}
@@ -1844,6 +1900,7 @@ document.Save("Sample.docx");
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -1906,6 +1963,7 @@ document.Save("Sample.docx")
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -1979,6 +2037,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2053,6 +2112,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2130,7 +2190,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### N-Array
+
 You can create an equation with common large operators such as summation, integrals, union, intersection, logical OR, logical AND, products and co-products. The following code example shows how to create a summation with limits.
 {% tabs %}
 {% highlight c# %}
@@ -2172,6 +2234,7 @@ document.Save("Sample.docx");
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -2208,6 +2271,7 @@ document.Save("Sample.docx")
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2253,6 +2317,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2300,6 +2365,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2346,7 +2412,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Radical
+
 You can create a radical equation in Word document. The following example shows how to create a radical equation.
 {% tabs %}
 {% highlight c# %}
@@ -2377,6 +2445,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -2403,6 +2472,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2435,6 +2505,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2467,6 +2538,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2501,7 +2573,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Phantom
+
 You can create a phantom equation to add the spacing of the phantom
 without displaying that base and suppressing part of the glyph from spacing considerations. The following code example shows how to create a phantom equation.
 {% tabs %}
@@ -2544,6 +2618,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -2578,6 +2653,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2620,6 +2696,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2662,6 +2739,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2706,7 +2784,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### SubSuperscript
+
 You can add a superscript or subscript equation in a Word document. The following code shows how to create a superscript equation.
 {% tabs %}
 {% highlight c# %}
@@ -2739,6 +2819,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -2767,6 +2848,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2802,6 +2884,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2836,6 +2919,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2872,7 +2956,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Left SubSuperscript
+
 You can add superscript and subscript on the left side of mathematical equation. The following code example shows how to add superscript and subscript on the left side of the equation.
 {% tabs %}
 {% highlight c# %}
@@ -2907,6 +2993,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
@@ -2934,6 +3021,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -2970,6 +3058,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -3045,7 +3134,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ### Right SubSuperscript
+
 You can add superscript and subscript on the right side of mathematical equation. The following code example shows how to add superscript and subscript on the right side of the equation.
 {% tabs %}
 {% highlight c# %}
@@ -3229,9 +3320,11 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
 ## Modify existing equation
+
 You can add or modify the text and formatting of existing mathematical equation in Word document. The following screenshots shows an existing mathematical equation in the input Word document. 
-![Existing mathematical equation in Word document](WorkingwithMathematicalEquation_images/WorkingwithMathematicalEquation_img3.jpeg)
+![Existing mathematical equation in Word document](WorkingwithMathematicalEquation_images/EditEquation.png)
 
 The following code example shows how to modify an existing mathematical equation in the Word document.
 {% tabs %}
@@ -3269,6 +3362,7 @@ document.Save("Sample.docx");
 //Close the word document
 document.Close();
 {% endhighlight %}
+
 {% highlight vb.net %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
@@ -3301,6 +3395,7 @@ document.Save("Sample.docx")
 'Close the word document
 document.Close()
 {% endhighlight %}
+
 {% highlight UWP %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing Word document
@@ -3337,8 +3432,10 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "Sample.docx");
-//Please refer the below link to save Word document in UWP platform //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+//Please refer the below link to save Word document in UWP platform 
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 //Opens an existing Word document
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open, FileAccess.ReadWrite);
@@ -3379,10 +3476,8 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
-{% endtabs %}
-<table>
-<tr>
-<td>
+
+{% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing Word document
 Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -3419,12 +3514,9 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "application/msword", stream);
-</td>
-<td>
+{% endhighlight %}
+{% endtabs %}
 
-</td>
-</tr>
-</table>
 By executing the above code example, it generates output Word document as follows.
-![Resultant output Word document](WorkingwithMathematicalEquation_images/WorkingwithMathematicalEquation_img4.jpeg)
+![Resultant output Word document](WorkingwithMathematicalEquation_images/EditedEquation.png)
 
