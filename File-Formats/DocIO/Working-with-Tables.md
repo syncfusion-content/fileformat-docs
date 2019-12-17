@@ -1439,7 +1439,154 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %} 
+
+### Resize table
+
+You can apply **autofit options** to automatically resize the table to fit it contents and fit within window. The following code example shows how to resize the table in a Word document. 
+
+{% tabs %} 
+
+{% highlight c# %}
+//Creates an instance of WordDocument class (Empty Word Document)*'| markdownify }}
+WordDocument document = new WordDocument();
+//Opens an existing Word document into DocIO instance
+document.Open("Template", FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Resizes the table to fit the contents respect to the contents
+table.AutoFit(AutoFitType.FitToContent);
+//Accesses the instance of the second table in the section
+table = section.Tables[1] as WTable;
+//Resizes the table to fit the contents respect to window/page width
+table.AutoFit(AutoFitType.FitToWindow);
+//Accesses the instance of the third table in the section
+table = section.Tables[2] as WTable;
+//Resizes the table to fit the contents respect to fixed column width
+table.AutoFit(AutoFitType.FixedColumnWidth);
+//Saves and closes the document instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %} 
+
+{% highlight vb.net %}
+'Creates an instance of WordDocument class (Empty Word Document)
+Dim document As WordDocument = New WordDocument
+'Opens an existing Word document into DocIO instance
+document.Open("Template", FormatType.Docx)
+Dim section As WSection = document.Sections(0)
+Dim table As WTable = CType(section.Tables(0), WTable)
+'Resizes the table to fit the contents respect to the contents
+table.AutoFit(AutoFitType.FitToContent)
+'Accesses the instance of the second table in the section
+table = CType(section.Tables(1), WTable)
+'Resizes the table to fit the contents respect to window/page width
+table.AutoFit(AutoFitType.FitToWindow)
+'Accesses the instance of the third table in the section
+table = CType(section.Tables(2), WTable)
+'Resizes the table to fit the contents respect to fixed column width
+table.AutoFit(AutoFitType.FixedColumnWidth)
+'Saves and closes the document instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %} 
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an instance of WordDocument class (Empty Word Document)
+WordDocument document = new WordDocument();
+//Opens an existing Word document into DocIO instance
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Resizes the table to fit the contents respect to the contents
+table.AutoFit(AutoFitType.FitToContent);
+//Accesses the instance of the second table in the section
+table = section.Tables[1] as WTable;
+//Resizes the table to fit the contents respect to window/page width
+table.AutoFit(AutoFitType.FitToWindow);
+//Accesses the instance of the third table in the section
+table = section.Tables[2] as WTable;
+//Resizes the table to fit the contents respect to fixed column width
+table.AutoFit(AutoFitType.FixedColumnWidth);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Closes the document instance
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+//Creates an instance of WordDocument class (Empty Word Document)
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument();
+//Opens an existing Word document into DocIO instance
+document.Open(fileStreamPath, FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Resizes the table to fit the contents respect to the contents
+table.AutoFit(AutoFitType.FitToContent);
+//Accesses the instance of the second table in the section
+table = section.Tables[1] as WTable;
+//Resizes the table to fit the contents respect to window/page width
+table.AutoFit(AutoFitType.FitToWindow);
+//Accesses the instance of the third table in the section
+table = section.Tables[2] as WTable;
+//Resizes the table to fit the contents respect to fixed column width
+table.AutoFit(AutoFitType.FixedColumnWidth);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight Xamarin %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an instance of WordDocument class (Empty Word Document)
+WordDocument document = new WordDocument();
+//Opens an existing Word document into DocIO instance
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Resizes the table to fit the contents respect to the contents
+table.AutoFit(AutoFitType.FitToContent);
+//Accesses the instance of the second table in the section
+table = section.Tables[1] as WTable;
+//Resizes the table to fit the contents respect to window/page width
+table.AutoFit(AutoFitType.FitToWindow);
+//Accesses the instance of the third table in the section
+table = section.Tables[2] as WTable;
+//Resizes the table to fit the contents respect to fixed column width
+table.AutoFit(AutoFitType.FixedColumnWidth);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document instance
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+{% endtabs %} 
+
+N> In ASP.NET Core, UWP, and Xamarin platforms, to apply autofit for table in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) packages as a reference in your application.
 
 ### Working with Table Style
 
