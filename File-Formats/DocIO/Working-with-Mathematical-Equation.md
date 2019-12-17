@@ -1856,16 +1856,15 @@ mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
 
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
+
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
-
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
@@ -1884,15 +1883,15 @@ officeMathRunElement.Item = new WTextRange(document);
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
-
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
 //Saves the Word document.
@@ -1925,18 +1924,21 @@ mathMatrix.HidePlaceHolders = True
 mathMatrix.RowSpacingRule = SpacingRule.Double
 'Sets row spacing value.
 mathMatrix.RowSpacing = 2
+
 'Adds a new column
 mathMatrix.Columns.Add()
 'Adds a new row
 mathMatrix.Rows.Add()
 'Sets horizontal alignment for column
 mathMatrix.Columns(0).HorizontalAlignment = MathHorizontalAlignment.Left
+
 'Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows(0).Arguments(0)
 'Sets text for argument in first cell in first row
 Dim officeMathRunElement As IOfficeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "1"
+
 'Adds a new column
 mathMatrix.Columns.Add()
 'Adds a new row
@@ -1947,15 +1949,18 @@ officeMath = mathMatrix.Rows(0).Arguments(1)
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "2"
+
 'Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows(1).Arguments(0)
+'Sets text for argument in first cell in second row
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
-'Sets text for the cell[1,0].
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "3"
+
+'Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows(1).Arguments(1)
+'Sets text for argument in second cell in second row
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
-'Sets text for the cell[1,1].
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "4"
 'Saves the Word document.
@@ -1989,16 +1994,15 @@ mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
 
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
+
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
-
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
@@ -2017,15 +2021,15 @@ officeMathRunElement.Item = new WTextRange(document);
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
-
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
 //Saves and closes the Word document instance
@@ -2063,13 +2067,13 @@ mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
 
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
+
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
@@ -2090,19 +2094,17 @@ officeMathRunElement.Item = new WTextRange(document);
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in seond row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
-
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
-
-
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -2145,9 +2147,9 @@ mathMatrix.Columns.Add();
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
+
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
-
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
@@ -2166,19 +2168,17 @@ officeMathRunElement.Item = new WTextRange(document);
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
-
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
-
-
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -3514,6 +3514,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
 
