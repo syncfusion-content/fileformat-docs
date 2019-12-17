@@ -1867,7 +1867,6 @@ mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
 
@@ -1879,20 +1878,20 @@ mathMatrix.Rows.Add();
 officeMath = mathMatrix.Rows[0].Arguments[1];
 //Sets text for argument in second cell in first row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
 //Saves the Word document.
@@ -1937,7 +1936,6 @@ mathMatrix.Columns(0).HorizontalAlignment = MathHorizontalAlignment.Left
 officeMath = mathMatrix.Rows(0).Arguments(0)
 'Sets text for argument in first cell in first row
 Dim officeMathRunElement As IOfficeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
-//Sets text for the cell[0,0].
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "1"
 
@@ -1949,20 +1947,20 @@ mathMatrix.Rows.Add()
 officeMath = mathMatrix.Rows(0).Arguments(1)
 'Sets text for argument in second cell in first row
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
-//Sets text for the cell[0,1].
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "2"
 
 'Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows(1).Arguments(0)
+'Sets text for argument in first cell in second row
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
-'Sets text for the cell[1,0].
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "3"
 
+'Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows(1).Arguments(1)
+'Sets text for argument in second cell in second row
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
-'Sets text for the cell[1,1].
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "4"
 'Saves the Word document.
@@ -2007,7 +2005,6 @@ mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
 
@@ -2019,20 +2016,20 @@ mathMatrix.Rows.Add();
 officeMath = mathMatrix.Rows[0].Arguments[1];
 //Sets text for argument in second cell in first row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
 //Saves and closes the Word document instance
@@ -2081,7 +2078,6 @@ mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
 
@@ -2093,20 +2089,20 @@ mathMatrix.Rows.Add();
 officeMath = mathMatrix.Rows[0].Arguments[1];
 //Sets text for argument in second cell in first row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in seond row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
 //Saves and closes the Word document instance
@@ -2156,7 +2152,6 @@ mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
 
@@ -2168,20 +2163,20 @@ mathMatrix.Rows.Add();
 officeMath = mathMatrix.Rows[0].Arguments[1];
 //Sets text for argument in second cell in first row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[0,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
 
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
+//Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,0].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
 
+//Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
+//Sets text for argument in second cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
-//Sets text for the cell[1,1].
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "4";
 //Saves and closes the Word document instance
