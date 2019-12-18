@@ -1,6 +1,6 @@
 ---
 title: Conditional Formatting | Excel library | Syncfusion
-description: In this section, you can learn how to create and use conditional formatting operations in Excel using XlsIO
+description: Briefs about conditional formatting operations
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -1503,21 +1503,21 @@ The following screenshot represents generated Excel file with unique and duplica
 
 ## Format Top or Bottom Values
 
-Top/Bottom rule in conditional formatting is used to highlight the top or bottom ranked cells in a data range. Top/Bottom conditional formatting rule can be created and customized using the ITopBottom interface in XlsIO.
+Top/Bottom rule in conditional formatting is used to highlight the top or bottom ranked cells in a data range. Top/Bottom conditional formatting rule can be created and customized using the `ITopBottom` interface in XlsIO.
 
-ITopBottom interface properties are
+The properties of `ITopBottom` interface are:
 
-* **Type** - Specifies whether the rank is evaluated from the top or bottom
-* **Percent** - Specifies whether the rank is determined by a percentage value
-* **Rank** - Specifies the maximum number or percentage of cells to be highlighted for this conditional formatting rule
+* **Type** - Specifies whether the rank is evaluated from the top or bottom.
+* **Percent** - Specifies whether the rank is determined by a percentage value.
+* **Rank** - Specifies the maximum number or percentage of cells to be highlighted.
 
-The following screenshot represents the input template for conditional formatting.
+The following screenshot represents the input template of conditional formatting.
 
 ![Conditional formatting input template](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png)
 
 ### Top/Bottom ‘n’ rank values
 
-The below code example shows how to format top 10 rank values cells from the given data range using ITopBottom Type and Rank properties in XlsIO.
+The below code example shows how to format top 10 rank values from the given data range using `ITopBottom` `Type` and `Rank` properties in XlsIO.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1710,15 +1710,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following screenshot represents generated Excel file with TopBottom conditional format when Rank value is set as 10 in XlsIO.
+The following screenshot represents the Excel file generated with TopBottom conditional format with `Rank` set to 10 in XlsIO.
 
 ![Top or Bottom conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
 
-N> ITopBottom Rank value should be in a range between 1 to 1000.
+N> `ITopBottom` `Rank` value should be in a range between 1 and 1000.
 
 ### Top/Bottom ‘n’% rank values
 
-The below code example shows how to format top 50 percentage rank values cells from the given data range using ITopBottom Type, Rank and Percent properties in XlsIO
+The below code example shows how to format top 50 percentage rank values from the given data range using `ITopBottom` `Type`, `Rank` and `Percent` properties in XlsIO
 
 {% tabs %}  
 {% highlight c# %}
@@ -1926,26 +1926,26 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following screenshot represents generated Excel file with TopBottom conditional format when Percent value is set as 50 in XlsIO.
+The following screenshot represents the Excel file generated with TopBottom conditional format with `Percent` value set to 50 in XlsIO.
 
 ![Top or Bottom conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
 
-N> ITopBottom Rank value should be in a range between 1 to 100 when set true to Percent property.
+N> `ITopBottom` `Rank` value should be in a range between 1 and 100 when set true to `Percent` property.
 
 ## Format Above or Below Average Values
 
-Above/Below average rule in conditional formatting is used to highlight the cells which contains above/below the average values in a data range. Top/Bottom conditional formatting rule can be created and customized using the IAboveBelowAverage interface in XlsIO.
+Above/Below average rule in conditional formatting is used to highlight the cells which contains above/below the average values in a data range. Top/Bottom conditional formatting rule can be created and customized using the `IAboveBelowAverage` interface in XlsIO.
 
-IAboveBelowAverage interface properties are:
+The properties of `IAboveBelowAverage` are:
 
-* **AverageType** - Specifies whether the conditional formatting rule looks for cell values above or below the range average or standard deviation.
-* **StdDevValue** - Specifies standard deviation number for AboveBelowAverage conditional formatting rule.
+* **AverageType** - Specifies whether the conditional formatting rule looks for cell values that are above average or below average or standard deviation.
+* **StdDevValue** - Specifies standard deviation number for `AboveBelowAverage` conditional formatting rule.
 
-The following screenshot represents the input template for conditional formatting.
+The following screenshot represents the input template of conditional formatting.
 
 ![Conditional formatting input template](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png)
 
-The below code example shows how to format below average cells from the given data range using IAboveBelowAverage AverageType property in XlsIO.
+The below code example shows how to format a range with values that are below average using `IAboveBelowAverage` `AverageType` property in XlsIO.
 
 {% tabs %}  
 {% highlight c# %}
@@ -2128,13 +2128,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following screenshot represents generated Excel file with AboveBelowAverage conditional format when AverageType is set as Below in XlsIO.
+The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format with `AverageType` set as `Below` in XlsIO.
 
 ![Above or Below Average conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img7.png)
 
 ### Above or Below Standard Deviation values
 
-The below code example shows how to format cells which contains above standard deviation values from the given data range using IAboveBelowAverage AverageType and StdDevValue properties in XlsIO.
+The below code example shows how to format a range with values above standard deviation, using `IAboveBelowAverage` `AverageType` and `StdDevValue` properties in XlsIO.
 
 {% tabs %}  
 {% highlight c# %}
@@ -2332,11 +2332,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following screenshot represents generated Excel file with AboveBelowAverage conditional format when AverageType is set as AboveStdDev in XlsIO.
+The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format when `AverageType` is set as `AboveStdDev` in XlsIO.
 
 ![Above or Below Average conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img8.png)
 
-N> IAboveBelowAverage StdDevValue can be applied only if the AverageType is AboveStdDev or BelowStdDev. The StdDevValue value should be in a range between 1 to 3.
+N> `IAboveBelowAverage` `StdDevValue` can be applied only if the `AverageType` is `AboveStdDev` or `BelowStdDev`. The `StdDevValue` value should be in a range between 1 and 3.
 
 ## Advanced Conditional Format Types 
 
