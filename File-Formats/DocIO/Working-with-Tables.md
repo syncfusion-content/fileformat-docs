@@ -1443,7 +1443,12 @@ document.Close();
 
 ### Resize table
 
-You can apply **autofit options** to automatically resize the table to fit it contents and fit within window. The following code example shows how to resize the table in a Word document. 
+You can apply **autofit options** to automatically resize the table to fit it contents and fit within window. 
+
+![AutoFit options in Word document](WorkingwithTables_images/ResizeTable.png)
+
+The following code example shows how to resize the table in a Word document. 
+
 
 {% tabs %} 
 
