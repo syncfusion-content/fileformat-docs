@@ -385,7 +385,6 @@ Dim math As WMath = document.LastParagraph.AppendMath
 'Adds a new math
 Dim officeMath As IOfficeMath = math.MathParagraph.Maths.Add
 Dim mathBox As IOfficeMathBox = CType(officeMath.Functions.Add(0, MathFunctionType.Box), IOfficeMathBox)
-
 'Adds the run element for box
 Dim officeMathRunElement As IOfficeMathRunElement = CType(officeMath.Functions.Add(0, MathFunctionType.RunElement), IOfficeMathRunElement)
 officeMathRunElement.Item = New WTextRange(document)
@@ -2140,7 +2139,6 @@ mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
 
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
@@ -2293,7 +2291,6 @@ officeMathNArray.HideUpperLimit = false;
 //Enables the flag to set limit position as SubSuperscript
 officeMathNArray.SubSuperscriptLimit = true;
 
-
 IOfficeMathRunElement officeMathRunElement =
 officeMathNArray.Subscript.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
@@ -2339,7 +2336,6 @@ officeMathNArray.HideUpperLimit = false;
 //Enables the flag to set limit position as SubSuperscript
 officeMathNArray.SubSuperscriptLimit = true;
 
-
 IOfficeMathRunElement officeMathRunElement =
 officeMathNArray.Subscript.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
@@ -2354,7 +2350,6 @@ officeMathNArray.Equation.Functions.Add(MathFunctionType.RunElement) as IOfficeM
 officeMathRunElement.Item = new WTextRange(document);
 //Sets text for NArray equation.
 (officeMathRunElement.Item as WTextRange).Text = "x";
-
 
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
@@ -2861,7 +2856,6 @@ IOfficeMath officeMath = wmath.MathParagraph.Maths.Add();
 IOfficeMathScript officeMathScript = officeMath.Functions.Add(0, MathFunctionType.SubSuperscript) as IOfficeMathScript;
 //Sets the type of the script.
 officeMathScript.ScriptType = MathScriptType.Superscript;
-
 //Adds a run element for script.
 IOfficeMathRunElement officeMathRunElement =
 officeMathScript.Script.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
@@ -3069,7 +3063,6 @@ WMath wmath = document.LastParagraph.AppendMath();
 IOfficeMath officeMath = wmath.MathParagraph.Maths.Add();
 //Adds a left subsuperscript equation.
 IOfficeMathLeftScript officeMathLeftSubScript = officeMath.Functions.Add(0, MathFunctionType.LeftSubSuperscript) as IOfficeMathLeftScript;
-
 //Adds run element for left subscript
 IOfficeMathRunElement officeMathRunElement =
 officeMathLeftSubScript.Subscript.Functions.Add(0, MathFunctionType.RunElement) as IOfficeMathRunElement;
