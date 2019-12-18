@@ -71,7 +71,28 @@ loadedDocument.Close(True)
 
 {% highlight ASP.NET Core %}
 
-PDF supports extract the images from PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+//Load an existing PDF
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load the first page
+
+PdfPageBase pageBase = loadedDocument.Pages[0];
+
+//Extract images from first page
+
+Image[] extractedImages = pageBase.ExtractImages();
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+
 
 {% endhighlight %}
 
@@ -82,6 +103,8 @@ PDF supports extract the images from PDF document only in Windows Forms, WPF, AS
 {% endhighlight %}
 
 {% endtabs %}  
+
+N> To extract the images from PDF page in .NET Core, you need to include [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in .NET Core project.
 
 
 ## Image informations
@@ -146,7 +169,26 @@ loadedDocument.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports extract the images from PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+//Load an existing PDF
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load the first page
+
+PdfPageBase pageBase = loadedDocument.Pages[0];
+
+//Extracts all the images info from first page
+
+PdfImageInfo[] imagesInfo= pageBase.GetImagesInfo();
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
 
 {% endhighlight %}
 
@@ -157,3 +199,5 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+N> To extract the image information from PDF page in .NET Core, you need to include [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in .NET Core project.
