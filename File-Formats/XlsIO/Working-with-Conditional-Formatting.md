@@ -1,6 +1,6 @@
 ---
 title: Conditional Formatting | Excel library | Syncfusion
-description: Briefs about conditional formatting operations
+description: In this section, you can learn how to create and use conditional formatting operations in Excel using XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
