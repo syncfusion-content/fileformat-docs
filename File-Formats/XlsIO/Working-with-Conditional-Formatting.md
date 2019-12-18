@@ -1,6 +1,6 @@
 ---
 title: Conditional Formatting | Excel library | Syncfusion
-description: Briefs about conditional formatting operations
+description: In this section, you can learn how to create and use conditional formatting operations in Excel using XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -1500,6 +1500,843 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following screenshot represents generated Excel file with unique and duplicate conditional format in XlsIO.
 ![unique and duplicate conditional Formatting](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img3.jpg)
+
+## Format Top or Bottom Values
+
+Top/Bottom rule in conditional formatting is used to highlight the top or bottom ranked cells in a data range. Top/Bottom conditional formatting rule can be created and customized using the `ITopBottom` interface in XlsIO.
+
+The properties of `ITopBottom` interface are:
+
+* **Type** - Specifies whether the rank is evaluated from the top or bottom.
+* **Percent** - Specifies whether the rank is determined by a percentage value.
+* **Rank** - Specifies the maximum number or percentage of cells to be highlighted.
+
+The following screenshot represents the input template of conditional formatting.
+
+![Conditional formatting input template](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png)
+
+### Top/Bottom ‘n’ rank values
+
+The below code example shows how to format top 10 rank values from the given data range using `ITopBottom` `Type` and `Rank` properties in XlsIO.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+
+    //Set type as Top for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Top;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 10;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+
+    //Saves the Excel
+    workbook.SaveAs("TopBottom.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Applying conditional formatting to "N6:N35".
+    Dim formats As IConditionalFormats = worksheet.Range("N6:N35").ConditionalFormats
+    Dim format As IConditionalFormat = formats.AddCondition()
+	
+	'Set type as Top for TopBottom rule.
+    format.FormatType = ExcelCFType.TopBottom
+    Dim topBottom As ITopBottom = format.TopBottom
+	
+	'Set rank value for the TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Top
+	
+	'Set rank value for the TopBottom rule.
+    topBottom.Rank = 10
+	
+	'Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102)
+	
+	'Saves the Excel
+    workbook.SaveAs("TopBottom.xlsx")
+
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+	//Instantiates the File Picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile openFile = await openPicker.PickSingleFileAsync();
+
+    //Open the workbook
+    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+
+    //Set type as Top for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Top;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 10;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+	
+	//Save the workbook
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "TopBottom";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(outputStorageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+
+    //Set type as Top for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Top;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 10;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+    
+    //Saves the excel document to MemoryStream
+    FileStream stream = new FileStream("TopBottom.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+
+    //Set type as Top for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Top;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 10;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+  
+    stream.Position = 0;
+   
+    //Save the document as file and view the saved document 
+	
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the Excel file generated with TopBottom conditional format with `Rank` set to 10 in XlsIO.
+
+![Top or Bottom conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
+
+N> `ITopBottom` `Rank` value should be in a range between 1 and 1000.
+
+### Top/Bottom ‘n’% rank values
+
+The below code example shows how to format top 50 percentage rank values from the given data range using `ITopBottom` `Type`, `Rank` and `Percent` properties in XlsIO
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+	
+	//Set type as Bottom for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Bottom;
+
+    //Set true to Percent property for TopBottom rule.
+    topBottom.Percent = true;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 50;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+
+    //Saves the Excel
+    workbook.SaveAs("TopBottom.xlsx");   
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Applying conditional formatting to "N6:N35".
+    Dim formats As IConditionalFormats = worksheet.Range("N6:N35").ConditionalFormats
+    Dim format As IConditionalFormat = formats.AddCondition()
+	
+	'Set type as Top for TopBottom rule.
+    format.FormatType = ExcelCFType.TopBottom
+    Dim topBottom As ITopBottom = format.TopBottom
+		
+	'Set type as Bottom for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Bottom
+
+    'Set true to Percent property for TopBottom rule.
+    topBottom.Percent = true
+
+    Set rank value for the TopBottom rule.
+    topBottom.Rank = 50
+	
+	'Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102)
+	
+	'Saves the Excel
+    workbook.SaveAs("TopBottom.xlsx")
+
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+	//Instantiates the File Picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile openFile = await openPicker.PickSingleFileAsync();
+
+    //Open the workbook
+    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+
+    //Set type as Bottom for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Bottom;
+
+    //Set true to Percent property for TopBottom rule.
+    topBottom.Percent = true;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 50;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+	
+	//Save the workbook
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "TopBottom";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(outputStorageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+
+    //Set type as Bottom for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Bottom;
+
+    //Set true to Percent property for TopBottom rule.
+    topBottom.Percent = true;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 50;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+    
+    //Saves the excel document to MemoryStream
+    FileStream stream = new FileStream("TopBottom.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "N6:N35".
+    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying top or bottom rule in the conditional formatting.
+    format.FormatType = ExcelCFType.TopBottom;
+    ITopBottom topBottom = format.TopBottom;
+
+    //Set type as Bottom for TopBottom rule.
+    topBottom.Type = ExcelCFTopBottomType.Bottom;
+
+    //Set true to Percent property for TopBottom rule.
+    topBottom.Percent = true;
+
+    //Set rank value for the TopBottom rule.
+    topBottom.Rank = 50;
+
+    //Set color for Conditional Formattting.
+    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+  
+    stream.Position = 0;
+   
+    //Save the document as file and view the saved document 
+	
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the Excel file generated with TopBottom conditional format with `Percent` value set to 50 in XlsIO.
+
+![Top or Bottom conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
+
+N> `ITopBottom` `Rank` value should be in a range between 1 and 100 when set true to `Percent` property.
+
+## Format Above or Below Average Values
+
+Above/Below average rule in conditional formatting is used to highlight the cells which contains above/below the average values in a data range. Top/Bottom conditional formatting rule can be created and customized using the `IAboveBelowAverage` interface in XlsIO.
+
+The properties of `IAboveBelowAverage` are:
+
+* **AverageType** - Specifies whether the conditional formatting rule looks for cell values that are above average or below average or standard deviation.
+* **StdDevValue** - Specifies standard deviation number for `AboveBelowAverage` conditional formatting rule.
+
+The following screenshot represents the input template of conditional formatting.
+
+![Conditional formatting input template](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png)
+
+The below code example shows how to format a range with values that are below average using `IAboveBelowAverage` `AverageType` property in XlsIO.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as Below for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+    //Saves the Excel
+    workbook.SaveAs("AboveBelowAverage.xlsx");   
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+		
+	'Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    'Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    'Set AverageType as Below for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+
+    'Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+	
+	'Saves the Excel
+    workbook.SaveAs("AboveBelowAverage.xlsx")
+
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+	//Instantiates the File Picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile openFile = await openPicker.PickSingleFileAsync();
+
+    //Open the workbook
+    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as Below for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+	
+	//Save the workbook
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "AboveBelowAverage";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(outputStorageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as Below for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+    
+    //Saves the excel document to MemoryStream
+    FileStream stream = new FileStream("AboveBelowAverage.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as Below for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+  
+    stream.Position = 0;
+   
+    //Save the document as file and view the saved document 
+	
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format with `AverageType` set as `Below` in XlsIO.
+
+![Above or Below Average conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img7.png)
+
+### Above or Below Standard Deviation values
+
+The below code example shows how to format a range with values above standard deviation, using `IAboveBelowAverage` `AverageType` and `StdDevValue` properties in XlsIO.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+
+    //Set value to StdDevValue property for AboveBelowAverage rule.
+    aboveBelowAverage.StdDevValue = 1;
+
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+    //Saves the Excel
+    workbook.SaveAs("AboveBelowAverage.xlsx");   
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+		
+	'Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    'Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    'Set AverageType as AboveStdDev for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev
+
+    'Set value to StdDevValue property for AboveBelowAverage rule.
+    aboveBelowAverage.StdDevValue = 1
+
+    'Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+	
+	'Saves the Excel
+    workbook.SaveAs("AboveBelowAverage.xlsx")
+
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+	//Instantiates the File Picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile openFile = await openPicker.PickSingleFileAsync();
+
+    //Open the workbook
+    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+
+    //Set value to StdDevValue property for AboveBelowAverage rule.
+    aboveBelowAverage.StdDevValue = 1;
+
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+	
+	//Save the workbook
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "AboveBelowAverage";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(outputStorageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+
+    //Set value to StdDevValue property for AboveBelowAverage rule.
+    aboveBelowAverage.StdDevValue = 1;
+
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+    
+    //Saves the excel document to MemoryStream
+    FileStream stream = new FileStream("AboveBelowAverage.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Applying conditional formatting to "M6:M35"
+    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+    IConditionalFormat format = formats.AddCondition();
+
+    //Applying above or below average rule in the conditional formatting
+    format.FormatType = ExcelCFType.AboveBelowAverage;
+    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+
+    //Set value to StdDevValue property for AboveBelowAverage rule.
+    aboveBelowAverage.StdDevValue = 1;
+	
+    //Set color for Conditional Formattting.
+    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+  
+    stream.Position = 0;
+   
+    //Save the document as file and view the saved document 
+	
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format when `AverageType` is set as `AboveStdDev` in XlsIO.
+
+![Above or Below Average conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img8.png)
+
+N> `IAboveBelowAverage` `StdDevValue` can be applied only if the `AverageType` is `AboveStdDev` or `BelowStdDev`. The `StdDevValue` value should be in a range between 1 and 3.
 
 ## Advanced Conditional Format Types 
 
