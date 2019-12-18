@@ -19,7 +19,7 @@ XlsIO supports creating macro in following types using **VbaModuleType** enum.
 * Class
 * MsForm
 
-You can add a vba module through **IVbaModules** interface in XlsIO.
+You can add a Vba module through **IVbaModules** interface in XlsIO.
 
 ### Document
 Document is the default module type which will be added for every worksheet and one for entire workbook while creating VbaProject. 
