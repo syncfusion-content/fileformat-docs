@@ -1155,7 +1155,7 @@ When the shape is clicked, the output looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image8.png)
 
 ### Saving macro enabled document into stream
-By default, while saving the Excel workbook into stream, the filetype will be based on the Excel version used. For Excel97to2003 version, the file format will be XLS type.  Above this version, the document will be saved as XLSX format. So, while saving the macro enabled documents into XLSM and XLTM formats into stream, the **ExcelSaveType** should be provided as **SaveAsMacro** and **SaveAsMacroTemplate**. 
+By default, while saving the Excel workbook into stream, the file type will be based on the Excel version used. For Excel97to2003 version, the file format will be XLS type.  Above this version, the document will be saved as XLSX format. So, while saving the macro enabled documents into XLSM and XLTM formats into stream, the **ExcelSaveType** should be provided as **SaveAsMacro** and **SaveAsMacroTemplate**. 
 
 The following code illustrate how to save macro-enabled documents into stream.
 
@@ -1525,7 +1525,7 @@ Macro in the Excel document can be removed in the following ways.
 * SkipOnSave
 
 ### Remove(string name)
-Macro process exist in the Vba project’s code modules. Inorder to remove a macro, the Vba modules needs to be removed.
+Macro process exist in the Vba project’s code modules. To remove a macro, the Vba modules needs to be removed.
 
 * name – Name of the Vba module needs to be removed.
 
