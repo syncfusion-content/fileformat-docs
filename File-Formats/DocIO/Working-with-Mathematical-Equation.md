@@ -2290,7 +2290,6 @@ officeMathNArray.HideLowerLimit = false;
 officeMathNArray.HideUpperLimit = false;
 //Enables the flag to set limit position as SubSuperscript
 officeMathNArray.SubSuperscriptLimit = true;
-
 IOfficeMathRunElement officeMathRunElement =
 officeMathNArray.Subscript.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
@@ -2335,7 +2334,6 @@ officeMathNArray.HideLowerLimit = false;
 officeMathNArray.HideUpperLimit = false;
 //Enables the flag to set limit position as SubSuperscript
 officeMathNArray.SubSuperscriptLimit = true;
-
 IOfficeMathRunElement officeMathRunElement =
 officeMathNArray.Subscript.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
@@ -2350,7 +2348,6 @@ officeMathNArray.Equation.Functions.Add(MathFunctionType.RunElement) as IOfficeM
 officeMathRunElement.Item = new WTextRange(document);
 //Sets text for NArray equation.
 (officeMathRunElement.Item as WTextRange).Text = "x";
-
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -2381,7 +2378,6 @@ officeMathNArray.HideLowerLimit = false;
 officeMathNArray.HideUpperLimit = false;
 //Enables the flag to set limit position as SubSuperscript
 officeMathNArray.SubSuperscriptLimit = true;
-
 IOfficeMathRunElement officeMathRunElement =
 officeMathNArray.Subscript.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
