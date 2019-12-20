@@ -1657,9 +1657,9 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 
 You can remove the mail merge settings **to restore a Word mail merge main document to a normal Word document**.
 
-For example, consider that you have a template Word document linked with the data source for mail merge process. When opening the document using Microsoft Word application, it prompts a window as shown if linked data source is not found. You can remove the mail merge settings (unlink the data source) to open it as a normal Word document.
+For example, consider that you have a template Word document linked with the data source for mail merge process. When opening the document using Microsoft Word application, it prompts a window as shown. You can remove the mail merge settings (unlink the data source) to open it as a normal Word document.
 
-![Prompt window in Microsoft Word application](MailMerge_images/RemoveMailMergeSettings.png)
+![Prompt window in Microsoft Word application](../MailMerge_images/RemoveMailMergeSettings.png)
 
 The following code example shows how to remove the mail merge settings from the Word document.
 
@@ -1746,7 +1746,7 @@ Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "a
 
 ## Change mail merge data source path 
 
-You can change the existing **data source file path in the Word document**, which is used for mail merge process. 
+You can change the linked **data source file path from a Word mail merge main document**, which is used for mail merge process by Microsoft Word application.
 
 The following code example shows how to change the data source file path in the template Word document. 
 
