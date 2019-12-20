@@ -1652,3 +1652,176 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {% endhighlight %}
 
 {% endtabs %}
+
+## Remove mail merge settings
+
+You can remove the mail merge settings **to restore a Word mail merge main document to a normal Word document**.
+
+For example, consider that you have a template Word document linked with the data source for mail merge process. When opening the document using Microsoft Word application, it prompts a window as shown if linked data source is not found. You can remove the mail merge settings (unlink the data source) to open it as a normal Word document.
+
+![Prompt window in Microsoft Word application](MailMerge_images/RemoveMailMergeSettings.png)
+
+The following code example shows how to remove the mail merge settings from the Word document.
+
+{% tabs %}  
+{% highlight C# %}
+//Opens the template document Word document
+WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
+//Check and removes the mail merge settings
+if (document.MailMerge.Settings.HasData)
+    document.MailMerge.Settings.RemoveData();
+//Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Opens the template document Word document
+Dim document As New WordDocument("Template.docx", FormatType.Docx)
+'Check and removes the mail merge settings
+If document.MailMerge.Settings.HasData Then
+    document.MailMerge.Settings.RemoveData()
+End If
+Saves and closes the Word document instance 
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Opens the template Word document
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Check and removes the mail merge settings in the word document
+if (document.MailMerge.Settings.HasData)
+    document.MailMerge.Settings.RemoveData();
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Opens the template document
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Check and removes the mail merge settings
+if (document.MailMerge.Settings.HasData)
+    document.MailMerge.Settings.RemoveData();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens the template Word document
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Check and removes the mail merge settings in the word document
+if (document.MailMerge.Settings.HasData)
+    document.MailMerge.Settings.RemoveData();
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "application/msword", stream);
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+## Change mail merge data source path 
+
+You can change the existing **data source file path in the Word document**, which is used for mail merge process. 
+
+The following code example shows how to change the data source file path in the template Word document. 
+
+{% tabs %}
+  
+{% highlight C# %}
+//Opens the template document Word document
+WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
+//Change the data source file path
+document.MailMerge.Settings.DataSource = "Document.txt";
+//Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Opens the template document Word document
+Dim document As New WordDocument("Template.docx", FormatType.Docx)
+'Change the data source file path
+document.MailMerge.Settings.DataSource = "Document.txt"
+'Saves and closes the Word document instance 
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Opens the template Word document
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Change the data source file path
+document.MailMerge.Settings.DataSource = "Document.txt";
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Opens the template document
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Change the data source file path
+document.MailMerge.Settings.DataSource = "Document.txt";
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens the template Word document
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Change the data source file path
+document.MailMerge.Settings.DataSource = "Document.txt";
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "application/msword", stream);
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
