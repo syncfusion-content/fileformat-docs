@@ -1659,7 +1659,7 @@ You can remove the mail merge settings **to restore a Word mail merge main docum
 
 For example, consider that you have a template Word document linked with the data source for mail merge process. When opening the document using Microsoft Word application, it prompts a window as shown if linked data source is not found. You can remove the mail merge settings (unlink the data source) to open it as a normal Word document.
 
-![Prompt window in Microsoft Word application](MailMerge_images/RemoveMailMergeSettings.png)
+![Prompt window in Microsoft Word application](../MailMerge_images/RemoveMailMergeSettings.png)
 
 The following code example shows how to remove the mail merge settings from the Word document.
 
