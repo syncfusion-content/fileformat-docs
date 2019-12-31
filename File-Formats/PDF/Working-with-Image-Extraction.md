@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Image Extraction
 
-Essential PDF provides the support to extract images from a particular page or an entire PDF document. You can extract the images from a page using the [ExtractImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ExtractImages().html) method in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
+The Essential PDF provides support to extract images from a particular page or an entire PDF document. You can extract the images from a page using the [ExtractImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ExtractImages().html) method in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
 
 Refer to the following code snippet to extract the images from a PDF page.
 
@@ -151,7 +151,7 @@ Dim pageBase As PdfPageBase = loadedDocument.Pages(0)
 
 'Extracts all the images info from first page
 
-Dim imagesInfo As PdfImageInfo() = pageBase.ImagesInfo
+Dim imagesInfo As PdfImageInfo[] = pageBase.ImagesInfo
 
 'Close the document
 
