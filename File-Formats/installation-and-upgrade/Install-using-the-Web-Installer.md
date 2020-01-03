@@ -12,7 +12,7 @@ documentation: ug
 
 ## Overview
 
-Starting with version 16.2 (2018 Vol 2), Syncfusion provides Web Installer for Essential Studio platforms. This installer reduces the burden of downloading the setup of larger size. You can just download and launch the online installer which will be of smaller size and it will downloads and installs the Essential Studio products you have selected. The Essential Studio Web Installer includes the following platforms. You can download the latest version Essential Studio Web Installer [here](https://www.syncfusion.com/downloads/latest-version) . 
+Starting with version 16.2 (2018 Vol 2), Syncfusion provides Web Installer for Essential Studio platforms. This installer reduces the burden of downloading the installer of larger size. You can just download and launch the online installer which will be of smaller size and it will downloads and installs the Essential Studio products you have selected. The Essential Studio Web Installer includes the following platforms. You can download the latest version Essential Studio Web Installer [here](https://www.syncfusion.com/downloads/latest-version) . 
 
 Starting with the version 17.3 (2019 Vol 3), Syncfusion provides updated version of Web Installer which allows both installation and uninstallation of the platforms for that specific version.
 
@@ -51,14 +51,14 @@ Starting with the version 17.3 (2019 Vol 3), Syncfusion provides updated version
  
 ## Installation
 
-The following procedure illustrates how to install Essential Studio Platform Online Installer setup. 
+The following procedure illustrates how to install Essential Studio Platform Online Installer. 
 
-1.  Double-click the Syncfusion Essential Studio Platform Online Installer setup file. The Setup Wizard opens and extracts the package automatically.
+1.  Double-click the Syncfusion Essential Studio Platform Online Installer file. The installer Wizard opens and extracts the package automatically.
 
-    ![Setup Extraction Wizard](WebInstaller/Step-by-Step-Installation_img1.png)
+    ![Installer Extraction Wizard](WebInstaller/Step-by-Step-Installation_img1.png)
 
     
-    N> The Setup wizard extracts the syncfusionfileformatswebinstaller_{version}.exe dialog, displaying the unzip operation of the package.
+    N> The installer wizard extracts the syncfusionfileformatswebinstaller_{version}.exe dialog, displaying the unzip operation of the package.
     
 2. Welcome wizard of the Syncfusion Online Installer will be displayed. Click Next.
 
@@ -98,7 +98,7 @@ The following procedure illustrates how to install Essential Studio Platform Onl
 
     * Select the **Install Demos** check box to install Syncfusion samples, or leave the check box clear, when you do not want to install Syncfusion samples.
     * Select the **Register Syncfusion Assemblies in GAC** check box to install the latest Syncfusion assemblies in GAC, or clear this check box when you do not want to install the latest assemblies in GAC.
-    * Select the **Configure Syncfusion controls in Visual Studio** check box to configure the Syncfusion controls in the Visual Studio toolbox, or clear this check box when you do not want to configure the Syncfusion controls in the Visual Studio toolbox during setup installation. Note that you must also select the Register Syncfusion assemblies in GAC check box when you select this check box.
+    * Select the **Configure Syncfusion controls in Visual Studio** check box to configure the Syncfusion controls in the Visual Studio toolbox, or clear this check box when you do not want to configure the Syncfusion controls in the Visual Studio toolbox during installation. Note that you must also select the Register Syncfusion assemblies in GAC check box when you select this check box.
     * Select the **Configure Syncfusion Extensions controls in Visual Studio** checkbox to configure the Syncfusion Extensions in Visual Studio or clear this check box when you do not want to configure the Syncfusion Extensions in Visual Studio.
 	* Select the **Create Desktop Shortcut** checkbox to create the desktop shortcut for Syncfusion Control Panel.
 
@@ -126,11 +126,11 @@ The following procedure illustrates how to install Essential Studio Platform Onl
 
 Till version 17.2, Syncfusion Web Installer had option for installation alone. Starting with the version 17.3 (2019 Vol 3), Syncfusion provides option for uninstalling the platforms of the same version from the Web Installer application itself. Select the list of the platforms to be uninstalled and Web Installer will uninstall those platforms one by one.
 
-The following procedure illustrates how to uninstall Essential Studio Platform from Web Installer setup. 
+The following procedure illustrates how to uninstall Essential Studio Platform from Web Installer. 
 
-1.  Double-click the Syncfusion Essential Studio Platform Online Installer setup file. The Setup Wizard opens and extracts the package automatically.
+1.  Double-click the Syncfusion Essential Studio Platform Online Installer file. The installer Wizard opens and extracts the package automatically.
 
-    ![Setup Extraction Wizard uninstall](WebInstaller/Step-by-Step-Installation_img1.png)
+    ![Installer Extraction Wizard uninstall](WebInstaller/Step-by-Step-Installation_img1.png)
 	
 2. Welcome wizard of the Syncfusion Online Installer will be displayed. Click Next.
 
@@ -157,11 +157,11 @@ The following procedure illustrates how to uninstall Essential Studio Platform f
 
 Till version 17.2, Syncfusion Web Installer had option for installation alone. Starting with the version 17.3 (2019 Vol 3), Syncfusion provides option for both install and uninstall the platforms of the same version from the Web Installer application itself.
 
-The following procedure illustrates how to install/uninstall Essential Studio Platform from Web Installer setup. 
+The following procedure illustrates how to install/uninstall Essential Studio Platform from Web Installer. 
 
-1.  Double-click the Syncfusion Essential Studio Platform Online Installer setup file. The Setup Wizard opens and extracts the package automatically.
+1.  Double-click the Syncfusion Essential Studio Platform Online Installer file. The installer Wizard opens and extracts the package automatically.
 
-    ![Setup Extraction Wizard Install/Uninstall](WebInstaller/Step-by-Step-Installation_img1.png)
+    ![Installer Extraction Wizard Install/Uninstall](WebInstaller/Step-by-Step-Installation_img1.png)
 	
 2. Welcome wizard of the Syncfusion Online Installer will be displayed. Click Next.
 
