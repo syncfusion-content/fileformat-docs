@@ -289,6 +289,34 @@ bodyStyle.EndUpdate()
 
 Minimize AutoFit manipulations which reduces the time consumption.
 
+For improved performance in Excel to PDF conversion, it is recommended to set the **IApplication.SkipAutoFitRow** property as TRUE.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+
+//Skips AutoFitting of rows during conversion
+
+application.SkipAutoFitRow = true;
+
+{% endhighlight %}
+
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+
+'Skips AutoFitting of rows during conversion
+
+application.SkipAutoFitRow = True
+
+{% endhighlight %}
+
+  {% endtabs %} 
+
 ## Importing DataTable
 
 **ImportDataTable** overload method which has **ImportOnSave** argument allows you to import data with less memory consumption along with improved method performance by serializing the data directly on save method. This option is preferred for larger data that need to be imported in short time.
