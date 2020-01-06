@@ -1,6 +1,6 @@
 ---
 title: Improving Performance | Syncfusion
-description: Brief about improving performance in XlsIO
+description: This section illustrates about improving the performance in Syncfusion Excel library (Essential XlsIO).
 platform: File-Formats
 control: XlsIO
 documentation: UG
@@ -288,6 +288,34 @@ bodyStyle.EndUpdate()
 ## AutoFit 
 
 Minimize AutoFit manipulations which reduces the time consumption.
+
+For improved performance in Excel to PDF conversion, it is recommended to set the **IApplication.SkipAutoFitRow** property as TRUE.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+
+//Skips AutoFitting of rows during conversion
+
+application.SkipAutoFitRow = true;
+
+{% endhighlight %}
+
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+
+'Skips AutoFitting of rows during conversion
+
+application.SkipAutoFitRow = True
+
+{% endhighlight %}
+
+  {% endtabs %} 
 
 ## Importing DataTable
 
