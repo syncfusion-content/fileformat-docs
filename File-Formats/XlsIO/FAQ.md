@@ -2393,7 +2393,7 @@ End Module
 
 ## How to un-protect the zip files using Syncfusion.Compression.Base?
 
-The following complete code snippet expalins how to unprotect the zip file.
+The following complete code snippet explains how to unprotect the zip file.
 
 {% tabs %}
 {% highlight c# %}
