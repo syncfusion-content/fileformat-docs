@@ -2339,7 +2339,7 @@ End Class
 
 Password is used for protecting files which needs more security. This can be achieved by using various encryption algorithms. The compressed zip files can be protected using encryption algorithms with password as a key for that algorithm. 
 
-Syncfusion.Compression.Base supports AES-128 bits, AES-192 bits, AES-256 bits and ZipCrypto encryption algorithms. These encryption algorithms are available under the enumeration **EncryptionAlgorithm**
+Syncfusion.Compression.Base supports AES-128 bits, AES-192 bits, AES-256 bits and ZipCrypto encryption algorithms. These encryption algorithms are available under the enumeration **EncryptionAlgorithm**.
 
 The following complete code snippet explains how to protect a zip file with password using AES-256 bits encryption algorithm.
 
