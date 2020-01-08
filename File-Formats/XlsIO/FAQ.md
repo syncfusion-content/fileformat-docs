@@ -2335,6 +2335,112 @@ End Class
 
   {% endtabs %}  
 
+## How to protect the zip files with password using Syncfusion.Compression.Base?
+
+Password is used for protecting files which needs more security. This can be achieved by using various encryption algorithms. The compressed zip files can be protected using encryption algorithms with password as a key for that algorithm. 
+
+Syncfusion.Compression.Base supports AES-128 bits, AES-192 bits, AES-256 bits and ZipCrypto encryption algorithms. These encryption algorithms are available under the enumeration **EncryptionAlgorithm**
+
+The following complete code snippet explains how to protect a zip file with password using AES-256 bits encryption algorithm.
+
+{% tabs %}
+{% highlight c# %}
+using Syncfusion.Compression.Zip;
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    //Initialize ZipArchive
+    ZipArchive zipArchive = new ZipArchive();
+
+    //Add files into ZipArchive
+    zipArchive.AddFile("../../Data/Template1.txt");
+    zipArchive.AddFile("../../Data/Template2.txt");
+    zipArchive.AddFile("../../Data/Template3.txt");
+
+    //Protect the ZipArchive with password
+    zipArchive.Protect("Syncfusion", EncryptionAlgorithm.AES256);
+
+    //Save the ZipArchive
+    zipArchive.Save("WithPassword256Bit.zip");
+  }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Imports Syncfusion.Compression.Zip
+
+Module Module1
+  Sub Main()
+    'Initialize ZipArchive
+    Dim zipArchive As ZipArchive = New ZipArchive
+
+    'Add files into ZipArchive
+    zipArchive.AddFile("../../Data/Template1.txt")
+    zipArchive.AddFile("../../Data/Template2.txt")
+    zipArchive.AddFile("../../Data/Template3.txt")
+
+    'Protect the ZipArchive with password
+    zipArchive.Protect("Syncfusion", EncryptionAlgorithm.AES256)
+
+    'Save the ZipArchive
+    zipArchive.Save("WithPassword256Bit.zip")
+  End Sub
+End Module
+{% endhighlight %}
+{% endtabs %}
+
+## How to un-protect the zip files using Syncfusion.Compression.Base?
+
+The following complete code snippet expalins how to unprotect the zip file.
+
+{% tabs %}
+{% highlight c# %}
+using Syncfusion.Compression.Zip;
+using System.IO;
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    //Initailize ZipArchive
+    ZipArchive zipArchive = new ZipArchive();
+
+    //Load the zip file into ZipArchive
+    zipArchive.Open(new FileStream("../../Data/Protected.zip", FileMode.Open), false, "Syncfusion");
+
+    //Unprotect the ZipArchive
+    zipArchive.UnProtect();
+
+    //Save the ZipArchive
+    zipArchive.Save("WithOutPassword.zip");
+  }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Imports Syncfusion.Compression.Zip
+Imports System.IO
+
+Module Module1
+  Sub Main()
+    'Initailize ZipArchive
+    Dim zipArchive As ZipArchive = New ZipArchive
+
+    'Load the zip file into ZipArchive
+    zipArchive.Open(New FileStream("../../Data/Protected.zip", FileMode.Open), False, "Syncfusion")
+
+    'Unprotect the ZipArchive
+    zipArchive.UnProtect()
+
+    'Save the ZipArchive
+    zipArchive.Save("WithOutPassword.zip")
+  End Sub
+End Module
+{% endhighlight %}
+{% endtabs %}
+
 ## Does Essential XlsIO provide support for Client Profile?
 
 Yes, Essential XlsIO provides support for Client Profile. In order to use Essential XlsIO in an application (which targeted to Client Profile), the user should include the following assemblies.
