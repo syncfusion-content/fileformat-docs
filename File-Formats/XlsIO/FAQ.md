@@ -2360,7 +2360,7 @@ class Program
     zipArchive.AddFile("../../Data/Template3.txt");
 
     //Protect the ZipArchive with password
-    zipArchive.Protect("Syncfusion", EncryptionAlgorithm.AES256);
+    zipArchive.Protect("password", EncryptionAlgorithm.AES256);
 
     //Save the ZipArchive
     zipArchive.Save("WithPassword256Bit.zip");
@@ -2382,7 +2382,7 @@ Module Module1
     zipArchive.AddFile("../../Data/Template3.txt")
 
     'Protect the ZipArchive with password
-    zipArchive.Protect("Syncfusion", EncryptionAlgorithm.AES256)
+    zipArchive.Protect("password", EncryptionAlgorithm.AES256)
 
     'Save the ZipArchive
     zipArchive.Save("WithPassword256Bit.zip")
@@ -2408,7 +2408,7 @@ class Program
     ZipArchive zipArchive = new ZipArchive();
 
     //Load the zip file into ZipArchive
-    zipArchive.Open(new FileStream("../../Data/Protected.zip", FileMode.Open), false, "Syncfusion");
+    zipArchive.Open(new FileStream("../../Data/Protected.zip", FileMode.Open), false, "password");
 
     //Unprotect the ZipArchive
     zipArchive.UnProtect();
@@ -2429,7 +2429,7 @@ Module Module1
     Dim zipArchive As ZipArchive = New ZipArchive
 
     'Load the zip file into ZipArchive
-    zipArchive.Open(New FileStream("../../Data/Protected.zip", FileMode.Open), False, "Syncfusion")
+    zipArchive.Open(New FileStream("../../Data/Protected.zip", FileMode.Open), False, "password")
 
     'Unprotect the ZipArchive
     zipArchive.UnProtect()
