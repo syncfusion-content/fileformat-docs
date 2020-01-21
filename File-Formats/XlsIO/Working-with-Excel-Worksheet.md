@@ -2104,6 +2104,79 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+## Open a CSV File
+
+A CSV file has to be opened by specifying the delimiter set in it. The deliemters used in CSV file are Comma (,), Tab (\t), SemiColon (;) and Space ( ).
+
+The following complete code snippet expalins how to open a Tab (\t) delimited CSV file using XlsIO.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //Open the Comma delimited CSV file
+  IWorkbook workbook = application.Workbooks.Open("Sample.csv", "\t");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  
+  'Open the Comma delimited CSV file
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.csv", "\t")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".csv");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Open the Comma delimited CSV file
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, "\t");
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.csv", FileMode.Open, FileAccess.Read);
+  
+  //Open the Comma delimited CSV file
+  IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.csv");
+  
+  //Open the Comma delimited CSV file
+  IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Save Worksheet as CSV
 
 The following code example illustrates how to save a worksheet as CSV file.
