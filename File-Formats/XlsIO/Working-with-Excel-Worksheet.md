@@ -1,6 +1,6 @@
 ---
-title: Working with Excel Worksheet
-description: Briefs about worksheet operations in XlsIO
+title: Working with Excel Worksheet | Syncfusion
+description: In this section, you can learn about various Excel worksheet operations using Syncfusion Essential XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -257,7 +257,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-T>If the workbook contains multiple worksheet, then the parsing of the workbook will consume time. You can use **ExcelParseOptions****.****ParseWorksheetsOnDemand** in IWorkbooks.Open method which parses the worksheet only when their accessed. This option can be used in a scenario where workbook contains multiple worksheets but you are going to use few worksheets among them.
+T>If the workbook contains multiple worksheet, then the parsing of the workbook will consume time. You can use **ExcelParseOptions****.****ParseWorksheetsOnDemand** in IWorkbooks.Open method which parses the worksheet only when it is accessed. This option can be used in a scenario where workbook contains multiple worksheets but you are going to use few worksheets among them.
 
 {% tabs %}  
 
@@ -2106,9 +2106,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Open a CSV File
 
-A CSV file has to be opened by specifying the delimiter set in it. The deliemters used in CSV file are Comma (,), Tab (\t), SemiColon (;) and Space ( ).
+A CSV file has to be opened by specifying the delimiter set in it. The delimiters used in CSV file are Comma (,), Tab (\t), SemiColon (;) and Space ( ).
 
-The following complete code snippet expalins how to open a Tab (\t) delimited CSV file using XlsIO.
+The following complete code snippet explains how to open a Tab (\t) delimited CSV file using XlsIO.
 
 {% tabs %}
 {% highlight c# %}
