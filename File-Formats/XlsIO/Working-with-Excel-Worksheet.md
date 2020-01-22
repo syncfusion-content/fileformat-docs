@@ -1,6 +1,6 @@
 ---
-title: Working with Excel Worksheet
-description: Briefs about worksheet operations in XlsIO
+title: Working with Excel Worksheet | Syncfusion
+description: In this section, you can learn about various Excel worksheet operations using Syncfusion Essential XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -257,7 +257,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-T>If the workbook contains multiple worksheet, then the parsing of the workbook will consume time. You can use **ExcelParseOptions****.****ParseWorksheetsOnDemand** in IWorkbooks.Open method which parses the worksheet only when their accessed. This option can be used in a scenario where workbook contains multiple worksheets but you are going to use few worksheets among them.
+T>If the workbook contains multiple worksheet, then the parsing of the workbook will consume time. You can use **ExcelParseOptions****.****ParseWorksheetsOnDemand** in IWorkbooks.Open method which parses the worksheet only when it is accessed. This option can be used in a scenario where workbook contains multiple worksheets but you are going to use few worksheets among them.
 
 {% tabs %}  
 
@@ -2100,6 +2100,81 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   {
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Open a CSV File
+
+A CSV file has to be opened by specifying the delimiter set in it. Specifying the delimiter can be ignored, if it is Comma(,), as Syncfusion XlsIO considers the default delimiter as Comma(,).
+
+The delimiters used in CSV file are Comma (,), Tab (\t), SemiColon (;), Colon (:), Space ( ), Equals Sign (=) etc..
+
+The following complete code snippet explains how to open a Tab (\t) delimited CSV file using XlsIO.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //Open the Tab delimited CSV file
+  IWorkbook workbook = application.Workbooks.Open("Sample.csv", "\t");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  
+  'Open the Tab delimited CSV file
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.csv", "\t")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".csv");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Open the Tab delimited CSV file
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, "\t");
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.csv", FileMode.Open, FileAccess.Read);
+  
+  //Open the Tab delimited CSV file
+  IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.csv");
+  
+  //Open the Tab delimited CSV file
+  IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
 }
 {% endhighlight %}
 {% endtabs %}
