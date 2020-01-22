@@ -2106,7 +2106,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Open a CSV File
 
-A CSV file has to be opened by specifying the delimiter set in it. Specifying te delimiter can be ignored, if it is Comma(,), as Syncfusion XlsIO considers the default delimiter as Comma(,).
+A CSV file has to be opened by specifying the delimiter set in it. Specifying the delimiter can be ignored, if it is Comma(,), as Syncfusion XlsIO considers the default delimiter as Comma(,).
 
 The delimiters used in CSV file are Comma (,), Tab (\t), SemiColon (;), Colon (:), Space ( ), Equals Sign (=) etc..
 
