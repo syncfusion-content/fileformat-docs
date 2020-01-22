@@ -2106,7 +2106,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Open a CSV File
 
-A CSV file has to be opened by specifying the delimiter set in it. The delimiters used in CSV file are Comma (,), Tab (\t), SemiColon (;) and Space ( ).
+A CSV file has to be opened by specifying the delimiter set in it. Specifying te delimiter can be ignored, if it is Comma(,), as Syncfusion XlsIO considers the default delimiter as Comma(,).
+
+The delimiters used in CSV file are Comma (,), Tab (\t), SemiColon (;), Colon (:), Space ( ), Equals Sign (=) etc..
 
 The following complete code snippet explains how to open a Tab (\t) delimited CSV file using XlsIO.
 
@@ -2117,7 +2119,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2016;
 
-  //Open the Comma delimited CSV file
+  //Open the Tab delimited CSV file
   IWorkbook workbook = application.Workbooks.Open("Sample.csv", "\t");
 }
 {% endhighlight %}
@@ -2127,7 +2129,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
   
-  'Open the Comma delimited CSV file
+  'Open the Tab delimited CSV file
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.csv", "\t")
 End Using
 {% endhighlight %}
@@ -2144,7 +2146,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   openPicker.FileTypeFilter.Add(".csv");
   StorageFile file = await openPicker.PickSingleFileAsync();
 
-  //Open the Comma delimited CSV file
+  //Open the Tab delimited CSV file
   IWorkbook workbook = await application.Workbooks.OpenAsync(file, "\t");
 }
 {% endhighlight %}
@@ -2156,7 +2158,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   application.DefaultVersion = ExcelVersion.Excel2016;
   FileStream inputStream = new FileStream("Sample.csv", FileMode.Open, FileAccess.Read);
   
-  //Open the Comma delimited CSV file
+  //Open the Tab delimited CSV file
   IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
 }
 {% endhighlight %}
@@ -2171,7 +2173,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
   Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.csv");
   
-  //Open the Comma delimited CSV file
+  //Open the Tab delimited CSV file
   IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
 }
 {% endhighlight %}
