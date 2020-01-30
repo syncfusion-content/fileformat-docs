@@ -526,6 +526,338 @@ public class Customer
 {% endhighlight %}
 {% endtabs %}  
 
+### Import Data Options
+
+ExcelImportDataOptions is a support class for ImportData() method which contains various properties to import data with formatting. 
+
+ExcelImportDataOptions class contains the following properties:
+
+FirstRow - Specifies first row from where the data should be imported.
+FirstColumn - Specifies first column from where the data should be imported.
+IncludeHeader - Specifies whether class properties names must be imported or not.
+PreserveTypes - Indicates whether XlsIO should preserve column types from Data. By default, preserve type is TRUE. Setting it to True will import data based on column type, otherwise will import based on value type.
+
+The following code snippet illustrates how to import collection objects into a worksheet using ImportData method with ExcelImportDataOptions class.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet with Import Data Options
+  IList<Customer> reports = GetSalesReports();
+  
+  ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
+  importDataOptions.FirstRow = 2;
+  importDataOptions.FirstColumn = 1;
+  importDataOptions.IncludeHeader = false;
+  importDataOptions.PreserveTypes = false;
+  
+  worksheet.ImportData(reports, importDataOptions);
+
+  workbook.SaveAs("ImportData.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Import the data to worksheet with Import Data Options
+  Dim reports As IList(Of Customer) = GetSalesReports()
+  
+  Dim importDataOptions As ExcelImportDataOptions = New ExcelImportDataOptions()
+  importDataOptions.FirstRow = 2
+  importDataOptions.FirstColumn = 1
+  importDataOptions.IncludeHeader = False
+  importDataOptions.PreserveTypes = False
+  
+  worksheet.ImportData(output, importDataOptions)
+
+  workbook.SaveAs("ImportData.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet with Import Data Options
+  IList<Customer> reports = GetSalesReports();
+  
+  ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
+  importDataOptions.FirstRow = 2;
+  importDataOptions.FirstColumn = 1;
+  importDataOptions.IncludeHeader = false;
+  importDataOptions.PreserveTypes = false;
+  
+  worksheet.ImportData(reports, importDataOptions);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "ImportData";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet with Import Data Options
+  IList<Customer> reports = GetSalesReports();
+  
+  ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
+  importDataOptions.FirstRow = 2;
+  importDataOptions.FirstColumn = 1;
+  importDataOptions.IncludeHeader = false;
+  importDataOptions.PreserveTypes = false;
+  
+  worksheet.ImportData(reports, importDataOptions);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("ImportData.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet with Import Data Options
+  IList<Customer> reports = GetSalesReports();
+  
+  ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
+  importDataOptions.FirstRow = 2;
+  importDataOptions.FirstColumn = 1;
+  importDataOptions.IncludeHeader = false;
+  importDataOptions.PreserveTypes = false;
+  
+  worksheet.ImportData(reports, importDataOptions);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportData.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportData.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+  List<Customer> reports = new List<Customer>();
+  reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+  reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+  reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+  reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+  reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
+  return reports;
+}
+
+//Customer details
+public class Customer
+{
+  public string SalesPerson { get; set; 
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+
+  public Customer(string name, string janToJun, string julToDec)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+  }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of sales reports
+Public Function GetSalesReports() As List(Of Customer)
+  Dim reports As New List(Of Customer)()
+  reports.Add(New Customer("Andy Bernard", "45000", "58000"))
+  reports.Add(New Customer("Jim Halpert", "34000", "65000"))
+  reports.Add(New Customer("Karen Fillippelli", "75000", "64000"))
+  reports.Add(New Customer("Phyllis Lapin", "56500", "33600"))
+  reports.Add(New Customer("Stanley Hudson", "46500", "52000"))
+  Return reports
+End Function
+
+'Customer details
+Public Class Customer
+  Private m_SalesPerson As String
+  Private m_SalesJanJun As String	
+  Private m_SalesJulDec As String
+
+  Public Property SalesPerson() As String
+  Get
+	Return m_SalesPerson
+  End Get	
+  Set(value As String)
+	m_SalesPerson = Value
+  End Set
+  End Property
+
+  Public Property SalesJanJun() As String
+  Get
+    Return m_SalesJanJun
+  End Get
+  Set(value As String)
+	m_SalesJanJun = Value
+  End Set
+  End Property
+
+  Public Property SalesJulDec() As String
+  Get
+	Return m_SalesJulDec
+  End Get
+  Set(value As String)
+	m_SalesJulDec = Value
+  End Set
+  End Property
+
+  Public Sub New(name As String, janToJun As String, julToDec As String)
+    SalesPerson = name
+	SalesJanJun = janToJun
+	SalesJulDec = julToDec
+  End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+  List<Customer> reports = new List<Customer>();
+  reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+  reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+  reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+  reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+  reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
+  return reports;
+}
+
+//Customer details
+public class Customer
+{
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+
+  public Customer(string name, string janToJun, string julToDec)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+  }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+  List<Customer> reports = new List<Customer>();
+  reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+  reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+  reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+  reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+  reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
+  return reports;
+}
+
+//Customer details
+public class Customer
+{
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+
+  public Customer(string name, string janToJun, string julToDec)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+  }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+  List<Customer> reports = new List<Customer>();
+  reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+  reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+  reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+  reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+  reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
+  return reports;
+}
+
+//Customer details
+public class Customer
+{
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+
+  public Customer(string name, string janToJun, string julToDec)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ### Import Data from Nested Collection Objects
 
 Import hierarchical data from nested collections to Excel worksheet helps the user to analyze data in its structure. XlsIO provides more flexible options to analyze such data by importing in different layouts and grouping the imported data.
