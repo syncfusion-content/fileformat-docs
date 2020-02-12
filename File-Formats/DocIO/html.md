@@ -18,10 +18,12 @@ Every HTML content is validated against a Document Type Declaration (DTD) which 
 
 ### XHTML validation types
 
+The following validation types are supported in DocIO.
+
 <table>
 <thead>
 <tr>
-<td>Validation Type</td>
+<td>XHTML validation types</td>
 <td>Description</td>
 </tr>
 </thead>
@@ -31,11 +33,11 @@ Every HTML content is validated against a Document Type Declaration (DTD) which 
 </tr>
 <tr>
 <td>** XHTMLValidationType.Transitional **</td>
-<td>XHTML 1.0 Transitional DTD allows several attributes within the tags.</td>
+<td>It allows several attributes within the tags.</td>
 </tr>
 <tr>
 <td>** XHTMLValidationType.Strict **</td>
-<td>XHTML 1.0 strict DTD not allows the attributes inside the tag.</td>
+<td>It does not allows the attributes inside the tag.</td>
 </tr>
 </table>
 
