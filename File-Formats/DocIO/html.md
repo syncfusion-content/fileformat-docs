@@ -18,7 +18,7 @@ Every HTML content is validated against a Document Type Declaration (DTD) which 
 
 ### XHTML validation types
 
-The following validation types are supported in DocIO.
+The following XHTML validation types are supported in Essential DocIO while importing an HTML content.
 
 <table>
 <thead>
