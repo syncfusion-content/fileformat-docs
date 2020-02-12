@@ -8,14 +8,43 @@ documentation: UG
 
 # HTML Conversion
 
-The Essential DocIO converts the HTML file into Word document and vice versa. You can also convert the Word document (DOC, DOCX, RTF, DOT, DOTX, DOCM, and DOTM) into HTML format. It supports only the HTML files that meets the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema.
+The Essential DocIO converts the HTML file into Word document and vice versa. You can also convert the Word document (DOC, DOCX, RTF, DOT, DOTX, DOCM, and DOTM) into HTML format. 
+
+In Word library (DocIO) we use [XmlReader](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader?view=netframework-4.8) for parsing the content from input HTML. So, the input HTML should meet XML standard (have proper open and close tags), even if you specify `XHTMLValidationType` parameter as `XHTMLValidationType.None`.
+
+## XHTML Validation
+
+Every HTML content is validated against a Document Type Declaration (DTD) which is a set of mark-up declarations that define a document type for a SGML-family mark-up language (GML, SGML, XML, HTML).
+
+### XHTML validation types
+
+<table>
+<thead>
+<tr>
+<td>Validation Type</td>
+<td>Description</td>
+</tr>
+</thead>
+<tr>
+<td>** XHTMLValidationType.None **</td>
+<td>It does not perform any schema validation but the given HTML content should meet XHTML 1.0 format.</td>
+</tr>
+<tr>
+<td>** XHTMLValidationType.Transitional **</td>
+<td>XHTML 1.0 Transitional DTD allows several attributes within the tags.</td>
+</tr>
+<tr>
+<td>** XHTMLValidationType.Strict **</td>
+<td>XHTML 1.0 strict DTD not allows the attributes inside the tag.</td>
+</tr>
+</table>
 
 The following code example shows how to convert the HTML file into Word document.
 
 {% tabs %}
 {% highlight c# %}
-//Loads the HTML document against transitional schema validation
-WordDocument document = new WordDocument("Input.html", FormatType.Html, XHTMLValidationType.Transitional);
+//Loads the HTML document against validation type none
+WordDocument document = new WordDocument("Input.html", FormatType.Html, XHTMLValidationType.None);
 //Saves the Word document
 document.Save("HTMLtoWord.docx", FormatType.Docx);
 //Closes the document
@@ -23,8 +52,8 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-' Loads the HTML document against transitional schema validation 
-Dim document As New WordDocument("Input.html", FormatType.Html, XHTMLValidationType.Transitional)
+' Loads the HTML document against validation type none
+Dim document As New WordDocument("Input.html", FormatType.Html, XHTMLValidationType.None)
 'Saves the Word document
 document.Save("HTMLtoWord.docx", FormatType.Docx)
 'Closes the document
