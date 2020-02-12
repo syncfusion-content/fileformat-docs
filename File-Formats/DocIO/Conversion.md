@@ -105,6 +105,7 @@ For further information kindly refer [here](https://help.syncfusion.com/file-for
 
 Kindly refer the [here](https://help.syncfusion.com/file-formats/docio/html#supported-and-unsupported-items#) for the document elements and attributes are supported by DocIO in Word to HTML and HTML to Word conversions.
 
+
 ## Text file
 
 Essential DocIO supports to convert the Word document into Text file and vice versa. For further information kindly refer [here](https://help.syncfusion.com/file-formats/docio/text#).
