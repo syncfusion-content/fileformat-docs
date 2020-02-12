@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# HTML Conversion
+# Word to HTML and HTML to Word Conversions
 
 The Essential DocIO converts the HTML file into Word document and vice versa. You can also convert the Word document (DOC, DOCX, RTF, DOT, DOTX, DOCM, and DOTM) into HTML format. 
 
