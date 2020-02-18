@@ -5,7 +5,7 @@ platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Create, read and edit a PowerPoint file in Mac Operatng system
+# Create, read and edit a PowerPoint file in Mac Operating system
 
 You can create or edit a PowerPoint file in ASP.NET Core with Syncfusion PowerPoint library. The below are the steps.
 
@@ -13,17 +13,20 @@ You can create or edit a PowerPoint file in ASP.NET Core with Syncfusion PowerPo
 
 1.Create a new C# ASP.NET Core console application.
 
-![Create ASP.NET Core Web project](Workingwith_Mac/CreateCore.png)
+![Create ASP.NET Core Web project](Workingwith_Mac/CreateProject.png)
 
 2.Select the project version.
 
-![Select Web Application pattern](Workingwith_Mac/MVC.png)
+![Select project version](Workingwith_Mac/selectprojectverion.png)
+![Select project version](Workingwith_Mac/CreateProject1.png)
 
 3.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Presentation .Net Core Nuget](Workingwith_Mac/install_nuget.png)
+![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget1.png)
+![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget.png)
 
 4.Include the following namespaces in the Program.cs file.
+
 {% tabs %}
 
 {% highlight c# %}

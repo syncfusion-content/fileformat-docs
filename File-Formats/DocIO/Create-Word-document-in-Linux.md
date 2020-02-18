@@ -1,6 +1,6 @@
 ---
 title: Create Word document in Linux  | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in ASP.NET Core application using Syncfusion .NET Core Word (Essential DocIO) library in Linux operation system.
+description: Create Word document without Microsoft Word or interop dependencies in ASP.NET Core application using Syncfusion .NET Core Word (Essential DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG

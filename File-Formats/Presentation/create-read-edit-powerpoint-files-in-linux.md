@@ -25,7 +25,7 @@ dotnet new console
 
 ![Create ASP.NET Core Web project](Workingwith_Linux/CreateCore.png)
 
-2.Install the [Syncfusion.Presentatio .Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
+2.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
 
 <table>
 <tr>
