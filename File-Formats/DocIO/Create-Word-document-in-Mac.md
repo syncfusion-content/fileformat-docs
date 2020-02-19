@@ -1,20 +1,20 @@
 ---
-title: Create Word document in Mac | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in ASP.NET Core application using Syncfusion .NET Core Word (Essential DocIO) library.
+title: Create Word document on Mac | Syncfusion
+description: Create Word document in .NET Core Console application on Mac using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Create Word document in Mac Operating System
+# Create Word document on Mac System
 
 Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in ASP.NET Core**.
 
-## Steps to create Word document programmatically:
+## Steps to create Word document programmatically in .NET Core application on Mac system:
 
-1.Create a new ASP.NET Core console project in Mac OS.
+1.Create a new .NET Core console application project on Mac system.
 
-![Create ASP.NET Core Web application in Visual Studio](Mac-images/CreateProject.png)
+![Create .NET Core console application in Visual Studio](Mac-images/CreateProject.png)
 
 2.Select the project version.
 
@@ -277,6 +277,6 @@ outputStream.Dispose();
 
 {% endtabs %}
 
-By executing the program, you will get the **Word document** as follows.
+By executing the program, you will get the **Word document** as follows. The output will be saved in bin folder.
 
 ![ASP.Net Core output Word document](Mac-images/GettingStartedOutput.jpg)

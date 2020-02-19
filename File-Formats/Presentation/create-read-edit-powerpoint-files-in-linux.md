@@ -1,17 +1,17 @@
 ---
-title: Create and edit PowerPoint files in Linux |Syncfusion|
+title: Create and edit PowerPoint files on Linux | Syncfusion
 description: A .NET Core PowerPoint library to create, read and edit PowerPoint files in .NET Core applications. Supports text, shape, chart, table and combine PowerPoints.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Create, read and edit a PowerPoint file in Linux
+# Create, read and edit a PowerPoint file on Linux system
 
-You can create or edit a PowerPoint file in ASP.NET Core with Syncfusion PowerPoint library in Linux Operation system. The below are the steps.
+You can create or edit a PowerPoint file in .NET Core with Syncfusion PowerPoint library on Linux system. The below are the steps.
 
-## Create a PowerPoint file in ASP.NET Core in Linux OS
+## Create a PowerPoint file in .NET Core Console application project on Linux OS
 
-1.Execute the following command in Linux terminal to create a new ASP.NET Core Console project in Linux
+1.Execute the following command in Linux terminal to create a new .NET Core Console application project on Linux
 
 <table>
 <tr>
@@ -136,7 +136,7 @@ dotnet restore
 
 ![Restore the NuGet packages](Workingwith_Linux/Restore.png)
 
-6.Execute the following command in terminal to run the application ASP.NET Core application in Linux.
+6.Execute the following command in terminal to run the application.
 
 <table>
 <tr>
@@ -150,13 +150,13 @@ dotnet run
 
 ![Run the Applcation](Workingwith_Linux/Run.png)
 
-The output of the above code example will generate the below PowerPoint slide.
+The output of the above code example will generate the below PowerPoint slide. The output will be saved in parallel to program.cs file.
 
 ![ASP.Net Core Output](Workingwith_Core/GettingStartedSample.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-## Read and edit a PowerPoint file in ASP.NET Core in Linux OS
+## Read and edit a PowerPoint file in .NET Core Console application project on Linux OS
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
