@@ -12,8 +12,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Steps to create Word document programmatically in .NET Core application on Linux system:
 
-1.Execute the following command in Linux terminal to create a new .NET Core Console application project on Linux
-
+1.Execute the following command in Linux terminal to create a new .NET Core Console application.
 
 <table>
 <tr>
@@ -321,4 +320,4 @@ dotnet run
 
 By executing the program, you will get the **Word document** as follows. The output will be saved in parallel to program.cs file.
 
-![ASP.Net Core output Word document](Linux-images/GettingStartedOutput.jpg)
+![Word document generated on Linux OS](Linux-images/GettingStartedOutput.jpg)

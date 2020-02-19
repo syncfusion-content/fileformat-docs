@@ -12,7 +12,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Steps to create Word document programmatically in .NET Core application on Mac system:
 
-1.Create a new .NET Core console application project on Mac system.
+1.Create a new .NET Core console application project.
 
 ![Create .NET Core console application in Visual Studio](Mac-images/CreateProject.png)
 
@@ -279,4 +279,4 @@ outputStream.Dispose();
 
 By executing the program, you will get the **Word document** as follows. The output will be saved in bin folder.
 
-![ASP.Net Core output Word document](Mac-images/GettingStartedOutput.jpg)
+![.Net Core output Word document](Mac-images/GettingStartedOutput.jpg)

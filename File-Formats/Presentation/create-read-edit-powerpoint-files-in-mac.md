@@ -7,11 +7,11 @@ documentation: UG
 ---
 # Create, read and edit a PowerPoint file on Mac system
 
-You can create or edit a PowerPoint file in .NET Core with Syncfusion PowerPoint library. The below are the steps.
+You can create or edit a PowerPoint file in .NET Core on Mac system using Syncfusion PowerPoint library. The below are the steps.
 
 ## Create a PowerPoint file in .NET Core on Mac system.
 
-1.Create a new C# .NET Core console application on Mac system.
+1.Create a new C# .NET Core console application.
 
 ![Create .NET Core console project](Workingwith_Mac/CreateProject.png)
 
@@ -108,7 +108,7 @@ pptxDoc.Close();
 
 {% endtabs %}
 
-The output of the above code example will generate the below PowerPoint slide.
+The output of the above code example will generate the below PowerPoint slide. The output will be saved in bin folder.
 
 ![.Net Core console Output](Workingwith_Mac/GettingStartedSample.png)
 
@@ -116,7 +116,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 ## Read and edit a PowerPoint file in .NET Core on Mac system.
 
-You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+You can edit an existing PowerPoint file on Mac system using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 

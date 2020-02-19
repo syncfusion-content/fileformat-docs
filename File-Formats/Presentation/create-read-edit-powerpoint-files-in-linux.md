@@ -7,11 +7,11 @@ documentation: UG
 ---
 # Create, read and edit a PowerPoint file on Linux system
 
-You can create or edit a PowerPoint file in .NET Core with Syncfusion PowerPoint library on Linux system. The below are the steps.
+You can create or edit a PowerPoint file in .NET Core on Linux system using Syncfusion PowerPoint library. The below are the steps.
 
 ## Create a PowerPoint file in .NET Core Console application project on Linux OS
 
-1.Execute the following command in Linux terminal to create a new .NET Core Console application project on Linux
+1.Execute the following command in Linux terminal to create a new .NET Core Console application.
 
 <table>
 <tr>
@@ -23,7 +23,7 @@ dotnet new console
 </tr>
 </table>
 
-![Create ASP.NET Core Web project](Workingwith_Linux/CreateCore.png)
+![Create .NET Core console project](Workingwith_Linux/CreateCore.png)
 
 2.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
 
@@ -152,13 +152,13 @@ dotnet run
 
 The output of the above code example will generate the below PowerPoint slide. The output will be saved in parallel to program.cs file.
 
-![ASP.Net Core Output](Workingwith_Core/GettingStartedSample.png)
+![.Net Core Console Output](Workingwith_Core/GettingStartedSample.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
 ## Read and edit a PowerPoint file in .NET Core Console application project on Linux OS
 
-You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+You can edit an existing PowerPoint file on Linux system using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 
