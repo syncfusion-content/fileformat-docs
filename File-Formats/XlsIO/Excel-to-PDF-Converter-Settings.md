@@ -12,7 +12,7 @@ XlsIO allows you to convert an entire workbook or a single worksheet into PDF do
 
 ## Auto Detect Complex Script
 
-This property enables the complex script validation for the text present in Excel document and renderes it into PDF document. It's default value is FALSE.
+This property enables the complex script validation for the text present in Excel document and renders it into PDF document. It's default value is FALSE.
 
 The following complete code snippet explains how to enable `AutoDetectComplexScript` property while converting an Excel document to PDF.
 
@@ -388,7 +388,7 @@ This property helps to set the gridlines display style in Excel to PDF converted
 
 ### Auto
 
-Gridlines will not be rendered in the output PDF document, when display style is selected as **Auto**. Its default value is Invisible. The following code snippet explians how to select **Auto** display style for gridlines.
+Gridlines will not be rendered in the output PDF document, when display style is selected as **Auto**. Its default value is Invisible. The following code snippet explains how to select **Auto** display style for gridlines.
 
 {% tabs %}
 {% highlight C# %}
@@ -576,7 +576,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Invisible
 
-Gridlines will not be rendered in the output PDF document, when display style is selected as **Invisible**. The following code snippet explians how to select **Invisible** display style for gridlines.
+Gridlines will not be rendered in the output PDF document, when display style is selected as **Invisible**. The following code snippet explains how to select **Invisible** display style for gridlines.
 
 {% tabs %}
 {% highlight C# %}
@@ -764,7 +764,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Visible
 
-Gridlines will be rendered in the output PDF document, when display style is selected as **Visible**. The following code snippet explians how to select **Visible** display style for gridlines.
+Gridlines will be rendered in the output PDF document, when display style is selected as **Visible**. The following code snippet explains how to select **Visible** display style for gridlines.
 
 {% tabs %}
 {% highlight C# %}
@@ -1517,7 +1517,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Export Quality Image
 
-The deafult value of ``ExportQualityImage`` if FALSE. Enabling this property exports quality image to PDF document.
+The default value of ``ExportQualityImage`` if FALSE. Enabling this property exports quality image to PDF document.
 
 The following complete code snippet explains how to enable ``ExportQualityImage`` property.
 
