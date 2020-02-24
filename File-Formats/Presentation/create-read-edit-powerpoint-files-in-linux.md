@@ -13,33 +13,33 @@ You can create or edit a PowerPoint file in .NET Core on Linux system using Sync
 
 1.Execute the following command in Linux terminal to create a new .NET Core Console application.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet new console
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Create .NET Core console project](Workingwith_Linux/CreateCore.png)
 
 2.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet add package Syncfusion.Presentation.Net.Core -v 17.4.0.46 -s https://www.nuget.org/
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Install NuGet packages](Workingwith_Linux/InstallNuGetPackages.png)
 
-3.Add the following Namespaces in Program file.
+3.Add the following Namespaces in Program.cs file.
 
 {% tabs %}
 
@@ -124,29 +124,29 @@ pptxDoc.Close();
 
 5.Execute the following command to restore the NuGet packages.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet restore
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Restore the NuGet packages](Workingwith_Linux/Restore.png)
 
 6.Execute the following command in terminal to run the application.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet run
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Run the Applcation](Workingwith_Linux/Run.png)
 

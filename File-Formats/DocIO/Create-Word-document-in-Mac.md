@@ -1,16 +1,16 @@
 ---
 title: Create Word document on Mac | Syncfusion
-description: Create Word document in .NET Core Console application on Mac using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+description: Create Word document in .NET Core application on Mac using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Create Word document on Mac System
+# Create Word document on Mac OS
 
-Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET Core application on Mac system**.
+Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET Core application on Mac OS**.
 
-## Steps to create Word document programmatically in .NET Core application on Mac system:
+## Steps to create Word document programmatically in .NET Core application on Mac OS
 
 1.Create a new .NET Core console application project.
 
@@ -19,7 +19,6 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 2.Select the project version.
 
 ![Select Project version](Mac-images/selectprojectverion.png)
-![Select Project version](Mac-images/CreateProject1.png)
 
 3.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
@@ -28,7 +27,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-4.Include the following namespaces in the Program.cs file.
+4.Include the following Namespaces in the Program.cs file.
 
 {% tabs %}
 
