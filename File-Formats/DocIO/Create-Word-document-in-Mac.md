@@ -1,6 +1,6 @@
 ---
-title: Create Word document on Mac | Syncfusion
-description: Create Word document in .NET Core application on Mac using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Create Word document on Mac OS | Syncfusion
+description: Create Word document in .NET Core application on Mac OS using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
