@@ -1,45 +1,45 @@
 ---
 title: Create and edit PowerPoint files on Linux | Syncfusion
-description: A .NET Core PowerPoint library to create, read and edit PowerPoint files in .NET Core applications. Supports text, shape, chart, table and combine PowerPoints.
+description: Create, read and edit PowerPoint files in .NET Core application on Linux using Syncfusion .NET Core PowerPoint library (Presentation) without Microsoft Office
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Create, read and edit a PowerPoint file on Linux system
+# Create, read and edit a PowerPoint file on Linux
 
-You can create or edit a PowerPoint file in .NET Core on Linux system using Syncfusion PowerPoint library. The below are the steps.
+You can create or edit a PowerPoint file in .NET Core on Linux using Syncfusion PowerPoint library. The below are the steps.
 
-## Create a PowerPoint file in .NET Core Console application project on Linux OS
+## Create a PowerPoint file in .NET Core Console application project on Linux
 
 1.Execute the following command in Linux terminal to create a new .NET Core Console application.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet new console
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Create .NET Core console project](Workingwith_Linux/CreateCore.png)
 
 2.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet add package Syncfusion.Presentation.Net.Core -v 17.4.0.46 -s https://www.nuget.org/
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Install NuGet packages](Workingwith_Linux/InstallNuGetPackages.png)
 
-3.Add the following Namespaces in Program file.
+3.Add the following Namespaces in Program.cs file.
 
 {% tabs %}
 
@@ -124,29 +124,29 @@ pptxDoc.Close();
 
 5.Execute the following command to restore the NuGet packages.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet restore
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Restore the NuGet packages](Workingwith_Linux/Restore.png)
 
 6.Execute the following command in terminal to run the application.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet run
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Run the Applcation](Workingwith_Linux/Run.png)
 
@@ -156,9 +156,9 @@ The output of the above code example will generate the below PowerPoint slide. T
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-## Read and edit a PowerPoint file in .NET Core Console application project on Linux OS
+## Read and edit a PowerPoint file in .NET Core Console application project on Linux
 
-You can edit an existing PowerPoint file on Linux system using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+You can edit an existing PowerPoint file on Linux using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 

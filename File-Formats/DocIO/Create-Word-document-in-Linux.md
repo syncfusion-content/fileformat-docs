@@ -1,47 +1,46 @@
 ---
-title: Create Word document on Linux using C# | Syncfusion
-description: Create Word document in .NET Core Console application on Linux using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Create Word document on Linux | Syncfusion
+description: Create Word document in .NET Core application on Linux using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Create Word document on Linux system
+# Create Word document on Linux
 
-Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET Core application on Linux system**.
+Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET Core application on Linux**.
 
-## Steps to create Word document programmatically in .NET Core application on Linux system:
+## Steps to create Word document programmatically in .NET Core application on Linux
 
 1.Execute the following command in Linux terminal to create a new .NET Core Console application.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet new console
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
 
-![Create .NET Core console application on Linux OS](Linux-images/CreateNewProject1.png)
+{% endtabs %}
+
+![Create .NET Core console application on Linux](Linux-images/CreateNewProject1.png)
 
 2.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet add package Syncfusion.DocIO.Net.Core -v 17.4.0.46 -s https://www.nuget.org/
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
 
-![Install NuGet packages](Linux-images/InstallNuGetPackages.png)
+{% endtabs %}
+
 ![Install NuGet packages](Linux-images/InstallNuGetPackages1.png)
 
-3.Add the following Namespaces in Program file.
+3.Add the following Namespaces in Program.cs file.
 
 {% tabs %}
 
@@ -292,32 +291,32 @@ outputStream.Dispose();
 
 5.Execute the following command to restore the NuGet packages.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet restore
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Restore the NuGet packages](Linux-images/Restore.png)
 
 6.Execute the following command in terminal to run the application.
 
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight KCONFIG %}
 
 dotnet run
 
-</td>
-</tr>
-</table>
+{% endhighlight %}
+
+{% endtabs %}
 
 ![Run the Applcation](Linux-images/Run.png)
 
 By executing the program, you will get the **Word document** as follows. The output will be saved in parallel to program.cs file.
 
-![Word document generated on Linux OS](Linux-images/GettingStartedOutput.jpg)
+![Word document generated on Linux](Linux-images/GettingStartedOutput.jpg)

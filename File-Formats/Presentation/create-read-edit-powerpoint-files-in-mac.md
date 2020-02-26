@@ -1,15 +1,15 @@
 ---
-title: Create and edit PowerPoint files on Mac |Syncfusion|
-description: A .NET Core PowerPoint library to create, read and edit PowerPoint files in .NET Core applications. Supports text, shape, chart, table and combine PowerPoints.
+title: Create and edit PowerPoint files on Mac OS | Syncfusion
+description: Create, read and edit PowerPoint files in .NET Core application on Mac OS using Syncfusion .NET Core PowerPoint library (Presentation) without Microsoft Office
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Create, read and edit a PowerPoint file on Mac system
+# Create, read and edit a PowerPoint file on Mac OS
 
-You can create or edit a PowerPoint file in .NET Core on Mac system using Syncfusion PowerPoint library. The below are the steps.
+You can create or edit a PowerPoint file in .NET Core on Mac OS using Syncfusion PowerPoint library. The below are the steps.
 
-## Create a PowerPoint file in .NET Core on Mac system.
+## Create a PowerPoint file in .NET Core on Mac OS.
 
 1.Create a new C# .NET Core console application.
 
@@ -18,14 +18,13 @@ You can create or edit a PowerPoint file in .NET Core on Mac system using Syncfu
 2.Select the project version.
 
 ![Select project version](Workingwith_Mac/selectprojectverion.png)
-![Select project version](Workingwith_Mac/CreateProject1.png)
 
 3.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget1.png)
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget.png)
 
-4.Include the following namespaces in the Program.cs file.
+4.Include the following Namespaces in the Program.cs file.
 
 {% tabs %}
 
