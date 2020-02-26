@@ -1,5 +1,5 @@
 ---
-title: Create Word document on Linux using C# | Syncfusion
+title: Create Word document on Linux | Syncfusion
 description: Create Word document in .NET Core application on Linux using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO

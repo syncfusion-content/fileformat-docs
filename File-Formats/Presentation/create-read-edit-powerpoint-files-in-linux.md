@@ -1,6 +1,6 @@
 ---
 title: Create and edit PowerPoint files on Linux | Syncfusion
-description: Create, read and edit PowerPoint files in .NET Core application on Linux using Syncfusion .NET Core PowerPoint library.
+description: Create, read and edit PowerPoint files in .NET Core application on Linux using Syncfusion .NET Core PowerPoint library (Presentation) without Microsoft Office
 platform: file-formats
 control: PowerPoint
 documentation: UG
