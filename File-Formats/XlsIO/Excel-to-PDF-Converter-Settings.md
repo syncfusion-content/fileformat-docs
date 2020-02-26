@@ -10,7 +10,7 @@ documentation: UG
 
 XlsIO allows you to convert an entire workbook or a single worksheet into PDF document with conversion settings of Excel to PDF converter.
 
-## Auto Detect Complex Script
+## Auto-detect Complex Script
 
 This property enables the complex script validation for the text present in Excel document and renders it into PDF document. It's default value is FALSE.
 
