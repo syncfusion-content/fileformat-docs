@@ -114,7 +114,7 @@ The output of the above code example will generate the below PowerPoint slide. T
 ![.Net Core console Output](Workingwith_Mac/GettingStartedSample.png)
 
 
-## Read and edit a PowerPoint file in .NET Core Console application project on Linux
+## Read and edit a PowerPoint file in .NET Core Console application project on Mac OS
 
 You can edit an existing PowerPoint file on Mac system using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
