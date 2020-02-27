@@ -9,7 +9,7 @@ documentation: UG
 
 You can create or edit a PowerPoint file in .NET Core on Mac OS using Syncfusion PowerPoint library. The below are the steps.
 
-## Create a PowerPoint file in .NET Core on Mac OS.
+## Create a PowerPoint file in .NET Core Console application project on Mac OS
 
 1.Create a new C# .NET Core console application.
 
@@ -23,6 +23,8 @@ You can create or edit a PowerPoint file in .NET Core on Mac OS using Syncfusion
 
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget1.png)
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget.png)
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
 4.Include the following Namespaces in the Program.cs file.
 
@@ -111,9 +113,8 @@ The output of the above code example will generate the below PowerPoint slide. T
 
 ![.Net Core console Output](Workingwith_Mac/GettingStartedSample.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-## Read and edit a PowerPoint file in .NET Core on Mac system.
+## Read and edit a PowerPoint file in .NET Core Console application project on Mac OS
 
 You can edit an existing PowerPoint file on Mac system using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
