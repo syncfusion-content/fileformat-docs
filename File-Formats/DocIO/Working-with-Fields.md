@@ -845,3 +845,132 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Unlink fields
+
+You can replace the field with its most recent result in the Word document by unlinking the field using `Unlink` API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
+
+
+The following code example shows how to unlink the fields in Word document.
+
+{% tabs %}  
+
+{% highlight C# %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Today's Date: ");
+//Adds the new Date field in Word document with field name and its type
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+//Updates the field
+field.Update();
+//Unlink the field
+field.Unlink();
+//Saves the document in the given name and format
+document.Save("Sample.docx", FormatType.Docx);
+//Releases the resources occupied by WordDocument instance
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Creates an instance of WordDocument class
+Dim document As WordDocument = New WordDocument()
+'Adds a new section into the Word Document
+Dim section As IWSection = document.AddSection()
+'Adds a new paragraph into Word document and appends text into paragraph
+Dim paragraph As IWParagraph = section.AddParagraph()
+paragraph.AppendText("Today's Date: ")
+'Adds the new Date field in Word document with field name and its type
+Dim field As WField = CType(paragraph.AppendField("Date", FieldType.FieldDate), WField)
+'Updates the field
+field.Update()
+'Unlink the field
+field.Unlink()
+'Saves the document in the given name and format
+document.Save("Sample.docx", FormatType.Docx)
+'Releases the resources occupied by WordDocument instance
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Today's Date: ");
+//Adds the new Date field in Word document with field name and its type
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+//Updates the field
+field.Update();
+//Unlink the field
+field.Unlink();
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Today's Date: ");
+//Adds the new Date field in Word document with field name and its type
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+//Updates the field
+field.Update();
+//Unlink the field
+field.Unlink();
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+//Closes the Word document instance
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Today's Date: ");
+//Adds the new Date field in Word document with field name and its type
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+//Updates the field
+field.Update();
+//Unlink the field
+field.Unlink();
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+N>  Fields such as XE (Index Entry) fields and SEQ (Sequence) fields cannot be unlinked.
