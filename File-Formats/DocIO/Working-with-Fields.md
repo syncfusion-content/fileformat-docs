@@ -1,11 +1,11 @@
 ---
 title: Working with Fields | Syncfusion
-description: This section illustrates how to add and update the fields in the Word document
+description: This section illustrates how to add dynamic information like title, time, page number, etc., in the Word document that updates automatically
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Fields
+# Working with Fields
 
 Fields in Word document are placeholders for data that might change on field update. Fields are represented by `WField`, `WFieldMark` instance in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
 
