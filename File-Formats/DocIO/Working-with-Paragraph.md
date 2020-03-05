@@ -3548,6 +3548,104 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+### Get List value
+
+You can get the string that represents the appearance of **list value of the paragraph** in the Word document using `ListString` API. 
+
+This API holds the static string of the list value recently calculated while saving the document as Text. It is not updated automatically for each modification done in the Word document. Hence, you should either invoke `GetText()` method of `WordDocument` or save the Word document as Text, to get the actual list value from this API.
+
+The following example shows how to get a numeric string value of the list paragraph.
+
+{% tabs %}  
+
+{% highlight C# %}
+//Loads an existing Word document
+WordDocument document = new WordDocument("Template.docx");
+//Gets the document text
+document.GetText();
+//Gets the numeric string value of the numbering list paragraph
+String listString = document.LastParagraph.ListString;
+//Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Loads an existing Word document
+Dim document As WordDocument = New WordDocument("Template.docx")
+' Gets the document text
+document.GetText()
+'Gets the numeric string value of the numbering list paragraph
+Dim listString As String = document.LastParagraph.ListString
+'Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Loads an existing Word document
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the document text
+document.GetText();
+//Gets the numeric string value of the numbering list paragraph
+String listString = document.LastParagraph.ListString;
+// Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Loads an existing Word document
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the document text
+document.GetText();
+//Gets the numeric string value of the numbering list paragraph
+String listString = document.LastParagraph.ListString;        
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Loads an existing Word document
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the document text
+document.GetText();
+//Gets the numeric string value of the numbering list paragraph
+String listString = document.LastParagraph.ListString;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+{% endtabs %}
+
+N> For a picture bulleted list, `ListString` API is not valid and it will return an empty string.
+
+
 ## Working with Hyperlinks
 
 Hyperlink is a reference to data that can link to external contents like images, files, web page, etc.  In Word document, a hyperlink may target to any one of the following sources.
