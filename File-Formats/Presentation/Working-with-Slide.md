@@ -5,7 +5,7 @@ platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Working with Slide
+# Working with Slide  
 
 ## Adding slide to the PowerPoint presentation
 
