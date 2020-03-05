@@ -3554,7 +3554,7 @@ You can get the string that represents the appearance of **list value of the par
 
 This API holds the static string of the list value recently calculated while saving the document as Text. It is not updated automatically for each modification done in the Word document. Hence, you should either invoke `GetText()` method of `WordDocument` or save the Word document as Text, to get the actual list value from this API.
 
-The following example shows how to get a numeric string value of the list paragraph.
+The following example shows how to **get a string that represents the appearance of list value of the paragraph**.
 
 {% tabs %}  
 
@@ -3563,7 +3563,7 @@ The following example shows how to get a numeric string value of the list paragr
 WordDocument document = new WordDocument("Template.docx");
 //Gets the document text
 document.GetText();
-//Gets the numeric string value of the numbering list paragraph
+//Gets the string that represents the appearance of list value of the paragraph
 String listString = document.LastParagraph.ListString;
 //Saves and closes the WordDocument instance
 document.Save("Sample.docx", FormatType.Docx);
@@ -3575,7 +3575,7 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx")
 ' Gets the document text
 document.GetText()
-'Gets the numeric string value of the numbering list paragraph
+'Gets the string that represents the appearance of list value of the paragraph
 Dim listString As String = document.LastParagraph.ListString
 'Saves and closes the WordDocument instance
 document.Save("Sample.docx", FormatType.Docx)
@@ -3590,7 +3590,7 @@ WordDocument document = new WordDocument();
 document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Gets the document text
 document.GetText();
-//Gets the numeric string value of the numbering list paragraph
+//Gets the string that represents the appearance of list value of the paragraph
 String listString = document.LastParagraph.ListString;
 // Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -3610,7 +3610,7 @@ FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileA
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Gets the document text
 document.GetText();
-//Gets the numeric string value of the numbering list paragraph
+//Gets the string that represents the appearance of list value of the paragraph
 String listString = document.LastParagraph.ListString;        
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
@@ -3628,7 +3628,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Gets the document text
 document.GetText();
-//Gets the numeric string value of the numbering list paragraph
+//Gets the string that represents the appearance of list value of the paragraph
 String listString = document.LastParagraph.ListString;
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
