@@ -7,41 +7,41 @@ documentation: UG
 ---
 # Working with Fields
 
-Fields in Word document are placeholders for data that might change on field update. Fields are represented by `WField`, `WFieldMark` instance in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
+Fields in a Word document are placeholders for data that might change on field update. Fields are represented by the `WField` and `WFieldMark` instances in DocIO. A field in a Word document contains field codes, field separator, field result, and field end.
 
-To know various types of Microsoft Word supported fields and its syntax,refer [MSDN article](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
+To learn various types of Microsoft Word supported fields and their syntax,refer to the [MSDN article](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
 
-From v16.1.0.24, the entire field code is included in Document Object Model(DOM). Hence the adding a field will automatically include below elements in DOM,
+From v16.1.0.24, the entire field code is included in Document Object Model(DOM). Hence, adding a field will automatically include the following elements in DOM:
 
-1. `WField` -- represents the starting of Field.
+1. `WField`: Represents the starting of a Field.
 
-2. `ParagraphItem` – represents the Field code.
+2. `ParagraphItem`: Represents the Field code.
 
-3. `WFieldMark` –represents the Field separator.
+3. `WFieldMark`: Represents the Field separator.
 
-4. `ParagraphItem` – represents the Field result.
+4. `ParagraphItem`: Represents the Field result.
 
-5. `WFieldMark` – represents the end of Field.
+5. `WFieldMark`: Represents the end of a Field.
 
-Find more information about migration changes from [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24#). 
+Find more information about migration changes [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24#). 
 
 ## Adding fields
 
-You can add a field in a Word document by using `AppendField` method of `WParagraph` class.
+You can add a field to a Word document by using the `AppendField` method of `WParagraph` class.
 
-The following code example illustrates how to add a field in Word document.
+The following code example explains how to add a field to the Word document.
 
 {% tabs %} 
 
 {% highlight c# %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
+//Adds a new section to the Word Document
 IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
+//Adds a new paragraph to Word document and appends text into paragraph
 IWParagraph paragraph = section.AddParagraph();
 paragraph.AppendText("Today's Date: ");
-//Adds the new Date field in Word document with field name and its type
+//Adds the new Date field to Word document with field name and its type
 WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
 //Field code used to describe how to display the date
 field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
@@ -54,12 +54,12 @@ document.Close();
 {% highlight vb.net %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
-'Adds a new section into the Word Document
+'Adds a new section to the Word Document
 Dim section As IWSection = document.AddSection()
-'Adds a new paragraph into Word document and appends text into paragraph
+'Adds a new paragraph to Word document and appends text into paragraph
 Dim paragraph As IWParagraph = section.AddParagraph()
 paragraph.AppendText("Today's Date: ")
-'Adds the new Date field in Word document with field name and its type
+'Adds the new Date field to Word document with field name and its type
 Dim field As WField = TryCast(paragraph.AppendField("Date", FieldType.FieldDate), WField)
 'Field code used to describe how to display the date
 field.FieldCode = "DATE  \@" + """MMMM d, yyyy"""
@@ -72,12 +72,12 @@ document.Close()
 {% highlight UWP %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
+//Adds a new section to the Word Document
 IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
+//Adds a new paragraph to Word document and appends text into paragraph
 IWParagraph paragraph = section.AddParagraph();
 paragraph.AppendText("Today's Date: ");
-//Adds the new Date field in Word document with field name and its type
+//Adds the new Date field to Word document with field name and its type
 WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
 //Field code used to describe how to display the date
 field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
@@ -88,19 +88,19 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document
 document.Close();
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
+//Adds a new section to the Word Document
 IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
+//Adds a new paragraph to Word document and appends text into paragraph
 IWParagraph paragraph = section.AddParagraph();
 paragraph.AppendText("Today's Date: ");
-//Adds the new Date field in Word document with field name and its type
+//Adds the new Date field to Word document with field name and its type
 WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
 //Field code used to describe how to display the date
 field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
@@ -117,12 +117,12 @@ return File(stream, "application/msword", "Sample.docx");
 {% highlight Xamarin %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
+//Adds a new section to the Word Document
 IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
+//Adds a new paragraph to Word document and appends text into paragraph
 IWParagraph paragraph = section.AddParagraph();
 paragraph.AppendText("Today's Date: ");
-//Adds the new Date field in Word document with field name and its type
+//Adds the new Date field to Word document with field name and its type
 WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
 //Field code used to describe how to display the date
 field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
@@ -133,17 +133,17 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
 
-## Formatting Fields
+## Formatting fields
 
-You can format the field instances added to the Word document, by iterating items from field start to end.
+You can format the field instances added to the Word document by iterating the items from field start to end.
 
-The following code example illustrates how to format the field in Word document.
+The following code example explains how to format the field in Word document.
 
 {% tabs %}
 
@@ -152,7 +152,7 @@ The following code example illustrates how to format the field in Word document.
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
 document.EnsureMinimal();
-//Adds the new Page field in Word document with field name and its type
+//Adds the new Page field to Word document with field name and its type
 IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
 IEntity entity = field;
 //Iterates to sibling items until Field End 
@@ -200,7 +200,7 @@ document.Close
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
 document.EnsureMinimal();
-//Adds the new Page field in Word document with field name and its type
+//Adds the new Page field to Word document with field name and its type
 IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
 IEntity entity = field;
 //Iterates to sibling items until Field End 
@@ -259,7 +259,7 @@ return File(stream, "application/msword", "Template.docx");
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
 document.EnsureMinimal();
-//Adds the new Page field in Word document with field name and its type
+//Adds the new Page field to Word document with field name and its type
 IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
 IEntity entity = field;
 //Iterates to sibling items until Field End 
@@ -280,7 +280,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -288,7 +288,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
    
 ## Updating fields
 
-Field updating engine calculates the resultant value based on the field code information and updates the field result with the new value. You can update the following fields by using DocIO:
+Field updating engine calculates the resultant value based on the field code information and updates the field result with a new value. You can update the following fields by using DocIO:
 
 * = (formula field)
 * DATE
@@ -307,10 +307,10 @@ Field updating engine calculates the resultant value based on the field code inf
 
 The following are the known limitations:
 
-* Updating of NUMPAGES field and Cross Reference field with Page number and Paragraph number options are not supported in Silverlight, WinRT, Universal, Windows Phone and Xamarin applications.
-* Currently group shapes, drawing canvas, and table auto resizing are not supported in Word to PDF lay outing, and this may lead to update incorrect page number and total number of pages.
+* Updating of NUMPAGES field and Cross Reference field with Page number and Paragraph number options are not supported in Silverlight, WinRT, Universal, Windows Phone, and Xamarin applications.
+* Currently group shapes, drawing canvas, and table auto resizing are not supported in Word to PDF layouting, and this may lead to update incorrect page number and total number of pages.
 
-The following code example illustrate how to update the fields present in Word document.
+The following code example explains how to update the fields present in Word document.
 
 {% tabs %} 
 
@@ -384,13 +384,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
-## IF Field
+## IF field
 
-If field compares two values and updates the field result with true text, when comparison succeeds otherwise false text.
+IF field compares two values and updates the field result with true text, when comparison succeeds otherwise false text.
 
-To know more about If field and its syntax in Microsoft Word, refer [MSDN article](https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e#)
+To learn more about IF field and its syntax in Microsoft Word, refer to the [MSDN article](https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e#)
 
-The following code example illustrates how to add an If field in Word document.
+The following code example explains how to add an If field to a Word document.
 
 {% tabs %}  
 
@@ -542,11 +542,11 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %} 
   
-## Document Variables
+## Document variables
 
-The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using `Variables` property of `WordDocument` class.
+The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using the `Variables` property of `WordDocument` class.
 
-The following code example illustrate how to add a DocVariable field in Word document.
+The following code example explains how to add a DocVariable field to a Word document.
 
 {% tabs %}  
 
@@ -683,13 +683,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
   
-## Cross Reference
+## Cross reference
 
-A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using `AppendCrossReference` method of `WParagraph` class.
+A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using the `AppendCrossReference` method of `WParagraph` class.
 
-N>  Essential DocIO supports to create and update cross-reference fields only for bookmarks in a document
+N>  The Essential DocIO supports creating and updating the cross-reference fields only for bookmarks in a document.
 
-The following code example illustrate how to append cross reference for bookmark in Word document.
+The following code example explains how to append cross reference for bookmark in a Word document.
 
 {% tabs %}  
 
@@ -848,7 +848,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 ## Unlink fields
 
-You can replace the field with its most recent result in the Word document by unlinking the field using `Unlink` API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
+You can replace the field with its most recent result in the Word document by unlinking the field using the `Unlink` API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
 
 
 The following code example shows how to unlink the fields in Word document.
