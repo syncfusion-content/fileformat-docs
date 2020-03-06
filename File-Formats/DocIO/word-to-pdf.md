@@ -1088,7 +1088,7 @@ wordDocument.Close()
 ### Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images present in the Word document during PDF conversion.
-We suggest to use this property only when the document contains Nested Meta file images.
+We suggest to use this property only when the document contains Nested Metafile images.
 
 The following code sample shows how to use this property to regenerate the nested EMF images present in the Word document during PDF conversion.
 
@@ -1133,7 +1133,7 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone, it's also supported in .NET Core 3.0, but it requires DoctoPDFConverter assembly instead of DocIORenderer.
+//DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone, and it's also supported in .NET Core 3.0, but it requires DocToPDFConverter assembly instead of DocIORenderer.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
