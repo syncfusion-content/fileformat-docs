@@ -1,15 +1,19 @@
 ---
-title: Create and edit Header Footer in PowerPoint slides |Syncfusion|
-description: C# PowerPoint library to create, read, edit and convert PowerPoint files in .NET applications, ASP.NET Web, MVC, ASP.NET Core, Xamarin and Azure platforms
+title: Add or Modify Headers and Footers in PowerPoint slides | Syncfusion
+description: This section illustrates about adding, modifying and removing of Headers and Footers in PowerPoint slides without MS Word or Office interop in .NET applications, ASP.NET Web, MVC, ASP.NET Core, Xamarin and Azure platforms
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with Header and Footer
+# Working with Headers and Footers
 
-## Add Footers into Slides
+## Add Headers and Footers in PowerPoint
 
-Essential Presentation library facilitates adding Footer in a slide of the PowerPoint Presentation. The following code example demonstrates how to add a footer to the presentation.
+### Add Footer to a Slide in PowerPoint
+
+Essential Presentation library facilitates adding Footer in a slide of the PowerPoint Presentation. 
+
+The following code example demonstrates how to add a footer to the presentation.
 
 {% tabs %}
 
@@ -159,9 +163,342 @@ else
 
 {% endtabs %}
 
-### Add Footers to Master and Layout slides
+By executing the program, you will get the PowerPoint slide as follows.
 
-Essential Presentation library facilitates adding Footers to both master and layout slides of the PowerPoint Presentation. The following code example demonstrates how to add a Footers to the master and layout slides of the presentation.
+![Added Footer text](HeaderFooter_Images/Footer_text.png)
+
+### Add Date and Time in PowerPoint Slide
+
+Essential Presentation library facilitates adding Date and Time to a slide of the PowerPoint Presentation. 
+
+The following code example demonstrates how to add Date and Time to a slide of the presentation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide.
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of Date and Time in the slide
+slide.HeadersFooters.DateAndTime.Visible = true;
+//Sets the format of the Date and Time to the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+//Saves the Presentation to the file system
+pptxDoc.Save("Sample.pptx");
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates an instance of Presentation
+Dim pptxDoc As IPresentation = Presentation.Create()
+'Adds a blank slide
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Sets the visibility of Date and Time in the slide
+slide.HeadersFooters.DateAndTime.Visible = True
+'Sets the format of the Date and Time to the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM
+
+'Adds textbox to the slide
+Dim textboxShape As IShape = slide.AddTextBox(0, 0, 500, 500)
+'Adds paragraph to the textbody of textbox
+Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph()
+'Adds a TextPart to the paragraph
+Dim textPart As ITextPart = paragraph.AddTextPart()
+'Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base."
+'Saves the Presentation to the file system
+pptxDoc.Save("Sample.pptx")
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of Date and Time in the slide
+slide.HeadersFooters.DateAndTime.Visible = true;
+//Sets the format of the Date and Time to the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of Date and Time in the slide
+slide.HeadersFooters.DateAndTime.Visible = true;
+//Sets the format of the Date and Time to the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Dispose the image stream
+pictureStream.Dispose();
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of Date and Time in the slide
+slide.HeadersFooters.DateAndTime.Visible = true;
+//Sets the format of the Date and Time to the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+//Create new memory stream to save Presentation
+MemoryStream stream = new MemoryStream();
+//Save Presentation in stream format
+pptxDoc.Save(stream);
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the Presentation/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+By executing the program, you will get the PowerPoint slide as follows.
+
+![Added Date and TIme to the slide](HeaderFooter_Images/AddDateTime.png)
+
+### Add Slide Number to PowerPoint Slides
+
+Essential Presentation library facilitates adding Slide number to a slide of the PowerPoint Presentation. 
+
+The following code example demonstrates how to add Slide number to a slide of the presentation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide.
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of slide number in the slide
+slide.HeadersFooters.SlideNumber.Visible = true;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+//Saves the Presentation to the file system
+pptxDoc.Save("Sample.pptx");
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates an instance of Presentation
+Dim pptxDoc As IPresentation = Presentation.Create()
+'Adds a blank slide
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Sets the visibility of slide number in the slide
+slide.HeadersFooters.SlideNumber.Visible = True
+
+'Adds textbox to the slide
+Dim textboxShape As IShape = slide.AddTextBox(0, 0, 500, 500)
+'Adds paragraph to the textbody of textbox
+Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph()
+'Adds a TextPart to the paragraph
+Dim textPart As ITextPart = paragraph.AddTextPart()
+'Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base."
+'Saves the Presentation to the file system
+pptxDoc.Save("Sample.pptx")
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of slide number in the slide
+slide.HeadersFooters.SlideNumber.Visible = true;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of slide number in the slide
+slide.HeadersFooters.SlideNumber.Visible = true;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Dispose the image stream
+pictureStream.Dispose();
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Creates an instance of Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Adds a blank slide
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Sets the visibility of slide number in the slide
+slide.HeadersFooters.SlideNumber.Visible = true;
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+//Create new memory stream to save Presentation
+MemoryStream stream = new MemoryStream();
+//Save Presentation in stream format
+pptxDoc.Save(stream);
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the Presentation/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+By executing the program, you will get the PowerPoint slide as follows.
+
+![Added slide number to the slide](HeaderFooter_Images/SlideNumber.png)
+
+
+### Add Footer to Master and Layout slides
+
+Essential Presentation library facilitates adding Footers to both master and layout slides of the PowerPoint Presentation. 
+
+The following code example demonstrates how to add a Footers to the master and layout slides of the presentation.
 
 {% tabs %}
 
@@ -375,9 +712,22 @@ else
 
 {% endtabs %}
 
-## Add Headers and Footers into Notes slide
+By executing the program, you will get the PowerPoint Master slide as follows.
 
-Essential Presentation library facilitates adding Headers and Footers to the Notes slide of the PowerPoint Presentation. The following code example demonstrates how to add a Headers and Footers to the Notes slide of the presentation.
+![Added Footer to Master slide](HeaderFooter_Images/MasterSlide.png)
+
+By executing the program, you will get the PowerPoint Layout slide as follows.
+
+![Added Footer to Layout slide](HeaderFooter_Images/LayoutSlide.png)
+
+### Add Headers and Footers into Notes slide
+
+Essential Presentation library facilitates adding Headers and Footers to the Notes slide of the PowerPoint Presentation. 
+
+N> 1. As per Microsoft PowerPoint behaviour, you can add Header only in Notes slide of the PowerPoint using our Essential Presentation Library.
+N> 2. Header added in Notes slide will be visible only in the Notes page of the PowerPoint viewer. 
+
+The following code example demonstrates how to add a Headers and Footers to the Notes slide of the presentation.
 
 {% tabs %}
 
@@ -556,11 +906,17 @@ else
 
 {% endtabs %}
 
-## Edit Footers in slide
+By executing the program, you will get the PowerPoint Notes slide as follows.
 
-### Edit Footer content and DateTime Format
+![Added Footer to Notes slide](HeaderFooter_Images/NotesSlide.png)
 
-Essential Presentation library facilitates editing the Footer content and DateTime Format in slide of the PowerPoint Presentation. The following code example demonstrates how to edit Footer content and DateTime Format in slide of the presentation.
+## Modify Headers and Footers in PowerPoint
+
+### Edit Footer text of an existing Slide
+
+Essential Presentation library facilitates editing the Footer text of an existing slide in the PowerPoint Presentation. 
+
+The following code example demonstrates how to edit Footer text of an exsting slide in the presentation.
 
 {% tabs %}
 
@@ -571,8 +927,6 @@ IPresentation pptxDoc = Presentation.Open("Footer.pptx");
 //Gets the first slide from the cloned PowerPoint presentation
 ISlide slide = pptxDoc.Slides[0];
 
-//Modify DateAndTime format of the Footer
-slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
 //Modify the Footer text
 slide.HeadersFooters.Footer.Text = "Footer content modified";
            
@@ -590,8 +944,6 @@ Dim pptxDoc As IPresentation = Presentation.Open("Footer.pptx")
 'Gets the first slide from the PowerPoint presentation
 ISlide slide = pptxDoc.Slides[0]
 
-'Modify DateAndTime format of the Footer
-slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM
 'Modify the Footer text
 slide.HeadersFooters.Footer.Text = "Footer content modified"
 
@@ -613,8 +965,6 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Load or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
 
-//Modify DateAndTime format of the Footer
-slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
 //Modify the Footer text.
 slide.HeadersFooters.Footer.Text = "Footer content modified";
 
@@ -640,8 +990,6 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 //Gets the first slide from the cloned PowerPoint presentation
 ISlide slide = pptxDoc.Slides[0];
 
-//Modify DateAndTime format of the Footer
-slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
 //Modify the Footer text
 slide.HeadersFooters.Footer.Text = "Footer content modified";     
 
@@ -665,8 +1013,6 @@ Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
 //Load or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
-//Modify DateAndTime format of the Footer
-slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimehmmssAMPM;
 //Modify the Footer text
 slide.HeadersFooters.Footer.Text = "Footer content modified";
 
@@ -690,9 +1036,143 @@ else
 
 {% endtabs %}
 
-### Edit Footer font
+By executing the program, you will get the PowerPoint slide as follows.
 
-Essential Presentation library facilitates editing font of the Footer content in slide of the PowerPoint Presentation. The following code example demonstrates how to edit font of the Footer content in slide of the presentation.
+![Edited Footer text in slide](HeaderFooter_Images/EditText.png)
+
+### Modify Date and Time format of an existing Slide
+
+Essential Presentation library facilitates modifying the Date and Time of an existing slide in the PowerPoint Presentation. 
+
+The following code example demonstrates how to modify Date and Time of an exsting slide in the presentation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open("Footer.pptx");
+//Gets the first slide from the cloned PowerPoint presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Modify Date and Time format of the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimeddddMMMMddyyyy;
+           
+//Saves the Presentation to the file system
+pptxDoc.Save("Sample.pptx");
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load or open an PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Footer.pptx")
+'Gets the first slide from the PowerPoint presentation
+ISlide slide = pptxDoc.Slides[0]
+
+'Modify Date and Time format of the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimeddddMMMMddyyyy
+
+'Saves the Presentation to the file system
+pptxDoc.Save("Sample.pptx
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+//Load or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Modify Date and Time format of the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimeddddMMMMddyyyy;
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Load or open an PowerPoint Presentation
+FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+//Gets the first slide from the cloned PowerPoint presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Modify Date and Time format of the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimeddddMMMMddyyyy;    
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Dispose the image stream
+pictureStream.Dispose();
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+//Load or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Modify Date and Time format of the Footer
+slide.HeadersFooters.DateAndTime.Format = DateTimeFormatType.DateTimeddddMMMMddyyyy;
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the Presentation/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+By executing the program, you will get the PowerPoint slide as follows.
+
+![Edited Date and Time in slide](HeaderFooter_Images/EditTime.png)
+
+### Modify font of the Footer text
+
+Essential Presentation library facilitates editing font of the Footer content in slide of the PowerPoint Presentation. 
+
+The following code example demonstrates how to edit font of the Footer content in slide of the presentation.
 
 {% tabs %}
 
@@ -860,9 +1340,15 @@ else
 
 {% endtabs %}
 
-## Remove Footers from all Title slides
+By executing the program, you will get the PowerPoint slide as follows.
 
-Essential Presentation library facilitates removing Footers from all the Title slides in the PowerPoint Presentation. The following code example demonstrates how to remove Footers from all the Title slides in the presentation.
+![Modified font for Footer text in slide](HeaderFooter_Images/FooterFont.png)
+
+## Remove Headers and Footers from Title Slides
+
+Essential Presentation library facilitates removing Footers from all the Title slides in the PowerPoint Presentation. 
+
+The following code example demonstrates how to remove Footers from all the Title slides in the presentation.
 
 {% tabs %}
 
@@ -1031,4 +1517,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+By executing the program, you will get the PowerPoint slide as follows.
+
+![Removed Footers from Title Slide](HeaderFooter_Images/TitleSlide.png)
 
