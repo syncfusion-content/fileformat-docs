@@ -1088,6 +1088,7 @@ wordDocument.Close()
 ### Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images present in the Word document during PDF conversion.
+
 The following code sample shows how to use this property to regenerate the nested EMF images present in the Word document during PDF conversion.
 
 {% tabs %}  
