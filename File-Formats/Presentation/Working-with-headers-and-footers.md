@@ -724,7 +724,7 @@ By executing the program, you will get the PowerPoint Layout slide as follows.
 
 Essential Presentation library facilitates adding Headers and Footers to the Notes slide of the PowerPoint Presentation. 
 
-N> 1. As per Microsoft PowerPoint behaviour, you can add Header only in Notes slide of the PowerPoint using our Essential Presentation Library.
+N> 1. As per Microsoft PowerPoint behavior, you can add Header only in Notes slide of the PowerPoint using our Essential Presentation Library.
 N> 2. Header added in Notes slide will be visible only in the Notes page of the PowerPoint viewer. 
 
 The following code example demonstrates how to add a Headers and Footers to the Notes slide of the presentation.
@@ -916,7 +916,7 @@ By executing the program, you will get the PowerPoint Notes slide as follows.
 
 Essential Presentation library facilitates editing the Footer text of an existing slide in the PowerPoint Presentation. 
 
-The following code example demonstrates how to edit Footer text of an exsting slide in the presentation.
+The following code example demonstrates how to edit Footer text of an existing slide in the presentation.
 
 {% tabs %}
 
@@ -1044,7 +1044,7 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 Essential Presentation library facilitates modifying the Date and Time of an existing slide in the PowerPoint Presentation. 
 
-The following code example demonstrates how to modify Date and Time of an exsting slide in the presentation.
+The following code example demonstrates how to modify Date and Time of an existing slide in the presentation.
 
 {% tabs %}
 
