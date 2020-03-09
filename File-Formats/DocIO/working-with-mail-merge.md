@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Mail merge
+# Working with Mail merge
 
 Mail merge is a process of merging data from data source to a Word template document. The `WMergeField` class provides support to bind template document and data source. The `WMergeField` instance is replaced with the actual data retrieved from data source for the given merge field name in a template document.
 
