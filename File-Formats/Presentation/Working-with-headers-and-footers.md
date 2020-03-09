@@ -11,7 +11,7 @@ documentation: UG
 
 ### Add Footer to a Slide in PowerPoint
 
-Essential Presentation library facilitates adding Footer in a slide of the PowerPoint Presentation. 
+Essential Presentation library facilitates adding Footer in a slide of the PowerPoint Presentation. Footers are useful in providing quick information about your document or data. 
 
 The following code example demonstrates how to add a footer to the presentation.
 
@@ -169,7 +169,7 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ### Add Date and Time in PowerPoint Slide
 
-Essential Presentation library facilitates adding Date and Time to a slide of the PowerPoint Presentation. 
+Essential Presentation library facilitates adding Date and Time to a slide of the PowerPoint Presentation. Date and Time comes with formatting options for date stamp as either it can be updated automatically using computer's clock or stay fixed until you change it.
 
 The following code example demonstrates how to add Date and Time to a slide of the presentation.
 
@@ -496,7 +496,7 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ### Add Footer to Master and Layout slides
 
-Essential Presentation library facilitates adding Footers to both master and layout slides of the PowerPoint Presentation. 
+Essential Presentation library facilitates adding Footers to both master and layout slides of the PowerPoint Presentation. If you want to use a different format for the Footers, then a great way to apply the format to all the slides (existing and new slides) is using the Slide Master and Slide layout. Under Slide Master and Slide layout, you can control the styles for footer options and this way you can apply different styles to the slides, or re-locate the Footer shape to any other position based on your requirement
 
 The following code example demonstrates how to add a Footers to the master and layout slides of the presentation.
 
