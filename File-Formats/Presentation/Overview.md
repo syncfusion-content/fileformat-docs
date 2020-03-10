@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Overview
+# Overview of PowerPoint Presentation
 
 **Essential Presentation** is a native .**NET** class library that can be used by developers to create, read, and write Microsoft PowerPoint files by using C#, VB.NET, and managed C++ code. The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and Xamarin platforms.
 
