@@ -28,15 +28,15 @@ The following XHTML validation types are supported in Essential DocIO while impo
 </tr>
 </thead>
 <tr>
-<td>** XHTMLValidationType.None **</td>
+<td><b>XHTMLValidationType.None</b></td>
 <td>It does not perform any schema validation but the given HTML content should meet XHTML 1.0 format.</td>
 </tr>
 <tr>
-<td>** XHTMLValidationType.Transitional **</td>
+<td><b>XHTMLValidationType.Transitional</b></td>
 <td>It allows several attributes within the tags.</td>
 </tr>
 <tr>
-<td>** XHTMLValidationType.Strict **</td>
+<td><b>XHTMLValidationType.Strict</b></td>
 <td>It does not allows the attributes inside the tag.</td>
 </tr>
 </table>
