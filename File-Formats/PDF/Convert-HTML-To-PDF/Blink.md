@@ -9,11 +9,11 @@ documentation: UG
 
 Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core to convert URLs, HTML string, SVG, MHTML to PDF, and HTML to image.
 
-## Prerequisites
+## Prerequisites for Windows
 
-<b>Minimum product version (.NET Framework):</b> 16.3.0.21
+<b>Minimum product version for .NET Framework:</b> 16.3.0.21
 
-<b>Minimum product version (.NET Core):</b> 18.1.0.36
+<b>Minimum product version for .NET Core:</b> 18.1.0.36
 
 * Supports conversion from .NET Framework 4.5 and .NET Core 2.0.
 
@@ -110,33 +110,17 @@ ASP.NET Core Windows
 {{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/)'| markdownify }}
 </td>
 </tr>
-<tr>
-<td>
-ASP.NET Core Linux
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Core Mac
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac/)'| markdownify }}
-</td>
-</tr>
 </table>
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The BlinkBinaries folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
+* The BlinkBinariesWindows folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
 
 ## Prerequisites for Linux
 
 * Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04). 
 
-* The latest Blink HTML converter for Linux can be downloaded as ZIP file from the following link,
+* The latest HTML converter for Linux can be downloaded as ZIP file from the following link,
 
 	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 	
@@ -146,7 +130,8 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. BlinkBinaries
+		4. Newtonsoft.Json package (v10.0.1 or above)</li>
+		5. BlinkBinaries
 		
 * The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
 		
@@ -169,7 +154,8 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. BlinkBinaries
+		4. Newtonsoft.Json package (v10.0.1 or above)</li>
+		5. BlinkBinaries
 		
 * The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
 		
@@ -2610,7 +2596,8 @@ Windows status can be used instead of additional delay. In additional delay, the
 
 N> This feature requires changes in the HTML file.
 
-If windows status does not match in code and HTML, then the converter will meet with deadlock.
+N> If windows status does not match in code and HTML, then the converter will meet with deadlock.
+
 Refer to the following code snippet,
 
 {% tabs %}
