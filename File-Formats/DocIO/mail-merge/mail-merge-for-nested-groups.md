@@ -883,4 +883,4 @@ public class EmployeeDetails
 
 By executing the above code example, it generates the resultant Word document as follows.
  
-![Output Word document of mapping field of ancestor group] (../MailMerge_images/Mail_merge_with_implicit_relation_output.png)
+![Output Word document of mapping field of ancestor group](../MailMerge_images/Mail_merge_with_implicit_relation_output.png)
