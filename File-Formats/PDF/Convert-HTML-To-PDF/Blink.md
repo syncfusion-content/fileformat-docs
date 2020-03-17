@@ -2710,7 +2710,7 @@ The Blink HTML converter launching Chrome browser to perform conversion. While l
 <br/>
 By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
 <br/>
-The temporary path can be changed by using the [TempPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~TempPath.html) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings.html). If this property  is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
+The temporary path can be changed by using the [TempPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~TempPath.html) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings.html). If this property is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -2907,7 +2907,7 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The exception may occurs if the Newtonsoft.Json assembly or NuGet package version is above 6.0.8.
+<td>The exception may occur if the Newtonsoft.Json assembly or NuGet package version is above 6.0.8.
 </td>
 </tr>
 <tr>
@@ -2953,13 +2953,13 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The exception may occurs in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
+<td>The exception may occur in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
 </td>
 </tr>
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome the exception in Windows 7/Windows server 2008 environment, kindly add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
+<td>To overcome the exception in Windows 7/Windows server 2008 environment, add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
 </td>
 </tr>
 
@@ -2996,7 +2996,7 @@ settings.TempPath = "D://MyProject//bin";
 </th>
 <td>Please check the internet connection and the HTML page is available in the mentioned location.
 <br><br/>
-Please check the HTML file or URL is rendered properly in Chrome browser’s print preview. 
+Check the HTML file or URL is rendered properly in Chrome browser’s print preview. 
 </td>
 </tr>
 </table>
