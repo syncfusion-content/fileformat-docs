@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Conversion using Blink Rendering
 
-Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core to convert URLs, HTML string, SVG, MHTML to PDF, and HTML to image.
+The Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core to convert URLs, HTML string, SVG, MHTML to PDF, and HTML to image.
 
 ## Prerequisites for Windows
 
@@ -17,11 +17,11 @@ Syncfusion Essential HTML converter supports HTML to PDF conversion by using the
 
 * Supports conversion from .NET Framework 4.5 and .NET Core 2.0.
 
-* Latest version of Essential HTML converter can be downloaded from the below link,
+* Latest version of Essential HTML converter can be downloaded from the following link.
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 
-* To convert HTML to PDF using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.
+* To convert an HTML to PDF using Blink rendering engine, add the following assemblies or NuGet packages as a reference to the project.
 
 <b>Assemblies</b>
 
@@ -112,7 +112,7 @@ ASP.NET Core Windows
 </tr>
 </table>
 
-N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
+N> The previously mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
 * The BlinkBinariesWindows folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
 
@@ -120,7 +120,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 * Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04). 
 
-* The latest HTML converter for Linux can be downloaded as ZIP file from the following link,
+* The latest HTML converter for Linux can be downloaded as ZIP file from the following link.
 
 	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 	
@@ -144,7 +144,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 * Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos). 
 
-* The latest Blink HTML converter for Mac can be downloaded as PKG file from the following link,
+* The latest Blink HTML converter for Mac can be downloaded as PKG file from the following link.
 
 	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
   
@@ -162,7 +162,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac</a>
 
-* The <b>BlinkBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. In that folder, you have to extract the compressed folder <i>chromium.app.zip</i> properly, without missing any files or folders in that same location. The physical path of BlinkBinariesMac folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesMac folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
+* The <b>BlinkBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. In that folder, you have to extract the compressed folder <i>chromium.app.zip</i> properly without missing any files or folders in that same location. The physical path of BlinkBinariesMac folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesMac folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
 
 ## URL to PDF
 
@@ -245,13 +245,13 @@ document.Close(true);
 
 ## HTML String to PDF
 
-Blink rendering engine provides support for converting HTML string to PDF. While converting HTML string to PDF, converter provides option to specify the base URL.
+The Blink rendering engine provides support for converting HTML string to PDF. While converting HTML string to PDF, converter provides option to specify the base URL.
 
 <b>baseURL:</b> Path of the resources (images, style sheets, scripts.,) used in the input HTML string.
 
-For the below HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
+For the following HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
 
-For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location then the baseURL will be as below,
+For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location, then the baseURL will be as follows.
 
 <b>baseURL:</b> C:/Temp/HTMLFiles/
 
@@ -634,7 +634,7 @@ document.Close(true);
 
 ## Additional delay
 
-The Blink HTML converter provides option to set the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~AdditionalDelay.html) property, while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
+The Blink HTML converter provides an option to set the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~AdditionalDelay.html) property while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1491,7 +1491,7 @@ document.Close(true);
 
 ## Windows authentication
 
-The webpage you want to convert may protected with windows authentication. Blink rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
+The webpage you want to convert may protected with windows authentication. Blink rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1678,7 +1678,7 @@ document.Close(true);
 {% endtabs %}
 
 
-## Token based authentication
+## Token-based authentication
 
 The Blink HTML converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
 
@@ -1783,7 +1783,7 @@ document.Close(true);
 
 ## Offline conversion
 
-Blink HTML converter supports converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow Internet connection.
+The Blink HTML converter supports converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the internet. This may increase the performance in slow internet connection.
 
 N> If an online URL is converted in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
 
@@ -2069,11 +2069,11 @@ document.Close(true);
 
 ## System proxy
 
-By default, the Blink rendering engine use system proxy settings for converting HTML to PDF. If proxy server is configured in the system,then the rendering engine automatically use the same settings for the conversion. Follow the below steps to set the system proxy settings,
+By default, the Blink rendering engine use system proxy settings for converting HTML to PDF. If proxy server is configured in the system, then the rendering engine automatically use the same settings for the conversion. Follow the below steps to set the system proxy settings:
 
-1. Control Panel > Network and Internet > Internet Options 
-2. From Internet properties window, open LAN settings under connections tab
-3. Then set proxy server address and port in LAN settings window
+1. Control Panel > Network and Internet > Internet Options.
+2. From Internet properties window, open LAN settings under connections tab.
+3. Then, set proxy server address and port in LAN settings window.
 
 <b>Please refer below screenshots:</b>
  
@@ -2199,7 +2199,7 @@ document.Close(true);
 
 ## Viewport
 
-Adjusting HTML content size in PDF is possible by using the [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~ViewPortSize.html) property of Blink HTML converter. 
+Adjusting the HTML content size in PDF is possible by using the [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~ViewPortSize.html) property of Blink HTML converter. 
 Refer to the following code snippet to adjust Blink viewport.
 
 {% tabs %}
@@ -2287,7 +2287,7 @@ document.Close(true);
 
 ## Partial webpage to PDF
 
-Blink rendering engine provides support for converting only the part of an HTML document like a table, div, or image elements from the URL/HTML string. You can convert the particular HTML element by specifying the HTML element ID, refer to the following code snippet.
+The Blink rendering engine provides support for converting only the part of an HTML document like a table, div, or image elements from the URL/HTML string. You can convert the particular HTML element by specifying the HTML element ID, refer to the following code snippet.
 
 {% tabs %}
 
@@ -2403,7 +2403,7 @@ By using this option, you can render the whole HTML content into a single PDF pa
 	1. FitWidth
 	2. FitHeight
 
-<b>Fit width option:</b> Using this option, the HTML converter adjust the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
+<b>Fit width option:</b> Using this option, the HTML converter adjusts the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
 <b>Fit height option:</b> Using this option, the HTML converter scale the HTML content and PDF page width to render the whole HTML content within the height. PDF page height remains constant for this option. 
 
 Refer to the following code snippet.
@@ -2598,7 +2598,7 @@ N> This feature requires changes in the HTML file.
 
 N> If windows status does not match in code and HTML, then the converter will meet with deadlock.
 
-Refer to the following code snippet,
+Refer to the following code snippet.
 
 {% tabs %}
 
@@ -2612,7 +2612,7 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 //Set the BlinkBinaries folder path
 blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
-// Set windows status.
+//Set windows status
 blinkConverterSettings.WindowStatus = "completed";
 
 //Assign Blink converter settings to HTML converter
@@ -2706,7 +2706,7 @@ document.Close(true);
 
 ## Temporary path
 
-The Blink HTML converter launching chrome browser to perform conversion. While launching chrome browser, temporary files are created in a temporary folder. 
+The Blink HTML converter launching Chrome browser to perform conversion. While launching Chrome browser, temporary files are created in a temporary folder. 
 <br/>
 By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
 <br/>
