@@ -5,7 +5,7 @@ platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Working with Slide
+# Working with Slides in PowerPoint  
 
 ## Adding slide to the PowerPoint presentation
 
@@ -1150,7 +1150,7 @@ pptxDoc.Close();
 
 {% endtabs %}
 
-For more details on assemblies required for converting a slide to image,  see [Conversion](/file-formats/presentation/conversion)
+For more details on assemblies required for converting a slide to image,  see [Conversion](file-formats/presentation/presentation-to-image#assemblies-required)
 
 N> You can print the PowerPoint presentations by using its ability to convert the slides as images. For more details, refer to [Printing a PowerPoint presentation](/file-formats/presentation/working-with-powerpoint-presentation#printing-a-powerpoint-presentation)
 

@@ -1,31 +1,31 @@
 ---
 title: Working with Paragraph | Syncfusion
-description: This section illustrates how to work with the child elements of Paragraph in Word document using Syncfusion Word library (Essential DocIO) 
+description: This section explains how to work with the child elements of Paragraph in Word document using Syncfusion Word library (Essential DocIO) 
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 # Working with Paragraph
 
-Paragraph is the basic element in the Word document that contains a textual as well as graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation etc. Within a paragraph, the contents are represented by one or more child elements such as `WTextRange`, `WPicture`, and `Hyperlink` etc. `ParagraphItem` is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
+Paragraph is the basic element in a Word document that contains a textual and graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation, and more. Within a paragraph, the contents are represented by one or more child elements such as `WTextRange`, `WPicture`, and `Hyperlink` and more. The `ParagraphItem` is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
 
-* Text – represented by an instance of `WTextRange`.
-* Image – represented by an instance of `WPicture`. 
-* Comments - represented by an instance of `WComment`.
-* Hyperlink – represented by an instance of `Hyperlink`. 
-* Symbols - represented by an instance of `WSymbol`. 
-* Breaks - represented by an instance of `Break`. 
-* OLE Object – represented by an instance of `WOleObject`. 
-* Shapes -  represented by an instance of `Shape`. 
-* TextBox – represented by an instance of `WTextBox`. 
-* Chart – represented by an instance of `WChart`.
-* Fields – represented by an instance of `WField`.
-* Form Fields – represented by an instance of `WFormField`.
-* Bookmarks – represented by instances of `BookmarkStart` and `BookmarkEnd`. 
-* Absolute Tab – represented by an instance of `WAbsoluteTab`.
-* Footnotes, Endnotes  - represented by an instance of `WFootnote`.
+* Text: Represented by an instance of `WTextRange`.
+* Image: Represented by an instance of `WPicture`. 
+* Comments: Represented by an instance of `WComment`.
+* Hyperlink: Represented by an instance of `Hyperlink`. 
+* Symbols: Represented by an instance of `WSymbol`. 
+* Breaks: Represented by an instance of `Break`. 
+* OLE Object: Represented by an instance of `WOleObject`. 
+* Shapes:  Represented by an instance of `Shape`. 
+* TextBox: Represented by an instance of `WTextBox`. 
+* Chart: Represented by an instance of `WChart`.
+* Fields: Represented by an instance of `WField`.
+* Form Fields: Represented by an instance of `WFormField`.
+* Bookmarks: Represented by instances of `BookmarkStart` and `BookmarkEnd`. 
+* Absolute Tab: Represented by an instance of `WAbsoluteTab`.
+* Footnotes and Endnotes: Represented by an instance of `WFootnote`.
 
-The following code example illustrates how to add a new paragraph.
+The following code example explains how to add a new paragraph.
 
 {% tabs %}  
 
@@ -75,7 +75,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -114,7 +114,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -257,17 +257,17 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-## Applying Paragraph Formatting
+## Applying paragraph formatting
 
-As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow etc. The following code example illustrates how to apply formatting to a paragraph.
+As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow, and more. The following code example explains how to apply formatting to a paragraph.
 
-N> `FirstLineIndent` can be used to update or retrieve for both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
+N>The `FirstLineIndent` can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
 
 {% tabs %} 
 
@@ -338,7 +338,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -391,7 +391,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -399,11 +399,11 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 ### Paragraph style  
 
-Paragraph style contains definition for both font (text) as well as paragraph formatting that can be applied to the contents of an entire paragraph. DocIO supports various pre-defined styles and also provides ability to create custom paragraph styles.
+Paragraph style contains definition for both font (text) and paragraph formatting that can be applied to the contents of an entire paragraph. DocIO supports various pre-defined styles and also provides ability to create custom paragraph styles.
 
 T> You can define a custom style or modify any built-in style to the required formatting, and apply this style to the part of Word document to be formatted. You can reduce the file size and code length by using styles instead of formatting each element explicitly.
 
-The following code example illustrates how to use the predefined styles.
+The following code example explains how to use the predefined styles.
 
 {% tabs %}  
 
@@ -459,7 +459,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -502,7 +502,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -510,7 +510,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 ### Custom paragraph style  
 
-The following code example illustrates how to create a custom paragraph style and apply it to a paragraph.
+The following code example explains how to create a custom paragraph style and apply it to a paragraph.
 
 {% tabs %} 
 
@@ -593,7 +593,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -654,7 +654,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -666,7 +666,7 @@ A tab stop is a horizontal position that is set for aligning text of the paragra
 
 Each paragraph has its own tab stop collection where the new tab stop can be added and existing tab stop can be removed.
 
-The following code example illustrates how to add tab stops to the paragraph.
+The following code example explains how to add tab stops to the paragraph.
 
 {% tabs %}  
 
@@ -731,7 +731,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -780,7 +780,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -788,7 +788,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 ### RTL paragraph
 
-You can set RTL (Right-to-left) direction for the paragraph in Word document. The following code example shows how to set RTL (Right-to-left) for a paragraph in Word document.
+You can set RTL (Right-to-left) direction to the paragraph in a Word document. The following code example shows how to set RTL (Right-to-left) for a paragraph in Word document.
 
 {% tabs %}  
 
@@ -906,11 +906,11 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}   
 
-## Working with Text 
+## Working with text 
 
 Text within a paragraph is represented by one or more instances of the `WTextRange`. Each `WTextRange` instance can have its own font (text) formatting.  
 
-The following code example illustrates how to append text to the paragraph.
+The following code example explains how to append text to the paragraph.
 
 {% tabs %} 
 
@@ -969,7 +969,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -1014,7 +1014,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -1022,7 +1022,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 Text in the paragraph can be modified or replaced with a new text. This can be achieved by iterating through the paragraph items.
 
-The following code example illustrates how to replace the text of a text range.
+The following code example explains how to replace the text of a text range.
 
 {% tabs %} 
 
@@ -1150,7 +1150,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -1158,7 +1158,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 Text formatting enhances the appearance of text in the document. Text formatting includes font size, font color, font name, bold, italic, underline, etc. 
 
-The following code example illustrates how to apply formatting for the text.
+The following code example explains how to apply formatting to the text.
 
 {% tabs %}  
 
@@ -1244,7 +1244,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -1307,7 +1307,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -1317,10 +1317,10 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 DocIO provides support for both inline and absolute positioned images. 
 
-* Inline images – The position of the image is constrained to the lines of text on the page.
-* Absolute positioned images – The images can be positioned anywhere irrespective of the lines of text.
+* Inline images: The position of the image is constrained to the lines of text on the page.
+* Absolute positioned images: The images can be positioned anywhere irrespective of the lines of text.
 
-The following code example illustrates how to add image to the paragraph.
+The following code example explains how to add image to the paragraph.
 
 {% tabs %}   
 
@@ -1381,7 +1381,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -1429,7 +1429,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -1437,7 +1437,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 Image present in the document can be replaced with a new image. This can be achieved by iterating through the paragraph items.
 
-The following code example illustrates how to replace an existing image:
+The following code example explains how to replace an existing image.
 
 {% tabs %}   
 
@@ -1520,7 +1520,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -1588,7 +1588,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -1596,7 +1596,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 Images can be removed from the document by removing it from the paragraph items. 
 
-The following code example illustrates how to remove the image from the paragraph items:
+The following code example explains how to remove the image from the paragraph items.
 
 {% tabs %} 
 
@@ -1672,7 +1672,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -1732,17 +1732,17 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-### Format and rotate Images
+### Format and rotate images
 
 Absolute positioned images have properties such as position, wrap formats, and alignments. These properties are not applicable when the text wrapping style is inline. You can also rotate an image and apply flipping (horizontal and vertical) to it.
 
-The following code example illustrates how various picture formats can be applied to the picture:
+The following code example explains how various picture formats can be applied to the picture.
 
 {% tabs %} 
 
@@ -1854,7 +1854,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -1936,7 +1936,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -1944,7 +1944,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 An Image with a specific title can be retrieved by iterating the paragraph items that can be used for further manipulations.
 
-The following code example illustrates how images can be iterated from the document elements.
+The following code example explains how images can be iterated from the document elements.
 
 {% tabs %}  
 
@@ -2042,7 +2042,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -2118,20 +2118,20 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-## Working with Lists
+## Working with lists
 
-Lists can organize and format the contents of the document in hierarchical way. There are 9 levels in the list, starting from level 0 to level 8. DocIO supports both built-in list styles and custom list styles. The following are the types of list supported in DocIO. 
+Lists can organize and format the contents of a document in hierarchical way. There are nine levels in the list, starting from level 0 to level 8. DocIO supports both built-in list styles and custom list styles. The following are the types of list supported in DocIO: 
 
 * Numbered list
 * Bulleted list 
 
-The following code example illustrates how to create a simple bulleted list:
+The following code example explains how to create a simple bulleted list.
 
 {% tabs %} 
 
@@ -2223,7 +2223,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -2290,13 +2290,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin  
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to create simple numbered list:
+The following code example explains how to create a simple numbered list.
 
 {% tabs %} 
 
@@ -2388,7 +2388,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -2455,13 +2455,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to create a multi-level bulleted list.
+The following code example explains how to create a multilevel bulleted list.
 
 {% tabs %}  
 
@@ -2565,7 +2565,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -2640,13 +2640,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to create multi-level numbered list.
+The following code example explains how to create multilevel numbered list.
 
 {% tabs %}  
 
@@ -2750,7 +2750,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();   
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -2825,13 +2825,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
 
-The list levels can be incremented or decremented by using the `IncreaseIndentLevel` and `DecreaseIndentLevel` methods respectively. The following code example illustrates how to increase or decrease the list indent levels.
+The list levels can be incremented or decremented by using the `IncreaseIndentLevel` and `DecreaseIndentLevel` methods respectively. The following code example explains how to increase or decrease the list indent levels.
 
 {% tabs %} 
 
@@ -2956,7 +2956,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -3045,13 +3045,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to create user defined list styles.
+The following code example explains how to create user defined list styles.
 
 {% tabs %}  
 
@@ -3179,7 +3179,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -3270,15 +3270,15 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to create numbered list with prefix from previous level.
+The following code example explains how to create numbered list with prefix from previous level.
 
-N> `NumberPrefix` value for the numbered list should meet the syntax "\u000N" in order to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
+N> The `NumberPrefix` value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
 
 {% tabs %}  
 
@@ -3433,7 +3433,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -3542,24 +3542,122 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
 
-## Working with Hyperlinks
+### Get list value
 
-Hyperlink is a reference to data that can link to external contents like images, files, web page, etc.  In Word document, a hyperlink may target to any one of the following sources.
+You can get the string that represents the appearance of **list value of the paragraph** in the Word document using the `ListString` API. 
 
-* Web Page – represents the web content
-* File – represents the file in some location
-* Email – represents an Email
-* Bookmark – represents the bookmarks in the document
+This API holds the static string of the list value recently calculated while saving the document as Text. It is not updated automatically for each modification done in the Word document. Hence, you should either invoke the `GetText()` method of `WordDocument` or save the Word document as Text to get the actual list value from this API.
 
-Hyperlinks have two parts – the address and the display content. 
+The following example shows how to **get a string that represents the appearance of list value of the paragraph**.
 
-The following code example illustrates how to insert a web link.
+{% tabs %}  
+
+{% highlight C# %}
+//Loads an existing Word document
+WordDocument document = new WordDocument("Template.docx");
+//Gets the document text
+document.GetText();
+//Gets the string that represents the appearance of list value of the paragraph
+String listString = document.LastParagraph.ListString;
+//Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Loads an existing Word document
+Dim document As WordDocument = New WordDocument("Template.docx")
+' Gets the document text
+document.GetText()
+'Gets the string that represents the appearance of list value of the paragraph
+Dim listString As String = document.LastParagraph.ListString
+'Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Loads an existing Word document
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the document text
+document.GetText();
+//Gets the string that represents the appearance of list value of the paragraph
+String listString = document.LastParagraph.ListString;
+// Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Loads an existing Word document
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the document text
+document.GetText();
+//Gets the string that represents the appearance of list value of the paragraph
+String listString = document.LastParagraph.ListString;        
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Loads an existing Word document
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the document text
+document.GetText();
+//Gets the string that represents the appearance of list value of the paragraph
+String listString = document.LastParagraph.ListString;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+{% endtabs %}
+
+N> For a picture bulleted list, the `ListString` API is not valid and it will return an empty string.
+
+
+## Working with hyperlinks
+
+Hyperlink is a reference to data that can link to external contents like images, files, webpage, and more.  In Word document, a hyperlink may target to any one of the following sources:
+
+* Webpage: Represents the web content.
+* File: Represents the file in some location.
+* Email: Represents an Email.
+* Bookmark: Represents the bookmarks in the document.
+
+Hyperlinks have two parts: the address and display content. 
+
+The following code example explains how to insert a web link.
 
 {% tabs %}  
 
@@ -3615,7 +3713,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -3658,7 +3756,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -3720,7 +3818,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -3763,13 +3861,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to add a file hyperlink.
+The following code example explains how to add a file hyperlink.
 
 {% tabs %}  
 
@@ -3825,7 +3923,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -3868,13 +3966,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);   
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin     
 {% endhighlight %} 
 
 {% endtabs %}  
   
-The following code example illustrates how to add a bookmark hyperlink.
+The following code example explains how to add a bookmark hyperlink.
 
 {% tabs %}  
 
@@ -3948,7 +4046,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -4003,7 +4101,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -4011,7 +4109,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 The display content for the Hyperlinks can also be an image that may redirect to some other contents.
 
-The following code example illustrates how to add image hyperlink.
+The following code example explains how to add image hyperlink.
 
 {% tabs %}  
 
@@ -4078,7 +4176,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -4130,13 +4228,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to modify the URL of an existing hyperlink.
+The following code example explains how to modify the URL of an existing hyperlink.
 
 {% tabs %}  
 
@@ -4294,17 +4392,17 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
   
-## Working with Symbols
+## Working with symbols
 
 Symbols are used to add contents such as currencies, numbers, punctuations, etc. DocIO represents symbols with `WSymbol` instance. Each symbol can be identified with their character codes.
 
-The following code example illustrates how to add new symbol to the document:
+The following code example explains how to add new symbol to the document.
 
 {% tabs %}  
 
@@ -4355,7 +4453,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -4396,13 +4494,13 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-The following code example illustrates how to modify an existing symbol:
+The following code example explains how to modify an existing symbol.
 
 {% tabs %} 
 
@@ -4490,7 +4588,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -4561,21 +4659,21 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-## Appending Breaks
+## Appending breaks
 
-Breaks allow the document contents to split into multiple parts, in order customize the appearance of the contents. The following are the types of breaks supported in the DocIO.
+Breaks allows the document contents to split into multiple parts to customize the appearance of the contents. The following are the types of breaks supported in the DocIO:
 
-* Page break – starts the content in the next page
-* Line break – starts the content in new line
-* Column break – starts the content in the next column
+* Page break: Starts the content in the next page.
+* Line break: Starts the content in new line.
+* Column break: Starts the content in the next column.
 
-The following code example illustrates how various types of breaks can be appended to the paragraphs:
+The following code example explains how various types of breaks can be appended to the paragraphs.
 
 {% tabs %}  
 
@@ -4671,7 +4769,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -4742,22 +4840,22 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
 
-## Appending OLE Objects
+## Appending OLE objects
 
-OLE (Object Linking and Embedding) Objects allow embedding and linking to documents and other objects. It allows the content of one program to be used in a Word document. The Objects can be inserted in the following two ways:
+OLE (Object Linking and Embedding) objects allow embedding and linking to documents and other objects. It allows the content of one program to be used in a Word document. The Objects can be inserted in the following two ways:
 
-* Linked – the content is linked to the source file
-* Embedded – the content is copied to the Word document and is not linked to the source file 
+* Linked: The content is linked to the source file
+* Embedded: The content is copied to the Word document and is not linked to the source file 
 
 You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using `WOleObject` instance.
 
-The following code example illustrates how to add OLE objects to the document.
+The following code example explains how to add OLE objects to the document.
 
 {% tabs %}  
 
@@ -4824,7 +4922,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -4876,7 +4974,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -4884,9 +4982,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
   
 ## Working with Text Box
 
-Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using `WTextBox` instance.
+Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using the `WTextBox` instance.
 
-The following code example illustrates how to add new text box to the paragraph.
+The following code example explains how to add new text box to the paragraph.
 
 {% tabs %}  
 
@@ -4960,7 +5058,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -5024,7 +5122,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-### Format and rotate TextBox  
+### Format and rotate text box  
 
 Text box has its own formatting such as outline color, fill effects, text direction, wrap formats, and more. You can also rotate the text box and apply flipping (horizontal and vertical) to it.
 
@@ -5146,7 +5244,7 @@ document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
 
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
@@ -5232,7 +5330,7 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
