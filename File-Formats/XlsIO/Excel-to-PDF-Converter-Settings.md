@@ -14,7 +14,7 @@ XlsIO allows you to convert an entire workbook or a single worksheet into PDF do
 
 This property enables the complex script validation for the text present in Excel document and renders it into PDF document. It's default value is FALSE.
 
-The following complete code snippet explains how to enable `AutoDetectComplexScript` property while converting an Excel document to PDF.
+The following complete code snippet explains how to enable [AutoDetectComplexScript](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~AutoDetectComplexScript.html) property while converting an Excel document to PDF.
 
 {% tabs %}
 {% highlight C# %}
@@ -197,7 +197,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 This property helps to set the required paper size in inches. The default value is empty(i.e.,{Width = 0.0 Height = 0.0}).
 
-The following complete code snippet explains how to set `CustomPaperSize` while converting Excel document to PDF.
+The following complete code snippet explains how to set [CustomPaperSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~CustomPaperSize.html) while converting Excel document to PDF.
 {% tabs %}
 {% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -384,7 +384,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Display Gridlines
 
-This property helps to set the gridlines display style in Excel to PDF converted document. Three display styles are **Auto**, **Invisible** and **Visible**. These are maintained under ``GridLinesDisplayStyle`` enumeration.
+This property helps to set the gridlines display style in Excel to PDF converted document. Three display styles are **Auto**, **Invisible** and **Visible**. These are maintained under [GridLinesDisplayStyle](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.GridLinesDisplayStyle.html) enumeration.
 
 ### Auto
 
@@ -952,7 +952,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Embed Fonts
 
-The Excel content will be rendered improperly when Arial Unicode MS Font is missing in the machine. In this case, enabling the `EmbedFonts` property renders the content properly.
+The Excel content will be rendered improperly when Arial Unicode MS Font is missing in the machine. In this case, enabling the [EmbedFonts](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~EmbedFonts.html) property renders the content properly.
 
 The following code snippet explains how to enable `EmbedFonts` property.
 {% tabs %}
@@ -1140,7 +1140,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Export Bookmarks
 
-The default value of `ExportBookmarks` property is TRUE and hence bookmarks are exported to PDF document by default, in Excel to PDF conversion. Disabling this property skips the bookmarks in conversion.
+The default value of [ExportBookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~ExportBookmarks.html) property is TRUE and hence bookmarks are exported to PDF document by default, in Excel to PDF conversion. Disabling this property skips the bookmarks in conversion.
 
 The following code snippet explains how to disable `ExportBookmarks` property.
 
@@ -1329,7 +1329,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Export Document Properties
 
-Excel document properties will be exported to PDF document by default, in Excel to PDF conversion. This can be skipped by disabling the ``ExportDocumentProperties``.
+Excel document properties will be exported to PDF document by default, in Excel to PDF conversion. This can be skipped by disabling the [ExportDocumentProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~ExportDocumentProperties.html).
 
 The following complete code snippet explains how to disable ``ExportDocumentProperties``.
 {% tabs %}
@@ -1517,7 +1517,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Export Quality Image
 
-The default value of ``ExportQualityImage`` if FALSE. Enabling this property exports quality image to PDF document.
+The default value of [ExportQualityImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~ExportQualityImage.html) if FALSE. Enabling this property exports quality image to PDF document.
 
 The following complete code snippet explains how to enable ``ExportQualityImage`` property.
 
@@ -1706,11 +1706,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Header Footer Option
 
-Two properties available under ``HeaderFooterOption`` are ShowHeader and ShowFooter. 
+Two properties available under [HeaderFooterOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~HeaderFooterOption.html) are ``ShowHeader`` and ``ShowFooter``. 
 
 ### Show Header
 
-Document header will be rendered to PDF document by default. This can be skipped by disabling the ``ShowHeader`` property.
+Document header will be rendered to PDF document by default. This can be skipped by disabling the [ShowHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.HeaderFooterOption~ShowHeader.html) property.
 
 {% tabs %}
 {% highlight C# %}
@@ -1897,7 +1897,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Show Footer
 
-Document footer will be rendered to PDF document by default. This can be skipped by disabling the ``ShowFooter`` property.
+Document footer will be rendered to PDF document by default. This can be skipped by disabling the [ShowFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.HeaderFooterOption~ShowFooter.html) property.
 
 {% tabs %}
 {% highlight C# %}
@@ -2084,7 +2084,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Convert Blank Page
 
-Blank pages in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank pages can be skipped by disabling the ``IsConvertBlankPage`` property.
+Blank pages in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank pages can be skipped by disabling the [IsConvertBlankPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~IsConvertBlankPage.html) property.
 
 The following code snippet explains this.
 
@@ -2273,7 +2273,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Convert Blank Sheet
 
-Blank worksheets in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank worksheets can be skipped by disabling the ``IsConvertBlankSheet`` property.
+Blank worksheets in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank worksheets can be skipped by disabling the [IsConvertBlankSheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~IsConvertBlankSheet.html) property.
 
 The following code snippet explains this.
 
@@ -2462,7 +2462,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Layout Options
 
-This property helps to select the layout option for the Excel document in Excel to PDF conversion. Five layout options available and maintained under ``LayoutOptions`` enumeration are **Automatic**, **CustomScaling**, **FitAllColumnsOnOnePage**, **FitAllRowsOnOnePage**, **FitSheetOnOnePage** and **NoScaling**.
+This property helps to select the layout option for the Excel document in Excel to PDF conversion. Five layout options available and maintained under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~LayoutOptions.html) enumeration are **Automatic**, **CustomScaling**, **FitAllColumnsOnOnePage**, **FitAllRowsOnOnePage**, **FitSheetOnOnePage** and **NoScaling**.
 
 ### Automatic
 
@@ -3595,7 +3595,7 @@ Excel to PDF converter settings allows you to set the PDF conformance level. Ex
 N> 1. To know more details about PDF conformance refer [https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance)
 N> 2. Pdf_X1A2001 is not supported for NETStandard.
 
-The following code illustrates  how to set the PdfConformanceLevel while converting  Excel workbook to PDF.
+The following code illustrates  how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~PdfConformanceLevel.html) while converting  Excel workbook to PDF.
 
 {% tabs %}  
 
@@ -3797,7 +3797,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Template Document
 
-``TemplateDocument`` property helps to store the PDF document. 
+[TemplateDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~TemplateDocument.html) property helps to store the PDF document. 
 
 The following complete code snippet explains how to convert and save two Excel documents into single PDF document using ``TemplateDocument`` property.
 
@@ -4018,7 +4018,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Throw When Excel File Is Empty
 
-The default value of ``ThrowWhenExcelFileIsEmpty`` property is FALSE, and hence the empty Excel document will be converted to PDF without any exception. Enabling this property throws **ExcelToPdfConverterException**, saying that the Excel document is Empty.
+The default value of [ThrowWhenExcelFileIsEmpty](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~ThrowWhenExcelFileIsEmpty.html) property is FALSE, and hence the empty Excel document will be converted to PDF without any exception. Enabling this property throws **ExcelToPdfConverterException**, saying that the Excel document is Empty.
 
 The following code snippet explains this.
 
