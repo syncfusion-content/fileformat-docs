@@ -5654,3 +5654,1283 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+## List of APIs under IRange 
+
+### Cell Address
+
+The following code snippet explains the usage of [Address](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Address.html), [AddressGlobal](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressGlobal.html), [AddressLocal](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressLocal.html), [AddressR1C1](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressR1C1.html), [AddressR1C1Local](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressR1C1Local.html) properties.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Address
+  string address = worksheet.Range[3, 4].Address;
+
+  //Global Address
+  string address_Global = worksheet.Range[3, 4].AddressGlobal;
+
+  //Local Address
+  string address_Local = worksheet.Range[3, 4].AddressLocal;
+
+  //R1C1 Address
+  string address_R1C1 = worksheet.Range[3, 4].AddressR1C1;
+
+  //Local R1C1 Address
+  string address_R1C1_Local = worksheet.Range[3, 4].AddressR1C1Local;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Address
+  Dim address As String = worksheet.Range(3, 4).Address
+
+  'Global Address
+  Dim address_Global As String = worksheet.Range(3, 4).AddressGlobal
+
+  'Local Address
+  Dim address_Local As String = worksheet.Range(3, 4).AddressLocal
+
+  'R1C1 Address
+  Dim address_R1C1 As String = worksheet.Range(3, 4).AddressR1C1
+
+  'Local R1C1 Address
+  Dim address_R1C1_Local As String = worksheet.Range(3, 4).AddressR1C1Local
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Address
+  string address = worksheet.Range[3, 4].Address;
+
+  //Global Address
+  string address_Global = worksheet.Range[3, 4].AddressGlobal;
+
+  //Local Address
+  string address_Local = worksheet.Range[3, 4].AddressLocal;
+
+  //R1C1 Address
+  string address_R1C1 = worksheet.Range[3, 4].AddressR1C1;
+
+  //Local R1C1 Address
+  string address_R1C1_Local = worksheet.Range[3, 4].AddressR1C1Local;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Address
+  string address = worksheet.Range[3, 4].Address;
+
+  //Global Address
+  string address_Global = worksheet.Range[3, 4].AddressGlobal;
+
+  //Local Address
+  string address_Local = worksheet.Range[3, 4].AddressLocal;
+
+  //R1C1 Address
+  string address_R1C1 = worksheet.Range[3, 4].AddressR1C1;
+
+  //Local R1C1 Address
+  string address_R1C1_Local = worksheet.Range[3, 4].AddressR1C1Local;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Address
+  string address = worksheet.Range[3, 4].Address;
+
+  //Global Address
+  string address_Global = worksheet.Range[3, 4].AddressGlobal;
+
+  //Local Address
+  string address_Local = worksheet.Range[3, 4].AddressLocal;
+
+  //R1C1 Address
+  string address_R1C1 = worksheet.Range[3, 4].AddressR1C1;
+
+  //Local R1C1 Address
+  string address_R1C1_Local = worksheet.Range[3, 4].AddressR1C1Local;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Boolean
+
+As the name says, [Boolean](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Boolean.html) property gets or sets the boolean value in a worksheet range. The following code snippet explains this.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Boolean - True
+  worksheet.Range["B3"].Boolean = true;
+  bool b3 = worksheet.Range["B3"].Boolean;
+
+  //Boolean - False
+  worksheet.Range["B4"].Boolean = false;
+  bool b4 = worksheet.Range["B4"].Boolean;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Boolean - True
+  worksheet.Range("B3").Boolean = True
+  Dim b3 As Boolean = worksheet.Range("B3").Boolean
+
+  'Boolean - False
+  worksheet.Range("B4").Boolean = False
+  Dim b4 As Boolean = worksheet.Range("B4").Boolean
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Boolean - True
+  worksheet.Range["B3"].Boolean = true;
+  bool b3 = worksheet.Range["B3"].Boolean;
+
+  //Boolean - False
+  worksheet.Range["B4"].Boolean = false;
+  bool b4 = worksheet.Range["B4"].Boolean;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Boolean - True
+  worksheet.Range["B3"].Boolean = true;
+  bool b3 = worksheet.Range["B3"].Boolean;
+
+  //Boolean - False
+  worksheet.Range["B4"].Boolean = false;
+  bool b4 = worksheet.Range["B4"].Boolean;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Boolean - True
+  worksheet.Range["B3"].Boolean = true;
+  bool b3 = worksheet.Range["B3"].Boolean;
+
+  //Boolean - False
+  worksheet.Range["B4"].Boolean = false;
+  bool b4 = worksheet.Range["B4"].Boolean;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Borders
+
+The following code snippet explains how to set border styles for a worksheet range. [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Borders.html) property is used to achieve this.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set borders
+  IBorders borders = worksheet.Range["C2"].Borders;
+
+  //Set border color
+  borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Red;
+  borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Blue;
+
+  //Set line style
+  borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thick;
+  borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thick;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Set text
+  worksheet.Range("C2").Text = "Sample"
+
+  'Set borders
+  Dim borders As IBorders = worksheet.Range("C2").Borders
+
+  'Set border color
+  borders(ExcelBordersIndex.EdgeTop).Color = ExcelKnownColors.Red
+  borders(ExcelBordersIndex.EdgeBottom).Color = ExcelKnownColors.Blue
+
+  'Set line style
+  borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Thick
+  borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Thick
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set borders
+  IBorders borders = worksheet.Range["C2"].Borders;
+
+  //Set border color
+  borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Red;
+  borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Blue;
+
+  //Set line style
+  borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thick;
+  borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thick;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set borders
+  IBorders borders = worksheet.Range["C2"].Borders;
+
+  //Set border color
+  borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Red;
+  borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Blue;
+
+  //Set line style
+  borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thick;
+  borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thick;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set borders
+  IBorders borders = worksheet.Range["C2"].Borders;
+
+  //Set border color
+  borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Red;
+  borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Blue;
+
+  //Set line style
+  borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thick;
+  borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thick;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Built-In-Style
+
+The following code snippet explains how to add [BuiltInStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~BuiltInStyle.html) for a worksheet range.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set built in style
+  worksheet.Range["C2"].BuiltInStyle = BuiltInStyles.Accent3;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Set text
+  worksheet.Range("C2").Text = "Sample"
+
+  'Set built in style
+  worksheet.Range("C2").BuiltInStyle = BuiltInStyles.Accent3
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set built in style
+  worksheet.Range["C2"].BuiltInStyle = BuiltInStyles.Accent3;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set built in style
+  worksheet.Range["C2"].BuiltInStyle = BuiltInStyles.Accent3;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set text
+  worksheet.Range["C2"].Text = "Sample";
+
+  //Set built in style
+  worksheet.Range["C2"].BuiltInStyle = BuiltInStyles.Accent3;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Calculated Value
+
+[CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CalculatedValue.html) is the evaluated value of the formula. The following code snippet explains how to get the ``CalculatedValue`` of the formula.
+
+N> It is mandatory to enable sheet calculations i.e., ``worksheet.EnableSheetCalculations();`` before accessing the CalculatedValue. Else, CalculatedValue will be null.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["A2"].Number = 20;
+
+  //Set formula
+  worksheet.Range["A3"].Formula = "=SUM(A1:A2)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the calculated value
+  string value = worksheet.Range["A3"].CalculatedValue;
+
+  //Disable sheet calculations
+  worksheet.DisableSheetCalculations();
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Set values
+  worksheet.Range("A1").Number = 10
+  worksheet.Range("A2").Number = 20
+
+  'Set formula
+  worksheet.Range("A3").Formula = "=SUM(A1:A2)"
+
+  'Enable sheet calculations
+  worksheet.EnableSheetCalculations()
+
+  'Get the calculated value
+  Dim value As String = worksheet.Range("A3").CalculatedValue
+
+  'Disable sheet calculations
+  worksheet.DisableSheetCalculations()
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["A2"].Number = 20;
+
+  //Set formula
+  worksheet.Range["A3"].Formula = "=SUM(A1:A2)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the calculated value
+  string value = worksheet.Range["A3"].CalculatedValue;
+
+  //Disable sheet calculations
+  worksheet.DisableSheetCalculations();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["A2"].Number = 20;
+
+  //Set formula
+  worksheet.Range["A3"].Formula = "=SUM(A1:A2)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the calculated value
+  string value = worksheet.Range["A3"].CalculatedValue;
+
+  //Disable sheet calculations
+  worksheet.DisableSheetCalculations();
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["A2"].Number = 20;
+
+  //Set formula
+  worksheet.Range["A3"].Formula = "=SUM(A1:A2)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the calculated value
+  string value = worksheet.Range["A3"].CalculatedValue;
+
+  //Disable sheet calculations
+  worksheet.DisableSheetCalculations();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Cells
+
+[Cells](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Cells.html) property maintains the collection worksheet range. The following code snippet explains how to access ``Cells`` property.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Range of cells
+  IRange[] cells = worksheet.Range["A1:E5"].Cells;
+
+  foreach (IRange cell in cells)
+  {
+    //Assign value
+    cell.Text = cell.AddressLocal;
+  }
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Range of cells
+  Dim cells() As IRange = worksheet.Range("A1:E5").Cells
+
+  For Each cell As IRange In cells
+    'Assign value
+    cell.Text = cell.AddressLocal
+  Next
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Range of cells
+  IRange[] cells = worksheet.Range["A1:E5"].Cells;
+
+  foreach (IRange cell in cells)
+  {
+    //Assign value
+    cell.Text = cell.AddressLocal;
+  }
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Range of cells
+  IRange[] cells = worksheet.Range["A1:E5"].Cells;
+
+  foreach (IRange cell in cells)
+  {
+    //Assign value
+    cell.Text = cell.AddressLocal;
+  }
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Range of cells
+  IRange[] cells = worksheet.Range["A1:E5"].Cells;
+
+  foreach (IRange cell in cells)
+  {
+    //Assign value
+    cell.Text = cell.AddressLocal;
+  }
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Cell Style Name
+
+[CellStyleName](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CellStyleName.html) represents the name of the style of worksheet range/cell. The default value is **Normal**.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Add style
+  IStyle style = workbook.Styles.Add("CustomStyle");
+
+  //Set color
+  style.ColorIndex = ExcelKnownColors.Red;
+
+  //Set style
+  worksheet.Range["C2"].CellStyle = style;
+
+  //Get the cell style name
+  string cellStyleName = worksheet.Range["C2"].CellStyleName;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Add style
+  Dim style As IStyle = workbook.Styles.Add("CustomStyle")
+
+  'Set color
+  style.ColorIndex = ExcelKnownColors.Red
+
+  'Set style
+  worksheet.Range("C2").CellStyle = style
+
+  'Get the cell style name
+  Dim cellStyleName As String = worksheet.Range("C2").CellStyleName
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Add style
+  IStyle style = workbook.Styles.Add("CustomStyle");
+
+  //Set color
+  style.ColorIndex = ExcelKnownColors.Red;
+
+  //Set style
+  worksheet.Range["C2"].CellStyle = style;
+
+  //Get the cell style name
+  string cellStyleName = worksheet.Range["C2"].CellStyleName;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Add style
+  IStyle style = workbook.Styles.Add("CustomStyle");
+
+  //Set color
+  style.ColorIndex = ExcelKnownColors.Red;
+
+  //Set style
+  worksheet.Range["C2"].CellStyle = style;
+
+  //Get the cell style name
+  string cellStyleName = worksheet.Range["C2"].CellStyleName;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Add style
+  IStyle style = workbook.Styles.Add("CustomStyle");
+
+  //Set color
+  style.ColorIndex = ExcelKnownColors.Red;
+
+  //Set style
+  worksheet.Range["C2"].CellStyle = style;
+
+  //Get the cell style name
+  string cellStyleName = worksheet.Range["C2"].CellStyleName;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Column
+
+[Column](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Column.html) property gets the column index of first column in worksheet range, which is one-index based. 
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Get first column in the range
+  int firstColumn = worksheet.Range["E1:R3"].Column;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Get first column in the range
+  Dim firstColumn As Integer = worksheet.Range("E1:R3").Column
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Get first column in the range
+  int firstColumn = worksheet.Range["E1:R3"].Column;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Get first column in the range
+  int firstColumn = worksheet.Range["E1:R3"].Column;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Get first column in the range
+  int firstColumn = worksheet.Range["E1:R3"].Column;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Columns
+
+[Columns](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Columns.html) property maintains the collection of columns in a worksheet range. 
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Columns
+  IRange[] columns = worksheet.Range["A1:E5"].Columns;
+
+  foreach (IRange column in columns)
+  {
+    //Assign value
+    column.Text = column.AddressLocal;
+  }
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Columns
+  Dim columns() As IRange = worksheet.Range("A1:E5").Columns
+
+  For Each column As IRange In columns
+    'Assign value
+    column.Text = column.AddressLocal
+  Next
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Columns
+  IRange[] columns = worksheet.Range["A1:E5"].Columns;
+
+  foreach (IRange column in columns)
+  {
+    //Assign value
+    column.Text = column.AddressLocal;
+  }
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Columns
+  IRange[] columns = worksheet.Range["A1:E5"].Columns;
+
+  foreach (IRange column in columns)
+  {
+    //Assign value
+    column.Text = column.AddressLocal;
+  }
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Columns
+  IRange[] columns = worksheet.Range["A1:E5"].Columns;
+
+  foreach (IRange column in columns)
+  {
+    //Assign value
+    column.Text = column.AddressLocal;
+  }
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);                
+}
+{% endhighlight %}
+{% endtabs %}
+
+
+
+
+
+
+
+
+
