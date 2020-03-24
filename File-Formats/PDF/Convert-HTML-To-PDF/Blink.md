@@ -130,7 +130,7 @@ N> The previously mentioned NuGet packages are available in [nuget.org](https://
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. Newtonsoft.Json package (v10.0.1 or above)</li>
+		4. Newtonsoft.Json package (v10.0.1 or above)
 		5. BlinkBinaries
 		
 * The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
@@ -154,7 +154,7 @@ N> The previously mentioned NuGet packages are available in [nuget.org](https://
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. Newtonsoft.Json package (v10.0.1 or above)</li>
+		4. Newtonsoft.Json package (v10.0.1 or above)
 		5. BlinkBinaries
 		
 * The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
