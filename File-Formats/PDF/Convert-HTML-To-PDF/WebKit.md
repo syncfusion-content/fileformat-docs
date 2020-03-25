@@ -3551,6 +3551,36 @@ Instead, the required assemblies can added in the Windows system folder (for 64 
 </tr>
 </table>
 
+<table>
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td style="font-size:14px">
+<b>When OpenSSL (libssl) shared objects are not added in Linux docker 3.0 or above.</b>
+</td>
+</tr>
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>
+For converting HTTPS sites in Linux docker 3.0 or above, the HTML converter requires OPENSSL (libssl) shared objects to be placed in the QtBinariesLinux folder . The OPENSSL shared object files can be downloaded from the below link, 
+<br/><br/>
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/SSL384615687.zip">LibSSL</a>
+
+<br/><br/>
+Instead, the above attached shared object files can be copied to this linux system folder <span style="color:gray;font-size:14px"><i>/usr/lib/x86_64-linux-gnu</i></span> by using below command in docker file,
+<br/><br/>
+<table>
+<tr>
+<td>
+COPY /libssl/ /usr/lib/x86_64-linux-gnu/
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
 </td>
 </tr>
 </table>
