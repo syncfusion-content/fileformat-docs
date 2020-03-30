@@ -199,20 +199,6 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	3. $ sudo apt-get install libssl1.0-dev 
 	4. $ sudo apt-get install libx11-dev libx11-xcb-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-shm0-dev libxcb-util0-dev libxcb-xfixes0-dev libxcb-xkb-dev libxcb1-dev libxfixes-dev libxrandr-dev libxrender-dev
 
-* For converting HTTPS sites in Linux docker 3.0 or above, the HTML converter requires OPENSSL (libssl) shared objects to be placed in the QtBinariesLinux folder and removed the libssl installation commands in docker file. The OPENSSL shared object files can be downloaded from the below link,
-
-    [https://www.syncfusion.com/downloads/support/directtrac/general/ze/SSL384615687.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SSL384615687.zip)
-
-    Instead, the above attached shared object files can be copied to this linux system folder <span style="color:gray;font-size:14px"><i>/usr/lib/x86_64-linux-gnu</i></span> by using below command in docker file,
-
-    <table>
-    <tr>
-    <td>
-    COPY /libssl/ /usr/lib/x86_64-linux-gnu/
-    </td>
-    </tr>
-    </table>
-
 ## Prerequisites for Mac
 
 * Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos). 
