@@ -196,7 +196,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
 	2. $ sudo apt-get install xvfb 
-	3. $ sudo apt-get install libssl-dev 
+	3. $ sudo apt-get install libssl1.0-dev 
 	4. $ sudo apt-get install libx11-dev libx11-xcb-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-shm0-dev libxcb-util0-dev libxcb-xfixes0-dev libxcb-xkb-dev libxcb1-dev libxfixes-dev libxrandr-dev libxrender-dev
 
 ## Prerequisites for Mac
@@ -3533,6 +3533,36 @@ Instead, the required assemblies can added in the Windows system folder (for 64 
 <li>libssl32.dll</li>
 <li>ssleay32.dll</li>
 </ul>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td style="font-size:14px">
+<b>When OpenSSL (libssl) shared objects are not added in Linux docker 3.0 or above.</b>
+</td>
+</tr>
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>
+For converting HTTPS sites in Linux docker 3.0 or above, the HTML converter requires OPENSSL (libssl) shared objects to be placed in the QtBinariesLinux folder . The OPENSSL shared object files can be downloaded from the below link, 
+<br/><br/>
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/SSL384615687.zip">LibSSL</a>
+
+<br/><br/>
+Instead, the above attached shared object files can be copied to this linux system folder <span style="color:gray;font-size:14px"><i>/usr/lib/x86_64-linux-gnu</i></span> by using below command in docker file,
+<br/><br/>
+<table>
+<tr>
+<td>
+COPY /libssl/ /usr/lib/x86_64-linux-gnu/
+</td>
+</tr>
+</table>
 </td>
 </tr>
 </table>
