@@ -346,138 +346,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Editing and formatting a pivot table
 
-A pivot table can be accessed from the **IPivotTables** interface that have the collection of pivot tables in the worksheet. The following code shows how to dynamically refresh the data in a pivot table. In prior:
+A pivot table can be accessed from the **IPivotTables** interface that have the collection of pivot tables in the worksheet. You can modify the pivot table format or pivot cell format using IPivotTable properties and methods.
 
-* Create the pivot table using Excel GUI.
-* Specify the named range to be the data source of the pivot table.
-* Make sure that the "Refresh on Open" option of the pivot table is selected.
-* Dynamically refresh the data in the named range.
+### Pivot Table Formatting
 
-{% tabs %}
-{% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-  IWorksheet pivotSheet = workbook.Worksheets[0];
+XlsIO supports 85 built-in styles of Microsoft Excel used to create a table with rich formatting using the PivotBuiltInStyles property as follows. To learn more about various built-in styles supported, refer to the PivotBuiltInStyles enumeration in API section.
 
-  //Change the range values that the Pivot Tables range refers to
-  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
-
-  workbook.SaveAs("PivotTable_DynamicRange.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-  Dim pivotSheet As IWorksheet = workbook.Worksheets(0)
-
-  'Change the range values that the Pivot Tables range refers to
-  workbook.Names("PivotRange").RefersToRange = pivotSheet.Range("A1:D27")
-
-  workbook.SaveAs("PivotTable_DynamicRange.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-  IWorksheet pivotSheet = workbook.Worksheets[0];
-
-  //Change the range values that the Pivot Tables range refers to
-  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "PivotTable_DynamicRange";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight asp.net core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet pivotSheet = workbook.Worksheets[0];
-
-  //Change the range values that the Pivot Tables range refers to
-  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
-
-  string fileName = "PivotTable_DynamicRange.xlsx";
-  //Saving the workbook as stream
-  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet pivotSheet = workbook.Worksheets[0];
-
-  //Change the range values that the Pivot Tables range refers to
-  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
-
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
-  string fileName = "PivotTable_DynamicRange.xlsx";
-
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}  
-
-XlsIO supports 85 built-in styles of Excel 2007 used to create a table with rich formatting using the PivotBuiltInStyles property as follows. To learn more about various built-in styles supported, refer to the **PivotBuiltInStyles** enumeration in API section.
+The following code snippet illustrates how to apply built-in style to pivot table
 
 {% tabs %}
 {% highlight c# %}
@@ -618,11 +493,285 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+### Pivot Cell Formatting
+
+When you apply the cell formatting to pivot table cells, Microsoft Excel maintains the formatting information in pivot table and shows the cell formatting on pivot table cells from that pivot formats. XlsIO supports to apply cell formatting to pivot table range cells. You can apply all the cell formatting using IPivotTable GetCellFormat method and IPivotCellFormat interface.
+
+The following code snippet illustrates how to apply cell formatting to pivot table cells.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+  IApplication application = engine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Get the cell format for "A1" pivot range.
+  IPivotCellFormat cellFormat = pivotTable.GetCellFormat("A3:C4");
+  cellFormat.BackColor = ExcelKnownColors.Green;
+
+  workbook.SaveAs("PivotFormat.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim pivotSheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
+  'Get the cell format for "A1" pivot range.
+  Dim cellFormat As IPivotCellFormat = pivotTable.GetCellFormat("A3:C4")
+  cellFormat.BackColor = ExcelKnownColors.Green
+
+  workbook.SaveAs("PivotFormat.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Get the cell format for "A1" pivot range.
+  IPivotCellFormat cellFormat = pivotTable.GetCellFormat("A3:C4");
+  cellFormat.BackColor = ExcelKnownColors.Green;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotFormat";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Get the cell format for "A1" pivot range.
+  IPivotCellFormat cellFormat = pivotTable.GetCellFormat("A3:C4");
+  cellFormat.BackColor = ExcelKnownColors.Green;
+
+  string fileName = "PivotFormat.xlsx";
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Get the cell format for "A1" pivot range.
+  IPivotCellFormat cellFormat = pivotTable.GetCellFormat("A3:C4");
+  cellFormat.BackColor = ExcelKnownColors.Green;
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+
+  string fileName = "PivotFormat.xlsx";
+
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the input template of pivot table inline formatting.
+
+![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png)
+
+The following screenshot represents the generated Excel file with pivot table inline formatting in XlsIO.
+
+![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png)
+
 ## Refresh a pivot table
+When you update the pivot table data source, you should refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through IsRefreshOnLoad property of PivotCacheImpl.
 
-When you update the pivot table data source, refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through **IsRefreshOnLoad** property of **PivotCacheImpl**.
+The following code shows how to dynamically refresh the data in a pivot table. In prior:
 
-Refer the following complete code snippets.
+
+* Create the pivot table using Excel GUI.
+* Specify the named range to be the data source of the pivot table.
+* Make sure that the "Refresh on Open" option of the pivot table is selected.
+* Dynamically refresh the data in the named range.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet pivotSheet = workbook.Worksheets[0];
+
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
+
+  workbook.SaveAs("PivotTable_DynamicRange.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim pivotSheet As IWorksheet = workbook.Worksheets(0)
+
+  'Change the range values that the Pivot Tables range refers to
+  workbook.Names("PivotRange").RefersToRange = pivotSheet.Range("A1:D27")
+
+  workbook.SaveAs("PivotTable_DynamicRange.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet pivotSheet = workbook.Worksheets[0];
+
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable_DynamicRange";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet pivotSheet = workbook.Worksheets[0];
+
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
+
+  string fileName = "PivotTable_DynamicRange.xlsx";
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet pivotSheet = workbook.Worksheets[0];
+
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+
+  string fileName = "PivotTable_DynamicRange.xlsx";
+
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}  
+
+The following code snippet illustrates how to refresh the pivot table after update the cell value in pivot data source.
 
 {% tabs %}
 {% highlight C# %}
@@ -778,6 +927,150 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+## Pivot table Layout
+
+When you create pivot table in XlsIO, the pivot values are not set in the worksheet cells. Pivot table layout option set the pivot values to worksheet cells. XlsIO supports the layout option for all three pivot table types.
+
+The following code snippet illustrates how to layout the pivot table.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[1];
+  
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Layout the pivot table.
+  pivotTable.Layout();
+
+  workbook.SaveAs("PivotTable_Layout.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim pivotSheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
+  'Layout the pivot table.
+  pivotTable.Layout()
+
+  workbook.SaveAs("PivotTable_Layout.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Layout the pivot table.
+  pivotTable.Layout();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable_Layout";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Layout the pivot table.
+  pivotTable.Layout();
+
+  string fileName = "PivotTable_Layout.xlsx";
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Layout the pivot table.
+  pivotTable.Layout();
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+
+  string fileName = "PivotTable_Layout.xlsx";
+
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshots represents the generated Excel file with pivot table layout in XlsIO.
+
+Compact layout:
+
+![Pivot Tables layout compact](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png)
+
+Outline layout:
+
+![Pivot Tables layout outline](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png)
+
+Tabular layout:
+
+![Pivot Tables layout tabular](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png)
 
 ## Expand or collapse rows in pivot table
 
