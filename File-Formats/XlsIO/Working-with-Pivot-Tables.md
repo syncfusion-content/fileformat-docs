@@ -1,6 +1,6 @@
 ---
-title: Working with Pivot Tables
-description: Briefs about working with Pivot tables in XlsIO
+title: Working with Pivot Tables | Excel library | Syncfusion
+description: In this section, you can learn how to create and use pivot tables operations in Excel using XlsIO
 platform: File-Formats
 control: XlsIO
 documentation: UG
@@ -1363,7 +1363,7 @@ pageField.Items[2].Visible = false;
 {% endhighlight %}
 {% endtabs %}  
 
-![](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
+![Applying page filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
 
 
 ### Applying row or column filters
@@ -1414,7 +1414,7 @@ rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 {% endhighlight %}
 {% endtabs %}  
 
-![](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg)
+![Applying label filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg)
 
 **Value** **Filter** 
 
@@ -1456,7 +1456,7 @@ field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 {% endhighlight %}
 {% endtabs %}  
 
-![](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg)
+![Applying value filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg)
 
 **Multiple** **filter**
 
