@@ -157,6 +157,11 @@ document.Close()
 
 {% highlight ASP.NET CORE %}
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
+
+//Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. At present, to achieve this in ASP.NET Core platform, we suggest to upgrade your ASP.NET Core application to .NET Core 3.0 or above versions
+
+//You can use the WPF or Windows Forms platform NuGet packages for .NET Core 3.0 or above versions targeting applications and use the same "C# tab" code examples for it
+
 {% endhighlight %}
 
 {% highlight XAMARIN %}
@@ -202,6 +207,11 @@ document.Close()
 
 {% highlight ASP.NET CORE %}
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
+
+//Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. At present, to achieve this in ASP.NET Core platform, we suggest to upgrade your ASP.NET Core application to .NET Core 3.0 or above versions
+
+//You can use the WPF or Windows Forms platform NuGet packages for .NET Core 3.0 or above versions targeting applications and use the same "C# tab" code examples for it
+
 {% endhighlight %}
 
 {% highlight XAMARIN %}
@@ -332,6 +342,10 @@ document.Close()
 
 {% highlight ASP.NET CORE %}
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
+
+//Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. At present, to achieve this in ASP.NET Core platform, we suggest to upgrade your ASP.NET Core application to .NET Core 3.0 or above versions
+
+//You can use the WPF or Windows Forms platform NuGet packages for .NET Core 3.0 or above versions targeting applications and use the same "C# tab" code examples for it
 {% endhighlight %}
 
 {% highlight XAMARIN %}
