@@ -1,6 +1,6 @@
 ---
 title: Working with Table Of Contents | Syncfusion
-description: This section illustrates how to insert and update the Table Of Content in a Word document
+description: This section illustrates how to insert and update the Table Of Content in a Word document without Microsoft Word or Office interop
 platform: file-formats
 control: DocIO
 documentation: UG
