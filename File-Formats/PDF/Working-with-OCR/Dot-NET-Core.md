@@ -86,9 +86,9 @@ You can download the language packages from the following link
 
 *	We are using the “System.Drawing.Common” API in the OCR Processor. So, it is mandatory to install the “libgdiplus” and “libopenjb2-7” package. Please refer to the following commands to install the packages.
 
-          *  sudo apt-get update
-          *  sudo apt-get install libgdiplus
-          *  sudo apt-get install y- libopenjb2-7
+        1.sudo apt-get update
+        2.sudo apt-get install libgdiplus
+        3.sudo apt-get install y- libopenjb2-7
  
 *	Provide the TesseractBinaries Linux folder path when creating a new OCR processor. Please refer to the following code snippet for Linux.
 
@@ -128,8 +128,8 @@ You can download the language packages from the following link
 
 *	We are internally using the “System.Drawing.Common” package to process the image and perform the OCR in the OCR Processor. So, it is mandatory to install the “'libgdiplus”, and “tesseract” packages in the Mac machine where the OCR operations occur. Please refer to the following commands to install this package.
 
-        *   brew install mono-libgdiplus
-        *   brew install tesseract
+        1.brew install mono-libgdiplus
+        2.brew install tesseract
 
 *	Provide the TesseractBinaries Mac folder path when creating a new OCR processor. Please refer to the following code snippet for Mac.
 
@@ -665,7 +665,7 @@ To resolve this exception, ensure the tesseract binaries are in the following st
 <br/><br/>
 The tesseract binaries path is TesseractBinaries/Windows and the assemblies should be in below structure, 
 <br/><br/>
-1.<span style="color:gray;font-size:14px"><i>(TesseractBinaries\Windows\x64\libletpt1753.dll,libSyncfusionTesseract.dll)</i></span></br>
+1.<span style="color:gray;font-size:14px"><i>(TesseractBinaries\Windows\x64\libletpt1753.dll,libSyncfusionTesseract.dll)</i></span><br/>
 2.<span style="color:gray;font-size:14px"><i>(TesseractBinaries\Windows\x86\libletpt1753.dll,libSyncfusionTesseract.dll)</i></span>
 </td>
 </tr>
@@ -702,7 +702,7 @@ To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/e
 <th style="font-size:14px">Solution</th>
 <td>
 Essential PDF supports all the languages supported by Tesseract engine in the OCR processor
-The dictionary packs for the languages can be downloaded from the following online location:</br>
+The dictionary packs for the languages can be downloaded from the following online location:<br/>
 <a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
 <br/><br/>
 It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. <br/>
