@@ -6926,6 +6926,799 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+### Comment
+
+To know in detail about **Comment**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#comments](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#comments).
+
+### Conditional Formats
+
+To know in detail about **Conditional Formats**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting).
+
+### Count
+
+[Count](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Count.html) property returns the number of cells in that particular worksheet range.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Number of cells
+  int count = worksheet.Range["A1:E5"].Count;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Number of cells
+  Dim count As Integer = worksheet.Range("A1:E5").Count
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Number of cells
+  int count = worksheet.Range["A1:E5"].Count;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Number of cells
+  int count = worksheet.Range["A1:E5"].Count;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Number of cells
+  int count = worksheet.Range["A1:E5"].Count;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Data Validation
+
+To know in detail about **Data Validation**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation).
+
+### End
+
+[End](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~End.html) property returns the last cell in that particaular worksheet range.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the range
+  IRange lastCell = worksheet.Range["A1:E5"].End;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Last cell in the range
+  Dim lastCell As IRange = worksheet.Range("A1:E5").End
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the range
+  IRange lastCell = worksheet.Range["A1:E5"].End;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the range
+  IRange lastCell = worksheet.Range["A1:E5"].End;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the range
+  IRange lastCell = worksheet.Range["A1:E5"].End;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Entire Column
+
+[EntireColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~EntireColumn.html), as the name says gets the entire column of the particular range.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire column
+  IRange lastCell = worksheet.Range["A1"].EntireColumn.End;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Last cell in the entire column
+  Dim lastCell As IRange = worksheet.Range("A1").EntireColumn.End
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire column
+  IRange lastCell = worksheet.Range["A1"].EntireColumn.End;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire column
+  IRange lastCell = worksheet.Range["A1"].EntireColumn.End;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire column
+  IRange lastCell = worksheet.Range["A1"].EntireColumn.End;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+N> Using EntireColumn property excessively leads to time consumption and affetcs the performance.
+
+### Entire Row
+
+[EntireRolumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~EntireRow.html), as the name says gets the entire row of the particular range.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire row
+  IRange lastCell = worksheet.Range["A1"].EntireRow.End;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Last cell in the entire row
+  Dim lastCell As IRange = worksheet.Range("A1").EntireRow.End
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire row
+  IRange lastCell = worksheet.Range["A1"].EntireRow.End;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire row
+  IRange lastCell = worksheet.Range["A1"].EntireRow.End;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Last cell in the entire row
+  IRange lastCell = worksheet.Range["A1"].EntireRow.End;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Formula
+
+[Formula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Formula.html) property gets or sets the formula in specified range.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the claculated value of formula
+  string value = worksheet.Range["C1"].CalculatedValue;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Set values
+  worksheet.Range("A1").Number = 10
+  worksheet.Range("B1").Number = 20
+
+  'Set formula
+  worksheet.Range("C1").Formula = "=SUM(A1:B1)"
+
+  'Enable sheet calculations
+  worksheet.EnableSheetCalculations()
+
+  'Get the claculated value of formula
+  Dim value As String = worksheet.Range("C1").CalculatedValue
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the claculated value of formula
+  string value = worksheet.Range["C1"].CalculatedValue;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the claculated value of formula
+  string value = worksheet.Range["C1"].CalculatedValue;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the claculated value of formula
+  string value = worksheet.Range["C1"].CalculatedValue;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Formula Array
+
+To know in detail about **FormulaArray**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#array-of-formula](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#array-of-formula)
+
+### Formula Bool Value
+
+[FormulaBoolValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~FormulaBoolValue.html) gets the [CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CalculatedValue.html) of formula as boolean.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Set boolean
+  worksheet.Range["D1"].Boolean = true;
+
+  //Set formula
+  worksheet.Range["E1"].Formula = "=D1";                
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the formula boolean value
+  bool value_C1 = worksheet.Range["C1"].FormulaBoolValue;
+  bool value_E1 = worksheet.Range["E1"].FormulaBoolValue;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Set values
+  worksheet.Range("A1").Number = 10
+  worksheet.Range("B1").Number = 20
+
+  'Set formula
+  worksheet.Range("C1").Formula = "=SUM(A1:B1)"
+
+  'Set boolean
+  worksheet.Range("D1").Boolean = True
+
+  'Set formula
+  worksheet.Range("E1").Formula = "=D1"
+
+  'Enable sheet calculations
+  worksheet.EnableSheetCalculations()
+
+  'Get the formula boolean value
+  Dim value_C1 As Boolean = worksheet.Range("C1").FormulaBoolValue
+  Dim value_E1 As Boolean = worksheet.Range("E1").FormulaBoolValue
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Set boolean
+  worksheet.Range["D1"].Boolean = true;
+
+  //Set formula
+  worksheet.Range["E1"].Formula = "=D1";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the formula boolean value
+  bool value_C1 = worksheet.Range["C1"].FormulaBoolValue;
+  bool value_E1 = worksheet.Range["E1"].FormulaBoolValue;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Set boolean
+  worksheet.Range["D1"].Boolean = true;
+
+  //Set formula
+  worksheet.Range["E1"].Formula = "=D1";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the formula boolean value
+  bool value_C1 = worksheet.Range["C1"].FormulaBoolValue;
+  bool value_E1 = worksheet.Range["E1"].FormulaBoolValue;
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
+  fileStreamResult.FileDownloadName = "Output.xlsx";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set values
+  worksheet.Range["A1"].Number = 10;
+  worksheet.Range["B1"].Number = 20;
+
+  //Set formula
+  worksheet.Range["C1"].Formula = "=SUM(A1:B1)";
+
+  //Set boolean
+  worksheet.Range["D1"].Boolean = true;
+
+  //Set formula
+  worksheet.Range["E1"].Formula = "=D1";
+
+  //Enable sheet calculations
+  worksheet.EnableSheetCalculations();
+
+  //Get the formula boolean value
+  bool value_C1 = worksheet.Range["C1"].FormulaBoolValue;
+  bool value_E1 = worksheet.Range["E1"].FormulaBoolValue;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
