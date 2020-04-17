@@ -32,16 +32,16 @@ You can get the TesseractBinaries and tessdata from the OCR Processor download o
 
 <b>TesseractBinaries:</b>
 
-<span style="color:gray;font-size:14px"><i>(syncfusionocrprocessor\Tesseractbinaries_core)</i></span> (or)
+<span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\Tesseractbinaries_core</i></span> (or)
 
-<span style="color:gray;font-size:14px"><i>(C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries\)</i></span>
+<span style="color:gray;font-size:14px"><i>C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries\</i></span>
 
 
 <b>tessdata:</b>
 
-<span style="color:gray;font-size:14px"><i>(syncfusionocrprocessor\tessdata)</i></span> (or)
+<span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\tessdata</i></span> (or)
 
-<span style="color:gray;font-size:14px"><i>(C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\tessdata\)</i></span>
+<span style="color:gray;font-size:14px"><i>C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\tessdata\</i></span>
 
 
 N> The above folders can be copied from the build or NuGet to your project folder and it can be referred from the project folder. 
@@ -665,8 +665,8 @@ To resolve this exception, ensure the tesseract binaries are in the following st
 <br/><br/>
 The tesseract binaries path is TesseractBinaries/Windows and the assemblies should be in below structure, 
 <br/><br/>
-1.<span style="color:gray;font-size:14px"><i>(TesseractBinaries\Windows\x64\libletpt1753.dll,libSyncfusionTesseract.dll)</i></span><br/>
-2.<span style="color:gray;font-size:14px"><i>(TesseractBinaries\Windows\x86\libletpt1753.dll,libSyncfusionTesseract.dll)</i></span>
+1.<span style="color:gray;font-size:14px"><i>TesseractBinaries\Windows\x64\libletpt1753.dll,libSyncfusionTesseract.dll</i></span><br/>
+2.<span style="color:gray;font-size:14px"><i>TesseractBinaries\Windows\x86\libletpt1753.dll,libSyncfusionTesseract.dll</i></span>
 </td>
 </tr>
 </table>
