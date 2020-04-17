@@ -30,14 +30,14 @@ To use the OCR feature in the .NET core application, the following assemblies or
 You can get the TesseractBinaries and tessdata from the OCR Processor download or from the Syncfusion.PDF.OCR.Net.Core NuGet package installed location. Please refer to the following example folder path.
 
 
-<b>TesseractBinaries:</b>
+<b>TesseractBinaries</b>
 
 <span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\Tesseractbinaries_core</i></span> (or)
 
 <span style="color:gray;font-size:14px"><i>C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries</i></span>
 
 
-<b>tessdata:</b>
+<b>tessdata</b>
 
 <span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\tessdata</i></span> (or)
 
@@ -78,7 +78,7 @@ processor.PerformOCR(lDoc, "tessdata\");
 
 You can download the language packages from the following link
 
-<a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
         
 
 
@@ -86,9 +86,9 @@ You can download the language packages from the following link
 
 *	We are using the “System.Drawing.Common” API in the OCR Processor. So, it is mandatory to install the “libgdiplus” and “libopenjb2-7” package. Please refer to the following commands to install the packages.
 
-        1.sudo apt-get update
-        2.sudo apt-get install libgdiplus
-        3.sudo apt-get install y- libopenjb2-7
+        1. sudo apt-get update
+        2. sudo apt-get install libgdiplus
+        3. sudo apt-get install y- libopenjb2-7
  
 *	Provide the TesseractBinaries Linux folder path when creating a new OCR processor. Please refer to the following code snippet for Linux.
 
@@ -120,7 +120,7 @@ processor.PerformOCR(lDoc, "tessdata\");
 
 You can download the language packages from the following link
         
-<a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
 
 
 ## Prerequisites for Mac
@@ -128,8 +128,8 @@ You can download the language packages from the following link
 
 *	We are internally using the “System.Drawing.Common” package to process the image and perform the OCR in the OCR Processor. So, it is mandatory to install the “'libgdiplus”, and “tesseract” packages in the Mac machine where the OCR operations occur. Please refer to the following commands to install this package.
 
-        1.brew install mono-libgdiplus
-        2.brew install tesseract
+        1. brew install mono-libgdiplus
+        2. brew install tesseract
 
 *	Provide the TesseractBinaries Mac folder path when creating a new OCR processor. Please refer to the following code snippet for Mac.
 
@@ -161,7 +161,7 @@ processor.PerformOCR(lDoc, "tessdata\");
 
 You can download the language packages from the following link
         
-<a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
 
 
 ## Performing OCR in Windows
@@ -704,6 +704,7 @@ To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/e
 Essential PDF supports all the languages supported by Tesseract engine in the OCR processor.
 The dictionary packs for the languages can be downloaded from the following online location:<br/>
 <a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
 <br/><br/>
 It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. <br/>
 For example, to perform optical character recognition in German, the property should be set as <br/>
