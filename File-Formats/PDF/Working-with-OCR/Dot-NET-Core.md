@@ -706,7 +706,7 @@ The dictionary packs for the languages can be downloaded from the following onli
 <a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
 <br/><br/>
 It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. <br/>
-For example, to perform optical character recognition in German, the property should be set as <<br/>
+For example, to perform optical character recognition in German, the property should be set as <br/>
 "processor.Settings.Language = "deu";"
 </td>
 </tr>
