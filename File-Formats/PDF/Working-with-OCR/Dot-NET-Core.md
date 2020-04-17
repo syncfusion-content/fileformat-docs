@@ -14,7 +14,7 @@ Essential PDF provides support for Optical Character Recognition with the help o
 
 To use the OCR feature in the .NET core application, the following assemblies or NuGet packages should be added as a reference to the project.
 
-## Assemblies
+### Assemblies
 
    *	Syncfusion.Compression.Portable.dll
    *	Syncfusion.Pdf.Portable.dll
@@ -22,7 +22,7 @@ To use the OCR feature in the .NET core application, the following assemblies or
    *    Syncfusion.OCRProcessor.Portable.dll
    *	[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/4.5.0) package (v 4.5.0 or above)
    
-## NuGet
+### NuGet
 
    *	[Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core)
 
@@ -30,63 +30,19 @@ To use the OCR feature in the .NET core application, the following assemblies or
 You can get the TesseractBinaries and tessdata from the OCR Processor download or from the Syncfusion.PDF.OCR.Net.Core NuGet package installed location. Please refer to the following example folder path.
 
 
-### TesseractBinaries:
+<b>TesseractBinaries</b>
 
-{% tabs %}  
+<span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\Tesseractbinaries_core</i></span> (or)
 
-{% highlight ASP.NET Core %}
-
-
-syncfusionocrprocessor\Tesseractbinaries_core
-
-  
-{% endhighlight %}
-
-{% endtabs %}  
-  
-  Or
-   
-{% tabs %}  
-
-{% highlight ASP.NET Core %}
+<span style="color:gray;font-size:14px"><i>C:\Users\username\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries</i></span>
 
 
-C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries\
+<b>tessdata</b>
 
+<span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\tessdata</i></span> (or)
 
-{% endhighlight %}
+<span style="color:gray;font-size:14px"><i>C:\Users\username\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\tessdata</i></span>
 
-{% endtabs %}  
-  
-
-### tessdata:
-
-
-{% tabs %}  
-
-{% highlight ASP.NET Core %}
-
-
-syncfusionocrprocessor\tessdata
-
-
-{% endhighlight %}
-
-{% endtabs %}
- 
-Or
-
-{% tabs %}  
-
-{% highlight ASP.NET Core %}
-
-
-C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\tessdata\
-
-
-{% endhighlight %}
-
-{% endtabs %} 
 
 N> The above folders can be copied from the build or NuGet to your project folder and it can be referred from the project folder. 
 
@@ -121,17 +77,18 @@ processor.PerformOCR(lDoc, "tessdata\");
 {% endtabs %} 
 
 You can download the language packages from the following link
+
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
         
-https://code.google.com/p/tesseract-ocr/downloads/list
 
 
 ## Prerequisites for Linux
 
 *	We are using the “System.Drawing.Common” API in the OCR Processor. So, it is mandatory to install the “libgdiplus” and “libopenjb2-7” package. Please refer to the following commands to install the packages.
 
- sudo apt-get update
- sudo apt-get install libgdiplus
- sudo apt-get install y- libopenjb2-7
+        1. sudo apt-get update
+        2. sudo apt-get install libgdiplus
+        3. sudo apt-get install y- libopenjb2-7
  
 *	Provide the TesseractBinaries Linux folder path when creating a new OCR processor. Please refer to the following code snippet for Linux.
 
@@ -163,7 +120,7 @@ processor.PerformOCR(lDoc, "tessdata\");
 
 You can download the language packages from the following link
         
-https://code.google.com/p/tesseract-ocr/downloads/list
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
 
 
 ## Prerequisites for Mac
@@ -171,8 +128,8 @@ https://code.google.com/p/tesseract-ocr/downloads/list
 
 *	We are internally using the “System.Drawing.Common” package to process the image and perform the OCR in the OCR Processor. So, it is mandatory to install the “'libgdiplus”, and “tesseract” packages in the Mac machine where the OCR operations occur. Please refer to the following commands to install this package.
 
- brew install mono-libgdiplus
- brew install tesseract
+        1. brew install mono-libgdiplus
+        2. brew install tesseract
 
 *	Provide the TesseractBinaries Mac folder path when creating a new OCR processor. Please refer to the following code snippet for Mac.
 
@@ -204,7 +161,7 @@ processor.PerformOCR(lDoc, "tessdata\");
 
 You can download the language packages from the following link
         
-https://code.google.com/p/tesseract-ocr/downloads/list
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
 
 
 ## Performing OCR in Windows
@@ -350,7 +307,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %} 
 
-N> The [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor~PerformOCR(PdfLoadedDocument,String).html) methods return only the text OCRed by [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor.html). Other existing text in the PDF page will not be returned in this method. .
+N> The [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor~PerformOCR(PdfLoadedDocument,String).html) methods return only the text OCRed by [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor.html). Other existing text in the PDF page will not be returned in this method.
 
 ## Performing OCR for a region
 
@@ -708,8 +665,8 @@ To resolve this exception, ensure the tesseract binaries are in the following st
 <br/><br/>
 The tesseract binaries path is TesseractBinaries/Windows and the assemblies should be in below structure, 
 <br/><br/>
-1. TesseractBinaries\Windows\x64\libletpt1753.dll,libSyncfusionTesseract.dll
-2. TesseractBinaries\Windows\x86\libletpt1753.dll,libSyncfusionTesseract.dll
+1.<span style="color:gray;font-size:14px"><i>TesseractBinaries\Windows\x64\libletpt1753.dll,libSyncfusionTesseract.dll</i></span><br/>
+2.<span style="color:gray;font-size:14px"><i>TesseractBinaries\Windows\x86\libletpt1753.dll,libSyncfusionTesseract.dll</i></span>
 </td>
 </tr>
 </table>
@@ -726,8 +683,8 @@ The tesseract binaries path is TesseractBinaries/Windows and the assemblies shou
 <tr>
 <th style="font-size:14px">Solution</th>
 <td>
-To resolve this issue to refer the following link,
-https://support.shippingeasy.com/hc/en-us/articles/211543683-What-is-the-error-identity-of-the-developer-cannot-be-confirmed-
+To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/en-us/articles/211543683-What-is-the-error-identity-of-the-developer-cannot-be-confirmed-">link</a> for more details.
+
 </td>
 </tr>
 </table>
@@ -744,11 +701,12 @@ https://support.shippingeasy.com/hc/en-us/articles/211543683-What-is-the-error-i
 <tr>
 <th style="font-size:14px">Solution</th>
 <td>
-Essential PDF supports all the languages supported by Tesseract engine in the OCR processor
-The dictionary packs for the languages can be downloaded from the following online location:
-https://code.google.com/p/tesseract-ocr/downloads/list
-It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. 
-For example, to perform optical character recognition in German, the property should be set as 
+Essential PDF supports all the languages supported by Tesseract engine in the OCR processor.
+The dictionary packs for the languages can be downloaded from the following online location:<br/>
+<a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
+<br/><br/>
+It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. <br/>
+For example, to perform optical character recognition in German, the property should be set as <br/>
 "processor.Settings.Language = "deu";"
 </td>
 </tr>
