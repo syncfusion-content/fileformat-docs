@@ -703,7 +703,7 @@ To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/e
 <td>
 Essential PDF supports all the languages supported by Tesseract engine in the OCR processor.
 The dictionary packs for the languages can be downloaded from the following online location:<br/>
-[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
+<a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
 <br/><br/>
 It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. <br/>
 For example, to perform optical character recognition in German, the property should be set as <br/>
