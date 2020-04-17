@@ -34,14 +34,14 @@ You can get the TesseractBinaries and tessdata from the OCR Processor download o
 
 <span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\Tesseractbinaries_core</i></span> (or)
 
-<span style="color:gray;font-size:14px"><i>C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries\</i></span>
+<span style="color:gray;font-size:14px"><i>C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries</i></span>
 
 
 <b>tessdata:</b>
 
 <span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\tessdata</i></span> (or)
 
-<span style="color:gray;font-size:14px"><i>C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\tessdata\</i></span>
+<span style="color:gray;font-size:14px"><i>C:\Users\xxx\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\tessdata</i></span>
 
 
 N> The above folders can be copied from the build or NuGet to your project folder and it can be referred from the project folder. 
@@ -701,7 +701,7 @@ To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/e
 <tr>
 <th style="font-size:14px">Solution</th>
 <td>
-Essential PDF supports all the languages supported by Tesseract engine in the OCR processor
+Essential PDF supports all the languages supported by Tesseract engine in the OCR processor.
 The dictionary packs for the languages can be downloaded from the following online location:<br/>
 <a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
 <br/><br/>
