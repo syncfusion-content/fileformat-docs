@@ -1436,6 +1436,49 @@ ODBC<br/><br/></td><td>
 Stars with ODBC<br/><br/></td></tr>
 </table>
 
+### Access existing data connections in Excel
+
+Existing data connections can be accessed using the following code snippet.
+
+{% tabs %}
+{% highlight c# %}
+IConnection connection = workbook.Connections[0];
+{% endhighlight %}
+
+{% highlight vb %}
+Dim connection As IConnection = workbook.Connections(0)
+{% endhighlight %}
+
+{% highlight UWP %}
+//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight asp.net core %}
+//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+{% endtabs %}
+
+We don’t have API to refresh all the connections in the workbook. But we can achieve the same by accessing all the tables in each worksheet and call the [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method as below.
+
+{% tabs %}
+{% highlight c# %}
+foreach(IListObject listObject in worksheet.ListObjects) 
+{ 
+    listObject.Refresh(); 
+}
+{% endhighlight %}
+
+{% highlight vb %}
+For Each listObject As IListObject In worksheet.ListObjects
+    listObject.Refresh()
+Next
+{% endhighlight %}
+{% endtabs %}
+
 ## Adding parameters to query in Excel table
 
 Excel tables can be created by importing data from SQL Server through Excel data connections. The queries used to fetch data from SQL Server can be modified at run-time with the help of its parameters. There are three types of parameters which are applied to the WHERE clause of the SQL query. Let's see the types in detail and how to implement them. 
