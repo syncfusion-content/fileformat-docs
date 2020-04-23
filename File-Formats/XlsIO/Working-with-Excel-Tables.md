@@ -1438,15 +1438,51 @@ Stars with ODBC<br/><br/></td></tr>
 
 ### Access existing data connections in Excel
 
-Existing data connections can be accessed using the following code snippet.
+Data sources that are defined in an Excel file can be used by accessing the connections in the workbook. After getting the connection, refresh operations should be perfomed to retrieve data. We don’t have API to refresh all the connections in the workbook. But we can achieve the same by accessing all the ListObjects in each worksheet and call the [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method as below.
+
+The following code snippet helps to access existing data connections and refresh all the data.
 
 {% tabs %}
 {% highlight c# %}
-IConnection connection = workbook.Connections[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("ExistingDataSource.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Accessing a connection from the workbook
+  IConnection connection = workbook.Connections[0];
+
+  //Refresh all the data by accessing each ListObject 
+  foreach(IListObject listObject in worksheet.ListObjects) 
+  { 
+      listObject.Refresh(); 
+  }
+
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim connection As IConnection = workbook.Connections(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("ExistingDataSource.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Accessing a connection from the workbook
+  Dim connection As IConnection = workbook.Connections(0)
+
+  'Refresh all the data by accessing each ListObject
+  For Each listObject As IListObject In worksheet.ListObjects
+      listObject.Refresh()
+  Next
+
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -1459,23 +1495,6 @@ Dim connection As IConnection = workbook.Connections(0)
 
 {% highlight Xamarin %}
 //XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-{% endtabs %}
-
-We don’t have API to refresh all the connections in the workbook. But we can achieve the same by accessing all the tables in each worksheet and call the [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method as below.
-
-{% tabs %}
-{% highlight c# %}
-foreach(IListObject listObject in worksheet.ListObjects) 
-{ 
-    listObject.Refresh(); 
-}
-{% endhighlight %}
-
-{% highlight vb %}
-For Each listObject As IListObject In worksheet.ListObjects
-    listObject.Refresh()
-Next
 {% endhighlight %}
 {% endtabs %}
 
