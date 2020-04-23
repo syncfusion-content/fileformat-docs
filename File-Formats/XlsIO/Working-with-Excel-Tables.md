@@ -1,11 +1,11 @@
 ---
 title: Working with Tables | Excel library | Syncfusion
-description: Briefs about tables
+description: This section illustrates about Excel Tables and its various features in Syncfusion XlsIO (a .NET Excel library).
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Tables
+# Working with Excel Tables
 
 ## Creating a table
 
@@ -1435,6 +1435,68 @@ Stars with OLEDB<br/><br/></td></tr>
 ODBC<br/><br/></td><td>
 Stars with ODBC<br/><br/></td></tr>
 </table>
+
+### Refresh external data connection in Excel table
+
+Excel tables (i.e., ListObjects) that are connected to external data connection can be refreshed programmatically. The [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method in [IListObject](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject.html) updates the data, similar to [Refresh](https://support.office.com/en-us/article/refresh-an-external-data-connection-in-excel-1524175f-777a-48fc-8fc7-c8514b984440) operation in Microsoft Excel. Here, there is not RefreshAll() option to refresh all the tables in a worksheet. To achieve that, all the tables (ListObjects) has to be accessed and refreshed individually.
+
+The following code example shows how to access existing data connection of Excel tables in a sheet and refresh data of all the tables.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("ExistingDataSource.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Accessing a connection from the workbook
+  IConnection connection = workbook.Connections[0];
+
+  //Refresh all the data by accessing each ListObject 
+  foreach(IListObject listObject in worksheet.ListObjects) 
+  { 
+      listObject.Refresh(); 
+  }
+
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("ExistingDataSource.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Accessing a connection from the workbook
+  Dim connection As IConnection = workbook.Connections(0)
+
+  'Refresh all the data by accessing each ListObject
+  For Each listObject As IListObject In worksheet.ListObjects
+      listObject.Refresh()
+  Next
+
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight asp.net core %}
+//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+{% endtabs %}
 
 ## Adding parameters to query in Excel table
 
