@@ -1436,11 +1436,11 @@ ODBC<br/><br/></td><td>
 Stars with ODBC<br/><br/></td></tr>
 </table>
 
-### Access existing data connections in Excel
+### Refresh external data connection in Excel table
 
-Data sources that are defined in an Excel file can be used by accessing the connections in the workbook. After getting the connection, refresh operations should be performed to retrieve data. We don’t have API to refresh all the connections in the workbook. But we can achieve the same by accessing all the ListObjects in each worksheet and call the [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method as below.
+Excel tables (i.e., ListObjects) that are connected to external data connection can be refreshed programmatically. The [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method in [IListObject](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject.html) updates the data, similar to [Refresh](https://support.office.com/en-us/article/refresh-an-external-data-connection-in-excel-1524175f-777a-48fc-8fc7-c8514b984440) operation in Microsoft Excel. Here, there is not RefreshAll() option to refresh all the tables in a worksheet. To achieve that, all the tables (ListObjects) has to be accessed and refreshed individually.
 
-The following code snippet helps to access existing data connections and refresh all the data.
+The following code example shows how to access existing data connection of Excel tables in a sheet and refresh data of all the tables.
 
 {% tabs %}
 {% highlight c# %}
