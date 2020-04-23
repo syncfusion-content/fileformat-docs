@@ -1438,7 +1438,7 @@ Stars with ODBC<br/><br/></td></tr>
 
 ### Access existing data connections in Excel
 
-Data sources that are defined in an Excel file can be used by accessing the connections in the workbook. After getting the connection, refresh operations should be perfomed to retrieve data. We don’t have API to refresh all the connections in the workbook. But we can achieve the same by accessing all the ListObjects in each worksheet and call the [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method as below.
+Data sources that are defined in an Excel file can be used by accessing the connections in the workbook. After getting the connection, refresh operations should be performed to retrieve data. We don’t have API to refresh all the connections in the workbook. But we can achieve the same by accessing all the ListObjects in each worksheet and call the [Refresh()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IListObject~Refresh.html) method as below.
 
 The following code snippet helps to access existing data connections and refresh all the data.
 
