@@ -3081,4 +3081,8 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 		<th style="font-size:14px">Azure Cloud Service</th>
 		<td>Yes</td>
 	</tr>
+		<tr>
+		<th style="font-size:14px">Azure App Service with Linux docker</th>
+		<td>Yes</td>
+	</tr>
 </table>
