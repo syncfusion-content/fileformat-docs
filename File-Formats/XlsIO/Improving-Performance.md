@@ -312,16 +312,16 @@ worksheet.SetDefaultColumnStyle(2, 12, style);
 
 //Do not use like below when an entire row/column or a number of rows/columns need to be formatted with common styles, as it will affect performance
 
-worksheet.Range["4:8"].CellStyle.Font.FontName = "Arial"; 
-worksheet.Range["4:8"].CellStyle.Font.Size = 10;
+//worksheet.Range["4:8"].CellStyle.Font.FontName = "Arial"; 
+//worksheet.Range["4:8"].CellStyle.Font.Size = 10;
 
-worksheet.Range["A:L"].CellStyle.Font.FontName = "Arial"; 
-worksheet.Range["A:L"].CellStyle.Font.Size = 10;
+//worksheet.Range["A:L"].CellStyle.Font.FontName = "Arial"; 
+//worksheet.Range["A:L"].CellStyle.Font.Size = 10;
 
 //CellStyle property can be used only when one cell or a range of cells has to be formatted like below
 
-worksheet.Range["D2"].CellStyle.Font.FontName = "Arial"; 
-worksheet.Range["A1:L2"].CellStyle.Font.Size = 10;
+//worksheet.Range["D2"].CellStyle.Font.FontName = "Arial"; 
+//worksheet.Range["A1:L2"].CellStyle.Font.Size = 10;
 
 {% endhighlight %}
 
@@ -346,16 +346,16 @@ worksheet.SetDefaultColumnStyle(2, 12, style)
 
 'Do not use like below when an entire row/column or a number of rows/columns need to be formatted with common styles as it will affect performance
 
-worksheet.Range("4:8").CellStyle.Font.FontName = "Arial"
-worksheet.Range("4:8").CellStyle.Font.Size = 10
+'worksheet.Range("4:8").CellStyle.Font.FontName = "Arial"
+'worksheet.Range("4:8").CellStyle.Font.Size = 10
 
-worksheet.Range("A:L").CellStyle.Font.FontName = "Arial"
-worksheet.Range("A:L").CellStyle.Font.Size = 10
+'worksheet.Range("A:L").CellStyle.Font.FontName = "Arial"
+'worksheet.Range("A:L").CellStyle.Font.Size = 10
 
 'CellStyle property can be used only when one cell or a range of cells has to be formatted like below
 
-worksheet.Range("D2").CellStyle.Font.FontName = "Arial"
-worksheet.Range("A1:L2").CellStyle.Font.Size = 10
+'worksheet.Range("D2").CellStyle.Font.FontName = "Arial"
+'worksheet.Range("A1:L2").CellStyle.Font.Size = 10
 
 {% endhighlight %}
 
