@@ -519,4 +519,11 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
+<tr>
+<td>Azure App Service with Linux docker</td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
+<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+</tr>
+
 </table>
