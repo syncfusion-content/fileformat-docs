@@ -284,6 +284,47 @@ bodyStyle.EndUpdate()
 {% endhighlight %}
 
   {% endtabs %}  
+  
+Set default styles for columns instead of setting cell styles in each cells of the columns.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Set default styles for columns from A to L
+
+IStyle style = workbook.Styles.Add("Style"); 
+style.Font.FontName = "Arial"; 
+style.Font.Size = 10; 
+for(int i = 1; i <= 12; i++) 
+{ 
+    worksheet.SetDefaultColumnStyle(i, style); 
+}
+
+//Do not use like below
+
+worksheet.Range["A:L"].CellStyle.Font.FontName = "Arial"; 
+worksheet.Range["A:L"].CellStyle.Font.Size = 10; 
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Set default styles for columns from A to L
+
+Dim style As IStyle = workbook.Styles.Add("Style")
+style.Font.FontName = "Arial"
+style.Font.Size = 10
+For i As Integer = 1 To 12
+    worksheet.SetDefaultColumnStyle(i, style)
+Next
+
+'Do not use like below.
+
+worksheet.Range("A:L").CellStyle.Font.FontName = "Arial"
+worksheet.Range("A:L").CellStyle.Font.Size = 10
+
+{% endhighlight %}
+
+{% endtabs %}  
 
 ## AutoFit 
 
