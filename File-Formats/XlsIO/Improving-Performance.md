@@ -284,6 +284,82 @@ bodyStyle.EndUpdate()
 {% endhighlight %}
 
   {% endtabs %}  
+  
+### Set default row style and default column style
+
+Performance can be improved to a greater extent by setting default styles for rows and columns instead of setting cell styles for each cells in one or more rows and columns.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Set default styles for rows and columns
+
+IStyle style = workbook.Styles.Add("Style"); 
+style.Font.FontName = "Arial"; 
+style.Font.Size = 10; 
+
+//Set default style for the entire row (3rd row)
+worksheet.SetDefaultRowStyle(3, style);
+
+//Set default style for entire rows from 4 to 8 (4th row to 8th row)
+worksheet.SetDefaultRowStyle(4, 8, style);
+
+//Set default style for the entire column A (1st column)
+worksheet.SetDefaultColumnStyle(1, style);
+
+//Set default style for entire columns from B to L (2nd column to 12th column)
+worksheet.SetDefaultColumnStyle(2, 12, style);
+
+//Do not use like below when an entire row/column or a number of rows/columns need to be formatted with common styles, as it will affect performance
+
+//worksheet.Range["4:8"].CellStyle.Font.FontName = "Arial"; 
+//worksheet.Range["4:8"].CellStyle.Font.Size = 10;
+
+//worksheet.Range["A:L"].CellStyle.Font.FontName = "Arial"; 
+//worksheet.Range["A:L"].CellStyle.Font.Size = 10;
+
+//CellStyle property can be used only when one cell or a range of cells has to be formatted like below
+
+//worksheet.Range["D2"].CellStyle.Font.FontName = "Arial"; 
+//worksheet.Range["A1:L2"].CellStyle.Font.Size = 10;
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Set default styles for rows and columns
+
+Dim style As IStyle = workbook.Styles.Add("Style")
+style.Font.FontName = "Arial"
+style.Font.Size = 10
+
+'Set default style for the entire row (3rd row)
+worksheet.SetDefaultRowStyle(3, style)
+
+'Set default style for entire rows from 4 to 8 (4th row to 8th row)
+worksheet.SetDefaultRowStyle(4, 8, style)
+
+'Set default style for the entire column A (1st column)
+worksheet.SetDefaultColumnStyle(1, style)
+
+'Set default style for entire columns from B to L (2nd column to 12th column)
+worksheet.SetDefaultColumnStyle(2, 12, style)
+
+'Do not use like below when an entire row/column or a number of rows/columns need to be formatted with common styles as it will affect performance
+
+'worksheet.Range("4:8").CellStyle.Font.FontName = "Arial"
+'worksheet.Range("4:8").CellStyle.Font.Size = 10
+
+'worksheet.Range("A:L").CellStyle.Font.FontName = "Arial"
+'worksheet.Range("A:L").CellStyle.Font.Size = 10
+
+'CellStyle property can be used only when one cell or a range of cells has to be formatted like below
+
+'worksheet.Range("D2").CellStyle.Font.FontName = "Arial"
+'worksheet.Range("A1:L2").CellStyle.Font.Size = 10
+
+{% endhighlight %}
+
+{% endtabs %}  
 
 ## AutoFit 
 
