@@ -7,27 +7,57 @@ documentation: UG
 ---
 # Conversion using Blink Rendering
 
-Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, and ASP.NET MVC to convert URLs, HTML string, SVG and MHTML to PDF. 
+The Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core to convert URLs, HTML string, SVG, MHTML to PDF, and HTML to image.
 
-## Prerequisites
+## Prerequisites for Windows
 
-<b>Minimum product version:</b> 16.3.0.21
+<b>Minimum product version for .NET Framework:</b> 16.3.0.21
 
-* Supports conversion from .NET Framework 4.5.
+<b>Minimum product version for .NET Core:</b> 18.1.0.36
 
-* Latest version of Essential HTML converter can be downloaded from the below link,
+* Supports conversion from .NET Framework 4.5 and .NET Core 2.0.
+
+* Latest version of Essential HTML converter can be downloaded from the following link.
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 
-* To convert HTML to PDF using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.
+* To convert an HTML to PDF using Blink rendering engine, add the following assemblies or NuGet packages as a reference to the project.
 
 <b>Assemblies</b>
 
-* Syncfusion.Compression.Base.dll
-* Syncfusion.Pdf.Base.dll
-* Syncfusion.HtmlConverter.Base.dll
-* Newtonsoft.Json package (v6.0.8 or above)
-* BlinkBinaries
+<table>
+<tr>
+<thead>
+<th>
+Platforms</th>
+<th>
+Assemblies
+</th>
+</thead>
+</tr>
+<tr>
+<td> .NET Framework </td>
+<td>
+<ul>
+<li>Syncfusion.Compression.Base.dll</li>
+<li>Syncfusion.Pdf.Base.dll</li>
+<li>Syncfusion.HtmlConverter.Base.dll</li>
+<li>Newtonsoft.Json package (v6.0.8 or above)</li>
+<li>BlinkBinaries</li>
+</ul>
+</td></tr>
+<tr>
+<td> .NET Core </td>
+<td>
+<ul>
+<li>Syncfusion.Compression.Portable.dll</li>
+<li>Syncfusion.Pdf.Portable.dll</li>
+<li>Syncfusion.HtmlConverter.Portable.dll</li>
+<li>Newtonsoft.Json package (v10.0.1 or above)</li>
+<li>BlinkBinaries</li>
+</ul>
+</td></tr>
+</table>
 
 The BlinkBinaries folder is available in the HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\BlinkBinaries)</i></span>. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
 
@@ -72,11 +102,67 @@ ASP.NET MVC
 {{'[Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+ASP.NET Core Windows
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/)'| markdownify }}
+</td>
+</tr>
 </table>
 
-N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
+N> The previously mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The BlinkBinaries folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
+* The BlinkBinariesWindows folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
+
+## Prerequisites for Linux
+
+* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04). 
+
+* The latest HTML converter for Linux can be downloaded as ZIP file from the following link.
+
+	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+	
+* To convert HTML to PDF in the ASP.NET Core application using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.  
+
+	<b>Assemblies</b>
+		1. Syncfusion.Compression.Portable.dll
+		2. Syncfusion.Pdf.Portable.dll
+		3. Syncfusion.HtmlConverter.Portable.dll
+		4. Newtonsoft.Json package (v10.0.1 or above)
+		5. BlinkBinaries
+		
+* The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
+		
+	<b>NuGet</b>
+		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux</a>
+
+* The <b>BlinkBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesLinux folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
+
+## Prerequisites for Mac
+
+* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos). 
+
+* The latest Blink HTML converter for Mac can be downloaded as PKG file from the following link.
+
+	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+  
+* To convert HTML to PDF in the ASP.NET Core application using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.  
+
+	<b>Assemblies</b>
+		1. Syncfusion.Compression.Portable.dll
+		2. Syncfusion.Pdf.Portable.dll
+		3. Syncfusion.HtmlConverter.Portable.dll
+		4. Newtonsoft.Json package (v10.0.1 or above)
+		5. BlinkBinaries
+		
+* The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
+		
+	<b>NuGet</b>
+		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac</a>
+
+* The <b>BlinkBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. In that folder, you have to extract the compressed folder <i>chromium.app.zip</i> properly without missing any files or folders in that same location. The physical path of BlinkBinariesMac folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesMac folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
 
 ## URL to PDF
 
@@ -131,17 +217,41 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## HTML String to PDF
 
-Blink rendering engine provides support for converting HTML string to PDF. While converting HTML string to PDF, converter provides option to specify the base URL.
+The Blink rendering engine provides support for converting HTML string to PDF. While converting HTML string to PDF, converter provides option to specify the base URL.
 
 <b>baseURL:</b> Path of the resources (images, style sheets, scripts.,) used in the input HTML string.
 
-For the below HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
+For the following HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
 
-For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location then the baseURL will be as below,
+For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location, then the baseURL will be as follows.
 
 <b>baseURL:</b> C:/Temp/HTMLFiles/
 
@@ -202,6 +312,35 @@ Dim document As PdfDocument = htmlConverter.Convert(htmlText, baseUrl)
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//HTML string and Base URL 
+string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+
+string baseUrl = @"C:/Temp/HTMLFiles/";
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert HTML string to PDF
+PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -268,6 +407,30 @@ image[0].Dispose(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to Image
+Image image = htmlConverter.ConvertToImage("https://www.google.com");
+
+byte[] imageByte = image.ImageData;
+
+//Save the image
+
+File.WriteAllBytes("Output.jpg", imageByte);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## HTML String to Image
@@ -304,7 +467,7 @@ blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 //Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
-//Convert URL to Image
+//Convert HTML string to Image
 Image[] image = htmlConverter.ConvertToImage(htmlText, baseUrl);
 
 //Save and dispose the image file
@@ -331,12 +494,41 @@ blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
 'Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings
 
-'Convert URL to Image
+'Convert HTML string to Image
 Dim image As Image[] = htmlConverter.Convert(htmlText, baseUrl)
 
 'Save and dispose the image file
 image[0].Save("Output.jpg")
 image[0].Dispose(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//HTML string and Base URL
+string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+
+string baseUrl = @"C:/Temp/HTMLFiles/";
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert HTML string to Image
+Image image = htmlConverter.ConvertToImage(htmlText, baseUrl);
+
+byte[] imageByte = image.ImageData;
+
+//Save the image
+
+File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
@@ -376,7 +568,7 @@ blinkConverterSettings.EnableJavaScript = false;
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com")
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -411,11 +603,38 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Disable JavaScript; By default, true
+blinkConverterSettings.EnableJavaScript = false;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Additional delay
 
-The Blink HTML converter provides option to set the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~AdditionalDelay.html) property, while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
+The Blink HTML converter provides an option to set the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~AdditionalDelay.html) property while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
 
 {% tabs %}
 
@@ -436,7 +655,7 @@ blinkConverterSettings.AdditionalDelay = 3000;
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com")
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -471,6 +690,33 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+// Set additional delay; units in milliseconds
+blinkConverterSettings.AdditionalDelay = 3000;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Hyperlinks
@@ -496,7 +742,7 @@ blinkConverterSettings.EnableHyperLink = false;
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com")
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -528,6 +774,33 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Enable hyperlinks; By default - true
+blinkConverterSettings.EnableHyperLink = false;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -604,6 +877,38 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable bookmarks
+
+settings.EnableBookmarks = true;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -723,6 +1028,38 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable table of contents
+
+settings.EnableToc = true;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -871,6 +1208,52 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable table of contents
+
+settings.EnableToc = true;
+
+//Set the style for level 1(H1) items in table of contents
+
+HtmlToPdfTocStyle tocstyleH1 = new HtmlToPdfTocStyle();
+
+tocstyleH1.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Regular);
+
+tocstyleH1.BackgroundColor = new PdfSolidBrush(new PdfColor(Color.FromArgb(68, 114, 196)));
+
+tocstyleH1.ForeColor = PdfBrushes.White;
+
+tocstyleH1.Padding = new PdfPaddings(5, 5, 3, 3);
+
+settings.Toc.SetItemStyle(1, tocstyleH1);
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% highlight html %}
 
 <html>
@@ -939,7 +1322,7 @@ blinkConverterSettings.MediaType = MediaType.Print;
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com")
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -970,6 +1353,33 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Set print media type
+blinkConverterSettings.MediaType = MediaType.Print;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -1045,11 +1455,43 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable form
+
+settings.EnableForm = true;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Windows authentication
 
-The webpage you want to convert may protected with windows authentication. Blink rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
+The webpage you want to convert may protected with windows authentication. Blink rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1071,7 +1513,7 @@ blinkConverterSettings.Password = "password";
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.example.com")
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -1104,6 +1546,34 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+blinkConverterSettings.Username = "username";
+
+blinkConverterSettings.Password = "password";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -1174,10 +1644,41 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+// Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+// Add cookies as name and value pair
+
+blinkConverterSettings.Cookies.Add("CookieName1", " CookieValue1");
+
+blinkConverterSettings.Cookies.Add("CookieName2", " CookieValue2");
+
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
-## Token based authentication
+## Token-based authentication
 
 The Blink HTML converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
 
@@ -1245,12 +1746,44 @@ document.Close(true)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set BlinkBinaries path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Add a bearer token to login a webpage
+
+settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
+
+//Assign Blink settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
 ## Offline conversion
 
-Blink HTML converter supports converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow Internet connection.
+The Blink HTML converter supports converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the internet. This may increase the performance in slow internet connection.
 
 N> If an online URL is converted in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
 
@@ -1275,7 +1808,7 @@ blinkConverterSettings.EnableOfflineMode = true;
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com")
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -1307,6 +1840,33 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Enable offline mode
+blinkConverterSettings.EnableOfflineMode = true;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -1370,6 +1930,34 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Add HTTP post parameters to HttpPostFields
+settings.HttpPostFields.Add("firstName", "Andrew");
+settings.HttpPostFields.Add("lastName", "Fuller");
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -1444,15 +2032,48 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+string url = "https://www.example.com";
+
+Uri getMethodUri = new Uri(url);
+string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("{0}={1}", "firstName", "Andrew");
+
+httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
+
+string urlToConvert = url + httpGetData;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert(urlToConvert);
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## System proxy
 
-By default, the Blink rendering engine use system proxy settings for converting HTML to PDF. If proxy server is configured in the system,then the rendering engine automatically use the same settings for the conversion. Follow the below steps to set the system proxy settings,
+By default, the Blink rendering engine use system proxy settings for converting HTML to PDF. If proxy server is configured in the system, then the rendering engine automatically use the same settings for the conversion. Follow the below steps to set the system proxy settings:
 
-1. Control Panel > Network and Internet > Internet Options 
-2. From Internet properties window, open LAN settings under connections tab
-3. Then set proxy server address and port in LAN settings window
+1. Control Panel > Network and Internet > Internet Options.
+2. From Internet properties window, open LAN settings under connections tab.
+3. Then, set proxy server address and port in LAN settings window.
 
 <b>Please refer below screenshots:</b>
  
@@ -1540,9 +2161,45 @@ document.Close(True)
 
 {% endtabs %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set manual proxy settings
+
+settings.ProxySettings.HostName = "127.0.0.1";
+
+settings.ProxySettings.PortNumber = 8080;
+
+settings.ProxySettings.Type = BlinkProxyType.HTTP;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 ## Viewport
 
-Adjusting HTML content size in PDF is possible by using the [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~ViewPortSize.html) property of Blink HTML converter. 
+Adjusting the HTML content size in PDF is possible by using the [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~ViewPortSize.html) property of Blink HTML converter. 
 Refer to the following code snippet to adjust Blink viewport.
 
 {% tabs %}
@@ -1564,7 +2221,7 @@ blinkConverterSettings.ViewPortSize = new Size(800, 0);
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com")
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -1599,11 +2256,38 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Set Blink viewport size
+blinkConverterSettings.ViewPortSize = new Size(800, 0);
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Partial webpage to PDF
 
-Blink rendering engine provides support for converting only the part of an HTML document like a table, div, or image elements from the URL/HTML string. You can convert the particular HTML element by specifying the HTML element ID, refer to the following code snippet.
+The Blink rendering engine provides support for converting only the part of an HTML document like a table, div, or image elements from the URL/HTML string. You can convert the particular HTML element by specifying the HTML element ID, refer to the following code snippet.
 
 {% tabs %}
 
@@ -1663,6 +2347,34 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert Partial webpage to PDF
+
+PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% highlight html %}
 
 <html>
@@ -1691,7 +2403,7 @@ By using this option, you can render the whole HTML content into a single PDF pa
 	1. FitWidth
 	2. FitHeight
 
-<b>Fit width option:</b> Using this option, the HTML converter adjust the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
+<b>Fit width option:</b> Using this option, the HTML converter adjusts the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
 <b>Fit height option:</b> Using this option, the HTML converter scale the HTML content and PDF page width to render the whole HTML content within the height. PDF page height remains constant for this option. 
 
 Refer to the following code snippet.
@@ -1747,6 +2459,33 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set singlePageLayout option to render the whole HTML content in a single PDF page
+settings.SinglePageLayout = SinglePageLayout.FitWidth;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -1818,6 +2557,37 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+PdfLayoutResult layoutResult = null;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com", out layoutResult); 
+
+//Draw the text at the end of HTML content
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 11);
+
+document.Pages[document.Pages.Count - 1].Graphics.DrawString("End of HTML content", font, PdfBrushes.Red, new PointF(0, layoutResult.Bounds.Bottom));
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Windows status
@@ -1826,8 +2596,9 @@ Windows status can be used instead of additional delay. In additional delay, the
 
 N> This feature requires changes in the HTML file.
 
-If windows status does not match in code and HTML, then the converter will meet with deadlock.
-Refer to the following code snippet,
+N> If windows status does not match in code and HTML, then the converter will meet with deadlock.
+
+Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1841,7 +2612,7 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 //Set the BlinkBinaries folder path
 blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
-// Set windows status.
+//Set windows status
 blinkConverterSettings.WindowStatus = "completed";
 
 //Assign Blink converter settings to HTML converter
@@ -1883,6 +2654,33 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+// Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+// Set windows status.
+blinkConverterSettings.WindowStatus = "completed";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("input.html");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
 {% highlight html %}
 
 <html>
@@ -1908,11 +2706,11 @@ document.Close(True)
 
 ## Temporary path
 
-The Blink HTML converter launching chrome browser to perform conversion. While launching chrome browser, temporary files are created in a temporary folder. 
+The Blink HTML converter launching Chrome browser to perform conversion. While launching Chrome browser, temporary files are created in a temporary folder. 
 <br/>
 By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
 <br/>
-The temporary path can be changed by using the [TempPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~TempPath.html) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings.html). If this property  is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
+The temporary path can be changed by using the [TempPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~TempPath.html) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings.html). If this property is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1933,7 +2731,7 @@ blinkConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
 htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
-htmlConverter.Convert("https://www.google.com");
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document
 document.Save("Output.pdf");
@@ -1965,6 +2763,33 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Set Temporary Path to generate temporary files
+blinkConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
@@ -2082,7 +2907,7 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The exception may occurs if the Newtonsoft.Json assembly or NuGet package version is above 6.0.8.
+<td>The exception may occur if the Newtonsoft.Json assembly or NuGet package version is above 6.0.8.
 </td>
 </tr>
 <tr>
@@ -2128,13 +2953,13 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The exception may occurs in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
+<td>The exception may occur in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
 </td>
 </tr>
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome the exception in Windows 7/Windows server 2008 environment, kindly add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
+<td>To overcome the exception in Windows 7/Windows server 2008 environment, add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
 </td>
 </tr>
 
@@ -2171,7 +2996,7 @@ settings.TempPath = "D://MyProject//bin";
 </th>
 <td>Please check the internet connection and the HTML page is available in the mentioned location.
 <br><br/>
-Please check the HTML file or URL is rendered properly in Chrome browser’s print preview. 
+Check the HTML file or URL is rendered properly in Chrome browser’s print preview. 
 </td>
 </tr>
 </table>
@@ -2254,6 +3079,10 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 	</tr>
 	<tr>
 		<th style="font-size:14px">Azure Cloud Service</th>
+		<td>Yes</td>
+	</tr>
+		<tr>
+		<th style="font-size:14px">Azure App Service with Linux docker</th>
 		<td>Yes</td>
 	</tr>
 </table>

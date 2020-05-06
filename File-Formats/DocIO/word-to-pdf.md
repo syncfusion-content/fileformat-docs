@@ -1085,6 +1085,62 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 
+### Recreate Nested Metafile
+
+This setting allows you to regenerate the nested EMF images present in the Word document during PDF conversion.
+This property is recommended to resolve the scaling problem of nested metafile images by regenerating the nested metafile images present in the Word document.
+
+The following code sample shows how to use this property to regenerate the nested EMF images present in the Word document during PDF conversion.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Loads an existing Word document
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+DocToPDFConverter converter = new DocToPDFConverter();
+//Sets RecreateNestedMetafile property to true to Recreate the Nested Metafile automatically
+converter.Settings.RecreateNestedMetafile = true;
+//Converts Word document into PDF document
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+//Saves the PDF file to file system
+pdfDocument.Save("WordtoPDF.pdf");
+//Closes the instance of document objects
+pdfDocument.Close(true);
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
+wordDocument.ChartToImageConverter = New ChartToImageConverter()
+'Creates an instance of the DocToPDFConverter
+Dim converter As New DocToPDFConverter()
+'Sets RecreateNestedMetafile property to true to Recreate the Nested Metafile automatically
+converter.Settings.RecreateNestedMetafile = True
+'Converts Word document into PDF document
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+'Saves the PDF file 
+pdfDocument.Save("WordtoPDF.pdf")
+'Closes the instance of document objects
+pdfDocument.Close(True)
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone, and it's also supported in .NET Core 3.0, but it requires DocToPDFConverter assembly instead of DocIORenderer.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+{% endtabs %}
+
 ### Identical image optimization 
 
 This setting **reduces the Main Memory usage** in Word to PDF conversion by reusing the identical images.
@@ -1555,7 +1611,6 @@ converter.Settings.AutoDetectComplexScript = true;
 PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 //Saves the PDF file to file system
 pdfDocument.Save("WordtoPDF.pdf");
-System.Diagnostics.Process.Start("WordtoPDF.pdf");
 //Closes the instance of document objects
 pdfDocument.Close(true);
 wordDocument.Close();
@@ -1588,8 +1643,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
-    //Sets false to disable converting the alternate chunks present in Word document to PDF.
-    docIORenderer.Settings.EnableAlternateChunks = false;
+    //Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
+	docIORenderer.Settings.AutoDetectComplexScript = true;
     //Converts Word document into PDF document
     PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
     //Save the document into stream.
