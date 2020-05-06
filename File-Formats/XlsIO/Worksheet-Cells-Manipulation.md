@@ -1,6 +1,6 @@
 ---
 title: Worksheet Cells Manipulation | Syncfusion
-description: Briefs about worksheet cells manipulation in XlsIO
+description: This section illustrates about cells manipulation in Excel worksheet using Syncfusion XlsIO (a .NET Excel library).
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -7045,7 +7045,7 @@ To know in detail about **Data Validation**, please navigate to [https://help.sy
 
 ### End
 
-[End](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~End.html) property returns the last cell in that particaular worksheet range.
+[End](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~End.html) property returns the last cell in the particular worksheet range.
 
 {% tabs %}
 {% highlight C# %}
@@ -7253,7 +7253,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> Using EntireColumn property excessively leads to time consumption and affetcs the performance.
+N> Using EntireColumn property excessively leads to time consumption and affects the performance.
 
 ### Entire Row
 
