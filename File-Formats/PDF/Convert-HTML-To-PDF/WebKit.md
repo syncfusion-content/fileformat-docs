@@ -3480,9 +3480,33 @@ Instead, the required assemblies can be added in the Windows system folder.
 </tr>
 </table>
 
-Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
+Syncfusion provides troubleshooting utility tool to find out the missing prerequisites. The tool is available in the HTML converter installed location: <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
 
-![TroubleShootingTool](htmlconversion_images/TroubleShootingTool.png)
+If the HTML converter installer is not installed in your machine, you can get the troubleshooting utility tool from the following link,
+<br/><br/>
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/TroubleshootingTool458452100.zip">TroubleshootingTool</a>
+
+<br/><br/>
+<b>Steps to run the troubleshooting tool.</b>
+<ol>
+<li>Run the Troubleshooting tool application from the HTMLConverter installed location or from the download folder.</li>
+<img src="htmlconversion_images/TroubleShootingTool_Location.png" alt="TroubleShootingTool Location">
+<br/>
+<li>Download and extract the <b>Dependency Walker</b> files into this root directory. If you need to find the dependency missing issue.</li>
+<img src="htmlconversion_images/TroubleShootingTool_Dependency.png" alt="TroubleShootingTool Dependency">
+<br/>
+<li>Click the <b>Check requisites</b> button to start analyzing the requisites required for the HTML to PDF conversion using the WebKit rendering engine.</li>
+<img src="htmlconversion_images/TroubleShootingTool.png" alt="TroubleShootingTool">
+<br/>
+<li>After checking all the requisites, you can find the success and failure categories from this window.</li>
+<img src="htmlconversion_images/TroubleShootingTool_Result.png" alt="TroubleShootingTool Result">
+<br/>
+<li>Finally, the resultant logs are stored in a text file on an application folder. You can check the logs with issues and solutions.</li>
+<img src="htmlconversion_images/TroubleShootingTool_Log.png" alt="TroubleShootingTool Log">
+</ol>
+<br/>
+If the provided solutions did not resolve your issue, please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with troubleshooting logs and their screenshots.
+<br/>
 
 Please follow the below instructions for manual troubleshooting.
 
