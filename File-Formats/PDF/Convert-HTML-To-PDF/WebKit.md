@@ -3498,14 +3498,14 @@ If the HTML converter installer is not installed in your machine, you can get th
 <li>Click the <b>Check requisites</b> button to start analyzing the requisites required for the HTML to PDF conversion using the WebKit rendering engine.</li>
 <img src="htmlconversion_images/TroubleShootingTool.png" alt="TroubleShootingTool">
 <br/>
-<li>After checking all the requisites, you can find the success and failure categories from this window.</li>
+<li>After checking all the requisites, you can find the success and failure categories from the troubleshooting result window.</li>
 <img src="htmlconversion_images/TroubleShootingTool_Result.png" alt="TroubleShootingTool Result">
 <br/>
-<li>Finally, the resultant logs are stored in a text file on an application folder. You can check the logs with issues and solutions.</li>
+<li>Finally, the troubleshooting logs will be stored in a text file on an application folder location. You can check the logs with issues and solutions.</li>
 <img src="htmlconversion_images/TroubleShootingTool_Log.png" alt="TroubleShootingTool Log">
 </ol>
 <br/>
-If the provided solutions did not resolve your issue, please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with troubleshooting logs and their screenshots.
+If the provided solutions did not resolve the issue, please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with troubleshooting logs and the screenshot.
 <br/>
 
 Please follow the below instructions for manual troubleshooting.
