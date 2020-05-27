@@ -181,7 +181,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
 
   //To-Do some manipulation
-  //To-Do some manipulation
 
   //Set the version of the workbook
   workbook.Version = ExcelVersion.Excel2013;
@@ -196,7 +195,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Loads or open an existing workbook through Open method of IWorkbooks
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
 
-  'To-Do some manipulation
   'To-Do some manipulation
 
   'Set the version of the workbook
@@ -222,7 +220,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Loads or open an existing workbook
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStorageFile);
 
-  //To-Do some manipulation
   //To-Do some manipulation
 
   //Set the version of the workbook
@@ -250,7 +247,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 
   //To-Do some manipulation
-  //To-Do some manipulation
 
   //Set the version of the workbook
   workbook.Version = ExcelVersion.Excel2013;
@@ -271,7 +267,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Loads or open an existing workbook through Open method of IWorkbooks
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 
-  //To-Do some manipulation
   //To-Do some manipulation
 
   //Set the version of the workbook
@@ -309,7 +304,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
 
   //To-Do some manipulation
-  //To-Do some manipulation
 
   //Set the version of the workbook
   workbook.Version = ExcelVersion.Excel2013;
@@ -325,7 +319,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Loads or open an existing workbook through Open method of IWorkbooks
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
 
-  'To-Do some manipulation
   'To-Do some manipulation
 
   'Set the version of the workbook
@@ -353,7 +346,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStorageFile);
 
   //To-Do some manipulation
-  //To-Do some manipulation
 
   //Set the version of the workbook
   workbook.Version = ExcelVersion.Excel2013;
@@ -371,7 +363,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 
-  //To-Do some manipulation
   //To-Do some manipulation
 
   //Set the version of the workbook
@@ -394,7 +385,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 
   //To-Do some manipulation
-  //To-Do some manipulation
 
   //Set the version of the workbook
   workbook.Version = ExcelVersion.Excel2013;
@@ -408,7 +398,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
  ## Saving a same Excel workbook to specified file
 
-You can save the manipulated workbook without file name and specified file path using Save method of IWorkbook interface. The file name and file path is based on the manipulated workbook. You can't save the created workbook using this method. The workbook is saved in the XLS/XLSX format based on the workbook version specified.
+Once after the workbook manipulation you can save a same manipulated workbook to specified file using Save method of IWorkbook interface. The workbook is saved in the XLS/XLSX format based on the workbook version specified.
 
 {% tabs %}  
 {% highlight c# %}
@@ -417,7 +407,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Loads or open an existing workbook through Open method of IWorkbooks
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
 
-  //To-Do some manipulation
   //To-Do some manipulation
 
   //Set the version of the workbook
@@ -433,7 +422,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Loads or open an existing workbook through Open method of IWorkbooks
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
 
-  'To-Do some manipulation
   'To-Do some manipulation
 
   'Set the version of the workbook
@@ -469,7 +457,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
 
   //To-Do some manipulation
-  //To-Do some manipulation
 
   //Set the version of the workbook
   workbook.Version = ExcelVersion.Excel2013;
@@ -484,7 +471,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Loads or open an existing workbook through Open method of IWorkbooks
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
 
-  'To-Do some manipulation
   'To-Do some manipulation
 
   'Set the version of the workbook
@@ -506,7 +492,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream inputStream = new FileStream(inputFilePath, FileMode.Open);  
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 
-  //To-Do some manipulation
   //To-Do some manipulation
 
   //Initialize content type
@@ -546,7 +531,6 @@ ExcelEngine excelEngine = new ExcelEngine();
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
 
 //To-Do some manipulation
-//To-Do some manipulation
 
 //Set the version of the workbook
 workbook.Version = ExcelVersion.Excel2013;
@@ -568,7 +552,6 @@ Dim excelEngine As New ExcelEngine()
 'Loads or open an existing workbook through Open method of IWorkbooks
 Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
 
-'To-Do some manipulation
 'To-Do some manipulation
 
 'Set the version of the workbook
@@ -600,7 +583,6 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an existing workbook
 IWorkbook workbook = excelEngine.Excel.Workbooks.OpenAsync(inputStorageFile);
 
-//To-Do some manipulation
 //To-Do some manipulation
 
 //Set the version of the workbook
@@ -634,7 +616,6 @@ FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 
 //To-Do some manipulation
-//To-Do some manipulation
 
 //Set the version of the workbook
 workbook.Version = ExcelVersion.Excel2013;
@@ -661,7 +642,6 @@ Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 //Loads or open an existing workbook through Open method of IWorkbooks
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 
-//To-Do some manipulation
 //To-Do some manipulation
 
 //Set the version of the workbook
