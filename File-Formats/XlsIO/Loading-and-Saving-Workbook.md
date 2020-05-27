@@ -406,7 +406,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %} 
 
- ## Saving a Excel workbook to specified file
+ ## Saving a same Excel workbook to specified file
 
 You can save the manipulated workbook without file name and specified file path using Save method of IWorkbook interface. The file name and file path is based on the manipulated workbook. You can't save the created workbook using this method. The workbook is saved in the XLS/XLSX format based on the workbook version specified.
 
