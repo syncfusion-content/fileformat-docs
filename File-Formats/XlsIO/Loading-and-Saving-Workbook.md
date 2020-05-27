@@ -405,7 +405,58 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %} 
- 
+
+ ## Saving a Excel workbook to specified file
+
+You can save the manipulated workbook without file name and specified file path using Save method of IWorkbook interface. The file name and file path is based on the manipulated workbook. You can't save the created workbook using this method. The workbook is saved in the XLS/XLSX format based on the workbook version specified.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Loads or open an existing workbook through Open method of IWorkbooks
+  IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
+
+  //To-Do some manipulation
+  //To-Do some manipulation
+
+  //Set the version of the workbook
+  workbook.Version = ExcelVersion.Excel2013;
+
+  //Save the workbook to specified file
+  workbook.Save();
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Loads or open an existing workbook through Open method of IWorkbooks
+  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
+
+  'To-Do some manipulation
+  'To-Do some manipulation
+
+  'Set the version of the workbook
+  workbook.Version = ExcelVersion.Excel2013
+
+  'Save the workbook to specified file
+  workbook.Save()
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//This method is supported on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//This method is supported on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//This method is supported on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+{% endhighlight %}
+{% endtabs %}  
+
 ## Sending to a client browser
 
 You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of Save method.  This method explicitly make use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references System.Web assembly.
