@@ -445,15 +445,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//This method is supported on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+//XlsIO supports saving the same workbook with specified file path on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//This method is supported on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+//XlsIO supports saving the same workbook with specified file path on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//This method is supported on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+//XlsIO supports saving the same workbook with specified file path on Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 {% endtabs %}  
 
