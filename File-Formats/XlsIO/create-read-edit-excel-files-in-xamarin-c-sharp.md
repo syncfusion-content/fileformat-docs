@@ -664,8 +664,9 @@ using System.Threading.Tasks;
 class SaveAndroid: ISave
 {
     //Method to save document as a file in Android and view the saved document.
-    public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
+    public async Task SaveAndView(string fileName, String contentType, MemoryStream stream, Context context)
     {
+		string exception = string.Empty;
         string root = null;
 		
         //Get the root path of android device.
@@ -685,12 +686,18 @@ class SaveAndroid: ISave
         //Remove the file if exists.
         if (file.Exists()) file.Delete();
 
-        //Write the stream into file.
-        FileOutputStream outs = new FileOutputStream(file);
-        outs.Write(stream.ToArray());
+        try
+        {
+            FileOutputStream outs = new FileOutputStream(file);
+            outs.Write(stream.ToArray());
 
-        outs.Flush();
-        outs.Close();
+            outs.Flush();
+            outs.Close();
+        }
+        catch (Exception e)
+        {
+            exception = e.ToString();
+        }
 
         //Launch the saved file for viewing in default viewer.
         if (file.Exists())
@@ -700,7 +707,7 @@ class SaveAndroid: ISave
             string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
             Intent intent = new Intent(Intent.ActionView);
             intent.SetDataAndType(path, mimeType);
-            Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
+            context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
         }
     }
 }
