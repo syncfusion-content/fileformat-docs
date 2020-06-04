@@ -1,6 +1,6 @@
 ---
 title: Loading and saving workbook | Syncfusion
-description: Explains various load and save operations in Syncfusion Excel library (Essential XlsIO).
+description: This section illustrates about various load and save operations in Syncfusion Excel library (Essential XlsIO).
 platform: File-formats
 control: XlsIO
 documentation: UG
