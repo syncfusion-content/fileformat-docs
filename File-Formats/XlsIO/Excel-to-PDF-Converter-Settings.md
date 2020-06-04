@@ -4016,6 +4016,251 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+The following complete code snippet explains how to convert and save multiple worksheets into single PDF document using ``TemplateDocument`` property.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Open an Excel document
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+  //Get the first worksheet
+  IWorksheet worksheet1 = workbook.Worksheets[0];
+
+  //Load the first worksheet into ExcelToPdfConverter
+  ExcelToPdfConverter converter1 = new ExcelToPdfConverter(worksheet1);
+
+  //Initailize PdfDocument
+  PdfDocument document = new PdfDocument();
+
+  //Initailize ExcelToPdfConverterSettings
+  ExcelToPdfConverterSettings settings = new ExcelToPdfConverterSettings();
+
+  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
+  settings.TemplateDocument = document;
+
+  //Convert the worksheet with settings
+  document = converter1.Convert(settings);
+
+  //Get the third worksheet
+  IWorksheet worksheet3 = workbook.Worksheets[2];
+
+  //Load the third worksheet into ExcelToPdfConverter
+  ExcelToPdfConverter converter2 = new ExcelToPdfConverter(worksheet3);
+
+  //Convert the worksheet with settings
+  document = converter2.Convert(settings);
+
+  //Save the PdfDocument
+  document.Save("Output.pdf");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+
+  'Open an Excel document
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+  'Get the first worksheet
+  Dim worksheet1 As IWorksheet = workbook.Worksheets(0)
+
+  'Load the first worksheet into ExcelToPdfConverter
+  Dim converter1 As ExcelToPdfConverter = New ExcelToPdfConverter(worksheet1)
+
+  'Initailize PdfDocument
+  Dim document As PdfDocument = New PdfDocument()
+
+  'Initailize ExcelToPdfConverterSettings
+  Dim settings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings()
+
+  'Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
+  settings.TemplateDocument = document
+
+  'Convert the worksheet with settings
+  document = converter1.Convert(settings)
+
+  'Get the third worksheet
+  Dim worksheet3 As IWorksheet = workbook.Worksheets(2)
+
+  'Load the third worksheet into ExcelToPdfConverter
+  Dim converter2 As ExcelToPdfConverter = New ExcelToPdfConverter(worksheet3)
+
+  'Convert the worksheet with settings
+  document = converter2.Convert(settings)
+
+  'Save the PdfDocument
+  document.Save("Output.pdf")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Open an Excel document
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+  //Get the first worksheet
+  IWorksheet worksheet1 = workbook.Worksheets[0];
+
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
+
+  //Initailize PdfDocument and convert first worksheet to PDF
+  PdfDocument document = renderer.ConvertToPDF(worksheet1);
+
+  //Initailize ExcelToPdfConverterSettings
+  XlsIORendererSettings settings = new XlsIORendererSettings();
+
+  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
+  settings.TemplateDocument = document;
+
+  //Get the third worksheet
+  IWorksheet worksheet3 = workbook.Worksheets[2];
+
+  //Initailize new PdfDocument and convert third worksheet to PDF with settings
+  PdfDocument newDocument = renderer.ConvertToPDF(worksheet3, settings);
+
+  //Save the PDF document
+  MemoryStream stream = new MemoryStream();
+  newDocument.Save(stream);
+  Save(stream, "Output.pdf");
+
+  excelStream.Dispose();
+}
+
+//Save the workbook stream as a file.
+
+#region Setting output location
+async void Save(Stream stream, string filename)
+{
+  stream.Position = 0;
+
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = "Sample";
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
+}
+#endregion
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Open an Excel document
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+  //Get the first worksheet
+  IWorksheet worksheet1 = workbook.Worksheets[0];
+
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
+
+  //Initailize PdfDocument and convert first worksheet to PDF
+  PdfDocument document = renderer.ConvertToPDF(worksheet1);
+
+  //Initailize ExcelToPdfConverterSettings
+  XlsIORendererSettings settings = new XlsIORendererSettings();
+
+  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
+  settings.TemplateDocument = document;
+
+  //Get the third worksheet
+  IWorksheet worksheet3 = workbook.Worksheets[2];
+
+  //Initailize new PdfDocument and convert third worksheet to PDF with settings
+  PdfDocument newDocument = renderer.ConvertToPDF(worksheet3, settings);
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  newDocument.Save(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+  fileStreamResult.FileDownloadName = "Output.pdf";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Open an Excel document
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+  //Get the first worksheet
+  IWorksheet worksheet1 = workbook.Worksheets[0];
+
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
+
+  //Initailize PdfDocument and convert first worksheet to PDF
+  PdfDocument document = renderer.ConvertToPDF(worksheet1);
+
+  //Initailize ExcelToPdfConverterSettings
+  XlsIORendererSettings settings = new XlsIORendererSettings();
+
+  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
+  settings.TemplateDocument = document;
+
+  //Get the third worksheet
+  IWorksheet worksheet3 = workbook.Worksheets[2];
+
+  //Initailize new PdfDocument and convert third worksheet to PDF with settings
+  PdfDocument newDocument = renderer.ConvertToPDF(worksheet3, settings);
+
+  //Saving the PDF document to stream
+  MemoryStream stream = new MemoryStream();
+  newDocument.Save(stream);
+
+  stream.Position = 0;
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Throw When Excel File Is Empty
 
 The default value of [ThrowWhenExcelFileIsEmpty](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~ThrowWhenExcelFileIsEmpty.html) property is FALSE, and hence the empty Excel document will be converted to PDF without any exception. Enabling this property throws **ExcelToPdfConverterException**, saying that the Excel document is Empty.
