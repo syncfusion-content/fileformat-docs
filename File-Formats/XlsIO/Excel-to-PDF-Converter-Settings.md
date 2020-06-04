@@ -3797,9 +3797,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Template Document
 
-[TemplateDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~TemplateDocument.html) property helps to store the PDF document. 
+[TemplateDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings~TemplateDocument.html) property helps to render multiple files into single PDF document. 
 
-The following complete code snippet explains how to convert and save two Excel documents into single PDF document using ``TemplateDocument`` property.
+### Convert multiple Excel files into a single PDF document
+
+The following complete code snippet explains how to convert two Excel documents into a single PDF document using ``TemplateDocument`` property.
 
 {% tabs %}
 {% highlight C# %}
@@ -4016,7 +4018,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following complete code snippet explains how to convert and save multiple worksheets into single PDF document using ``TemplateDocument`` property.
+### Convert selected worksheets into a single PDF document
+
+By using the ``TemplateDocument`` property, multiple worksheets or selected worksheets can be converted into single PDF document. The following code snippet explains how to convert selected sheets into a single PDF document.
 
 {% tabs %}
 {% highlight C# %}
