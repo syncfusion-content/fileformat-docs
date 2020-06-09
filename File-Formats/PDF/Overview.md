@@ -31,3 +31,4 @@ The following list shows the key features available in the Essential PDF.
 * Support to digitally [sign](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature) and [validate](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature) signature in PDF document. 
 * Support to [find the corrupted PDF document](https://help.syncfusion.com/file-formats/pdf/working-with-document#find-corrupted-pdf-document). 
 * Support for .NET Standard 1.2 onwards. 
+* PDF library is compatible with .NET Core 3.0 WPF and using this we can able to manipulate (like create, read and edit) and view PDF documents. 
