@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Overview
+# Overview of Essential PDF
 
 Essential PDF is a feature rich .NET PDF class library developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin applications and Unity platform without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
 
@@ -31,3 +31,4 @@ The following list shows the key features available in the Essential PDF.
 * Support to digitally [sign](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature) and [validate](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature) signature in PDF document. 
 * Support to [find the corrupted PDF document](https://help.syncfusion.com/file-formats/pdf/working-with-document#find-corrupted-pdf-document). 
 * Support for .NET Standard 1.2 onwards. 
+* PDF library is compatible with .NET Core 3.0 WPF and Windows Forms.
