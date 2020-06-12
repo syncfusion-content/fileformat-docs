@@ -1464,13 +1464,13 @@ This feature supports the following elements:
 * Group shapes
 * Conditional formats
 * Pivot tables
+* Comments
 
 ## Unsupported elements
 
 The following list contains unsupported elements that presently not preserved in the generated PDF document: 
 
 * Gradient fill
-* Comments
 * Sparklines
 * Pivot charts
 * SmartArt graphics
