@@ -57,11 +57,37 @@ document.Close();
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP, and ASP.NET MVC platforms alone.
+//Opens an existing document from stream through constructor of WordDocument` class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
+//Encrypts the Word document with a password
+document.EncryptDocument("password");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP, and ASP.NET MVC platforms alone.
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document through constructor of `WordDocument` class
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"),FormatType.Automatic);
+//Encrypts the Word document with a password
+document.EncryptDocument("password");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document instance
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -145,14 +171,36 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
+//Opens an existing document from stream through constructor of `WordDocument` class
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an encrypted Word document
+WordDocument document = new WordDocument(fileStreamPath, "password");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
 
-{% highlight ASP.NET CORE %}
-//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP, and ASP.NET MVC platforms alone.
-{% endhighlight %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an encrypted Word document
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"), "password");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document instance
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+ {% endhighlight %}
 
 {% endtabs %}
 
@@ -208,11 +256,39 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP, and ASP.NET MVC platforms alone.
+//Opens an existing document from stream through constructor of `WordDocument` class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an encrypted Word document
+WordDocument document = new WordDocument(fileStreamPath, "password");
+//Remove encryption in Word document
+document.RemoveEncryption();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx"); 
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports encryption in Windows Forms, WPF, ASP.NET, UWP, and ASP.NET MVC platforms alone.
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an encrypted Word document
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"), "password");
+//Remove encryption in Word document
+document.RemoveEncryption();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document instance
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
