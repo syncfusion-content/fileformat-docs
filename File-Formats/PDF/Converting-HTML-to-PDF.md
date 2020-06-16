@@ -424,7 +424,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>HTML Form to PDF Form</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
 
@@ -438,14 +438,14 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>Partial HTML to PDF</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
 <tr>
 <td>Bookmarks</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
@@ -459,7 +459,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>Auto Create Table of Contents</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
@@ -494,7 +494,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>Manual proxy</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
