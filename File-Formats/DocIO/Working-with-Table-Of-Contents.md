@@ -50,6 +50,9 @@ Builds a table of contents from paragraphs formatted with specified styles other
 </tbody>
 </table>
 
+N>  1. Updating of TOC is not supported in Silverlight, WinRT, Universal and Windows Phone applications. 
+N>  2. Updating TOC makes use of the Word to PDF layout engine that may lead to update incorrect page number due to its limitations.
+N>  3. In ASP.NET Core, Blazor, and Xamarin platforms, to update TOC in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
 
 ## Adding a TOC field
 
@@ -266,8 +269,6 @@ document.Close();
 
 You can also update or re-build the TOC in an existing document or document created from the scratch.  
 
-N>  1. Updating of TOC is not supported in Silverlight, WinRT, Universal, Xamarin, ASP.NET Core, Blazor and Windows Phone applications. 
-N>  2. Updating TOC makes use of the Word to PDF layout engine that may lead to update incorrect page number due to its limitations.
 
 The following code example shows how to update a TOC in an existing word document. 
 
