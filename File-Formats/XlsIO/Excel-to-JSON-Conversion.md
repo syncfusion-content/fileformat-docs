@@ -1,6 +1,6 @@
 ---
 title: Syncfusion Excel to JSON Conversion
-description: In this section, you can learn how to Export Excel Data as JSON
+description: In this section, you can learn how to Export Excel workbook, worksheet, and custom range Data as JSON
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Excel to JSON Conversion
 
-Essential XlsIO supports converting Excel data as JSON files by simply saving the workbook using the `SaveAsJson` method. This is support includes the featrues to save.
+Essential XlsIO supports converting Excel data as JSON files by simply saving the workbook using the `SaveAsJson` method. This is support includes the features to save.
 
 * a workbook as a simple JSON file or JSON file with XML schema
 * a workbook to JSON
