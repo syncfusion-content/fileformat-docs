@@ -24,7 +24,7 @@ Create a new Windows Forms application project.
 Install the [Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Winforms/) NuGet package as a reference to your  .NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Convert_WebKit2](WF_images/Convert_WebKit2.png)
 
-Copy the QtBinaries folder from the installed HtmltoPdfConverter package and paste it into the folder which contains the HtmlToPDF_WinForms.csproj file.
+Copy the QtBinaries folder from the installed HtmlToPdfConverter package and paste it into the folder which contains the HtmlToPDF_WinForms.csproj file.
 ![Convert_WebKit3](WF_images/Convert_WebKit3.png)
 ![Convert_WebKit4](WF_images/Convert_WebKit4.png)
 
@@ -106,7 +106,7 @@ Create a new Windows Forms application project.
 Install the [Syncfusion.HtmlToPdfConverter.Blink.WinForms](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Winforms/) NuGet package as a reference to your  .NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Convert_Blink1](WF_images/Convert_Blink1.png)
 
-Copy the BlinkBinaries folder from the installed HtmltoPdfConverter package and paste it into the folder which contains the HtmlToPDF_WinForms.csproj file.
+Copy the BlinkBinaries folder from the installed HtmlToPdfConverter package and paste it into the folder which contains the HtmlToPDF_WinForms.csproj file.
 ![Convert_Blink2](WF_images/Convert_Blink2.png)
 ![Convert_Blink3](WF_images/Convert_Blink3.png)
 
