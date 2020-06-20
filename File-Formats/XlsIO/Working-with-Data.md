@@ -4534,3 +4534,220 @@ excelEngine.Dispose()
 //XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 {% endtabs %}
+
+### Import HTML Table to Excel Worksheet
+
+Essential XlsIO supports importing HTML tables into Excel worksheets. The **ImportHtmlTable** method loads an HTML file and imports all the tables in the file to the worksheet.  This import operation includes the table formatting that is defined within the HTML file.
+
+The following code snippet shows how to import HTML table into Excel worksheet.
+{% tabs %}
+{% highligh c# %}
+using Syncfusion.XlsIO;
+
+namespace ImportHtml
+{
+    class ImportHtmlTable
+    {
+        static void Main(string[] args)
+        {
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+
+                application.DefaultVersion = ExcelVersion.Xlsx;
+
+                IWorkbook workbook = application.Workbooks.Create(1);
+
+                IWorksheet worksheet = workbook.Worksheets[0];
+
+                //Imports HTML table into the worksheet from first row and first column
+                worksheet.ImportHtmlTable("Import-HTML-Table.html", 1, 1);
+
+                workbook.SaveAs("Import-HTML-Table.xlsx");
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Imports Syncfusion.XlsIO
+
+Module ImportHtmlTable
+
+  Sub Main()
+    Using excelEngine As ExcelEngine = New ExcelEngine()
+
+      Dim application As IApplication = excelEngine.Excel
+
+      application.DefaultVersion = ExcelVersion.Xlsx
+
+      Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+      Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+      'Imports HTML table into the worksheet from first row and first column
+      worksheet.ImportHtmlTable("Import-HTML-Table.html", 1, 1)
+
+      workbook.SaveAs("Import-HTML-Table.xlsx")
+    End Using
+
+  End Sub
+
+End Module
+
+{% endhighlight %}
+{% hightlight UWP %}
+using Syncfusion.XlsIO;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+namespace ImportHtml
+{
+    public sealed partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ExcelEngine excelEngine = new ExcelEngine();
+
+            IApplication application = excelEngine.Excel;
+
+            application.DefaultVersion = ExcelVersion.Xlsx;
+
+            IWorkbook workbook = application.Workbooks.Create(1);
+
+            IWorksheet worksheet = workbook.Worksheets[0];
+
+            //Instantiates the File Picker
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            openPicker.FileTypeFilter.Add(".html");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+
+            Stream fileStream = await file.OpenStreamForReadAsync();
+
+            //Imports HTML table into the worksheet from first row and first column
+            worksheet.ImportHtmlTable(fileStream, 1, 1);
+
+            //Initializes FileSavePicker
+            FileSavePicker savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            savePicker.SuggestedFileName = "ImportHTMLTable";
+            savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+            //Creates a storage file from FileSavePicker
+            StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+            Stream stream = await storageFile.OpenStreamForWriteAsync();
+
+            workbook.SaveAs(stream);
+
+            fileStream.Close();
+            stream.Close();
+            workbook.Close();
+            excelEngine.Dispose();            
+        }
+    }
+}
+{% endhighlight %}
+{% hightlight ASP.NET Core %}
+using Syncfusion.XlsIO;
+using System.IO;
+
+namespace ImportHtml
+{
+    class ImportHtmlTable
+    {
+        static void Main(string[] args)
+        {
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+
+                application.DefaultVersion = ExcelVersion.Excel2013;
+
+                IWorkbook workbook = application.Workbooks.Create(1);
+
+                IWorksheet worksheet = workbook.Worksheets[0];
+
+                //Imports HTML table into the worksheet from first row and first column
+                FileStream fileStream = new FileStream("Import-HTML-Table.html", FileMode.Open, FileAccess.ReadWrite);
+                worksheet.ImportHtmlTable(fileStream, 1, 1);
+
+                //Saving the workbook as stream
+                FileStream stream = new FileStream("Import-HTML-Table.xlsx", FileMode.Create, FileAccess.ReadWrite);
+
+                workbook.SaveAs(stream);
+            }
+        }
+    }
+}
+{% endhighlight %}
+{% hightlight xamarin %}
+using Syncfusion.XlsIO;
+using System.IO;
+using System.Reflection;
+using Xamarin.Forms;
+
+namespace ImportHtml
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+        private void BtnGenerate_Clicked(object sender, System.EventArgs e)
+        {
+            ExcelEngine excelEngine = new ExcelEngine();
+            IApplication application = excelEngine.Excel;
+
+            Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("ImportHTMLTable.html");
+
+            IWorkbook workbook = application.Workbooks.Create(1);
+            workbook.Version = ExcelVersion.Excel2016;
+
+            IWorksheet worksheet = workbook.Worksheets[0];
+
+            MemoryStream outputStream = new MemoryStream();
+            string fileName = "ImportHTMLTable.xlsx";
+            string contentType = "application/msexcel";
+
+			//Imports HTML table into the worksheet from first row and first column
+            worksheet.ImportHtmlTable(stream, 1, 1);
+
+            workbook.SaveAs(outputStream);
+
+            outputStream.Position = 0;
+
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save(fileName, contentType, outputStream);
+            }
+            else
+            {
+                Xamarin.Forms.DependencyService.Get<ISave>().Save(fileName, contentType, outputStream);
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+The following screenshot represents the image of the input HTML file with a table.
+
+![Input document for Import HTML table](Working-with-Data_images/Working-with-Data_img6.png)
+
+The following screenshot represents the image of the Excel output with data imported from HTML table.
+
+![Output document imported from HTML table](Working-with-Data_images/Working-with-Data_img7.png)
+{% endtabs %}
