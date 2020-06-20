@@ -5,7 +5,7 @@ platform: File-Formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Data    
+# Working with Data objects 
 
 ## Importing Data to Worksheets
 
@@ -4537,11 +4537,13 @@ excelEngine.Dispose()
 
 ## Import HTML Table to Excel Worksheet
 
+### Import HTML Table
+
 Essential XlsIO supports importing HTML tables into Excel worksheets. The **ImportHtmlTable** method loads an HTML file and imports all the tables in the file to the worksheet.  This import operation includes the table formatting that is defined within the HTML file.
 
 The following code snippet shows how to import HTML table into Excel worksheet.
 {% tabs %}
-{% highligh c# %}
+{% highlight c# %}
 using Syncfusion.XlsIO;
 
 namespace ImportHtml
@@ -4597,7 +4599,7 @@ Module ImportHtmlTable
 End Module
 
 {% endhighlight %}
-{% hightlight UWP %}
+{% highlight UWP %}
 using Syncfusion.XlsIO;
 using System;
 using System.Collections.Generic;
@@ -4660,7 +4662,7 @@ namespace ImportHtml
     }
 }
 {% endhighlight %}
-{% hightlight ASP.NET Core %}
+{% highlight ASP.NET Core %}
 using Syncfusion.XlsIO;
 using System.IO;
 
@@ -4693,7 +4695,7 @@ namespace ImportHtml
     }
 }
 {% endhighlight %}
-{% hightlight xamarin %}
+{% highlight xamarin %}
 using Syncfusion.XlsIO;
 using System.IO;
 using System.Reflection;
