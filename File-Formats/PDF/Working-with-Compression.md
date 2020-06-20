@@ -24,7 +24,7 @@ You can compress the existing PDF document by using [PdfLoadedDocument](https://
 3. Optimizing page content
 4. Remove metadata information
 
-To compress the existing PDF document in .NET Core, you need to include Syncfusion.Pdf.Imaging.Portable assembly reference in .NET Core project.
+N> To compress the existing PDF document in .NET Core, you need to include Syncfusion.Pdf.Imaging.Portable assembly reference in .NET Core project.
 
 ## Compressing images with image quality
 
