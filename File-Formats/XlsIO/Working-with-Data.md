@@ -4535,7 +4535,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}
 
-### Import HTML Table to Excel Worksheet
+## Import HTML Table to Excel Worksheet
 
 Essential XlsIO supports importing HTML tables into Excel worksheets. The **ImportHtmlTable** method loads an HTML file and imports all the tables in the file to the worksheet.  This import operation includes the table formatting that is defined within the HTML file.
 
