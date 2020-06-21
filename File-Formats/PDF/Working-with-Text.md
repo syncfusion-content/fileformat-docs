@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Text
+# Working with Text           
 
 ## Drawing text in a new document
 
