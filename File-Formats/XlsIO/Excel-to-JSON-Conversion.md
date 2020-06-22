@@ -18,7 +18,7 @@ Essential XlsIO supports to convert Excel data as JSON files by simply saving th
 
 ## Workbook to JSON as schema
 
-The following code illustrates how to convert an Excel workbook to the JSON file or JSON filestream as schema.
+The following code illustrates how to convert an Excel workbook to the JSON file or JSON file stream as schema.
 
 {% tabs %}  
 
@@ -191,7 +191,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 ## Workbook to JSON without schema
 
-The following code illustrates how to convert an Excel workbook to the JSON file or JSON filestream without schema.
+The following code illustrates how to convert an Excel workbook to the JSON file or JSON file stream without schema.
 
 {% tabs %}  
 
@@ -344,7 +344,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 ## Worksheet to JSON as schema
 
-The following code illustrates how to convert an Excel worksheet to the JSON file or JSON filestream with schema.
+The following code illustrates how to convert an Excel worksheet to the JSON file or JSON file stream with schema.
 
 {% tabs %}  
 
@@ -520,7 +520,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 ## Worksheet to JSON without schema
 
-The following code illustrates how to convert an Excel worksheet to the JSON file or filestream without schema.
+The following code illustrates how to convert an Excel worksheet to the JSON file or file stream without schema.
 
 {% tabs %}  
 
@@ -678,7 +678,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 ## Range to JSON as schema
 
-The following code illustrates how to convert an Excel Custom Range to the JSON file or filestream as schema.
+The following code illustrates how to convert an Excel Custom Range to the JSON file or file stream as schema.
 
 {% tabs %}  
 
@@ -868,7 +868,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 ## Range to JSON without schema
 
-The following code illustrates how to convert an Excel Custom Range to the JSON file or JSON filestrem without schema.
+The following code illustrates how to convert an Excel Custom Range to the JSON file or JSON file stream without schema.
 
 {% tabs %}  
 
