@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Text           
+# Working with Text and Font
 
 ## Drawing text in a new document
 
@@ -4267,7 +4267,7 @@ else
 
 ## Drawing text with baseline alignment
 
-Essential PDF allows you to draw text with baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code snippet illustrates this.
+Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code snippet illustrates this.
 
 {% tabs %}
 
