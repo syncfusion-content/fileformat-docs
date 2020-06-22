@@ -4676,7 +4676,7 @@ namespace ImportHtml
             {
                 IApplication application = excelEngine.Excel;
 
-                application.DefaultVersion = ExcelVersion.Excel2013;
+                application.DefaultVersion = ExcelVersion.Xlsx;
 
                 IWorkbook workbook = application.Workbooks.Create(1);
 
@@ -4717,7 +4717,7 @@ namespace ImportHtml
             Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("ImportHTMLTable.html");
 
             IWorkbook workbook = application.Workbooks.Create(1);
-            workbook.Version = ExcelVersion.Excel2016;
+            workbook.Version = ExcelVersion.Xlsx;
 
             IWorksheet worksheet = workbook.Worksheets[0];
 
