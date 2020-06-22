@@ -4695,7 +4695,7 @@ namespace ImportHtml
     }
 }
 {% endhighlight %}
-{% highlight xamarin %}
+{% highlight Xamarin %}
 using Syncfusion.XlsIO;
 using System.IO;
 using System.Reflection;
