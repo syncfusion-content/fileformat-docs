@@ -5,7 +5,7 @@ platform: File-Formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Data 
+# Working with Data Objects 
 
 ## Importing Data to Worksheets
 
