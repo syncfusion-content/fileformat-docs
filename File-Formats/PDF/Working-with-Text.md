@@ -4267,7 +4267,7 @@ else
 
 ## Drawing text with baseline alignment
 
-The Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html)  class. The following code sample explains this.
+The Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code sample explains this.
 
 {% tabs %}
 
@@ -4447,7 +4447,7 @@ await doc.SaveAsync(stream);
 
 doc.Close(true);
 
-//Save the stream as PDF document file in the local machine. Refer to the PDF or /UWP section for the respected code samples
+//Save the stream as PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
 
  Save(stream, "Output.pdf");
 
