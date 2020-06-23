@@ -4104,6 +4104,1001 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+### Pdf Redaction Annotation
+
+The essential PDF supports removing or redacting the sensitive text and images from the PDF documents. The redaction is the process of permanently removing sensitive information from the PDF document, use the PdfRedaction class to remove content. Using the PdfRedactionAnnotation, you can mark the content to redact or remove it from the PDF pages. The content will be redacted when performing the flatten operation.
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page.
+
+PdfPage page = document.Pages.Add();
+
+//Create a new Redaction annotation.
+
+PdfRedactionAnnotation annot = new PdfRedactionAnnotation();
+
+//Assign the Bounds value
+
+annot.Bounds = new Rectangle(100, 120, 100, 100);
+
+//Assign the InnerColor
+
+annot.InnerColor = Color.Black;
+
+//Assign the Bordercolor
+
+annot.BorderColor = Color.Yellow;
+
+//Assign the Textcolor
+
+annot.TextColor = Color.Blue;
+
+//Assign the font
+
+annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
+
+//Assign the OverlayText
+
+annot.OverlayText = "REDACTION";
+
+//Assign the TextAlignment
+
+annot.TextAlignment = PdfTextAlignment.Right;
+
+//Assign the RepeatText
+
+annot.RepeatText = true;
+
+annot.SetAppearance(true);
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annot);
+
+//Save the document to disk.
+
+document.Save("output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+       
+Dim document As PdfDocument = New PdfDocument()
+
+'Create a new page.
+	
+Dim page As PdfPage = document.Pages.Add()
+		
+'Create a New Redaction annotation.
+		
+Dim annot As PdfRedactionAnnotation = New PdfRedactionAnnotation()
+		
+'Assign the Bounds value
+		
+annot.Bounds = New Rectangle(100, 120, 100, 100)
+		
+'Assign the InnerColor 
+		
+annot.InnerColor = Color.Black
+		
+'Assign the BorderColor
+		
+annot.BorderColor = Color.Yellow
+		
+'Assign the TextColor 
+		
+annot.TextColor = Color.Blue
+		
+'Assign the font value
+		
+annot.Font = New PdfStandardFont(PdfFontFamily.Helvetica, 10)
+		
+'Assign the OverlayText
+		
+annot.OverlayText = "REDACTION"
+		
+'Assign the TextAlignment
+		
+annot.TextAlignment = PdfTextAlignment.Right
+		
+'Assign the RepeatText
+		
+annot.RepeatText = True
+		
+annot.SetAppearance(True)
+		
+'Add the annotation to the page.
+		
+page.Annotations.Add(annot)
+		
+'Save the document to disk.
+		
+document.Save("output.pdf")
+		
+'Close the document
+		
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page.
+
+PdfPage page = document.Pages.Add();
+
+//Create a new Redaction annotation.
+
+PdfRedactionAnnotation annot = new PdfRedactionAnnotation();
+
+//Assign the Bounds value
+
+annot.Bounds = new Rectangle(100, 120, 100, 100);
+
+//Assign the InnerColor
+
+annot.InnerColor = Color.Black;
+
+//Assign the Bordercolor
+
+annot.BorderColor = Color.Yellow;
+
+//Assign the Textcolor
+
+annot.TextColor = Color.Blue;
+
+//Assign the font
+
+annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
+
+//Assign the OverlayText
+
+annot.OverlayText = "REDACTION";
+
+//Assign the TextAlignment
+
+annot.TextAlignment = PdfTextAlignment.Right;
+
+//Assign the RepeatText
+
+annot.RepeatText = true;
+
+annot.SetAppearance(true);
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annot);
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); 
+
+//Close the document 
+
+document.Close(true); 
+
+Save(stream, "RedactionAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+			
+//Create a new page.
+			
+PdfPage page = document.Pages.Add();
+			
+//Create a new Redaction annotation.
+			
+PdfRedactionAnnotation annot = new PdfRedactionAnnotation();
+			
+//Assign the Bounds value
+			
+annot.Bounds = new Rectangle(100, 120, 100, 100);
+			
+//Assign the InnerColor
+			
+annot.InnerColor = Color.Black;
+			
+//Assign the Bordercolor
+			
+annot.BorderColor = Color.Yellow;
+			
+//Assign the Textcolor
+			
+annot.TextColor = Color.Blue;
+			
+//Assign the font
+			
+annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
+			
+//Assign the OverlayText
+			
+annot.OverlayText = "REDACTION";
+			
+//Assign the TextAlignment
+			
+annot.TextAlignment = PdfTextAlignment.Right;
+			
+//Assign the RepeatText
+			
+annot.RepeatText = true;
+			
+annot.SetAppearance(true);
+			
+//Add the annotation to the page.
+	
+page.Annotations.Add(annot);
+			
+//Save the document into stream 
+			
+MemoryStream stream = new MemoryStream();
+			
+document.Save(stream);
+			
+stream.Position = 0;
+			
+//Close the document 
+			
+document.Close(true);
+			
+//Defining the ContentType for pdf file 
+			
+string contentType = "application/pdf";
+			
+//Define the file name 
+			
+String fileName = "RedactionAnnotation.pdf";
+			
+//Create a FileContentResult object by using the file contents, content type, and file name 
+			
+return File(stream, contentType, fileName);
+			
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page.
+
+PdfPage page = document.Pages.Add();
+
+//Create a new Redaction annotation.
+
+PdfRedactionAnnotation annot = new PdfRedactionAnnotation();
+
+//Assign the Bounds value
+
+annot.Bounds = new Rectangle(100, 120, 100, 100);
+
+//Assign the InnerColor
+
+annot.InnerColor = Color.Black;
+
+//Assign the Bordercolor
+
+annot.BorderColor = Color.Yellow;
+
+//Assign the Textcolor
+
+annot.TextColor = Color.Blue;
+
+//Assign the font
+
+annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
+
+//Assign the OverlayText
+
+annot.OverlayText = "REDACTION";
+
+//Assign the TextAlignment
+
+annot.TextAlignment = PdfTextAlignment.Right;
+
+//Assign the RepeatText
+
+annot.RepeatText = true;
+
+annot.SetAppearance(true);
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annot);
+
+//Save the document into stream.
+ 
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream);
+
+//Close the document. 
+
+document.Close(true); 
+
+//Save the stream into pdf file 
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RedactionAnnotation.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N>The redaction annotation flatten operation is currently supported in the .NET Framework only, it is not supported in the UWP, Xamarin, and ASP.NET Core platforms.
+
+## Cloud border style Annotation
+
+### PdfRectangleAnnotation
+
+Cloud border style can be added to the PdfRectangleAnnotation by using the PdfBorderEffect class. 
+The following code sample explains how to add cloud border styled rectangle annotation in the PDF document.
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument ();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create a new rectangle annotation.
+
+PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
+
+//Assign the borderWidth value.
+
+annotation. Border. BorderWidth = 1;
+
+//Assign the color
+
+annotation. Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity =2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the document to disk.
+
+document.Save("Output.pdf");
+
+//close the document to disk.
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+
+Dim document As PdfDocument = New PdfDocument()
+		
+'Create a new page.
+		
+Dim page As PdfPage = document.Pages.Add()
+		
+'Create a new Redaction annotation
+		
+Dim annotation As PdfRectangleAnnotation = New PdfRectangleAnnotation(New RectangleF(0, 0, 200, 100), "rectangle")
+		
+'Assign the borderWidth value.
+		
+annotation.Border.BorderWidth = 1
+		
+'Assign the color
+		
+annotation.Color = Color.Red
+		
+'Assign the InnerColor
+		
+annotation.InnerColor = Color.Blue
+		
+'Create a new PdfBorderEffect class.
+		
+Dim bordereffect As PdfBorderEffect = New PdfBorderEffect()
+		
+'Assign the intensity value
+		
+bordereffect.Intensity = 2
+		
+'Assign the cloud style
+		
+bordereffect.Style = PdfBorderEffectStyle.Cloudy
+		
+'Assign the BorderEffect.
+		
+annotation.BorderEffect = bordereffect
+		
+'Add the annotation to the page.
+		
+page.Annotations.Add(annotation)
+		
+'Save the document to disk.
+		
+document.Save("Output.pdf")
+		
+'close the document to disk.
+		
+document.Close(True) 
+
+{% endhighlight %}
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create a new rectangle annotation.
+
+PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
+
+//Assign the borderWidth value.
+
+annotation.Border.BorderWidth = 1;
+
+//Assign the color
+
+annotation.Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity =2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+await document.SaveAsync(stream);
+ 
+//Close the document
+ 
+document.Close(true); 
+
+//save the stream
+
+Save(stream, "CloudRectangleAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+// create a rectangle annotation
+
+PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
+
+//Assign the borderWidth value.
+
+annotation.Border.BorderWidth = 1;
+
+//Assign the color
+
+annotation.Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity = 2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+// Adds the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the document into stream 
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document 
+
+document.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+String fileName = "cloudRectangleAnnotation.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page.
+
+PdfPage page = document.Pages.Add();
+
+//Create a new rectangle annotation.
+
+PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
+
+//Assign the borderWidth value.
+
+annotation.Border.BorderWidth = 1;
+
+//Assign the color
+
+annotation.Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity =2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the document into stream.
+ 
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream);
+
+//Close the document.
+ 
+document.Close(true); 
+
+//Save the stream into pdf file 
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+{% endtabs %}
+
+## Polygon Annotation
+
+Cloud border style can be added to the PdfPolygonAnnotation by using the PdfBorderEffect class. 
+The following code sample explains how to add cloud border styled polygon annotation in the PDF document.
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create points
+   
+int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
+   
+//Create a new polygon annotation.
+   
+PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points,"polygon");
+
+//Assign the borderWidth value.
+
+annotation.Border.BorderWidth = 1;
+
+//Assign the color
+
+annotation.Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity =2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the document to disk.
+
+document.Save("Output.pdf");
+
+//close the document to disk.
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a New PDF document.
+
+Dim document As PdfDocument = New PdfDocument()
+		
+'Create a new page.
+		
+Dim page As PdfPage = document.Pages.Add()
+		
+'Create points
+		
+Dim points As Integer() = New Integer() {100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400}
+		
+'Create a new polygon annotation
+		
+Dim annotation As PdfPolygonAnnotation = New PdfPolygonAnnotation(points, "polygon")
+		
+'Assign the borderWidth value.
+		
+annotation.Border.BorderWidth = 1
+		
+'Assign the color
+		
+annotation.Color = Color.Red
+		
+'Assign the InnerColor
+		
+annotation.InnerColor = Color.Blue
+		
+'Create a new PdfBorderEffect class.
+		
+Dim bordereffect As PdfBorderEffect = New PdfBorderEffect()
+		
+'Assign the intensity value
+		
+bordereffect.Intensity = 2
+		
+'Assign the cloud style
+		
+bordereffect.Style = PdfBorderEffectStyle.Cloudy
+		
+'Assign the BorderEffect.
+		
+annotation.BorderEffect = bordereffect
+		
+'Add the annotation to the page.
+		
+page.Annotations.Add(annotation)
+		
+'Save the document to disk.
+		
+ document.Save("Output.pdf")
+		
+'close the document to disk.
+		
+document.Close(True)
+		
+{% endhighlight %}		
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create points
+
+int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
+
+//Create a new polygon annotation.
+
+PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points,"polygon");
+
+//Assign the borderWidth value.
+
+annotation.Border.BorderWidth = 1;
+
+//Assign the color
+
+annotation.Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity =2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+/Add the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream();
+ 
+await document.SaveAsync(stream); 
+
+//Close the document 
+
+document.Close(true);
+ 
+//saves the stream
+
+Save(stream, "CloudPolygonAnnotation.pdf");
+
+//Create a new PDF document.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document. Pages. Add ();
+
+//Create points
+
+int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
+
+//Create a new polygon annotation.
+
+PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points,"polygon");
+
+//Assign the borderWidth value.
+
+annotation.Border.BorderWidth = 1;
+
+//Assign the color
+
+annotation.Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity =2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+//Add the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the document into stream 
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document 
+
+document.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name 
+
+String fileName = "cloudpolygonAnnotation.pdf"; 
+
+//Create a FileContentResult object by using the file contents, content type, and file name 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create points
+
+int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
+
+//Create a new polygon annotation
+
+PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points, "polygon");
+
+//Assign the borderWidth value.
+
+annotation.Border.BorderWidth = 1;
+
+//Assign the color
+
+annotation.Color = Color.Red;
+
+//Assign the InnerColor
+
+annotation.InnerColor = Color.Blue;
+
+//Create a new PdfBorderEffect class.
+
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+
+//Assign the intensity value
+
+bordereffect.Intensity =2;
+
+//Assign the cloud style
+
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+
+//Assign the BorderEffect.
+
+annotation.BorderEffect = bordereffect;
+
+//Adds the annotation to the page.
+
+page.Annotations.Add(annotation);
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream);
+
+//Close the document. 
+
+document.Close(true); 
+
+//Save the stream into pdf file 
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("polygonAnnotation.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ## Measurement Annotations
 
 Essential PDF supports interactive measurement annotations, which measures the distance, area, and angle of the line segments.
@@ -5331,6 +6326,359 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+### Modifying the redaction annotations   
+
+The redaction annotations from the existing document can be modified using the Essential PDF library. You can add, remove, or modify the redaction annotation in the existing PDF documents. 
+The following code sample explains this.
+
+{% tabs %}
+{% highlight c# %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
+
+//Get the pages
+
+foreach (PdfAnnotation annot in ldoc.Pages[0].Annotations)
+{
+//Check for the Redaction annotation
+
+if (annot is PdfLoadedRedactionAnnotation)
+{
+
+PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+//Assign the Bounds values
+
+redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
+
+//Assign the OverlayText
+
+redactAnnot.OverlayText = "Redaction";
+
+//Assign the InnerColor
+
+redactAnnot.InnerColor = Color.Yellow;
+
+//Assign the BorderColor
+
+redactAnnot.BorderColor = Color.Green;
+
+//Assign the TextColor
+
+redactAnnot.TextColor = Color.Red;
+ 
+//Assign the TextAlignment
+
+redactAnnot.TextAlignment = PdfTextAlignment.Right;
+
+//Assign the RepeatText
+
+redactAnnot.RepeatText = true;
+
+//Flatten the annotations in the page
+
+redactAnnot.Flatten = true;
+}
+}
+//save the document
+
+ldoc.Save("output.pdf");
+
+//Close the document
+
+ldoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing PDF document
+
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("output.pdf")
+		
+        'Get the pages
+		
+        For Each annot As PdfAnnotation In ldoc.Pages(0).Annotations
+		
+            'Check for the Redaction annotation
+			
+            If TypeOf annot Is PdfLoadedRedactionAnnotation Then
+			
+                Dim redactAnnot As PdfLoadedRedactionAnnotation = TryCast(annot, PdfLoadedRedactionAnnotation)
+				
+                'Assign the Bounds values
+				
+                redactAnnot.Bounds = New RectangleF(50, 50, 100, 100)
+				
+                'Assign the OverlayText
+				
+                redactAnnot.OverlayText = "Redaction"
+				
+                'Assign the InnerColor
+				
+                redactAnnot.InnerColor = Color.Yellow
+				
+                'Assign the BorderColor 
+				
+                redactAnnot.BorderColor = Color.Green
+				
+                'Assign the TextColor
+				
+                redactAnnot.TextColor = Color.Red
+				
+                'Assign the TextAlignment
+				
+                redactAnnot.TextAlignment = PdfTextAlignment.Right
+				
+                'Assign the RepeatText
+				
+                redactAnnot.RepeatText = True
+				
+                'Flatten the annotations in the page
+				
+                redactAnnot.Flatten = True
+				
+            End If
+			
+Next
+		
+'save the document
+		
+ldoc.Save("output.pdf")
+		
+'Close the document
+		
+ldoc.Close()
+		
+{% endhighlight %}		
+{% highlight UWP %}
+
+//Create the file open picker 
+
+var picker = new FileOpenPicker(); 
+
+picker.FileTypeFilter.Add(".pdf");
+ 
+//Browse and choose the file 
+
+StorageFile file = await picker.PickSingleFileAsync();
+ 
+//Create an empty PDF loaded document instance 
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Load or open an existing PDF document through Open method of PdfLoadedDocument class 
+
+await loadedDocument.OpenAsync(file);
+
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+
+{
+
+//Check for the Redaction annotation
+
+if (annot is PdfLoadedRedactionAnnotation)
+{
+
+PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+//Assign the Bounds values
+
+redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
+
+//Assign the OverlayText
+
+redactAnnot.OverlayText = "Redaction";
+
+//Assign the InnerColor
+
+redactAnnot.InnerColor = Color.Yellow;
+
+//Assign the BorderColor
+
+redactAnnot.BorderColor = Color.Green;
+
+//Assign the TextColor
+
+redactAnnot.TextColor = Color.Red;
+ 
+//Assign the TextAlignment
+
+redactAnnot.TextAlignment = PdfTextAlignment.Right;
+
+//Assign the RepeatText
+
+redactAnnot.RepeatText = true;
+
+//Flatten the annotations in the page
+
+redactAnnot.Flatten = true;
+
+}
+}
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+loadedDocument.Save(stream); 
+
+//Close the document loadedDocument.Close(true); 
+
+//Save the stream as PDF document file in the local machine. Refer to PDF or UWP section for respective code samples 
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+{% highlight ASP.NET Core %}
+
+//Load the PDF document 
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open,FileAccess.Read);
+ 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+
+{
+//Check for the Redaction annotation
+
+if (annot is PdfLoadedRedactionAnnotation)
+
+{
+
+PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+//Assign the Bounds values
+
+redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
+
+//Assign the OverlayText
+
+redactAnnot.OverlayText = "Redaction";
+
+//Assign the InnerColor
+
+redactAnnot.InnerColor = Color.Yellow;
+
+//Assign the BorderColor
+
+redactAnnot.BorderColor = Color.Green;
+
+//Assign the TextColor
+
+redactAnnot.TextColor = Color.Red; 
+
+//Assign the TextAlignment
+
+redactAnnot.TextAlignment = PdfTextAlignment.Right;
+
+//Assign the RepeatText
+
+redactAnnot.RepeatText = true;
+
+//Flatten the annotations in the page
+
+redactAnnot.Flatten = true;
+
+}
+}
+//Save the document into stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+loadedDocument.Save(stream); 
+
+stream.Position = 0; 
+
+//Close the document 
+
+loadedDocument.Close(true);
+ 
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name 
+
+string fileName = "output.pdf";
+ 
+//Create a FileContentResult object by using the file contents, content type, and file name 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+{% highlight Xamarin %}
+
+//Load the file as a stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf"); 
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+foreach (PdfAnnotation annot in ldoadedDocument.Pages[0].Annotations)
+
+{
+//Check for the Redaction annotation
+
+if (annot is PdfLoadedRedactionAnnotation)
+{
+
+PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+//Assign the Bounds values
+
+redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
+
+//Assign the OverlayText
+
+redactAnnot.OverlayText = "Redaction";
+
+//Assign the InnerColor
+
+redactAnnot.InnerColor = Color.Yellow;
+
+//Assign the BorderColor
+
+redactAnnot.BorderColor = Color.Green;
+
+//Assign the TextColor
+
+redactAnnot.TextColor = Color.Red; 
+
+//Assign the TextAlignment
+
+redactAnnot.TextAlignment = PdfTextAlignment.Right;
+
+//Assign the RepeatText
+
+redactAnnot.RepeatText = true;
+
+//Flatten the annotations in the page
+
+redactAnnot.Flatten = true;
+
+}
+}
+//Save the document into a stream.
+ 
+MemoryStream stream = new MemoryStream(); 
+
+loadedDocument.Save(stream); 
+
+//Close the document. 
+
+loadedDocument.Close(true); 
+
+//Save the stream into pdf file
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 
 ## Removing annotations from an existing PDF 
 
