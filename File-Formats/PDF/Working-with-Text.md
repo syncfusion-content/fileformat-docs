@@ -4267,7 +4267,7 @@ else
 
 ## Drawing text with baseline alignment
 
-Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code snippet illustrates this.
+The Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html)  class. The following code sample explains this.
 
 {% tabs %}
 
@@ -4303,7 +4303,7 @@ PdfStringFormat format = new PdfStringFormat();
 
 format.LineAlignment = PdfVerticalAlignment.Bottom;
 
-//Set baseline for line alignment
+//Set baseline for the line alignment
 
 format.EnableBaseline = true;
 
@@ -4359,7 +4359,7 @@ Dim format As New PdfStringFormat()
 
 format.LineAlignment = PdfVerticalAlignment.Bottom;
 
-'Set baseline for line alignment
+'Set baseline for the line alignment
 
 format.EnableBaseline = True
 
@@ -4423,7 +4423,7 @@ PdfStringFormat format = new PdfStringFormat();
 
 format.LineAlignment = PdfVerticalAlignment.Bottom;
 
-//Set baseline for line alignment
+//Set baseline for the line alignment
 
 format.EnableBaseline = true;
 
@@ -4447,7 +4447,7 @@ await doc.SaveAsync(stream);
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
+//Save the stream as PDF document file in the local machine. Refer to the PDF or /UWP section for the respected code samples
 
  Save(stream, "Output.pdf");
 
@@ -4491,7 +4491,7 @@ PdfStringFormat format = new PdfStringFormat();
 
 format.LineAlignment = PdfVerticalAlignment.Bottom;
 
-//Set baseline for line alignment
+//Set baseline for the line alignment
 
 format.EnableBaseline = true;
 
@@ -4543,7 +4543,7 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the font as stream
+//Load the font as a stream
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.tahoma.ttf");
 
@@ -4569,7 +4569,7 @@ PdfStringFormat format = new PdfStringFormat();
 
 format.LineAlignment = PdfVerticalAlignment.Bottom;
 
-//Set baseline for line alignment
+//Set baseline for the line alignment
 
 format.EnableBaseline = true;
 
@@ -4595,7 +4595,7 @@ doc.Close(true);
 
 //Save the stream into PDF file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
