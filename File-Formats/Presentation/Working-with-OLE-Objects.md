@@ -535,6 +535,56 @@ pptxDoc.Close()
 
 {% highlight UWP %}
 
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputFileStream = assembly.GetManifestResourceStream("Sample.Data.EmbeddedOleObject.pptx");
+//Opens the specified presentation
+IPresentation pptxDoc = Presentation.Open(inputFileStream);
+//Gets the first slide of the Presentation
+ISlide slide = pptxDoc.Slides[0];
+//Gets the Ole Object of the slide
+IOleObject oleObject = slide.Shapes[1] as IOleObject;
+//Gets the data of Ole Image
+byte[] array = oleObject.ImageData;
+/Save the extracted Ole data into file system
+MemoryStream memoryStream = new MemoryStream(array);
+Save(memoryStream, "OleImage.emf");
+//Close the PowerPoint presentation
+pptxDoc.Close();
+
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".emf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("*", new List<string>() { ".emf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
