@@ -483,9 +483,9 @@ else
 
 {% endtabs %}
 
-## Get image data of a OLE Object
+## Get OLE Image data
 
-The below code snippet demonstrates how to get image data of OLE Object.
+The below code snippet demonstrates how to get the OLE image data.
 
 {% tabs %}
 
@@ -497,16 +497,12 @@ IPresentation pptxDoc = Presentation.Open("ImageEmbeddedOleObject.pptx");
 ISlide slide = pptxDoc.Slides[0];
 //Gets the Ole Object of the slide
 IOleObject oleObject = slide.Shapes[1] as IOleObject;
-//Gets the image data of embedded Ole Object
-byte[] imagearray = oleObject.ImageData;
-//Gets the data of embedded Ole Object
-byte[] array = oleObject.ObjectData;
-//Gets the image Name of OLE Object
-string outputFile = oleObject.FileName;
+//Gets the data of Ole Image
+byte[] array = oleObject.ImageData;
 //Save the extracted Ole data into file system
 MemoryStream memoryStream = new MemoryStream(array);
 //Extracted ole data saved as image
-FileStream fileStream = File.Create(outputFile);
+FileStream fileStream = File.Create("OleImage.emf");
 memoryStream.CopyTo(fileStream);
 memoryStream.Dispose();
 fileStream.Dispose();
@@ -523,16 +519,12 @@ Dim pptxDoc As IPresentation = Presentation.Open("EmbeddedOleObject.pptx")
 Dim slide As ISlide = pptxDoc.Slides(0)
 'Gets the Ole Object of the slide
 Dim oleObject As IOleObject = CType(slide.Shapes(1), IOleObject)
-'Gets the image data of embedded Ole Object
-Dim imagearray() As Byte = oleObject.ImageData
-'Gets the data of embedded Ole Object
-Dim array() As Byte = oleObject.ObjectData
-'Gets the image Name of OLE Object
-Dim outputFile As String = oleObject.FileName
+'Gets the data of Ole Image
+Dim array() As Byte = oleObject.ImageData
 'Save the extracted Ole data into file system
 Dim memoryStream As MemoryStream = New MemoryStream(array)
 'Extracted ole data saved as image
-Dim fileStream As FileStream = File.Create(outputFile)
+Dim fileStream As FileStream = File.Create("OleImage.emf")
 memoryStream.CopyTo(fileStream)
 memoryStream.Dispose()
 fileStream.Dispose()
@@ -555,16 +547,12 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 ISlide slide = pptxDoc.Slides[0];
 //Gets the Ole Object of the slide
 IOleObject oleObject = slide.Shapes[1] as IOleObject;
-//Gets the image data of embedded Ole Object
-byte[] imagearray = oleObject.ImageData;
-//Gets the data of embedded Ole Object
-byte[] array = oleObject.ObjectData;
-//Gets the file Name of OLE Object
-string outputFile = oleObject.FileName;
+//Gets the data of Ole Image
+byte[] array = oleObject.ImageData;
 
 //Save the extracted Ole data into file system
 MemoryStream memoryStream = new MemoryStream(array);
-FileStream fileStream = File.Create(outputFile);
+FileStream fileStream = File.Create("OleImage.emf");
 memoryStream.CopyTo(fileStream);
 memoryStream.Dispose();
 fileStream.Dispose();
@@ -585,12 +573,8 @@ IPresentation presentation = Syncfusion.Presentation.Presentation.Open(fileStrea
 ISlide slide = presentation.Slides[0];
 //Gets the Ole Object of the slide
 IOleObject oleObject = slide.Shapes[1] as IOleObject;
-//Gets the image data of embedded Ole Object
-byte[] imagearray = oleObject.ImageData;
-//Gets the data of embedded Ole Object
-byte[] array = oleObject.ObjectData;
-//Gets the file Name of OLE Object
-string outputFile = oleObject.FileName;
+//Gets the data of Ole Image
+byte[] array = oleObject.ImageData;
 
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream(array);
@@ -598,12 +582,12 @@ MemoryStream stream = new MemoryStream(array);
 pptxDoc.Close();
 stream.Position = 0;
 
-FileStream fileStreamOutput = File.Create(outputFile);
+FileStream fileStreamOutput = File.Create("OleImage.emf");
 stream.CopyTo(fileStreamOutput);
 
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save(outputFile, "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("OleImage.emf", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save(outputFile, "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
