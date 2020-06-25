@@ -12,7 +12,7 @@ The OLE Object enables sharing of application objects written in different file 
 
 ## Inserting OLE Object to a Slide
 
-The below code snippet demonstrates how to add an Excel worksheet into a slide.
+The following code example demonstrates how to add an Excel worksheet into a slide.
 
 {% tabs %}
 
@@ -196,7 +196,7 @@ else
 
 ## Extract embedded OLE Object data
 
-The below code snippet demonstrates how to extract embedded OLE Object data.
+The following code example demonstrates how to extract the embedded OLE Object data.
 
 {% tabs %}
 
@@ -363,7 +363,7 @@ else
 
 ## Get file path of a linked OLE Object
 
-The below code snippet demonstrates how to get file path of a linked OLE Object.
+The following code example demonstrates how to get the file path of a linked OLE Object.
 
 {% tabs %}
 
@@ -485,7 +485,7 @@ else
 
 ## Get OLE Image data
 
-The below code snippet demonstrates how to get the OLE image data.
+The following code example demonstrates how to get the OLE image data.
 
 {% tabs %}
 
