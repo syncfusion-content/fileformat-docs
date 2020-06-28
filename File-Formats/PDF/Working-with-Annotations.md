@@ -4107,7 +4107,7 @@ else
 
 ### Pdf Redaction Annotation
 
-The essential PDF supports removing or redacting the sensitive text and images from the PDF documents. The redaction is the process of permanently removing sensitive information from the PDF document, use the PdfRedaction class to remove content. Using the PdfRedactionAnnotation, you can mark the content to redact or remove it from the PDF pages. The content will be redacted when performing the flatten operation.
+The essential PDF supports removing or redacting the sensitive text and images from the PDF documents. The redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html)  class to remove content. Using the [PdfRedactionAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRedactionAnnotation.html) class, you can mark the content to redact or remove it from the PDF pages. The content will be redacted when performing the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection~Flatten.html) operation.
 
 {% tabs %}
 {% highlight c# %}
@@ -4454,7 +4454,7 @@ N>The redaction annotation flatten operation is currently supported in the .NET 
 
 ### PdfRectangleAnnotation
 
-Cloud border style can be added to the PdfRectangleAnnotation by using the PdfBorderEffect class. 
+Cloud border style can be added to the [PdfRectangleAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRectangleAnnotation.html)  by using the [PdfBorderEffect](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBorderEffect.html) class. 
 The following code sample explains how to add cloud border styled rectangle annotation in the PDF document.
 
 {% tabs %}
@@ -4764,9 +4764,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pd
 {% endhighlight %}
 {% endtabs %}
 
-## Polygon Annotation
+### Polygon Annotation
 
-Cloud border style can be added to the PdfPolygonAnnotation by using the PdfBorderEffect class. 
+Cloud border style can be added to the [PdfPolygonAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPolygonAnnotation.html) by using the [PdfBorderEffect](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBorderEffect.html) class. 
 The following code sample explains how to add cloud border styled polygon annotation in the PDF document.
 
 {% tabs %}
@@ -6343,45 +6343,46 @@ PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
 
 foreach (PdfAnnotation annot in ldoc.Pages[0].Annotations)
 {
-//Check for the Redaction annotation
+    //Check for the Redaction annotation
 
-if (annot is PdfLoadedRedactionAnnotation)
-{
+    if (annot is PdfLoadedRedactionAnnotation)
+    {
 
-PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
 
-//Assign the Bounds values
+        //Assign the Bounds values
 
-redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
+        redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
 
-//Assign the OverlayText
+        //Assign the OverlayText
 
-redactAnnot.OverlayText = "Redaction";
+        redactAnnot.OverlayText = "Redaction";
 
-//Assign the InnerColor
+        //Assign the InnerColor
 
-redactAnnot.InnerColor = Color.Yellow;
+        redactAnnot.InnerColor = Color.Yellow;
 
-//Assign the BorderColor
+        //Assign the BorderColor
 
-redactAnnot.BorderColor = Color.Green;
+        redactAnnot.BorderColor = Color.Green;
 
-//Assign the TextColor
+        //Assign the TextColor
 
-redactAnnot.TextColor = Color.Red;
+        redactAnnot.TextColor = Color.Red;
  
-//Assign the TextAlignment
+        //Assign the TextAlignment
 
-redactAnnot.TextAlignment = PdfTextAlignment.Right;
+        redactAnnot.TextAlignment = PdfTextAlignment.Right;
 
-//Assign the RepeatText
+        //Assign the RepeatText
 
-redactAnnot.RepeatText = true;
+        redactAnnot.RepeatText = true;
 
-//Flatten the annotations in the page
+        //Flatten the annotations in the page
 
-redactAnnot.Flatten = true;
-}
+        redactAnnot.Flatten = true;
+    
+	}
 }
 //save the document
 
