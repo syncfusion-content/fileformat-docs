@@ -6342,48 +6342,52 @@ PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
 //Get the pages
 
 foreach (PdfAnnotation annot in ldoc.Pages[0].Annotations)
+
 {
-    //Check for the Redaction annotation
 
-    if (annot is PdfLoadedRedactionAnnotation)
-    {
+//Check for the Redaction annotation
 
-        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+if (annot is PdfLoadedRedactionAnnotation)
+{
 
-        //Assign the Bounds values
+PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
 
-        redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
+//Assign the Bounds values
 
-        //Assign the OverlayText
+redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
 
-        redactAnnot.OverlayText = "Redaction";
+//Assign the OverlayText
 
-        //Assign the InnerColor
+redactAnnot.OverlayText = "Redaction";
 
-        redactAnnot.InnerColor = Color.Yellow;
+//Assign the InnerColor
 
-        //Assign the BorderColor
+redactAnnot.InnerColor = Color.Yellow;
 
-        redactAnnot.BorderColor = Color.Green;
+//Assign the BorderColor
 
-        //Assign the TextColor
+redactAnnot.BorderColor = Color.Green;
 
-        redactAnnot.TextColor = Color.Red;
+//Assign the TextColor
+
+redactAnnot.TextColor = Color.Red;
  
-        //Assign the TextAlignment
+//Assign the TextAlignment
 
-        redactAnnot.TextAlignment = PdfTextAlignment.Right;
+redactAnnot.TextAlignment = PdfTextAlignment.Right;
 
-        //Assign the RepeatText
+//Assign the RepeatText
 
-        redactAnnot.RepeatText = true;
+redactAnnot.RepeatText = true;
 
-        //Flatten the annotations in the page
+//Flatten the annotations in the page
 
-        redactAnnot.Flatten = true;
+redactAnnot.Flatten = true;
     
-	}
 }
+
+}
+
 //save the document
 
 ldoc.Save("output.pdf");
@@ -6400,49 +6404,49 @@ ldoc.Close();
 
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("output.pdf")
 		
-        'Get the pages
+'Get the pages
 		
-        For Each annot As PdfAnnotation In ldoc.Pages(0).Annotations
+For Each annot As PdfAnnotation In ldoc.Pages(0).Annotations
 		
-            'Check for the Redaction annotation
+'Check for the Redaction annotation
 			
-            If TypeOf annot Is PdfLoadedRedactionAnnotation Then
+If TypeOf annot Is PdfLoadedRedactionAnnotation Then
 			
-                Dim redactAnnot As PdfLoadedRedactionAnnotation = TryCast(annot, PdfLoadedRedactionAnnotation)
+Dim redactAnnot As PdfLoadedRedactionAnnotation = TryCast(annot, PdfLoadedRedactionAnnotation)
 				
-                'Assign the Bounds values
+'Assign the Bounds values
 				
-                redactAnnot.Bounds = New RectangleF(50, 50, 100, 100)
+redactAnnot.Bounds = New RectangleF(50, 50, 100, 100)
 				
-                'Assign the OverlayText
+'Assign the OverlayText
 				
-                redactAnnot.OverlayText = "Redaction"
+redactAnnot.OverlayText = "Redaction"
 				
-                'Assign the InnerColor
+'Assign the InnerColor
 				
-                redactAnnot.InnerColor = Color.Yellow
+redactAnnot.InnerColor = Color.Yellow
 				
-                'Assign the BorderColor 
+'Assign the BorderColor 
 				
-                redactAnnot.BorderColor = Color.Green
+redactAnnot.BorderColor = Color.Green
 				
-                'Assign the TextColor
+'Assign the TextColor
 				
-                redactAnnot.TextColor = Color.Red
+redactAnnot.TextColor = Color.Red
 				
-                'Assign the TextAlignment
+'Assign the TextAlignment
 				
-                redactAnnot.TextAlignment = PdfTextAlignment.Right
+redactAnnot.TextAlignment = PdfTextAlignment.Right
 				
-                'Assign the RepeatText
+'Assign the RepeatText
 				
-                redactAnnot.RepeatText = True
+redactAnnot.RepeatText = True
 				
-                'Flatten the annotations in the page
+'Flatten the annotations in the page
 				
-                redactAnnot.Flatten = True
+redactAnnot.Flatten = True
 				
-            End If
+End If
 			
 Next
 		
