@@ -1,6 +1,6 @@
 ---
 title: Create and edit OLE Objects in PowerPoint files |Syncfusion|
-description: Working with OLE Objects
+description: Working with OLE Objects.The OLE Object enables sharing of application objects written in different file formats.
 platform: file-formats
 control: Presentation
 documentation: UG
