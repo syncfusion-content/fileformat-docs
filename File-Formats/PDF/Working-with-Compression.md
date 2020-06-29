@@ -1,6 +1,6 @@
 ---
 title: Working with Compression | Syncfusion
-description: This section explains how to Compress PDF document by using Essential PDF
+description: This section explains how to Compress PDF document by using Essential PDF and thereby reduce the file size
 platform: file-formats
 control: PDF
 documentation: UG
