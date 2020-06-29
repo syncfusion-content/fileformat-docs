@@ -4107,7 +4107,7 @@ else
 
 ### Pdf Redaction Annotation
 
-The essential PDF supports removing or redacting the sensitive text and images from the PDF documents. The redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html)  class to remove content. Using the [PdfRedactionAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRedactionAnnotation.html) class, you can mark the content to redact or remove it from the PDF pages. The content will be redacted when performing the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection~Flatten.html) operation.
+The essential PDF supports removing or redacting the sensitive text and images from the PDF documents. The redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html)  class to remove content. Using the [PdfRedactionAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRedactionAnnotation.html)  class, you can mark the content to redact or remove it from the PDF pages. The content will be redacted when performing the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection~Flatten.html)  operation.
 
 {% tabs %}
 {% highlight c# %}
@@ -4454,7 +4454,7 @@ N>The redaction annotation flatten operation is currently supported in the .NET 
 
 ### PdfRectangleAnnotation
 
-Cloud border style can be added to the [PdfRectangleAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRectangleAnnotation.html)  by using the [PdfBorderEffect](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBorderEffect.html) class. 
+Cloud border style can be added to the [PdfRectangleAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRectangleAnnotation.html)  by using the [PdfBorderEffect](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBorderEffect.html)  class. 
 The following code sample explains how to add cloud border styled rectangle annotation in the PDF document.
 
 {% tabs %}
@@ -4766,7 +4766,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pd
 
 ### Polygon Annotation
 
-Cloud border style can be added to the [PdfPolygonAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPolygonAnnotation.html) by using the [PdfBorderEffect](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBorderEffect.html) class. 
+Cloud border style can be added to the [PdfPolygonAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPolygonAnnotation.html)  by using the [PdfBorderEffect](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBorderEffect.html)  class. 
 The following code sample explains how to add cloud border styled polygon annotation in the PDF document.
 
 {% tabs %}
