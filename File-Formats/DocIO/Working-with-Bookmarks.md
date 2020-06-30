@@ -576,6 +576,36 @@ newDocument.Close();
 
 {% endtabs %}  
 
+## Retrieving bookmark contents within a table 
+
+You can select the column range for bookmarks inside the tables in Word documents by using `FirstColumn` and `LastColumn` properties.
+
+N> 1. `FirstColumn` and `LastColumn` properties are valid to select table cells, only when the respective bookmark end and start is present within the same row or next rows of the same table.
+N> 2. `FirstColumn` property denotes the top left corner cell and `LastColumn` property denotes the bottom right corner cell of rectangular selection region since you can only select the content as a rectangular selection by using bookmarks within the table.
+N> 3. `FirstColumn` property selects from the first cell of the respective row when this property value is negative (or) greater than the cells of a row (or) greater than the `LastColumn` value.
+N> 4. `LastColumn` property selects till last cell of the respective row when this property value is negative (or) greater than the cells of a row (or) less than the `FirstColumn` value.
+
+The following code example shows how to retrieve the bookmark content of a specified column range from a table in a Word document.
+
+{% tabs %}
+
+{% highlight c# %}
+{% endhighlight %}
+
+{% highlight vb.net %}
+{% endhighlight %}
+
+{% highlight UWP %}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Inserting content into a bookmark
 
 You can insert table, paragraph, simple text and paragraph item at the start or end location of the current bookmark by using bookmark navigator.
