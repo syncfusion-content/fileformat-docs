@@ -5,7 +5,7 @@ platform: File-Formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Data Objects 
+# Working with Excel Data 
 
 ## Importing Data to Worksheets
 
@@ -4535,7 +4535,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}
 
-## Import HTML Table to Excel Worksheet
+## Importing HTML Table to Excel Worksheet
 
 ### Import HTML Table
 
