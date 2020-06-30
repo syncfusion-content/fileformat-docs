@@ -57,7 +57,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Opens an existing document from stream through constructor of WordDocument` class
+//Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 //Encrypts the Word document with a password
@@ -75,17 +75,18 @@ return File(stream, "application/msword", "Sample.docx");
 {% highlight XAMARIN %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document through constructor of `WordDocument` class
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"),FormatType.Automatic);
+//Opens an existing document through constructor of WordDocument class
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"),FormatType.Automatic);
 //Encrypts the Word document with a password
 document.EncryptDocument("password");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
+//Saves the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -171,7 +172,9 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
-//Opens an existing document from stream through constructor of `WordDocument` class
+
+{% highlight ASP.NET CORE %}
+//Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an encrypted Word document
 WordDocument document = new WordDocument(fileStreamPath, "password");
@@ -190,7 +193,7 @@ return File(stream, "application/msword", "Sample.docx");
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an encrypted Word document
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"), "password");
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), "password");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -198,6 +201,7 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
  {% endhighlight %}
@@ -213,7 +217,7 @@ You can open the encrypted Word document and remove the encryption from the docu
 {% highlight c# %}
 //Opens an encrypted Word document
 WordDocument document = new WordDocument ("Template.docx", "password");
-//Remove encryption in Word document
+//Removes encryption in Word document
 document.RemoveEncryption();
 //Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx);
@@ -223,7 +227,7 @@ document.Close();
 {% highlight vb.net %}
 'Opens an encrypted Word document
 Dim document As New WordDocument("Template.docx", "password")
-'Remove encryption in Word document
+'Removes encryption in Word document
 document.RemoveEncryption()
 ‘Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx)
@@ -240,7 +244,7 @@ using (WordDocument document = new WordDocument())
 	Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 	//Loads or opens an existing Word document using the Open method of WordDocument class
 	document.Open(inputStream, FormatType.Docx, "password");
-	//Remove encryption in Word document
+	//Removes encryption in Word document
 	document.RemoveEncryption();
 	MemoryStream stream = new MemoryStream();
 	//Saves the Word file to MemoryStream
@@ -256,11 +260,11 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Opens an existing document from stream through constructor of `WordDocument` class
+//Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an encrypted Word document
 WordDocument document = new WordDocument(fileStreamPath, "password");
-//Remove encryption in Word document
+//Removes encryption in Word document
 document.RemoveEncryption();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -277,8 +281,8 @@ return File(stream, "application/msword", "Sample.docx");
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an encrypted Word document
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"), "password");
-//Remove encryption in Word document
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), "password");
+//Removes encryption in Word document
 document.RemoveEncryption();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -287,6 +291,7 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}

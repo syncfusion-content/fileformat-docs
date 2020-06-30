@@ -50,10 +50,6 @@ Builds a table of contents from paragraphs formatted with specified styles other
 </tbody>
 </table>
 
-N>  1. Updating of TOC is not supported in Silverlight, WinRT, Universal and Windows Phone applications. 
-N>  2. Updating TOC makes use of the Word to PDF layout engine that may lead to update incorrect page number due to its limitations.
-N>  3. In ASP.NET Core, Blazor, and Xamarin platforms, to update TOC in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
-
 ## Adding a TOC field
 
 The following code example shows how to add a table of contents (TOC) in Word document. 
@@ -259,6 +255,7 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -269,6 +266,9 @@ document.Close();
 
 You can also update or re-build the TOC in an existing document or document created from the scratch.  
 
+N>  1. Updating of TOC is not supported in Silverlight, WinRT, Universal and Windows Phone applications. 
+N>  2. Updating TOC makes use of the Word to PDF layout engine that may lead to update incorrect page number due to its limitations.
+N>  3. In ASP.NET Core, Blazor, and Xamarin platforms, to update TOC in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
 
 The following code example shows how to update a TOC in an existing word document. 
 
@@ -299,7 +299,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Opens an existing document from stream through constructor of `WordDocument` class
+//Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 //Updates the table of contents.
@@ -317,17 +317,18 @@ return File(stream, "application/msword", "Sample.docx");
 {% highlight XAMARIN %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document through constructor of `WordDocument` class
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"), FormatType.Automatic);
+//Opens an existing document through constructor of WordDocument class
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
 //Updates the table of contents
 document.UpdateTableOfContents();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing              
+//Saves the stream as a file in the device and invoke it for viewing              
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -571,6 +572,7 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
