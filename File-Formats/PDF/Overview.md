@@ -1,6 +1,6 @@
 ---
 title: Create, read, edit, convert PDF files in .NET | Syncfusion
-description: Essential PDF is a .NET PDF library to create, read, edit, & convert PDF files in Windows Forms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin, Flutter applications
+description: Essential PDF is a .NET PDF library to convert PDF files in Windows Forms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin, Flutter applications
 platform: file-formats
 control: PDF
 documentation: UG
