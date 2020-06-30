@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Security
+# Working with Security
 
 You can encrypt a Word document with password to restrict unauthorized access. You can also control the types of changes you make to this document.
 
