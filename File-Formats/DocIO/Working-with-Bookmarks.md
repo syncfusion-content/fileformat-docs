@@ -603,7 +603,7 @@ bookmarkNavigator.MoveToBookmark("BkmkInTable");
 //Sets the column index where the bookmark starts within the table
 bookmarkNavigator.CurrentBookmark.FirstColumn = 1;
 //Sets the column index where the bookmark ends within the table
-bookmarkNavigator.CurrentBookmark.LastColumn = 1;
+bookmarkNavigator.CurrentBookmark.LastColumn = 4;
 //Gets the bookmark content
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 //Adds new section
@@ -630,7 +630,7 @@ bookmarkNavigator.MoveToBookmark("BkmkInTable")
 'Sets the column index where the bookmark starts within the table
 bookmarkNavigator.CurrentBookmark.FirstColumn = 1
 'Sets the column index where the bookmark ends within the table
-bookmarkNavigator.CurrentBookmark.LastColumn = 1
+bookmarkNavigator.CurrentBookmark.LastColumn = 4
 'Gets the bookmark content
 Dim part As TextBodyPart = bookmarkNavigator.GetBookmarkContent
 'Adds new section
@@ -658,7 +658,7 @@ bookmarkNavigator.MoveToBookmark("BkmkInTable");
 //Sets the column index where the bookmark starts within the table
 bookmarkNavigator.CurrentBookmark.FirstColumn = 1;
 //Sets the column index where the bookmark ends within the table
-bookmarkNavigator.CurrentBookmark.LastColumn = 1;
+bookmarkNavigator.CurrentBookmark.LastColumn = 4;
 //Gets the bookmark content
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 //Adds new section 
@@ -693,7 +693,7 @@ bookmarkNavigator.MoveToBookmark("BkmkInTable");
 //Sets the column index where the bookmark starts within the table
 bookmarkNavigator.CurrentBookmark.FirstColumn = 1;
 //Sets the column index where the bookmark ends within the table
-bookmarkNavigator.CurrentBookmark.LastColumn = 1;
+bookmarkNavigator.CurrentBookmark.LastColumn = 4;
 //Gets the bookmark content
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 //Adds new section
@@ -725,7 +725,7 @@ bookmarkNavigator.MoveToBookmark("BkmkInTable");
 //Sets the column index where the bookmark starts within the table
 bookmarkNavigator.CurrentBookmark.FirstColumn = 1;
 //Sets the column index where the bookmark ends within the table
-bookmarkNavigator.CurrentBookmark.LastColumn = 1;
+bookmarkNavigator.CurrentBookmark.LastColumn = 4;
 //Gets the bookmark content
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 //Adds new section 
