@@ -1076,6 +1076,298 @@ Tabular layout:
 
 ![Pivot Tables layout tabular](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png)
 
+### Pivot table row layout
+
+The [PivotTableRowLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) enumeration can be used to change the pivot table row layout as Compact or Outline or Tabular as below.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+
+  workbook.SaveAs("PivotTable_RowLayout.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotTable As IPivotTable = sheet.PivotTables(0)
+
+  'Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular
+
+  workbook.SaveAs("PivotTable_RowLayout.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable_RowLayout";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+
+  string fileName = "PivotTable_RowLayout.xlsx";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+
+  string fileName = "PivotTable_RowLayout.xlsx";
+
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Pivot table with classic layout
+
+For classic layout, you can set the **ShowGridDropZone** property to true as below.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+  
+  //Set classic layout
+  (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
+
+  workbook.SaveAs("PivotTable_ClassicLayout.xlsx");
+
+  //No exception will be thrown if there are unsaved workbooks
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotTable As IPivotTable = sheet.PivotTables(0)
+
+  'Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular
+  
+  'Set classic layout
+  (TryCast(pivotTable.Options, PivotTableOptions)).ShowGridDropZone = True
+
+  workbook.SaveAs("PivotTable_ClassicLayout.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+  
+  //Set classic layout
+  (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable_ClassicLayout";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+  
+  //Set classic layout
+  (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
+
+  string fileName = "PivotTable_ClassicLayout.xlsx";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  //Set PivotTableRowLayout
+  pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+  
+  //Set classic layout
+  (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+
+  string fileName = "PivotTable_ClassicLayout.xlsx";
+
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Expand or collapse rows in pivot table
 
 Essential XlsIO allows you to expand and collapse the **PivotFieldItems** or simply the pivot table rows using **IsHiddenDetails** of **PivotItemOptions**.
