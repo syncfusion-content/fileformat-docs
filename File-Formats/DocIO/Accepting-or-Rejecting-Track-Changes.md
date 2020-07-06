@@ -139,83 +139,127 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %} 
 
-The changes made to the document can be accepted or rejected. The following code example illustrates how to accept or reject the changes made to the document. 
+## Accept all changes
 
-{% tabs %}  
+You can **accept all track changes in Word document** using **‘AcceptAll’** method.
+
+The following code example shows how to accept all the tracked changes.
+
+{% tabs %}   
 
 {% highlight c# %}
-//Loads the template document
-WordDocument document = new WordDocument("TrackChanges.docx", FormatType.Docx);
-//Accepts track changes of the document
-if (document.HasChanges)
-    document.AcceptChanges();
-//Saves and closes the document
-document.Save("TrackChanges_Sample.docx", FormatType.Docx);
-document.Close();
-{% endhighlight %}
+{% endhighlight %} 
 
 {% highlight vb.net %}
-'Loads the template document
-Dim document As New WordDocument("TrackChanges.docx", FormatType.Docx)
-'Accepts track changes of the document
-If document.HasChanges Then
-	document.AcceptChanges()
-End If
-'Saves and closes the document
-document.Save("TrackChanges_Sample.docx", FormatType.Docx)
-document.Close()
-{% endhighlight %}
+{% endhighlight %} 
 
 {% highlight UWP %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Loads the template document
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.TrackChanges.docx"), FormatType.Docx);
-//Accepts track changes of the document
-if (document.HasChanges)
-    document.AcceptChanges();
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "TrackChanges_Sample.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
+{% endhighlight %} 
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/TrackChanges.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Loads the template document
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Accepts track changes of the document
-if (document.HasChanges)
-    document.AcceptChanges();
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "TrackChanges_Sample.docx");
-{% endhighlight %}
+{% endhighlight %} 
 
 {% highlight XAMARIN %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Loads the template document
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.TrackChanges.docx"), FormatType.Docx);
-//Accepts track changes of the document
-if (document.HasChanges)
-    document.AcceptChanges();
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TrackChanges_Sample.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
+{% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
+
+## Reject all changes
+
+You can **reject all track changes in Word document** using **‘RejectAll’** method.
+
+The following code example shows how to reject all the tracked changes.
+
+{% tabs %}   
+
+{% highlight c# %}
+{% endhighlight %} 
+
+{% highlight vb.net %}
+{% endhighlight %} 
+
+{% highlight UWP %}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+{% endhighlight %} 
+
+{% endtabs %}
+
+## Accept all changes by a particular reviewer
+
+You can **accept all changes made by the author** in the Word document using **Accept** method.
+
+The following code example shows how to accept the tracked changes made by the author.
+
+{% tabs %}   
+
+{% highlight c# %}
+{% endhighlight %} 
+
+{% highlight vb.net %}
+{% endhighlight %} 
+
+{% highlight UWP %}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+{% endhighlight %} 
+
+{% endtabs %}
+
+## Reject all changes by particular reviewer
+
+You can **reject all changes made by the author** in the Word document using **Reject** method.
+
+The following code example shows how to reject the tracked changes made by the author.
+
+{% tabs %}   
+
+{% highlight c# %}
+{% endhighlight %} 
+
+{% highlight vb.net %}
+{% endhighlight %} 
+
+{% highlight UWP %}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+{% endhighlight %} 
+
+{% endtabs %}
+
+## Revision information
+
+You can get the **revision information of track changes** in the Word document like author name, date, and type of revision.
+
+The following code example shows how to get the details about the revision information of track changes
+
+{% tabs %}   
+
+{% highlight c# %}
+{% endhighlight %} 
+
+{% highlight vb.net %}
+{% endhighlight %} 
+
+{% highlight UWP %}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+{% endhighlight %} 
+
+{% endtabs %}

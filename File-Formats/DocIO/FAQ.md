@@ -4287,4 +4287,82 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 //DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
 
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+## How to check whether a Word document contains tracked changes or not? 
+
+You can check whether a Word document contains tracked changes by using **‘HasChanges’** property in Essential DocIO.
+
+The following code example shows how to check whether a Word document contains tracked changes.
+
+{% tabs %}   
+
+{% highlight c# %}
+{% endhighlight %} 
+
+{% highlight vb.net %}
+{% endhighlight %} 
+
+{% highlight UWP %}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+{% endhighlight %} 
+
+{% endtabs %}
+
+## How to accept or reject track changes of specific type in the Word document?
+
+You can **accept or reject track changes by revision type** in the tracked changes Word document. 
+
+For example, if you like to accept or reject changes of specific revision type (insertions, deletions, formatting, move to, or move from), you can iterate into the revisions in Word document and then accept or reject the particular revision type using Essential DocIO.
+
+The following code example shows how to accept or reject track changes of specific type in the Word document .
+
+{% tabs %}   
+
+{% highlight c# %}
+{% endhighlight %} 
+
+{% highlight vb.net %}
+{% endhighlight %} 
+
+{% highlight UWP %}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+{% endhighlight %} 
+
+{% endtabs %}
+
+## How to enable track changes for Word document ?
+
+TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the TrackChanges property of the Word document.
+
+The following code example shows how to enable track changes of the document.
+
+{% tabs %}   
+
+{% highlight c# %}
+{% endhighlight %} 
+
+{% highlight vb.net %}
+{% endhighlight %} 
+
+{% highlight UWP %}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+{% endhighlight %} 
+
+{% endtabs %}
+
