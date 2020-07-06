@@ -180,7 +180,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
   //Add data field
-  IPivotField field = pivotTable.Fields[2];
+  IPivotField field = pivotTable.Fields[5];
   pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
   
   workbook.SaveAs("PivotTable.xlsx");
@@ -208,7 +208,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   pivotTable.Fields(3).Axis = PivotAxisTypes.Column
 
   'Add data field
-  Dim field As IPivotField = pivotTable.Fields(2)
+  Dim field As IPivotField = pivotTable.Fields(5)
   pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum)
 
   workbook.SaveAs("PivotTable.xlsx")
@@ -243,7 +243,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
   //Add data field
-  IPivotField field = pivotTable.Fields[2];
+  IPivotField field = pivotTable.Fields[5];
   pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 
   //Initializes FileSavePicker
@@ -281,7 +281,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
   //Add data field
-  IPivotField field = pivotTable.Fields[2];
+  IPivotField field = pivotTable.Fields[5];
   pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 
   string fileName = "PivotTable.xlsx";
@@ -320,7 +320,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
   //Add data field
-  IPivotField field = pivotTable.Fields[2];
+  IPivotField field = pivotTable.Fields[5];
 
   pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 
