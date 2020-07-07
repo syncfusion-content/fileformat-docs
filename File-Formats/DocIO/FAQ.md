@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# FAQ/How to
+# Frequently Asked Questions
 
 ## How to modify an existing style?
 
