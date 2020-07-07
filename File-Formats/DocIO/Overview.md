@@ -5,9 +5,9 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Overview
+# Overview of Word library (DocIO)
 
-Essential DocIO is a native .NET Word library that is used by developers to create, read, write, and convert Microsoft Word documents by using C#, VB.NET, and managed C++ code from any of the following .NET platforms - Windows Forms, WPF, Silverlight, LightSwitch, ASP.NET, ASP.NET MVC, Windows Store applications, Windows Phone Silverlight 8 and 8.1, Windows Phone 8.1 and Xamarin applications. 
+Essential DocIO is a native .NET Word library that is used by developers to create, read, write, and convert Microsoft Word documents by using C#, VB.NET, and managed C++ code from any of the following .NET platforms - Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, Blazor, Windows Store applications, and Xamarin applications. 
 
 It is a non-UI component that provides a full-fledged document instance model similar to the Microsoft Office COM libraries to iterate with the document elements explicitly and perform necessary manipulation. It is built from scratch in C# and does not require Microsoft Word to be installed in the machine. It supports Word 97-2003 and later version documents.
 
