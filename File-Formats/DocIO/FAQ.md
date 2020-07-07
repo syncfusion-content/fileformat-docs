@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# FAQ Section
+# Frequently Asked Questions
 
 The frequently asked questions in Essential DocIO are listed below.
 
