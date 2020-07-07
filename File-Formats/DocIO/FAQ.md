@@ -4340,6 +4340,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -4461,6 +4462,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -4594,6 +4596,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 

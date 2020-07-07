@@ -141,7 +141,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 ## Accept all changes
 
-You can **accept all track changes in Word document** using **‘AcceptAll’** method.
+You can **accept all track changes in Word document** using `AcceptAll`method.
 
 The following code example shows how to accept all the tracked changes.
 
@@ -186,6 +186,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -229,9 +230,13 @@ document.Close();
 
 {% endtabs %}
 
+By executing the above code example, it generates output Word document as follows.
+
+![Accepting all track changes in Word document](WorkingWithTrackChanges_images/AcceptAll.png)
+
 ## Reject all changes
 
-You can **reject all track changes in Word document** using **‘RejectAll’** method.
+You can **reject all track changes in Word document** using `RejectAll` method.
 
 The following code example shows how to reject all the tracked changes.
 
@@ -275,6 +280,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -318,9 +324,13 @@ document.Close();
 
 {% endtabs %}
 
+By executing the above code example, it generates output Word document as follows.
+
+![Rejecting all track changes in Word document](WorkingWithTrackChanges_images/RejectAll.png)
+
 ## Accept all changes by a particular reviewer
 
-You can **accept all changes made by the author** in the Word document using **Accept** method.
+You can **accept all changes made by the author** in the Word document using `Accept`  method.
 
 The following code example shows how to accept the tracked changes made by the author.
 
@@ -384,6 +394,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -443,7 +454,7 @@ document.Close();
 
 ## Reject all changes by particular reviewer
 
-You can **reject all changes made by the author** in the Word document using **Reject** method.
+You can **reject all changes made by the author** in the Word document using `Reject` method.
 
 The following code example shows how to reject the tracked changes made by the author.
 
@@ -508,6 +519,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -621,6 +633,7 @@ DateTime dateTime = revision.Date;
 RevisionType revisionType = revision.RevisionType;
 //Closes the document
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
