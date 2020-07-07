@@ -7,6 +7,8 @@ documentation: UG
 ---
 # Frequently Asked Questions
 
+The frequently asked questions in Essential DocIO are listed below.
+
 ## How to modify an existing style?
 
 The following code illustrates how to modify the built-in style while creating new Word document.
