@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions | DocIO | Syncfusion
+title: FAQ Section | DocIO | Syncfusion
 description: This section illustrates about Frequently Asked Questions in Essential Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
