@@ -5,7 +5,9 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Frequently Asked Questions
+# FAQ Section
+
+The frequently asked questions in Essential DocIO are listed below.
 
 ## How to modify an existing style?
 
