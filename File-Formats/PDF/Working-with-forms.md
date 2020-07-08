@@ -7563,6 +7563,8 @@ else
 
 {% endtabs %}  
 
+N> The form fields will be flattened only after the PDF document is saved. 
+
 
 To prevent the user from changing the form field content, you can also use [Readonly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfField~ReadOnly.html) property.
 
