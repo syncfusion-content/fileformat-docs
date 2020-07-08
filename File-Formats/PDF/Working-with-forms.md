@@ -1,11 +1,11 @@
 ---
 title: Working with Forms | Syncfusion
-description: This section explains how to create, fill and flatten form fields in the PDF document
+description: This section explains how to create, fill, modify, read only and flatten form fields in the PDF document
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Forms 
+# Working with Forms    
 
 An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information. A PDF document can contain any number of fields appearing on any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
