@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Text
+# Working with Text | Syncfusion
 
 ## Drawing text in a new document
 
@@ -4259,6 +4259,351 @@ if (Device.RuntimePlatform == Device.UWP)
 else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Drawing text with baseline alignment
+
+The Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code sample explains this.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(new Font("Tahoma",8), 8);
+
+PdfFont font1 = new PdfTrueTypeFont(new Font("Calibri",20), 20);
+
+PdfFont font2 = new PdfStandardFont(PdfFontFamily.Helvetica,16);
+
+PdfFont font3 = new PdfTrueTypeFont(new Font("Arial",25), 25);
+
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the line alignment
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//Set baseline for the line alignment
+
+format.EnableBaseline = true;
+
+//Draw the text
+
+graphics.DrawString("Hello World!", font, PdfBrushes.Black, new PointF(0, 50), format);
+
+graphics.DrawString("Hello World!", font1, PdfBrushes.Black, new PointF(65, 50), format);
+
+graphics.DrawString("Hello World!", font2, PdfBrushes.Black, new PointF(220, 50), format);
+
+graphics.DrawString("Hello World!", font3, PdfBrushes.Black, new PointF(320, 50), format);
+
+//Save the document
+ 
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document 
+
+Dim document As New PdfDocument()
+
+'Add a page to the document
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create PDF graphics for the page 
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Create a new PDF font instance
+
+Dim font As PdfFont = New PdfTrueTypeFont(new Font("Tahoma",8), 8)
+
+Dim font1 As PdfFont = New PdfTrueTypeFont(new Font("Calibri",20), 20)
+   
+Dim font2 As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica,16)
+     
+Dim font3 As PdfFont = New PdfTrueTypeFont(new Font("Arial",25), 25)
+
+'Set the format for string
+
+Dim format As New PdfStringFormat()
+
+'Set the line alignment
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+'Set baseline for the line alignment
+
+format.EnableBaseline = True
+
+'Draw the text
+
+graphics.DrawString("Hello World!", font, PdfBrushes.Black, New PointF(0, 50), format)
+
+graphics.DrawString("Hello World!", font1, PdfBrushes.Black, New PointF(65, 50), format)
+
+graphics.DrawString("Hello World!", font2, PdfBrushes.Black, New PointF(220, 50), format)
+
+graphics.DrawString("Hello World!", font3, PdfBrushes.Black, New PointF(320, 50), format)
+
+'Save the document 
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the font 
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.tahoma.ttf");
+
+Stream fontStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+
+Stream fontStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Calibri.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 8);
+
+PdfFont font1 = new PdfTrueTypeFont(fontStream1, 20);
+
+PdfFont font2 = new PdfStandardFont(PdfFontFamily.Helvetica,16);
+
+PdfFont font3 = new PdfTrueTypeFont(fontStream2, 25);
+           
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the line alignment
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//Set baseline for the line alignment
+
+format.EnableBaseline = true;
+
+//Draw the text
+
+graphics.DrawString("Hello World!", font, PdfBrushes.Black, new PointF(0, 50), format);
+
+graphics.DrawString("Hello World!", font1, PdfBrushes.Black, new PointF(65, 50), format);
+
+graphics.DrawString("Hello World!", font2, PdfBrushes.Black, new PointF(220, 50), format);
+
+graphics.DrawString("Hello World!", font3, PdfBrushes.Black, new PointF(320, 50), format);
+
+//Save the PDF document
+         
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
+
+ Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+FileStream fontStream = new FileStream("tahoma.ttf", FileMode.Open, FileAccess.Read);
+
+FileStream fontStream1 = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
+
+FileStream fontStream2 = new FileStream("Calibri.ttf", FileMode.Open, FileAccess.Read);
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 8);
+
+PdfFont font1 = new PdfTrueTypeFont(fontStream1, 20);
+
+PdfFont font2 = new PdfStandardFont(PdfFontFamily.Helvetica,16);
+
+PdfFont font3 = new PdfTrueTypeFont(fontStream2, 25);
+           
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the line alignment
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//Set baseline for the line alignment
+
+format.EnableBaseline = true;
+
+//Draw the text
+
+graphics.DrawString("Hello World!", font, PdfBrushes.Black, new PointF(0, 50), format);
+
+graphics.DrawString("Hello World!", font1, PdfBrushes.Black, new PointF(65, 50), format);
+
+graphics.DrawString("Hello World!", font2, PdfBrushes.Black, new PointF(220, 50), format);
+
+graphics.DrawString("Hello World!", font3, PdfBrushes.Black, new PointF(320, 50), format);
+
+//Save the PDF document
+        
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Defining the content type for PDF file.
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the font as a stream
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.tahoma.ttf");
+
+Stream fontStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+
+Stream fontStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Calibri.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 8);
+
+PdfFont font1 = new PdfTrueTypeFont(fontStream1, 20);
+
+PdfFont font2 = new PdfStandardFont(PdfFontFamily.Helvetica,16);
+
+PdfFont font3 = new PdfTrueTypeFont(fontStream2, 25);
+           
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the line alignment
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//Set baseline for the line alignment
+
+format.EnableBaseline = true;
+
+//Draw the text
+
+graphics.DrawString("Hello World!", font, PdfBrushes.Black, new PointF(0, 50), format);
+
+graphics.DrawString("Hello World!", font1, PdfBrushes.Black, new PointF(65, 50), format);
+
+graphics.DrawString("Hello World!", font2, PdfBrushes.Black, new PointF(220, 50), format);
+
+graphics.DrawString("Hello World!", font3, PdfBrushes.Black, new PointF(320, 50), format);
+
+//Save the PDF document
+           
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}

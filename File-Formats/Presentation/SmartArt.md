@@ -11,7 +11,7 @@ A SmartArt diagram is a visual representation of your information, to effectivel
 
 ## Adding SmartArt to a Slide
 
-You can add any of the predefined SmartArt diagrams to PowerPoint Presentation. The following code example demonstrates adding a SmartArt to a Slide.
+You can add any of the predefined SmartArt diagrams to PowerPoint Prknfjnfesentation. The following code example demonstrates adding a SmartArt to a Slide.
 
 {% tabs %}
 

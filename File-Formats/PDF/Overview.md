@@ -1,13 +1,13 @@
 ---
 title: Create, read, edit, convert PDF files in .NET | Syncfusion
-description: Essential PDF is a .NET PDF library to create, read, edit, & convert PDF files in Windows Forms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin applications
+description: Essential PDF is a .NET PDF library to convert PDF files in Windows Forms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin, Flutter applications
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 # Overview of Essential PDF
 
-Essential PDF is a feature rich .NET PDF class library developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin applications and Unity platform without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
+Essential PDF is a feature rich .NET PDF class library developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin, Flutter applications and Unity platform without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
 
 ## Key Features of Essential PDF
 
@@ -32,3 +32,5 @@ The following list shows the key features available in the Essential PDF.
 * Support to [find the corrupted PDF document](https://help.syncfusion.com/file-formats/pdf/working-with-document#find-corrupted-pdf-document). 
 * Support for .NET Standard 1.2 onwards. 
 * PDF library is compatible with .NET Core 3.0 WPF and Windows Forms.
+* PDF library is supported in Blazor, Xamarin and Flutter platforms.
+* PDF library is compatible with .NET 5.0 applications.

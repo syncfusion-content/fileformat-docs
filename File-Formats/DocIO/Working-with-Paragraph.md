@@ -1435,6 +1435,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %} 
 
+### Replace image
+
 Image present in the document can be replaced with a new image. This can be achieved by iterating through the paragraph items.
 
 The following code example explains how to replace an existing image.
@@ -1593,6 +1595,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %} 
+
+### Remove image
 
 Images can be removed from the document by removing it from the paragraph items. 
 
@@ -1940,7 +1944,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %} 
+
+### Find an image by title 
 
 An Image with a specific title can be retrieved by iterating the paragraph items that can be used for further manipulations.
 
@@ -2122,7 +2128,241 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %} 
+
+### Add Image caption 
+
+You can add caption to an image and update the caption numbers (Sequence fields) using `AddCaption` method.
+
+The following code example shows how to add caption to an image.
+
+{% tabs %} 
+
+{% highlight c# %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds a new section to the document
+IWSection section = document.AddSection();
+//Sets margin of the section
+section.PageSetup.Margins.All = 72;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+IWPicture picture = paragraph.AppendPicture(Image.FromFile("Google.png"));
+//Adds Image caption
+IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets after spacing
+lastParagragh.ParagraphFormat.AfterSpacing = 12f;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Adds a paragraph to the section
+paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+picture = paragraph.AppendPicture(Image.FromFile("Yahoo.png"));
+//Adds Image caption
+lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Updates the fields in Word document
+document.UpdateDocumentFields();
+//Saves and closes the document
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %} 
+
+{% highlight vb.net %}
+'Creates a new document
+Dim document As WordDocument = New WordDocument
+'Adds a new section to the document
+Dim section As IWSection = document.AddSection
+'Sets margin of the section
+section.PageSetup.Margins.All = 72
+'Adds a paragraph to the section
+Dim paragraph As IWParagraph = section.AddParagraph
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+'Adds image to  the paragraph
+Dim picture As IWPicture = paragraph.AppendPicture(Image.FromFile("Google.png"))
+'Adds Image caption
+Dim lastParagragh As IWParagraph = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage)
+'Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+'Sets after spacing
+lastParagragh.ParagraphFormat.AfterSpacing = 12.0F
+'Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5F
+'Adds a paragraph to the section
+paragraph = section.AddParagraph
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+'Adds image to  the paragraph
+picture = paragraph.AppendPicture(Image.FromFile("Yahoo.png"))
+'Adds Image caption
+lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage)
+'Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+'Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5F
+'Updates the fields in Word document
+document.UpdateDocumentFields()
+'Saves and closes the document
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %} 
+
+{% highlight UWP %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds a new section to the document.
+IWSection section = document.AddSection();
+//Sets margin of the section
+section.PageSetup.Margins.All = 72;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+//Adds image to  the paragraph
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Google.png");
+IWPicture picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+//Sets after spacing
+lastParagragh.ParagraphFormat.AfterSpacing = 12f;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Adds a paragraph to the section
+paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+//Adds image to  the paragraph
+assembly = typeof(App).GetTypeInfo().Assembly;
+imageStream = assembly.GetManifestResourceStream("Sample.Assets.Yahoo.png");
+picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Updates the fields in Word document
+document.UpdateDocumentFields();
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word document file in local machine
+Save(stream, "Sample.docx");
+//Closes the document instance
+document.Close();
+          
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+ //Creates a new document
+WordDocument document = new WordDocument();
+//Adds a new section to the document.
+IWSection section = document.AddSection();
+//Sets margin of the section
+section.PageSetup.Margins.All = 72;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+FileStream imageStream = new FileStream(@"Google.png", FileMode.Open, FileAccess.ReadWrite);
+IWPicture picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets after spacing
+lastParagragh.ParagraphFormat.AfterSpacing = 12f;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Adds a paragraph to the section
+paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+imageStream = new FileStream(@"Yahoo.png", FileMode.Open, FileAccess.ReadWrite);
+picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Updates the fields in Word document
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+ //Creates a new document
+WordDocument document = new WordDocument();
+//Adds a new section to the document.
+IWSection section = document.AddSection();
+//Sets margin of the section
+section.PageSetup.Margins.All = 72;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Google.png");
+IWPicture picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets after spacing
+lastParagragh.ParagraphFormat.AfterSpacing = 12f;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Adds a paragraph to the section
+paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+assembly = typeof(App).GetTypeInfo().Assembly;
+imageStream = assembly.GetManifestResourceStream("Sample.Assets.Yahoo.png");
+picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Updates the fields in Word document
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document instance
+document.Close();
+            
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+{% endhighlight %} 
+
+{% endtabs %} 
+
+By executing the above code example, it generates output Word document as follows.
+
+![Output of Word document with Image caption](WorkingWithImages_images/ImageCaption.png)
 
 ## Working with lists
 

@@ -1,6 +1,6 @@
 ---
 title: Working with Compression | Syncfusion
-description: This section explains how to Compress PDF document by using Essential PDF
+description: This section explains how to Compress the PDF document with different options by using Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG
@@ -23,6 +23,8 @@ You can compress the existing PDF document by using [PdfLoadedDocument](https://
 2. Optimizing embedded font
 3. Optimizing page content
 4. Remove metadata information
+
+N> To compress the existing PDF document in .NET Core, you need to include Syncfusion.Pdf.Imaging.Portable assembly reference in .NET Core project.
 
 ## Compressing images with image quality
 
@@ -80,6 +82,49 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+
+//Enable the compress image.
+options.CompressImages = true;
+
+//Set the image quality.
+options.ImageQuality = 50;
+
+//Assign the compression option to the document
+loadedDocument.Compress(options);
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+loadedDocument.Save(stream);
+
+//Close the documents.
+loadedDocument.Close(true);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name. 
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Optimizing embedded font
@@ -129,6 +174,46 @@ loadedDocument.Save("Output.pdf")
 
 'Close the document
 loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+
+//Enable the optimize font option
+options.OptimizeFont = true;
+
+//Assign the compression option to the document
+loadedDocument.Compress(options);
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+loadedDocument.Save(stream);
+
+//Close the documents.
+loadedDocument.Close(true);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name. 
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -186,6 +271,46 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+
+//Enable the optimize page contents.
+options.OptimizePageContents = true;
+
+//Assign the compression option to the document
+loadedDocument.Compress(options);
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+loadedDocument.Save(stream);
+
+//Close the documents.
+loadedDocument.Close(true);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name. 
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Remove metadata information
@@ -230,6 +355,46 @@ loadedDocument.Save("Output.pdf")
 
 'Close the document
 loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+
+//Set to remove the metadata information.
+options.RemoveMetadata = true;
+
+//Assign the compression option to the document
+loadedDocument.Compress(options);
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+loadedDocument.Save(stream);
+
+//Close the documents.
+loadedDocument.Close(true);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name. 
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -313,6 +478,56 @@ document.Save("Output.pdf")
 
 'Close the document.
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Set the compression level to best
+document.Compression = PdfCompressionLevel.Best;
+
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+//Set the font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+string text = "Hello World!!!";
+PdfTextElement textElement = new PdfTextElement(text, font);
+
+PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, font.MeasureString(text).Width, page.GetClientSize().Height));
+
+for (int i = 0; i < 1000; i++)
+{
+    result = textElement.Draw(result.Page, new RectangleF(0, result.Bounds.Bottom + 10, font.MeasureString(text).Width, page.GetClientSize().Height));
+}
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+document.Save(stream);
+
+//Close the documents.
+document.Close(true);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name. 
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 

@@ -11,7 +11,7 @@ In order to use XlsIO in your WinRT application, please add the required assembl
 
 ## Loading the document
 
-The below code snippet illustrates how to load an Excel file using file picker in WinRT.
+The below code snippet illustrates how to load an Excel fie usin file picker in WinRT.
 
 {% tabs %}  
 
