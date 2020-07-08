@@ -157,6 +157,8 @@ End Using
 
 N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
 
+
+ 
 ## Performing OCR with tesseract version 3.05
 
 You can perform OCR using the tesseract version 3.05. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TesseractVersion.html) property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
@@ -233,7 +235,87 @@ End Using
 			
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}
+ 
+ 
+## Performing OCR with Tesseract Version 4.0
+
+You can perform OCR using tesseract 4.0. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TesseractVersion.html) property is used to switch the tesseract version. By default, OCR will be performed with tesseract version 3.02.
+
+You must use the pre-built Syncfusion tesseract 4.0 binaries in the project to run the OCR properly. The tesseract binaries are shipping with the Syncfusion NuGet package, use the following link to download the NuGet package.
+
+
+[https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base](https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base)
+
+The following code sample explains the OCR processor with Tesseract4.0 for PDF documents.
+ 
+{% tabs %} 
+
+{% highlight c# %}
+
+
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Set tesseract OCR Engine 
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
+
+//Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, @"TessData\", true);
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Using processor As New OCRProcessor("Tesseract4.0Binaries\")
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set tesseract OCR engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0
+
+'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, "TessData\", True)
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(True)
+
+End Using
+
+{% endhighlight %}
+
+{% endtabs %}  
+
 
 ## Performing OCR for a region of the document
 
@@ -912,6 +994,178 @@ End Using
 {% endhighlight %}
 
 {% endtabs %} 
+
+
+
+## Performing OCR with different Page Segmentation Mode
+
+You can perform OCR with various page segmentation mode. The PageSegment property is used to set the page segmentation mode. By default, OCR works with the “Auto” page segmentation mode. Kindly refer to the following code sample.
+ 
+{% tabs %} 
+
+{% highlight c# %}
+
+
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Set tesseract OCR Engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
+
+////Set OCR Page segment mode to process
+
+processor.Settings.PageSegment = PageSegmentMode.AutoOsd;
+
+//Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, @"TessData\", true);
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+VB
+
+Using processor As New OCRProcessor("Tesseract4.0Binaries\")
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set tesseract OCR engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0
+
+'Set OCR page segment mode to process
+
+ processor.Settings.PageSegment = PageSegmentMode.AutoOsd
+
+'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, "TessData\", True)
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(True)
+
+End Using
+
+
+{% endhighlight %}
+
+{% endtabs %} 
+
+N> The page segmentation mode is supported only in the Tesseract version 4.0 and above.
+
+## Performing OCR with different OCR Engine Mode
+
+You can perform OCR with various OCR Engine Mode. The OCREngineMode property is used to set the OCR Engine modes. By default, OCR works with OCR Engine mode “Default”.
+
+This is explained in the following code sample
+ 
+{% tabs %} 
+
+{% highlight c# %}
+
+
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Set tesseract OCR Engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
+
+//Set OCR engine mode to process
+processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly;
+
+//Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, @"TessData\", true);
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+VB
+
+Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set tesseract OCR engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0
+
+'Set OCR engine mode to process
+
+processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly
+
+'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, "TessData\", True)
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(True)
+
+End Using
+
+{% endhighlight %}
+
+{% endtabs %} 
+
+N> The OCR Engine Mode is supported only in the Tesseract version 4.0 and above.
 
 
 ## Best Practices
