@@ -12,11 +12,11 @@ documentation: ug
 
 ## Installing with UI   
 
-The following procedure illustrates how to install Essential Studio File Formats platform.
+The following procedure illustrates how to intall Essential Studio File Formats platform.
 
 1. Close all the running Visual Studio instances.
 
-2. Double-click the Syncfusion File Formats platform installer file. The installer Wizard opens and extracts the package automatically.
+2. Double-click the Syncfusion File Formats platorm installer file. The installer Wizard opens and extracts the package automatically.
 
    ![Installer extraction wizard](Platform_images/Step-by-Step-Installation_img1.png)
 

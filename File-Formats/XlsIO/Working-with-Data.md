@@ -4745,6 +4745,8 @@ namespace ImportHtml
 }
 {% endhighlight %}
 
+{% endtabs %}
+
 The following screenshot represents the image of the input HTML file with a table.
 
 ![Input document for Import HTML table](Working-with-Data_images/Working-with-Data_img6.png)
@@ -4752,4 +4754,3 @@ The following screenshot represents the image of the input HTML file with a tabl
 The following screenshot represents the image of the Excel output with data imported from HTML table.
 
 ![Output document imported from HTML table](Working-with-Data_images/Working-with-Data_img7.png)
-{% endtabs %}
