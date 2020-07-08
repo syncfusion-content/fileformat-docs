@@ -243,7 +243,7 @@ You can perform OCR using tesseract 4.0. The [TesseractVersion](https://help.syn
 You must use the pre-built Syncfusion tesseract 4.0 binaries in the project to run the OCR properly. The tesseract binaries are shipping with the Syncfusion NuGet package, use the following link to download the NuGet package.
 
 
-[https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base](https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base)
+[https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/)
 
 The following code sample explains the OCR processor with Tesseract4.0 for PDF documents.
  
