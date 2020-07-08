@@ -2362,7 +2362,7 @@ document.Close();
 
 By executing the above code example, it generates output Word document as follows.
 
-![Adding Image caption ](WorkingWithImages_images/ImageCaption.png)
+![Output of Word document with Image caption](WorkingWithImages_images/ImageCaption.png)
 
 ## Working with lists
 
