@@ -157,8 +157,6 @@ End Using
 
 N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
 
-
- 
 ## Performing OCR with tesseract version 3.05
 
 You can perform OCR using the tesseract version 3.05. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TesseractVersion.html) property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
@@ -235,7 +233,7 @@ End Using
 			
 {% endhighlight %}
 
-{% endtabs %}
+ {% endtabs %}
  
  
 ## Performing OCR with Tesseract Version 4.0
