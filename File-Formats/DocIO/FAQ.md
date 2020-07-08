@@ -4293,7 +4293,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 ## How to check whether a Word document contains tracked changes or not? 
 
-You can check whether a Word document contains tracked changes by using **‘HasChanges’** property in Essential DocIO.
+You can check whether a Word document contains tracked changes by using `HasChanges` property in Essential DocIO.
 
 The following code example shows how to check whether a Word document contains tracked changes.
 

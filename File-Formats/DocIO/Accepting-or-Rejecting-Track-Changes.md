@@ -152,7 +152,7 @@ The following code example shows how to accept all the tracked changes.
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Accepts all the tracked changes revisions
 if (document.HasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -163,7 +163,7 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Accepts all the tracked changes revisions
 If document.HasChanges Then
-document.Revisions.AcceptAll()
+	document.Revisions.AcceptAll()
 End If
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -178,7 +178,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Accepts all the tracked changes revisions
 if (document.HasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -197,7 +197,7 @@ FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileA
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Accepts all the tracked changes revisions in the Word document
 if (document.HasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -215,7 +215,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
 //Accepts all the tracked changes revisions
 if (document.HasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -247,7 +247,7 @@ The following code example shows how to reject all the tracked changes.
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Rejects all the tracked changes revisions
 if (document.HasChanges)
-document.Revisions.RejectAll();
+	document.Revisions.RejectAll();
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -258,7 +258,7 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Rejects all the tracked changes revisions
 If document.HasChanges Then
-document.Revisions.RejectAll()
+	document.Revisions.RejectAll()
 End If
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -272,7 +272,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Rejects all the tracked changes revisions
 if (document.HasChanges)
-document.Revisions.RejectAll();
+	document.Revisions.RejectAll();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -291,7 +291,7 @@ FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileA
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Rejects all the tracked changes revisions in the Word document
 if (document.HasChanges)
-document.Revisions.RejectAll();
+	document.Revisions.RejectAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -309,7 +309,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
 //Rejects all the tracked changes revisions
 if (document.HasChanges)
-document.Revisions.RejectAll();
+	document.Revisions.RejectAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -342,12 +342,12 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and accepts it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and accepts it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
@@ -359,14 +359,15 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
 For i As Integer = document.Revisions.Count - 1 To 0 Step -1
-'Checks the author of current revision and accepts it.
-If document.Revisions(i).Author Is "Nancy Davolio" Then
-document.Revisions(i).Accept()
-End If
-'Resets to last item when accept the moving related revisions.
-If i > document.Revisions.Count - 1 Then
-i = document.Revisions.Count
-End If
+	'Checks the author of current revision and accepts it.
+	If document.Revisions(i).Author Is "Nancy Davolio" Then
+		document.Revisions(i).Accept()
+	End If
+	'Resets to last item when accept the moving related revisions.
+	If i > document.Revisions.Count - 1 Then
+		i = document.Revisions.Count
+	End If
+Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
@@ -380,12 +381,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and accepts it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and accepts it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -406,12 +407,12 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and accepts it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and accepts it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -431,12 +432,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and accepts it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and accepts it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -466,12 +467,12 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and rejects it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Reject();
-//Resets to last item when reject the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and rejects it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Reject();
+	//Resets to last item when reject the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
@@ -483,14 +484,14 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
 For i As Integer = document.Revisions.Count - 1 To 0 Step -1
-'Checks the author of current revision and rejects it.
-If document.Revisions(i).Author Is "Nancy Davolio" Then
-document.Revisions(i).Reject()
-End If
-'Resets to last item when accept the moving related revisions.
-If i > document.Revisions.Count - 1 Then
-i = document.Revisions.Count
-End If
+	'Checks the author of current revision and rejects it.
+	If document.Revisions(i).Author Is "Nancy Davolio" Then
+		document.Revisions(i).Reject()
+	End If
+	'Resets to last item when accept the moving related revisions.
+	If i > document.Revisions.Count - 1 Then
+		i = document.Revisions.Count
+	End If
 Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -505,12 +506,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and rejects it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Reject();
-//Resets to last item when reject the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and rejects it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Reject();
+	//Resets to last item when reject the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -531,12 +532,12 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and rejects it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Reject();
-//Resets to last item when reject the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and rejects it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Reject();
+	//Resets to last item when reject the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -556,12 +557,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-//Checks the author of current revision and rejects it.
-if (document.Revisions[i].Author == "Nancy Davolio")
-document.Revisions[i].Reject();
-//Resets to last item when reject the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	//Checks the author of current revision and rejects it.
+	if (document.Revisions[i].Author == "Nancy Davolio")
+		document.Revisions[i].Reject();
+	//Resets to last item when reject the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -581,7 +582,7 @@ document.Close();
 
 You can get the **revision information of track changes** in the Word document like author name, date, and type of revision.
 
-The following code example shows how to get the details about the revision information of track changes
+The following code example shows how to get the details about the revision information of track changes.
 
 {% tabs %}   
 
@@ -672,3 +673,9 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}
+
+Frequently Asked Questions
+
+* [How to check whether a Word document contains tracked changes or not?](https://help.syncfusion.com/file-formats/docio/faq#how-to-check-whether-a-word-document-contains-tracked-changes-or-not)
+* [How to enable track changes for DocIO generated Word document?](https://help.syncfusion.com/file-formats/docio/faq#how-to-accept-or-reject-track-changes-of-specific-type-in-the-word-document)
+* [How to enable track changes for Word document ?](https://help.syncfusion.com/file-formats/docio/faq#how-to-enable-track-changes-for-word-document)
