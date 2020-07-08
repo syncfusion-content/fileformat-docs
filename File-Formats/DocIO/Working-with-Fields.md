@@ -304,6 +304,7 @@ Field updating engine calculates the resultant value based on the field code inf
 * NUMPAGES
 * TITLE
 * Cross-Reference
+* SEQ
 
 The following are the known limitations:
 
