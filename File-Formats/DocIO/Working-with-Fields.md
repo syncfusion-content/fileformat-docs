@@ -2307,10 +2307,10 @@ private WordDocument CreateDocument()
 	table[1, 0].AddParagraph().AppendText("Weight: 22");
 	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
 	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-300.png");
-    table[1, 1].AddParagraph().AppendPicture(imageStream);
-    //Third row
-    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Road-550.png");
-    table[2, 0].AddParagraph().AppendPicture(imageStream);
+	table[1, 1].AddParagraph().AppendPicture(imageStream);
+	//Third row
+	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Road-550.png");
+	table[2, 0].AddParagraph().AppendPicture(imageStream);
 	table[2, 1].AddParagraph().AppendText("Road-150");
 	paragraph = table[2, 1].AddParagraph();
 	paragraph.AppendText("Product No: ");
@@ -2428,10 +2428,10 @@ private WordDocument CreateDocument()
 	table[1, 0].AddParagraph().AppendText("Weight: 22");
 	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
 	imageStream = assembly.GetManifestResourceStream("Samle.Assets.Mountain-300.png");
-    table[1, 1].AddParagraph().AppendPicture(imageStream);
-    //Third row
-    imageStream = assembly.GetManifestResourceStream("Samle.Assets.Road-550.png");
-    table[2, 0].AddParagraph().AppendPicture(imageStream);
+	table[1, 1].AddParagraph().AppendPicture(imageStream);
+	//Third row
+	imageStream = assembly.GetManifestResourceStream("Samle.Assets.Road-550.png");
+	table[2, 0].AddParagraph().AppendPicture(imageStream);
 	paragraph = table[2, 1].AddParagraph();
 	paragraph.AppendText("Product No: ");
 	paragraph.AppendField("Product count", FieldType.FieldSequence);

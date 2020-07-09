@@ -4306,7 +4306,7 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -4318,7 +4318,7 @@ Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx
 Dim hasChanges As Boolean = document.HasChanges
 'When the document has track changes, accepts all changes
 If hasChanges Then
-document.Revisions.AcceptAll()
+	document.Revisions.AcceptAll()
 End If
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -4334,7 +4334,7 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -4355,7 +4355,7 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -4375,7 +4375,7 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-document.Revisions.AcceptAll();
+	document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -4406,14 +4406,14 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-// Gets the type of the track changes revision
-RevisionType revisionType = document.Revisions[i].RevisionType;
-//Checks the revision type of current revision and accepts it
-if (revisionType == RevisionType.Insertions)
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	// Gets the type of the track changes revision
+	RevisionType revisionType = document.Revisions[i].RevisionType;
+	//Checks the revision type of current revision and accepts it
+	if (revisionType == RevisionType.Insertions)
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
@@ -4425,15 +4425,15 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
 For i As Integer = document.Revisions.Count - 1 To 0 Step -1
-Dim revisionType As RevisionType = document.Revisions(i).RevisionType
-'Checks the revision type of current revision and accepts it
-If (revisionType = RevisionType.Insertions) Then
-document.Revisions(i).Accept()
-End If
-'Resets to last item when accept the moving related revisions.
-If i > document.Revisions.Count - 1 Then
-i = document.Revisions.Count
-End If
+	Dim revisionType As RevisionType = document.Revisions(i).RevisionType
+	'Checks the revision type of current revision and accepts it
+	If (revisionType = RevisionType.Insertions) Then
+		document.Revisions(i).Accept()
+	End If
+	'Resets to last item when accept the moving related revisions.
+	If i > document.Revisions.Count - 1 Then
+		i = document.Revisions.Count
+	End If
 Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -4448,14 +4448,14 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-// Gets the type of the track changes revision
-RevisionType revisionType = document.Revisions[i].RevisionType;
-//Checks the revision type of current revision and accepts it
-if (revisionType == RevisionType.Insertions)
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	// Gets the type of the track changes revision
+	RevisionType revisionType = document.Revisions[i].RevisionType;
+	//Checks the revision type of current revision and accepts it
+	if (revisionType == RevisionType.Insertions)
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -4476,14 +4476,14 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-// Gets the type of the track changes revision
-RevisionType revisionType = document.Revisions[i].RevisionType;
-//Checks the revision type of current revision and accepts it
-if (revisionType == RevisionType.Insertions)
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	// Gets the type of the track changes revision
+	RevisionType revisionType = document.Revisions[i].RevisionType;
+	//Checks the revision type of current revision and accepts it
+	if (revisionType == RevisionType.Insertions)
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -4503,14 +4503,14 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-// Gets the type of the track changes revision
-RevisionType revisionType = document.Revisions[i].RevisionType;
-//Checks the revision type of current revision and accepts it
-if (revisionType == RevisionType.Insertions)
-document.Revisions[i].Accept();
-//Resets to last item when accept the moving related revisions.
-if (i > document.Revisions.Count - 1)
-i = document.Revisions.Count;
+	// Gets the type of the track changes revision
+	RevisionType revisionType = document.Revisions[i].RevisionType;
+	//Checks the revision type of current revision and accepts it
+	if (revisionType == RevisionType.Insertions)
+		document.Revisions[i].Accept();
+	//Resets to last item when accept the moving related revisions.
+	if (i > document.Revisions.Count - 1)
+		i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -4526,7 +4526,7 @@ document.Close();
 
 {% endtabs %}
 
-## How to enable track changes for Word document ?
+## How to enable track changes for Word document?
 
 TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the TrackChanges property of the Word document.
 
