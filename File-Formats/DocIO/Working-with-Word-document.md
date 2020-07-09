@@ -2514,7 +2514,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 ## Working with Alternate chunks
 
-Microsoft Word is able to import html, rtf, xhtml, xml, text, macro, word template or another word document in to the main word document. When saving the Word document which contains alternate chunks as DOCX format document, the alternate chunk content preserved as default. But, In DOC format or other formats, you can use [UpdateAlternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.WordDocument~UpdateAlternateChunks.html) method to preserve alternate chunk content in the main document.
+Microsoft Word is able to import html, rtf, xhtml, xml, text, macro, word template or another word document into the main word document. When saving the Word document which contains alternate chunks as DOCX format document, the alternate chunk content preserved as default. But, In DOC format or other formats, you can use [UpdateAlternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.WordDocument~UpdateAlternateChunks.html) method to preserve alternate chunk content in the main document.
 
 The following examples show how to update the alternate chunck in the word document.
 {% tabs %} 
