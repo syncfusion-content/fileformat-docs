@@ -2514,27 +2514,28 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 ## Working with Alternate chunks
 
-Microsoft Word is able to import html, rtf, xhtml, xml, text, macro, word template or another word document into the main word document. When saving the Word document which contains alternate chunks as DOCX format document, the alternate chunk content preserved as default. But, In DOC format or other formats, you can use [UpdateAlternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.WordDocument~UpdateAlternateChunks.html) method to preserve alternate chunk content in the main document.
+Updating Alternate chunk in the word document, import the embed alternate chunk content in the main document. When saving the Word docuemnt which contains alternate chunks as Docx format document, the alternate chunck content preserved as default. But, in Doc format or other formats, you can use [UpdatealternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.WordDocument~UpdateAlternateChunks.html) method to preserve alternate chunk content by importing into the main document.
 
-The following examples show how to update the alternate chunk in the word document.
+The following examples show how to update the alternate chunck in the word document.
 {% tabs %} 
 {% highlight c# %}
 //Opens an existing document from file system through constructor of WordDocument class
-WordDocument document = new WordDocument("Sample.docx", FormatType.Docx);
-//Update the alternate chunks in the document
-document.UpdateAlternateChunks();
-//Saves and closes the document instance
-document.Save("Result.doc");
-document.Close(); 
+using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
+{
+    //Update the alternate chunks in the document
+    document.UpdateAlternateChunks();
+    //Saves and closes the document instance
+    document.Save("Result.doc");               
+}
 {% endhighlight %}
 {% highlight vb.net %}
 'Opens an existing document from file system through constructor of WordDocument class
-Dim document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
-'Update the alternate chunks in the document
-document.UpdateAlternateChunks()
-'Saves and closes the document instance
-document.Save("Result.doc")
-document.Close()  	
+Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
+    'Update the alternate chunks in the document
+    document.UpdateAlternateChunks()
+    'Saves and closes the document instance
+    document.Save("Result.doc")
+End Using	
 {% endhighlight %}
 {% highlight UWP %}
 //"App" is the class of Portable project.
@@ -2550,22 +2551,23 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 	Save(stream, "Result.doc");
 	//Please refer the below link to save Word document in UWP platform
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
 }
 {% endhighlight %}
 {% highlight ASP.NET CORE %}
 FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-//Update the alternate chunks in the document
-document.UpdateAlternateChunks();
-MemoryStream stream = new MemoryStream();
-//Saves and closes the document instance
-document.Save(stream, FormatType.Doc);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.doc");
+using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+{    
+    //Update the alternate chunks in the document
+    document.UpdateAlternateChunks();
+    MemoryStream stream = new MemoryStream();
+    //Saves and closes the document instance
+    document.Save(stream, FormatType.Doc);
+    stream.Position = 0;
+	fileStream.Dispose();
+	//Download Word document in the browser
+	return File(stream, "application/msword", "Result.doc");
+}
 {% endhighlight %}
 {% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -2578,8 +2580,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Save(stream, FormatType.Doc);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.doc", "application/msword", stream);
-    //Closes the Word document
-    document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
