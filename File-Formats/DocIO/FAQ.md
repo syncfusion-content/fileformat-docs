@@ -4408,8 +4408,8 @@ for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
 	// Gets the type of the track changes revision
 	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Checks the revision type of current revision and accepts it
-	if (revisionType == RevisionType.Insertions)
+	//Accepts only insertion and Move from revisions changes
+	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
 		document.Revisions[i].Accept();
 	//Resets to last item when accept the moving related revisions.
 	if (i > document.Revisions.Count - 1)
@@ -4426,8 +4426,8 @@ Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx
 'Iterates into all the revisions in Word document
 For i As Integer = document.Revisions.Count - 1 To 0 Step -1
 	Dim revisionType As RevisionType = document.Revisions(i).RevisionType
-	'Checks the revision type of current revision and accepts it
-	If (revisionType = RevisionType.Insertions) Then
+	'Accepts only insertion and Move from revisions changes
+	If ((revisionType = RevisionType.Insertions) OrElse (revisionType = RevisionType.MoveFrom)) Then
 		document.Revisions(i).Accept()
 	End If
 	'Resets to last item when accept the moving related revisions.
@@ -4450,8 +4450,8 @@ for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
 	// Gets the type of the track changes revision
 	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Checks the revision type of current revision and accepts it
-	if (revisionType == RevisionType.Insertions)
+	//Accepts only insertion and Move from revisions changes
+	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
 		document.Revisions[i].Accept();
 	//Resets to last item when accept the moving related revisions.
 	if (i > document.Revisions.Count - 1)
@@ -4478,8 +4478,8 @@ for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
 	// Gets the type of the track changes revision
 	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Checks the revision type of current revision and accepts it
-	if (revisionType == RevisionType.Insertions)
+	//Accepts only insertion and Move from revisions changes
+	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
 		document.Revisions[i].Accept();
 	//Resets to last item when accept the moving related revisions.
 	if (i > document.Revisions.Count - 1)
@@ -4506,7 +4506,7 @@ for (int i = document.Revisions.Count - 1; i >= 0; i--)
 	// Gets the type of the track changes revision
 	RevisionType revisionType = document.Revisions[i].RevisionType;
 	//Checks the revision type of current revision and accepts it
-	if (revisionType == RevisionType.Insertions)
+	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
 		document.Revisions[i].Accept();
 	//Resets to last item when accept the moving related revisions.
 	if (i > document.Revisions.Count - 1)
