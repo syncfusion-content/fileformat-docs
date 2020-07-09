@@ -8,6 +8,10 @@ keywords: PowerPoint, slide, table, format-table, rows, columns, pptx
 ---
 # Working with PowerPoint Tables
 
+A table in Presentation document is used to arrange document content in rows and columns. `ITable` instance represents a table in Presentation document. A table must contain at least one row.
+
+N> Adding more than 75 rows/columns not supported in the Presentation document using Microsoft PowerPoint application. It shows alert when you attempt to insert a table with more than 75 rows/columns, which is one of the behaviors of Microsoft PowerPoint and Essential Presentation does the same.
+
 ## Create a table by adding rows
 
 Essential Presentation supports creating and editing tables in PowerPoint slides by adding rows. Refer to the following code example.
