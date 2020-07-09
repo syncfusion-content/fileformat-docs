@@ -751,11 +751,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Excel with comments (notes) to PDF
 
-XlsIO allows you to convert a workbook or a worksheet with comments (notes) to PDF documents. By default, comments (notes) will not get converted. To convert the comments in worksheets of an Excel workbook, it is a must to set the print options. XlsIO supports to convert the comments (notes) to PDF with the options in `ExcelPrintLocation` enumeration. The options are:
+XlsIO allows you to convert a workbook or a worksheet with comments (notes) to PDF documents. By default, comments (notes) will not get converted. To convert the comments in worksheets of an Excel workbook, it is a must to set the print options. XlsIO supports to convert Excel documents with comments (notes) to PDF with the options in `ExcelPrintLocation` enumeration. This option helps to convert,
 
-* Convert comments as displayed in place
-* Convert comments at the end of the sheet
-* Convert without comments
+* comments as displayed in place,
+* comments at the end of the sheet, and
+* without comments.
 
 ### Convert comments as displayed in place
 Comments (notes) will be rendered in the output PDF document as displayed in the Excel file, if the **PrintInPlace** option is selected.
