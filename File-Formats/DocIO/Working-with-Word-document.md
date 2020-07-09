@@ -2514,7 +2514,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 ## Working with Alternate chunks
 
-Updating Alternate chunk in the word document, import the embed alternate chunk content in the main document. When saving the Word docuemnt which contains alternate chunks as Docx format document, the alternate chunck content preserved as default. But, in Doc format or other formats, you can use [UpdatealternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.WordDocument~UpdateAlternateChunks.html) method to preserve alternate chunk content by importing into the main document.
+Updating Alternate chunk in the Word document, import the embed alternate chunk content in the main document. When saving the Word document which contains alternate chunks as DOCX format document, the alternate chunk content preserved as default. But, in DOC format or other formats, you can use [UpdateAlternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.WordDocument~UpdateAlternateChunks.html) method to preserve alternate chunk content by importing into the main document.
 
 The following examples show how to update the alternate chunck in the word document.
 {% tabs %} 
