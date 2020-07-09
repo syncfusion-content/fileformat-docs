@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Working with Tables
+# Working with Tables in Word document
 
 A table in Word document is used to arrange document content in rows and columns. `WTable` instance represents a table in Word document. A table must contain at least one row.
 
