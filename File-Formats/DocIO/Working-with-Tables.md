@@ -1260,6 +1260,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1267,6 +1269,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Saves and closes the document instance
 document.Save("TableCellFormatting.docx", FormatType.Docx);
 document.Close();
@@ -1297,6 +1301,8 @@ cell.CellFormat.Paddings.Top = 5
 cell.CellFormat.Paddings.Bottom = 5
 'Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
+'Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = False
 'Accesses the instance of the second cell in the row
 cell = row.Cells(1)
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192)
@@ -1304,6 +1310,8 @@ cell.CellFormat.SamePaddingsAsTable = False
 'Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
+'Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = False
 'Saves and closes the document instance
 document.Save("TableCellFormatting.docx", FormatType.Docx)
 document.Close()
@@ -1335,6 +1343,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1342,6 +1352,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -1378,6 +1390,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1385,6 +1399,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -1421,6 +1437,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Syncfusion.Drawing.Color.FromArgb(192, 192, 192);
@@ -1428,6 +1446,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Specifies the text wrap of the cell 
+cell.CellFormat.TextWrap = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
