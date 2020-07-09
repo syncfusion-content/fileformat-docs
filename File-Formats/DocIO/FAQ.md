@@ -4505,7 +4505,7 @@ for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
 	// Gets the type of the track changes revision
 	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Checks the revision type of current revision and accepts it
+	//Accepts only insertion and Move from revisions changes
 	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
 		document.Revisions[i].Accept();
 	//Resets to last item when accept the moving related revisions.
