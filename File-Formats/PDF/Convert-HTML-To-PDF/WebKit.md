@@ -72,7 +72,7 @@ QtBinaries
 <td>
 The QtBinaries folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
 
-This is mandatory to set the <i>WebKitPath</i> property with QtBinaries folder. If the <i>WebKitPath</i> is not mentioned, place the QtBinaries folder in bin folder of the project, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.  
+This is mandatory to set the <i>WebKitPath</i> property with QtBinaries folder. If the <i>WebKitPath</i> is not mentioned, place the QtBinaries folder in bin folder of the project, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 </td></tr>
 <tr>
 <td> .NET Core </td>
@@ -144,7 +144,35 @@ ASP.NET Core
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+<table>
+<tr>
+<thead>
+<th>
+Platforms</th>
+<th>
+QtBinaries
+</th>
+</thead>
+</tr>
+<tr>
+<td> .NET Framework </td>
+<td>
+The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. 
+
+This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+<br/>
+<img src="htmlconversion_images/WebKit_BinariesImage.png" alt="WebKit .NET Framework QtBinaries location">
+</td></tr>
+<tr>
+<td> .NET Core </td>
+<td>
+The QtBinariesWindows folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. 
+
+This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+<br/>
+<img src="htmlconversion_images/WebKitCore_BinariesImage.png" alt="WebKit .Net Core QtBinaries location">
+</td></tr>
+</table>
 
 ### VC++ Redistributable
 
@@ -3483,10 +3511,9 @@ Instead, the required assemblies can be added in the Windows system folder.
 Syncfusion provides troubleshooting utility tool to find out the missing prerequisites. The tool is available in the HTML converter installed location: <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
 
 If the HTML converter installer is not installed in your machine, you can get the troubleshooting utility tool from the following link,
-<br/><br/>
+
 <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/TroubleshootingTool458452100.zip">TroubleshootingTool</a>
 
-<br/><br/>
 <b>Steps to run the troubleshooting tool.</b>
 <ol>
 <li>Run the Troubleshooting tool application from the HTMLConverter installed location or from the download folder.</li>
@@ -3504,9 +3531,7 @@ If the HTML converter installer is not installed in your machine, you can get th
 <li>Finally, the troubleshooting logs will be stored in a text file on an application folder location. You can check the logs with issues and solutions.</li>
 <img src="htmlconversion_images/TroubleShootingTool_Log.png" alt="TroubleShootingTool Log">
 </ol>
-<br/>
 If the provided solutions did not resolve the issue, please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with troubleshooting logs and the screenshot.
-<br/>
 
 Please follow the below instructions for manual troubleshooting.
 
@@ -3720,7 +3745,7 @@ If the temporary folder does not have elevated permission for the respective use
 <li>C:\Users\User_Name\AppData\Local\Temp</li>
 <li>C:\Windows\Temp</li>
 </ul>
-<br/><br/>
+<br/>
 Make sure that the previous paths have elevated permission for respective user. 
 <br/><br/>(Or)<br/><br/>
 The WebKit HTML converter has support for setting temporary path. Using the TempPath property, you can set any folder path that has read/write/execute permission. Then, the converter uses this path for creating temporary files. Refer below code snippet to set temp folder.
@@ -3802,8 +3827,6 @@ webkitConverterSettings.TempFileName = "Syncfusion";
 {% endhighlight %}
 </li>
 </ul>
-<br/>
-<br/>
 2. Enable the read/write/execute permission of the temporary path for the respective group.   
 </td>
 </tr>

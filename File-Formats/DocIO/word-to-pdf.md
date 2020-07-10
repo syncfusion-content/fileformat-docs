@@ -2529,7 +2529,7 @@ Not supported
 Equation
 </td>
 <td>
-Not supported
+Mathematical equations extending to multiple lines will be rendered in a single line and content exceeding the right margin will clip in the PDF.
 </td>
 </tr>
 <tr>
