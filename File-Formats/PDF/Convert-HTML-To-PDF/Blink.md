@@ -114,7 +114,35 @@ ASP.NET Core Windows
 
 N> The previously mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The BlinkBinariesWindows folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
+<table>
+<tr>
+<thead>
+<th>
+Platforms</th>
+<th>
+BlinkBinaries
+</th>
+</thead>
+</tr>
+<tr>
+<td> .NET Framework </td>
+<td>
+The BlinkBinaries folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
+
+This is mandatory to set the <i>BlinkPath</i> property with BlinkBinaries folder. If the <i>BlinkPath</i> is not mentioned, place the BlinkBinaries folder in bin folder of the project, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
+<br/>
+<img src="htmlconversion_images/Blink_BinariesImage.png" alt="Blink .NET Framework BlinkBinaries location">
+</td></tr>
+<tr>
+<td> .NET Core </td>
+<td>
+The BlinkBinariesWindows folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
+
+This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
+<br/>
+<img src="htmlconversion_images/BlinkCore_BinariesImage.png" alt="Blink .Net Core BlinkBinaries location">
+</td></tr>
+</table>
 
 ## Prerequisites for Linux
 
@@ -2706,10 +2734,10 @@ document.Close(true);
 
 ## Temporary path
 
-The Blink HTML converter launching Chrome browser to perform conversion. While launching Chrome browser, temporary files are created in a temporary folder. 
-<br/>
-By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
-<br/>
+The Blink HTML converter launching Chrome browser to perform conversion. While launching Chrome browser, temporary files are created in a temporary folder.
+
+By default, HTML converter takes system temporary path (C:\Users\<<username>>\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion.
+
 The temporary path can be changed by using the [TempPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~TempPath.html) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings.html). If this property is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
