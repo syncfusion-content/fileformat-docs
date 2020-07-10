@@ -96,6 +96,8 @@ A complete work sample can be downloaded from [Create-PDF-file.zip](http://www.s
 By executing the program, you will get the PDF document as follows.
 ![output](GettingStarted_images/Hello World.jpg)
 
+N> The WinForms and WPF controls support in .NET Core 3.0 have been provided. To run this application, please install the [System.Drawiing.Common](https://www.nuget.org/packages/System.Drawing.Common) NuGet package as a dependent package. 
+
 ## Creating a PDF document with image
 
 The following code example shows how to create a PDF document with an image.
