@@ -164,7 +164,7 @@ private static void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+            case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -196,7 +196,7 @@ For i As Integer = 0 To textBody.ChildEntities.Count - 1
 			'Iterates through table's DOM
             IterateTable(TryCast(bodyItemEntity, WTable))
         Exit Select
-		Case EntityType.BlockContentControl
+        Case EntityType.BlockContentControl
             Dim BlockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
             'Iterates to the body items of Block Content Control.
             IterateTextBody(BlockContentControl.TextBody)
@@ -232,7 +232,7 @@ async void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+                case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -268,7 +268,7 @@ private static void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+            case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -304,7 +304,7 @@ private static void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+            case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -546,7 +546,7 @@ private static void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+            case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -576,7 +576,7 @@ For i As Integer = 0 To textBody.ChildEntities.Count - 1
             'Iterates through table's DOM
             IterateTable(TryCast(bodyItemEntity, WTable))
         Exit Select
-		Case EntityType.BlockContentControl
+        Case EntityType.BlockContentControl
             Dim BlockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
             'Iterates to the body items of Block Content Control.
             IterateTextBody(BlockContentControl.TextBody)
@@ -609,7 +609,7 @@ async void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+            case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -642,7 +642,7 @@ private static void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+            case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -675,7 +675,7 @@ private static void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
-			case EntityType.BlockContentControl:
+            case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control.
                 IterateTextBody(blockContentControl.TextBody);
@@ -802,7 +802,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                     }
                 }
                 break;
-			case EntityType.TextBox:
+            case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
                 IterateTextBody(textBox.TextBoxBody);
@@ -846,7 +846,7 @@ For i As Integer = 0 To paraItems.Count - 1
                 End If
             End If
         Exit Select
-		Case EntityType.TextBox
+        Case EntityType.TextBox
             'Iterates to the body items of textbox.
             Dim textBox As WTextBox = TryCast(entity, WTextBox)
             IterateTextBody(textBox.TextBoxBody)
@@ -896,7 +896,7 @@ async void IterateParagraph(ParagraphItemCollection paraItems)
                     }
                 }
                 break;
-			case EntityType.TextBox:
+            case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
                 IterateTextBody(textBox.TextBoxBody);
@@ -946,7 +946,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                     }
                 }
                 break;
-			case EntityType.TextBox:
+            case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
                 IterateTextBody(textBox.TextBoxBody);
@@ -996,7 +996,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                     }
                 }
                 break;
-			case EntityType.TextBox:
+            case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
                 IterateTextBody(textBox.TextBoxBody);
