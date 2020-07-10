@@ -2543,14 +2543,14 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.docx"), FormatType.Docx))
 {
     //Update the alternate chunks in the document
-	document.UpdateAlternateChunks()
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.doc");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    document.UpdateAlternateChunks()
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine
+    Save(stream, "Result.doc");
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 {% highlight ASP.NET CORE %}
@@ -2564,9 +2564,9 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     //Saves and closes the document instance
     document.Save(stream, FormatType.Doc);
     stream.Position = 0;
-	fileStream.Dispose();
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.doc");
+    fileStream.Dispose();
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.doc");
 }
 {% endhighlight %}
 {% highlight XAMARIN %}
@@ -2575,13 +2575,13 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
 {
     //Update the alternate chunks in the document
-	document.UpdateAlternateChunks();
+    document.UpdateAlternateChunks();
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Doc);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.doc", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}
