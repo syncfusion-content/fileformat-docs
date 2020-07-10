@@ -13,7 +13,7 @@ The following are the important points to be remembered while iterating the docu
 
 * Document consists of one or more sections.
 * Section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`.
-* `WTextBody` contains two type of elements – either paragraph or table
+* `WTextBody` contains three type of elements – either paragraph, table or block content control.
 
 The following code example shows how to iterate throughout the Word document and remove the paragraph with a particular style.
 
@@ -144,9 +144,9 @@ private static void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -164,6 +164,11 @@ private static void IterateTextBody(WTextBody textBody)
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
                 break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
+                break;
         }
     }
 }
@@ -173,9 +178,9 @@ Private Shared Sub IterateTextBody(textBody As WTextBody)
 'Iterates through the each of the child items of WTextBody
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
 	'IEntity is the basic unit in DocIO DOM. 
-	'Accesses the body items (should be either paragraph or table) as IEntity
+	'Accesses the body items (should be either paragraph, table or block content control) as IEntity
 	Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
-	'A Text body has 2 types of elements - Paragraph and Table
+	'A Text body has 3 types of elements - Paragraph, Table and Block Content Control
 	'decide the element type using EntityType
     Select Case bodyItemEntity.EntityType
         Case EntityType.Paragraph
@@ -191,6 +196,11 @@ For i As Integer = 0 To textBody.ChildEntities.Count - 1
 			'Iterates through table's DOM
             IterateTable(TryCast(bodyItemEntity, WTable))
         Exit Select
+        Case EntityType.BlockContentControl
+            Dim BlockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
+            'Iterates to the body items of Block Content Control.
+            IterateTextBody(BlockContentControl.TextBody)
+        Exit Select
     End Select
 Next
 End Sub
@@ -202,9 +212,9 @@ async void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -221,6 +231,11 @@ async void IterateTextBody(WTextBody textBody)
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
+                break;
+                case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
                 break;
         }
     }
@@ -233,9 +248,9 @@ private static void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -252,6 +267,11 @@ private static void IterateTextBody(WTextBody textBody)
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
                 break;
         }
     }
@@ -264,9 +284,9 @@ private static void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -283,6 +303,11 @@ private static void IterateTextBody(WTextBody textBody)
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
                 break;
         }
     }
@@ -504,9 +529,9 @@ private static void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -514,12 +539,17 @@ private static void IterateTextBody(WTextBody textBody)
                 WParagraph paragraph = bodyItemEntity as WParagraph;
                 //Processes the paragraph contents
                 //Iterates through the paragraph's DOM
-                IterateParagraph(paragraph);
+                IterateParagraph(paragraph.Items);
                 break;
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
                 break;
         }
     }
@@ -530,21 +560,26 @@ Private Shared Sub IterateTextBody(textBody As WTextBody)
 'Iterates through each of the child items of WTextBody
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
     'IEntity is the basic unit in DocIO DOM. 
-    'Accesses the body items (should be either paragraph or table) as IEntity
+    'Accesses the body items (should be either paragraph, table or block content control) as IEntity
     Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
-    'A Text body has 2 types of elements - Paragraph and Table
+    'A Text body has 3 types of elements - Paragraph, Table and Block Content Control
     'Decides the element type by using EntityType
     Select Case bodyItemEntity.EntityType
         Case EntityType.Paragraph
             Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
             'Processes the paragraph contents
             'Iterates through the paragraph's DOM
-            IterateParagraph(paragraph)
+            IterateParagraph(paragraph.Items)
         Exit Select
         Case EntityType.Table
             'Table is a collection of rows and cells
             'Iterates through table's DOM
             IterateTable(TryCast(bodyItemEntity, WTable))
+        Exit Select
+        Case EntityType.BlockContentControl
+            Dim BlockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
+            'Iterates to the body items of Block Content Control.
+            IterateTextBody(BlockContentControl.TextBody)
         Exit Select
     End Select
 Next
@@ -557,9 +592,9 @@ async void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -567,12 +602,17 @@ async void IterateTextBody(WTextBody textBody)
                 WParagraph paragraph = bodyItemEntity as WParagraph;
                 //Processes the paragraph contents
                 //Iterates through the paragraph's DOM
-                IterateParagraph(paragraph);
+                IterateParagraph(paragraph.Items);
                 break;
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
                 break;
         }
     }
@@ -585,9 +625,9 @@ private static void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -595,12 +635,17 @@ private static void IterateTextBody(WTextBody textBody)
                 WParagraph paragraph = bodyItemEntity as WParagraph;
                 //Processes the paragraph contents
                 //Iterates through the paragraph's DOM
-                IterateParagraph(paragraph);
+                IterateParagraph(paragraph.Items);
                 break;
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
                 break;
         }
     }
@@ -613,9 +658,9 @@ private static void IterateTextBody(WTextBody textBody)
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
         //IEntity is the basic unit in DocIO DOM. 
-        //Accesses the body items (should be either paragraph or table) as IEntity
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
         IEntity bodyItemEntity = textBody.ChildEntities[i];
-        //A Text body has 2 types of elements - Paragraph and Table
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
         //Decides the element type by using EntityType
         switch (bodyItemEntity.EntityType)
         {
@@ -623,12 +668,17 @@ private static void IterateTextBody(WTextBody textBody)
                 WParagraph paragraph = bodyItemEntity as WParagraph;
                 //Processes the paragraph contents
                 //Iterates through the paragraph's DOM
-                IterateParagraph(paragraph);
+                IterateParagraph(paragraph.Items);
                 break;
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM
                 IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
                 break;
         }
     }
@@ -722,11 +772,11 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %} 
 {% highlight c# %}
-private static void IterateParagraph(WParagraph paragraph)
+private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
-    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    for (int i = 0; i < paraItems.Count; i++)
     {
-        Entity entity = paragraph.ChildEntities[i];
+        Entity entity = paraItems[i];
         //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
         //Decides the element type by using EntityType
         switch (entity.EntityType)
@@ -752,14 +802,29 @@ private static void IterateParagraph(WParagraph paragraph)
                     }
                 }
                 break;
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                //Iterates to the paragraph items of inline content control.
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                IterateParagraph(inlineContentControl.ParagraphItems);
+                break;
         }
     }
 }
 {% endhighlight %}
 {% highlight vb.net %}
-Private Shared Sub IterateParagraph(paragraph As WParagraph)
-For i As Integer = 0 To paragraph.ChildEntities.Count - 1
-	Dim entity As Entity = paragraph.ChildEntities(i)
+Private Shared Sub IterateParagraph(paraItems As ParagraphItemCollection)
+For i As Integer = 0 To paraItems.Count - 1
+	Dim entity As Entity = paraItems(i)
 	'A Paragraph has child elements such as text, image, hyperlink, symbols, etc.,
 	'Decides the element type by using EntityType
     Select Case entity.EntityType
@@ -781,16 +846,31 @@ For i As Integer = 0 To paragraph.ChildEntities.Count - 1
                 End If
             End If
         Exit Select
+        Case EntityType.TextBox
+            'Iterates to the body items of textbox.
+            Dim textBox As WTextBox = TryCast(entity, WTextBox)
+            IterateTextBody(textBox.TextBoxBody)
+        Exit Select
+        Case EntityType.Shape
+            'Iterates to the body items of shape.
+            Dim shape As Shape = TryCast(entity, Shape)
+            IterateTextBody(shape.TextBody)
+        Exit Select
+        Case EntityType.InlineContentControl
+            'Iterates to the paragraph items of inline content control.
+            Dim inlineContentControl As InlineContentControl = TryCast(entity, InlineContentControl)
+            IterateParagraph(inlineContentControl.ParagraphItems)
+        Exit Select
     End Select
 Next
 End Sub
 {% endhighlight %}
 {% highlight UWP %}
-async void IterateParagraph(WParagraph paragraph)
+async void IterateParagraph(ParagraphItemCollection paraItems)
 {
-    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    for (int i = 0; i < paraItems.Count; i++)
     {
-        Entity entity = paragraph.ChildEntities[i];
+        Entity entity = paraItems[i];
         //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
         //Decides the element type by using EntityType
         switch (entity.EntityType)
@@ -815,17 +895,32 @@ async void IterateParagraph(WParagraph paragraph)
                         hyperlink.Uri = "http://www.w3schools.com/";
                     }
                 }
+                break;
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                //Iterates to the paragraph items of inline content control.
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                IterateParagraph(inlineContentControl.ParagraphItems);
                 break;
         }
     }
 }
 {% endhighlight %}
 {% highlight ASP.NET CORE %}
-private static void IterateParagraph(WParagraph paragraph)
+private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
-    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    for (int i = 0; i < paraItems.Count; i++)
     {
-        Entity entity = paragraph.ChildEntities[i];
+        Entity entity = paraItems[i];
         //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
         //Decides the element type by using EntityType
         switch (entity.EntityType)
@@ -850,17 +945,32 @@ private static void IterateParagraph(WParagraph paragraph)
                         hyperlink.Uri = "http://www.w3schools.com/";
                     }
                 }
+                break;
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                //Iterates to the paragraph items of inline content control.
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                IterateParagraph(inlineContentControl.ParagraphItems);
                 break;
         }
     }
 }
 {% endhighlight %}
 {% highlight XAMARIN %}
-private static void IterateParagraph(WParagraph paragraph)
+private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
-    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    for (int i = 0; i < paraItems.Count; i++)
     {
-        Entity entity = paragraph.ChildEntities[i];
+        Entity entity = paraItems[i];
         //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
         //Decides the element type by using EntityType
         switch (entity.EntityType)
@@ -885,6 +995,21 @@ private static void IterateParagraph(WParagraph paragraph)
                         hyperlink.Uri = "http://www.w3schools.com/";
                     }
                 }
+                break;
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                //Iterates to the paragraph items of inline content control.
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                IterateParagraph(inlineContentControl.ParagraphItems);
                 break;
         }
     }
