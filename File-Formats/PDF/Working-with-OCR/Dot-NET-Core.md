@@ -84,11 +84,11 @@ You can download the language packages from the following link
 
 ## Prerequisites for Linux
 
-*	We are using the “System.Drawing.Common” API in the OCR Processor. So, it is mandatory to install the “libgdiplus” and “libopenjb2-7” package. Please refer to the following commands to install the packages.
+*	We are using the “System.Drawing.Common” API in the OCR Processor. So, it is mandatory to install the “libgdiplus” and “libopenjp2-7” package. Please refer to the following commands to install the packages.
 
         1. sudo apt-get update
         2. sudo apt-get install libgdiplus
-        3. sudo apt-get install y- libopenjb2-7
+        3. sudo apt-get install y- libopenjp2-7
  
 *	Provide the TesseractBinaries Linux folder path when creating a new OCR processor. Please refer to the following code snippet for Linux.
 
