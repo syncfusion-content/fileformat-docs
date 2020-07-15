@@ -294,7 +294,7 @@ The provided patch assembly should be used in your application.
 ### Steps to update patch for QtBinaries or BinkBinaries folders
 
 1.	Download and extract the Patch file for QtBinaries or BlinkBinaries folder. 
-2.	Copy the files from the Patch folder and replace or copy the files into the existing QtBinaires or BlinkBinaries folder.
+2.	Copy the files from the Patch folder and replace or copy the files into the existing QtBinaries or BlinkBinaries folder.
 3.	The patch applied QtBinaries or BlinkBinaries should be used in the applications to resolve the issue or the latest features. 
 
 <b>WebKit</b>
