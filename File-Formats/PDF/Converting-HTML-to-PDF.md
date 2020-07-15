@@ -264,6 +264,45 @@ document.Close(True)
 
 {% endtabs %}
 
+## Steps to apply the patch for HTML converter.
+
+* Download and extract the patch provided in the incident. Before applying the patch assemblies, the older assemblies should be removed from the GAC.
+
+<table>
+You can uninstall or remove the specific version assemblies in GAC using the Syncfusion Assembly Manager Utility. Refer to the following Assembly Manager Documentation link for more information.
+
+https://help.syncfusion.com/common/essential-studio/utilities#assembly-manager
+</table>
+
+### Steps to replace the patch assemblies, if a customer using the HTML converter installer
+
+* This patch should replace the files HTML Converter patch assemblies under the following folder.
+
+$system drive:\ Files\Syncfusion\Essential Studio\$Version # \precompiledassemblies\$Version#\4.6
+
+Eg: $system drive:\Program Files\Syncfusion\Essential Studio\XX.X.X.XX\precompiledassemblies\XX.X.X.XX\4.6
+
+The provided patch assembly should be used in your application. 
+
+### Steps to replace the patch assemblies, if a customer using NuGet packages
+
+1.	Uninstall the HTML to PDF converter NuGet package from the application.
+2.	Download and extract the provided patch NuGet package. 
+3.	Now, you can install the required package in the .NET Framework or .Net Core application by using the NuGet package manager.
+4.	Refer to this documentation link for installing NuGet packages.
+
+### Steps to update patch for QtBinaries or BinkBinaries folders
+
+1.	Download and extract the Patch file for QtBinaries or BlinkBinaries folder. 
+2.	Copy the files from the Patch folder and replace or copy the files into the existing QtBinaires or BlinkBinaries folder.
+3.	The patch applied QtBinaries or BlinkBinaries should be used in the applications to resolve the issue or the latest features. 
+
+<b>WebKit</b>
+Eg: $system drive:\Program Files\Syncfusion\HTMLConverter\version\QtBinaries\
+
+<b>Blink</b>
+Eg: $system drive:\Program Files\Syncfusion\HTMLConverter\version\BlinkBinaries\
+
 ## Supported and Unsupported Features by Rendering Engines
 
 The following table shows the WebKit, Blink and IE rendering engines supported features:
