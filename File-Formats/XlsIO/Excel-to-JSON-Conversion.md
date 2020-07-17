@@ -93,7 +93,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves the workbook to a JSON filestream, as schema by default
   MemoryStream stream = new MemoryStream();
 
-  await workbook.SaveASJsonAsync(stream);
+  await workbook.SaveAsJsonAsync(stream);
   Save(stream, "Excel-Workbook-To-JSON-filestream-as-schema-default.json");
 
   stream.Dispose();
@@ -252,7 +252,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves the workbook to a JSON filestream without schema
   MemoryStream stream = new MemoryStream();
 
-  await workbook.SaveASJsonAsync(stream, false);
+  await workbook.SaveAsJsonAsync(stream, false);
   Save(stream, "Excel-Workbook-To-JSON-filestream-without-schema.json");
 
   stream.Dispose();
@@ -425,7 +425,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves the worksheet to a JSON filestream, as schema by default
   MemoryStream stream = new MemoryStream();
 
-  await workbook.SaveASJsonAsync(stream, worksheet);
+  await workbook.SaveAsJsonAsync(stream, worksheet);
   Save(stream, "Excel-Worksheet-To-JSON-filestream-as-schema-default.json");
 }
 
@@ -538,8 +538,8 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAsJson("Excel-Worksheet-To-JSON-without-schema.json", worksheet, false);
 
   //Saves the worksheet to a JSON filestream without schema
-  FileStream stream
-  workbook.SaveAsJson("Excel-Worksheet-To-JSON-filestream-without-schema.json", worksheet, false);
+  FileStream stream = new FileStream("Excel-Worksheet-To-JSON-filestream-without-schema.json", FileMode.Create); 
+  workbook.SaveAsJson(stream, worksheet, false);
 }
 {% endhighlight %}
 
@@ -587,7 +587,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves the worsheet to a JSON filestream without schema
   MemoryStream stream = new MemoryStream();
 
-  await workbook.SaveASJsonAsync(stream, worksheet, false);
+  await workbook.SaveAsJsonAsync(stream, worksheet, false);
   Save(stream, "Excel-Worksheet-To-JSON-filestream-without-schema.json");
 
   stream.Dispose();
@@ -767,7 +767,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves the Range to a JSON filestream, as schema by default
   MemoryStream stream = new MemoryStream();
 
-  await workbook.SaveASJsonAsync(stream, range);
+  await workbook.SaveAsJsonAsync(stream, range);
   Save(stream, "Excel-Range-To-JSON-filestream-as-schema-default.json");
 }
 
@@ -943,7 +943,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves the Range to a JSON filestream without schema
   MemoryStream stream = new MemoryStream();
 
-  await workbook.SaveASJsonAsync(stream, range, false);
+  await workbook.SaveAsJsonAsync(stream, range, false);
   Save(stream, "Excel-Range-To-JSON-filestream-without-schema.json");
 }
 
