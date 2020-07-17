@@ -2994,7 +2994,7 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The exception may occur in Linux CentOS/Docker enviornment due to the chrome browser unable to launch from sandbox mode in CentOS.
+<td>The exception may occur in Linux CentOS/Docker environment due to the chrome browser unable to launch from sandbox mode in CentOS.
 </td>
 </tr>
 <tr>
