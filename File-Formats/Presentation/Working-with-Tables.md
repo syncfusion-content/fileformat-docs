@@ -2654,3 +2654,217 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Editing the table content
+
+The following code example demonstrates how to edit the content in a table.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Open an existing PowerPoint presentation
+IPresentation pptxDoc = Presentation.Open("Table.pptx");
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Iterates through the rows of the table
+foreach (IRow row in table.Rows)
+{
+    //Iterates through the cells of the rows
+    foreach (ICell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (IParagraph paragraph in cell.TextBody.Paragraphs)
+        {
+            //Iterates through the TextPart of the paragraph
+            foreach (ITextPart textPart in paragraph.TextParts)
+            {
+                //When the TextPart contains text Panda, then modifies the text content of the TextPart.
+                if (textPart.Text.Contains("Panda"))
+                    textPart.Text = "Hello Presentation";
+            }
+        }
+    }
+}
+
+//Save the presentation
+pptxDoc.Save("Sample.pptx");
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Open an existing PowerPoint presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
+
+'Get a table in the slide
+Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
+
+'Iterates through the rows of the table
+For Each row As IRow In table.Rows
+    'Iterates through the cells of the rows
+    For Each cell As ICell In row.Cells
+        'Iterates through the paragraphs of the cell
+        For Each paragraph As IParagraph In cell.TextBody.Paragraphs
+            'Iterates through the TextPart of the paragraph
+            For Each textPart As ITextPart In paragraph.TextParts
+                'When the TextPart contains text Panda, then modifies the text content of the TextPart.
+                If textPart.Text.Contains("Panda") Then
+                    textPart.Text = "Hello Presentation"
+                End If
+            Next
+        Next
+    Next
+Next
+
+'Save the presentation
+pptxDoc.Save("Sample.pptx")
+
+'Close the presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Iterates through the rows of the table
+foreach (IRow row in table.Rows)
+{
+    //Iterates through the cells of the rows
+    foreach (ICell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (IParagraph paragraph in cell.TextBody.Paragraphs)
+        {
+            //Iterates through the TextPart of the paragraph
+            foreach (ITextPart textPart in paragraph.TextParts)
+            {
+                //When the TextPart contains text Panda, then modifies the text content of the TextPart.
+                if (textPart.Text.Contains("Panda"))
+                    textPart.Text = "Hello Presentation";
+            }
+        }
+    }
+}
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Table.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Iterates through the rows of the table
+foreach (IRow row in table.Rows)
+{
+    //Iterates through the cells of the rows
+    foreach (ICell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (IParagraph paragraph in cell.TextBody.Paragraphs)
+        {
+            //Iterates through the TextPart of the paragraph
+            foreach (ITextPart textPart in paragraph.TextParts)
+            {
+                //When the TextPart contains text Panda, then modifies the text content of the TextPart.
+                if (textPart.Text.Contains("Panda"))
+                    textPart.Text = "Hello Presentation";
+            }
+        }
+    }
+}
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Table.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Iterates through the rows of the table
+foreach (IRow row in table.Rows)
+{
+    //Iterates through the cells of the rows
+    foreach (ICell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (IParagraph paragraph in cell.TextBody.Paragraphs)
+        {
+            //Iterates through the TextPart of the paragraph
+            foreach (ITextPart textPart in paragraph.TextParts)
+            {
+                //When the TextPart contains text Panda then modifies the text content of the TextPart.
+                if (textPart.Text.Contains("Panda"))
+                    textPart.Text = "Hello Presentation";
+            }
+        }
+    }
+}
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
