@@ -469,10 +469,10 @@ FileStream sampleFile = new FileStream(basePath, FileMode.Open);
 IWorkbook workbook = application.Workbooks.Open(sampleFile);
 
 //Access first worksheet from the workbook.
-IWorksheet worksheet = workbook.Worksheets[0];   
+IWorksheet worksheet = workbook.Worksheets[0];
 
 //Set Text in cell A3.
-sheet.Range["A3"].Text ="Hello World";          
+worksheet.Range["A3"].Text ="Hello World";
 
 //Defining the ContentType for excel file.
 string ContentType = "Application/msexcel";
