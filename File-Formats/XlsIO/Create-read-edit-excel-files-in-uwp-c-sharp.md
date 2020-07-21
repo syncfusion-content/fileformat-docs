@@ -1,6 +1,6 @@
 ---
 title: Create, read, and edit Excel files in UWP | Syncfusion
-description: Explains how to create, read, and edit Excel files in UWP applications using Syncfusion XlsIO.
+description: This section explains how to create, read, and edit Excel files in UWP applications using Syncfusion XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -491,10 +491,10 @@ StorageFile openFile = await openPicker.PickSingleFileAsync();
 IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
 
 //Access first worksheet from the workbook.
-IWorksheet worksheet = workbook.Worksheets[0];   
+IWorksheet worksheet = workbook.Worksheets[0];
 
 //Set Text in cell A3.
-sheet.Range["A3"].Text ="Hello World";   
+worksheet.Range["A3"].Text ="Hello World";
 
 //Sets workbook version.
 workbook.Version = ExcelVersion.Excel2013;
@@ -533,10 +533,10 @@ Dim workbook As IWorkbook = Await application.Workbooks.OpenAsync(openFile)
 Dim workbook.SaveAsAsyncCType(As await, openFile)
 
 'Access first worksheet from the workbook.
-Dim worksheet As IWorksheet = workbook.Worksheets(0)  
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Set Text in cell A3.
-sheet.Range("A3").Text ="Hello World" 
+worksheet.Range("A3").Text ="Hello World"
 
 'Sets workbook version.
 workbook.Version = ExcelVersion.Excel2013
