@@ -3061,7 +3061,7 @@ Yes. XlsIO preserves the digital signature from the macro-enabled Excel document
 
 ## How to overcome StackOverflow exception while calling Calculate method of IWorksheet?
 
-StackOverflow exception occurs when the number of <i>IterationMaxCount</i>, <i>MaximumRecursiveCalls</i> and <i>MaxStackDepth</i> exceeds in the CalcEngine. To avoid this StackOverflow exception while computing the formulas iteratively exceeding the maximum capacity, you need to set the values for these properties before calling <b>Calculate</b> method of <b>IWorksheet</b> interface.
+StackOverflow exception occurs when the number of <i>IterationMaxCount</i>, <i>MaximumRecursiveCalls</i> and <i>MaxStackDepth</i> exceeds in the `CalcEngine`. To avoid this StackOverflow exception while computing the formulas iteratively exceeding the maximum capacity, you need to set the values for these properties before calling the <b>Calculate</b> method of <b>IWorksheet</b> interface.
 
 The following code snippet explains this.
 
