@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# FAQ Section  
+# Frequently Asked Questions Section  
 
 The frequently asked questions in Essential XlsIO are listed below.
 
@@ -3058,3 +3058,27 @@ Yes. XlsIO preserves the password protection for the macro in the Excel document
 
 ## Does XlsIO support Excel files with macros that are digitally signed?
 Yes. XlsIO preserves the digital signature from the macro-enabled Excel document. But, it does not have support for remove and modify the signatures.
+
+## How to overcome StackOverflow exception while calling Calculate method of IWorksheet?
+
+StackOverflow exception occurs when the number of <i>IterationMaxCount</i>, <i>MaximumRecursiveCalls</i> and <i>MaxStackDepth</i> exceeds in the `CalcEngine`. To avoid this StackOverflow exception while computing the formulas iteratively exceeding the maximum capacity, you need to set the values for these properties before calling the <b>Calculate</b> method of <b>IWorksheet</b> interface.
+
+The following code snippet explains this.
+
+{% tabs %}
+{% highlight C# %}
+worksheet.EnableSheetCalculations(); 
+worksheet.CalcEngine.UseFormulaValues = true; 
+worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
+worksheet.CalcEngine.IterationMaxCount = 10000; 
+CalcEngine.MaxStackDepth = 10000; 
+{% endhighlight %}
+
+{% highlight vb %}
+worksheet.EnableSheetCalculations()
+worksheet.CalcEngine.UseFormulaValues = True
+worksheet.CalcEngine.MaximumRecursiveCalls = 10000
+worksheet.CalcEngine.IterationMaxCount = 10000
+CalcEngine.MaxStackDepth = 10000
+{% endhighlight %}
+{% endtabs %}
