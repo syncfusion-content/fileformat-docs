@@ -3000,20 +3000,30 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome the exception in Linux CentOS/Docker environment, provide the execute permission for chrome and chrome-wrapper file inside the BlinkBinaries folder. Refer to the following screenshot.
+<td>To overcome the exception in Linux CentOS/Docker environment, provide the execute permission for chrome and chrome-wrapper file inside the BlinkBinaries folder.
 
-![chrome](htmlconversion_images/Permission_chrome.png)
-
-![chrome-wrapper](htmlconversion_images/Permission_chrome-wrapper.png)
-
+<b>Refer to the following screenshot:</b>
+<br/>
+<img src="htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
+<br/>
+<img src="htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
+<br/>
 Also, please add the below command line arguments in our converter setting,
-
+<br/>
 <table>
+<tr>
+<td>
+{% highlight c# %}
+
 //Set command line arguments to run without sandbox.
 blinkConverterSettings.CommandLineArguments.Add("--no-sandbox");
 blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
-</table>
 
+{% endhighlight %}
+</td>
+</tr>
+</table>
+<br>
 </td>
 </tr>
 
