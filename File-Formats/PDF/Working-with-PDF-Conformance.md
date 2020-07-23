@@ -2291,3 +2291,4 @@ loadedDocument.Close(True)
 
 N> 1. Converting PDF to PDF/X-1a conformance document is not supported.
 N> 2. CMYK color space images and symbolic fonts are not supported.
+N> 3. From the .NET Framework 3.5 version, the Essential PDF is compatible with the PDF to PDF/A-1B conversion. 
