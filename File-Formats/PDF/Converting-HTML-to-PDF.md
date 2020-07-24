@@ -206,7 +206,27 @@ document.Close(True)
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Currently, Blink rendering engine does not support conversion in .NET Core platform
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -266,17 +286,16 @@ document.Close(True)
 
 ## Steps to apply the patch for HTML converter.
 
-* Download and extract the patch provided in the incident. Before applying the patch assemblies, the older assemblies should be removed from the GAC.
+Download and extract the patch provided in the incident. Before applying the patch assemblies, the older assemblies should be removed from the GAC.
 
-<table>
-You can uninstall or remove the specific version assemblies in GAC using the Syncfusion Assembly Manager Utility. Refer to the following Assembly Manager Documentation link for more information.
 
+N> You can uninstall or remove the specific version assemblies in GAC using the Syncfusion Assembly Manager Utility. Refer to the following Assembly Manager Documentation link for more information.
 https://help.syncfusion.com/common/essential-studio/utilities#assembly-manager
-</table>
+
 
 ### Steps to replace the patch assemblies, if a customer using the HTML converter installer
 
-* This patch should replace the files HTML Converter patch assemblies under the following folder.
+This patch should replace the files HTML Converter patch assemblies under the following folder.
 
 $system drive:\ Files\Syncfusion\Essential Studio\$Version # \precompiledassemblies\$Version#\4.6
 
