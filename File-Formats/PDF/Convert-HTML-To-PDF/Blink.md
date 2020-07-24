@@ -3001,7 +3001,7 @@ settings.TempPath = "D://MyProject//bin";
 <th style="font-size:14px">Solution
 </th>
 <td>To overcome the exception in Linux CentOS/Docker environment, provide the execute permission for chrome and chrome-wrapper file inside the BlinkBinaries folder.
-
+<br/>
 <b>Refer to the following screenshot:</b>
 <br/>
 <img src="htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
