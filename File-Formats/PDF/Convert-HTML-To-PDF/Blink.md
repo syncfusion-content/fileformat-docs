@@ -2994,6 +2994,42 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Reason
 </th>
+<td>The exception may occur in Linux CentOS/Docker environment due to the chrome browser unable to launch from sandbox mode in CentOS.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>To overcome the exception in Linux CentOS/Docker environment, provide the execute permission for chrome and chrome-wrapper file inside the BlinkBinaries folder.
+<br/>
+<b>Refer to the following screenshot:</b>
+<br/>
+<img src="htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
+<br/>
+<img src="htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
+<br/>
+Also, please add the below command line arguments in our converter setting,
+<br/>
+<table>
+<tr>
+<td>
+{% highlight c# %}
+
+//Set command line arguments to run without sandbox.
+blinkConverterSettings.CommandLineArguments.Add("--no-sandbox");
+blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
+
+{% endhighlight %}
+</td>
+</tr>
+</table>
+<br>
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
 <td>Sometimes this exception occurs for only particular URL
 </td>
 </tr>

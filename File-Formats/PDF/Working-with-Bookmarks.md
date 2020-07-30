@@ -47,7 +47,7 @@ bookmark.Color = Color.Red;
 
 document.Save("Output.pdf");
 
-document.Close(True);
+document.Close(true);
 
 
 
@@ -276,7 +276,7 @@ bookmark.Destination.Location = new PointF(20, 20);
 
 document.Save("Output.pdf");
 
-document.Close(True);
+document.Close(true);
 
 
 
@@ -524,7 +524,7 @@ bookmark.Color = Color.Red;
 
 document.Save("Output.pdf");
 
-document.Close(True);
+document.Close(true);
 
 
 
@@ -790,7 +790,7 @@ bookmark.Destination.Location = new PointF(0, 300);
 
 document.Save("Output.pdf");
 
-document.Close(True);
+document.Close(true);
 
 
 
@@ -985,7 +985,7 @@ bookmarks.RemoveAt(1);
 
 document.Save("Output.pdf");
 
-document.Close(True);
+document.Close(true);
 
 
 
@@ -1197,7 +1197,7 @@ bookmark.Title = "Changed title";
 
 document.Save("Output.pdf");
 
-document.Close(True);
+document.Close(true);
 
 
 
