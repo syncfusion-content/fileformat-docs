@@ -698,6 +698,203 @@ else
 
 {% endtabs %}
 
+## Adding a barcode to the PDF document without displaying the barcode text
+
+The following code sample shows how to add a barcode to the PDF document without displaying the barcode text.
+
+{% tabs %}
+{% highlight C# %}
+
+//Creating a new PDF Document 
+PdfDocument doc = new PdfDocument();
+
+//Adding a new page to the PDF document 
+PdfPage page = doc.Pages.Add();
+
+//Create a new instance for the Codabar barcode 
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Set the barcode location
+barcode.Location = new PointF(10, 10);
+
+//Set the barcode text
+barcode.Text = "123456789";
+
+//Disable the barcode text  
+barcode.TextDisplayLocation = TextLocation.None;
+
+//Printing barcode on to the Pdf 
+barcode.Draw(page);
+
+//Save the PDF document
+doc.Save("Output.pdf");
+
+//Close the PDF document
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creating a new PDF Document 
+Dim doc As PdfDocument = New PdfDocument()
+
+'Adding a new page to the PDF document 
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create a new instance for the Codabar barcode 
+Dim barcode As PdfCode39Barcode = New PdfCode39Barcode()
+
+'Set the barcode location
+barcode.Location = New PointF(10, 10)
+
+'Set the barcode text
+barcode.Text = "123456789"
+
+'Disable the barcode text  
+barcode.TextDisplayLocation = TextLocation.None
+
+'Printing barcode on to the Pdf 
+barcode.Draw(page)
+
+'Save the PDF document 
+doc.Save("Output.pdf")
+
+'Close the PDF document
+doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creating a new PDF Document 
+PdfDocument doc = new PdfDocument();
+
+//Adding a new page to the PDF document 
+PdfPage page = doc.Pages.Add();
+
+//Create a new instance for the Codabar barcode 
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Set the barcode location
+barcode.Location = new PointF(10, 10);
+
+//Set the barcode text
+barcode.Text = "123456789";
+
+//Disable the barcode text  
+barcode.TextDisplayLocation = TextLocation.None;
+
+//Printing barcode on to the Pdf 
+barcode.Draw(page);
+
+//Save the document
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the PDF document
+document.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creating new PDF Document 
+PdfDocument doc = new PdfDocument();
+
+//Adding a new page to the PDF document 
+PdfPage page = doc.Pages.Add();
+
+//Create a new instance for the Codabar barcode 
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Set the barcode location
+barcode.Location = new PointF(10, 10);
+
+//Set the barcode text
+barcode.Text = "123456789";
+
+//Disable the barcode text  
+barcode.TextDisplayLocation = TextLocation.None;
+
+//Printing barcode on to the Pdf 
+barcode.Draw(page);
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+stream.Position = 0;
+
+//Close the document
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creating a new PDF Document 
+PdfDocument doc = new PdfDocument();
+
+//Adding a new page to the PDF document 
+PdfPage page = doc.Pages.Add();
+
+//Create a new instance for the Codabar barcode 
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Set the barcode location
+barcode.Location = new PointF(10, 10);
+
+//Set the barcode text
+barcode.Text = "123456789";
+
+//Disable the barcode text  
+barcode.TextDisplayLocation = TextLocation.None;
+
+//Printing barcode on to the Pdf 
+barcode.Draw(page);
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+
+//Close the document
+doc.Close(true);
+
+stream.Position = 0;
+
+//Save the stream into a pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Export Barcode as Image
 
 Essential PDF supports converting one dimensional barcodes such as Code 39, Code 39 Extended, Code 11, Codabar, Code 32, Code 93, Code 93 Extended, Code 128A, Code 128B, UPC bar code, and Code 128C barcodes to image using the [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode~ToImage.html) method of [PdfUnidimensionalBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html) instance. 
