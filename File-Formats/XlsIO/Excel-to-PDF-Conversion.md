@@ -2081,7 +2081,6 @@ The following list contains unsupported elements that presently not preserved in
 * Different first page headers
 * Different odd and even pages
 * Conditional formats
-	* Data bars
 	* Color scales
 * Tables
 	* Custom styles
