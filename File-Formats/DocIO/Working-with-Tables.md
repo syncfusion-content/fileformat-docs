@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Working with Tables
+# Working with Tables in Word document
 
 A table in Word document is used to arrange document content in rows and columns. `WTable` instance represents a table in Word document. A table must contain at least one row.
 
@@ -1230,6 +1230,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}  
+
+### Applying cell formatting
   
 The following code example illustrates how to load an existing document and apply cell formatting options such as VerticalAlignment, TextDirection, Paddings, Borders, etc.
 
@@ -1260,6 +1262,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1267,6 +1271,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Saves and closes the document instance
 document.Save("TableCellFormatting.docx", FormatType.Docx);
 document.Close();
@@ -1297,6 +1303,8 @@ cell.CellFormat.Paddings.Top = 5
 cell.CellFormat.Paddings.Bottom = 5
 'Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
+'Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = False
 'Accesses the instance of the second cell in the row
 cell = row.Cells(1)
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192)
@@ -1304,6 +1312,8 @@ cell.CellFormat.SamePaddingsAsTable = False
 'Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
+'Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = False
 'Saves and closes the document instance
 document.Save("TableCellFormatting.docx", FormatType.Docx)
 document.Close()
@@ -1335,6 +1345,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1342,6 +1354,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -1378,6 +1392,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1385,6 +1401,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -1421,6 +1439,8 @@ cell.CellFormat.Paddings.Top = 5;
 cell.CellFormat.Paddings.Bottom = 5;
 //Specifies the vertical alignment of content of text
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Syncfusion.Drawing.Color.FromArgb(192, 192, 192);
@@ -1428,6 +1448,8 @@ cell.CellFormat.SamePaddingsAsTable = false;
 //Specifies the left, right, top and bottom padding of the cell
 cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -2865,6 +2887,106 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+## Removing the table
+
+You can remove a table from a text body by its instance or by its index position in the text body item collection. The following code example shows how to remove a table in Word document.
+
+{% tabs %} 
+
+{% highlight c# %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument("Template.docx");
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Removes a table from the text body
+section.Body.ChildEntities.Remove(table);
+//Saves the Word document
+document.Save("Sample.docx", FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an instance of WordDocument class
+Dim document As New WordDocument("Template.docx")
+'Accesses the instance of the first section in the Word document
+Dim section As WSection = document.Sections(0)
+'Accesses the instance of the first table in the section
+Dim table As WTable = TryCast(section.Tables(0), WTable)
+'Removes a table from the text body
+section.Body.ChildEntities.Remove(table)
+'Saves the Word document
+document.Save("Sample.docx", FormatType.Docx)
+'Closes the document
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Removes a table from the text body
+section.Body.ChildEntities.Remove(table);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Removes a table from the text body
+section.Body.ChildEntities.Remove(table);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Assets.Template.docx"), FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Removes a table from the text body
+section.Body.ChildEntities.Remove(table);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document
 document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
