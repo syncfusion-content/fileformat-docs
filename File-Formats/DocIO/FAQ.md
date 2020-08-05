@@ -4186,6 +4186,36 @@ sudo apt-get install ttf-mscorefonts-installer
 
 After the installation, the necessary Microsoft compatible fonts will be available in this location "/usr/share/fonts/truetype/msttcorefonts", which will be considered for conversion.
  
+## How to install necessary fonts to Linux containers
+
+In Word to PDF conversion, Essential DocIO using the fonts which are installed in the corresponding production machine to measure and draw the text. If the font is not available in the production environment, then the alternate font will be used to measure and draw text based on the environment. And so, it is mandatory to install all the fonts used in the Word document in machine to achieve proper preservation.
+
+Use the following code example to install fonts to containers.
+
+{% tabs %} 
+
+{% highlight Dockerfile %}
+RUN apt-get update -y && apt-get install libfontconfig -y
+RUN echo "deb http://httpredir.debian.org/debian buster main contrib non-free" > /etc/apt/sources.list \ 
+    && echo "deb http://httpredir.debian.org/debian buster-updates main contrib non- free" >> /etc/apt/sources.list \
+    && echo "deb http://security.debian.org/ buster/updates main contrib non-free" >> /etc/apt/sources.list \
+    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+    && apt-get update \
+    && apt-get install -y \
+        fonts-arphic-ukai \
+        fonts-arphic-uming \
+        fonts-ipafont-mincho \
+        fonts-ipafont-gothic \
+        fonts-unfonts-core \
+        ttf-wqy-zenhei \
+        ttf-mscorefonts-installer \
+    && apt-get clean \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+{% endhighlight %}
+
+{% endtabs %}
+
 ## How to set culture/locale in Docker containers (Windows and Linux containers)
  
 By default, Culture/Locale that is specified in the container image will be used in Docker containers.
