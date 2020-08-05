@@ -4188,7 +4188,7 @@ After the installation, the necessary Microsoft compatible fonts will be availab
  
 ## How to install necessary fonts in Linux containers
 
-In Word to PDF conversion, Essential DocIO using the fonts which are installed in the corresponding production machine to measure and draw the text. If the font is not available in the production environment, then the alternate font will be used to measure and draw text based on the environment. And so, it is mandatory to install all the fonts used in the Word document in machine to achieve proper preservation.
+In Word to PDF conversion, Essential DocIO uses the fonts which are installed in the corresponding production machine to measure and draw the text. If the font is not available in the production environment, then the alternate font will be used to measure and draw text based on the environment. And so, it is mandatory to install all the fonts used in the Word document in machine to achieve proper preservation.
 
 Use the following code example to install fonts in containers.
 
