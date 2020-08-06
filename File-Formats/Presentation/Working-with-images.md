@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with images
+# Working with PowerPoint Images
 
 ## Adding Images
 
