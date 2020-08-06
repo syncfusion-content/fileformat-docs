@@ -658,7 +658,7 @@ N> The above link makes use of the absolute path of the file for navigation. So,
 
 ## Gets a hyperlink details from text and shape
 
-You can get the hyperlink details from text or shape on the PowerPoint Slide.
+You can get the hyperlink details from the shape or text in a PowerPoint slide.
 
 The following code example demonstrates how to get the details about the hyperlink from shape.
 
