@@ -1673,11 +1673,8 @@ You can create a [sparkline](https://help.syncfusion.com/file-formats/xlsio/work
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-
     application.DefaultVersion = ExcelVersion.Excel2016;
-
     IWorkbook workbook = application.Workbooks.Create(1);
-
     IWorksheet worksheet = workbook.Worksheets[0];
 
     //Add sample data
@@ -1715,11 +1712,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
-
     application.DefaultVersion = ExcelVersion.Excel2016
-
     Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     'Add sample data
