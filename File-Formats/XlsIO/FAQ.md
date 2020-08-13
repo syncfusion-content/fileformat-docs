@@ -1663,6 +1663,93 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
+## How to create a sparkline from a named range?
+
+You can create a [sparkline](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#sparkline) from a [named range](https://help.syncfusion.com/file-formats/xlsio/faq#how-to-use-named-ranges-with-xlsio) with the help of the following code.
+
+{% tabs %}  
+
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Add sample data
+    worksheet["A1"].Number = 6911;
+    worksheet["B1"].Number = 8261;
+    worksheet["C1"].Number = 812;
+    worksheet["D1"].Number = 166;
+
+    //Add SparklineGroups
+    ISparklineGroup sparklineGroup = worksheet.SparklineGroups.Add();
+
+    //Add SparkLineType
+    sparklineGroup.SparklineType = SparklineType.Line;
+    sparklineGroup.MarkersColor = Color.BlueViolet;
+
+    //Add sparklines
+    ISparklines sparklines = sparklineGroup.Add();
+
+    //Create named ranges
+    IName name1 = workbook.Names.Add("Data_Range");
+    name1.RefersToRange = worksheet.Range["A1:D1"];
+    IRange dataRange = worksheet.Range["Data_Range"];
+
+    IName name2 = workbook.Names.Add("Sparkline_Range");
+    name2.RefersToRange = worksheet.Range["E1"];                
+    IRange referenceRange = worksheet.Range["Sparkline_Range"];
+
+    //Add a sparkline
+    sparklines.Add(dataRange, referenceRange);
+
+    workbook.SaveAs("SparklineFromNamedRange.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2016
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+    'Add sample data
+    worksheet("A1").Number = 6911
+    worksheet("B1").Number = 8261
+    worksheet("C1").Number = 812
+    worksheet("D1").Number = 166
+
+    'Add SparklineGroups
+    Dim sparklineGroup As ISparklineGroup = worksheet.SparklineGroups.Add()
+
+    'Add SparkLineType
+    sparklineGroup.SparklineType = SparklineType.Line
+    sparklineGroup.MarkersColor = Color.BlueViolet
+
+    'Add sparklines
+    Dim sparklines As ISparklines = sparklineGroup.Add()
+
+    'Create named ranges
+    Dim name1 As IName = workbook.Names.Add("Data_Range")
+    name1.RefersToRange = worksheet.Range("A1:D1")
+    Dim dataRange As IRange = worksheet.Range("Data_Range")
+
+    Dim name2 As IName = workbook.Names.Add("Sparkline_Range")
+    name2.RefersToRange = worksheet.Range("E1")
+    Dim referenceRange As IRange = worksheet.Range("Sparkline_Range")
+
+    'Add a sparkline
+    sparklines.Add(dataRange, referenceRange)
+
+    workbook.SaveAs("SparklineFromNamedRange.xlsx")
+End Using
+{% endhighlight %}
+
+  {% endtabs %}
+
 ## How to format text within a cell?
 
 In Essential XlsIO, You can use the rich text formatting option to format the text within a cell. The following code snippet illustrates this.
