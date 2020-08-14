@@ -1930,6 +1930,61 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
+## How to sort two or more columns in a pivot table?
+
+You can sort two or more columns in a pivot table by using the **AutoSort()** method each time with the respective column index. The following code snippet illustrates this.
+
+{% tabs %}  
+
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+
+    IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[1];
+    IPivotTable pivotTable = worksheet.PivotTables[0];
+                                
+    IPivotField rowField = pivotTable.RowFields[1];
+    //Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column 
+    //assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B) 
+    rowField.AutoSort(PivotFieldSortType.Ascending, 3);
+    //Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column 
+    rowField.AutoSort(PivotFieldSortType.Ascending, 4);
+
+    string fileName = "TopToBottomSort.xlsx";
+    workbook.SaveAs(fileName);
+}
+
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2016
+
+    Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(1)
+    Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
+
+    Dim rowField As IPivotField = pivotTable.RowFields(1)
+    'Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column
+    'assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B)
+    rowField.AutoSort(PivotFieldSortType.Ascending, 3)
+    'Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column
+    rowField.AutoSort(PivotFieldSortType.Ascending, 4)
+
+    Dim fileName As String = "TopToBottomSort.xlsx"
+    workbook.SaveAs(fileName)
+
+End Using
+
+{% endhighlight %}
+
+  {% endtabs %}  
+
 ## How to zip files using the Syncfusion.Compression.Zip namespace?
 
 You can compress the file using Syncfusion.Compression.Zip namespace. The following code illustrate this.
