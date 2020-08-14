@@ -2080,9 +2080,6 @@ The following list contains unsupported elements that presently not preserved in
 * SmartArt graphics
 * Different first page headers
 * Different odd and even pages
-* Conditional formats
-	* Data bars
-	* Color scales
 * Tables
 	* Custom styles
 * Row and column headings
