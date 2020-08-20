@@ -1,6 +1,6 @@
 ---
 title: Working with Template Markers | Syncfusion
-description: Briefs about template markers operations
+description: This section explains about how to create and use template markers. It also helps to bind the template markers to data from various sources.
 platform: File-formats
 control: XlsIO
 documentation: UG
