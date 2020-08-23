@@ -1,6 +1,6 @@
 ---
 title: Working with Template Markers | Syncfusion
-description: This section explains about how to create and use template markers. It also helps to bind the template markers to data from various sources.
+description: Briefs about template markers operations
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -493,9 +493,9 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 <td>
 %&lt;DataSource&gt;.&lt;FieldName&gt; <br/><br/>For example: %Products.ProductName<br/><br/>Where, “Products” is a data source which can be data tables, datasets, data readers and data views and ProductName is the field name or column name<br/><br/></td></tr>
 </table>
-You can detect data type and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
+By default, DataTable values will be filled in the worksheet as a string format. You can detect data type and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
 
-The following screenshot represents the input template which has a template marker.
+ The following screenshot represents the input template which has a template marker.
 
 ![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img3.jpeg)
 
@@ -615,54 +615,6 @@ The following screenshot represents an Excel file in which the data type is dete
 
 ![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
 
-The following code snippet illustrates how to fill the DataTable values in the worksheet as string values without detecting data types automatically.
-
-{% tabs %}  
-{% highlight c# %}
-//Create Template Marker Processor
-ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
-//Add marker variable and preserve the text value without detecting the number formats automatically
-marker.AddVariable("Reports", reports, VariableTypeAction.None);
-
-//Process the markers in the template and fill the values as it is in the DataTable
-marker.ApplyMarkers();
-
-{% endhighlight %}
-
-{% highlight vb %}
-'Create Template Marker Processor
-Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
-
-'Add marker variable and preserve the text value without detecting the number formats automatically
-marker.AddVariable("Reports", reports, VariableTypeAction.None)
-
-'Process the markers in the template and fill the values as it is in the DataTable
-marker.ApplyMarkers()
-{% endhighlight %}
-
-{% highlight UWP %}
-//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone.
-{% endhighlight %}
-{% highlight asp.net core %}
-
-//Binding data from data table is supported only from ASP.NET Core 2.0
-//Create Template Marker Processor
-ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
-//Add marker variable and preserve the text value without detecting the number formats automatically
-marker.AddVariable("Reports", reports, VariableTypeAction.None);
-
-//Process the markers in the template and fill the values as it is in the DataTable
-marker.ApplyMarkers();
-}
-
-{% endhighlight %}
-
-{% highlight Xamarin %}
-//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone.
-{% endhighlight %}
-{% endtabs %}
 
 ## Bind from Collection Objects with images
 
