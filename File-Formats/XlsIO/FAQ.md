@@ -1985,9 +1985,9 @@ End Using
 
   {% endtabs %}
   
-## How to import data table with its datatype using template markers?
+## How to import data table with its data type using template markers?
 
-You can import data table with its datatype using template markers by setting the **VariableTypeAction** to None. The following code snippet illustrates this.
+You can import data table with its data type using template markers by setting the **VariableTypeAction** to None. The following code snippet illustrates this.
 
 {% tabs %}  
 
