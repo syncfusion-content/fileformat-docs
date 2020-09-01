@@ -218,9 +218,9 @@ Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc5
 ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
-Syncfusion.DocIORenderer.Net.Core.nupkg
+Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
 
-Note: Install SkiaSharp.Linux Nuget package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
+<i>Note:</i> Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
 </td>
 <td>
 Install-Package Syncfusion.DocIORenderer.Net.Core
