@@ -4149,7 +4149,16 @@ namespace ImportFromNestedCollection
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Excel2013;
-                IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+				
+                //Instantiates the File Picker
+                FileOpenPicker openPicker = new FileOpenPicker();
+                openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+                openPicker.FileTypeFilter.Add(".xlsx");
+                openPicker.FileTypeFilter.Add(".xls");
+                StorageFile file = await openPicker.PickSingleFileAsync();
+
+                //Opens the workbook
+                IWorkbook workbook = await application.Workbooks.OpenAsync(file);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Map column headers in worksheet with class properties. 
@@ -4224,7 +4233,8 @@ namespace ImportFromNestedCollection
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Excel2013;
-                IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+                FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+                IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Map column headers in worksheet with class properties. 
@@ -4293,7 +4303,11 @@ namespace ImportFromNestedCollection
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Excel2013;
-                IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+				
+                //"App" is the class of Portable project
+                Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+                Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+                IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Map column headers in worksheet with class properties. 
