@@ -14,7 +14,7 @@ XFA stands for XML Forms Architecture, dynamic forms are based on a XML specific
 
 ## Creating a new XFA form
 
-Essential PDF allows you to create and manipulate the XFA form in PDF document by using [PdfXfaDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaDocument.html) and [PdfXfaForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaForm.html) classes. The [PdfXfaFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaFieldCollection.html) class represents the entire field collection of the XFA form.
+Essential PDF allows you to create and manipulate the XFA form in PDF document by using [PdfXfaDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaDocument.html) and [PdfXfaForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaForm.html) classes. The [PdfXfaFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaFieldCollection.html) class represents the entire field collection of the XFA form.
 
 ### Adding a new page to the XFA document
 
@@ -267,7 +267,7 @@ N> PDF supports XFA forms only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP 
 
 ### Adding the XFA document settings
 
-Essential PDF supports various XFA page setting options through [PdfXfaPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaPageSettings.html) class, to control the page display.
+Essential PDF supports various XFA page setting options through [PdfXfaPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaPageSettings.html) class, to control the page display.
 
 The below sample illustrates how to create a new PDF document with XFA page size.
 
@@ -1711,7 +1711,7 @@ else
 
 ### Adding the XFA text box field.
 
-The below code snippet illustrates how to add a textbox field to a new PDF document using [PdfXfaTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaTextBoxField.html) class.
+The below code snippet illustrates how to add a textbox field to a new PDF document using [PdfXfaTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaTextBoxField.html) class.
 
 {% tabs %}  
 
@@ -2245,7 +2245,7 @@ else
 
 ### Adding the XFA numeric field
 
-The below code snippet illustrates how to add a numeric field to a new PDF document using [PdfXfaNumericField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaNumericField.html) class.
+The below code snippet illustrates how to add a numeric field to a new PDF document using [PdfXfaNumericField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaNumericField.html) class.
 
 {% tabs %}  
 
@@ -2738,7 +2738,7 @@ else
 
 ### Adding the XFA combo box field
 
-The below code snippet illustrates how to add a combo box field to a new PDF document using [PdfXfaComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaComboBoxField.html) class.
+The below code snippet illustrates how to add a combo box field to a new PDF document using [PdfXfaComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaComboBoxField.html) class.
 
 {% tabs %}  
 
@@ -3306,7 +3306,7 @@ else
 
 ### Adding the XFA list box field
 
-The below code snippet illustrates how to add a list box field to a new PDF document using [PdfXfaListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaListBoxField.html) class.
+The below code snippet illustrates how to add a list box field to a new PDF document using [PdfXfaListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaListBoxField.html) class.
 
 {% tabs %}  
 
@@ -3915,7 +3915,7 @@ else
 
 ### Adding XFA check box field
 
-The below code snippet illustrates how to add a check box field to a new PDF document using [PdfXfaCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaCheckBoxField.html) class.
+The below code snippet illustrates how to add a check box field to a new PDF document using [PdfXfaCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaCheckBoxField.html) class.
 
 {% tabs %}  
 
@@ -4423,7 +4423,7 @@ else
  
 ### Adding the XFA radio button field
 
-The below code snippet illustrates how to add a radio button field to a new PDF document using [PdfXfaRadioButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaRadioButtonField.html) class and add it into [PdfXfaRadioButtonGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaRadioButtonGroup.html).
+The below code snippet illustrates how to add a radio button field to a new PDF document using [PdfXfaRadioButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaRadioButtonField.html) class and add it into [PdfXfaRadioButtonGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaRadioButtonGroup.html).
 
 {% tabs %}  
 
@@ -5070,7 +5070,7 @@ else
 
 ### Adding the XFA date time field
 
-The below code snippet illustrates how to add a date time field to a new PDF document using [PdfXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaDateTimeField.html) class.
+The below code snippet illustrates how to add a date time field to a new PDF document using [PdfXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaDateTimeField.html) class.
 
 {% tabs %}  
 
@@ -5598,7 +5598,7 @@ else
 
 ### Adding the XFA button field
 
-The below code snippet illustrates how to add a button field to a new PDF document using [PdfXfaButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaButtonField.html) class.
+The below code snippet illustrates how to add a button field to a new PDF document using [PdfXfaButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaButtonField.html) class.
 
 {% tabs %}  
 
@@ -6085,7 +6085,7 @@ else
 
 ### Adding the XFA text element
 
-The below code snippet illustrates how to add a text element to a new PDF document using [PdfXfaTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaTextElement.html) class.
+The below code snippet illustrates how to add a text element to a new PDF document using [PdfXfaTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaTextElement.html) class.
 
 {% tabs %}  
 
@@ -6574,7 +6574,7 @@ else
 
 ### Adding the XFA rectangle field
 
-The below code snippet illustrates how to add the rectangle field to a new PDF document using [PdfXfaRectangleField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaRectangleField.html) class.
+The below code snippet illustrates how to add the rectangle field to a new PDF document using [PdfXfaRectangleField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaRectangleField.html) class.
 
 {% tabs %}  
 
@@ -7062,7 +7062,7 @@ else
 
 ### Adding the XFA circle field
 
-The below code snippet illustrates how to add the circle field to a new PDF document using [PdfXfaCircleField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaCircleField.html) class.
+The below code snippet illustrates how to add the circle field to a new PDF document using [PdfXfaCircleField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaCircleField.html) class.
 
 {% tabs %}  
 
@@ -7550,7 +7550,7 @@ else
 
 ### Adding the XFA line
 
-The below code snippet illustrates how to add a line to a new PDF document using [PdfXfaLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaLine.html) class.
+The below code snippet illustrates how to add a line to a new PDF document using [PdfXfaLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaLine.html) class.
 
 {% tabs %}  
 
@@ -8038,7 +8038,7 @@ else
 
 ### Adding the XFA image
 
-The below code snippet illustrates how to add an image to a new PDF document using [PdfXfaImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaImage.html) class.
+The below code snippet illustrates how to add an image to a new PDF document using [PdfXfaImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaImage.html) class.
 
 {% tabs %}  
 
@@ -8517,7 +8517,7 @@ There are two types of flow directions available in XFA forms.
 
 ### Horizontal flow direction
 
-You can set the flow direction to an XFA form while creating, using [PdfXfaFlowDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaFlowDirection.html) Enum. The below sample illustrate how to set the horizontal flow direction in XFA forms.
+You can set the flow direction to an XFA form while creating, using [PdfXfaFlowDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaFlowDirection.html) Enum. The below sample illustrate how to set the horizontal flow direction in XFA forms.
 
 {% tabs %}  
 
@@ -8836,7 +8836,7 @@ else
 
 ### Vertical flow direction
 
-You can set the flow direction to an XFA form while creating, using [PdfXfaFlowDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaFlowDirection.html) Enum. The below sample illustrate how to set the vertical flow direction in XFA forms.
+You can set the flow direction to an XFA form while creating, using [PdfXfaFlowDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaFlowDirection.html) Enum. The below sample illustrate how to set the vertical flow direction in XFA forms.
 
 {% tabs %}  
 
@@ -9155,7 +9155,7 @@ else
 
 ## Rotating XFA form fields
 
-You can rotate a form field in XFA document, using [PdfXfaRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaRotateAngle.html) Enum. The following code snippet explains this.
+You can rotate a form field in XFA document, using [PdfXfaRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaRotateAngle.html) Enum. The following code snippet explains this.
 
 {% tabs %}  
 
@@ -9454,7 +9454,7 @@ else
 
 ## Validating the date time field
 
-You can validate the date time fields of the input text by enabling the [RequireValidation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaDateTimeField~RequireValidation.html) property of [PdfXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaDateTimeField.html). The following code snippet illustrates this.
+You can validate the date time fields of the input text by enabling the [RequireValidation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaDateTimeField.html#Syncfusion_Pdf_Xfa_PdfXfaDateTimeField_RequireValidation) property of [PdfXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaDateTimeField.html). The following code snippet illustrates this.
 
 {% tabs %}  
 
@@ -9753,7 +9753,7 @@ else
 
 ## Customizing the numeric field value
 
-You can customize the numeric field input value to the specific pattern through [PatternString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaNumericField~PatternString.html) property of [PdfXfaNumericField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaNumericField.html) class. The following code snippet explains this.
+You can customize the numeric field input value to the specific pattern through [PatternString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaNumericField.html#Syncfusion_Pdf_Xfa_PdfXfaNumericField_PatternString) property of [PdfXfaNumericField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaNumericField.html) class. The following code snippet explains this.
 Please refer the below link for numeric pattern format in detail,
 [http://help.adobe.com/en_US/livecycle/10.0/DesignerHelp/WS92d06802c76abadb-56c02439129b8b00ebc-7ecf.html](http://help.adobe.com/en_US/livecycle/10.0/DesignerHelp/WS92d06802c76abadb-56c02439129b8b00ebc-7ecf.html)
 
@@ -10389,7 +10389,7 @@ XFA support both the horizontal and vertical alignments.
 
 ### Horizontal alignment
 
-You can add the horizontal alignments in XFA form fields through [HorizontalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaStyledField~HorizontalAlignment.html) property by using [PdfXfaHorizontalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaHorizontalAlignment.html) Enum. The below code snippet illustrates this.
+You can add the horizontal alignments in XFA form fields through [HorizontalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaStyledField.html#Syncfusion_Pdf_Xfa_PdfXfaStyledField_HorizontalAlignment) property by using [PdfXfaHorizontalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaHorizontalAlignment.html) Enum. The below code snippet illustrates this.
 
 {% tabs %}  
 
@@ -10668,7 +10668,7 @@ else
 
 ### Vertical alignment
 
-You can add the vertical alignments in XFA form fields through [VerticalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaStyledField~VerticalAlignment.html) property by using [PdfXfaVerticalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaVerticalAlignment.html) Enum. The below code snippet explains this.
+You can add the vertical alignments in XFA form fields through [VerticalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaStyledField.html#Syncfusion_Pdf_Xfa_PdfXfaStyledField_VerticalAlignment) property by using [PdfXfaVerticalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaVerticalAlignment.html) Enum. The below code snippet explains this.
 
 {% tabs %}  
 
@@ -10947,7 +10947,7 @@ else
 
 ### Adding margins to the XFA fields
 
-You can add margin to the XFA form fields by using [Margins](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaField~Margins.html) property. The below code snippet explains this.
+You can add margin to the XFA form fields by using [Margins](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaField.html#Syncfusion_Pdf_Xfa_PdfXfaField_Margins) property. The below code snippet explains this.
 
 {% tabs %}  
 
@@ -11804,11 +11804,11 @@ else
 
 ## Filling form fields in an existing XFA document
 
-Essential PDF allows you to fill the XFA form fields using [PdfLoadedXfaform](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaForm.html) class.
+Essential PDF allows you to fill the XFA form fields using [PdfLoadedXfaform](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaForm.html) class.
 
 ### Filling the XFA text box field
 
-Please refer the below sample for filling the XFA text box field using [PdfLoadedXfaTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaTextBoxField.html) class.
+Please refer the below sample for filling the XFA text box field using [PdfLoadedXfaTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaTextBoxField.html) class.
 
 {% tabs %}  
 
@@ -12019,7 +12019,7 @@ else
 
 ### Filling the XFA numeric field
 
-You can fill the XFA numeric field by using [PdfLoadedXfaNumericField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaNumericField.html) class. The below code snippet illustrates this.
+You can fill the XFA numeric field by using [PdfLoadedXfaNumericField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaNumericField.html) class. The below code snippet illustrates this.
 
 {% tabs %}  
 
@@ -12230,7 +12230,7 @@ else
 
 ### Filling the XFA combo box field
 
-You can fill the XFA combo box field by using [PdfLoadedXfaComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaComboBoxField.html) class. The below code snippet explains this.
+You can fill the XFA combo box field by using [PdfLoadedXfaComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaComboBoxField.html) class. The below code snippet explains this.
 
 {% tabs %}  
 
@@ -12680,7 +12680,7 @@ else
 
 ### Filling the XFA list box field
 
-You can fill the XFA list box field by using [PdfLoadedXfaListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaListBoxField.html) class. The below code snippet illustrates this.
+You can fill the XFA list box field by using [PdfLoadedXfaListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaListBoxField.html) class. The below code snippet illustrates this.
 
 {% tabs %}  
 
@@ -13100,7 +13100,7 @@ else
 
 ### Filling the XFA date time field
 
-You can fill the XFA date time field by using [PdfLoadedXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaDateTimeField.html) class. The below code snippet explains this.
+You can fill the XFA date time field by using [PdfLoadedXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDateTimeField.html) class. The below code snippet explains this.
 
 {% tabs %}  
 
@@ -13311,7 +13311,7 @@ else
 
 ### Filling the XFA check box field
 
-You can fill the XFA check box field by using [PdfLoadedXfaCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaCheckBoxField.html) class. The below code snippet illustrates this.
+You can fill the XFA check box field by using [PdfLoadedXfaCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaCheckBoxField.html) class. The below code snippet illustrates this.
 
 {% tabs %}  
 
@@ -13522,7 +13522,7 @@ else
 
 ### Filling the XFA radio button field
 
-You can fill the XFA radio button field by using [PdfLoadedXfaRadioButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaRadioButtonField.html) class. The below code snippet explains this.
+You can fill the XFA radio button field by using [PdfLoadedXfaRadioButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaRadioButtonField.html) class. The below code snippet explains this.
 
 {% tabs %}  
 
@@ -13753,7 +13753,7 @@ else
 
 ### Removing editing capability of form fields
 
-The form field editing or filling capabilities can be removed by marking the form or field as read only. To prevent the user from changing the form field content, you can enable the [ReadOnly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaForm~ReadOnly.html) property of [PdfXfaForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfXfaForm.html).
+The form field editing or filling capabilities can be removed by marking the form or field as read only. To prevent the user from changing the form field content, you can enable the [ReadOnly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaForm.html#Syncfusion_Pdf_Xfa_PdfXfaForm_ReadOnly) property of [PdfXfaForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaForm.html).
 The below code snippet illustrates how to set the read only property to a new PDF document.
 
 {% tabs %}  
@@ -14223,7 +14223,7 @@ else
 ## Flattening XFA Form fields
 
 The form field editing or filling capabilities can be removed by flattening the PDF document.
-The Essential PDF flattens a form field by removing the existing form field and replacing it with graphical objects that will resemble the form field and cannot be edited. This can be achieved by enabling the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaDocument~Flatten.html) property of [PdfLoadedXfaDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaDocument.html).
+The Essential PDF flattens a form field by removing the existing form field and replacing it with graphical objects that will resemble the form field and cannot be edited. This can be achieved by enabling the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDocument.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaDocument_Flatten) property of [PdfLoadedXfaDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDocument.html).
 The following code snippet illustrates how to flatten the XFA form field.
 
 {% tabs %}  
@@ -14288,7 +14288,7 @@ ldoc.Close()
 
 ## Removing the dynamic form fields from an existing XFA document
 
-You can remove the dynamic XFA form fields by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection~Remove.html) method of [PdfLoadedXfaFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection.html) class. The below code snippet explained this.
+You can remove the dynamic XFA form fields by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaFieldCollection_Remove_Syncfusion_Pdf_Xfa_PdfLoadedXfaField_) method of [PdfLoadedXfaFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection.html) class. The below code snippet explained this.
 
 {% tabs %}  
 
@@ -14740,7 +14740,7 @@ else
 
 ## Clear XFA date time field value
 
-The Essential PDF supports clearing XFA form date time fields values, you can clear the date time values by using the [ClearValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaDateTimeField~ClearValue.html) method available in the [PdfLoadedXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaDateTimeField.html).
+The Essential PDF supports clearing XFA form date time fields values, you can clear the date time values by using the [ClearValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDateTimeField.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaDateTimeField_ClearValue) method available in the [PdfLoadedXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDateTimeField.html).
 The following sample illustrates how to clear the date time field in an existing XFA document.
 
 {% tabs %}  

@@ -1908,7 +1908,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Skip Blanks While Copying
 
-Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) to TRUE.
+Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://helpstaging.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CopyTo_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelCopyRangeOptions_) to TRUE.
 
 The following code illustrates how to skip blank cells while copying.
 
@@ -5658,7 +5658,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Cell Address
 
-The following code snippet explains the usage of [Address](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Address.html), [AddressGlobal](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressGlobal.html), [AddressLocal](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressLocal.html), [AddressR1C1](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressR1C1.html), [AddressR1C1Local](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~AddressR1C1Local.html) properties.
+The following code snippet explains the usage of [Address](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Address), [AddressGlobal](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_AddressGlobal), [AddressLocal](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_AddressLocal), [AddressR1C1](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_AddressR1C1), [AddressR1C1Local](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_AddressR1C1Local) properties.
 
 {% tabs %}
 {% highlight C# %}
@@ -5823,7 +5823,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Boolean
 
-As the name says, [Boolean](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Boolean.html) property gets or sets the boolean value in a worksheet range. The following code snippet explains this.
+As the name says, [Boolean](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Boolean) property gets or sets the boolean value in a worksheet range. The following code snippet explains this.
 
 {% tabs %}
 {% highlight C# %}
@@ -5953,7 +5953,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Borders
 
-The following code snippet explains how to set border styles for a worksheet range using [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Borders.html) property.
+The following code snippet explains how to set border styles for a worksheet range using [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Borders) property.
 
 {% tabs %}
 {% highlight C# %}
@@ -6113,7 +6113,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Built-In-Style
 
-The following code snippet explains how to add [BuiltInStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~BuiltInStyle.html) for a worksheet range.
+The following code snippet explains how to add [BuiltInStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_BuiltInStyle) for a worksheet range.
 
 {% tabs %}
 {% highlight C# %}
@@ -6233,7 +6233,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Calculated Value
 
-[CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CalculatedValue.html) is the evaluated value of the formula. The following code snippet explains how to get the ``CalculatedValue`` of the formula.
+[CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CalculatedValue) is the evaluated value of the formula. The following code snippet explains how to get the ``CalculatedValue`` of the formula.
 
 N> It is mandatory to enable sheet calculations i.e., ``worksheet.EnableSheetCalculations();`` before accessing the CalculatedValue. Else, CalculatedValue will be null.
 
@@ -6405,7 +6405,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Cells
 
-[Cells](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Cells.html) property maintains the collection of cells in a worksheet range. The following code snippet explains how to access ``Cells`` property.
+[Cells](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Cells) property maintains the collection of cells in a worksheet range. The following code snippet explains how to access ``Cells`` property.
 
 {% tabs %}
 {% highlight C# %}
@@ -6539,7 +6539,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Cell Style Name
 
-[CellStyleName](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CellStyleName.html) represents the name of the style of worksheet range/cell. The default value is **Normal**.
+[CellStyleName](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CellStyleName) represents the name of the style of worksheet range/cell. The default value is **Normal**.
 
 {% tabs %}
 {% highlight C# %}
@@ -6689,7 +6689,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Column
 
-[Column](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Column.html) property gets the column index of first column in worksheet range, which is one-index based. 
+[Column](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Column) property gets the column index of first column in worksheet range, which is one-index based. 
 
 {% tabs %}
 {% highlight C# %}
@@ -6794,7 +6794,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Columns
 
-[Columns](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Columns.html) property maintains the collection of columns in a worksheet range. 
+[Columns](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Columns) property maintains the collection of columns in a worksheet range. 
 
 {% tabs %}
 {% highlight C# %}
@@ -6936,7 +6936,7 @@ To know in detail about **Conditional Formats**, please navigate to [https://hel
 
 ### Count
 
-[Count](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Count.html) property returns the number of cells in that particular worksheet range.
+[Count](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Count) property returns the number of cells in that particular worksheet range.
 
 {% tabs %}
 {% highlight C# %}
@@ -7045,7 +7045,7 @@ To know in detail about **Data Validation**, please navigate to [https://help.sy
 
 ### End
 
-[End](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~End.html) property returns the last cell in the particular worksheet range.
+[End](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_End) property returns the last cell in the particular worksheet range.
 
 {% tabs %}
 {% highlight C# %}
@@ -7150,7 +7150,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Entire Column
 
-[EntireColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~EntireColumn.html), as the name says gets the entire column of the particular range.
+[EntireColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_EntireColumn), as the name says gets the entire column of the particular range.
 
 {% tabs %}
 {% highlight C# %}
@@ -7257,7 +7257,7 @@ N> Using EntireColumn property excessively leads to time consumption and affects
 
 ### Entire Row
 
-[EntireRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~EntireRow.html), as the name says gets the entire row of the particular range.
+[EntireRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_EntireRow), as the name says gets the entire row of the particular range.
 
 {% tabs %}
 {% highlight C# %}
@@ -7362,7 +7362,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Formula
 
-[Formula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~Formula.html) property gets or sets the formula in specified range.
+[Formula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Formula) property gets or sets the formula in specified range.
 
 {% tabs %}
 {% highlight C# %}
@@ -7521,7 +7521,7 @@ To know in detail about **FormulaArray**, please navigate to [https://help.syncf
 
 ### Formula Bool Value
 
-[FormulaBoolValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~FormulaBoolValue.html) gets the [CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CalculatedValue.html) of formula as boolean.
+[FormulaBoolValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_FormulaBoolValue) gets the [CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CalculatedValue) of formula as boolean.
 
 {% tabs %}
 {% highlight C# %}
@@ -7711,7 +7711,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has Boolean
 
-[HasBoolean](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasBoolean.html) returns whether the range has boolean value.
+[HasBoolean](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasBoolean) returns whether the range has boolean value.
 
 {% tabs %}
 {% highlight C# %}
@@ -7851,7 +7851,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has DataValidation
 
-The following code snippet explains the behavior of [HasDataValidation](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasDataValidation.html) property.
+The following code snippet explains the behavior of [HasDataValidation](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasDataValidation) property.
 
 {% tabs %}
 {% highlight C# %}
@@ -7998,7 +7998,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has DateTime
 
-The following code snippet explains the behavior of [HasDateTime](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasDateTime.html) property.
+The following code snippet explains the behavior of [HasDateTime](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasDateTime) property.
 
 {% tabs %}
 {% highlight C# %}
@@ -8173,7 +8173,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has External Formula
 
-The following code snippet explains the behavior of [HasExternalFormula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasExternalFormula.html) property. 
+The following code snippet explains the behavior of [HasExternalFormula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasExternalFormula) property. 
 
 {% tabs %}
 {% highlight C# %}
@@ -8318,7 +8318,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has Formula
 
-The following code snippet explains the behavior of [HasFormula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasFormula.html) property. 
+The following code snippet explains the behavior of [HasFormula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasFormula) property. 
 
 {% tabs %}
 {% highlight C# %}
@@ -8458,7 +8458,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has Formula Array
 
-The following code snippet explains the behavior of [HasFormulaArray](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasFormulaArray.html) property. 
+The following code snippet explains the behavior of [HasFormulaArray](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasFormulaArray) property. 
 
 {% tabs %}
 {% highlight C# %}
@@ -8603,7 +8603,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has Formula Bool Value
 
-The following code snippet explains the behavior of [HasFormulaBoolValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasFormulaBoolValue.html) property. 
+The following code snippet explains the behavior of [HasFormulaBoolValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasFormulaBoolValue) property. 
 
 {% tabs %}
 {% highlight C# %}
@@ -8768,7 +8768,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has Number
 
-[HasNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasNumber.html) property determines whether the cell has number in it.
+[HasNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasNumber) property determines whether the cell has number in it.
 
 {% tabs %}
 {% highlight C# %}
@@ -8898,7 +8898,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Has RichText
 
-[HasRichText](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~HasRichText.html) property determines whether the cell has rich-text in it.
+[HasRichText](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_HasRichText) property determines whether the cell has rich-text in it.
 
 {% tabs %}
 {% highlight C# %}

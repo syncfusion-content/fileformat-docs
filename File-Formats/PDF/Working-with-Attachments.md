@@ -13,7 +13,7 @@ Attachments can contain any kind of file with detailed information.
 
 ##  Adding attachment to a PDF document
 
-You can add a text file attachment to a PDF document using [PdfAttachment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfAttachment.html) class. The following code example illustrates this.
+You can add a text file attachment to a PDF document using [PdfAttachment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachment.html) class. The following code example illustrates this.
 {% tabs %}
 {% highlight c# %}
 
@@ -436,7 +436,7 @@ else
 
 ## Removing attachment from an existing PDF 
 
-Essential PDF allows you to remove the attachments from the existing document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfAttachmentCollection~Remove.html) method, as shown in the following code example.
+Essential PDF allows you to remove the attachments from the existing document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachmentCollection.html#Syncfusion_Pdf_Interactive_PdfAttachmentCollection_Remove_Syncfusion_Pdf_Interactive_PdfAttachment_) method, as shown in the following code example.
 
 {% tabs %}
 {% highlight c# %}

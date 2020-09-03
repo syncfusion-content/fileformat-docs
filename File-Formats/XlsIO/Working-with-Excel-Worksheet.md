@@ -990,7 +990,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Unfreeze Panes
 
-You can unfreeze panes in an Excel worksheet using the [RemovePanes](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~RemovePanes.html) method of **IWorksheet** interface. Refer to the following complete code snippets.
+You can unfreeze panes in an Excel worksheet using the [RemovePanes](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_RemovePanes) method of **IWorksheet** interface. Refer to the following complete code snippets.
 
 {% tabs %}
 {% highlight C# %}
