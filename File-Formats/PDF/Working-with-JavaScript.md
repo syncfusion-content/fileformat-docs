@@ -16,7 +16,7 @@ A JavaScript action allows execution of JavaScript code embedded in the PDF docu
 
 ## Document level JavaScript action
 
-You can add the JavaScript action to the PDF document by using [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) class. The following code sample illustrates this. 
+You can add the JavaScript action to the PDF document by using [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) class. The following code sample illustrates this. 
 
 {% tabs %}
 
@@ -197,7 +197,7 @@ else
 
 ## JavaScript action to the form fields
 
-You can add the JavaScript actions to various form fields using [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) instance. The [PdfFieldActions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFieldActions.html) class is used to create form field actions. 
+You can add the JavaScript actions to various form fields using [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) instance. The [PdfFieldActions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFieldActions.html) class is used to create form field actions. 
 
 The following code snippet illustrate this.
 
@@ -455,7 +455,7 @@ else
 
 ## JavaScript in 3D Annotation
 
-3D Annotations are used to represent 3D artworks in a PDF document. You can add a JavaScript code to 3D annotation using the [OnInstantiate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.Pdf3DAnnotation~OnInstantiate.html) property in [Pdf3DAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.Pdf3DAnnotation.html) instance. The JavaScript script is executed when the 3D artwork is instantiated. The following code snippet illustrate this.
+3D Annotations are used to represent 3D artworks in a PDF document. You can add a JavaScript code to 3D annotation using the [OnInstantiate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.Pdf3DAnnotation.html#Syncfusion_Pdf_Interactive_Pdf3DAnnotation_OnInstantiate) property in [Pdf3DAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.Pdf3DAnnotation.html) instance. The JavaScript script is executed when the 3D artwork is instantiated. The following code snippet illustrate this.
 
 {% tabs %}
 

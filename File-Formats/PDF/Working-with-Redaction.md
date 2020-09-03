@@ -9,7 +9,7 @@ documentation: UG
 
 ## Removing sensitive content from the PDF document
 
-Essential PDF supports removing or redacting the sensitive text and images from the PDF documents. Redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html) class to remove content.
+Essential PDF supports removing or redacting the sensitive text and images from the PDF documents. Redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class to remove content.
 
 N> Note: CJK text without TrueType font and complex script text cannot be redacted.
 
@@ -89,7 +89,7 @@ document.Close(True)
 
 ## Display text on the redacted area
 
-You can draw overlay text on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction~Appearance.html) property available in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html) class, and customize the overlay text with different font, style, color and brushes.
+You can draw overlay text on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction_Appearance) property available in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class, and customize the overlay text with different font, style, color and brushes.
 
 The following code snippet explains how to add overlay text in the redacted area.
 
@@ -183,7 +183,7 @@ document.Close(True)
 
 ## Drawing image on the redacted area
 
-You can draw the image on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction~Appearance.html) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
+You can draw the image on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction_Appearance) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
 
 The following code snippet explains how to redact the information from a page by drawing image on the redacted area using appearance.
 
@@ -273,7 +273,7 @@ document.Close(True)
 
 ## Drawing pattern on the redacted area
 
-You can draw the patterns on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction~Appearance.html) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
+You can draw the patterns on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction_Appearance) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
 
 The following code snippet explains how to redact the information from a page by drawing mosaic pattern on the redacted area using appearance.
 
@@ -443,7 +443,7 @@ document.Close(True)
 
 ## Fill color on the redacted area
 
-You can draw the filled rectangle on the redacted bounds using the [FillColor](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction~FillColor.html) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
+You can draw the filled rectangle on the redacted bounds using the [FillColor](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction_FillColor) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
 
 The following code snippet explains how to redact the information from a page with filled rectangle.
 

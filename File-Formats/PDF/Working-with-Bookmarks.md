@@ -11,7 +11,7 @@ Essential PDF provides support to insert, remove and modify the bookmarks in the
 
 ## Adding Bookmarks in a PDF
 
-The [PdfBookmarkBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBookmarkBase.html) collection represents the bookmarks in a PDF document. You can add a bookmark in a new PDF document using [PdfBookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBookmark.html) class. Please refer the following code example.
+The [PdfBookmarkBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmarkBase.html) collection represents the bookmarks in a PDF document. You can add a bookmark in a new PDF document using [PdfBookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmark.html) class. Please refer the following code example.
 
 {% tabs %}
 {% highlight c# %}
@@ -479,7 +479,7 @@ else
 
 ## Adding a Child to the Bookmarks
 
-You can add a child bookmark by using [Insert](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBookmarkBase~Insert.html) method. Please refer to the following code example.
+You can add a child bookmark by using [Insert](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmarkBase.html#Syncfusion_Pdf_Interactive_PdfBookmarkBase_Insert_System_Int32_System_String_) method. Please refer to the following code example.
 
 {% tabs %}
 {% highlight c# %}
@@ -766,7 +766,7 @@ else
 
 When loading an existing document, the Essential PDF loads all bookmarks of the document.  
 
-Each loaded bookmark is represented by the [PdfLoadedBookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html) object. The following code example illustrates how to insert new bookmarks in the existing PDF document.
+Each loaded bookmark is represented by the [PdfLoadedBookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html) object. The following code example illustrates how to insert new bookmarks in the existing PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -960,7 +960,7 @@ else
 
 ## Removing Bookmarks from an existing PDF 
 
-You can also remove bookmarks from the existing PDF document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfBookmarkBase~Remove.html) method. Please refer the following code example.
+You can also remove bookmarks from the existing PDF document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmarkBase.html#Syncfusion_Pdf_Interactive_PdfBookmarkBase_Remove_System_String_) method. Please refer the following code example.
 
 {% tabs %}
 {% highlight c# %}
@@ -1168,7 +1168,7 @@ Essential PDF allows you to modify the bookmarks in the existing PDF document. T
 * Add or insert new bookmarks as a child of another bookmark.
 * Assign the destination of the added bookmarks to a loaded page or a new page of the document.
 
-The following code example shows how to modify the [Destination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedBookmark~Destination.html), [Color](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedBookmark~Color.html), [TextStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedBookmark~TextStyle.html) and [Title](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedBookmark~Title.html) of an existing bookmark collection.
+The following code example shows how to modify the [Destination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_Destination), [Color](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_Color), [TextStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_TextStyle) and [Title](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_Title) of an existing bookmark collection.
 
 {% tabs %}
 {% highlight c# %}

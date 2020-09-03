@@ -14,7 +14,7 @@ Essential PDF provides support to create, add and merge the layers into PDF docu
 
 ## Adding Layers in a PDF document
 
-Essential PDF allows the users to create a layer in a PDF page using [PdfPageLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageLayer.html) class. The below code snippet illustrates how to add the multiple layers in a new PDF document.
+Essential PDF allows the users to create a layer in a PDF page using [PdfPageLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageLayer.html) class. The below code snippet illustrates how to add the multiple layers in a new PDF document.
 
 {% tabs %} 
 
@@ -1442,7 +1442,7 @@ else
 
 ## Removing layers from an existing PDF document
 
-You can remove the layers from layer collection, represented by the [PdfPageLayerCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageLayerCollection.html) of the loaded page. This is illustrated in the following code sample.
+You can remove the layers from layer collection, represented by the [PdfPageLayerCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageLayerCollection.html) of the loaded page. This is illustrated in the following code sample.
 
 {% tabs %} 
 
@@ -1653,7 +1653,7 @@ else
  
 ## Flattening the layers in an existing PDF document
 
-You can flatten a layer in a PDF document by removing it from the [PdfDocumentLayerCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentLayerCollection.html). The following code snippet explains this.
+You can flatten a layer in a PDF document by removing it from the [PdfDocumentLayerCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentLayerCollection.html). The following code snippet explains this.
 
 {% tabs %}
 {% highlight C# %}
@@ -2058,7 +2058,7 @@ else
 
 {% endtabs %}  
 
-The following code illustrates how to toggle the visibility of layers in an existing PDF document by disabling the [Visible](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfLayer~Visible.html) property of [PdfLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfLayer.html).
+The following code illustrates how to toggle the visibility of layers in an existing PDF document by disabling the [Visible](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html#Syncfusion_Pdf_PdfLayer_Visible) property of [PdfLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html).
 
 {% tabs %}  
 

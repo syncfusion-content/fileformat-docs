@@ -2322,9 +2322,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Font settings for chart legend and data labels
 
-Essential XlsIO allows you to set the desired font to legend and series data labels for legend through [TextArea](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartLegend~TextArea.html) in **IChartLegend**. Similarly, desired font for data labels of chart series can be set through [DataLabels](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartDataPoint~DataLabels.html) in **IChartDataPoints**.
+Essential XlsIO allows you to set the desired font to legend and series data labels for legend through [TextArea](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartLegend.html#Syncfusion_XlsIO_IChartLegend_TextArea) in **IChartLegend**. Similarly, desired font for data labels of chart series can be set through [DataLabels](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartDataPoint.html#Syncfusion_XlsIO_IChartDataPoint_DataLabels) in **IChartDataPoints**.
 
-The font style includes font name, font size and font color which are set through [FontName](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFont~FontName.html), [Size](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFont~Size.html) and [Color](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFont~Color.html) properties respectively. 
+The font style includes font name, font size and font color which are set through [FontName](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFont.html#Syncfusion_XlsIO_IFont_FontName), [Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFont.html#Syncfusion_XlsIO_IFont_Size) and [Color](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFont.html#Syncfusion_XlsIO_IFont_Color) properties respectively. 
 
 Refer the following complete code snippets.
 
@@ -2892,9 +2892,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Hide Chart Gridlines
 
-Excel chart consists of two types of gridlines such as **major gridlines** and **minor gridlines**. Major gridlines represent the main values in the axis and minor gridlines represent possible values between two adjacent axis values. You can show or hide these gridlines using [HasMajorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~HasMajorGridLines.html) and [HasMinorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~HasMinorGridLines.html) of **IChartAxis** interface.
+Excel chart consists of two types of gridlines such as **major gridlines** and **minor gridlines**. Major gridlines represent the main values in the axis and minor gridlines represent possible values between two adjacent axis values. You can show or hide these gridlines using [HasMajorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMajorGridLines) and [HasMinorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMinorGridLines) of **IChartAxis** interface.
 
-Essential XlsIO supports formatting of gridlines as well through the [MajorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MajorGridLines.html) and [MinorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MinorGridLines.html) of **IChartAxis**.
+Essential XlsIO supports formatting of gridlines as well through the [MajorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_MajorGridLines) and [MinorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_MinorGridLines) of **IChartAxis**.
 
 Refer the following complete code snippets.
 
@@ -4959,7 +4959,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Add Picture to Chart and assign Hyperlink
 
-Essential XlsIO supports assigning hyperlink to the picture added in a chart in the Excel workbook. To achieve this, create a [chart in workbook](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart-sheet) and add picture to the chart using [AddPicture](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IPictures~AddPicture(String).html) of **IPictures** interface. You can assign hyperlink to the picture using [Add](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IHyperLinks~Add(IShape,ExcelHyperLinkType,String,String).html) property of **IHyperlinks** interface.
+Essential XlsIO supports assigning hyperlink to the picture added in a chart in the Excel workbook. To achieve this, create a [chart in workbook](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart-sheet) and add picture to the chart using [AddPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Ipictures.html#Syncfusion_XlsIO_IPictures_AddPicture_System_String_) of **IPictures** interface. You can assign hyperlink to the picture using [Add](https://helpstaging.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IHyperLinks.html#Syncfusion_XlsIO_IHyperLinks_Add_Syncfusion_XlsIO_IShape_Syncfusion_XlsIO_ExcelHyperLinkType_System_String_System_String_) property of **IHyperlinks** interface.
 
 Refer to the following complete code snippets.
 
@@ -5146,7 +5146,7 @@ N> XlsIO supports adding picture only to a chart in the workbook,but does not su
 
 Data table beneath the chart clearly represents the chart content in table format. While creating a chart, the data table is hidden, and the option should be manually enabled to view it.
 
-Essential XlsIO supports adding data table using [HasDataTable](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChart~HasDataTable.html) of **IChart** interface. Enabling this property adds the data table beneath the chart.
+Essential XlsIO supports adding data table using [HasDataTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChart.html#Syncfusion_XlsIO_IChart_HasDataTable) of **IChart** interface. Enabling this property adds the data table beneath the chart.
 
 Refer the following complete code snippets.
 
