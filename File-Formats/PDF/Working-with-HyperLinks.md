@@ -11,7 +11,7 @@ In PDF, hyperlinks can be added to allow the users to navigate to another part o
 
 ## Working with Web navigation                                                                                                                                             
 
-You can navigate to specified URL from a PDF document by using the [PdfTextWebLink](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfTextWebLink.html) class.
+You can navigate to specified URL from a PDF document by using the [PdfTextWebLink](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextWebLink.html) class.
 
 Please refer the below code snippet for navigating to the web page.
 
@@ -584,7 +584,7 @@ return File(stream, contentType, fileName);
 
 ## Working with internal document navigation
 
-To allow the users to navigate to any other part of the same document, [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) class can be used. The below code explains how to add the hyperlink for internal document navigation.
+To allow the users to navigate to any other part of the same document, [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) class can be used. The below code explains how to add the hyperlink for internal document navigation.
 
 {% tabs %}  
 
@@ -937,7 +937,7 @@ else
 
 {% endtabs %}  
 
-To add a [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) to an existing document, please use the below code snippet.
+To add a [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) to an existing document, please use the below code snippet.
 
 {% tabs %}  
 
@@ -1250,7 +1250,7 @@ else
 
 ## Working with external document navigation
 
-You can open external documents like images, text files, PDF, etc. using [PdfFileLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFileLinkAnnotation.html) class.
+You can open external documents like images, text files, PDF, etc. using [PdfFileLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFileLinkAnnotation.html) class.
 
 Please refer the below code snippet for navigating to external documents:
 
@@ -1352,7 +1352,7 @@ document.Close()
 
 N> The above link makes use of the absolute path of the file for navigation. So, moving the files to another machine or location may lead to file not found error in PDF reader applications.
 
-To open a file in relative path, the [PdfLaunchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLaunchAction.html) can be used. While using the relative path in launch action, the files can be moved to any machine, provided the relative path is being maintained. The below code snippet explains the same.
+To open a file in relative path, the [PdfLaunchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLaunchAction.html) can be used. While using the relative path in launch action, the files can be moved to any machine, provided the relative path is being maintained. The below code snippet explains the same.
 
 {% tabs %}  
 

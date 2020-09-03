@@ -11,7 +11,7 @@ Essential PDF supports merging multiple PDF documents from disk and stream.
 
 ## Merging multiple documents from disk and stream
 
-You can merge the multiple PDF document using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~Merge.html) method of [PdfDocumentBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase.html) class, by specifying the path of the documents in a string array.
+You can merge the multiple PDF document using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method of [PdfDocumentBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html) class, by specifying the path of the documents in a string array.
 
 Refer to the following code example to merge multiple documents from disk.
 
@@ -435,7 +435,7 @@ else
 
 ## Importing pages from multiple documents
 
-Essential PDF provides support for importing the pages from one document to another document using [ImportPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~ImportPage.html) method. The following code illustrates this. The imported page is added to the end of the original document.
+Essential PDF provides support for importing the pages from one document to another document using [ImportPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPage_Syncfusion_Pdf_Parsing_PdfLoadedDocument_Syncfusion_Pdf_PdfPageBase_) method. The following code illustrates this. The imported page is added to the end of the original document.
 
 {% tabs %}
 {% highlight c# %}     
@@ -632,7 +632,7 @@ else
 {% endhighlight %}
 {% endtabs %}
 
-You can import multiple pages from an existing document by using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~ImportPageRange.html) method. The following code example illustrates this.
+You can import multiple pages from an existing document by using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPageRange_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_Int32_System_Int32_) method. The following code example illustrates this.
 
 {% tabs %}
 {% highlight c# %}      
@@ -1066,7 +1066,7 @@ Merging multiple large PDF documents can lead to high runtime memory. So, you ca
 
 N> Note:  The parent PDF document has all the contents in run time memory. It releases the memory once the final PDF document instance is disposed. 
 
-You can split a large PDF document into multiple documents using [Split](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~Split.html) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code snippet explains this.
+You can split a large PDF document into multiple documents using [Split](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Split_System_String_) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code snippet explains this.
 
 {% tabs %}
 {% highlight c# %}      

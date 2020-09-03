@@ -17,7 +17,7 @@ N> PDF supports compressing PDF document only in Windows Forms, WPF, ASP.NET and
 
 ## Compressing existing PDF document
 
-You can compress the existing PDF document by using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) and [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions.html). The following compression techniques are used to compress the existing PDF document.
+You can compress the existing PDF document by using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) and [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html). The following compression techniques are used to compress the existing PDF document.
 
 1. Compress the image with image quality
 2. Optimizing embedded font
@@ -28,7 +28,7 @@ N> To compress the existing PDF document in .NET Core, you need to include Syncf
 
 ## Compressing images with image quality
 
-You can compress all the images of an existing PDF document by enabling the [CompressImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions~CompressImages.html) property and assigning [ImageQuality](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions~ImageQuality.html) available in [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions.html) class. The ```ImageQuality``` property is used to reduce the quality of the image based on percentage value, where 100 is unchanged quality and 10 is low quality.
+You can compress all the images of an existing PDF document by enabling the [CompressImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html#Syncfusion_Pdf_PdfCompressionOptions_CompressImages) property and assigning [ImageQuality](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html#Syncfusion_Pdf_PdfCompressionOptions_ImageQuality) available in [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html) class. The ```ImageQuality``` property is used to reduce the quality of the image based on percentage value, where 100 is unchanged quality and 10 is low quality.
 
 The following example code snippet illustrates how to compress the images in existing PDF document.
 
@@ -129,7 +129,7 @@ return File(stream, contentType, fileName);
 
 ## Optimizing embedded font
 
-You can optimize the embedded fonts in an existing PDF document by enabling the [OptimizeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions~OptimizeFont.html) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions.html) class. This technique reduces the font file size by removing all the unused glyph data.
+You can optimize the embedded fonts in an existing PDF document by enabling the [OptimizeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html#Syncfusion_Pdf_PdfCompressionOptions_OptimizeFont) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html) class. This technique reduces the font file size by removing all the unused glyph data.
 
 The following example code snippet illustrates how to optimize embedded font in existing PDF document.
 
@@ -223,7 +223,7 @@ N> The font compression support only in TrueType and Type2 embedded fonts.
 
 ## Optimizing page contents
 
-You can compress the page contents in an existing PDF document by enabling the [OptimizePageContents](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions~OptimizePageContents.html) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions.html) class. This technique removes the unwanted data in the content streams such as commented lines, white spaces, etc.,
+You can compress the page contents in an existing PDF document by enabling the [OptimizePageContents](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html#Syncfusion_Pdf_PdfCompressionOptions_OptimizePageContents) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html) class. This technique removes the unwanted data in the content streams such as commented lines, white spaces, etc.,
 
 The following example code snippet illustrates how to optimize page contents in existing PDF document.
 
@@ -315,7 +315,7 @@ return File(stream, contentType, fileName);
 
 ## Remove metadata information
 
-You can reduce the PDF file size by removing the PDF document metadata information. This can be achieved by enabling the [RemoveMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions~RemoveMetadata.html) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionOptions.html) class.
+You can reduce the PDF file size by removing the PDF document metadata information. This can be achieved by enabling the [RemoveMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html#Syncfusion_Pdf_PdfCompressionOptions_RemoveMetadata) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html) class.
 
 The following example code snippet illustrates how to optimize page contents in existing PDF document.
 
@@ -402,7 +402,7 @@ return File(stream, contentType, fileName);
 
 ## Compressing the PDF content
 
-Essential PDF allows you to control the compression level of the document by using the [PdfCompressionLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfCompressionLevel.html) Enum. The compression level can be set to best, normal, none etc...
+Essential PDF allows you to control the compression level of the document by using the [PdfCompressionLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionLevel.html) Enum. The compression level can be set to best, normal, none etc...
 Content compression involves,
 
 1) Removing all extra space characters.

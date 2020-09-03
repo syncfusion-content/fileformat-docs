@@ -9,7 +9,7 @@ documentation: UG
 
 ## Drawing text in a new document
 
-You can add text in the new PDF document by using [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~DrawString.html) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html) class as shown in the following code sample.
+You can add text in the new PDF document by using [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class as shown in the following code sample.
 
 {% tabs %}
 
@@ -218,7 +218,7 @@ else
 
 ## Drawing text in an existing document
 
-The following code snippet illustrates how to add text in the existing PDF document by using [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~DrawString.html) method.
+The following code snippet illustrates how to add text in the existing PDF document by using [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method.
 
 {% tabs %}
 
@@ -413,7 +413,7 @@ PDF has fourteen base fonts, also known as standard fonts which has special sign
 
 [Standard type 1 fonts](https://en.wikipedia.org/wiki/Portable_Document_Format#Standard_Type_1_Fonts_.28Standard_14_Fonts.29)
 
-You can add text using the standard PDF fonts, by initializing [PdfFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfFont.html) class as [PdfStandardFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStandardFont.html) class. The following code snippet illustrates this. 
+You can add text using the standard PDF fonts, by initializing [PdfFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfFont.html) class as [PdfStandardFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStandardFont.html) class. The following code snippet illustrates this. 
 
 {% tabs %}
 
@@ -622,7 +622,7 @@ else
 
 ### Draw text using TrueType fonts
 
-You can add text using the TrueType fonts installed in the system, by initializing [PdfFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfFont.html) class as [PdfTrueTypeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTrueTypeFont.html) class. The following code snippet illustrates this.
+You can add text using the TrueType fonts installed in the system, by initializing [PdfFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfFont.html) class as [PdfTrueTypeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTrueTypeFont.html) class. The following code snippet illustrates this.
 
 {% tabs %}
 
@@ -908,7 +908,7 @@ else
 
 ### Draw text using CJK fonts
 
-You can add text using CJK fonts, initializing [PdfFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfFont.html) class as [PdfCjkStandardFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfCjkStandardFont.html) class. The following code sample illustrates this.
+You can add text using CJK fonts, initializing [PdfFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfFont.html) class as [PdfCjkStandardFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfCjkStandardFont.html) class. The following code sample illustrates this.
 
 {% tabs %}
 
@@ -1077,7 +1077,7 @@ else
 
 ## Measuring a string
 
-The Essential PDF allows you to measure the size of a string which uses the ```PdfFont``` through [MeasureString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfFont~MeasureString.html) method of it and returns the size. Refer to the following code sample.
+The Essential PDF allows you to measure the size of a string which uses the ```PdfFont``` through [MeasureString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfFont.html#Syncfusion_Pdf_Graphics_PdfFont_MeasureString_System_String_) method of it and returns the size. Refer to the following code sample.
 
 {% tabs %}
 
@@ -1316,7 +1316,7 @@ else
 
 ## Embedding fonts and working with Unicode text
 
-To embed a font or display Unicode text in the document, the ‘Unicode’ Boolean parameter of the [PdfTrueTypeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTrueTypeFont~_ctor.html) constructor has to be set to true. The following code illustrates the same.
+To embed a font or display Unicode text in the document, the ‘Unicode’ Boolean parameter of the [PdfTrueTypeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTrueTypeFont.html#Syncfusion_Pdf_Base__ctor) constructor has to be set to true. The following code illustrates the same.
 
 N> To render a Unicode text in the PDF document the chosen font should have the Unicode rendering capability.
 
@@ -1424,7 +1424,7 @@ document.Close(True)
 
 ## Drawing Right-To-Left text 
 
-The Essential PDF allows you to draw the right-to-left language text in a PDF document. To draw RTL scripts such as Arabic, Hebrew, Persian, and Urdu, set the value of [TextDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat~TextDirection.html) property in the [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class to RightToLeft using [PdfTextDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTextDirection.html) Enum. The languages (e.g., Sindhi and Kurdish) that have more than one script and can be written in either right-to-left or left-to-right format. The LeftToRight value of the TextDirection property is used to draw RTL text in the left-to-right format. Refer to the following code sample.
+The Essential PDF allows you to draw the right-to-left language text in a PDF document. To draw RTL scripts such as Arabic, Hebrew, Persian, and Urdu, set the value of [TextDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html#Syncfusion_Pdf_Graphics_PdfStringFormat_TextDirection) property in the [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html) class to RightToLeft using [PdfTextDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextDirection.html) Enum. The languages (e.g., Sindhi and Kurdish) that have more than one script and can be written in either right-to-left or left-to-right format. The LeftToRight value of the TextDirection property is used to draw RTL text in the left-to-right format. Refer to the following code sample.
 
 {% tabs %}
 
@@ -1820,7 +1820,7 @@ else
 
 ## Adding a HTML Styled Text
 
-Essential PDF provides support to render simple HTML string in a PDF document that can flow through multiple pages. This can be done by using the [PdfHTMLTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfHTMLTextElement.html) class.
+Essential PDF provides support to render simple HTML string in a PDF document that can flow through multiple pages. This can be done by using the [PdfHTMLTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfHTMLTextElement.html) class.
 
 1. The PdfHTMLTextElement class provides support for a basic set of HTML tags, to render HTML format text in the PDF document.
 
@@ -1834,7 +1834,7 @@ Essential PDF provides support to render simple HTML string in a PDF document th
    * Sup
    * BR
    
-2. The [PdfMetafileLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfMetafileLayoutFormat.html) class enables to break the HTML text into multiple pages.
+2. The [PdfMetafileLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfMetafileLayoutFormat.html) class enables to break the HTML text into multiple pages.
 3. Complex HTML with CSS are not supported in this class. Please use [HTML to PDF](/file-formats/pdf/converting-html-to-pdf "Converting HTML documents To PDF") section for complex HTML with CSS and URL's
 
 The following code example illustrates how to render the HTML string in a PDF document.   
@@ -1969,7 +1969,7 @@ doc.Close(True)
 
 ## Creating a multicolumn PDF document
 
-Essential PDF allows you to create multi-column text in PDF document by using [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTextElement.html) class. The following code example illustrates the same.
+Essential PDF allows you to create multi-column text in PDF document by using [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) class. The following code example illustrates the same.
 
 {% tabs %}
 
@@ -2199,7 +2199,7 @@ else
 
 {% endtabs %}
 
-The [PdfLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class helps to allow the text to flow across pages. The [PdfLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutResult.html) class provides the rendered bounds of the previously added text which can be used to place successive elements without overlapping.
+The [PdfLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class helps to allow the text to flow across pages. The [PdfLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutResult.html) class provides the rendered bounds of the previously added text which can be used to place successive elements without overlapping.
 
 The following code snippet illustrates how to add elements relatively and also allow the text to flow across multiple pages.
 
@@ -2508,7 +2508,7 @@ else
 
 ## Inserting Rich Text Format contents 
 
-Essential PDF allows you to insert a RTF text into a PDF document by converting it as bitmap or metafile image and rendering it using [FromRtf](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImage~FromRtf.html) method of [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImage.html) class.
+Essential PDF allows you to insert a RTF text into a PDF document by converting it as bitmap or metafile image and rendering it using [FromRtf](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfImage.html#Syncfusion_Pdf_Graphics_PdfImage_FromRtf_System_String_System_Single_Syncfusion_Pdf_Graphics_PdfImageType_) method of [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfImage.html) class.
 
 The following code example illustrates how to insert RTF text in PDF document.
 
@@ -2624,7 +2624,7 @@ N> For converting complex RTF content to PDF, refer the [RTF to PDF](/file-forma
 ## Adding an Ordered List 
 
 
-Essential PDF allows you to create an ordered list in the document. Ordered List is represented by the [PdfOrderedList](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Lists.PdfOrderedList.html) class and can be numerical or alphabetical. The following code snippet illustrates the same.
+Essential PDF allows you to create an ordered list in the document. Ordered List is represented by the [PdfOrderedList](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Lists.PdfOrderedList.html) class and can be numerical or alphabetical. The following code snippet illustrates the same.
 
 {% tabs %}
 
@@ -2982,7 +2982,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 ## Adding an Unordered List 
 
-Essential PDF also provides support to create an unordered List that is represented by the [PdfUnorderedList](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Lists.PdfUnorderedList.html) class. An Unordered list can be bullets, circle or an image. The following code snippet illustrates the same.
+Essential PDF also provides support to create an unordered List that is represented by the [PdfUnorderedList](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Lists.PdfUnorderedList.html) class. An Unordered list can be bullets, circle or an image. The following code snippet illustrates the same.
 
 {% tabs %}
 
@@ -3378,7 +3378,7 @@ else
 
 ## Replace Fonts in an existing document
 
-Essential PDF allows you to replace the fonts in an existing PDF document by using the [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.Fonts.PdfUsedFont~Replace.html) method. The following code snippet illustrates the same.
+Essential PDF allows you to replace the fonts in an existing PDF document by using the [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.Fonts.PdfUsedFont.html#Syncfusion_Pdf_Graphics_Fonts_PdfUsedFont_Replace_Syncfusion_Pdf_Graphics_PdfFont_) method. The following code snippet illustrates the same.
 
 {% tabs %}
 
@@ -3438,7 +3438,7 @@ loadedDocument.Close(True)
 
 ## Search and get the bounds of a text in a document
 
-You can search for a particular text in a document and get the bounds using [FindText](https://help.syncfusion.com/cr/windowsforms/Syncfusion.PdfViewer.Windows~Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl~FindText.html) method of [PdfViewerControl](https://help.syncfusion.com/cr/windowsforms/Syncfusion.PdfViewer.Windows~Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html) class. To include this functionality, you need to add the below mentioned assemblies as reference to the project.
+You can search for a particular text in a document and get the bounds using [FindText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_Forms_PdfViewer_PdfViewerControl_FindText_System_String_System_Collections_Generic_Dictionary_System_Int32_System_Collections_Generic_List_System_Drawing_RectangleF____) method of [PdfViewerControl](https://help.syncfusion.com/cr/windowsforms/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html) class. To include this functionality, you need to add the below mentioned assemblies as reference to the project.
 
 1. Syncfusion.Compression.Base.dll
 2. Syncfusion.Pdf.Base.dll
@@ -3488,7 +3488,7 @@ documentViewer.Dispose()
 
 ## Drawing complex script language text
 
-Essential PDF allows you to add complex script language text in the PDF document by using the [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat~ComplexScript.html) property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code snippet illustrates this.
+Essential PDF allows you to add complex script language text in the PDF document by using the [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html#Syncfusion_Pdf_Graphics_PdfStringFormat_ComplexScript) property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code snippet illustrates this.
 
 {% tabs %}
 
@@ -4002,7 +4002,7 @@ else
 
 ## Drawing text using OpenType font
 
-Essential PDF supports drawing text on a PDF document with OpenType font using [PdfTrueTypeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTrueTypeFont.html) class, by providing the path of font file from local file system. The following code snippet illustrates this.
+Essential PDF supports drawing text on a PDF document with OpenType font using [PdfTrueTypeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTrueTypeFont.html) class, by providing the path of font file from local file system. The following code snippet illustrates this.
 
 {% tabs %}
 
@@ -4267,7 +4267,7 @@ else
 
 ## Drawing text with baseline alignment
 
-The Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code sample explains this.
+The Essential PDF allows you to draw text using a different type of fonts with different sizes with the same baseline alignment in the PDF document by using the EnableBaseline property available in [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. The following code sample explains this.
 
 {% tabs %}
 

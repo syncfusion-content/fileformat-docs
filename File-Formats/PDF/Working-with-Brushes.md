@@ -17,7 +17,7 @@ Brushes are used to draw the content on PDF document with specific color and sty
 
 ## Solid Brush
 
-The solid brush is used to fill an object with solid color. Essential PDF supports drawing shapes on PDF document with solid brush using the [PdfSolidBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfSolidBrush.html) class. The following code snippet illustrates this.
+The solid brush is used to fill an object with solid color. Essential PDF supports drawing shapes on PDF document with solid brush using the [PdfSolidBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfSolidBrush.html) class. The following code snippet illustrates this.
 
 {% tabs %}
 {% highlight C# %}
@@ -160,7 +160,7 @@ else
 
 ## Linear gradient brush
 
-The gradient brush is used to fill an object with blend of two or more colors. Essential PDF supports drawing shapes on PDF document with linear gradient brush using [PdfLinearGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLinearGradientBrush.html). The following code snippet illustrates this.
+The gradient brush is used to fill an object with blend of two or more colors. Essential PDF supports drawing shapes on PDF document with linear gradient brush using [PdfLinearGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLinearGradientBrush.html). The following code snippet illustrates this.
 
 {% tabs %}
 {% highlight C# %}
@@ -303,7 +303,7 @@ else
 
 ## Radial Gradient Brush
 
-The gradient brush is used to fill an object with blend of two or more colors. You can draw any shape on PDF document with radial gradient brush using [PdfRadialGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfRadialGradientBrush.html). The following code snippet explains this.
+The gradient brush is used to fill an object with blend of two or more colors. You can draw any shape on PDF document with radial gradient brush using [PdfRadialGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfRadialGradientBrush.html). The following code snippet explains this.
 
 {% tabs %}
 {% highlight C# %}
@@ -446,7 +446,7 @@ else
 
 ## Tiling Brush
 
-The tiling brush is used to draw an object repeatedly. You can draw any shape on PDF page with tiling brush using [PdfTilingBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTilingBrush.html). The following code snippet explains this.
+The tiling brush is used to draw an object repeatedly. You can draw any shape on PDF page with tiling brush using [PdfTilingBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTilingBrush.html). The following code snippet explains this.
 
 {% tabs %}
 {% highlight C# %}

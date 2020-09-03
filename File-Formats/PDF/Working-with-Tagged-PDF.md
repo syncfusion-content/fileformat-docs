@@ -17,7 +17,7 @@ This section explains how to add tags to PDF elements such as text element, imag
 
 ## Adding tag to text element
 
-You can add tag to text or paragraphs in PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~PdfTag.html) property available in the [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTextElement.html) class and specifying the tag type as ```Paragraph``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfStructureElement.html) class.
+You can add tag to text or paragraphs in PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) property available in the [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) class and specifying the tag type as ```Paragraph``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html) class.
 
 The following code sample explains you how to add tag for the text element in PDF document.
 
@@ -259,7 +259,7 @@ else
 
 ## Adding tag to image
 
-You can add tag to image in the PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~PdfTag.html) property available in the [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfBitmap.html) class and specifying the tag type as ```Figure``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfStructureElement.html) class. You can add alternate text to image by using the the [AlternateText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfStructureElement~AlternateText.html) property available in the ```PdfStructureElement``` class.
+You can add tag to image in the PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) property available in the [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html) class and specifying the tag type as ```Figure``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html) class. You can add alternate text to image by using the the [AlternateText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html#Syncfusion_Pdf_PdfStructureElement_AlternateText) property available in the ```PdfStructureElement``` class.
 
 The following code explains how to add tag for image element in PDF document.
 
@@ -500,7 +500,7 @@ else
 
 ## Adding tag to shapes
 
-You can add tag to shapes such as rectangle, line, circle, polygon, and more by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~PdfTag.html) property and specifying the tag type as ```Figure``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum. You can add alternate text to shapes by using the the [AlternateText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfStructureElement~AlternateText.html) property available in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfStructureElement.html) class.
+You can add tag to shapes such as rectangle, line, circle, polygon, and more by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) property and specifying the tag type as ```Figure``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum. You can add alternate text to shapes by using the the [AlternateText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html#Syncfusion_Pdf_PdfStructureElement_AlternateText) property available in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html) class.
 
 The following code explains how to add tag for shape element in the PDF document.
 
@@ -735,7 +735,7 @@ else
 
 ## Adding tag to Form Fields
 
-You can tag the form fields in the PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~PdfTag.html) and specifying the tag type as ```Form``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum.
+You can tag the form fields in the PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) and specifying the tag type as ```Form``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum.
 
 The following code explains how to add tag for the form fields in PDF document.
 
@@ -977,7 +977,7 @@ else
 
 ## Adding tag to Annotation
 
-You can add tags to annotation in PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~PdfTag.html) property and specifying the tag type as ```Annotation``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum.
+You can add tags to annotation in PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) property and specifying the tag type as ```Annotation``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum.
 
 The following code explains how to add tag for the annotations in PDF document.
 
@@ -1241,7 +1241,7 @@ else
 
 ## Adding tag to Hyperlink
 
-You can tag the hyperlink present in the PDF document by using [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~PdfTag.html) available in the [PdfTextWebLink](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfTextWebLink.html) class and specifying the tag type as ```Link``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum. 
+You can tag the hyperlink present in the PDF document by using [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) available in the [PdfTextWebLink](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextWebLink.html) class and specifying the tag type as ```Link``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum. 
 
 The following code example shows how to add tag for hyperlink in PDF document
 
@@ -1510,7 +1510,7 @@ else
 
 ## Adding tag to Template
 
-You can add tags to template in PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~PdfTag.html) property available in the [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTemplate.html) class. 
+You can add tags to template in PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) property available in the [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTemplate.html) class. 
 
 The following code sample explains how to add tag support for the template element.
 
@@ -1722,7 +1722,7 @@ else
 
 ## Adding tag to Table
 
-You can tag the table in the PDF document by specifying the tag type as ```Table``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum. The following tag types are used to mention the table header, rows, and cells:
+You can tag the table in the PDF document by specifying the tag type as ```Table``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum. The following tag types are used to mention the table header, rows, and cells:
 
 1. PdfTagType.TableHeader
 2. PdfTagType.TableRow
@@ -2163,7 +2163,7 @@ else
 
 ## Adding tag to List Element
 
-You can add the tags to list element in PDF document by specifying the tag type as ```List``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum available in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfStructureElement.html) class. 
+You can add the tags to list element in PDF document by specifying the tag type as ```List``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum available in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html) class. 
 
 The following code example illustrates how to add tag support for list element.
 
@@ -2534,7 +2534,7 @@ else
 ## Marking PDF content as an artifact
 
 Artifacts in the PDF document can be graphic objects or other markings that are not a part of the authored content and will include such things as: headers, footers, page numbers, watermarks, cut marks, color bars, background images, lines separating content, or decorative images. 
-You can add artifact tag to PDF element by using the [PdfArtifact](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfArtifact.html) class. The artifact type can be speified by using the [ArtifactType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfArtifact~ArtifactType.html) property available in the ```PdfArtifact``` class.
+You can add artifact tag to PDF element by using the [PdfArtifact](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfArtifact.html) class. The artifact type can be speified by using the [ArtifactType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfArtifact.html#Syncfusion_Pdf_PdfArtifact_ArtifactType) property available in the ```PdfArtifact``` class.
 
 The following code explains how to add tag for header and footers in the PDF document.
 
@@ -2922,7 +2922,7 @@ else
 
 ## Tag Reading Order
 
-Basically, the element which draws first takes precedence over the tag reading order. You can re-order the tagged elements in document using the [Order](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfStructureElement~Order.html) property. 
+Basically, the element which draws first takes precedence over the tag reading order. You can re-order the tagged elements in document using the [Order](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html#Syncfusion_Pdf_PdfStructureElement_Order) property. 
 
 The following code example illustrates how to order the tagged elements in a PDF document.
 
@@ -3299,7 +3299,7 @@ else
 
 ## Auto Tagging a new document
 
-When the auto-tag feature is enabled, all the elements in the document is tagged with appropriate tag type that is ```Paragraph```, ```Figure```, ```Annotation```, and more from [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfTagType.html) Enum. 
+When the auto-tag feature is enabled, all the elements in the document is tagged with appropriate tag type that is ```Paragraph```, ```Figure```, ```Annotation```, and more from [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum. 
 
 The following code example explains how to auto-tag the elements in a PDF document.
 
@@ -3576,7 +3576,7 @@ Essential PDF provides support to convert HTML to TaggedPDF by using the MSHTML 
 
 The Tagged PDF is a stylized use of PDF that builds the logical structure Framework. It defines a set of standard structure types and attributes that allows the page content (text, graphics, and images) to be extracted and reused. The contents are accessible to users with visual impairments.
 
-To convert HTML to Tagged PDF, you can use the [ConvertToTaggedPDF](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.HtmlConverter~ConvertToTaggedPDF.html) method in [HtmlConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.HtmlConverter.html) class.
+To convert HTML to Tagged PDF, you can use the [ConvertToTaggedPDF](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlConverter.html#Syncfusion_HtmlConverter_HtmlConverter_ConvertToTaggedPDF_Syncfusion_Pdf_PdfDocument_System_String_) method in [HtmlConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlConverter.html) class.
 
 The following code illustrates how to convert HTML to TaggedPDF.
 
