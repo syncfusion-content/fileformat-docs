@@ -81,7 +81,7 @@ N> PDF supports OCR only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform
 
 ## Performing OCR for an entire document
 
-You can perform OCR on PDF document with the help of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor.html) Class. Refer the below code snippet for the same.
+You can perform OCR on PDF document with the help of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) Class. Refer the below code snippet for the same.
 
 {% tabs %}   
 
@@ -159,7 +159,7 @@ N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other exis
 
 ## Performing OCR with tesseract version 3.05
 
-You can perform OCR using the tesseract version 3.05. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TesseractVersion.html) property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
+You can perform OCR using the tesseract version 3.05. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html#Syncfusion_OCRProcessor_OCRSettings_TesseractVersion) property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
  
 You must use the pre built Syncfusion tesseract version 3.05 in the sample to run the OCR properly. The tesseract binaries are shipping with Syncfusion NuGet package, use the following link to download the NuGet package.
 
@@ -238,7 +238,7 @@ End Using
  
 ## Performing OCR with Tesseract Version 4.0
 
-You can perform OCR using tesseract 4.0. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TesseractVersion.html) property is used to switch the tesseract version. By default, OCR will be performed with tesseract version 3.02.
+You can perform OCR using tesseract 4.0. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html#Syncfusion_OCRProcessor_OCRSettings_TesseractVersion) property is used to switch the tesseract version. By default, OCR will be performed with tesseract version 3.02.
 
 You must use the pre-built Syncfusion tesseract 4.0 binaries in the project to run the OCR properly. The tesseract binaries are shipping with the Syncfusion NuGet package, use the following link to download the NuGet package.
 
@@ -317,7 +317,7 @@ End Using
 
 ## Performing OCR for a region of the document
 
-You can perform OCR on particular region or several regions of a PDF page with the help of [PageRegion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.PageRegion.html) class. Refer the below code snippet for the same.
+You can perform OCR on particular region or several regions of a PDF page with the help of [PageRegion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.PageRegion.html) class. Refer the below code snippet for the same.
 
 {% tabs %} 
 
@@ -483,7 +483,7 @@ End Using
 
 ## Performing OCR for large PDF documents
 
-You can optimize the memory to perform OCR for large PDF documents by enabling the isMemoryOptimized property in [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor~PerformOCR(PdfLoadedDocument,String,Boolean).html) method of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor.html) class. Optimization will be effective only with Multithreading environment or PDF document with more images. This is demonstrated in the following code sample. 
+You can optimize the memory to perform OCR for large PDF documents by enabling the isMemoryOptimized property in [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_System_Boolean_) method of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. Optimization will be effective only with Multithreading environment or PDF document with more images. This is demonstrated in the following code sample. 
 
 {% tabs %} 
 
@@ -639,7 +639,7 @@ End Using
 
 ## Layout result from OCR
 
-You can get the OCRed text and its bounds from a scanned PDF document by using the [OCRLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRLayoutResult.html) Class. Refer to the following code snippet. 
+You can get the OCRed text and its bounds from a scanned PDF document by using the [OCRLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRLayoutResult.html) Class. Refer to the following code snippet. 
  
 {% tabs %} 
 
@@ -917,7 +917,7 @@ End Using
 
 ## Customizing temp folder
 
-While performing OCR on an existing scanned PDF document, the OCR Processor will create temporary files (.temp, .tiff, .txt) and the files are deleted after the process is completed. You can change this temporary files folder location using the [TempFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TempFolder.html) property available in the [OCRSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings.html) Instance. Refer to the following code snippet.
+While performing OCR on an existing scanned PDF document, the OCR Processor will create temporary files (.temp, .tiff, .txt) and the files are deleted after the process is completed. You can change this temporary files folder location using the [TempFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html#Syncfusion_OCRProcessor_OCRSettings_TempFolder) property available in the [OCRSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html) Instance. Refer to the following code snippet.
 
 {% tabs %}  
 
@@ -1180,7 +1180,7 @@ For more details regarding quality improvement, refer to the following link:
 
 [https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality )
 
-**You can set the different performance level to the OCRProcessor using [Performance](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.Performance.html) enumeration.**
+**You can set the different performance level to the OCRProcessor using [Performance](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Performance.html) enumeration.**
 
 * Rapid – high speed OCR performance and provide normal OCR accuracy
 * Fast – provides moderate OCR processing speed and accuracy

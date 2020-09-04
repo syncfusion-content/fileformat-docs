@@ -1078,7 +1078,7 @@ Tabular layout:
 
 ### Pivot table row layout
 
-The [PivotTableRowLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) enumeration can be used to change the pivot table row layout as Compact or Outline or Tabular as below.
+The [PivotTableRowLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.PivotTableRowLayout.html) enumeration can be used to change the pivot table row layout as Compact or Outline or Tabular as below.
 
 {% tabs %}
 {% highlight c# %}
@@ -2293,7 +2293,7 @@ pivotTable.RepeatItemsOnEachPrintedPage = true;
 
 ### Repeat Labels
 
-You can repeat labels for row or column fields when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set to tabular or outline layout forms.
+You can repeat labels for row or column fields when the [pivot table layout](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.PivotTableRowLayout.html) is set to tabular or outline layout forms.
 
 **Specific Pivot Field**
 

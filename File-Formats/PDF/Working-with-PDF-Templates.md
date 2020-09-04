@@ -7,11 +7,11 @@ documentation: UG
 ---
 # Working with PDF Templates 
 
-A PDF template is a drawing surface, where contents can be added. All the elements that can be added to a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPage.html) is supported in [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTemplate.html) as well. The template in turn can be drawn over the page or can be positioned at any part of the page.
+A PDF template is a drawing surface, where contents can be added. All the elements that can be added to a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) is supported in [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTemplate.html) as well. The template in turn can be drawn over the page or can be positioned at any part of the page.
 
 ## Creating a new PDF template
 
-The [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTemplate.html) class can be used to create a new PDF template. You can add contents to the template using [Graphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTemplate~Graphics.html) property of the ```PdfTemplate``` object.
+The [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTemplate.html) class can be used to create a new PDF template. You can add contents to the template using [Graphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTemplate.html#Syncfusion_Pdf_Graphics_PdfTemplate__ctor_System_Drawing_RectangleF_) property of the ```PdfTemplate``` object.
 
 The below code snippet illustrates how to add contents to the ```PdfTemplate``` and render into the new PDF page.
 
@@ -262,7 +262,7 @@ else
 {% endtabs %}  
 
 
-The below code snippet illustrates how to render the [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTemplate.html) on an existing PDF document.
+The below code snippet illustrates how to render the [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTemplate.html) on an existing PDF document.
 
 {% tabs %}  
 
@@ -827,7 +827,7 @@ else
 
 ## Working with PdfPageTemplateElement
 
-[PdfPageTemplateElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageTemplateElement.html) is template element that can be added to any part of the PDF page such as header, footer etc.
+[PdfPageTemplateElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageTemplateElement.html) is template element that can be added to any part of the PDF page such as header, footer etc.
 
 The below code illustrates how to add the page template elements in a PDF document.
 

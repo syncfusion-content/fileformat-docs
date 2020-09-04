@@ -20,7 +20,7 @@ e.g. [http://www.syncfusion.com/downloads/support/directtrac/general/pd/mydocume
 
 ## Adding Named Destination to a PDF document
 
-You can add, remove and modify the named destination using [PdfNamedDestination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfNamedDestination.html) class. 
+You can add, remove and modify the named destination using [PdfNamedDestination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfNamedDestination.html) class. 
 
 The following code example shows how to add named destination in a new PDF document.
 
@@ -168,7 +168,7 @@ else
 
 ## Adding Named Destination to an existing PDF document
 
-The following code example shows how to add named destination in an existing PDF document using the [PdfNamedDestination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfNamedDestination.html) class.
+The following code example shows how to add named destination in an existing PDF document using the [PdfNamedDestination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfNamedDestination.html) class.
 
 {% tabs %} 
 
@@ -313,7 +313,7 @@ else
 
 ## Removing/Modifying the named destination
 
-You can remove the named destination using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfNamedDestinationCollection~Remove.html) method of [PdfNamedDestinationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfNamedDestinationCollection.html). The following code snippet illustrates the same.
+You can remove the named destination using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfNamedDestinationCollection.html#Syncfusion_Pdf_Interactive_PdfNamedDestinationCollection_Remove_System_String_) method of [PdfNamedDestinationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfNamedDestinationCollection.html). The following code snippet illustrates the same.
 
 {% tabs %}  
 
