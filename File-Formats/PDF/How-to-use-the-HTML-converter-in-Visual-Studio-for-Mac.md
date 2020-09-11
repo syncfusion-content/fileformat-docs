@@ -6,52 +6,15 @@ control: PDF
 documentation: UG
 keywords: Assemblies
 ---
+# Convert HTML to PDF file in ASP.NET Core Mac
 
-## How to download HTML Converter Mac installer?
+In your ASP.NET Core application, add the following assemblies to use Essential PDF:
 
-Refer this [link](https://help.syncfusion.com/common/essential-studio/download/) to download trial\licensed installer based on your license.
+* Syncfusion.Compression.Portable.dll
+* Syncfusion.Pdf.Portable.dll
+* Syncfusion.HtmlConverter.Portable.dll
 
-The latest WebKit HTML converter for Mac can be downloaded as PKG file from the following link,
-
-https://www.syncfusion.com/downloads/latest-version 
-
-In the downloads page, click the “Mac” button and download the HTML Converter Mac installer.
-![MacDownload](Convert-HTML-To-PDF/htmlconversion_images/MacDownload.png)
-
-## Step-by-Step Installation
-
-The following procedure illustrates how to install Essential Studio WebKit HTML Converter Mac installer. 
-
-Double-click the Syncfusion Essential Studio WebKit HTML Converter Mac installer(.pkg) file. The installer Wizard opens. Click <b>Continue</b>.
-![InstallationSteps1](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps1.png)
-
-Software License Agreement window opens. Click <b>Continue</b>.
-![InstallationSteps2](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps2.png)
-
-Confirmation window will be displayed for the License Agreement. Click <b>Agree</b>.
-![InstallationSteps3](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps3.png)
-
-N> Unlock key is not required for installing the Mac installer. Syncfusion Mac installer can be used for developing purposes without registering the Unlock key.
-
-Destination Select windows opens. Click <b>Continue</b>.
-![InstallationSteps4](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps4.png)
-
-Installation Type window opens. Click <b>Install</b>.
-![InstallationSteps5](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps5.png)
-
-Authentication window opens. Provide your system’s username, password and click <b>Install Software</b>.
-![InstallationSteps6](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps6.png)
-
-Installation will be started in your machine.
-![InstallationSteps7](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps7.png)
-
-Completed screen will be displayed once the installation is finished. Click Close to exit the installation wizard.
-![InstallationSteps8](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps8.png)
-
-By default, Mac installer will install the files in following location.
-
-Location: {Documents}\Syncfusion\ {version}\ {platform}
-![InstallationSteps9](Convert-HTML-To-PDF/htmlconversion_images/InstallationSteps9.png)
+For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## How to use the HTML converter in Visual Studio for Mac.
 
