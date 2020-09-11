@@ -1,6 +1,6 @@
 ---
 title: How to use the HTML converter in Visual Studio for Mac | Syncfusion
-description: Learn how to use the HTML converter in Visual Studio for Mac.
+description: Learn how to use the HTML converter in Visual Studio for Mac with easy steps using Syncfusion .NET Core PDF library.
 platform: file-formats
 control: PDF
 documentation: UG
