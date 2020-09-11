@@ -8,7 +8,7 @@ keywords: Assemblies
 ---
 # How to use the HTML converter in Visual Studio for Mac.
 
-In your ASP.NET Core application, add the following assemblies to use Essential PDF:
+In your ASP.NET Core application, add the following assemblies to use Essential HTML Converter:
 
 * Syncfusion.Compression.Portable.dll
 * Syncfusion.Pdf.Portable.dll
@@ -16,7 +16,7 @@ In your ASP.NET Core application, add the following assemblies to use Essential 
 
 For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
-## Steps to convert HTML to PDF document using WebKit in ASP.NET Core Mac
+## Steps to convert HTML to PDF using WebKit in ASP.NET Core Mac
 
 Create a new C# ASP.NET Core Web Application project.
 ![SampleCreation1](Convert-HTML-To-PDF/htmlconversion_images/SampleCreation1.png)
@@ -48,7 +48,7 @@ A default action method named Index will be present in HomeController.cs. Right 
 
 Add a new button in the Index.cshtml as shown below.
 
-{% highlight c# %}
+{% highlight html %}
 
 @{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
 {
