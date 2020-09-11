@@ -7,7 +7,8 @@ documentation: UG
 keywords: Supported and Unsupported Features of Presentation library
 ---
 
-**Supported and Unsupported Features** 
+# Supported and Unsupported Features
+
 <table>
 <tr>
 <td rowspan="2">

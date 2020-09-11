@@ -8,7 +8,7 @@ documentation: ug
 
 ---
 
-## Upgrade from trial version to license version
+# Upgrade from trial version to license version
 
 To upgrade from trial version, there are two possible solutions.
 
