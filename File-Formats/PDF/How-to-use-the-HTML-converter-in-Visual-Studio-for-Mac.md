@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 keywords: Assemblies
 ---
-# Convert HTML to PDF file in ASP.NET Core Mac
+# How to use the HTML converter in Visual Studio for Mac.
 
 In your ASP.NET Core application, add the following assemblies to use Essential PDF:
 
@@ -16,10 +16,10 @@ In your ASP.NET Core application, add the following assemblies to use Essential 
 
 For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
-## How to use the HTML converter in Visual Studio for Mac.
+## Steps to convert HTML to PDF document using WebKit in ASP.NET Core Mac
 
 Create a new C# ASP.NET Core Web Application project.
-![SampleCreation2](Convert-HTML-To-PDF/htmlconversion_images/SampleCreation1.png)
+![SampleCreation1](Convert-HTML-To-PDF/htmlconversion_images/SampleCreation1.png)
 
 Select the Target Framework of your project.
 ![SampleCreation2](Convert-HTML-To-PDF/htmlconversion_images/SampleCreation2.png)
