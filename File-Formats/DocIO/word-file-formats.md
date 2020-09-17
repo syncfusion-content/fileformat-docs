@@ -7,7 +7,7 @@ documentation: UG
 ---
 
 
-# Word File Formats
+# Word File Formats available in DocIO
 
 The [Microsoft Word's](https://en.wikipedia.org/wiki/Microsoft_Word#) native file formats are DOC, DOCX, RTF, DOT, DOTX, DOCM, and DOTM. The Essential DocIO supports the following major native file formats.
 
