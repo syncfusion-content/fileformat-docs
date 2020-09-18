@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Installation and Deployment process for Syncfusion Essential Studio File Formats products
-description: Learn how to install and deploy the Syncfusion File Formats component
+title: Upgrade and Installation steps for Syncfusion File Format products
+description: Learn installation and deployment process of trial version to license version of Syncfusion Essential Studio File Formats component.
 platform: file-formats
 control: Installation and Deployment
 documentation: ug
 
 ---
 
-## Upgrade from trial version to license version
+# Upgrade from trial version to license version
 
 To upgrade from trial version, there are two possible solutions.
 
