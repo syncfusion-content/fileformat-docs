@@ -11,7 +11,8 @@ documentation: UG
 
 Essential PDF supports removing or redacting the sensitive text and images from the PDF documents. Redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class to remove content.
 
-N> Note: CJK text without TrueType font and complex script text cannot be redacted.
+N> CJK text without TrueType font and complex script text cannot be redacted.
+N> To redact the content from the existing PDF document in .NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project.
 
 The following sample code snippet demonstrates the redaction of PDF documents from the specified bounds.
 
@@ -76,7 +77,52 @@ document.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+// Load the existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page from the document
+ 
+PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+// Create a redaction object
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(343, 147, 60, 17));
+
+// Add a redaction object into the redaction collection of loaded page
+
+page.AddRedaction(redaction);
+
+//Redact the contents from the PDF document
+
+loadedDocument.Redact();
+
+// Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the documents
+
+loadedDocument.Save(stream);
+
+//close the documents
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
 
 {% endhighlight %}
 
@@ -170,7 +216,62 @@ document.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+
+
+// Load the existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page from the document 
+
+PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+// Create a redaction object
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(343, 167, 100, 25), Color.Black);
+
+//Font for the overlay text 
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Courier, 10); 
+
+//Draw text on the redacted area 
+
+redaction.Appearance.Graphics.DrawString("Redacted", font, PdfBrushes.Red, new PointF(5, 5));
+
+// Add a redaction object into the redaction collection of loaded page
+
+page.AddRedaction(redaction);
+
+//Redact the contents from the PDF document
+
+loadedDocument.Redact();
+
+// Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the documents
+
+loadedDocument.Save(stream);
+
+//close the documents
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+string fileName = "output.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
 
 {% endhighlight %}
 
@@ -260,7 +361,60 @@ document.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+
+
+// Load the existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page from the document 
+
+PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+//Create a PDF redaction for the page 
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(63, 57, 182, 157)); 
+
+//Draw the image on the redacted bounds 
+
+PdfImage image = new PdfBitmap("Image.png"); 
+
+redaction.Appearance.Graphics.DrawImage(image, new RectangleF(0, 0, 182, 157));
+
+// Add a redaction object into the redaction collection of loaded page
+
+page.AddRedaction(redaction);
+
+//Redact the contents from the PDF document
+
+loadedDocument.Redact();
+
+// Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the documents
+
+loadedDocument.Save(stream);
+
+//close the documents
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+string fileName = "output.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
 
 {% endhighlight %}
 
@@ -430,7 +584,97 @@ document.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+
+// Load the existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page from the document 
+
+PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+//Create a PDF redaction for the page 
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(341, 149, 64, 14)); 
+
+//Draw a mosaic pattern on the redaction bounds 
+
+RectangleF rect = new RectangleF(0, 0, 8, 8); 
+
+PdfTilingBrush tillingBrush = new PdfTilingBrush(rect); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.Gray, new RectangleF(0, 0, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.White, new RectangleF(2, 0, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.LightGray, new RectangleF(4, 0, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.DarkGray, new RectangleF(6, 0, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.White, new RectangleF(0, 2, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.LightGray, new RectangleF(2, 2, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.Black, new RectangleF(4, 2, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.LightGray, new RectangleF(6, 2, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.LightGray, new RectangleF(0, 4, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.DarkGray, new RectangleF(2, 4, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.LightGray, new RectangleF(4, 4, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.White, new RectangleF(6, 4, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.Black, new RectangleF(0, 6, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.LightGray, new RectangleF(2, 6, 2, 2));
+ 
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.Black, new RectangleF(4, 6, 2, 2)); 
+
+tillingBrush.Graphics.DrawRectangle(PdfBrushes.DarkGray, new RectangleF(6, 6, 2, 2));
+ 
+rect = new RectangleF(0, 0, 16, 14); PdfTilingBrush tillingBrushNew = new PdfTilingBrush(rect); 
+
+tillingBrushNew.Graphics.DrawRectangle(tillingBrush, rect); 
+
+redaction.Appearance.Graphics.DrawRectangle(tillingBrushNew, new RectangleF(0, 0, 64, 14)); 
+
+// Add a redaction object into the redaction collection of loaded page
+
+page.AddRedaction(redaction);
+
+//Redact the contents from the PDF document
+
+loadedDocument.Redact();
+
+// Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the documents
+
+loadedDocument.Save(stream);
+
+//close the documents
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+string fileName = "output.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
 
 {% endhighlight %}
 
@@ -516,7 +760,57 @@ document.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+
+
+// Load the existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page from the document 
+
+PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+//Create a PDF redaction for the page 
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(343, 147, 60, 17)); 
+
+//Set fill color for the redaction bounds 
+
+redaction.FillColor = System.Drawing.Color.Black;
+
+// Add a redaction object into the redaction collection of loaded page
+
+page.AddRedaction(redaction);
+
+//Redact the contents from the PDF document
+
+loadedDocument.Redact();
+
+// Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the documents
+
+loadedDocument.Save(stream);
+
+//close the documents
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+string fileName = "output.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -594,7 +888,55 @@ document.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+
+// Load the existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page from the document 
+
+PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+//Create a PDF redaction for the page 
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(343, 147, 60, 17));
+
+// Add a redaction object into the redaction collection of loaded page
+
+page.AddRedaction(redaction);
+
+//Redact the contents from the PDF document
+
+loadedDocument.Redact();
+
+// Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the documents
+
+loadedDocument.Save(stream);
+
+//close the documents
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+string fileName = "output.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
+
+
 
 {% endhighlight %}
 

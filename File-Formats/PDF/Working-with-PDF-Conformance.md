@@ -2239,9 +2239,11 @@ document.Close(True)
 {% endtabs %}  
 
 
-## PDF to PDF/A-1b conversion
+## PDF to PDF/A conversion
 
-An existing PDF document can be converted to PDF/A-1b conformance document, by setting the [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance) value in the [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) to ```Pdf_A1B``` of  [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html). Refer the below code snippet to achieve the same.
+An existing PDF document can be converted to PDF/A conformance document, by setting the [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance) value in the [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) to ```Pdf_A1B```,```pdf_A2B```, and ```pdf_A3B``` of  [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html). Refer to the following code sample to achieve the same.
+
+N> To convert the existing PDF to PDF/A conformance document in .NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project.
 
 {% tabs %}  
 
@@ -2287,8 +2289,230 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Sample level font event handling
+
+loadedDocument.SubstituteFont += LoadedDocument_SubstituteFont ;
+
+//Convert the loaded document to PDF/A document
+
+loadedDocument.ConvertToPDFA(PdfConformanceLevel.Pdf_A1B);
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document
+
+loadedDocument.Save(stream); 
+
+stream.Position = 0; 
+
+//Close the document 
+
+loadedDocument.Close(true); 
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+
+//Define the file name 
+
+string fileName = "output.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+To convert an existing PDF document to the PDFA document in .NET Core, you need to substitute the non-embedded fonts in the input document. Refer to the the following code sample to achieve the same.
+
+{% tabs %} 
+
+static void LoadedDocument_SubstituteFont(object sender, PdfFontEventArgs args)
+{
+     //get the fontname
+
+     string fontName = args.FontName.Split(',')[0];
+
+     //get the fontstyle
+
+     PdfFontStyle fontStyle = args.FontStyle;
+
+     SKFontStyle sKFontStyle = SKFontStyle.Normal;
+
+     if (fontStyle != PdfFontStyle.Regular)
+     {
+         if (fontStyle == PdfFontStyle.Bold)
+         {
+             sKFontStyle = SKFontStyle.Bold;
+         }
+         else if (fontStyle == PdfFontStyle.Italic)
+         {
+             sKFontStyle = SKFontStyle.Italic;
+         }
+         else if (fontStyle == (PdfFontStyle.Italic | PdfFontStyle.Bold))
+         {
+             sKFontStyle = SKFontStyle.BoldItalic;
+         }
+    }
+	
+    SKTypeface typeface = SKTypeface.FromFamilyName(fontName, sKFontStyle);
+
+    SKStreamAsset typeFaceStream = typeface.OpenStream();
+
+    MemoryStream memoryStream = null;
+
+    if (typeFaceStream != null && typeFaceStream.Length > 0)
+    {
+         //Create the fontData from the type face stream.
+		 
+         byte[] fontData = new byte[typeFaceStream.Length - 1];
+		 
+         typeFaceStream.Read(fontData, typeFaceStream.Length);
+		 
+         typeFaceStream.Dispose();
+		 
+         //Create the new memory stream from the font data.
+		 
+         memoryStream = new MemoryStream(fontData);
+    }
+	
+    //set the font stream to the event args.
+	
+    args.FontStream = memoryStream;
+}
+
+
 {% endtabs %}  
 
 N> 1. Converting PDF to PDF/X-1a conformance document is not supported.
 N> 2. CMYK color space images and symbolic fonts are not supported.
-N> 3. From the .NET Framework 3.5 version, the Essential PDF is compatible with the PDF to PDF/A-1B conversion. 
+N> 3. From the .NET Framework 3.5 version, the Essential PDF is compatible with the PDF to PDF/A conversion. 
+
+
+## Get PDF Conformance Level
+
+You can find the conformance level of the existing PDF document using the  [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance)  property. Refer to the following code sample to get the conformance level of the existing PDF document. 
+
+{% tabs %} 
+
+{% highlight c# %}
+
+
+//Load an existing PDF. 
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf"); 
+
+//Get the conformance level of the loaded document. 
+
+PdfConformanceLevel conformance= loadedDocument.Conformance;
+
+//close the document. 
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load an existing PDF. 
+
+Dim document As New PdfLoadedDocument("Input.pdf") 
+
+'Get the conformance level of the loaded document. 
+
+PdfConformanceLevel conformance= loadedDocument.Conformance;
+
+'close the document. 
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Create the file open picker 
+
+var picker = new FileOpenPicker(); 
+
+picker.FileTypeFilter.Add(".pdf"); 
+
+//Browse and choose the file 
+
+StorageFile file = await picker.PickSingleFileAsync(); 
+
+//Creates an empty PDF loaded document instance. 
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(); 
+
+//Loads or opens an existing PDF document through Open method of the PdfLoadedDocument class 
+
+await loadedDocument.OpenAsync(file); 
+
+//Get the conformance level of the loaded document. 
+
+PdfConformanceLevel conformance = loadedDocument.Conformance;
+
+//Close the document. 
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Load an existing PDF document
+
+FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the conformance level of the loaded document. 
+
+PdfConformanceLevel conformance = loadedDocument.Conformance;
+
+//close the document.
+
+loadedDocument.Close(true); 
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Load the file as a stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+ 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream); 
+
+//Get the conformance level of the loaded document. 
+
+PdfConformanceLevel conformance = loadedDocument.Conformance;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% endtabs %} 
