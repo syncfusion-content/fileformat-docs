@@ -2721,7 +2721,7 @@ Spaces between chart bars are of two types.
 1. **Series Overlap** : Space between bars of different data series of single category.
 2. **Gap Width** : Space between different categories.
 
-Essential XlsIO allows you to adjust the space between chart bars using [Overlap](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartFormat~Overlap.html) and [GapWidth](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartFormat~GapWidth.html) properties of **IChartFormat** interface.
+Essential XlsIO allows you to adjust the space between chart bars using [Overlap](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartFormat.html#Syncfusion_XlsIO_IChartFormat_Overlap) and [GapWidth](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartFormat.html#Syncfusion_XlsIO_IChartFormat_GapWidth) properties of **IChartFormat** interface.
 
 Refer the following complete code snippets.
 
@@ -3552,7 +3552,7 @@ Chart elements helps in modifying the chart appearance. The different chart elem
 
 Plot area holds the data series of a chart. This plot area can be filled with solid colors, texture, picture, and pattern. 
 
-Essential XlsIO allows you to fill plot area with picture using the [UserPicture](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFill~UserPicture.html) of **IFill** interface. Refer to the following complete code snippets.
+Essential XlsIO allows you to fill plot area with picture using the [UserPicture](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_UserPicture_System_Drawing_Image_System_String_) of **IFill** interface. Refer to the following complete code snippets.
 
 {% tabs %}
 {% highlight C# %}
@@ -3723,7 +3723,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 Chart area holds plot area, legend, axes, data table, and so on. This chart area can be filled with solid colors, texture, picture, and pattern. 
 
-Similar to plot area, chart area can be filled with picture using [UserPicture](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFill~UserPicture.html) of **IFill** interface. Refer to the following complete code snippets.
+Similar to plot area, chart area can be filled with picture using [UserPicture](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_UserPicture_System_Drawing_Image_System_String_) of **IFill** interface. Refer to the following complete code snippets.
 {% tabs %}
 {% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -4786,7 +4786,7 @@ N> In order to position the chart elements, plot area should be smaller than cha
 
 ## Explode a Pie Chart
 
-Essential XlsIO allows you to explode either all data points at a single explosion value or each data point at different explosion using [Percent](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartSerieDataFormat~Percent.html) of **IChartSerieDataFormat** interface.
+Essential XlsIO allows you to explode either all data points at a single explosion value or each data point at different explosion using [Percent](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartSerieDataFormat.html#Syncfusion_XlsIO_IChartSerieDataFormat_Percent) of **IChartSerieDataFormat** interface.
 
 You can either create a pie chart and then explode it or directly create an exploded pie chart using XlsIO. Selecting `Pie_Exploded` as **ChartType** inserts a pie chart with a default explosion of **25%**. Learn how to [Create an Exploded Pie Chart](https://www.syncfusion.com/kb/8539/how-to-create-excel-exploded-pie-chart-in-c-vb-net).
 
