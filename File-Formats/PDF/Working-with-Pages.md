@@ -2684,7 +2684,7 @@ else
 
 ## Detect empty pages from a PDF document
 
-You can find the empty pages from the PDF document using the Isblank property as shown in the following code sample.  
+You can find the empty pages from the PDF document using the[Isblank](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_Isblank) property as shown in the following code sample.  
 
 {% tabs %}  
 
