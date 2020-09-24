@@ -2110,7 +2110,7 @@ To avoid this, the Essential DocIO library allows you to set an alternate font f
 
 ### Use alternate font from installed fonts
 
-You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using the [SubstituteFont](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base%7ESyncfusion.DocIO.DLS.FontSettings%7ESubstituteFont_EV.html) event.
+You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using the [SubstituteFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.FontSettings.html) event.
 
 The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font not installed in the machine. 
 
