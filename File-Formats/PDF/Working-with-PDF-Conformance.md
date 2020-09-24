@@ -1,6 +1,6 @@
 ---
 title: Working with PDF conformance | Syncfusion
-description: This section explains how to create a PDF conformance documents and convert PDF to PDF/a-1b conformance document.
+description: This section explains how to create a PDF conformance documents and convert PDF to PDF/A conformance document.
 platform: file-formats
 control: PDF
 documentation: UG
