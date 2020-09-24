@@ -25,7 +25,7 @@ When an existing document is opened or a new document is created, the XlsIO libr
 </tr>
 <tr>
 <td>IApplication<br/><br/></td>
-<td><a href="https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication.html">https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication.html</a><br/><br/></td>
+<td><a href="https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html">https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html</a><br/><br/></td>
 </tr>
 <tr>
 <td>IWorkbooks<br/><br/></td>
