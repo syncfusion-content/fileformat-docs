@@ -1,6 +1,6 @@
 ---
 title: Working with Redaction |Syncfusion
-description: This section explains how to Redact PDF document by using Essential PDF
+description: This section explains how to Redact the content from an existing PDF document by using Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG
