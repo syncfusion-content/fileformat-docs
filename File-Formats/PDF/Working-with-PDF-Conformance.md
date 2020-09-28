@@ -2338,6 +2338,8 @@ To convert an existing PDF document to the PDFA document in .NET Core, you need 
 
 {% tabs %} 
 
+{% highlight ASP.NET Core %}
+
 static void LoadedDocument_SubstituteFont(object sender, PdfFontEventArgs args)
 {
      //get the fontname
@@ -2392,6 +2394,7 @@ static void LoadedDocument_SubstituteFont(object sender, PdfFontEventArgs args)
     args.FontStream = memoryStream;
 }
 
+{% endhighlight %}
 
 {% endtabs %}  
 
