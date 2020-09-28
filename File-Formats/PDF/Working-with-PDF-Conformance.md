@@ -2415,7 +2415,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
 //Get the conformance level of the loaded document. 
 
-PdfConformanceLevel conformance= loadedDocument.Conformance;
+PdfConformanceLevel conformance = loadedDocument.Conformance;
 
 //close the document. 
 
@@ -2433,7 +2433,7 @@ Dim document As New PdfLoadedDocument("Input.pdf")
 
 'Get the conformance level of the loaded document. 
 
-PdfConformanceLevel conformance= loadedDocument.Conformance;
+PdfConformanceLevel conformance = loadedDocument.Conformance;
 
 'close the document. 
 
