@@ -2342,11 +2342,11 @@ To convert an existing PDF document to the PDFA document in .NET Core, you need 
 
 static void LoadedDocument_SubstituteFont(object sender, PdfFontEventArgs args)
 {
-     //get the fontname
+     //get the font name
 
      string fontName = args.FontName.Split(',')[0];
 
-     //get the fontstyle
+     //get the font style
 
      PdfFontStyle fontStyle = args.FontStyle;
 
