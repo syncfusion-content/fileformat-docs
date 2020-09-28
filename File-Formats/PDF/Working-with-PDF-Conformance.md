@@ -2402,7 +2402,7 @@ N> 3. From the .NET Framework 3.5 version, the Essential PDF is compatible with 
 
 ## Get PDF Conformance Level
 
-You can find the conformance level of the existing PDF document using the  [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance)  property. Refer to the following code sample to get the conformance level of the existing PDF document. 
+You can find the conformance level of the existing PDF document using the [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance)  property. Refer to the following code sample to get the conformance level of the existing PDF document. 
 
 {% tabs %} 
 
