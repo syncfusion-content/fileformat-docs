@@ -2684,7 +2684,7 @@ else
 
 ## Detect empty pages from a PDF document
 
-You can find the empty pages from the PDF document using the [Isblank](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_Isblank) property as shown in the following code sample.  
+You can find the empty pages from the PDF document using the [IsBlank](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_IsBlank) property as shown in the following code sample.  
 
 {% tabs %}  
 
@@ -2700,7 +2700,7 @@ PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
 
 //Get the page is blank or not
 
-bool isEmpty = loadedPage.Isblank;
+bool isEmpty = loadedPage.IsBlank;
 
 // Save the Document
 
@@ -2724,7 +2724,7 @@ loadedDocument.Close(true);
  
 'Get the page is blank or not.
 
- bool isEmpty = loadedPage.Isblank
+ bool isEmpty = loadedPage.IsBlank
  
  'Save the document.
  
@@ -2762,7 +2762,7 @@ PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
 
 //get the page is blank or not.
 
-bool isEmpty = loadedPage.Isblank;
+bool isEmpty = loadedPage.IsBlank;
 
 //Save the document as a stream.
 
@@ -2794,7 +2794,7 @@ PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
 
 //get the page is blank or not.
 
-bool isEmpty = loadedPage.Isblank;
+bool isEmpty = loadedPage.IsBlank;
 
 //Save the document into a stream 
 
@@ -2838,7 +2838,7 @@ PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
 
 //Get the page is blank or not.
 
-bool isEmpty = loadedPage.Isblank;
+bool isEmpty = loadedPage.IsBlank;
 
 //Save the document into a stream
 
