@@ -1,11 +1,11 @@
 ---
 title: Working with pages | Syncfusion
-description: This section explains how to add, rearrange and remove pages from the PDF document
+description: This section explains how to add, rearrange, remove pages and detect empty pages from the PDF document
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Pages
+# Working with PDF document Pages
 
 ## Adding a new page to the document
 
@@ -2668,6 +2668,187 @@ loadedDocument.Save(memoryStream);
 //Save the stream into pdf file
 
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Detect empty pages from a PDF document
+
+You can find the empty pages from the PDF document using the [Isblank](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_Isblank) property as shown in the following code sample.  
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Gets the page.
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+
+//Get the page is blank or not
+
+bool isEmpty = loadedPage.Isblank;
+
+// Save the Document
+
+loadedDocument.Save("Output.pdf");
+
+// Close the Document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document.
+
+ Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+ 
+'Gets the page.
+
+ Dim page As PdfPageBase = TryCast(loadedDocument.Pages(0), PdfPageBase)
+ 
+'Get the page is blank or not.
+
+ bool isEmpty = loadedPage.Isblank
+ 
+ 'Save the document.
+ 
+loadedDocument.Save("Output.pdf")
+ 
+'Closes the document.
+
+ loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker 
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file 
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document using the Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Gets the page
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+
+//get the page is blank or not.
+
+bool isEmpty = loadedPage.Isblank;
+
+//Save the document as a stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document. 
+
+loadedDocument.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples. 
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Gets the page
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+
+//get the page is blank or not.
+
+bool isEmpty = loadedPage.Isblank;
+
+//Save the document into a stream 
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty. 
+
+stream.Position = 0;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file. 
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as a stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf ");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream); 
+
+//Gets the page
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+
+//Get the page is blank or not.
+
+bool isEmpty = loadedPage.Isblank;
+
+//Save the document into a stream
+
+MemoryStream memoryStream = new MemoryStream();
+
+loadedDocument.Save(memoryStream);
+
+//Save the stream into a PDF file
+
+//The operation saves under the Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
