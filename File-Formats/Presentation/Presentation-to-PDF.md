@@ -515,6 +515,9 @@ Dim pdfConverterSettings As PresentationToPdfConverterSettings = new Presentatio
 'Enable the portable rendering.
 pdfConverterSettings.EnablePortableRendering = true
 
+'Use a sets of default FallbackFont collection to IPresentation
+pptxDoc.FontSettings.InitializeFallbackFonts
+
 'Converts the PowerPoint Presentation into PDF document
 Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 
@@ -664,6 +667,12 @@ Dim pdfConverterSettings As PresentationToPdfConverterSettings = new Presentatio
 
 'Enable the portable rendering.
 pdfConverterSettings.EnablePortableRendering = true
+
+'Use a sets of default FallbackFont collection to IPresentation
+pptxDoc.FontSettings.InitializeFallbackFonts
+' Customize a default fallback font name
+' Modify the Hebrew script default font name as "David"
+pptxDoc.FontSettings.FallbackFonts(5).FontNames = "David"
 
 'Converts the PowerPoint Presentation into PDF document
 Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
@@ -829,6 +838,20 @@ Dim pdfConverterSettings As PresentationToPdfConverterSettings = new Presentatio
 
 'Enable the portable rendering.
 pdfConverterSettings.EnablePortableRendering = true
+
+'Add custom fallback font names
+' Arabic
+pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(1536, 1791, "Arial"))
+' Hebrew
+pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(1424, 1535, "Arial"))
+' Hindi
+pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(2304, 2431, "Mangal"))
+' Chinese
+pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(19968, 40959, "DengXian"))
+' Japanese
+pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(12352, 12447, "MS Mincho"))
+' Korean
+pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(44032, 55203, "Malgun Gothic"))
 
 'Converts the PowerPoint Presentation into PDF document
 Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
