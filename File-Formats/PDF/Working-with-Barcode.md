@@ -10,7 +10,7 @@ documentation:
 Essential PDF provides support to add barcodes to the PDF document. The following barcode types are supported.
 
 * 10 one-dimensional barcodes including Code 39 and Code 32 barcodes.
-* 2 two-dimensional barcodes such as QR and DataMatrix barcode
+* 2 two-dimensional barcodes such as QR, DataMatrix and PDF417 barcodes
 
 ## Adding a one dimensional barcode to the PDF document
 
@@ -462,6 +462,239 @@ else
 
 {% endtabs %}
 
+The below code snippet shows how to add a Pdf417 barcode code using [Pdf417Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.Pdf417Barcode.html) class to the PDF document.
+{% tabs %}
+{% highlight c# %}
+
+//Creates a new Pdf417 Barcode.
+
+Pdf417Barcode barcode = new Pdf417Barcode();
+
+//Set error correction level.
+
+barcode.ErrorCorrectionLevel= Pdf417ErrorCorrectionLevel.Auto;
+
+//Set XDimension
+
+barcode.XDimension = 2;
+
+//Set the barcode text
+
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Saving the document.
+
+document.Save("417Barcode.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new Pdf417 Barcode.
+
+Dim barcode As New Pdf417Barcode()
+
+'Set error correction level.
+
+barcode.ErrorCorrectionLevel = Pdf417ErrorCorrectionLevel.Auto
+
+'Set XDimension
+
+barcode.XDimension = 2
+
+'Set the barcode text
+
+barcode.Text = "http://www.syncfusion.com"
+
+'Creating new PDF document.
+
+Dim document As New PdfDocument()
+
+'Adding new page to PDF document.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Printing barcode on to the Pdf
+
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the document.
+
+document.Save("417Barcode.pdf")
+
+Close the document.
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+// Creates a new Pdf417 Barcode.
+
+Pdf417Barcode barcode = new Pdf417Barcode();
+
+//Set error correction level.
+
+barcode.ErrorCorrectionLevel= Pdf417ErrorCorrectionLevel.Auto;
+
+//Set XDimension
+
+barcode.XDimension = 2;
+
+//Set the barcode text
+
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70)); 
+     
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemorySteam(); 
+
+document.Save(stream); 
+
+//Close the document 
+
+document.Close(true);
+ 
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
+
+Save(stream, "417Barcode.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Creates a new Pdf417 Barcode.
+
+Pdf417Barcode barcode = new Pdf417Barcode();
+
+//Set error correction level.
+
+barcode.ErrorCorrectionLevel= Pdf417ErrorCorrectionLevel.Auto;
+
+//Set XDimension
+
+barcode.XDimension = 2;
+
+//Set the barcode text
+
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Creating the stream object 
+
+MemoryStream stream = new MemoryStream(); 
+
+//Save the document into stream 
+
+document.Save(stream); 
+
+//If the position is not set to '0' then the PDF will be empty 
+
+stream.Position = 0; 
+
+//Close the document
+ 
+document.Close(true); 
+
+//Defining the ContentType for pdf file
+ 
+string contentType = "application/pdf";
+ 
+//Define the file name 
+
+string fileName = "417Barcode.pdf"; 
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+// Creates a new Pdf417 Barcode.
+
+Pdf417Barcode barcode = new Pdf417Barcode();
+
+//Set error correction level.
+
+barcode.ErrorCorrectionLevel= Pdf417ErrorCorrectionLevel.Auto;
+
+//Set XDimension
+
+barcode.XDimension = 2;
+
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream);
+
+//Close the document
+ 
+document.Close(true); 
+
+//Save the stream into pdf file
+ 
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("417Barcode.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Set location and size to the barcode
 
@@ -1100,6 +1333,11 @@ variable<br/><br/></td></tr>
 <td>
 {{'[Code 128C](https://en.wikipedia.org/wiki/Code_128#"")'| markdownify }}<br/><br/></td><td>
 ASCII 00-99(encodes each two digit with one code)<br/><br/></td><td>
+variable<br/><br/></td></tr>
+<tr>
+<td>
+{{'[Pdf417 ](https://en.wikipedia.org/wiki/PDF417#"")'| markdownify }}<br/><br/></td><td>
+[0-9]; [A-Z]; [a-z]; Mixed; Punctuation; Byte<br/><br/></td><td>
 variable<br/><br/></td></tr>
 </tbody>
 </table>

@@ -4448,7 +4448,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RedactionAnnotation.pd
 
 {% endtabs %}
 
-N>The redaction annotation flatten operation is currently supported in the .NET Framework only, it is not supported in the UWP, Xamarin, and ASP.NET Core platforms.
+N>The redaction annotation flatten operation is currently supported in the .NET Framework and ASP.NET Core platforms only, it is not supported in the UWP, Xamarin platforms.
 
 ## Cloud border style Annotation
 
@@ -7222,6 +7222,162 @@ else
 
 {% endtabs %}
 
+##Importing annotations from JSON file
+
+JSON stands for JavaScript Object Notation. It is a collection of key or value pairs and it is used for serializing and transmitting the structured data over a network connection. You can import the annotation data from the JSON file to PDF using the [ImportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ImportAnnotations_System_IO_Stream_Syncfusion_Pdf_Parsing_AnnotationDataFormat_) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Loads the document 
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
+
+//Import the annotation data from the JSON file 
+
+lDoc.ImportAnnotations("Annotations.Json", AnnotationDataFormat.Json); 
+
+//Saves the document 
+
+lDoc.Save("Annotation.pdf"); 
+
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the document 
+
+Dim lDoc As New PdfLoadedDocument("input.pdf") 
+
+'Import the annotation data from the JSON file 
+
+lDoc.ImportAnnotations("Annotations.Json", AnnotationDataFormat.Json) 
+
+'Saves the document 
+
+lDoc.Save("Annotation.pdf") 
+
+'close the document 
+
+lDoc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker 
+
+var picker = new FileOpenPicker(); 
+
+picker.FileTypeFilter.Add(".pdf"); 
+
+//Browse and choose the file 
+
+StorageFile file = await picker.PickSingleFileAsync(); 
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(); 
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class 
+
+await lDoc.OpenAsync(file); 
+
+//Load the JSON file stream from the disk 
+
+Stream jsonStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Annotations.Json"); 
+
+//Import annotation data from json stream 
+
+lDoc.ImportAnnotations(jsonStream, AnnotationDataFormat.Json) 
+
+MemoryStream stream = new MemoryStream(); 
+
+await lDoc.SaveAsync(stream); 
+
+//Close the document 
+
+lDoc.Close(true); 
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for the respective code samples 
+
+Save(stream, "Annotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document 
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read); 
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream); 
+
+//Import the annotation data from the JSON stream 
+
+FileStream jsonStream = new FileStream("Annotations.Json", FileMode.Open, FileAccess.Read); 
+
+lDoc.ImportAnnotations(jsonStream, AnnotationDataFormat.Json); 
+
+//Save the document into the stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+lDoc.Save(stream); 
+
+stream.Position = 0; 
+
+//Closes the document 
+
+lDoc.Close(true); 
+
+//Defining the ContentType for PDF file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name 
+
+string fileName = "Annotation.pdf"; 
+
+//Creates a FileContentResult object by using the file contents, content type, and file name 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as a stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf"); 
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream); 
+
+//Import the annotation data from the JSON stream 
+
+Stream jsonStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.Json"); 
+
+lDoc.ImportAnnotations(jsonStream, AnnotationDataFormat.Json); 
+
+//Save the document into the stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+lDoc.Save(stream); 
+
+//Close the document 
+
+lDoc.Close(true); 
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportAnnotation.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Exporting annotations to FDF file
 
 To export annotation data to the FDF file from PDF document, you can use the [ExportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ExportAnnotations_System_IO_Stream_Syncfusion_Pdf_Parsing_AnnotationDataFormat_) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
@@ -7518,6 +7674,145 @@ else
 
 {% endtabs %}
 
+##Exporting annotations to JSON file
+
+To export annotation data to the JSON file from PDF document, you can use the [ExportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ExportAnnotations_System_IO_Stream_Syncfusion_Pdf_Parsing_AnnotationDataFormat_) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Loads the document 
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
+
+//Export the annotation data to the JSON file 
+
+lDoc.ExportAnnotations("Annotations.Json", AnnotationDataFormat.Json); 
+
+//Close the document 
+
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the document 
+
+Dim lDoc As New PdfLoadedDocument("input.pdf") 
+
+'Export the annotation data to the JSON file 
+
+lDoc.ExportAnnotations("Annotations.Json", AnnotationDataFormat.Json) 
+
+'Close the document 
+
+lDoc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker 
+
+var picker = new FileOpenPicker(); 
+
+picker.FileTypeFilter.Add(".pdf"); 
+
+//Browse and choose the file 
+
+StorageFile file = await picker.PickSingleFileAsync(); 
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(); 
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class 
+
+await lDoc.OpenAsync(file); 
+
+//Load the JSON file stream from the disk 
+
+Stream jsonStream = new MemoryStream(); 
+
+//Export the annotation data from the JSON stream 
+
+lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json) 
+
+//Save the jsonStream as a JSON document file in the local machine. Refer to the PDF/UWP section for the respective code samples 
+
+Save(jsonStream, "Annotations.Json"); 
+
+//Close the document 
+
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document 
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read); 
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream); 
+
+//Export the annotation data from the JSON stream 
+
+Stream jsonStream = new MemoryStream(); 
+
+lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json) 
+
+//Close the document 
+
+lDoc.Close(true); 
+
+jsonStream.Position = 0; 
+
+//Defining the ContentType for Json file 
+
+string contentType = "application/Json"; 
+
+//Define the file name 
+
+string fileName = "Annotations.Json"; 
+
+//Creates a FileContentResult object by using the file contents, content type, and file name 
+
+return File(jsonStream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as a stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Export the annotation data from the JSON stream
+
+Stream jsonStream = new MemoryStream();
+
+lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json);
+
+//Save the document into the stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExportAnnotation.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Adding comments and review status to the PDF annotation
 
