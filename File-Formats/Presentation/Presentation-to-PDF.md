@@ -460,6 +460,497 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 {% endhighlight %}
 {% endtabs %}
 
+## Fall back fonts
+
+### Initialize Fallback Fonts
+
+{% tabs %}
+
+{% highlight c# %}
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.OfficeChartToImageConverter;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using Syncfusion.Pdf;
+
+//Opens a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
+
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+
+//Enable the portable rendering
+pdfConverterSettings.EnablePortableRendering = true;
+
+//Use a sets of default FallbackFont collection to IPresentation
+pptxDoc.FontSettings.InitializeFallbackFonts();
+
+//Converts the PowerPoint Presentation into PDF document with Portable rendering option
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, true);
+
+//Saves the PDF document
+pdfDocument.Save(Path.Combine(ExportPdfOutput, Path.GetFileNameWithoutExtension(fileName) + "_" + testType + "_pdf.pdf"));
+
+//Closes the PDF document
+pdfDocument.Close(true);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Namespaces to perform PPTX to PDF conversion
+Imports Syncfusion.OfficeChartToImageConverter
+Imports Syncfusion.Presentation
+Imports Syncfusion.PresentationToPdfConverter
+Imports Syncfusion.Pdf
+
+'Opens a PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+
+'Initialize the conversion settings
+Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
+
+'Enable the portable rendering.
+pdfConverterSettings.EnablePortableRendering = true
+
+'Converts the PowerPoint Presentation into PDF document
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
+
+'Saves the PDF document
+pdfDocument.Save("Sample.pdf")
+
+'Closes the PDF document
+pdfDocument.Close(True)
+
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+	    //Use a sets of default FallbackFont collection to IPresentation.
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+
+        //Create the MemoryStream to save the converted PDF
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+		//Use a sets of default FallbackFont collection to IPresentation
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+
+        //Create the MemoryStream to save the converted PDF
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Customize Default Fallback Fonts
+
+{% tabs %}
+
+{% highlight c# %}
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.OfficeChartToImageConverter;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using Syncfusion.Pdf;
+
+//Opens a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
+
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+
+//Enable the portable rendering
+pdfConverterSettings.EnablePortableRendering = true;
+
+//Use a sets of default FallbackFont collection to IPresentation
+pptxDoc.FontSettings.InitializeFallbackFonts();
+// Customize a default fallback font name
+// Modify the Hebrew script default font name as "David"
+pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+
+//Converts the PowerPoint Presentation into PDF document
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+
+//Saves the PDF document
+pdfDocument.Save("Sample.pdf");
+
+//Closes the PDF document
+pdfDocument.Close(true);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Namespaces to perform PPTX to PDF conversion
+Imports Syncfusion.OfficeChartToImageConverter
+Imports Syncfusion.Presentation
+Imports Syncfusion.PresentationToPdfConverter
+Imports Syncfusion.Pdf
+
+'Opens a PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+
+'Initialize the conversion settings
+Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
+
+'Enable the portable rendering.
+pdfConverterSettings.EnablePortableRendering = true
+
+'Converts the PowerPoint Presentation into PDF document
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
+
+'Saves the PDF document
+pdfDocument.Save("Sample.pdf")
+
+'Closes the PDF document
+pdfDocument.Close(True)
+
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+	    //Use a sets of default FallbackFont collection to IPresentation
+	    pptxDoc.FontSettings.InitializeFallbackFonts();
+	    // Customize a default fallback font name
+	    // Modify the Hebrew script default font name as "David"
+	    pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+
+        //Create the MemoryStream to save the converted PDF.
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+	    //Use a sets of default FallbackFont collection to IPresentation
+	    pptxDoc.FontSettings.InitializeFallbackFonts();
+	    // Customize a default fallback font name
+	    // Modify the Hebrew script default font name as "David"
+	    pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+		
+        //Create the MemoryStream to save the converted PDF.
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Add Custom Fallback Fonts
+
+{% tabs %}
+
+{% highlight c# %}
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.OfficeChartToImageConverter;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using Syncfusion.Pdf;
+
+//Opens a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
+
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+
+//Enable the portable rendering
+pdfConverterSettings.EnablePortableRendering = true;
+
+//Add custom fallback font names
+
+// Arabic
+pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+// Hebrew
+pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+// Hindi
+pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+// Chinese
+pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+// Japanese
+pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+// Korean
+pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+
+//Converts the PowerPoint Presentation into PDF document
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+
+//Saves the PDF document
+pdfDocument.Save("Sample.pdf");
+
+//Closes the PDF document
+pdfDocument.Close(true);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Namespaces to perform PPTX to PDF conversion
+Imports Syncfusion.OfficeChartToImageConverter
+Imports Syncfusion.Presentation
+Imports Syncfusion.PresentationToPdfConverter
+Imports Syncfusion.Pdf
+
+'Opens a PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+
+'Initialize the conversion settings
+Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
+
+'Enable the portable rendering.
+pdfConverterSettings.EnablePortableRendering = true
+
+'Converts the PowerPoint Presentation into PDF document
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
+
+'Saves the PDF document
+pdfDocument.Save("Sample.pdf")
+
+'Closes the PDF document
+pdfDocument.Close(True)
+
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+	   //Add custom fallback font names
+
+       // Arabic
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+       // Hebrew
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+       // Hindi
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+       // Chinese
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+       // Japanese
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+       // Korean
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+
+        //Create the MemoryStream to save the converted PDF.
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+	   //Add custom fallback font names
+
+       // Arabic
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+       // Hebrew
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+       // Hindi
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+       // Chinese
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+       // Japanese
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+       // Korean
+       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+	   
+        //Create the MemoryStream to save the converted PDF
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> 1. Fall back supports in Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages only.
+N> 2. It supports only in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=vb#powerpoint-to-pdf-conversion-in-azure-platform) and Portable modules.
+
 ## Show Warning for unsupported elements
 
 The Presentation library shows warning message about the unsupported elements such as Metafile images and charts (supported from .NET Standard 2.0) present in the input PowerPoint presentation, during PowerPoint to PDF conversion. It also allows you to cancel or continue the PowerPoint to PDF conversion, when any unsupported elements is present in the input PowerPoint presentation.
