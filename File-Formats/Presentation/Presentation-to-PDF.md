@@ -460,13 +460,13 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 {% endhighlight %}
 {% endtabs %}
 
-## Fall back fonts
+## Fallback fonts
 
-The Syncfusion PowerPoint library supports fall back fonts in PPTX to PDF conversion. When converting PPTX document into PDF document, some fonts are missed in system, so we support convert PDF document by fall back font with customer requirement.
+When a glyph of input text is unavailable in mention font, text will not be preserved in PPTX to PDF conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to PDF conversion.
 
 ### Initialize Fallback Fonts
 
-The following code example demonstrates how to initialize fallback font for a missing font while converting a PowerPoint presentation to PDF.
+The following code example demonstrates how to initialize a default fallback font while converting a PowerPoint presentation to PDF.
 
 {% tabs %}
 
@@ -618,7 +618,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 ### Customize Default Fallback Fonts
 
-The following code example demonstrates how to customize default fallback font for a missing font while converting a PowerPoint presentation to PDF.
+The following code example demonstrates how to customize default fallback font while converting a PowerPoint presentation to PDF.
 
 {% tabs %}
 
@@ -782,7 +782,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 ### Add Custom Fallback Fonts
 
-The following code example demonstrates how to add custom fallback fonts for a missing font while converting a PowerPoint presentation to PDF.
+The following code example demonstrates how to add custom fallback fonts while converting a PowerPoint presentation to PDF.
 
 {% tabs %}
 
@@ -979,8 +979,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
-N> 1. Fall back supports in Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages only.
-N> 2. It supports only in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=vb#powerpoint-to-pdf-conversion-in-azure-platform) and Portable modules.
+N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
+N> 2. It supports only in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=asp.net%20core) and Portable modules.
 
 ## Show Warning for unsupported elements
 
