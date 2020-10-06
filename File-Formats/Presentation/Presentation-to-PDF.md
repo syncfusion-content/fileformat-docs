@@ -462,7 +462,11 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 
 ## Fall back fonts
 
+The Syncfusion PowerPoint library supports fall back fonts in PPTX to PDF converison. When converting PPTX document into PDF document, some fonts are missed in system, so we support convert PDF document by fall back font with customer requirement.
+
 ### Initialize Fallback Fonts
+
+The following code example demonstrates how to initialize fallback font for a missing font while converting a PowerPoint presentation to PDF.
 
 {% tabs %}
 
@@ -486,10 +490,10 @@ pdfConverterSettings.EnablePortableRendering = true;
 pptxDoc.FontSettings.InitializeFallbackFonts();
 
 //Converts the PowerPoint Presentation into PDF document with Portable rendering option
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, true);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 
 //Saves the PDF document
-pdfDocument.Save(Path.Combine(ExportPdfOutput, Path.GetFileNameWithoutExtension(fileName) + "_" + testType + "_pdf.pdf"));
+pdfDocument.Save("Sample.pdf");
 
 //Closes the PDF document
 pdfDocument.Close(true);
@@ -613,6 +617,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endtabs %}
 
 ### Customize Default Fallback Fonts
+
+The following code example demonstrates how to customize default fallback font for a missing font while converting a PowerPoint presentation to PDF.
 
 {% tabs %}
 
@@ -775,6 +781,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endtabs %}
 
 ### Add Custom Fallback Fonts
+
+The following code example demonstrates how to add custom fallback fonts for a missing font while converting a PowerPoint presentation to PDF.
 
 {% tabs %}
 
