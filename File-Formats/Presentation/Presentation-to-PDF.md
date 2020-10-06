@@ -471,11 +471,6 @@ The following code example demonstrates how to initialize a default fallback fon
 {% tabs %}
 
 {% highlight c# %}
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.OfficeChartToImageConverter;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using Syncfusion.Pdf;
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -504,11 +499,6 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Namespaces to perform PPTX to PDF conversion
-Imports Syncfusion.OfficeChartToImageConverter
-Imports Syncfusion.Presentation
-Imports Syncfusion.PresentationToPdfConverter
-Imports Syncfusion.Pdf
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -537,12 +527,6 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using System.IO;
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -576,12 +560,6 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using System.IO;
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -623,11 +601,6 @@ The following code example demonstrates how to customize default fallback font w
 {% tabs %}
 
 {% highlight c# %}
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.OfficeChartToImageConverter;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using Syncfusion.Pdf;
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -659,11 +632,6 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Namespaces to perform PPTX to PDF conversion
-Imports Syncfusion.OfficeChartToImageConverter
-Imports Syncfusion.Presentation
-Imports Syncfusion.PresentationToPdfConverter
-Imports Syncfusion.Pdf
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -695,12 +663,6 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using System.IO;
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -737,12 +699,6 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using System.IO;
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -787,11 +743,6 @@ The following code example demonstrates how to add custom fallback fonts while c
 {% tabs %}
 
 {% highlight c# %}
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.OfficeChartToImageConverter;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using Syncfusion.Pdf;
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -832,11 +783,6 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Namespaces to perform PPTX to PDF conversion
-Imports Syncfusion.OfficeChartToImageConverter
-Imports Syncfusion.Presentation
-Imports Syncfusion.PresentationToPdfConverter
-Imports Syncfusion.Pdf
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -876,12 +822,6 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using System.IO;
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -927,12 +867,6 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
-using System.IO;
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
