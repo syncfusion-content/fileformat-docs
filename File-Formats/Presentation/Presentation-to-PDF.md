@@ -462,7 +462,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 
 ## Fall back fonts
 
-The Syncfusion PowerPoint library supports fall back fonts in PPTX to PDF converison. When converting PPTX document into PDF document, some fonts are missed in system, so we support convert PDF document by fall back font with customer requirement.
+The Syncfusion PowerPoint library supports fall back fonts in PPTX to PDF conversion. When converting PPTX document into PDF document, some fonts are missed in system, so we support convert PDF document by fall back font with customer requirement.
 
 ### Initialize Fallback Fonts
 
@@ -550,7 +550,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-	    //Use a sets of default FallbackFont collection to IPresentation.
+        //Use a sets of default FallbackFont collection to IPresentation.
         pptxDoc.FontSettings.InitializeFallbackFonts();
 
         //Create the MemoryStream to save the converted PDF
@@ -589,7 +589,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-		//Use a sets of default FallbackFont collection to IPresentation
+        //Use a sets of default FallbackFont collection to IPresentation
         pptxDoc.FontSettings.InitializeFallbackFonts();
 
         //Create the MemoryStream to save the converted PDF
@@ -708,11 +708,11 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-	    //Use a sets of default FallbackFont collection to IPresentation
-	    pptxDoc.FontSettings.InitializeFallbackFonts();
-	    // Customize a default fallback font name
-	    // Modify the Hebrew script default font name as "David"
-	    pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+        //Use a sets of default FallbackFont collection to IPresentation
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+        // Customize a default fallback font name
+        // Modify the Hebrew script default font name as "David"
+        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
 
         //Create the MemoryStream to save the converted PDF.
         using (MemoryStream pdfStream = new MemoryStream())
@@ -750,11 +750,11 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-	    //Use a sets of default FallbackFont collection to IPresentation
-	    pptxDoc.FontSettings.InitializeFallbackFonts();
-	    // Customize a default fallback font name
-	    // Modify the Hebrew script default font name as "David"
-	    pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+        //Use a sets of default FallbackFont collection to IPresentation
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+        // Customize a default fallback font name
+        // Modify the Hebrew script default font name as "David"
+        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
 		
         //Create the MemoryStream to save the converted PDF.
         using (MemoryStream pdfStream = new MemoryStream())
@@ -889,20 +889,20 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-	   //Add custom fallback font names
+        //Add custom fallback font names
 
-       // Arabic
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-       // Hebrew
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
-       // Hindi
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
-       // Chinese
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-       // Japanese
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
-       // Korean
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+        // Arabic
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+        // Hebrew
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+        // Hindi
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+        // Chinese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+        // Japanese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+        // Korean
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
 
         //Create the MemoryStream to save the converted PDF.
         using (MemoryStream pdfStream = new MemoryStream())
@@ -940,20 +940,20 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-	   //Add custom fallback font names
+        //Add custom fallback font names
 
-       // Arabic
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-       // Hebrew
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
-       // Hindi
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
-       // Chinese
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-       // Japanese
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
-       // Korean
-       pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+        // Arabic
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+        // Hebrew
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+        // Hindi
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+        // Chinese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+        // Japanese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+        // Korean
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
 	   
         //Create the MemoryStream to save the converted PDF
         using (MemoryStream pdfStream = new MemoryStream())
