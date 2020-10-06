@@ -11,8 +11,8 @@ documentation: UG
 
 Essential PDF supports removing or redacting the sensitive text and images from the PDF documents. Redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class to remove content.
 
-N> CJK text without TrueType font and complex script text cannot be redacted.
-N> To redact the content from the existing PDF document in .NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project.
+N> 1.CJK text without TrueType font and complex script text cannot be redacted.
+N> 2.To redact the content from the existing PDF document in .NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project.
 
 The following sample code snippet demonstrates the redaction of PDF documents from the specified bounds.
 
@@ -81,7 +81,7 @@ document.Close(True)
 
 FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 //Get the first page from the document
  
@@ -97,7 +97,7 @@ page.AddRedaction(redaction);
 
 //Redact the contents from the PDF document
 
-loadedDocument.Redact();
+document.Redact();
 
 // Creating the stream object
 
@@ -105,11 +105,11 @@ MemoryStream stream = new MemoryStream();
 
 //Save the documents
 
-loadedDocument.Save(stream);
+document.Save(stream);
 
 //close the documents
 
-loadedDocument.Close(true);
+document.Close(true);
 
 //Defining the ContentType for pdf file 
 
@@ -222,7 +222,7 @@ document.Close(True)
 
 FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 //Get the first page from the document 
 
@@ -246,7 +246,7 @@ page.AddRedaction(redaction);
 
 //Redact the contents from the PDF document
 
-loadedDocument.Redact();
+document.Redact();
 
 // Creating the stream object
 
@@ -254,11 +254,11 @@ MemoryStream stream = new MemoryStream();
 
 //Save the documents
 
-loadedDocument.Save(stream);
+document.Save(stream);
 
 //close the documents
 
-loadedDocument.Close(true);
+document.Close(true);
 
 //Defining the ContentType for pdf file 
 
@@ -367,7 +367,7 @@ document.Close(True)
 
 FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 //Get the first page from the document 
 
@@ -389,7 +389,7 @@ page.AddRedaction(redaction);
 
 //Redact the contents from the PDF document
 
-loadedDocument.Redact();
+document.Redact();
 
 // Creating the stream object
 
@@ -397,11 +397,11 @@ MemoryStream stream = new MemoryStream();
 
 //Save the documents
 
-loadedDocument.Save(stream);
+document.Save(stream);
 
 //close the documents
 
-loadedDocument.Close(true);
+document.Close(true);
 
 //Defining the ContentType for pdf file 
 
@@ -589,7 +589,7 @@ document.Close(True)
 
 FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 //Get the first page from the document 
 
@@ -649,7 +649,7 @@ page.AddRedaction(redaction);
 
 //Redact the contents from the PDF document
 
-loadedDocument.Redact();
+document.Redact();
 
 // Creating the stream object
 
@@ -657,11 +657,11 @@ MemoryStream stream = new MemoryStream();
 
 //Save the documents
 
-loadedDocument.Save(stream);
+document.Save(stream);
 
 //close the documents
 
-loadedDocument.Close(true);
+document.Close(true);
 
 //Defining the ContentType for pdf file 
 
@@ -766,7 +766,7 @@ document.Close(True)
 
 FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 //Get the first page from the document 
 
@@ -786,7 +786,7 @@ page.AddRedaction(redaction);
 
 //Redact the contents from the PDF document
 
-loadedDocument.Redact();
+document.Redact();
 
 // Creating the stream object
 
@@ -794,11 +794,11 @@ MemoryStream stream = new MemoryStream();
 
 //Save the documents
 
-loadedDocument.Save(stream);
+document.Save(stream);
 
 //close the documents
 
-loadedDocument.Close(true);
+document.Close(true);
 
 //Defining the ContentType for pdf file 
 
@@ -893,7 +893,7 @@ document.Close(True)
 
 FileStream docStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 //Get the first page from the document 
 
@@ -909,7 +909,7 @@ page.AddRedaction(redaction);
 
 //Redact the contents from the PDF document
 
-loadedDocument.Redact();
+document.Redact();
 
 // Creating the stream object
 
@@ -917,11 +917,11 @@ MemoryStream stream = new MemoryStream();
 
 //Save the documents
 
-loadedDocument.Save(stream);
+document.Save(stream);
 
 //close the documents
 
-loadedDocument.Close(true);
+document.Close(true);
 
 //Defining the ContentType for pdf file 
 

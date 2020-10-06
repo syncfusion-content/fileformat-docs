@@ -538,7 +538,7 @@ barcode.Draw(page, New PointF(25, 70))
 
 document.Save("417Barcode.pdf")
 
-Close the document.
+'Close the document.
 
 document.Close(True)
 
