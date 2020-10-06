@@ -462,7 +462,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 
 ## Fallback fonts
 
-When a glyph of input text is unavailable in mention font, text will not be preserved in PPTX to PDF conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to PDF conversion.
+When a glyph of input text is unavailable in mentioned font, text will not be preserved in PPTX to PDF conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to PDF conversion.
 
 ### Initialize Fallback Fonts
 
@@ -914,7 +914,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endtabs %}
 
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
-N> 2. It supports only in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=csharp#powerpoint-to-pdf-conversion-in-azure-platform) and [Portable](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=asp.net%20core) modules.
+N> 2. Its only supported in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=csharp#powerpoint-to-pdf-conversion-in-azure-platform) and [Portable](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=asp.net%20core) PDF conversion modules.
 
 ## Show Warning for unsupported elements
 
