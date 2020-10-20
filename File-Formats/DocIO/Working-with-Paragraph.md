@@ -1771,6 +1771,8 @@ picture.Height = 100;
 //Sets horizontal and vertical position for the picture
 picture.HorizontalPosition = 200;
 picture.VerticalPosition = 150;
+//Sets lock aspect ratio for the picture
+picture.LockAspectRatio = true;
 picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
@@ -1806,6 +1808,8 @@ picture.Height = 100
 'Sets horizontal and vertical position for the picture
 picture.HorizontalPosition = 200
 picture.VerticalPosition = 150
+'Sets lock aspect ratio for the picture
+picture.LockAspectRatio = true
 picture.Name = "PictureName"
 'Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center
@@ -1843,6 +1847,8 @@ picture.Height = 100;
 //Sets horizontal and vertical position for the picture
 picture.HorizontalPosition = 200;
 picture.VerticalPosition = 150;
+//Sets lock aspect ratio for the picture
+picture.LockAspectRatio = true;
 picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
@@ -1884,6 +1890,8 @@ picture.Height = 100;
 //Sets horizontal and vertical position for the picture
 picture.HorizontalPosition = 200;
 picture.VerticalPosition = 150;
+//Sets lock aspect ratio for the picture
+picture.LockAspectRatio = true;
 picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
@@ -1925,6 +1933,8 @@ picture.Height = 100;
 //Sets horizontal and vertical position for the picture
 picture.HorizontalPosition = 200;
 picture.VerticalPosition = 150;
+//Sets lock aspect ratio for the picture
+picture.LockAspectRatio = true;
 picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
