@@ -1,6 +1,6 @@
 ---
 title: Supported and Unsupported Features | DocIO | Syncfusion
-description: This section describes the support and unsupported elements
+description: This section describes the support and unsupported elements by Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -330,8 +330,8 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 <tr>
 <td>
 OLE objects<br/><br/></td><td>
@@ -348,8 +348,8 @@ No<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 <tr>
 <td>
 Custom shapes<br/><br/></td><td>
