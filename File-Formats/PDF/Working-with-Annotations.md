@@ -7127,7 +7127,7 @@ Stream xfdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceS
 
 'Import annotation data from XFDF stream
 
-lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
 
 MemoryStream stream = new MemoryStream();
 
