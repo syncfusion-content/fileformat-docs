@@ -1,6 +1,6 @@
 ---
 title: Supported and Unsupported Features | DocIO | Syncfusion
-description: This section describes the support and unsupported elements
+description: This section describes the support and unsupported elements by Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
