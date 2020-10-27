@@ -7155,7 +7155,7 @@ PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
 
 FileStream xfdfStream = new FileStream("Annotations.xfdf", FileMode.Open, FileAccess.Read);
 
-lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
 
 //Save the document into stream
 
@@ -7195,7 +7195,7 @@ PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
 
 Stream xfdfStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.xfdf");
 
-lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
 
 //Save the document into stream
 
@@ -7595,7 +7595,7 @@ Stream xfdfStream = new MemoryStream();
 
 //Export annotation data from XFDF stream
 
-lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
 
 //Save the xfdfStream as XFDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
@@ -7619,7 +7619,7 @@ PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
 
 Stream xfdfStream = new MemoryStream();
 
-lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
 
 //Close the document
 
@@ -7653,7 +7653,7 @@ PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
 
 Stream xfdfStream = new MemoryStream();
 
-lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
 
 //Close the document
 
