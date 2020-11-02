@@ -1,6 +1,6 @@
 ---
 title: Working with Sections | Syncfusion
-description: This section illustrates how to Work with Sections
+description: This section illustrates how to Work with Sections in the Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
