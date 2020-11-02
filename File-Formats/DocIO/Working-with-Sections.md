@@ -236,7 +236,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 ## Specifying Page Properties
 
-Each section has its own page setup properties such as page size, orientation, margins, borders, etc. 
+Each section has its own page setup properties such as page size, orientation, margins, borders, and more. 
 
 The following code example shows how to set the page setup properties
 
@@ -250,6 +250,10 @@ IWSection section = document.AddSection();
 section.PageSetup.Orientation = PageOrientation.Landscape;
 section.PageSetup.Margins.All = 72;
 section.PageSetup.Borders.LineWidth = 2;
+//Sets the PrinterPaperTray value for FirstPageTray in page setup options
+section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
+//Sets the PrinterPaperTray value for OtherPagesTray in page setup options     
+section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
 //Adds a paragraph to created section
 IWParagraph paragraph = section.AddParagraph();
 //Appends the text to the created paragraph
@@ -267,6 +271,10 @@ Dim section As IWSection = document.AddSection()
 section.PageSetup.Orientation = PageOrientation.Landscape
 section.PageSetup.Margins.All = 72
 section.PageSetup.Borders.LineWidth = 2
+'Sets the PrinterPaperTray value for FirstPageTray  in page setup options
+section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed
+'Sets the PrinterPaperTray value for OtherPagesTray in page setup options
+section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin
 'Adds a paragraph to created section
 Dim paragraph As IWParagraph = section.AddParagraph()
 'Appends the text to the created paragraph.
@@ -284,6 +292,10 @@ IWSection section = document.AddSection();
 section.PageSetup.Orientation = PageOrientation.Landscape;
 section.PageSetup.Margins.All = 72;
 section.PageSetup.Borders.LineWidth = 2;
+//Sets the PrinterPaperTray value for FirstPageTray in page setup options
+section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
+//Sets the PrinterPaperTray value for OtherPagesTray in page setup options
+section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
 //Adds a paragraph to created section
 IWParagraph paragraph = section.AddParagraph();
 //Appends the text to the created paragraph
@@ -307,6 +319,10 @@ IWSection section = document.AddSection();
 section.PageSetup.Orientation = PageOrientation.Landscape;
 section.PageSetup.Margins.All = 72;
 section.PageSetup.Borders.LineWidth = 2;
+//Sets the PrinterPaperTray value for FirstPageTray in page setup options
+section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
+//Sets the PrinterPaperTray value for OtherPagesTray in page setup options
+section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
 //Adds a paragraph to created section
 IWParagraph paragraph = section.AddParagraph();
 //Appends the text to the created paragraph
@@ -329,6 +345,10 @@ IWSection section = document.AddSection();
 section.PageSetup.Orientation = PageOrientation.Landscape;
 section.PageSetup.Margins.All = 72;
 section.PageSetup.Borders.LineWidth = 2;
+//Sets the PrinterPaperTray value for FirstPageTray in page setup options
+section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
+//Sets the PrinterPaperTray value for OtherPagesTray in page setup options
+section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
 //Adds a paragraph to created section
 IWParagraph paragraph = section.AddParagraph();
 //Appends the text to the created paragraph
