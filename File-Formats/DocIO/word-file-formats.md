@@ -1021,3 +1021,142 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+
+### Preserve embedded Ole image as normal image
+
+Essential DocIO keeps the entire document contents (paragraphs, images, tables and all other supported items along with the formatting) in main memory. So, there is a chance for “Out of memory exception” when the memory utilization exceeds the maximum level.
+//Please refer the below link for further details
+//https://www.syncfusion.com/kb/3931/why-does-out-of-memory-exception-arise-on-processing-large-size-documents-in-essential
+
+You can preserve embedded Ole image as normal image in a Word (*.docx) document without exception by setting PreserveOleImageAsImage property of Settings class as true.
+
+The following code example shows how to preserve embedded Ole image as normal image in a Word (*.docx) document without exception.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Creates an empty Word document instance
+WordDocument document = new WordDocument();
+//Sets flag to preserve embedded Ole image as normal image without exception
+document.Settings.PreserveOleImageAsImage= true;
+//Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
+document.Open(fileName);
+//Saves the Word Document
+document.Save("Sample.docx", FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an empty Word document instance
+Dim document As New WordDocument()
+'Sets flag to preserve embedded Ole image as normal image without exception
+document.Settings.PreserveOleImageAsImage = True
+'Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
+document.Open(fileName)
+'Saves the Word Document
+document.Save("Sample.docx", FormatType.Docx)
+'Closes the document
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument())
+{
+    // Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+    //Sets flag to preserve embedded Ole image as normal image without exception 
+    document.Settings.PreserveOleImageAsImage = true;
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Doc);
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine
+    Save(stream, "Sample.docx");
+    document.Close();
+}
+
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".docx";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates a new instance of WordDocument (Empty Word Document)
+using (WordDocument document = new WordDocument())
+{
+    //Loads or opens an existing Word document from stream
+    FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    //Sets flag to preserve embedded Ole image as normal image without exception 
+    document.Settings.PreserveOleImageAsImage = true;
+    //Loads or opens an existing Word document through Open method of WordDocument class 
+    document.Open(fileStreamPath, FormatType.Automatic);
+    MemoryStream stream = new MemoryStream();
+    //Saves and closes the destination document to  MemoryStream
+    document.Save(stream, FormatType.Docx);
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Sample.doc");
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates a new instance of WordDocument (Empty Word Document)
+using (WordDocument document = new WordDocument())
+{
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+    //Sets flag to preserve embedded Ole image as normal image without exception 
+    document.Settings.PreserveOleImageAsImage = true;
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Automatic);
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>()
+                        .SaveAndView("Sample.docx", "application/msword", stream);
+    //Closes the document              
+    document.Close();
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+
+{% endtabs %}
