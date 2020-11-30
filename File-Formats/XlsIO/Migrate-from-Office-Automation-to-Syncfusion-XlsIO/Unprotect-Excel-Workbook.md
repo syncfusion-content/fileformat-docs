@@ -25,7 +25,7 @@ private void UnprotectWorkbook()
     string myPath = @"d:\test\InteropOutput_ProtectedWorkbook.xlsx";
 
     //Open the Excel file
-    Workbook workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    Workbook workbook = excelApp.Workbooks.Open(myPath);
 
     //Unprotect the protected workbook using the password
     workbook.Unprotect("007");
@@ -47,7 +47,7 @@ Private Sub UnprotectWorkbook()
     Dim myPath As String = "d:\test1\InteropOutput_ProtectedWorkbook.xlsx"
 
     'Open the Excel file
-    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
 
     'Unprotect the protected workbook using the password
     workbook.Unprotect("007")

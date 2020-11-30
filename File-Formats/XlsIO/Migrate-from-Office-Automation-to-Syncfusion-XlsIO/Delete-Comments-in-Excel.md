@@ -25,7 +25,7 @@ private void DeleteComment()
     string myPath = @"d:\test\InteropOutput_AddComment.xlsx";
 
     //Open the Excel file containing comment
-    Workbook workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    Workbook workbook = excelApp.Workbooks.Open(myPath);
 
     //Get the A1 cell
     Range rng1 = excelApp.get_Range("A1", Missing.Value);
@@ -50,7 +50,7 @@ Private Sub DeleteComment()
     Dim myPath As String = "d:\test\InteropOutput_AddComment.xlsx"
 
     'Open the Excel file
-    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
 
     'Get the A1 cell
     Dim rng1 As Range = excelApp.Range("A1")
