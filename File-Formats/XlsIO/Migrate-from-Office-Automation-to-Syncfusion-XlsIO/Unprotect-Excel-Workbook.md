@@ -1,6 +1,6 @@
 ---
 title: Unprotect Excel Workbook | Syncfusion
-description: Explains with an example on how to unprotect Excel workbook with password using Interop and XlsIO.
+description: Explains with an example on how to unprotect Excel workbook with password using Interop and Essential XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG

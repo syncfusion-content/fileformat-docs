@@ -1,6 +1,6 @@
 ---
 title: Delete Comments in Excel | Syncfusion
-description: Explains with an example on how to programmatically delete Excel comments using Interop and XlsIO.
+description: Explains with an example on how to programmatically delete Excel comments using Interop and Essential XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
