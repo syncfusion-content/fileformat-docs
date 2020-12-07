@@ -25,7 +25,7 @@ private void ActivateWorksheet()
     string myPath = @"d:\test\Sample.xlsx";
 
     //Open the Excel file
-    Workbook workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    Workbook workbook = excelApp.Workbooks.Open(myPath);
 
     //Activate the first worksheet by default
     workbook.Sheets[1].Activate();
@@ -47,7 +47,7 @@ Private Sub ActivateWorksheet()
     Dim myPath As String = "d:\test1\Sample.xlsx"
 
     'Open the Excel file
-    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
 
     'Activate the first worksheet by default
     workbook.Sheets(1).Activate()
