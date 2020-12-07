@@ -1,6 +1,6 @@
 ---
 title: Unmerge Cells in Excel | Syncfusion
-description: Explains with an example on how to unmerge cells in Excel using Interop and XlsIO.
+description: This page explains with an example on how to unmerge cells in Excel using Interop and Essential XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -25,7 +25,7 @@ private void UnmergeCells()
     string myPath = @"d:\test\InteropOutput_MergedCells.xlsx";
 
     //Open the Excel file
-    Workbook workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    Workbook workbook = excelApp.Workbooks.Open(myPath);
 
     //Get the A1 cell (merged cell)
     Range rng1 = excelApp.get_Range("A1", Missing.Value);
@@ -50,7 +50,7 @@ Private Sub UnmergeCells()
     Dim myPath As String = "d:\test\InteropOutput_MergedCells.xlsx"
 
     'Open the Excel file
-    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
 
     'Get the A1 cell (merged cell)
     Dim rng1 As Range = excelApp.Range("A1")
