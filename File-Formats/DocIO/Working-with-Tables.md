@@ -1264,6 +1264,8 @@ cell.CellFormat.Paddings.Bottom = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Sets text direction for cell
+cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1305,6 +1307,8 @@ cell.CellFormat.Paddings.Bottom = 5
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
 'Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = False
+'Sets text direction for cell
+cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop
 'Accesses the instance of the second cell in the row
 cell = row.Cells(1)
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192)
@@ -1347,6 +1351,8 @@ cell.CellFormat.Paddings.Bottom = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Sets text direction for cell
+cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1394,6 +1400,8 @@ cell.CellFormat.Paddings.Bottom = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Sets the text direction for cell
+cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
@@ -1441,6 +1449,8 @@ cell.CellFormat.Paddings.Bottom = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Sets text direction for cell
+cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
 //Accesses the instance of the second cell in the row
 cell = row.Cells[1];
 cell.CellFormat.BackColor = Syncfusion.Drawing.Color.FromArgb(192, 192, 192);
