@@ -20,7 +20,7 @@ private void UnhideWorksheet()
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
     //Open the workbook with hidden worksheets
-    Workbook workbook = excelApp.Workbooks.Open(@"d:\test\InteropOutput_HiddenWorksheet.xlsx", Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    Workbook workbook = excelApp.Workbooks.Open(@"d:\test\InteropOutput_HiddenWorksheet.xlsx");
 
     //Get the first sheet
     Worksheet worksheet = (Worksheet)workbook.Sheets["Sheet1"];
@@ -42,7 +42,7 @@ Private Sub UnhideWorksheet()
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
     'Open the workbook with hidden worksheets
-    Dim workbook As Workbook = excelApp.Workbooks.Open("d:\test\InteropOutput_HiddenWorksheet.xlsx", Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+    Dim workbook As Workbook = excelApp.Workbooks.Open("d:\test\InteropOutput_HiddenWorksheet.xlsx")
 
     'Get the first sheet
     Dim worksheet As Worksheet = workbook.Sheets("Sheet1")
