@@ -25,7 +25,7 @@ private void AddWorksheet()
     string myPath = @"d:\test\Sample.xlsx";
 
     //Open the Excel file
-    Workbook workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    Workbook workbook = excelApp.Workbooks.Open(myPath);
 
     //Declare a worksheet object
     Worksheet newWorksheet;
@@ -63,7 +63,7 @@ Private Sub AddWorksheet()
     Dim myPath As String = "d:\test1\Sample.xlsx"
 
     'Open the Excel file
-    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
 
     'Declare a worksheet object
     Dim newWorksheet As Worksheet
