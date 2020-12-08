@@ -2086,6 +2086,196 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+### Track changes advanced settings
+
+The following code sample shows track changes advanced settings when converting Word documents to PDF.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Loads an existing Word document
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
+//Sets revision types to preserve track changes in Word when converting to PDF
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
+//Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
+//Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
+//Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+//Creates an instance of the DocToPDFConverter
+DocToPDFConverter converter = new DocToPDFConverter();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+//Closes the instance of Word document object
+wordDocument.Close();
+//Releases the resources occupied by DocToPDFConverter instance
+converter.Dispose();
+//Saves the PDF file
+pdfDocument.Save("WordtoPDF.pdf");
+//Closes the instance of PDF document object
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+'Sets revision types to preserve track changes in when converting to PDF conversion.
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions Or
+RevisionType.Formatting Or RevisionType.Insertions
+'Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue
+'Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue
+'Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed
+'Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow
+'Creates an instance of the DocToPDFConverter
+Dim converter As New DocToPDFConverter()
+'Converts Word document into PDF document
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+'Closes the instance of Word document object
+wordDocument.Close()
+'Releases the resources occupied by DocToPDFConverter instance
+converter.Dispose()
+'Saves the PDF file
+pdfDocument.Save("WordtoPDF.pdf")
+'Closes the instance of PDF document object
+pdfDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
+              FormatType.Docx))
+{
+    //Sets revision types to preserve track changes in  Word when converting to PDF
+    document.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+	//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+    wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
+    //Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+    wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
+    //Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+    wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
+    //Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+    wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+    //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+    DocIORenderer docIORenderer = new DocIORenderer();
+    //Converts Word document into PDF document
+    PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+    //Save the document into stream.
+    MemoryStream stream = new MemoryStream();
+    pdfDocument.Save(stream);
+    //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+    Save(stream, "WordToPDF.pdf");
+    //Closes the Word and PDF document
+    document.Close();
+    pdfDocument.Close();
+}
+
+//Saves the PDF document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
+//Loads an existing Word document
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
+//Sets revision types to preserve track changes in  Word when converting to PDF.
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
+//Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
+//Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
+//Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+//Instantiates DocIORenderer instance for Word to PDF conversion
+DocIORenderer renderer = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
+//Closes the instance of Word document object
+wordDocument.Close();
+//Releases the resources occupied by DocIORenderer instance
+renderer.Dispose();
+//Saves the PDF file  
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Load the Word document as stream
+Stream docStream =
+typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+//Loads the stream into Word Document
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+//Sets revision types to preserve track changes in  Word when converting to PDF
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
+//Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
+//Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
+//Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer renderer = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
+//Closes the instance of Word document object
+wordDocument.Close();
+//Releases the resources occupied by DocIORenderer instance
+renderer.Dispose();
+//Saves the PDF file  
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+{% endhighlight %}
+
+{% endtabs %}
+
 ### Preserve Ole Equation as bitmap image
 
 This setting allows you to preserve Ole Equation as bitmap image in the converted PDF document.
