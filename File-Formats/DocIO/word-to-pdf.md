@@ -2048,7 +2048,7 @@ pdfDocument.Close();
 
 ### Track changes advanced settings
 
-The following code sample shows track changes advanced settings when converting Word documents to PDF.
+The following code sample shows how to customize revision marks in a generated PDF when converting Word documents with tracked changes or revisions.
 
 {% tabs %}  
 
@@ -2057,13 +2057,13 @@ The following code sample shows track changes advanced settings when converting 
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
-//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+//Sets the color to be used for revision bars that identify document lines containing revised information
 wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
-//Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+//Sets the color to be used for inserted content Insertion
 wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
-//Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+//Sets the color to be used for deleted content Deletion
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
-//Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+//Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
 //Creates an instance of the DocToPDFConverter
 DocToPDFConverter converter = new DocToPDFConverter();
@@ -2085,13 +2085,13 @@ Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Sets revision types to preserve track changes in when converting to PDF conversion.
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions Or
 RevisionType.Formatting Or RevisionType.Insertions
-'Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+'Sets the color to be used for revision bars that identify document lines containing revised information
 wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue
-'Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+'Sets the color to be used for inserted content Insertion
 wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue
-'Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+'Sets the color to be used for deleted content Deletion
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed
-'Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+'Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow
 'Creates an instance of the DocToPDFConverter
 Dim converter As New DocToPDFConverter()
@@ -2116,13 +2116,13 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {
     //Sets revision types to preserve track changes in  Word when converting to PDF
     document.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
-	//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+	//Sets the color to be used for revision bars that identify document lines containing revised information
     wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
-    //Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+    //Sets the color to be used for inserted content Insertion
     wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
-    //Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+    //Sets the color to be used for deleted content Deletion
     wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
-    //Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+    //Sets the color to be used for content with changes of formatting properties
     wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -2180,13 +2180,13 @@ FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
 //Sets revision types to preserve track changes in  Word when converting to PDF.
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
-//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+//Sets the color to be used for revision bars that identify document lines containing revised information
 wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
-//Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+//Sets the color to be used for inserted content Insertion
 wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
-//Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+//Sets the color to be used for deleted content Deletion
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
-//Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+//Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
 //Instantiates DocIORenderer instance for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
@@ -2211,13 +2211,13 @@ typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Temp
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 //Sets revision types to preserve track changes in  Word when converting to PDF
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
-//Gets or sets the color to be used for revision bars that identify document lines containing revised information. Default value is Red.
+//Sets the color to be used for revision bars that identify document lines containing revised information
 wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
-//Gets or sets the color to be used for inserted content Insertion. Default value is ByAuthor.
+//Sets the color to be used for inserted content Insertion
 wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
-//Gets or sets the color to be used for deleted content Deletion. Default value is ByAuthor.
+//Sets the color to be used for deleted content Deletion
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
-//Gets or sets the color to be used for content with changes of formatting properties FormatChange Default value is ByAuthor.
+//Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
 //Instantiation of DocIORenderer for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
