@@ -2065,6 +2065,8 @@ wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
 //Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+//Hides showing revisions in balloons when converting Word documents to PDF
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
 //Creates an instance of the DocToPDFConverter
 DocToPDFConverter converter = new DocToPDFConverter();
 //Converts Word document into PDF document
@@ -2093,6 +2095,8 @@ wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed
 'Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow
+'Hides showing revisions in balloons when converting Word documents to PDF
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions
 'Creates an instance of the DocToPDFConverter
 Dim converter As New DocToPDFConverter()
 'Converts Word document into PDF document
@@ -2124,6 +2128,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
     //Sets the color to be used for content with changes of formatting properties
     wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+    //Hides showing revisions in balloons when converting Word documents to PDF
+    wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
     //Converts Word document into PDF document
@@ -2188,6 +2194,8 @@ wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
 //Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+//Hides showing revisions in balloons when converting Word documents to PDF
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
 //Instantiates DocIORenderer instance for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Converts Word document into PDF document
@@ -2219,6 +2227,8 @@ wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
 wordDocument.RevisionOptions.DeletedTextColor = RevisionColor.ClassicRed;
 //Sets the color to be used for content with changes of formatting properties
 wordDocument.RevisionOptions.RevisedPropertiesColor = RevisionColor.DarkYellow;
+//Hides showing revisions in balloons when converting Word documents to PDF
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
 //Instantiation of DocIORenderer for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Converts Word document into PDF document
