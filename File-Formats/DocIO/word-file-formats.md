@@ -1028,7 +1028,7 @@ Essential DocIO keeps the entire document contents (paragraphs, images, tables a
 
 You can reduce the memory usage in DocIO DOM when the Word document has embedded Ole image of large file size. You can preserve these embedded Ole images as normal images by setting `PreserveOleImageAsImage` property of Settings class as true, before opening the Word document.
 
-If PreserveOleImageAsImage flag is enabled, DocIO internally skips to read the embedded Ole image of large file size (.bin), instead DocIO reuses the Ole image from Word document as normal image for the same visual appearance. This will reduce the memory usage in DocIO DOM and resolves “Out of memory exception” at some cases.
+If  `PreserveOleImageAsImage` flag is enabled, DocIO internally skips to read the embedded Ole image of large file size (.bin), instead DocIO reuses the Ole image from Word document as normal image for the same visual appearance. This will reduce the memory usage in DocIO DOM and resolves “Out of memory exception” at some cases.
 
 The following code example shows how to preserve embedded Ole image as normal image in a Word document.
 
