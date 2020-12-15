@@ -3811,7 +3811,7 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NetStandard(2.0 onwards) platforms alone.
+//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NETStandard2.0 onwards platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -3836,7 +3836,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NetStandard(2.0 onwards) platforms alone.
+//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NETStandard2.0 onwards platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -3877,7 +3877,7 @@ End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NetStandard(2.0 onwards) platforms alone.
+//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NETStandard2.0 onwards platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -3898,7 +3898,7 @@ private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NetStandard(2.0 onwards) platforms alone.
+//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core NETStandard2.0 onwards platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
