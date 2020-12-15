@@ -225,6 +225,434 @@ else
 
 {% endtabs %}
 
+The below code snippet shows how to add PdfEan13 barcode using the [PdfEan13Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan13Barcode.html) class to a PDF document.
+{% tabs %}
+{% highlight c# %}
+
+//Creates a new PdfEan13 Barcode.
+
+PdfEan13Barcode barcode = new PdfEan13Barcode ();
+
+//Set height of the barcode.
+
+barcode.BarHeight = 50;
+
+//Set the barcode text
+
+barcode.Text = "400638133393";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add(); 
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Saving the document.
+
+document.Save("EAN13Barcode.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PdfEan13 Barcode.
+
+Dim barcode As New PdfEan13Barcode () 
+
+'Set height of the barcode.
+
+barcode.BarHeight = 50
+
+'Set the barcode text
+
+barcode.Text = "400638133393"
+
+'Creating new PDF document.
+
+Dim document As New PdfDocument()
+
+'Adding new page to PDF document.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Printing barcode on to the Pdf
+
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the document.
+
+document.Save("EAN13Barcode.pdf")
+
+‘Close the document.
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+// Creates a new PdfEan13 Barcode.
+
+PdfEan13Barcode barcode = new PdfEan13Barcode ();
+
+//Set height of the barcode.
+
+barcode.BarHeight = 50;
+
+//Set the barcode text
+
+barcode.Text = "400638133393";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+      
+//Save the PDF document to stream  
+
+MemoryStream stream = new MemorySteam(); 
+
+document.Save(stream);
+ 
+//Close the document 
+
+document.Close(true); 
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
+
+Save(stream, "EAN13Barcode.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Creates a new PdfEan13 Barcode.
+
+PdfEan13Barcode barcode = new PdfEan13Barcode ();
+
+//Set height of the barcode
+
+barcode.BarHeight = 50;
+
+//Set the barcode text
+
+barcode.Text = "400638133393";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Creating the stream object  
+
+MemoryStream stream = new MemoryStream(); 
+
+//Save the document into stream 
+
+document.Save(stream); 
+
+//If the position is not set to '0' then the PDF will be empty
+ 
+stream.Position = 0; 
+
+//Close the document 
+
+document.Close(true); 
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name 
+
+string fileName = "EAN13Barcode.pdf"; 
+
+//Creates a FileContentResult object by using the file contents, content type, and file name 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+// Creates a new PdfEan13 Barcode.
+
+PdfEan13Barcode barcode = new PdfEan13Barcode ();
+
+//Set height and text of the barcode
+
+barcode.BarHeight = 50;
+
+barcode.Text = "400638133393";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream);
+
+//Close the document 
+
+document.Close(true); 
+
+//Save the stream into pdf file 
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN13Barcode.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The below code snippet shows how to add PdfEan8 barcode using the [PdfEan8Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan8Barcode.html) class to a PDF document.
+{% tabs %}
+{% highlight c# %}
+
+//Creates a new PdfEan8 Barcode.
+
+PdfEan8Barcode barcode = new PdfEan8Barcode ();
+
+//Set height of the barcode.
+
+barcode.BarHeight = 50;
+
+//Set the barcode text
+
+barcode.Text = "1234567";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add(); 
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Saving the document.
+
+document.Save("EAN8Barcode.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PdfEan8 Barcode.
+
+Dim barcode As New PdfEan8Barcode () 
+
+'Set height of the barcode.
+
+barcode.BarHeight = 50
+
+'Set the barcode text
+
+barcode.Text = "1234567"
+
+'Creating new PDF document.
+
+Dim document As New PdfDocument()
+
+'Adding new page to PDF document.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Printing barcode on to the Pdf
+
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the document.
+
+document.Save("EAN8Barcode.pdf")
+
+‘Close the document.
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+// Creates a new PdfEan8 Barcode.
+
+PdfEan8Barcode barcode = new PdfEan8Barcode ();
+
+//Set height of the barcode.
+
+barcode.BarHeight = 50;
+
+//Set the barcode text
+
+barcode.Text = "1234567";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70)); 
+     
+//Save the PDF document to stream  
+
+MemoryStream stream = new MemorySteam();
+ 
+document.Save(stream); 
+
+//Close the document 
+
+document.Close(true); 
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
+
+Save(stream, "EAN8Barcode.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Creates a new PdfEan8 Barcode.
+
+PdfEan8Barcode barcode = new PdfEan8Barcode ();
+
+//Set height of the barcode
+
+barcode.BarHeight = 50;
+
+//Set the barcode text
+
+barcode.Text = "1234567";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Creating the stream object  
+
+MemoryStream stream = new MemoryStream();
+ 
+//Save the document into stream 
+
+document.Save(stream); 
+
+//If the position is not set to '0' then the PDF will be empty 
+
+stream.Position = 0; 
+
+//Close the document 
+
+document.Close(true); 
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf";
+ 
+//Define the file name 
+
+string fileName = "EAN8Barcode.pdf"; 
+
+//Creates a FileContentResult object by using the file contents, content type, and file name 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+// Creates a new PdfEan8 Barcode.
+
+PdfEan8Barcode barcode = new PdfEan8Barcode ();
+
+//Set height and text of the barcode
+
+barcode.BarHeight = 50;
+
+barcode.Text = "1234567";
+
+//Creating new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adding new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Printing barcode on to the Pdf
+
+barcode.Draw(page, new PointF(25,70));
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream);
+
+//Close the document 
+
+document.Close(true); 
+
+//Save the stream into pdf file 
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN8Barcode.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Adding a two dimensional barcode to a PDF document
 
 The below code snippet shows how to add a QR code using [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html) class to the PDF document.
