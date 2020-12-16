@@ -1388,3 +1388,182 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+## Bookmark page index in an existing PDF document
+You can get bookmark page index from the existing PDF document as shown in the following code snippet.
+{% tabs %}
+{% highlight c# %}
+
+//Load the PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Gets all the bookmarks.
+
+PdfBookmarkBase bookmark = loadedDocument.Bookmarks;
+
+//Get the bookmark page index
+
+int index = bookmark[0].Destination.PageIndex;
+
+// Save the document 
+
+loadedDocument.Save("output.pdf");
+
+// Close the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document.
+
+ Dim loadedDocument As New PdfLoadedDocument("input.pdf") 
+ 
+'Gets all the bookmarks.
+
+Dim bookmark As PdfBookmarkBase = loadedDocument.Bookmarks
+
+'Get the bookmark page index. 
+
+Dim index As Integer = bookmark(0).Destination.PageIndex
+
+'Save and close the document. 
+
+loadedDocument.Save("Output.pdf") 
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+ var picker = new FileOpenPicker();
+ 
+ picker.FileTypeFilter.Add(".pdf");
+ 
+ //Browse and chose the file
+ 
+ StorageFile file = await picker.PickSingleFileAsync();
+ 
+ //Creates an empty PDF loaded document instance 
+ 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+ //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class 
+ 
+await loadedDocument.OpenAsync(file);
+
+//Gets all the bookmarks
+
+PdfBookmarkBase bookmark = loadedDocument.Bookmarks;
+
+//Gets the bookmark page index.
+
+int index = bookmark[0].Destination.PageIndex;
+
+//Save the PDF document to stream. 
+
+MemoryStream stream = new MemoryStream();
+
+ await loadedDocument.SaveAsync(stream);
+ 
+ //Close the document.
+ 
+ loadedDocument.Close(true);
+ 
+ //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+ 
+ Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Gets all the bookmarks.
+
+PdfBookmarkBase bookmark = loadedDocument.Bookmarks;
+
+//Get the bookmark page index. 
+
+int index = bookmark[0].Destination.PageIndex;
+
+//Save the document into stream 
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty. 
+
+stream.Position = 0;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file. 
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream); 
+ 
+// Gets all the bookmarks.
+
+PdfBookmarkBase bookmark = loadedDocument.Bookmarks;
+
+// Get the bookmark page index.
+
+int index = bookmark[0].Destination.PageIndex;
+
+//Save the document as stream.
+
+ MemoryStream stream = new MemoryStream(); 
+ 
+loadedDocument.Save(stream);
+
+ //Close the document.
+ 
+ loadedDocument.Close(true);
+ 
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+{% endtabs %}
