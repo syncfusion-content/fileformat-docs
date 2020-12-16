@@ -1955,7 +1955,68 @@ doc.Close(True)
 
 {% highlight ASP.NET Core %}
 
-//PDF supports Adding HTML Styled Text only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//set the font
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14, PdfFontStyle.Regular);
+
+//simple HTML content
+
+string htmlText = "<font color='#0000F8' face='TimesRoman' size='14'><i><b><u>Essential PDF</u></b></i></font> is a <u><i>.NET</i></u> library with the capability to produce Adobe PDF files";
+
+//Render Html text
+
+PdfHTMLTextElement richTextElement = new PdfHTMLTextElement(htmlText, font, PdfBrushes.Black);
+
+//Format layout
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Layout = PdfLayoutType.Paginate;
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+//Draw htmlString.
+
+richTextElement.Draw(page, new RectangleF(0, 20, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document into stream 
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty. 
+
+stream.Position = 0;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file. 
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
 
 {% endhighlight %}
 
