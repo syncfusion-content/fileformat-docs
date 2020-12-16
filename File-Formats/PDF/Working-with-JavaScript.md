@@ -1,6 +1,6 @@
 ---
 title: Working with JavaScript | Syncfusion
-description: This section explains how to add JavaSctipt action to the PDF document by using Essential PDF
+description: This section explains how to add/modify JavaScript action in the existing PDF document by using Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG
@@ -662,7 +662,7 @@ else
 
 ## Add/Modify JavaScript actions to the PDF
 
-you can add or modify the JavaScript action in existing PDF document. The below code snippet shows how to add/modify Javascript code using [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) class to a PDF document.
+you can add or modify the JavaScript action in existing PDF document. The below code snippet shows how to add/modify JavaScript code using [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) class to a PDF document.
 
 {% tabs %}
 
