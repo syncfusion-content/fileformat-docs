@@ -2248,7 +2248,7 @@ WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 //Hides showing revisions in balloons when converting Word documents to PDF
-wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.None;
 //Creates an instance of the DocToPDFConverter
 DocToPDFConverter converter = new DocToPDFConverter();
 //Converts Word document into PDF document
@@ -2270,7 +2270,7 @@ Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions Or
 RevisionType.Formatting Or RevisionType.Insertions
 'Hides showing revisions in balloons when converting Word documents to PDF
-wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.None
 'Creates an instance of the DocToPDFConverter
 Dim converter As New DocToPDFConverter()
 'Converts Word document into PDF document
@@ -2295,7 +2295,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     //Sets revision types to preserve track changes in Word when converting to PDF
     wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
     //Hides showing revisions in balloons when converting Word documents to PDF
-    wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
+    wordDocument.RevisionOptions.ShowInBalloons = RevisionType.None;
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
     //Converts Word document into PDF document
@@ -2353,7 +2353,7 @@ WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 //Hides showing revisions in balloons when converting Word documents to PDF
-wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.None;
 //Instantiates DocIORenderer instance for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Converts Word document into PDF document
@@ -2378,7 +2378,7 @@ WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatT
 //Sets revision types to preserve track changes in Word when converting to PDF
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 //Hides showing revisions in balloons when converting Word documents to PDF
-wordDocument.RevisionOptions.ShowInBalloons = RevisionType.Insertions;
+wordDocument.RevisionOptions.ShowInBalloons = RevisionType.None;
 //Instantiation of DocIORenderer for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Converts Word document into PDF document
