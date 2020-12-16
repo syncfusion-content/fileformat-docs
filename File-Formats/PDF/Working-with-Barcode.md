@@ -1767,5 +1767,15 @@ variable<br/><br/></td></tr>
 {{'[Pdf417 ](https://en.wikipedia.org/wiki/PDF417#"")'| markdownify }}<br/><br/></td><td>
 [0-9]; [A-Z]; [a-z]; Mixed; Punctuation; Byte<br/><br/></td><td>
 variable<br/><br/></td></tr>
+<tr>
+<td>
+{{'[PdfEan8](https://en.wikipedia.org/wiki/EAN-8#"")'| markdownify }}<br/><br/></td><td>
+[0-9];<br/><br/></td><td>
+7 or 8<br/><br/></td></tr>
+<tr>
+<td>
+{{'[PdfEan13](https://en.wikipedia.org/wiki/International_Article_Number#"")'| markdownify }}<br/><br/></td><td>
+[0-9];<br/><br/></td><td>
+12 or 13<br/><br/></td></tr>
 </tbody>
 </table>
