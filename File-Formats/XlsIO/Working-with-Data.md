@@ -3912,7 +3912,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-The following code snippet provides supporting method for the above code. 
+The following code is the event handler for the above code.
 
 {% tabs %}  
 {% highlight c# %}
