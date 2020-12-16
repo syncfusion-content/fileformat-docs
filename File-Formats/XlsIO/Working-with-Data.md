@@ -3756,7 +3756,234 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+    //"App" is the class of Portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+     
+    //Read data from the worksheet and Export to the DataTable 
+    DataTable dataTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
+    
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+    
+    stream.Position = 0;
+    
+    //Save the document as file and view the saved document
+    
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+    
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+	  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ExportToDataTable.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+	  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExportToDataTable.xlsx", "application/msexcel", stream);
+    }
+}
+{% endhighlight %}
+{% endtabs %}  
+
+### Export to Data Table with an Event
+
+Sometimes there may be a need to control the data export from Excel to a data table. XlsIO provides an event **ExportDataTableEvent** to trigger while exporting data from an Excel worksheet to a data table. This event helps to perform the following actions through the **ExportDataTableActions** enumeration.
+
+* Default          -     Exports worksheet data to the data table without any action.
+* SkipRows         -     Exports worksheet data to the data table by skipping a specific row(s).
+* StopExporting    -     Stops exporting the data from Excel worksheet to the data table.
+
+The following code snippet illustrates how to export data from an Excel worksheet to a data table by triggering an event.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+    IWorkbook workbook = application.Workbooks.Open("sample.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+	
+    //Event to choose an action while exporting data from Excel to data table.
+    worksheet.ExportDataTableEvent += ExportDataTable_EventAction();
+	
+    //Read data from the worksheet and Export to the DataTable
+    DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
+	
+    //Binding the exported data table to a data grid. It can be bound to any control that supports the data table.
+    DataGrid dataGrid = new DataGrid();
+    dataGrid.DataSource = customersTable;
+    workbook.SaveAs("ExportToGrid.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2016
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+    Dim sheet As IWorksheet = workbook.Worksheets(0)
+	
+    'Event to choose an action while exporting data from Excel to data table.
+    sheet.ExportDataTableEvent += ExportDataTable_EventAction()
+	
+    'Read data from the worksheet and Export to the DataTable
+    Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames)
+	
+    'Binding the exported data table to a data grid. It can be bound to any control that supports the data table.
+    Dim dataGrid As DataGrid = New DataGrid
+  dataGrid.DataSource = customersTable
+  workbook.SaveAs("ExportToGrid.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (NETStandard2.0 onwards) platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2016;
+    FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+	
+    //Event to choose an action while exporting data from Excel to data table.
+    worksheet.ExportDataTableEvent += ExportDataTable_EventAction();
+	
+    //Read data from the worksheet and Export to the DataTable
+    DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
+	
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("ExportToDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+
+//XlsIO supports binding of exported data table to data grid in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+    //"App" is the class of Portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+     
+    //Event to choose an action while exporting data from Excel to data table.
+    worksheet.ExportDataTableEvent += ExportDataTable_EventAction();
+    
+    //Read data from the worksheet and Export to the DataTable 
+    DataTable dataTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
+    
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+    
+    stream.Position = 0;
+    
+    //Save the document as file and view the saved document
+    
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+    
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+	  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ExportToDataTable.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+	  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExportToDataTable.xlsx", "application/msexcel", stream);
+    }
+}
+{% endhighlight %}
+{% endtabs %}  
+
+The following code is the event handler for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
+{
+   if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
+       e.ExportDataTableAction = ExportDataTableActions.SkipRow;
+	   
+   if (e.DataTableColumnIndex ==0 && e.ExcelRowIndex == 5 && e.ExcelColumnIndex == 1)
+       e.ExportDataTableAction = ExportDataTableActions.StopExporting;
+	   
+   if (e.ExcelValue != null && e.ExcelValue.ToString() == "Mexico D.F.")
+       e.DataTableValue = "Mexico";
+	   
+   if (e.ColumnType.ToString() == "Double" && e.ExcelValue != null)
+       e.DataTableValue = 30;
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Private Sub ExportDataTable_EventAction(ByVal e As ExportDataTableEventArgs)
+    If e.ExcelValue IsNot Nothing AndAlso e.ExcelValue.ToString() = "Owner" Then 
+	  e.ExportDataTableAction = ExportDataTableActions.SkipRow
+	  
+    If e.DataTableColumnIndex = 0 AndAlso e.ExcelRowIndex = 5 AndAlso e.ExcelColumnIndex = 1 Then 
+	  e.ExportDataTableAction = ExportDataTableActions.StopExporting
+	  
+    If e.ExcelValue IsNot Nothing AndAlso e.ExcelValue.ToString() = "Mexico D.F." Then 
+      e.DataTableValue = "Mexico"
+	  
+    If e.ColumnType.ToString() = "double" AndAlso e.ExcelValue IsNot Nothing Then
+      e.DataTableValue = 30
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+//XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (NETStandard2.0 onwards) platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
+{
+   if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
+       e.ExportDataTableAction = ExportDataTableActions.SkipRow;
+	   
+   if (e.DataTableColumnIndex ==0 && e.ExcelRowIndex == 5 && e.ExcelColumnIndex == 1)
+       e.ExportDataTableAction = ExportDataTableActions.StopExporting;
+	   
+   if (e.ExcelValue != null && e.ExcelValue.ToString() == "Mexico D.F.")
+       e.DataTableValue = "Mexico";
+	   
+   if (e.ColumnType.ToString() == "Double" && e.ExcelValue != null)
+       e.DataTableValue = 30;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
+{
+   if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
+       e.ExportDataTableAction = ExportDataTableActions.SkipRow;
+	   
+   if (e.DataTableColumnIndex ==0 && e.ExcelRowIndex == 5 && e.ExcelColumnIndex == 1)
+       e.ExportDataTableAction = ExportDataTableActions.StopExporting;
+	   
+   if (e.ExcelValue != null && e.ExcelValue.ToString() == "Mexico D.F.")
+       e.DataTableValue = "Mexico";
+	   
+   if (e.ColumnType.ToString() == "Double" && e.ExcelValue != null)
+       e.DataTableValue = 30;
+}
 {% endhighlight %}
 {% endtabs %}  
 
