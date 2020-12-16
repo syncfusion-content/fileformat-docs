@@ -659,3 +659,51 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Add/Modify JavaScript actions to the PDF
+
+you can add or modify the JavaScript action in existing PDF document. The below code snippet shows how to add/modify Javascript code using [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) class to a PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load a PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Change the javascript action in a pdf document.
+
+loadedDocument.Actions.AfterOpen= new PdfJavaScriptAction("app.alert(\"Modified Script!\")");
+
+//Save the document.
+
+loadedDocument.Save("Output.pdf");
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document.
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+ 
+'Change the javascript Action in a pdf document.
+
+loadedDocument.Actions.AfterOpen = new PdfJavaScriptAction("app.alert(\"Modified Script!\")")
+
+'Save the document.
+
+loadedDocument.Save("Output.pdf")
+
+'Close the document.
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
