@@ -2046,7 +2046,7 @@ pdfDocument.Close();
 
 {% endtabs %}
 
-### Change the Track Changes Color
+#### Change the Track Changes Color
 
 You can customize how track changes markup appears in a generated PDF when converting Word documents into PDF. The following code sample shows how to customize revision marks colors.
 
@@ -2236,7 +2236,7 @@ pdfDocument.Close();
 
 {% endtabs %}
 
-### Show or Hide Revisions in Balloons
+#### Show or Hide Revisions in Balloons
 
 The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling ShowMarkup property. However, you can hide revisions in balloons by using following code example.
 
