@@ -2411,7 +2411,7 @@ Content type properties refers the metadata stored in a Word document, such as a
 The following screenshots shows the content type property in the input Word document.
 ![Resultant output Word document](WorkingwithWordDocument_images/QuickPart.png)
 
-N> You can use Content Type Properties only in documents that are saved in the Docx or WordML Format.
+N> You can use Content Type Properties only in documents that are saved in the DOCX or WordML Format.
 
 ### Accessing and modifying the Content Type Properties
 
