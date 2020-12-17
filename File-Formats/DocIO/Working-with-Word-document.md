@@ -2408,10 +2408,10 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 Content type properties refers the metadata stored in a Word document, such as author name, subject, and company. DocIO represents metadata with MetaProperty instance and you can access in the Word document (DOCX, WordML) by using the ContentTypeProperties collection of WordDocument class.
 
-The following screenshots shows the document property in the input Word document.
+The following screenshots shows the content type property in the input Word document.
 ![Resultant output Word document](WorkingwithWordDocument_images/QuickPart.png)
 
-N> You can use Content Type Properties only in documents that are saved in the Open XML Format.
+N> You can use Content Type Properties only in documents that are saved in the Docx or WordML Format.
 
 ### Accessing and modifying the Content Type Properties
 
@@ -2429,39 +2429,50 @@ MetaProperties metaProperties = document.ContentTypeProperties;
 for (int i = 0; i < metaProperties.Count; i++)
 {
     //Checks for particular display name of meta data and modifies its value
-        if (metaProperties[i].DisplayName == "Progress Status" 
-        && metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
-        {
-            metaProperties[i].Value = "Completed";
-        }
-        if (metaProperties[i].DisplayName == "Reviewed"
-        && metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
-        {
-            metaProperties[i].Value = true;
-        }
-        if (metaProperties[i].DisplayName == "Date" 
-        && metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
-        {
-            metaProperties[i].Value = DateTime.UtcNow;
-        }
-        if (metaProperties[i].DisplayName == "salary"
-        && (metaProperties[i].Type == MetaPropertyType.Number ||
-        metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
-        {
-            metaProperties[i].Value = 12000;
-        }
-        if (metaProperties[i].DisplayName == "Url" 
-        && metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
-        {
-            string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
-            metaProperties[i].Value = value;
-        }
-        if (metaProperties[i].DisplayName == "User"  
-        && metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
-        {
-            string[] value = { "1234", "Syncfusion" };
-            metaProperties[i].Value = value;
-        }         
+    switch (metaProperties[i].DisplayName)
+    {
+        case "Progress Status":
+            if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = "Completed";
+            }
+            break;
+        case "Reviewed":
+            if (metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = true;
+            }
+            break;
+        case "Date":
+            if (metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = DateTime.UtcNow;
+            }
+            break;
+        case "Salary":
+            if ((metaProperties[i].Type == MetaPropertyType.Number ||
+               metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
+            {
+                 metaProperties[i].Value = 12000;
+            }
+            break;
+        case "Url":
+            if (metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        case "User":
+            if (metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "1234", "Syncfusion" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        default:
+            break;
+    }               
 }
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
@@ -2478,44 +2489,47 @@ Dim metaProperties As MetaProperties = document.ContentTypeProperties
 Dim i As Integer = 0
 Do While (i < metaProperties.Count)
     'Checks for particular display name of meta data and modifies its value
-    If ((metaProperties(i).DisplayName = "Progress Status")  _
-                AndAlso ((metaProperties(i).Type = MetaPropertyType.Text)  _
-                AndAlso Not metaProperties(i).IsReadOnly)) Then
-        metaProperties(i).Value = "Completed"
-    End If
-    
-    If ((metaProperties(i).DisplayName = "Reviewed")  _
-                AndAlso ((metaProperties(i).Type = MetaPropertyType.Boolean)  _
-                AndAlso Not metaProperties(i).IsReadOnly)) Then
-        metaProperties(i).Value = true
-    End If
-    
-    If ((metaProperties(i).DisplayName = "Date")  _
-                AndAlso ((metaProperties(i).Type = MetaPropertyType.DateTime)  _
-                AndAlso Not metaProperties(i).IsReadOnly)) Then
-        metaProperties(i).Value = DateTime.UtcNow
-    End If
-    
-    If ((metaProperties(i).DisplayName = "salary")  _
-                AndAlso (((metaProperties(i).Type = MetaPropertyType.Number)  _
-                OrElse (metaProperties(i).Type = MetaPropertyType.Currency))  _
-                AndAlso Not metaProperties(i).IsReadOnly)) Then
-        metaProperties(i).Value = 12000
-    End If
-    
-    If ((metaProperties(i).DisplayName = "Url")  _
-                AndAlso ((metaProperties(i).Type = MetaPropertyType.Url)  _
-                AndAlso Not metaProperties(i).IsReadOnly)) Then
-        Dim value() As String = New String() {"https://www.syncfusion.com", "Syncfusion page"}
-        metaProperties(i).Value = value
-    End If
-    
-    If ((metaProperties(i).DisplayName = "User")  _
-                AndAlso ((metaProperties(i).Type = MetaPropertyType.User)  _
-                AndAlso Not metaProperties(i).IsReadOnly)) Then
-        Dim value() As String = New String() {"1234", "Syncfusion"}
-        metaProperties(i).Value = value
-    End If
+    Select Case (metaProperties(i).DisplayName)
+        Case "Progress Status"
+            If ((metaProperties(i).Type = MetaPropertyType.Text)  _
+                        AndAlso Not metaProperties(i).IsReadOnly) Then
+                metaProperties(i).Value = "Completed"
+            End If
+            
+        Case "Reviewed"
+            If ((metaProperties(i).Type = MetaPropertyType.Boolean)  _
+                        AndAlso Not metaProperties(i).IsReadOnly) Then
+                metaProperties(i).Value = true
+            End If
+            
+        Case "Date"
+            If ((metaProperties(i).Type = MetaPropertyType.DateTime)  _
+                        AndAlso Not metaProperties(i).IsReadOnly) Then
+                metaProperties(i).Value = DateTime.UtcNow
+            End If
+            
+        Case "Salary"
+            If (((metaProperties(i).Type = MetaPropertyType.Number)  _
+                        OrElse (metaProperties(i).Type = MetaPropertyType.Currency))  _
+                        AndAlso Not metaProperties(i).IsReadOnly) Then
+                metaProperties(i).Value = 12000
+            End If
+            
+        Case "Url"
+            If ((metaProperties(i).Type = MetaPropertyType.Url)  _
+                        AndAlso Not metaProperties(i).IsReadOnly) Then
+                Dim value() As String = New String() {"https://www.syncfusion.com", "Syncfusion page"}
+                metaProperties(i).Value = value
+            End If
+            
+        Case "User"
+            If ((metaProperties(i).Type = MetaPropertyType.User)  _
+                        AndAlso Not metaProperties(i).IsReadOnly) Then
+                Dim value() As String = New String() {"1234", "Syncfusion"}
+                metaProperties(i).Value = value
+            End If
+            
+    End Select
     
     i = (i + 1)
 Loop
@@ -2530,54 +2544,65 @@ document.Close
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx"), FormatType.Docx))
 {
-      //Processes the metaproperty collection in the Word document
-      MetaProperties metaProperties = document.ContentTypeProperties;
-      //Iterates through each of the child items of metaproperties
-      for (int i = 0; i < metaProperties.Count; i++)
-      {
-          //Checks for particular display name of meta data and modifies its value
-          if (metaProperties[i].DisplayName == "Progress Status"
-          && metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = "Completed";
-          }
-          if (metaProperties[i].DisplayName == "Reviewed"
-          && metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = true;
-          }
-          if (metaProperties[i].DisplayName == "Date"
-          && metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = DateTime.UtcNow;
-          }
-          if (metaProperties[i].DisplayName == "salary"
-          && (metaProperties[i].Type == MetaPropertyType.Number ||
-          metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = 12000;
-          }
-          if (metaProperties[i].DisplayName == "Url"
-          && metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
-          {
-              string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
-              metaProperties[i].Value = value;
-          }
-          if (metaProperties[i].DisplayName == "User"
-          && metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
-          {
-              string[] value = { "1234", "Syncfusion" };
-              metaProperties[i].Value = value;
-          }      
-      }
-      MemoryStream stream = new MemoryStream();
-      //Saves the Word file to MemoryStream
-      await document.SaveAsync(stream, FormatType.Docx);
-      //Saves the stream as Word file in local machine
-      Save(stream, "Result.docx");
-      //Please refer the below link to save Word document in UWP platform
-      //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-      document.Close();
+//Processes the metaproperty collection in the Word document
+MetaProperties metaProperties = document.ContentTypeProperties;
+//Iterates through each of the child items of metaproperties
+for (int i = 0; i < metaProperties.Count; i++)
+{
+    //Checks for particular display name of meta data and modifies its value
+    switch (metaProperties[i].DisplayName)
+    {
+        case "Progress Status":
+            if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = "Completed";
+            }
+            break;
+        case "Reviewed":
+            if (metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = true;
+            }
+            break;
+        case "Date":
+            if (metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = DateTime.UtcNow;
+            }
+            break;
+        case "Salary":
+            if ((metaProperties[i].Type == MetaPropertyType.Number ||
+               metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
+            {
+                 metaProperties[i].Value = 12000;
+            }
+            break;
+        case "Url":
+            if (metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        case "User":
+            if (metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "1234", "Syncfusion" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        default:
+            break;
+    }               
+}
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Result.docx");
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+document.Close();
 }
 {% endhighlight %}
 
@@ -2586,53 +2611,64 @@ FileStream sourceStreamPath = new FileStream("Template.docx", FileMode.Open, Fil
 //Loads the template document
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
 {
-      //Processes the metaproperty collection in the Word document
-      MetaProperties metaProperties = document.ContentTypeProperties;
-      //Iterates through each of the child items of metaproperties
-      for (int i = 0; i < metaProperties.Count; i++)
-      {
-          //Checks for particular display name of meta data and modifies its value
-          if (metaProperties[i].DisplayName == "Progress Status"
-          && metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = "Completed";
-          }
-          if (metaProperties[i].DisplayName == "Reviewed"
-          && metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = true;
-          }
-          if (metaProperties[i].DisplayName == "Date"
-          && metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = DateTime.UtcNow;
-          }
-          if (metaProperties[i].DisplayName == "salary"
-          && (metaProperties[i].Type == MetaPropertyType.Number ||
-          metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = 12000;
-          }
-          if (metaProperties[i].DisplayName == "Url"
-          && metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
-          {
-              string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
-              metaProperties[i].Value = value;
-          }
-          if (metaProperties[i].DisplayName == "User"
-          && metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
-          {
-              string[] value = { "1234", "Syncfusion" };
-              metaProperties[i].Value = value;
-          }      
-      }
-      MemoryStream stream = new MemoryStream();
-      //Saves the Word document to  MemoryStream
-      document.Save(stream, FormatType.Docx);
-      document.Close();
-      stream.Position = 0;
-      //Download Word document in the browser
-      return File(stream, "application/msword", "Result.docx");
+//Processes the metaproperty collection in the Word document
+MetaProperties metaProperties = document.ContentTypeProperties;
+//Iterates through each of the child items of metaproperties
+for (int i = 0; i < metaProperties.Count; i++)
+{
+    //Checks for particular display name of meta data and modifies its value
+    switch (metaProperties[i].DisplayName)
+    {
+        case "Progress Status":
+            if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = "Completed";
+            }
+            break;
+        case "Reviewed":
+            if (metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = true;
+            }
+            break;
+        case "Date":
+            if (metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = DateTime.UtcNow;
+            }
+            break;
+        case "Salary":
+            if ((metaProperties[i].Type == MetaPropertyType.Number ||
+               metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
+            {
+                 metaProperties[i].Value = 12000;
+            }
+            break;
+        case "Url":
+            if (metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        case "User":
+            if (metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "1234", "Syncfusion" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        default:
+            break;
+    }               
+}
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -2642,54 +2678,65 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads the template document
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx"), FormatType.Docx))
 {
-      //Processes the metaproperty collection in the Word document
-      MetaProperties metaProperties = document.ContentTypeProperties;
-      //Iterates through each of the child items of metaproperties
-      for (int i = 0; i < metaProperties.Count; i++)
-      {
-          //Checks for particular display name of meta data and modifies its value
-          if (metaProperties[i].DisplayName == "Progress Status"
-          && metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = "Completed";
-          }
-          if (metaProperties[i].DisplayName == "Reviewed"
-          && metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = true;
-          }
-          if (metaProperties[i].DisplayName == "Date"
-          && metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = DateTime.UtcNow;
-          }
-          if (metaProperties[i].DisplayName == "salary"
-          && (metaProperties[i].Type == MetaPropertyType.Number ||
-          metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
-          {
-              metaProperties[i].Value = 12000;
-          }
-          if (metaProperties[i].DisplayName == "Url"
-          && metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
-          {
-              string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
-              metaProperties[i].Value = value;
-          }
-          if (metaProperties[i].DisplayName == "User"
-          && metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
-          {
-              string[] value = { "1234", "Syncfusion" };
-              metaProperties[i].Value = value;
-          }      
-      }
-      MemoryStream stream = new MemoryStream();
-      document.Save(stream, FormatType.Docx);
-      //Save the stream as a file in the device and invoke it for viewing
-      Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-      //Closes the document              
-      document.Close();
-      //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-      //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Processes the metaproperty collection in the Word document
+MetaProperties metaProperties = document.ContentTypeProperties;
+//Iterates through each of the child items of metaproperties
+for (int i = 0; i < metaProperties.Count; i++)
+{
+    //Checks for particular display name of meta data and modifies its value
+    switch (metaProperties[i].DisplayName)
+    {
+        case "Progress Status":
+            if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = "Completed";
+            }
+            break;
+        case "Reviewed":
+            if (metaProperties[i].Type == MetaPropertyType.Boolean && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = true;
+            }
+            break;
+        case "Date":
+            if (metaProperties[i].Type == MetaPropertyType.DateTime && !metaProperties[i].IsReadOnly)
+            {
+                metaProperties[i].Value = DateTime.UtcNow;
+            }
+            break;
+        case "Salary":
+            if ((metaProperties[i].Type == MetaPropertyType.Number ||
+               metaProperties[i].Type == MetaPropertyType.Currency) && !metaProperties[i].IsReadOnly)
+            {
+                 metaProperties[i].Value = 12000;
+            }
+            break;
+        case "Url":
+            if (metaProperties[i].Type == MetaPropertyType.Url && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "https://www.syncfusion.com", "Syncfusion page" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        case "User":
+            if (metaProperties[i].Type == MetaPropertyType.User && !metaProperties[i].IsReadOnly)
+            {
+                string[] value = { "1234", "Syncfusion" };
+                metaProperties[i].Value = value;
+            }
+            break;
+        default:
+            break;
+    }               
+}
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Closes the document              
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
