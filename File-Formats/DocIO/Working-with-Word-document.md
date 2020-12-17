@@ -2431,7 +2431,7 @@ for (int i = 0; i < metaProperties.Count; i++)
     //Checks for particular display name of meta data and modifies its value
     switch (metaProperties[i].DisplayName)
     {
-        case "Progress Status":
+        case "ProgressStatus":
             if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
             {
                 metaProperties[i].Value = "Completed";
@@ -2490,7 +2490,7 @@ Dim i As Integer = 0
 Do While (i < metaProperties.Count)
     'Checks for particular display name of meta data and modifies its value
     Select Case (metaProperties(i).DisplayName)
-        Case "Progress Status"
+        Case "ProgressStatus"
             If ((metaProperties(i).Type = MetaPropertyType.Text)  _
                         AndAlso Not metaProperties(i).IsReadOnly) Then
                 metaProperties(i).Value = "Completed"
@@ -2552,7 +2552,7 @@ for (int i = 0; i < metaProperties.Count; i++)
     //Checks for particular display name of meta data and modifies its value
     switch (metaProperties[i].DisplayName)
     {
-        case "Progress Status":
+        case "ProgressStatus":
             if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
             {
                 metaProperties[i].Value = "Completed";
@@ -2619,7 +2619,7 @@ for (int i = 0; i < metaProperties.Count; i++)
     //Checks for particular display name of meta data and modifies its value
     switch (metaProperties[i].DisplayName)
     {
-        case "Progress Status":
+        case "ProgressStatus":
             if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
             {
                 metaProperties[i].Value = "Completed";
@@ -2686,7 +2686,7 @@ for (int i = 0; i < metaProperties.Count; i++)
     //Checks for particular display name of meta data and modifies its value
     switch (metaProperties[i].DisplayName)
     {
-        case "Progress Status":
+        case "ProgressStatus":
             if (metaProperties[i].Type == MetaPropertyType.Text && !metaProperties[i].IsReadOnly)
             {
                 metaProperties[i].Value = "Completed";
