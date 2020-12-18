@@ -848,6 +848,186 @@ else
 
 {% endtabs %}
 
+### Edit a language of textpart
+
+You can edit a language of textpart using Presentation. The following code example demonstrates how to edit a language of textpart.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a Microsoft PowerPoint instance
+IPresentation pptxDoc = Presentation.Create();
+
+//Add the slide for Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(500, 0, 400, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles";
+
+//Sets a language as "Spanish (Argentina)" for TextPart.
+textPart.Font.LanguageID = (short)LocaleIDs.es_AR;
+
+//Save a PowerPoint document
+pptxDoc.Save("Output.pptx");
+
+//Close the PowerPoint instance
+pptxDoc.Dispose();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a Microsoft PowerPoint instance
+Dim pptxDoc As IPresentation = Presentation.Create
+
+'Add the slide for Presentation
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Adds textbox to the slide
+Dim textboxShape As IShape = slide.AddTextBox(500, 0, 400, 500)
+
+'Adds paragraph to the textbody of textbox
+Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph
+
+'Adds a TextPart to the paragraph
+Dim textPart As ITextPart = paragraph.AddTextPart
+
+'Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles"
+
+'Sets a language as "Spanish (Argentina)" for TextPart.
+textPart.Font.LanguageID = CType(LocaleIDs.es_AR,Short)
+
+'Save a PowerPoint document
+pptxDoc.Save("Output.pptx")
+
+'Close the PowerPoint instance
+pptxDoc.Dispose
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a Microsoft PowerPoint instance
+IPresentation pptxDoc = Presentation.Create();
+
+//Add the slide for Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(500, 0, 400, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles";
+
+//Sets a language as "Spanish (Argentina)" for TextPart.
+textPart.Font.LanguageID = (short)LocaleIDs.es_AR;
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create a Microsoft PowerPoint instance
+IPresentation pptxDoc = Presentation.Create();
+
+//Add the slide for Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(500, 0, 400, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles";
+
+//Sets a language as "Spanish (Argentina)" for TextPart.
+textPart.Font.LanguageID = (short)LocaleIDs.es_AR;
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Create a Microsoft PowerPoint instance
+IPresentation pptxDoc = Presentation.Create();
+
+//Add the slide for Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(500, 0, 400, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles";
+
+//Sets a language as "Spanish (Argentina)" for TextPart.
+textPart.Font.LanguageID = (short)LocaleIDs.es_AR;
+
+//Create new memory stream to save Presentation
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Enabling shrink text on overflow option
 
 In a PowerPoint slide, if you add a text more than a shape can hold, the text will overflow from the shape. But by using a Shrink text on overflow option, you can fit a large text within a shape.The following code example demonstrates how to enable this property.
