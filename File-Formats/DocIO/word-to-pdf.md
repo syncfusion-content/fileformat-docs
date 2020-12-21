@@ -182,7 +182,7 @@ In Linux OS, you can perform the Word to PDF conversion using .NET Core (Targeti
 
 From v18.4, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) to perform Word to PDF conversion in Linux environment.
 
-If you are using prior to v18.4 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v18.4-release) to know about how to perform Word to PDF conversion in Linux.
+If you are using prior to v18.4 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v184-release) to know about how to perform Word to PDF conversion in Linux.
 
 
 Frequently Asked Questions
