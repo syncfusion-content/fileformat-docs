@@ -1,6 +1,6 @@
 ---
 title: Working with Paragraph in PowerPoint Presentation | Syncfusion
-description: Working with Paragraph in PowerPoint Presentation
+description: This section illustrates how to work with Paragraph and texts in PowerPoint Presentation
 platform: file-formats
 control: Presentation
 documentation: UG
@@ -848,7 +848,7 @@ else
 
 {% endtabs %}
 
-### Edit a language of textpart
+### Edit a language of TextPart
 
 With Essential Presentation, you can modify the language of Presentation TextPart. This allows viewer application to check spelling and grammar according to the language of each TextPart. The following code example demonstrates how to modify a language of Presentation TextPart.
 

@@ -1,6 +1,6 @@
 ---
 title: Converting PowerPoint Presentation to image |Syncfusion|
-description: Converting PowerPoint Presentation to image; PowerPoint Presentation conversion
+description: This section illustrates how to convert PowerPoint Presentation document to image; PowerPoint Presentation conversion
 platform: file-formats
 control: Presentation
 documentation: UG
