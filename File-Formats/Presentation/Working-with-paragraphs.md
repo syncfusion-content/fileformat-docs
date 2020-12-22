@@ -850,7 +850,7 @@ else
 
 ### Edit a language of textpart
 
-With Essential Presentation, you can modify the language of Presentation TextPart. This allows viewer application to check spelling and grammar according to the language of each TextPart. The following code example demonstrates how to modify a language of Presentation TextPart.
+You can edit a language of textpart using Presentation. The following code example demonstrates how to edit a language of textpart.
 
 {% tabs %}
 
