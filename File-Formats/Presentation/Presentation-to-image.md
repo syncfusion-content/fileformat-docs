@@ -538,25 +538,25 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-	    //Initialize the PresentationRenderer to perform image conversion
-	    pptxDoc.PresentationRenderer = new PresentationRenderer();
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
 	
         //Use a sets of default FallbackFont collection to IPresentation
         pptxDoc.FontSettings.InitializeFallbackFonts();
 
         //Convert PowerPoint slide to image as stream
-	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
 	    {
-		    //Reset the stream position
-		    stream.Position = 0;
+            //Reset the stream position
+            stream.Position = 0;
  
-		    //Create the output image file stream
-		    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		    {
-			    //Copy the converted image stream into created output stream
-			    stream.CopyTo(fileStreamOutput);
-		    }
-	    }
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
     }
 }
 
@@ -574,20 +574,20 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         pptxDoc.FontSettings.InitializeFallbackFonts();
 		
         //Initialize the PresentationRenderer to perform image conversion
-	    pptxDoc.PresentationRenderer = new PresentationRenderer();
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
  
-	    //Convert PowerPoint slide to image as stream
-	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
 	    {
             //Reset the stream position
-		    stream.Position = 0;
+            stream.Position = 0;
  
-		    //Create the output image file stream
-		    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		    {
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
                 //Copy the converted image stream into created output stream
-			    stream.CopyTo(fileStreamOutput);
-		    }
+                stream.CopyTo(fileStreamOutput);
+            }
         }
     }
 }
@@ -610,8 +610,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-	    //Initialize the PresentationRenderer to perform image conversion
-	    pptxDoc.PresentationRenderer = new PresentationRenderer();
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
 	
         //Use a sets of default FallbackFont collection to IPresentation
         pptxDoc.FontSettings.InitializeFallbackFonts();
@@ -620,17 +620,17 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
 
         //Convert PowerPoint slide to image as stream
-	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	    {
-		    //Reset the stream position
-		    stream.Position = 0;
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
  
-		    //Create the output image file stream
-		    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		    {
-			    //Copy the converted image stream into created output stream
-			    stream.CopyTo(fileStreamOutput);
-		    }
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
         }
     }
 }
@@ -652,20 +652,20 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
 		
         //Initialize the PresentationRenderer to perform image conversion
-	    pptxDoc.PresentationRenderer = new PresentationRenderer();
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
  
-	    //Convert PowerPoint slide to image as stream
-	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	    {
-		    //Reset the stream position
-		    stream.Position = 0;
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
  
-		    //Create the output image file stream
-		    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		    {
-			    //Copy the converted image stream into created output stream
-			    stream.CopyTo(fileStreamOutput);
-		    }
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
         }
     }
 }
@@ -704,20 +704,20 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
 
         //Initialize the PresentationRenderer to perform image conversion
-	    pptxDoc.PresentationRenderer = new PresentationRenderer();
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
 
         //Convert PowerPoint slide to image as stream
-	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	    {
-		    //Reset the stream position
-		    stream.Position = 0;
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
  
-		    //Create the output image file stream
-		    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		    {
-			    //Copy the converted image stream into created output stream
-			    stream.CopyTo(fileStreamOutput);
-		    }
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
         }
     }
 }
@@ -748,20 +748,20 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
 	   
         //Initialize the PresentationRenderer to perform image conversion
-	    pptxDoc.PresentationRenderer = new PresentationRenderer();
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
  
-	    //Convert PowerPoint slide to image as stream
-	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	    {
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
             //Reset the stream position
-		    stream.Position = 0;
+            stream.Position = 0;
  
-		    //Create the output image file stream
-		    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		    {
-			    //Copy the converted image stream into created output stream
-			    stream.CopyTo(fileStreamOutput);
-		    }
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
         }
     }
 }
