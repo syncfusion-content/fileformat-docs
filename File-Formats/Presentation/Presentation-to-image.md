@@ -530,49 +530,6 @@ The following code example demonstrates how to initialize a default fallback fon
 
 {% tabs %}
 
-{% highlight c# %}
-
-//Opens a PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-
-//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
-//Use a sets of default FallbackFont collection to IPresentation
-pptxDoc.FontSettings.InitializeFallbackFonts();
-
-//Converts the first slide into image
-Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
-
-//Saves the image as file
-image.Save("slide1.png");
-
-//Disposes the image
-image.Dispose();
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
-'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = New ChartToImageConverter
-
-'Use a sets of default FallbackFont collection to IPresentation
-pptxDoc.FontSettings.InitializeFallbackFonts
-
-'Converts the first slide into image
-Dim image As Image = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
-
-'Saves the image as file
-image.Save("slide1.png")
-
-'Disposes the image
-image.Dispose
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 //Load the PowerPoint presentation into stream
@@ -622,13 +579,13 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 	    //Convert PowerPoint slide to image as stream
 	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
 	    {
-		    //Reset the stream position
+            //Reset the stream position
 		    stream.Position = 0;
  
 		    //Create the output image file stream
 		    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
 		    {
-			    //Copy the converted image stream into created output stream
+                //Copy the converted image stream into created output stream
 			    stream.CopyTo(fileStreamOutput);
 		    }
         }
@@ -644,56 +601,6 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 The following code example demonstrates how to customize default fallback font while converting a PowerPoint presentation to Image.
 
 {% tabs %}
-
-{% highlight c# %}
-
-//Opens a PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-
-//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
-//Use a sets of default FallbackFont collection to IPresentation
-pptxDoc.FontSettings.InitializeFallbackFonts();
-// Customize a default fallback font name
-// Modify the Hebrew script default font name as "David"
-pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
-
-//Converts the first slide into image
-Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
-
-//Saves the image as file
-image.Save("slide1.png");
-
-//Disposes the image
-image.Dispose();
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Opens a PowerPoint Presentation
-Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
-'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = New ChartToImageConverter
-
-'Use a sets of default FallbackFont collection to IPresentation
-pptxDoc.FontSettings.InitializeFallbackFonts
-' Customize a default fallback font name
-' Modify the Hebrew script default font name as "David"
-pptxDoc.FontSettings.FallbackFonts(5).FontNames = "David"
-
-'Converts the first slide into image
-Dim image As Image = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
-
-'Saves the image as file
-image.Save("slide1.png")
-
-'Disposes the image
-image.Dispose
-
-{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -773,79 +680,6 @@ The following code example demonstrates how to add custom fallback fonts while c
 
 {% tabs %}
 
-{% highlight c# %}
-
-//Opens a PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-
-//Creates an instance of ChartToImageConverter
-pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
-//Add custom fallback font names
-
-// Arabic
-pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-// Hebrew
-pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
-// Hindi
-pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
-// Chinese
-pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-// Japanese
-pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
-// Korean
-pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-
-///Converts the first slide into image
-Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
-
-//Saves the image as file
-image.Save("slide1.png");
-
-//Disposes the image
-image.Dispose();
-
-//Closes the Presentation instance
-pptxDoc.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Opens a PowerPoint Presentation
-Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
-'Creates an instance of ChartToImageConverter
-pptxDoc.ChartToImageConverter = New ChartToImageConverter
-
-'Add custom fallback font names
-'Arabic
-pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(1536, 1791, "Arial"))
-'Hebrew
-pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(1424, 1535, "Arial"))
-'Hindi
-pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(2304, 2431, "Mangal"))
-'Chinese
-pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(19968, 40959, "DengXian"))
-'Japanese
-pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(12352, 12447, "MS Mincho"))
-'Korean
-pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(44032, 55203, "Malgun Gothic"))
-
-'Converts the first slide into image
-Dim image As Image = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
-
-'Saves the image as file
-image.Save("slide1.png")
-
-'Disposes the image
-image.Dispose
-
-'Closes the Presentation instance
-pptxDoc.Close
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 //Load the PowerPoint presentation into stream
@@ -919,7 +753,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 	    //Convert PowerPoint slide to image as stream
 	    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
 	    {
-		    //Reset the stream position
+            //Reset the stream position
 		    stream.Position = 0;
  
 		    //Create the output image file stream
@@ -937,3 +771,4 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endtabs %}
 
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
+N> 2. Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image?cs-save-lang=1&cs-lang=asp.net%20core) conversion.
