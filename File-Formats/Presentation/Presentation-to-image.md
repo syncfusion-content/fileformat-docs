@@ -546,7 +546,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
         //Convert PowerPoint slide to image as stream
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	    {
+        {
             //Reset the stream position
             stream.Position = 0;
  
@@ -578,7 +578,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
  
         //Convert PowerPoint slide to image as stream
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	    {
+        {
             //Reset the stream position
             stream.Position = 0;
  
