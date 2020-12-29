@@ -1,6 +1,6 @@
 ---
 title: Converting PowerPoint Presentation to image |Syncfusion|
-description: Converting PowerPoint Presentation to image; PowerPoint Presentation conversion
+description: This section illustrates how to convert PowerPoint Presentation document to image; PowerPoint Presentation conversion
 platform: file-formats
 control: Presentation
 documentation: UG
@@ -518,4 +518,257 @@ End Sub
 
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
+
+## Fallback fonts
+
+When a glyph of input text is unavailable in mentioned font, text will not be preserved in PPTX to Image conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to Image conversion.
+
+### Initialize Fallback Fonts
+
+The following code example demonstrates how to initialize a default fallback font while converting a PowerPoint presentation to Image.
+
+{% tabs %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+	
+        //Use a sets of default FallbackFont collection to IPresentation
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
+ 
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Use a sets of default FallbackFont collection to IPresentation
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+		
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+ 
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
+ 
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Customize Default Fallback Fonts
+
+The following code example demonstrates how to customize default fallback font while converting a PowerPoint presentation to Image.
+
+{% tabs %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+	
+        //Use a sets of default FallbackFont collection to IPresentation
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+        // Customize a default fallback font name
+        // Modify the Hebrew script default font name as "David"
+        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
+ 
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Use a sets of default FallbackFont collection to IPresentation
+        pptxDoc.FontSettings.InitializeFallbackFonts();
+        // Customize a default fallback font name
+        // Modify the Hebrew script default font name as "David"
+        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+		
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+ 
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
+ 
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Add Custom Fallback Fonts
+
+The following code example demonstrates how to add custom fallback fonts while converting a PowerPoint presentation to Image.
+
+{% tabs %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Add custom fallback font names
+
+        // Arabic
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+        // Hebrew
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+        // Hindi
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+        // Chinese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+        // Japanese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+        // Korean
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
+ 
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the PowerPoint presentation into stream
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Add custom fallback font names
+
+        // Arabic
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+        // Hebrew
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+        // Hindi
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+        // Chinese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+        // Japanese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+        // Korean
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+	   
+        //Initialize the PresentationRenderer to perform image conversion
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+ 
+        //Convert PowerPoint slide to image as stream
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+        {
+            //Reset the stream position
+            stream.Position = 0;
+ 
+            //Create the output image file stream
+            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+            {
+                //Copy the converted image stream into created output stream
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
+N> 2. Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image?cs-save-lang=1&cs-lang=asp.net%20core) conversion.
