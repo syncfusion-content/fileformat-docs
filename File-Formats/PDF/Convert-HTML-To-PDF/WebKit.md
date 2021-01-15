@@ -3687,7 +3687,7 @@ Issue
 </th>
 <td>To overcome this issue, you have to add the required fonts to docker container’s fonts directory. Kindly follow the below steps to resolve the text preservation issue in HTML to PDF conversion,
 </br>
-    1. Add the required true type fonts (.ttf files) in your project.<b>You need to add all the required/used fonts to the docker image.</b> Otherwise, the text may not preserve properly.
+    1. Add the required TrueType fonts (.ttf files) in your project.<b>You need to add all the required/used fonts to the docker image.</b> Otherwise, the text may not preserve properly.
 	</br>
 	2. Copy the files from your project directory to docker containers font directory <i>(C:\Windows\Fonts)</i>.
 	</br>
