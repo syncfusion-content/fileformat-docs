@@ -146,7 +146,7 @@ Download the helper files from this [link](http://www.syncfusion.com/downloads/s
 
 Compile and execute the application. This creates a simple PDF document.
 
-Download the complete work sample from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample1541042202.zip )
+Download the complete work sample from [Create-PDF-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-140928887)
 
 By executing the program, you will get the PDF document as follows.
 ![HellWorld](GettingStarted_images/Hello World.jpg)
