@@ -1,6 +1,6 @@
 ---
 title: Working with Charts | Syncfusion
-description: Briefs about charts operations
+description: Briefs about various charts operations. Essential XlsIO has support for creating and modifying Excel charts inside a workbook or as a chart worksheet.
 platform: File-formats
 control: XlsIO
 documentation: UG

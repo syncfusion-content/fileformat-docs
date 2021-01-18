@@ -842,5 +842,5 @@ else
 N> * Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts in the PowerPoint presentation to PDF/Image format. Otherwise, the charts are not exported to the converted PDF/Image.
 N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
-**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF/Image. For more information about this, see [Conversion](/file-formats/presentation/conversion).
+**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF/Image. For more information about this, see [Conversion](/file-formats/presentation/getting-started).
 

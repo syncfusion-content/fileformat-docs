@@ -178,7 +178,7 @@ else
 
 ## Printing a PowerPoint presentation
 
-You can print the Presentation document by converting the PowerPoint presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](/file-formats/presentation/conversion). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx) class to print the converted images by the default printer or to any of the available printer with customized settings.
+You can print the Presentation document by converting the PowerPoint presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](/file-formats/presentation/getting-started). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx) class to print the converted images by the default printer or to any of the available printer with customized settings.
 
 The following code example demonstrates how to convert the slides of a PowerPoint presentation to images.
 

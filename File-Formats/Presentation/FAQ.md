@@ -44,5 +44,5 @@ documentation: UG
 
 9. **How to improve the image quality while converting the Presentation slides to image?**
    
-   You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
+   You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
 

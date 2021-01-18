@@ -1,6 +1,6 @@
 ---
 title: Working with Color Spaces | Syncfusion
-description: This section explains how to create a PDF document with the specified color space
+description: This section explains how to create a PDF document with the specified color space. Essential PDF allows to set the color spaces using Document & Graphics.
 platform: file-formats
 control: PDF
 documentation: UG

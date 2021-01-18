@@ -2738,7 +2738,7 @@ else
 
 The following code example demonstrates how to convert the charts in a Presentation slide to image.
 
-T> You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
+T> You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
 
 {% tabs %}
 

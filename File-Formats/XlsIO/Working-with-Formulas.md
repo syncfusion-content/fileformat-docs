@@ -1,6 +1,6 @@
 ---
 title: Working with Formulas
-description: This section explains about how to create, read, edit & calculate formula in an Excel file. It provides support for all types of formula that Microsoft Excel supports.
+description: Learn how to create, read, edit & calculate formula in an Excel file. It provides support for all types of formula that Microsoft Excel supports.
 platform: File-formats
 control: XlsIO
 documentation: UG
