@@ -1,5 +1,5 @@
 ---
-title: Working with Pictures
+title: Working with Pictures | Syncfusion
 description: Briefs about inserting pictures in Essential XlsIO. It provides various simple and interactive options to insert Pictures into a worksheet.
 platform: File-Formats
 control: XlsIO

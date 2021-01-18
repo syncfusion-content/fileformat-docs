@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Working with Images
+# Working with images using various options
 
 Essential PDF supports both raster and vector images.
 

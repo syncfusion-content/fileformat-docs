@@ -5,7 +5,7 @@ platform: File-formats
 control: XlsIO
 ---
 
-# Assemblies Required
+# Assemblies Required for XlsIO
 
 The following assemblies need to be referenced in your application based on the platform.
 <table>

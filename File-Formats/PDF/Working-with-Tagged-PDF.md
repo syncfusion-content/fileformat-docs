@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Tagged PDF
+# Working with Tagged PDF
 
 ## Introduction
 

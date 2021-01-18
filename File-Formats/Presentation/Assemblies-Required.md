@@ -6,7 +6,7 @@ control: Presentation
 documentation: UG
 keywords: Assemblies
 ---
-# Assemblies Required
+# Assemblies Required for PowerPoint Presentation
 
 The following assemblies need to be referenced in your application
 <table>

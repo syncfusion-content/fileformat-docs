@@ -1,11 +1,11 @@
 ---
-title: Frequently Asked Questions
-description: Frequently asked questions on Essential Presentation library
+title: Frequently Asked Questions for PowerPoint Presentations
+description: This section illustrates about frequently asked questions in various options by using Essential Syncfusion Presentation library.
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# FAQ’s
+# FAQ’s for PowerPoint Presentations
 
 1. **Why I get an exception when trying to load a PPT file?**
 

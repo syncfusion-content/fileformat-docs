@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Getting Started
+# Getting started with Essential Presentation library
 
 ## Creating a simple PowerPoint Presentation with basic elements from scratch
 
