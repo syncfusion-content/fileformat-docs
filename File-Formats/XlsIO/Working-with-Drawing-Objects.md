@@ -1,6 +1,6 @@
 ---
 title: Working with Drawing Objects
-description: Briefs about Drawing Objects in XlsIO
+description: This section explains about drawing objects in Essential XlsIO. XlsIO provides Option button support only for XLSX format.
 platform: File-formats
 control: XlsIO
 documentation: UG
