@@ -1,6 +1,6 @@
 ---
 title: Working with named destination | Syncfusion
-description: This section explains how to create a tagged PDF document by using Essential PDF. Tagged PDF is useful for people with vision or cognitive impairments.
+description: This section explains about how to add, remove and modify the named destination in the Essential PDF document with examples.
 platform: file-formats
 control: PDF
 documentation: UG
