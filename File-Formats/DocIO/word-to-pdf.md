@@ -2752,14 +2752,6 @@ Only DOCX and WordML format documents are supported from .NET Framework 4.0 onwa
 </tr>
 <tr>
 <td>
-List - Bulleted, Numbered and Multi-level lists
-</td>
-<td>
-The image bullets preserved in the document may be replaced by the disc style bullet.
-</td>
-</tr>
-<tr>
-<td>
 Table Styles
 </td>
 <td>
@@ -2800,23 +2792,7 @@ Not supported
 </tr>
 <tr>
 <td>
-Rotation – predefined shape
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
 Fit Text – Table cell
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
-Allow AutoFit
 </td>
 <td>
 Not supported
