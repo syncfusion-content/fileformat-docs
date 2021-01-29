@@ -1,6 +1,6 @@
 ---
 title: Worksheet Rows and Columns Manipulation | Syncfusion
-description: Briefs about Row and Column manipulations in XlsIO
+description: Briefs about Row & Column manipulations in XlsIO. It provides manipulation options equivalent to Excel such as insertion, deletion, hiding and more.
 platform: File-formats
 control: XlsIO
 documentation: UG

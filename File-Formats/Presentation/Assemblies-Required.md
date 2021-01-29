@@ -1,12 +1,12 @@
 ---
-title: Assemblies Required for PowerPoint Presentation |Syncfusion|
-description: Briefs the assemblies required for various platforms and frameworks.
+title: Assemblies Required for PowerPoint Presentation | Syncfusion
+description: This section explains about how to assemblies required to convert powerpoint presentation to PDF for various platforms and frameworks.
 platform: file-formats
 control: Presentation
 documentation: UG
 keywords: Assemblies
 ---
-# Assemblies Required
+# Assemblies Required for PowerPoint Presentation
 
 The following assemblies need to be referenced in your application
 <table>
