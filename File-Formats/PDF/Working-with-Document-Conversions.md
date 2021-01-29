@@ -2747,7 +2747,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 {% highlight UWP %}
 
 
-//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
 
 
 
@@ -2756,16 +2756,41 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 {% highlight ASP.NET Core %}
 
 
-//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Initialize the HTML converter with the WebKit rendering engine.
 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set the WebKit path.
+
+webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
+
+//Assign the WebKit settings to HTML converter.
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Initialize the memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+//Convert URL to SVG.
+
+htmlConverter.ConvertToSvg("http://www.syncfusion.com", stream);
+
+//Save the document.
+
+using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
+{
+      stream.CopyTo(output);
+}
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
 
-//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
 
 
 
@@ -2773,6 +2798,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
 {% endtabs %}
 
+N> HTML to SVG conversion is not supported in the Mac platforms.
 
 ## Partial webpage to SVG
 
@@ -2863,7 +2889,7 @@ Hello world
 {% highlight UWP %}
 
 
-//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
 
 
 
@@ -2872,8 +2898,36 @@ Hello world
 {% highlight ASP.NET Core %}
 
 
-//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Initialize the HTML converter with the WebKit rendering engine
 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+// WebKit converter settings.
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path.
+
+webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
+
+//Assign WebKit settings.
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Initialize the memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+//Convert a partial HTML to SVG.
+
+htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", stream);
+
+//Save the document.
+
+using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
+{
+      stream.CopyTo(output);
+}
 
 
 {% endhighlight %}
@@ -2881,10 +2935,12 @@ Hello world
 {% highlight Xamarin %}
 
 
-//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
 
 
 
 {% endhighlight %}
 
 {% endtabs %}
+
+N> Partial HTML to SVG conversion is not supported in the Mac platforms
