@@ -6,9 +6,9 @@ control: PDF
 documentation: UG
 keywords: Assemblies
 ---
-# Assemblies Required
+# Assemblies Required to work with PDF 
 
-The following assemblies need to be referenced in your application based on the platform.knfjnfjnf
+The following assemblies need to be referenced in your application based on the platform.
 <table>
 <tr>
 <thead>
@@ -133,23 +133,55 @@ N> The above mentioned assemblies is supported from .NET Framework 4.0 onwards
 
 ## Converting Excel document to PDF
 
-For converting an Excel document to PDF, the following assemblies need to be referenced in your application
+For converting an Excel document to PDF, the following assemblies need to be referenced in your application.
 <table>
 <tr>
-<td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
+<th>
+Platform(s)
+</th>
+<th>
+Assembly
+</th>
+</tr>
+<tbody>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
-Syncfusion.XlsIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.Pdf.Base<br/>Syncfusion.ExcelToPDFConverter.Base<br/></td></tr>
+WPF, Windows Forms, ASP. NET and ASP.NET MVC
+</td>
+<td>
+Syncfusion.XlsIO.Base<br/>
+Syncfusion.Compression.Base<br/>
+Syncfusion.Pdf.Base<br/>
+Syncfusion.ExcelToPDFConverter.Base
+</td>
+</tr>
 <tr>
 <td>
-Windows Forms and WPF (Client Profile)<br/></td><td>
-Syncfusion.XlsIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.Pdf.ClientProfile<br/>Syncfusion.ExcelToPDFConverter.ClientProfile<br/></td></tr>
+Windows Forms and WPF (Client Profile)
+</td>
+<td>
+Syncfusion.XlsIO.ClientProfile<br/>
+Syncfusion.Compression.Base<br/>
+Syncfusion.Pdf.ClientProfile<br/>
+Syncfusion.ExcelToPDFConverter.ClientProfile
+</td>
+</tr>
+<tr>
+<td>
+UWP, .NET Core, Xamarin and Blazor (Server-Side)
+</td>
+<td>
+Syncfusion.Compression.Portable<br/>
+Syncfusion.XlsIO.Portable<br/>
+Syncfusion.Pdf.Portable<br/>
+Syncfusion.SkiaSharpHelper.Portable<br/>
+Syncfusion.XlsIORenderer.Portable
+</td>
+</tr>
+</tbody>
 </table>
 
-N> Excel to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
 ## Converting Presentation document to PDF
 

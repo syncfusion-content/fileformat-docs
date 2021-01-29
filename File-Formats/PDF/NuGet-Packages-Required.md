@@ -402,7 +402,7 @@ N> Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package
 
 ## Converting Excel document to PDF
 
-For converting Excel document into PDF, the following NuGet packages need to be installed in your application. 
+For converting Excel document into PDF, the following NuGet packages need to be installed in your application.
 
 <table>
 <tr>
@@ -413,7 +413,7 @@ For converting Excel document into PDF, the following NuGet packages need to be 
 </tr>
 <tr>
 <td>
-Windows Forms<br/>
+Windows Forms,<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -433,15 +433,16 @@ WPF
 .NET Framework 3.5 or 4.0 Client Profile
 </td>
 <td>
-{{'[Syncfusion.ExcelToPDFConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.ClientProfile/)'| markdownify }}
+{{'[Syncfusion.ExcelToPdfConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET
+ASP.NET Web Forms,<br/>
+ASP.NET Core (Targeting .NET Framework)
 </td>
 <td>
-{{'[Syncfusion.ExcelToPDFConverter.Base.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet/)'| markdownify }}
+{{'[Syncfusion.ExcelToPDFConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -462,11 +463,12 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .NET Core)<br/>
+UWP,<br/> 
+ASP.NET Core (Targeting .NET Core),<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -474,12 +476,20 @@ Console Application (Targeting .NET Core)
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Blazor (Server-Side)
+</td>
+<td>
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 </table>
 
-N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards
+N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
 ## Converting Presentation document to PDF
 

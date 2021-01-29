@@ -402,128 +402,160 @@ wordDocument.Close()
 
 ## Converting Excel documents to PDF
 
-[ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html) is responsible for converting an Excel document into PDF. Essential PDF allows you to convert an entire workbook or a single worksheet into PDF document. For converting an Excel document to PDF, the following assemblies need to be referenced in your application.
+[ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html) is responsible for converting an Excel document into PDF. Essential PDF allows you to convert an entire workbook or a single worksheet into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF. 
 
-* Syncfusion.XlsIO.Base.dll
-* Syncfusion.Compression.Base.dll
-* Syncfusion.ExcelToPDFConverter.Base.dll
-* Syncfusion.ExcelChartToImageConverter.Wpf.dll
-* Syncfusion.SfChart.Wpf.dll
-* Syncfusion.Shared.Wpf.dll
-* Syncfusion.Pdf.Base.dll
+* [Assemblies Information](https://help.syncfusion.com/file-formats/pdf/assemblies-required#converting-excel-document-to-pdf)
+* [NuGet Information](https://help.syncfusion.com/file-formats/pdf/nuget-packages-required#converting-excel-document-to-pdf)
 
-### Converting  a Workbook to PDF
+N> Excel to PDF conversion works proper in Blazor server-side alone and not in client-side.
 
-The following code illustrates how to convert a workbook to PDF Document using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html).
+### Converting a Workbook to PDF
+
+The following code illustrates how to convert a workbook to PDF Document using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html).
 
 {% tabs %}
 
 {% highlight c# %}
 
+using(ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
-ExcelEngine excelEngine = new ExcelEngine();
+  //Open the Excel document to Convert
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-IApplication application = excelEngine.Excel;
+  //Initialize PDF document
+  PdfDocument pdfDocument = new PdfDocument();
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Convert Excel document into PDF document
+  pdfDocument = converter.Convert();
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
-//Open the Excel Document to Convert
-
-ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-
-//Initialize PDF Document
-
-PdfDocument pdfDocument = new PdfDocument();
-
-//Convert Excel Document into PDF document
-
-pdfDocument = converter.Convert();
-
-//Save the pdf file
-
-pdfDocument.Save("ExcelToPDF.pdf");
-
-//Dispose the objects
-
-pdfDocument.Close();
-
-converter.Dispose();
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
+  //Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf");
+}
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-Dim excelEngine As ExcelEngine = New ExcelEngine
+  'Open the Excel document to convert
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-Dim application As IApplication = excelEngine.Excel
+  'Initialize the PDF document
+  Dim pdfDocument As PdfDocument = New PdfDocument()
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Convert Excel document into PDF document
+  pdfDocument = converter.Convert()
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
-'Open the Excel Document to Convert
-
-Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
-
-'Initialize the PDF Document
-
-Dim pdfDocument As PdfDocument = New PdfDocument()
-
-'Convert Excel Document into PDF document
-
-pdfDocument = converter.Convert()
-
-'Save the pdf file
-
-pdfDocument.Save("ExcelToPDF.pdf")
-
-'Dispose the objects
-
-pdfDocument.Close()
-
-converter.Dispose()
-
-workbook.Close()
-
-excelEngine.Dispose()
-
+  'Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf")
+End Using
 
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
 
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    await doc.SaveAsync(stream);
+
+    //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+    Save(stream, "ExcelToPDF.pdf");
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
 
+   //Convert Excel document into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
+   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+   pdfDocument.Save(stream);
+
+   excelStream.Dispose();
+   stream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+   
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
 
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
 
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    doc.Save(stream);
+
+    stream.Position = 0;
+
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+
+    excelStream.Dispose();
+    stream.Dispose();
+}       
 
 {% endhighlight %}
 
@@ -537,99 +569,143 @@ The following code shows how to convert a particular sheet to PDF Document using
 
 {% highlight c# %}
 
+Using(ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //convert the sheet to PDF
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-//convert the sheet to pdf
-
-ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
-
-PdfDocument pdfDocument= new PdfDocument();
-
-pdfDocument = converter.Convert();
-
-pdfDocument.Save("ExcelToPDF.pdf");
-
-pdfDocument.Close();
-
-converter.Dispose();
-
-workbook.Close();
-excelEngine.Dispose();
-
-
+  PdfDocument pdfDocument= new PdfDocument();
+  pdfDocument = converter.Convert();
+  pdfDocument.Save("ExcelToPDF.pdf");       
+}
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim excelEngine As ExcelEngine = New ExcelEngine
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Converts the particular sheet 
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(sheet)
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  Dim pdfDocument As PdfDocument = New PdfDocument()
+  pdfDocument = converter.Convert()
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
-Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-'Converts the particular sheet
-
-Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(sheet)
-
-Dim pdfDocument As PdfDocument = New PdfDocument()
-
-pdfDocument = converter.Convert()
-
-'Save the pdf file
-
-pdfDocument.Save("ExcelToPDF.pdf")
-
-'Dispose the objects
-
-pdfDocument.Close()
-
-converter.Dispose()
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
+  'Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf")
+End Using
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	IWorksheet worksheet = workbook.Worksheets[0];
+	
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
 
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    await doc.SaveAsync(stream);
+
+    // Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+    Save(stream, "ExcelToPDF.pdf");
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+   //Convert Excel document into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
+   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+   pdfDocument.Save(stream);
 
+   excelStream.Dispose();
+   stream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+   
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
 
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
 
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    doc.Save(stream);
+
+    stream.Position = 0;
+
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
 
 {% endhighlight %}
 
@@ -646,106 +722,152 @@ The following code snippet shows how to create an individual PDF document for ea
 
 {% highlight c# %}
 
-
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
-PdfDocument pdfDocument = new PdfDocument();
-
-
-
-foreach (IWorksheet sheet in workbook.Worksheets)
-
+Using(ExcelEngine excelEngine = new ExcelEngine())
 {
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
-ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
+  PdfDocument pdfDocument = new PdfDocument();     
 
-pdfDocument = converter.Convert();
+  foreach (IWorksheet sheet in workbook.Worksheets)
+  {
+    ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
+    pdfDocument = converter.Convert();
 
-//Save the pdf file
-
-pdfDocument.Save(sheet.Name+".pdf");
-
-converter.Dispose();
-
+    //Save the PDF file
+    pdfDocument.Save(sheet.Name+".pdf");
+    converter.Dispose();
+  }
 }
-
-//Dispose the objects
-
-pdfDocument.Close();
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
-Dim excelEngine As New ExcelEngine()
+  Dim pdfDocument As New PdfDocument()
 
-Dim application As IApplication = excelEngine.Excel
+  For Each sheet As IWorksheet In workbook.Worksheets
+    Dim converter As New ExcelToPdfConverter(sheet)
+    PdfDocument = converter.Convert()
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
-Dim pdfDocument As New PdfDocument()
-
-For Each sheet As IWorksheet In workbook.Worksheets
-
-Dim converter As New ExcelToPdfConverter(sheet)
-
-PdfDocument = converter.Convert()
-
-'Save the pdf file
-
-PdfDocument.Save(sheet.Name + ".pdf")
-
-converter.Dispose()
-
-Next
-
-pdfDocument.Close()
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
+    'Save the PDF file
+    PdfDocument.Save(sheet.Name + ".pdf")
+    converter.Dispose()
+  Next
+End Using
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+	PdfDocument pdfDocument = new PdfDocument();     
+    	
+    foreach (IWorksheet sheet in workbook.Worksheets)
+    {
+      pdfDocument = renderer.ConvertToPDF(sheet);
+    
+	  //Save the PDF file
+	  MemoryStream stream = new MemoryStream();
+	  await doc.SaveAsync(stream);
+	  
+	  //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+      Save(stream, sheet.Name+".pdf");
+	  stream.Dispose();
+    }
+	
+    excelStream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
+   
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
+   PdfDocument pdfDocument = new PdfDocument();     
+    	
+   foreach (IWorksheet sheet in workbook.Worksheets)
+   {
+     pdfDocument = renderer.ConvertToPDF(sheet);
+   
+     //Save the PDF file
+     Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
+     pdfDocument.Save(stream);
+     stream.Dispose();
+   }
 
-
+   excelStream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+   
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
 
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
 
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+    PdfDocument pdfDocument = new PdfDocument();     
+     	
+    foreach (IWorksheet sheet in workbook.Worksheets)
+    {
+      pdfDocument = renderer.ConvertToPDF(sheet);
+    
+      //Save the PDF file
+      Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
+      pdfDocument.Save(stream);
+	  
+	  stream.Position = 0;
+	  //Save the stream into pdf file
+      if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+      {
+          Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+      }
+      else
+      {
+          Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+      }
+      stream.Dispose();
+    }    
+    excelStream.Dispose();
+}
 
 {% endhighlight %}
 
@@ -753,127 +875,159 @@ excelEngine.Dispose()
 
 ### Excel with Chart to PDF
 
-To preserve the charts during Excel to PDF conversion, you should initialize the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_ChartToImageConverter) of [IApplication](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html) interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
+To preserve the charts during Excel to PDF conversion, you should initialize the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication~ChartToImageConverter.html) of [IApplication](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication.html) interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
 
 {% tabs %}
 
 {% highlight c# %}
 
+Using(ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
+  //Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
+  application.ChartToImageConverter = new ChartToImageConverter();
 
-IApplication application = excelEngine.Excel;
+  //Tuning chart image quality
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("chart.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Instantiating the ChartToImageConverter and
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-//Assigning the ChartToImageConverter instance of XlsIO application
-
-application.ChartToImageConverter = new ChartToImageConverter();
-
-//Tuning Chart Image Quality
-
-application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
-
-IWorkbook workbook = application.Workbooks.Open("chart.xlsx");
-
-IWorksheet worksheet = workbook.Worksheets[0];
-
-ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-
-PdfDocument pdfDocument = new PdfDocument();
-
-pdfDocument = converter.Convert();
-
-pdfDocument.Save("ExcelToPDF.pdf");
-
-converter.Dispose();
-
-pdfDocument.Close();
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
+  PdfDocument pdfDocument = new PdfDocument();
+  pdfDocument = converter.Convert();
+  pdfDocument.Save("ExcelToPDF.pdf");
+}
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim excelEngine As New ExcelEngine()
+  'Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
+  application.ChartToImageConverter = New ChartToImageConverter()
 
-Dim application As IApplication = excelEngine.Excel
+  'Tuning chart image quality
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("chart.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Instantiating the ChartToImageConverter and
-
-'Assigning the ChartToImageConverter instance of XlsIO application
-
-application.ChartToImageConverter = New ChartToImageConverter()
-
-'Tuning Chart Image Quality
-
-application.ChartToImageConverter.ScalingMode = ScalingMode.Best
-
-Dim workbook As IWorkbook = application.Workbooks.Open("chart.xlsx")
-
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-Dim converter As New ExcelToPdfConverter(workbook)
-
-Dim pdfDocument As New PdfDocument()
-
-pdfDocument = converter.Convert()
-
-pdfDocument.Save("ExcelToPDF.pdf")
-
-converter.Dispose()
-
-pdfDocument.Close()
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
+  Dim converter As New ExcelToPdfConverter(workbook)
+  
+  Dim pdfDocument As New PdfDocument()
+  pdfDocument = converter.Convert()
+  pdfDocument.Save("ExcelToPDF.pdf")
+End Using
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    
+	//Initializing XlsIORenderer
+	XlsIORenderer renderer = new XlsIORenderer();
+	
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	    
+	//Convert Excel document with charts into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);	
+	
+	//Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    await doc.SaveAsync(stream);
 
+    //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+    Save(stream, "ExcelToPDF.pdf");
 
+    excelStream.Dispose();
+    stream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
+   
+   FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+   //Convert Excel document with charts into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
+   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+   pdfDocument.Save(stream);
 
+   excelStream.Dispose();
+   stream.Dispose();
+}
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+	//Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+	
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
 
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
+    
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    doc.Save(stream);
+
+    stream.Position = 0;
+
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
 
 {% endhighlight %}
 
 {% endtabs %}
-
-N> This section is applicable only to the Windows Forms, ASP.NET, MVC and WPF platforms.
-
 
 
 ### Supported Elements
@@ -957,7 +1111,7 @@ For ASP.NET Core and Xamarin applications
 * using Syncfusion.DocIORenderer
 * using Syncfusion.Pdf
 
-[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a RTF to PDF. The following code snippet illustrates how to convert a RTF to PDF document.
+[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.Base~Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a RTF to PDF. The following code snippet illustrates how to convert a RTF to PDF document.
 
 {% tabs %}
 
@@ -1679,7 +1833,7 @@ N> 2. By default, all monochrome images will be compressed in CITTT4 compression
 
 The XPS (XML Paper Specification) document format is a fixed document format which consists of structured XML markup that defines the layout of a document and the visual appearance of each page, along with rendering rules for distributing, archiving, rendering, processing and printing the documents.
 
-Essential PDF provides support for converting XPS to PDF using [XPSToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.XPS.XPSToPdfConverter.html) class.
+Essential PDF provides support for converting XPS to PDF using [XPSToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.XPS.XPSToPdfConverter.html) class.
 
 The below code illustrates how to convert XPS to PDF.
 
