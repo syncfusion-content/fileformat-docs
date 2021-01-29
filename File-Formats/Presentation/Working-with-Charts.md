@@ -1,11 +1,11 @@
 ---
-title: Create and edit Charts in PowerPoint files |Syncfusion|
-description: Working with Charts in PowerPoint Presentation
+title: Create and edit Charts in PowerPoint files | Syncfusion
+description: Working with Charts in PowerPoint Presentation. Essential Presentation facilitates you to create and edit charts in PowerPoint files.
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with Charts
+# Working with charts using various operations
 
 ## Creating a Chart from scratch
 
@@ -2738,7 +2738,7 @@ else
 
 The following code example demonstrates how to convert the charts in a Presentation slide to image.
 
-T> You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
+T> You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
 
 {% tabs %}
 

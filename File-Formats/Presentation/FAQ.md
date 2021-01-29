@@ -1,11 +1,11 @@
 ---
-title: Frequently Asked Questions
-description: Frequently asked questions on Essential Presentation library
+title: Frequently Asked Questions for PowerPoint Presentations | Syncfusion
+description: This section illustrates about frequently asked questions in various options by using Essential Syncfusion Presentation library.
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# FAQ’s
+# FAQ’s for PowerPoint Presentations
 
 1. **Why I get an exception when trying to load a PPT file?**
 
@@ -44,5 +44,5 @@ documentation: UG
 
 9. **How to improve the image quality while converting the Presentation slides to image?**
    
-   You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
+   You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
 

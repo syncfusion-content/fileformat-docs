@@ -1,6 +1,6 @@
 ---
 title: Working with named destination | Syncfusion
-description: This section explains how to add, modify and remove named destination from the PDF document
+description: This section explains about how to add, remove and modify the named destination in the Essential PDF document with example.
 platform: file-formats
 control: PDF
 documentation: UG
