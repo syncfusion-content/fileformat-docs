@@ -1,6 +1,6 @@
 ---
 title: Cell or Range Formatting | Syncfusion
-description: Briefs about Cell or Range Formatting in XlsIO.
+description: Briefs about various formatting options in a cell or a range formatting in XlsIO. It supports adding HTML Rich-Text to a range of cells in worksheet.
 platform: File-Formats
 control: XlsIO
 documentation: UG

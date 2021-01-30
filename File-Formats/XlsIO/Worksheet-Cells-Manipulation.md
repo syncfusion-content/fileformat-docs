@@ -2053,9 +2053,9 @@ You can perform [find and replace](https://support.office.com/en-usa/article/Fin
 *	To search for data in formulas, values or comments.
 *	To search for case-sensitive data and to match entire cell contents of the cell.
 
-To know more about these options, please refer the [ExcelFindType](http://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](http://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
+To know more about these options, please refer the [ExcelFindType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
 
-You can find all the occurrences of a text in worksheet by using [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_FindAll_System_Boolean_) method. To know more about Find and Replace, please refer [IWorksheet](http://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) in the API documentation section.
+You can find all the occurrences of a text in worksheet by using [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_FindAll_System_Boolean_) method. To know more about Find and Replace, please refer [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) in the API documentation section.
 The following code illustrates how to find all the occurrences of text in a worksheet with different find options.
 
 {% tabs %}  

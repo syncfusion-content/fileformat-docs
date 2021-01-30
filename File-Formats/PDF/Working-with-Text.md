@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Text | Syncfusion
+# Working with text in the PDF document
 
 ## Drawing text in a new document
 
