@@ -8,7 +8,7 @@ documentation: ug
 
 ---
 
-# Download Installer
+# Download FileFormats Installer
 
 You can download the installer from [Syncfusion.com](https://www.syncfusion.com) website. 
 
