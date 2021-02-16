@@ -1705,7 +1705,7 @@ pdfDocument.Close();
 
 Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
 
-N> 1. If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument.property.Hyphenation.AutoHyphenation = true of DocIO.
+N> 1. If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument.Property.Hyphenation.AutoHyphenation of DocIO.
 
 The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
 {% tabs %}  
