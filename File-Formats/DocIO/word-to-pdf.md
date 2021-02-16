@@ -1716,7 +1716,7 @@ WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 //Enables auto hyphenation
-WordDocument.Properties.Hyphenation.AutoHyphenation = true;
+wordDocument.Properties.Hyphenation.AutoHyphenation = true;
 //Creates an instance of the DocToPDFConverter
 DocToPDFConverter converter = new DocToPDFConverter();
 //Adds the hyphenation dictionary of the specified language
@@ -1736,7 +1736,7 @@ pdfDocument.Close(true);
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Enables auto hyphenation
-WordDocument.Properties.Hyphenation.AutoHyphenation = True
+wordDocument.Properties.Hyphenation.AutoHyphenation = True
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Creates an instance of the DocToPDFConverter
@@ -1762,7 +1762,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
               FormatType.Docx))
 {
     //Enables auto hyphenation
-    WordDocument.Properties.Hyphenation.AutoHyphenation = true;
+    wordDocument.Properties.Hyphenation.AutoHyphenation = true;
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
     //Reads the language dictionary for hyphenation
@@ -1822,7 +1822,7 @@ FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
 //Enables auto hyphenation
-WordDocument.Properties.Hyphenation.AutoHyphenation = true;
+wordDocument.Properties.Hyphenation.AutoHyphenation = true;
 //Instantiates DocIORenderer instance for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Reads the language dictionary for hyphenation
@@ -1848,7 +1848,7 @@ Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream(
 //Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic);
 //Enables auto hyphenation
-WordDocument.Properties.Hyphenation.AutoHyphenation = true;
+wordDocument.Properties.Hyphenation.AutoHyphenation = true;
 //Instantiates DocIORenderer instance for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Reads the language dictionary for hyphenation
