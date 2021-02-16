@@ -1705,7 +1705,7 @@ pdfDocument.Close();
 
 Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
 
-N> 1. If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument. property of DocIO.
+N> 1. If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument property of DocIO.
 
 The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
 {% tabs %}  
@@ -1715,6 +1715,8 @@ The following code sample shows how to hyphenate text in a Word document while c
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
+//Enables auto hyphenation
+WordDocument.Properties.Hyphenation.AutoHyphenation = true;
 //Creates an instance of the DocToPDFConverter
 DocToPDFConverter converter = new DocToPDFConverter();
 //Adds the hyphenation dictionary of the specified language
@@ -1733,6 +1735,8 @@ pdfDocument.Close(true);
 {% highlight vb.net %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+'Enables auto hyphenation
+WordDocument.Properties.Hyphenation.AutoHyphenation = True
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 'Creates an instance of the DocToPDFConverter
@@ -1757,6 +1761,8 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
               FormatType.Docx))
 {
+    //Enables auto hyphenation
+    WordDocument.Properties.Hyphenation.AutoHyphenation = true;
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
     //Reads the language dictionary for hyphenation
@@ -1815,6 +1821,8 @@ async void Save(MemoryStream streams, string filename)
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
+//Enables auto hyphenation
+WordDocument.Properties.Hyphenation.AutoHyphenation = true;
 //Instantiates DocIORenderer instance for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Reads the language dictionary for hyphenation
@@ -1839,6 +1847,8 @@ pdfDocument.Close();
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
 WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic);
+//Enables auto hyphenation
+WordDocument.Properties.Hyphenation.AutoHyphenation = true;
 //Instantiates DocIORenderer instance for Word to PDF conversion
 DocIORenderer renderer = new DocIORenderer();
 //Reads the language dictionary for hyphenation
