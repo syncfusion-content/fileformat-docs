@@ -1,4 +1,4 @@
----
+﻿---
 title: Working with Security | DocIO | Syncfusion
 description: This section illustrates how to encrypt and protect the Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
@@ -308,7 +308,7 @@ The following are the types of protection:
 
 2. `AllowOnlyFormFields`: You can modify the form field values in the Word document.
 
-3. `AllowOnlyRevisions`: You can accept or reject the revisions in the Word document.
+3. `AllowOnlyRevisions`: Allow only revisions to be made to existing content. After enabling this flag, accept and reject changes options in Microsoft Word application are disabled.
 
 4. `AllowOnlyReading`: You can only view the content in the Word document.
 

@@ -219,8 +219,11 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
-
-<i>Note:</i> Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
+<i>Note</i><br/>
+<i>From v18.4.0.x:</i><br/>
+Install [SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) package for .Net Core application in Linux OS.<br/>
+<i>Before v18.4.0.x:</i><br/>
+Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
 </td>
 <td>
 Install-Package Syncfusion.DocIORenderer.Net.Core
@@ -241,9 +244,8 @@ Install-Package Syncfusion.Xamarin.DocIORenderer
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
-N> 3. Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
-N> 4. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
-
+N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
+N> 4. From v18.4.0.x, the dependent package SkiaSharp is upgraded from 1.59.3 to 2.80.2 version and it is mandatory to use SkiaSharp.NativeAssets.Linux v2.80.2 package instead of SkiaSharp.Linux v1.59.3 for converting Word documents into PDF in Linux environment.
 
 ## Converting Charts
 
@@ -559,8 +561,6 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 // Install package
 Install-Package Syncfusion.DocIORenderer.Net.Core
 
-// Install dependent package
-Install-Package SkiaSharp -Version 1.59.3
 ~~~
 ~~~
 // Uninstall package
@@ -590,8 +590,6 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 // Install package
 Install-Package Syncfusion.Xamarin.DocIORenderer
 
-// Install dependent package
-Install-Package SkiaSharp -Version 1.59.3
 ~~~
 ~~~
 // Uninstall package
