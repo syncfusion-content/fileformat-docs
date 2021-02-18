@@ -222,7 +222,7 @@ Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
 <i>Note</i><br/>
 <i>From v18.4.0.x:</i><br/>
 Install [SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) package for .Net Core application in Linux OS.<br/>
-<i>Before v18.4.0.x</i><br/>
+<i>Before v18.4.0.x:</i><br/>
 Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
 </td>
 <td>
