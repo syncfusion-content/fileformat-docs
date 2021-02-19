@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Security | DocIO | Syncfusion
 description: This section illustrates how to encrypt and protect the Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
