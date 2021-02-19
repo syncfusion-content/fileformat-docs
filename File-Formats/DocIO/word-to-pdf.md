@@ -1,4 +1,4 @@
-﻿---
+---
 title: Word document to PDF Conversion | DocIO | Syncfusion
 description: This section illustrates how to convert Word document to PDF using Syncfusion Word library (Essential DocIO)
 platform: file-formats
