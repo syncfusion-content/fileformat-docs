@@ -1410,7 +1410,7 @@ pdfDocument.Close();
 
 ### Enable Alternate Chunks
 
-This setting allows you to include the alternate chunks while converting Word to PDF conversion. As default, it includes alternate chunks.
+This setting allows you to include the alternate chunks while converting Word to PDF conversion. As default, it includes alternate chunks. In the Word document, another Word documents are embedded in it and referred as AltChunks.
 
 The following code sample shows how to exclude the alternate chunk parts in Word to PDF conversion.
 
