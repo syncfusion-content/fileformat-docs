@@ -24,6 +24,9 @@ keywords: Supported and Unsupported Features of Presentation library
 {{'**ASP.NET**'| markdownify }}
 </td>
 <td rowspan="2">
+{{'**ASP.NET Core**'| markdownify }}
+</td>
+<td rowspan="2">
 {{'**ASP.Net MVC**'| markdownify }}
 </td>
 <td rowspan="2">
@@ -47,6 +50,9 @@ keywords: Supported and Unsupported Features of Presentation library
 <tr>
 <td>
 Create PowerPoint Presentation from Scratch or editing an existing Presentation
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -101,10 +107,16 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Save PowerPoint presentation to a local file, stream or stream it to the client browser
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -159,10 +171,16 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify bullets and numbering
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -217,10 +235,16 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify tables, rows and cells
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -275,10 +299,16 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify charts
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -322,6 +352,9 @@ Yes
 Yes
 </td>
 <td>
+
+</td>
+<td>
 Yes
 </td>
 <td>
@@ -337,6 +370,9 @@ Yes
 <tr>
 <td>
 Create, access and modify SmartArt diagrams
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -391,6 +427,9 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
@@ -420,10 +459,16 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Encrypt and open password protected Presentations
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -478,10 +523,16 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Access and modify built-in document properties
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -536,10 +587,16 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Convert PowerPoint Presentations into PDF
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -589,6 +646,9 @@ Yes
 Yes
 </td>
 <td>
+Yes
+</td>
+<td>
 No
 </td>
 <td>
@@ -613,6 +673,9 @@ Yes
 </td>
 <td>
 Yes
+</td>
+<td>
+
 </td>
 <td>
 Yes
