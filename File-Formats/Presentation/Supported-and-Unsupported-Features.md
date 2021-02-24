@@ -24,10 +24,10 @@ keywords: Supported and Unsupported Features of Presentation library
 {{'**ASP.NET**'| markdownify }}
 </td>
 <td rowspan="2">
-{{'**ASP.NET Core**'| markdownify }}
+{{'**ASP.Net MVC**'| markdownify }}
 </td>
 <td rowspan="2">
-{{'**ASP.Net MVC**'| markdownify }}
+{{'**ASP.NET Core**'| markdownify }}
 </td>
 <td rowspan="2">
 {{'**Xamarin. Forms**'| markdownify }}
@@ -352,7 +352,7 @@ Yes
 Yes
 </td>
 <td>
-
+Yes
 </td>
 <td>
 Yes
@@ -480,7 +480,7 @@ Yes
 Yes
 </td>
 <td>
-Yes
+No
 </td>
 <td>
 No
@@ -675,7 +675,7 @@ Yes
 Yes
 </td>
 <td>
-
+Yes
 </td>
 <td>
 Yes
