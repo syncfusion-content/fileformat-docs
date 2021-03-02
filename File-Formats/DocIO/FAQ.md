@@ -4741,7 +4741,7 @@ When the Word document contains metafile images (*.emf or *.wmf), we recommend u
 We have faced metafile images (*.emf, *.wmf) that are not supported in Azure App Service while converting a Word document with metafile images into PDF or Image. And also, this is one of the known limitations in Azure App Service. In this scenario, internally, Essential DocIO preserves RedX images in the same size during the Word to PDF or Image conversions to avoid pagination problems.
 
 ## Why images are preserved as RedX images in Word to PDF conversion?
-**In .NET Core targetting applications**, metafile images (*.wmf and *.emf) have some limitations. If the Word document contains metafile images (*.wmf" or *.emf") internally, Essential DocIO preserves those images as RedX images with the same size of original metafile images during the Word to PDF or Image conversions to avoid pagination problems.
+**In .NET Core targeting applications**, metafile images (*.wmf and *.emf) have some limitations. If the Word document contains metafile images (*.wmf" or *.emf") internally, Essential DocIO preserves those images as RedX images with the same size of original metafile images during the Word to PDF or Image conversions to avoid pagination problems.
 
 To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Word to PDF conversion.
 

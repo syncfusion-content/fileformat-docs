@@ -415,7 +415,7 @@ N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platfo
 
 **Frequently Asked Questions**
 
-* [How to get image from URL while opening HTML in .NET Core targetting applications?](https://www.syncfusion.com/kb/12373/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
+* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/12373/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
 
 ### Customizing the Word to HTML conversion
 
