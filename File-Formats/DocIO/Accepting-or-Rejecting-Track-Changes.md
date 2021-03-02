@@ -674,7 +674,7 @@ document.Close();
 
 {% endtabs %}
 
-Frequently Asked Questions
+**Frequently Asked Questions**
 
 * [How to check whether a Word document contains tracked changes or not?](https://help.syncfusion.com/file-formats/docio/faq#how-to-check-whether-a-word-document-contains-tracked-changes-or-not)
 * [How to accept or reject track changes of specific type in the Word document?](https://help.syncfusion.com/file-formats/docio/faq#how-to-accept-or-reject-track-changes-of-specific-type-in-the-word-document)
