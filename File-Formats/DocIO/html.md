@@ -413,6 +413,10 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 
 N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
 
+**Frequently Asked Questions**
+
+* [How to get image from URL while opening HTML in .NET Core targetting applications?](https://www.syncfusion.com/kb/12373/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
+
 ### Customizing the Word to HTML conversion
 
 You can customize the Word to HTML conversion with the following options:

@@ -4735,4 +4735,16 @@ The output directory can be customized as per your need.
 
 Now, SkiaSharp.Linux NuGet will be generated in the mentioned output directory and add the generated NuGet as additional reference. You can also find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
 
+## Which one is better Azure App Service or Cloud Service for Word to PDF/Image using DocIO?
+When the Word document contains metafile images (*.emf or *.wmf), we recommend using Azure Cloud Service.
+
+We have faced metafile images (*.emf, *.wmf) that are not supported in Azure App Service while converting a Word document with metafile images into PDF or Image. And also, this is one of the known limitations in Azure App Service. In this scenario, internally, Essential DocIO preserves RedX images in the same size during the Word to PDF or Image conversions to avoid pagination problems.
+
+## Why images are preserved as RedX images in Word to PDF conversion?
+**In .NET Core targetting applications**, metafile images (*.wmf and *.emf) have some limitations. If the Word document contains metafile images (*.wmf" or *.emf") internally, Essential DocIO preserves those images as RedX images with the same size of original metafile images during the Word to PDF or Image conversions to avoid pagination problems.
+
+To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Word to PDF conversion.
+
+Otherwise, you can use the[WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same "C# tab" code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages have limitations.
+
 
