@@ -9,7 +9,7 @@ documentation: UG
 
 ## Namespaces required
 
-The following namespaces need to be included in your application to load and save the Word docmuent.
+The following namespaces of Essential DocIO need to be included in your application to load and save the Word document.
 
 <table>
 <thead>
