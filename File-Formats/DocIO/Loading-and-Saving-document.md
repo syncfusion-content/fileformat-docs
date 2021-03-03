@@ -7,6 +7,21 @@ documentation: UG
 ---
 # Loading & saving document
 
+## Namespaces required
+
+The following namespaces need to be included in your application to load and save the Word docmuent.
+
+<table>
+<thead>
+<tr>
+<th>
+Namespaces<br/></th></tr></thead>
+<tr>
+<td>
+using Syncfusion.DocIO;<br/>
+using Syncfusion.DocIO.DLS;<br/></td></tr>
+</table>
+
 ## Opening an existing document
 
 You can open an existing Word document by using either the `Open` method or the constructor of `WordDocument` class
