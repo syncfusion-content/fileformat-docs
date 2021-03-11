@@ -3333,3 +3333,17 @@ CalcEngine.MaxStackDepth = 10000
 The [UnauthorizedAccessException](https://docs.microsoft.com/en-us/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) occurs when you are trying to write in a read-only/hidden file or if you don’t have access to the particular folder that contains the file or the folder might be locked currently. 
 
 First, check whether you can access the folder and the file directly. Then, right-click the input file and check whether the Read-only/Hidden checkbox is checked. If it is checked, kindly uncheck the Read-only/Hidden checkbox and try running the project as an administrator or an authorized user to access the file folder.
+
+## Do you have an option like IgnorePrintAreas of Excel's ExportAsFixedFormat() method?
+
+You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the **PrintArea** property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
+
+{% tabs %}
+{% highlight C# %}
+worksheet.PageSetup.PrintArea = string.Empty; 
+{% endhighlight %}
+
+{% highlight vb %}
+worksheet.PageSetup.PrintArea = string.Empty
+{% endhighlight %}
+{% endtabs %}
