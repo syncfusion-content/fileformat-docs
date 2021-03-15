@@ -3347,3 +3347,9 @@ worksheet.PageSetup.PrintArea = string.Empty;
 worksheet.PageSetup.PrintArea = string.Empty
 {% endhighlight %}
 {% endtabs %}
+
+## In what specific situation should we use AutoDetectComplexScript converter property?
+
+Complex script languages are some languages (eg., Arabic) which stores text differently from how it is displayed. Many such languages use bidirectional script which means, words and sentences are written from right to left, while some text such as numbers and Roman-based words are written from left to right. 
+
+If your input Excel file contains such complex script languages, then the AutoDetectComplexScript property can be used to render them in PDF.
