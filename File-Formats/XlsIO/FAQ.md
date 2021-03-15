@@ -3334,7 +3334,7 @@ The [UnauthorizedAccessException](https://docs.microsoft.com/en-us/dotnet/api/sy
 
 First, check whether you can access the folder and the file directly. Then, right-click the input file and check whether the Read-only/Hidden checkbox is checked. If it is checked, kindly uncheck the Read-only/Hidden checkbox and try running the project as an administrator or an authorized user to access the file folder.
 
-## Do you have an option like IgnorePrintAreas of Excel's ExportAsFixedFormat() method?
+## How to ignore print areas set in a worksheet?
 
 You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the **PrintArea** property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
 
