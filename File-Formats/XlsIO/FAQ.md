@@ -3334,6 +3334,20 @@ The [UnauthorizedAccessException](https://docs.microsoft.com/en-us/dotnet/api/sy
 
 First, check whether you can access the folder and the file directly. Then, right-click the input file and check whether the Read-only/Hidden checkbox is checked. If it is checked, kindly uncheck the Read-only/Hidden checkbox and try running the project as an administrator or an authorized user to access the file folder.
 
+## How to ignore print areas set in a worksheet?
+
+You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the **PrintArea** property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
+
+{% tabs %}
+{% highlight C# %}
+worksheet.PageSetup.PrintArea = string.Empty; 
+{% endhighlight %}
+
+{% highlight vb %}
+worksheet.PageSetup.PrintArea = string.Empty
+{% endhighlight %}
+{% endtabs %}
+
 ## In what specific situation should we use AutoDetectComplexScript converter property?
 
 Complex script languages are some languages (eg., Arabic) which stores text differently from how it is displayed. Many such languages use bidirectional script which means, words and sentences are written from right to left, while some text such as numbers and Roman-based words are written from left to right. 
