@@ -3334,6 +3334,12 @@ The [UnauthorizedAccessException](https://docs.microsoft.com/en-us/dotnet/api/sy
 
 First, check whether you can access the folder and the file directly. Then, right-click the input file and check whether the Read-only/Hidden checkbox is checked. If it is checked, kindly uncheck the Read-only/Hidden checkbox and try running the project as an administrator or an authorized user to access the file folder.
 
+## In what specific situation should we use AutoDetectComplexScript converter property?
+
+Complex script languages are some languages (eg., Arabic) which stores text differently from how it is displayed. Many such languages use bidirectional script which means, words and sentences are written from right to left, while some text such as numbers and Roman-based words are written from left to right. 
+
+If your input Excel file contains such complex script languages, then the AutoDetectComplexScript property can be used to render them in PDF.
+
 ## What is the impact on image quality when using the ExportQualityImage property?
 
 Normally, the image in the PDF will be saved in PNG format. With this property, the TIFF format is used for exporting the images into PDF. 
