@@ -208,14 +208,14 @@ IPresentation pptxDoc = Presentation.Create();
 //Add slide with blank layout to presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-//Get the excel file as stream
-Stream wordStream = File.Open("OleTemplate.docx", FileMode.Open);
+//Get the Word document file as stream
+Stream wordDocumentStream = File.Open("OleTemplate.docx", FileMode.Open);
 
 //Image to be displayed, This can be any image
 Stream imageStream = File.Open("OlePicture.png", FileMode.Open);
 
 //Add an OLE object to the slide
-IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordStream);
+IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
 
 //Set size and position of the OLE objectwordStream
 oleObject.Left = 10;
@@ -242,14 +242,14 @@ Dim pptxDoc As IPresentation = Presentation.Create()
 'Add slide with blank layout to presentation
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
-'Get the excel file as stream
-Dim wordStream As Stream = File.Open("OleTemplate.docx", FileMode.Open)
+'Get the Word document file as stream
+Dim wordDocumentStream As Stream = File.Open("OleTemplate.docx", FileMode.Open)
 
 'Image to be displayed, This can be any image
 Dim imageStream As Stream = File.Open("OlePicture.png", FileMode.Open)
 
 'Add an OLE object to the slide
-Dim oleObject As IOleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordStream)
+Dim oleObject As IOleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream)
 
 'Set size and position of the OLE object
 oleObject.Left = 10
@@ -276,15 +276,15 @@ IPresentation pptxDoc = Presentation.Create();
 //Add slide with blank layout to presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-//Get the excel file as stream
+//Get the Word document file as stream
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream wordStream = assembly.GetManifestResourceStream("UWP.Data.OleTemplate.docx");
+Stream wordDocumentStream = assembly.GetManifestResourceStream("UWP.Data.OleTemplate.docx");
 
 //Image to be displayed, This can be any image
 Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.OlePicture.png");
 
 //Add an OLE object to the slide
-IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordStream);
+IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
 
 //Set size and position of the OLE object
 oleObject.Left = 10;
@@ -317,14 +317,14 @@ IPresentation pptxDoc = Presentation.Create();
 //Add slide with blank layout to presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-//Get the excel file as stream
-FileStream wordStream = new FileStream("OleTemplate.docx", FileMode.Open);
+//Get the Word document file as stream
+FileStream wordDocumentStream = new FileStream("OleTemplate.docx", FileMode.Open);
 
 //Image to be displayed, This can be any image
 FileStream imageStream = new FileStream("OlePicture.png", FileMode.Open);
 
 //Add an OLE object to the slide
-IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordStream);
+IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
 
 //Set size and position of the OLE object
 oleObject.Left = 10;
@@ -355,14 +355,14 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Get the excel file as stream
-Stream wordStream = assembly.GetManifestResourceStream("OleTemplate.docx");
+//Get the Word document file as stream
+Stream wordDocumentStream = assembly.GetManifestResourceStream("OleTemplate.docx");
 
 //Image to be displayed, This can be any image
 Stream imageStream = assembly.GetManifestResourceStream("OlePicture.png");
 
 //Add an OLE object to the slide
-IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordStream);
+IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
 
 //Set size and position of the OLE object
 oleObject.Left = 10;
