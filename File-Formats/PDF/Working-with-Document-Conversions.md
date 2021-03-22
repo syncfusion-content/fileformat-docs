@@ -2273,7 +2273,7 @@ PdfRenderer pdfExportImage = new PdfRenderer();
 
 //Loads the PDF document
 
-pdfExportImage.Load(@"currentDirectory\..\..\..\..\Data\HTTP Succinctly.pdf");
+pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
 
 //Exports the PDF document pages into images
 
@@ -2281,7 +2281,7 @@ Bitmap bitmapimage = pdfExportImage.ExportAsImage(0);
 
 //Save the exported image in disk
 
-bitmapimage.Save(@"currentDirectory\..\..\..\..\Images\" + "bitmapImage" + i.ToString() + ".png");
+bitmapimage.Save(@"Images\" + "bitmapImage" + ".png");
 
 {% endhighlight %}
 
@@ -2403,7 +2403,7 @@ PdfRenderer pdfExportImage = new PdfRenderer();
 
 //Loads the PDF document
 
-pdfExportImage.Load(@"currentDirectory\..\..\..\..\Data\HTTP Succinctly.pdf");
+pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
 
 //Exports the PDF document pages into images
 
@@ -2415,7 +2415,7 @@ for (int i =0; i < pdfExportImage.PageCount; i++)
 
 // Save the exported image in disk
 
-bitmapimage[i].Save(@"currentDirectory\..\..\..\..\Images\" + "bitmapImage" + i.ToString() + ".png");
+bitmapimage[i].Save(@"Images\" + "bitmapImage" + i.ToString() + ".png");
 
 }
 
