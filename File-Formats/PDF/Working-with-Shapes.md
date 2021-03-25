@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Shapes
+# Working with Shapes for File-Formats Platform PDF Control
 
 Essential PDF has support for adding the below shapes.
 
