@@ -1,5 +1,5 @@
 ---
-title: Working with Shapes | Syncfusion
+title: PDF Working with Shapes | Syncfusion
 description: This section explains how to add shapes such as Line, curve, path, text, rectangle, pie, arc, Bezier, ellipse in the PDF document
 platform: file-formats
 control: PDF
