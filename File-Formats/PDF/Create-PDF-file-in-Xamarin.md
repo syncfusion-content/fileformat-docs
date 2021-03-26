@@ -100,7 +100,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endhighlight %}
 
-Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP ) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Helper_Class1450461599 ) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -146,7 +146,7 @@ Download the helper files from this [link](http://www.syncfusion.com/downloads/s
 
 Compile and execute the application. This creates a simple PDF document.
 
-Download the complete work sample from [Create-PDF-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-140928887)
+Download the complete work sample from [Create-PDF-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1091535413)
 
 By executing the program, you will get the PDF document as follows.
 ![HellWorld](GettingStarted_images/Hello World.jpg)
