@@ -2045,7 +2045,7 @@ richTextElement.Draw(page, new RectangleF(0, 20, page.GetClientSize().Width, pag
 
 MemoryStream stream = new MemoryStream();
 
-loadedDocument.Save(stream);
+doc.Save(stream);
 
 //If the position is not set to '0' then the PDF will be empty. 
 
@@ -2053,7 +2053,7 @@ stream.Position = 0;
 
 //Close the document 
 
-loadedDocument.Close(true);
+doc.Close(true);
 
 //Defining the ContentType for pdf file. 
 
