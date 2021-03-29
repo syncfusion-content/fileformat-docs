@@ -1,12 +1,12 @@
 ---
-title: Working with Shapes | Syncfusion
-description: This section describes about shapes
+title: DocIO Working with Shapes | Syncfusion
+description: This section describes about shapes for File-Formats Platform DocIO Control and manipulate the pre-defined shapes
 platform: file-formats
 control: DocIO
 documentation: UG
 keywords: 
 ---
-# Working with Shapes
+# Working with Shapes for File-Formats Platform DocIO Control
 
 Shapes are drawing objects that include lines, curves, circles, rectangles, etc. It can be preset or custom geometry. You can create and manipulate the pre-defined shape in DOCX and WordML format documents.
 
