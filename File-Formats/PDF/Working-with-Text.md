@@ -1949,7 +1949,57 @@ doc.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports Adding HTML Styled Text only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Create a new PDF document
+
+PdfDocument document= new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//set the font
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14, PdfFontStyle.Regular);
+
+//simple HTML content
+
+string htmlText = "<font color='#0000F8' face='TimesRoman' size='14'><i><b><u>Essential PDF</u></b></i></font> is a <u><i>.NET</i></u> library with the capability to produce Adobe PDF files";
+
+//Render Html text
+
+PdfHTMLTextElement richTextElement = new PdfHTMLTextElement(htmlText, font, PdfBrushes.Black);
+
+//Format layout
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Layout = PdfLayoutType.Paginate;
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+//Draw htmlString.
+
+richTextElement.Draw(page, new RectangleF(0, 20, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Create memory stream
+
+MemoryStream stream = new MemoryStream();
+
+// Open the document in browser after saving it
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
@@ -1995,7 +2045,7 @@ richTextElement.Draw(page, new RectangleF(0, 20, page.GetClientSize().Width, pag
 
 MemoryStream stream = new MemoryStream();
 
-loadedDocument.Save(stream);
+doc.Save(stream);
 
 //If the position is not set to '0' then the PDF will be empty. 
 
@@ -2003,7 +2053,7 @@ stream.Position = 0;
 
 //Close the document 
 
-loadedDocument.Close(true);
+doc.Close(true);
 
 //Defining the ContentType for pdf file. 
 
@@ -2022,7 +2072,56 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//PDF supports Adding HTML Styled Text only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//set the font
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14, PdfFontStyle.Regular);
+
+//simple HTML content
+
+string htmlText = "<font color='#0000F8' face='TimesRoman' size='14'><i><b><u>Essential PDF</u></b></i></font> is a <u><i>.NET</i></u> library with the capability to produce Adobe PDF files";
+
+//Render Html text
+
+PdfHTMLTextElement richTextElement = new PdfHTMLTextElement(htmlText, font, PdfBrushes.Black);
+
+//Format layout
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Layout = PdfLayoutType.Paginate;
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+//Draw htmlString.
+
+richTextElement.Draw(page, new RectangleF(0, 20, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document to the stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application / pdf", stream);
+
 
 {% endhighlight %}
 

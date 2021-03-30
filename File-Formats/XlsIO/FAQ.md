@@ -3333,3 +3333,35 @@ CalcEngine.MaxStackDepth = 10000
 The [UnauthorizedAccessException](https://docs.microsoft.com/en-us/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) occurs when you are trying to write in a read-only/hidden file or if you don’t have access to the particular folder that contains the file or the folder might be locked currently. 
 
 First, check whether you can access the folder and the file directly. Then, right-click the input file and check whether the Read-only/Hidden checkbox is checked. If it is checked, kindly uncheck the Read-only/Hidden checkbox and try running the project as an administrator or an authorized user to access the file folder.
+
+## How to ignore print areas set in a worksheet?
+
+You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the **PrintArea** property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
+
+{% tabs %}
+{% highlight C# %}
+worksheet.PageSetup.PrintArea = string.Empty; 
+{% endhighlight %}
+
+{% highlight vb %}
+worksheet.PageSetup.PrintArea = string.Empty
+{% endhighlight %}
+{% endtabs %}
+
+## In what specific situation should we use AutoDetectComplexScript converter property?
+
+Complex script languages are some languages (eg., Arabic) which stores text differently from how it is displayed. Many such languages use bidirectional script which means, words and sentences are written from right to left, while some text such as numbers and Roman-based words are written from left to right. 
+
+If your input Excel file contains such complex script languages, then the AutoDetectComplexScript property can be used to render them in PDF.
+
+## What is the impact on image quality when using the ExportQualityImage property?
+
+Normally, the image in the PDF will be saved in PNG format. With this property, the TIFF format is used for exporting the images into PDF. 
+
+**TIFF (non-default):**
+TIFF uses a lossless compression algorithm in order to preserve as much quality in the image. They are high resolution files with larger sizes. They are no longer supported on many websites, due to their slower loading time. If you can still open the file, it will take much longer to download or load in the browser due to their size. Since they preserve the most quality, they are best used for printing to paper and even billboard signs.
+
+**PNG (default):**
+PNG is ideal even for complex images. If you require more detail in graphics, then PNG is better. PNG provides the best support for transparency. PNG is ideal for static images, logos, prints and other images with transparent background.
+
+Hence, we have used PNG format as default for exporting the images into PDF. If you are concerned only about the image quality and not about file size and loading time, then you can use the non-default with the **ExportQualityImage** property.
