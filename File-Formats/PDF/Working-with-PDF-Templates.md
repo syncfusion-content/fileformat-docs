@@ -1526,3 +1526,193 @@ else
 {% endhighlight %}
 
  {% endtabs %}  
+
+## Adding a PdfPageTemplate in the PDF document
+
+The following code sample shows how to add a PdfPageTemplate from an existing PDF document.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+// Loads an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Get the first page of the document.
+PdfPageBase page = loadedDocument.Pages[0];
+
+//Create a page template.
+PdfPageTemplate pageTemplate = new PdfPageTemplate(page);
+
+//Sets the PdfPageTemplate name.
+pageTemplate.Name = "pageTemplate";
+
+//Sets the PdfPageTemplate is visible.
+pageTemplate.IsVisible = true;
+
+//Adds the page template.
+loadedDocument.PdfPageTemplates.Add(pageTemplate);
+
+//Save the PDF document.
+loadedDocument.Save("output.pdf");
+
+//Close the PDF document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+' Loads an existing PDF document.
+Dim loadedDocument As PdfLoadedDocument =  New PdfLoadedDocument("input.pdf") 
+
+'Get the first page of the document.
+Dim page As PdfPageBase =  loadedDocument.Pages(0) 
+
+'Create a page template.
+Dim pageTemplate As PdfPageTemplate =  New PdfPageTemplate(page) 
+
+'Sets the PdfPageTemplate name.
+pageTemplate.Name = "pageTemplate"
+
+'Sets the PdfPageTemplate is visible.
+pageTemplate.IsVisible = True
+
+'Adds the page template.
+loadedDocument.PdfPageTemplates.Add(pageTemplate)
+
+'Save the PDF document.
+loadedDocument.Save("output.pdf")
+
+'Close the PDF document.
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf"); 
+
+// Loads an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page of the document.
+PdfPageBase page = loadedDocument.Pages[0];
+
+//Create a page template.
+PdfPageTemplate pageTemplate = new PdfPageTemplate(page);
+
+//Sets the PdfPageTemplate name.
+pageTemplate.Name = "pageTemplate";
+
+//Sets the PdfPageTemplate is visible.
+pageTemplate.IsVisible = true;
+
+//Adds the page template.
+loadedDocument.PdfPageTemplates.Add(pageTemplate);
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Close the PDF document.
+loadedDocument.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Loads an existing PDF document.
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page of the document.
+PdfPageBase page = loadedDocument.Pages[0];
+
+//Create a page template.
+PdfPageTemplate pageTemplate = new PdfPageTemplate(page);
+
+//Sets the PdfPageTemplate name.
+pageTemplate.Name = "pageTemplate";
+
+//Sets the PdfPageTemplate is visible.
+pageTemplate.IsVisible = true;
+
+//Adds the page template.
+loadedDocument.PdfPageTemplates.Add(pageTemplate);
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+loadedDocument.Save(stream);
+
+//If the position is not set to '0,' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+loadedDocument.Close(true);
+
+//Defining the ContentType for a PDF file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf"); 
+
+// Loads an existing PDF Document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page of the document.
+PdfPageBase page = loadedDocument.Pages[0];
+
+//Create a page template.
+PdfPageTemplate pageTemplate = new PdfPageTemplate(page);
+
+//Sets the PdfPageTemplate name.
+pageTemplate.Name = "pageTemplate";
+
+//Sets the PdfPageTemplate is visible.
+pageTemplate.IsVisible = true;
+
+//Adds the page template.
+loadedDocument.PdfPageTemplates.Add(pageTemplate);
+
+//Save the document to the stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Close the document.
+loadedDocument.Close(true);
+
+stream.Position = 0;
+
+//Save the stream into a PDF file.
+
+//The operation in save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
