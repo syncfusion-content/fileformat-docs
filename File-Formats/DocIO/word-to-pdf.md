@@ -2787,7 +2787,7 @@ Only DOCX and WordML format documents are supported.
 Custom Shapes 
 </td>
 <td>
-Not supported
+Only DrawingML custom shapes in DOCX and WordML format documents are supported.
 </td>
 </tr>
 <tr>
