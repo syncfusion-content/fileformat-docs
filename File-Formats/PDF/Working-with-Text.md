@@ -2127,191 +2127,6 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endtabs %}
 
-## Adding a text encoding to the PdfStandardFont 
-
-The following code sample shows how to add a text encoding using the standard PDF fonts by initializing PdfFont class as PdfStandardFont class.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-
-//Adding a new page to the PDF document. 
-PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page.
-PdfGraphics graphics = page.Graphics;
-
- //Create a new PDF standard font instance.
-PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
-//Set the text encoding.
-font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
-
-//Draw string to a PDF page.
-graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
-
-//Save the PDF document.
-document.Save("Output.pdf");
-
-//Close the PDF document.
-document.Close(true);
-
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Create a new PDF document.
-Dim document As PdfDocument =  New PdfDocument() 
-
-'Adding a new page to the PDF document. 
-Dim page As PdfPage =  document.Pages.Add() 
-
-'Create PDF graphics for the page.
-Dim graphics As PdfGraphics =  page.Graphics 
-
- 'Create a new PDF standard font instance.
-Dim font As PdfStandardFont =  New PdfStandardFont(PdfFontFamily.Helvetica,12) 
-
-'Set the text encoding.
-font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"))
-
-'Draw string to a PDF page.
-graphics.DrawString("äÖíßCN", font, PdfBrushes.Black, PointF.Empty)
-
-'Save the PDF document.
-document.Save("Output.pdf")
-
-'Close the PDF document.
-document.Close(True)
-
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-
-//Adding a new page to the PDF document. 
-PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page.
-PdfGraphics graphics = page.Graphics;
-
- //Create a new PDF standard font instance.
-PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
-//Set the text encoding.
-font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
-
-//Draw string to a PDF page.
-graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
-
-//Save the document.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-
-//Close the PDF document.
-document.Close(true);
-
-//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-
-//Adding a new page to the PDF document 
-PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page.
-PdfGraphics graphics = page.Graphics;
-
- //Create a new PDF standard font instance.
-PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
-//Set the text encoding.
-font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
-
-//Draw string to a PDF page.
-graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
-
-//Creating the stream object.
-MemoryStream stream = new MemoryStream();
-
-//Save the document into stream.
-document.Save(stream);
-
-//If the position is not set to '0,' then the PDF will be empty.
-stream.Position = 0;
-
-//Close the document.
-document.Close(true);
-
-//Defining the ContentType for a PDF file.
-string contentType = "application/pdf";
-
-//Define the file name.
-string fileName = "Output.pdf";
-
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight Xamarin %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-
-//Adding a new page to the PDF document. 
-PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page.
-PdfGraphics graphics = page.Graphics;
-
- //Create a new PDF standard font instance.
-PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
-//Set the text encoding.
-font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
-
-//Draw string to PDF page.
-graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
-
-//Save the document to the stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-
-//Close the document.
-document.Close(true);
-
-stream.Position = 0;
-
-//Save the stream into a PDF file
-
-//The operation in save under the Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for respective code samples.
-
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
-{% endtabs %}
-
 ## Creating a multicolumn PDF document
 
 Essential PDF allows you to create multi-column text in PDF document by using [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) class. The following code example illustrates the same.
@@ -4954,3 +4769,189 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Adding a text encoding to the PdfStandardFont 
+
+The following code sample shows how to add a text encoding using the standard PDF fonts by initializing PdfFont class as PdfStandardFont class.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+ //Create a new PDF standard font instance.
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Set the text encoding.
+font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
+
+//Draw string to a PDF page.
+graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
+
+//Save the PDF document.
+document.Save("Output.pdf");
+
+//Close the PDF document.
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+Dim document As PdfDocument =  New PdfDocument() 
+
+'Adding a new page to the PDF document. 
+Dim page As PdfPage =  document.Pages.Add() 
+
+'Create PDF graphics for the page.
+Dim graphics As PdfGraphics =  page.Graphics 
+
+ 'Create a new PDF standard font instance.
+Dim font As PdfStandardFont =  New PdfStandardFont(PdfFontFamily.Helvetica,12) 
+
+'Set the text encoding.
+font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"))
+
+'Draw string to a PDF page.
+graphics.DrawString("äÖíßCN", font, PdfBrushes.Black, PointF.Empty)
+
+'Save the PDF document.
+document.Save("Output.pdf")
+
+'Close the PDF document.
+document.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+ //Create a new PDF standard font instance.
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Set the text encoding.
+font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
+
+//Draw string to a PDF page.
+graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the PDF document.
+document.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document 
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+ //Create a new PDF standard font instance.
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Set the text encoding.
+font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
+
+//Draw string to a PDF page.
+graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+document.Save(stream);
+
+//If the position is not set to '0,' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+document.Close(true);
+
+//Defining the ContentType for a PDF file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+ //Create a new PDF standard font instance.
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Set the text encoding.
+font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));
+
+//Draw string to PDF page.
+graphics.DrawString("äÖíßĆŇ", font, PdfBrushes.Black, PointF.Empty);
+
+//Save the document to the stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+
+stream.Position = 0;
+
+//Save the stream into a PDF file
+
+//The operation in save under the Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
