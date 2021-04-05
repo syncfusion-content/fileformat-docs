@@ -2236,3 +2236,189 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+
+## Lock or Unlock layers
+
+The layers can be locked while creating a new layer in a PDF document. The layers from the existing PDF document can be locked or unlocked using the Locked property.  
+
+The following code sample shows how to add a lock state to the layer in a new PDF document.
+ 
+{% tabs %}  
+
+{% highlight c# %}
+
+//Creating a new PDF document. 
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPage page = document.Pages.Add();
+
+//Create a layer.
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Set a lock state.  
+layer.Locked = true;
+
+//Create graphics for a layer.
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse.
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Save the PDF document.
+document.Save("Output.pdf");
+
+//Close the PDF document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creating a new PDF document. 
+Dim document As PdfDocument =  New PdfDocument() 
+ 
+'Adding a new page to the PDF document. 
+Dim page As PdfPage =  document.Pages.Add() 
+ 
+'Create a layer. 
+Dim layer As PdfLayer =  document.Layers.Add("Layer") 
+ 
+'Set a lock state.
+layer.Locked = True
+ 
+'Create graphics for a layer.
+Dim graphics As PdfGraphics =  layer.CreateGraphics(page) 
+ 
+'Draw ellipse.
+graphics.DrawEllipse(PdfPens.Red,New RectangleF(50,50,40,40))
+ 
+'Save the PDF document.
+document.Save("Output.pdf")
+ 
+'Close the PDF document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creating a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPage page = document.Pages.Add();
+
+//Create a layer.
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Set a lock state. 
+layer.Locked = true;
+
+//Create graphics for a layer.
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse.
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the PDF document.
+document.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creating a new PDF document. 
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document.
+PdfPage page = document.Pages.Add();
+
+//Create a layer.
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Set a lock state.  
+layer.Locked = true;
+
+//Create graphics for a layer.
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse.
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+document.Save(stream);
+
+//If the position is not set to '0,' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+document.Close(true);
+
+//Defining the ContentType for a PDF file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creating a new PDF document. 
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPage page = document.Pages.Add();
+
+//Create a layer.
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Set a lock state.  
+layer.Locked = true;
+
+//Create graphics for a layer.
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse.
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Save the document to the stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+
+stream.Position = 0;
+
+//Save the stream into a PDF file.
+
+//The operation is in save under the Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
