@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Working with Layers
+# Working  with  Layers 
 
 Layers, also known as Option Content refers to sections of content in a PDF document that can be selectively viewed or hidden by document authors or consumers. This capability is useful in items such as CAD drawings, layered artwork, maps, and multi-language documents.
 
