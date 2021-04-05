@@ -2454,7 +2454,7 @@ PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-PdfBitmap image = new PdfBitmap(@"syncfusion_logo.gif");
+PdfBitmap image = new PdfBitmap(@"syncfusion_logo.jpeg");
 
 //Adds time stamp by using the server URI and credentials
 
@@ -2504,7 +2504,7 @@ Dim signature As New PdfSignature(page, pdfCert, "Signature")
 
 'Sets an image for signature field
 
-Dim image As New PdfBitmap("syncfusion_logo.gif")
+Dim image As New PdfBitmap("syncfusion_logo.jpeg")
 
 'Adds time stamp by using the server URI and credentials
 
@@ -2556,7 +2556,7 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.jpeg");
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
@@ -2618,7 +2618,7 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-FileStream imageStream = new FileStream("syncfusion_logo.gif", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("syncfusion_logo.jpeg", FileMode.Open, FileAccess.Read);
 
 //Sets an image for signature field
 
@@ -2692,7 +2692,7 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.jpeg");
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
@@ -3343,7 +3343,7 @@ PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-PdfBitmap image = new PdfBitmap(@"syncfusion_logo.gif");
+PdfBitmap image = new PdfBitmap(@"syncfusion_logo.jpeg");
 
 //Adds time stamp by using the server URI and credentials
 
@@ -3397,7 +3397,7 @@ Dim signature As New PdfSignature(page, pdfCert, "Signature")
 
 'Sets an image for signature field
 
-Dim image As New PdfBitmap("syncfusion_logo.gif")
+Dim image As New PdfBitmap("syncfusion_logo.jpeg")
 
 'Adds time stamp by using the server URI and credentials
 
@@ -3453,7 +3453,7 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.jpeg");
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
@@ -3519,7 +3519,7 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-FileStream imageStream = new FileStream("syncfusion_logo.gif", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("syncfusion_logo.jpeg", FileMode.Open, FileAccess.Read);
 
 //Sets an image for signature field
 
@@ -3597,7 +3597,7 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.jpeg");
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
@@ -4886,6 +4886,758 @@ bool isValid = loadedDocument.Form.Fields.ValidateSignatures(collection, out res
 //Close the document
 
 loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Deferred signing in PDF document
+
+The following code sample shows how to be deferred signing in a PDF document from an external signature.
+
+Steps for deferred signing: 
+1.	Create a PDF document with an empty signature.
+2.	Users will sign the document hash using the external services.
+3.	Replace the empty signature with a signed hash from the external services. 
+
+{% tabs %}
+{% highlight c# %}
+
+//Load an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PDF_Succinctly.pdf");
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Saves the document.
+loadedDocument.Save("EmptySignature.pdf");
+
+//Closes the document.
+loadedDocument.Close(true);
+
+
+/// <summary>
+/// Represents to sign an empty signature from an external signer.
+/// </summary>
+class SignEmpty : IPdfExternalSigner
+{        
+private string _hashAlgorithm;
+
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public SignEmpty(string hashAlgorithm)
+{
+_hashAlgorithm = hashAlgorithm;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Send the document hash for signing using the external services.
+SignDocumentHash(message);
+//Set a null value to create an empty signed document.
+byte[] signedBytes = null;
+timeStampResponse = null;
+return signedBytes;
+}        
+}
+
+//Create an external signer with a signed hash message.
+IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+//Create an output file stream.
+MemoryStream outputFileStream = new MemoryStream();    
+
+// Get the stream from the document
+FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+
+string pdfPassword = string.Empty;
+
+//Replace an empty signature.
+PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+
+
+/// <summary>
+/// Represents to replace an empty signature from an external signer.
+/// </summary>
+class ExternalSigner : IPdfExternalSigner
+{       
+private string _hashAlgorithm;
+private byte[] _signedHash;
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public ExternalSigner(string hashAlgorithm, byte[] hash)
+{
+_hashAlgorithm = hashAlgorithm;
+_signedHash = hash;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Set the signed hash message to replace an empty signature.
+byte[] signedBytes = _signedHash;            
+timeStampResponse = null;
+return signedBytes;
+}
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load an existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
+
+'Creates a digital signature.
+Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedDocument.Pages(0), Nothing, "Signature")
+
+'Sets the signature information.
+signature.Bounds = New RectangleF(New PointF(0, 0), New SizeF(100, 30))
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1
+
+' Create an external signer.
+Dim externalSignature As IPdfExternalSigner = New SignEmpty("SHA1")
+
+' Add public certificates.
+Dim certificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)
+certificates.Add(New X509Certificate2(Convert.FromBase64String(PublicCert)))
+signature.AddExternalSigner(externalSignature, certificates, Nothing)
+
+'Saves the document.
+loadedDocument.Save("EmptySignature.pdf")
+
+'Closes the document.
+loadedDocument.Close(True)
+
+''' <summary>
+''' Represents to sign an empty signature. 
+''' </summary>
+Class SignEmpty
+Implements IPdfExternalSigner
+
+Private _hashAlgorithm As String
+
+Public ReadOnly Property HashAlgorithm As String Implements IPdfExternalSigner.HashAlgorithm
+Get
+Return Me._hashAlgorithm
+End Get
+End Property
+
+Public Sub New(ByVal hashAlgorithm As String)
+MyBase.New
+Me._hashAlgorithm = hashAlgorithm
+End Sub
+
+Private Function IPdfExternalSigner_Sign(message() As Byte, ByRef timeStampResponse() As Byte) As Byte() Implements IPdfExternalSigner.Sign
+'Send document hash for signing using the external services.
+Me.SignDocumentHash(message)
+'Set a null value to create an empty signed document.
+Dim signedBytes() As Byte = Nothing
+timeStampResponse = Nothing
+Return signedBytes
+End Function
+
+End Class
+
+'Create an external signer with a signed hash message.
+Dim externalSigner As IPdfExternalSigner = New ExternalSigner("SHA1", Module1.SignedHash)
+
+'Add public certificates.
+Dim publicCertificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)
+publicCertificates.Add(New X509Certificate2(Convert.FromBase64String(PublicCert)))
+
+'Create an output file stream.
+Dim outputFileStream As MemoryStream = New MemoryStream
+
+'Get the stream from the document.
+Dim documentStream As FileStream = New FileStream("EmptySignature.pdf ", FileMode.Open, FileAccess.Read)
+Dim pdfPassword As String = String.Empty
+'Replace an empty signature.
+PdfSignature.ReplaceEmptySignature(documentStream, pdfPassword, outputFileStream, "Signature", externalSigner, publicCertificates)
+
+''' <summary>
+''' Represents to replace the empty signature.
+''' </summary>
+Class ExternalSigner
+Implements IPdfExternalSigner
+Private _hashAlgorithm As String
+Private _signedHash() As Byte
+
+Public ReadOnly Property HashAlgorithm As String Implements IPdfExternalSigner.HashAlgorithm
+Get
+Return Me._hashAlgorithm
+End Get
+End Property
+
+Public Sub New(ByVal hashAlgorithm As String, ByVal hash() As Byte)
+MyBase.New
+Me._hashAlgorithm = hashAlgorithm
+Me._signedHash = hash
+End Sub
+
+Private Function IPdfExternalSigner_Sign(message() As Byte, ByRef timeStampResponse() As Byte) As Byte() Implements IPdfExternalSigner.Sign
+'Set the signed hash message to replace an empty signature.
+Dim signedBytes() As Byte = Me._signedHash
+timeStampResponse = Nothing
+Return signedBytes
+End Function
+End Class
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Get the stream from the document.
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
+
+//Load an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Close the PDF document.
+loadedDocument.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
+Save(stream, "EmptySignature.pdf");
+
+/// <summary>
+/// Represents to sign an empty signature from an external signer.
+/// </summary>
+class SignEmpty : IPdfExternalSigner
+{        
+private string _hashAlgorithm;
+
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public SignEmpty(string hashAlgorithm)
+{
+_hashAlgorithm = hashAlgorithm;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Send document hash for signing using the external services.
+SignDocumentHash(message);
+//Set a null value to create an empty signed document.
+byte[] signedBytes = null;
+timeStampResponse = null;
+return signedBytes;
+}        
+}
+
+//Create an external signer with a signed hash message.
+IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+//Create an output file stream.
+MemoryStream outputFileStream = new MemoryStream();    
+
+// Get the stream from the document
+FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+
+string pdfPassword = string.Empty;
+
+//Replace an empty signature.
+PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+
+
+/// <summary>
+/// Represents to replace an empty signature from an external signer.
+/// </summary>
+class ExternalSigner : IPdfExternalSigner
+{       
+private string _hashAlgorithm;
+private byte[] _signedHash;
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public ExternalSigner(string hashAlgorithm, byte[] hash)
+{
+_hashAlgorithm = hashAlgorithm;
+_signedHash = hash;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Set the signed hash message to replace an empty signature.
+byte[] signedBytes = _signedHash;            
+timeStampResponse = null;
+return signedBytes;
+}
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Get the stream from the document.
+FileStream documentStream = new FileStream("PDF_Succinctly.pdf ", FileMode.Open, FileAccess.Read);
+
+//Load an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Close the PDF document.
+loadedDocument.Close(true);
+
+//Defining the ContentType for a PDF file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+/// <summary>
+/// Represents to sign an empty signature from the external signer.
+/// </summary>
+class SignEmpty : IPdfExternalSigner
+{        
+private string _hashAlgorithm;
+
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public SignEmpty(string hashAlgorithm)
+{
+_hashAlgorithm = hashAlgorithm;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Send document hash for signing using the external services.
+SignDocumentHash(message);
+//Set a null value to create an empty signed document.
+byte[] signedBytes = null;
+timeStampResponse = null;
+return signedBytes;
+}        
+}
+
+//Create an external signer with a signed hash message.
+IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+//Create an output file stream.
+MemoryStream outputFileStream = new MemoryStream();    
+
+// Get the stream from the document
+FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+
+string pdfPassword = string.Empty;
+
+//Replace an empty signature.
+PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+
+
+/// <summary>
+/// Represents to replace an empty signature from an external signer.
+/// </summary>
+class ExternalSigner : IPdfExternalSigner
+{       
+private string _hashAlgorithm;
+private byte[] _signedHash;
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public ExternalSigner(string hashAlgorithm, byte[] hash)
+{
+_hashAlgorithm = hashAlgorithm;
+_signedHash = hash;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Set the signed hash message to replace an empty signature.
+byte[] signedBytes = _signedHash;            
+timeStampResponse = null;
+return signedBytes;
+}
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Get the stream from the document.
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
+
+//Load an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Save the document to the stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Close the document.
+loadedDocument.Close(true);
+
+stream.Position = 0;
+
+//Save the stream into a PDF file.
+
+//The operation in save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+/// <summary>
+/// Represents to sign an empty signature from an external signer.
+/// </summary>
+class SignEmpty : IPdfExternalSigner
+{        
+private string _hashAlgorithm;
+
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public SignEmpty(string hashAlgorithm)
+{
+_hashAlgorithm = hashAlgorithm;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Send document hash for signing using the external services.
+SignDocumentHash(message);
+//Set a null value to create an empty signed document.
+byte[] signedBytes = null;
+timeStampResponse = null;
+return signedBytes;
+}        
+}
+
+//Create an external signer with a signed hash message.
+IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+
+//Add public certificates.
+System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+//Create an output file stream.
+MemoryStream outputFileStream = new MemoryStream();    
+
+// Get the stream from the document
+FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+
+string pdfPassword = string.Empty;
+
+//Replace an empty signature.
+PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+
+
+/// <summary>
+/// Represents to replace an empty signature from an external signer.
+/// </summary>
+class ExternalSigner : IPdfExternalSigner
+{       
+private string _hashAlgorithm;
+private byte[] _signedHash;
+public string HashAlgorithm
+{
+get { return _hashAlgorithm; }
+}
+
+public ExternalSigner(string hashAlgorithm, byte[] hash)
+{
+_hashAlgorithm = hashAlgorithm;
+_signedHash = hash;
+}
+
+public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+{
+//Set the signed hash message to replace an empty signature.
+byte[] signedBytes = _signedHash;            
+timeStampResponse = null;
+return signedBytes;
+}
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Adding the estimated size of the signature
+
+The following code sample shows how to add the estimated size of the signature in the PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creating a new PDF Document. 
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPageBase page = document.Pages.Add();
+
+//Create a PDF certificate.
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+
+//Add a new signature to the PDF page.
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+signature.Bounds = new Rectangle(10, 20, 400, 200);
+
+//Sets the estimated size of the signature.
+signature.EstimatedSignatureSize = 20000;
+
+//Save the PDF document.
+document.Save("Output.pdf");
+
+//Close the PDF document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+ 
+'Creating a new PDF Document. 
+Dim document As PdfDocument =  New PdfDocument() 
+ 
+'Adding a new page to the PDF document. 
+Dim page As PdfPageBase =  document.Pages.Add() 
+ 
+'Create a PDF certificate.
+Dim pdfCert As PdfCertificate =  New PdfCertificate("PDF.pfx","syncfusion") 
+ 
+'Add a new signature to the PDF page.
+Dim signature As PdfSignature =  New PdfSignature(document,page,pdfCert,"Signature") 
+ 
+signature.Bounds = New Rectangle(10, 20, 400, 200)
+ 
+'Sets the estimated size of the signature.
+signature.EstimatedSignatureSize = 20000
+ 
+'Save the PDF document.
+document.Save("Output.pdf")
+ 
+'Close the PDF document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creating a new PDF Document.
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document.
+PdfPageBase page = document.Pages.Add();
+
+//Creates a certificate instance from the PFX file with a private key.
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Add a new signature to the PDF page.
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+signature.Bounds = new Rectangle(10, 20, 400, 200);
+
+//Sets the estimated size of the signature.
+signature.EstimatedSignatureSize = 20000;
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the PDF document.
+document.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creating a new PDF Document. 
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document.
+PdfPageBase page = document.Pages.Add();
+
+//Creates a certificate instance from the PFX file with a private key.
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion"); 
+//Add a new signature to the PDF page.
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+signature.Bounds = new Rectangle(10, 20, 400, 200);
+
+//Sets the estimated size of the signature.
+signature.EstimatedSignatureSize = 20000;
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+document.Save(stream);
+
+//If the position is not set to '0,' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+document.Close(true);
+
+//Defining the ContentType for a PDF file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creating a new PDF Document. 
+PdfDocument document = new PdfDocument();
+
+//Adding a new page to the PDF document. 
+PdfPageBase page = document.Pages.Add();
+
+//Creates a certificate instance from the PFX file with a private key.
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Add a new signature to the PDF page.
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+signature.Bounds = new Rectangle(10, 20, 400, 200);
+
+//Sets the estimated size of the signature.
+signature.EstimatedSignatureSize = 20000;
+
+//Save the document to the stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+
+stream.Position = 0;
+
+//Save the stream into a PDF file.
+
+//The operation in save under the Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
