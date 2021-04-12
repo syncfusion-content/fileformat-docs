@@ -12,11 +12,11 @@ documentation: ug
 
 ## Installing with UI   
 
-The following procedure illustrates how to intall Essential Studio File Formats platform.
+The following procedure illustrates how to install Essential Studio File Formats platform.
 
 1. Close all the running Visual Studio instances.
 
-2. Double-click the Syncfusion File Formats platorm installer file. The installer Wizard opens and extracts the package automatically.
+2. Double-click the Syncfusion File Formats platform installer file. The installer Wizard opens and extracts the package automatically.
 
    ![Installer extraction wizard](Platform_images/Step-by-Step-Installation_img1.png)
 
@@ -69,7 +69,7 @@ The following procedure illustrates how to intall Essential Studio File Formats 
 6.  If any previous version installed for current platform, Click Next in the same Advanced Options screen to select the versions to be uninstalled.
 
 
-    ![Advanced options](Platform_images/Step-by-Step-Installation_img5.png)
+    ![Advanced options](Platform_images/Step-by-Step-Installation_img7.png)
 	
 	
 	N> From the 2021 Volume 1 release, Syncfusion has provided option to uninstall the previous versions from 18.1 while installing the new version.
@@ -77,19 +77,22 @@ The following procedure illustrates how to intall Essential Studio File Formats 
 
 7.	Click Proceed.
 
-	![Uninstalling wizard](Platform_images/Step-by-Step-Installation_img6.png)
+	![Uninstalling wizard](Platform_images/Step-by-Step-Installation_img10.png)
 	
 	
 	N> If any version is selected to uninstall, pop up screen will appear for confirmation, if continue is selected, the Progress screen will display the uninstall progress and install progress respectively. If none of the version is selected to uninstall, install progress alone will be progressed.
 	
 	
-	![Uninstalling wizard](Platform_images/Step-by-Step-Installation_img7.png)
+	![Uninstalling wizard](Platform_images/Step-by-Step-Installation_img8.png)
+	
+	
+	![Installing wizard](Platform_images/Step-by-Step-Installation_img5.png)
 	
 	
 	N> The Completed screen is displayed once the File Formats platform is installed. If any version is selected to uninstall, The completed screen will display both install and uninstall status.
 
     
-	![Installation completed](Platform_images/Step-by-Step-Installation_img8.png)
+	![Installation completed](Platform_images/Step-by-Step-Installation_img9.png)
 
 
 8. Click the **Launcher Control Panel** link to launch the [Syncfusion Control Panel](https://help.syncfusion.com/common/essential-studio/utilities#dashboard ) after installing.
