@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# How to resolve the “File does not contain workbook stream” error in Syncfusion.XlsIO.Base.dll?
+# How to resolve the “File does not contain workbook stream” error?
 
 XlsIO does not support files generated prior to 97-2003 version. Hence the exception "File does not contain workbook stream" occurs. This can be checked in prior with the below code snippet. 
 
