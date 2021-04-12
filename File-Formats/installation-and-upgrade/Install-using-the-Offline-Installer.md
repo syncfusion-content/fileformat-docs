@@ -48,7 +48,7 @@ The following procedure illustrates how to intall Essential Studio File Formats 
 4. After reading the License Terms and Conditions, check the **I agree to the License Terms and Conditions** check box.
 
 
-5. Click Next. Select the Installation, Samples Folder and Advanced Options screen opens. To install in the displayed default location, click Install
+5. Click Next. Select the Installation, Samples Folder and Advanced Options screen opens. If there is no previous version installed for current platform, click Install to install in the displayed default location.
 
 
     ![Advanced options](Platform_images/Step-by-Step-Installation_img4.png)
@@ -66,20 +66,36 @@ The following procedure illustrates how to intall Essential Studio File Formats 
     * Select the **Install Syncfusion Extensions** checkbox to configure the Syncfusion Extensions in Visual Studio or clear this check box when you do not want to configure the Syncfusion Extensions in Visual Studio.
 
 
-6.  Click Install.
+6.  If any previous version installed for current platform, Click Next in the same Advanced Options screen to select the versions to be uninstalled.
 
 
-    ![Installing wizard](Platform_images/Step-by-Step-Installation_img5.png)
+    ![Advanced options](Platform_images/Step-by-Step-Installation_img5.png)
+	
+	
+	N> From the 2021 Volume 1 release, Syncfusion has provided option to uninstall the previous versions from 18.1 while installing the new version.
+	
 
-7. The Completed screen is displayed once the File Formats platform is installed.
+7.	Click Proceed.
 
-    ![Installation completed](Platform_images/Step-by-Step-Installation_img6.png)
+	![Uninstalling wizard](Platform_images/Step-by-Step-Installation_img6.png)
+	
+	
+	N> If any version is selected to uninstall, pop up screen will appear for confirmation, if continue is selected, the Progress screen will display the uninstall progress and install progress respectively. If none of the version is selected to uninstall, install progress alone will be progressed.
+	
+	
+	![Uninstalling wizard](Platform_images/Step-by-Step-Installation_img7.png)
+	
+	
+	N> The Completed screen is displayed once the File Formats platform is installed. If any version is selected to uninstall, The completed screen will display both install and uninstall status.
+
+    
+	![Installation completed](Platform_images/Step-by-Step-Installation_img8.png)
 
 
-8. Select the **Run Syncfusion Control Panel** check box to launch the Syncfusion Control Panel after installing.
+8. Click the **Launcher Control Panel** link to launch the [Syncfusion Control Panel](https://help.syncfusion.com/common/essential-studio/utilities#dashboard ) after installing.
 
 
-9. Click Finish. Syncfusion File Formats platform is installed in your system and the Syncfusion Essential Studio [Syncfusion Control Panel](http://help.syncfusion.com/common/essential-studio/utilities#dashboard ) is launched automatically.
+9. Click Finish. Syncfusion File Formats platform is installed in your system.
 
 ## Installing in silent mode
 
