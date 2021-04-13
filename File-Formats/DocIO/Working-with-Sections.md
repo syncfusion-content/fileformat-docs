@@ -584,6 +584,8 @@ IWParagraph paragraph = section.AddParagraph();
 string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 //Appends the text to the created paragraph
 paragraph.AppendText(paraText);
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as portrait
 section.PageSetup.Orientation = PageOrientation.Portrait;
 //Adds the new section to the document
@@ -591,6 +593,8 @@ section = document.AddSection();
 //Sets the section break
 section.BreakCode = SectionBreakCode.NewPage;
 paragraph = section.AddParagraph();
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as land scape
 section.PageSetup.Orientation = PageOrientation.Landscape;
 //Appends the text to the paragraph
@@ -610,6 +614,8 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 Dim paraText As String = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company."
 'Appends the text to the created paragraph
 paragraph.AppendText(paraText)
+'Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 'Sets the page orientation as portrait
 section.PageSetup.Orientation = PageOrientation.Portrait
 'Adds the new section to the document
@@ -617,6 +623,8 @@ section = document.AddSection()
 'Sets the section break
 section.BreakCode = SectionBreakCode.NewPage
 paragraph = section.AddParagraph()
+'Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 'Sets the page orientation as landscape
 section.PageSetup.Orientation = PageOrientation.Landscape
 'Appends the text to the paragraph
@@ -636,6 +644,8 @@ IWParagraph paragraph = section.AddParagraph();
 string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 //Appends the text to the created paragraph
 paragraph.AppendText(paraText);
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as portrait
 section.PageSetup.Orientation = PageOrientation.Portrait;
 //Adds the new section to the document
@@ -643,6 +653,8 @@ section = document.AddSection();
 //Sets the section break
 section.BreakCode = SectionBreakCode.NewPage;
 paragraph = section.AddParagraph();
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as land scape
 section.PageSetup.Orientation = PageOrientation.Landscape;
 //Appends the text to the paragraph
@@ -668,6 +680,8 @@ IWParagraph paragraph = section.AddParagraph();
 string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 //Appends the text to the created paragraph
 paragraph.AppendText(paraText);
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as portrait
 section.PageSetup.Orientation = PageOrientation.Portrait;
 //Adds the new section to the document
@@ -675,6 +689,8 @@ section = document.AddSection();
 //Sets the section break
 section.BreakCode = SectionBreakCode.NewPage;
 paragraph = section.AddParagraph();
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as land scape
 section.PageSetup.Orientation = PageOrientation.Landscape;
 //Appends the text to the paragraph
@@ -699,6 +715,8 @@ IWParagraph paragraph = section.AddParagraph();
 string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 //Appends the text to the created paragraph
 paragraph.AppendText(paraText);
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as portrait
 section.PageSetup.Orientation = PageOrientation.Portrait;
 //Adds the new section to the document
@@ -706,6 +724,8 @@ section = document.AddSection();
 //Sets the section break
 section.BreakCode = SectionBreakCode.NewPage;
 paragraph = section.AddParagraph();
+//Sets the page size for a section
+section.PageSetup.PageSize = PageSize.A4;
 //Sets the page orientation as land scape
 section.PageSetup.Orientation = PageOrientation.Landscape;
 //Appends the text to the paragraph
