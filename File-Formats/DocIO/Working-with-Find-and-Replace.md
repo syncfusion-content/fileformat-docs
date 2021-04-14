@@ -1,11 +1,11 @@
 ---
 title: Working with Find and Replace | Syncfusion
-description: This section illustrates finding a text and replacing it with a new text
+description: This section illustrates how to find a particular text and replace it with another text or part of the document
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Find and Replace
+# Working with Find and Replace
 
 You can search a particular text you like to change and replace it with another text or part of the document.
 
