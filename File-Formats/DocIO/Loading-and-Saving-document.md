@@ -19,8 +19,8 @@ using Syncfusion.DocIO.DLS;
 {% endhighlight %}
 
 {% highlight vb.net %}
-using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
+Imports Syncfusion.DocIO
+Imports Syncfusion.DocIO.DLS
 {% endhighlight %}
 
 {% highlight UWP %}
