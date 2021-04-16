@@ -11,16 +11,34 @@ documentation: UG
 
 The following namespaces of Essential DocIO need to be included in your application to load and save the Word document.
 
-<table>
-<thead>
-<tr>
-<th>
-Namespaces<br/></th></tr></thead>
-<tr>
-<td>
-using Syncfusion.DocIO;<br/>
-using Syncfusion.DocIO.DLS;<br/></td></tr>
-</table>
+{% tabs %}  
+
+{% highlight c# %}
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+{% endhighlight %}
+
+{% highlight vb.net %}
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+{% endhighlight %}
+
+{% highlight UWP %}
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Opening an existing document
 
