@@ -785,7 +785,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "applic
 
 {% endtabs %}
 
-## Find and replace text in a Word document with other text
+## Find and replace text with other text
 
 You can find text in a Word document and replace it with other text. Unlike the `Find` method, the Replace method replaces all occurrences of the text. You can customize it to replace only the first occurrence of a text by setting the `ReplaceFirst` property of the WordDocument class to true.
 
@@ -868,7 +868,7 @@ document.Close();
 
 {% endtabs %}
 
-## Find and replace text in Word document with an image
+## Find and replace text with an image
 You can find placeholder text in a Word document and replace it with any desired image.
 
 The following code example illustrates how to find and replace text in a word document with an image
@@ -1162,7 +1162,7 @@ document.Close();
 
 {% endtabs %}
 
-## Find and replace text in a Word document with a table 
+## Find and replace text with a table 
 You can find placeholder text in a Word document and replace it with a table.
 
 The following code example illustrates how to do this.
@@ -2051,7 +2051,7 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
-##Find text in a Word document and format 
+## Find text in a Word document and format 
 
 You can find text in a Word document and format or highlight it .You can find the first occurrence of text using the `Find` method. Find the next occurrences of the text using the `FindNext` method.
 
