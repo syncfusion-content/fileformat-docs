@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Installation and Deployment process for Syncfusion Essential Studio File Formats products
-description: Learn how to install and deploy the Syncfusion File Formats component
+title: Installation for Syncfusion Essential Studio File Formats products
+description: Learn how to install Syncfusion FileFormats and deploy the Syncfusion File Formats installer components
 platform: file-formats
 control: Installation and Deployment
 documentation: ug
