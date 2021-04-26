@@ -1,14 +1,14 @@
 ---
 layout: post
-title: About Essential Studio WPF Licensing | Syncfusion
-description: Learn here about Syncfusion Essential Studio WPF license key, how to generate the license key, how to register the license key, and more details.
-platform: WPF
+title: About Essential Studio FileFormats Licensing | Syncfusion
+description: Learn here about Syncfusion Essential Studio FileFormats license key, how to generate the license key, how to register the license key, and more details.
+platform: file-formats
 control: Essential Studio
 documentation: ug
 ---
 
 
-# Syncfusion Licensing in WPF
+# Syncfusion Licensing in FileFormats
 
 We have introduced a new licensing system starting with version 16.2.0.x release of Essential Studio. These modifications apply to all evaluators and only to paid customers who use NuGet packages from [nuget.org](https://www.nuget.org/). Starting with v16.2.0.x, if you use the evaluation installer or the NuGet feed to reference Syncfusion assemblies, you must also include the corresponding platform and version license key in your projects.
 
@@ -21,3 +21,9 @@ Following licensing error will be shown if the license key is not registered in 
 This application was built using a trial version of Syncfusion Essential Studio. Please include a valid license to permanently remove this license validation message. You can also obtain a free 30 day evaluation license to temporarily remove this message during the evaluation period. Please refer to this <a href="/common/essential-studio/licensing/license-key">help topic</a> for more information 
 
 </div>
+
+Trial message will be displayed as watermark in the generated documents, if FileFormats libraries referred from  trial installer or [nuget.org](https://www.nuget.org/packages?q=syncfusion)
+
+**Example**
+
+![IO Licensing Message](licensing-images/io-licensing-message.png)
