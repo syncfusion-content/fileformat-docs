@@ -7,9 +7,9 @@ control: System Requirements
 documentation: ug
 
 ---
-# System Requirements
+# System Requirements For FileFormats
 
-The following topic describes the system requirements needed by Syncfusion File Formats platform.
+The system requirements for using our Syncfusion FileFormats platform are as follows
 
 ### Operating Systems
 
@@ -38,4 +38,5 @@ In order to develop applications with Syncfusion File Formats platform, you need
 * Microsoft Visual Studio 2013
 * Microsoft Visual Studio 2015
 * Microsoft Visual Studio 2017
+* Microsoft Visual Studio 2019
 
