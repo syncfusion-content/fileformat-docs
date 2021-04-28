@@ -13,4 +13,4 @@ License keys for FileFormats can be generated from the [License & Downloads](htt
 
 ![Get License Key](licensing-images/generate-license.png)
 
-Syncfusion license keys are **version and platform specific**, kindly follow the [KB](https://www.syncfusion.com/kb/8976/how-to-generate-license-key-for-licensed-products) to generate the license key for required version and platform. Also, refer to the [KB](https://www.syncfusion.com/kb/8951/which-version-syncfusion-license-key-should-i-use-in-my-application) to know which version Syncfusion license key should use in the application.
+Syncfusion license keys are **version and platform specific**, refer to the [KB](https://www.syncfusion.com/kb/8976/how-to-generate-license-key-for-licensed-products) to generate the license key for the required version and platform. Also, refer this KB to know about which version of the Syncfusion license key should be used in the application.

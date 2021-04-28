@@ -293,3 +293,7 @@ SyncfusionLicenseProvider.registerLicense("YOUR LICENSE KEY");
 {% endtabs %}
 
 N> License key registration is not required for Java before v19.1.
+
+## JavaScript
+
+Syncfusion License keys are not required for script files (.js files). For the following platforms, you can use the script files without registering the license keys.

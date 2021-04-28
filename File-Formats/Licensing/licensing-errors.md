@@ -23,8 +23,6 @@ The following error message will be shown if a Syncfusion license key has not be
 
 If the application is registered with an invalid key, another version of license key, or another platform's license key, the following error message will pop up when launching the application. 
 
-This error message will be shown if the license key is invalid. It is possible that the key is for another platform or for an older version.
-
 **Error Message:** The included Syncfusion license is invalid. Please refer to this help topic(https://help.syncfusion.com/es/licensing/invalid/) for more information.
 
 **Solution:** Generate a valid license key from here [Licensed users](https://www.syncfusion.com/account/downloads) or [Trial users](https://www.syncfusion.com/account/manage-trials/downloads) for a specific version and platform.

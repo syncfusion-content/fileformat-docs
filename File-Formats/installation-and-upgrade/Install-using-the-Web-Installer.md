@@ -141,13 +141,13 @@ N> If the **Syncfusion Essential Studio for FileFormats {version}** entry is sel
 
 1.  The Platform Selection Wizard will appear. From the **Installed** tab, select the products to be uninstalled. To select all products, check the **Uninstall All** checkbox. Click the Next button.
     
-	**Installed**
+	<em>**Installed**</em>
 	
 	![Platform Selection wizard Installed](WebInstaller/Step-by-Step-Installation_img4.png)
 	
 	You can also select the products to be installed from the **Available** tab.Click the Next button.
 	
-	**Available**
+	<em>**Available**</em>
 	
 	![Platform Selection wizard Available](WebInstaller/Step-by-Step-Installation_img25.png)
 	
