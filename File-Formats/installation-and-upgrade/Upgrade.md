@@ -32,5 +32,5 @@ It is not required to install the Volume release before installing the Service P
 
 Uninstall the trial version and install the fully licensed installer from the [License and Downloads](https://www.syncfusion.com/account/downloads) section of our website to upgrade from the trial version.
 
-N> License key registration is not required for FileFormats products. So there is no need to generate and register any Syncfusion license keys in your FileFormats projects.
+N> License key registration is not required, if you are upgrading Syncfusion FileFormats controls from trial version to licensed version.
 
