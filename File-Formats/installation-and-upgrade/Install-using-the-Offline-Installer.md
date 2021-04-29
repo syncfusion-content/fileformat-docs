@@ -141,9 +141,9 @@ Syncfusion Essential FileFormats can be uninstalled silently using the Command L
 5.	Exit the Wizard.
 6.	Run Command Prompt in administrator mode and enter the following arguments.
    
-   **Arguments:** “Copied installer file path\syncfusionessentialfileformats_(version).exe” /uninstall silent 
+    **Arguments:** “Copied installer file path\syncfusionessentialfileformats_(version).exe” /uninstall silent 
 
-   **Example:** “D:\Temp\syncfusionessentialfileformats_x.x.x.x.exe" /uninstall silent
+    **Example:** “D:\Temp\syncfusionessentialfileformats_x.x.x.x.exe" /uninstall silent
 
 
 7.  Essential Studio for WPF is uninstalled.
