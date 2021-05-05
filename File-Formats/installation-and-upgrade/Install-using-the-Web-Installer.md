@@ -167,7 +167,7 @@ N> If the **Syncfusion Essential Studio for FileFormats {version}** entry is sel
 	
 5.	The Configuration Wizard will appear. You can change the Download, Install, and Demos locations from here. You can also change the Additional settings on a product-by-product basis. Click Next to install with the default settings.
 
-    ![Install and samples location install/uninstall](WebInstaller/Step-by-Step-Installation_img8.png)
+    ![Install and samples location install/uninstall](WebInstaller/Step-by-Step-Installation_img23.png)
 	
 6.	After reading the License Terms and Conditions, check the **I agree to the License Terms and Privacy Policy** check box. Click the Next button.
 
