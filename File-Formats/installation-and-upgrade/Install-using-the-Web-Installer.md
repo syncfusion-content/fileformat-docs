@@ -9,202 +9,180 @@ documentation: ug
 
 # Installation using Web Installer
 
+You can refer to the [**Download**](https://help.syncfusion.com/file-formats/installation-and-upgrade/download) section to learn how to get the FileFormats trial or licensed installer.
 
-## Overview
+### Overview
 
-Starting with version 16.2 (2018 Vol 2), Syncfusion provides Web Installer for Essential Studio platforms. This installer reduces the burden of downloading the installer of larger size. You can just download and launch the online installer which will be of smaller size and it will downloads and installs the Essential Studio products you have selected. The Essential Studio Web Installer includes the following platforms. You can download the latest version Essential Studio Web Installer [here](https://www.syncfusion.com/downloads/latest-version) . 
-
-Starting with the version 17.3 (2019 Vol 3), Syncfusion provides updated version of Web Installer which allows both installation and uninstallation of the platforms for that specific version.
-
-**Web (Essential JS 2)**
-
-* ASP.NET MVC
-* ASP.NET Core
-* JavaScript
-
-**Mobile**
-
-* Xamarin
-* Flutter
-
-**Desktop**
-
-* Windows Forms
-* WPF
-* Universal Windows Platform
-
-**FileFormats**
-
-* Read and Write Excel, Word, PDF and PowerPoint files
-
-**Web (Essential JS 1)**
-
-* ASP.NET Web Forms
-* ASP.NET MVC
-* ASP.NET Core
-* JavaScript
-* PHP
-* JSP
-
-   N> Universal Windows Platform will be installed in Windows 8.1 and later.  
+For the Essential Studio FileFormats product, Syncfusion offers a Web Installer. This installer alleviates the burden of downloading a larger installer. You can simply download and run the online installer, which will be smaller in size and will download and install the Essential Studio products you have chosen. You can get the most recent version of Essential Studio Web Installer [here](https://www.syncfusion.com/downloads/latest-version). 
 
  
 ## Installation
 
-The following procedure illustrates how to install Essential Studio Platform Online Installer. 
+The steps below show how to install Essential Studio FileFormats Web Installer.
 
-1.  Double-click the Syncfusion Essential Studio Platform Online Installer file. The installer Wizard opens and extracts the package automatically.
+1.  Open the Syncfusion Essential Studio FileFormats Web Installer file from downloaded location by double-clicking it. The Installer Wizard automatically opens and extracts the package.
 
     ![Installer Extraction Wizard](WebInstaller/Step-by-Step-Installation_img1.png)
 
     
-    N> The installer wizard extracts the syncfusionfileformatswebinstaller_{version}.exe dialog, displaying the unzip operation of the package.
+    N> The installer wizard extracts the syncfusionessentialfileformatswebinstaller_{version}.exe dialog, which displays the package's unzip operation.
     
-2. Welcome wizard of the Syncfusion Online Installer will be displayed. Click Next.
+2. 	The Syncfusion FileFormats Web Installer's welcome wizard will be displayed. Click the Next button.
 
-   ![Welcome wizard](WebInstaller/Step-by-Step-Installation_img2.png)
+    ![Welcome wizard](WebInstaller/Step-by-Step-Installation_img2.png)
 
   
-3.  Platform Selection wizard will be displayed. Select the platforms to be installed from the **Available** tab. Select **Install All** checkbox to select all the platforms. Click Next.
+3.  The Platform Selection Wizard will appear. From the **Available** tab, select the products to be installed. Select the **Install All** checkbox to install all products. 
     
+	<em>**Available**</em>
+	
 	![Platform Selection wizard Available](WebInstaller/Step-by-Step-Installation_img3.png)
 	
-	I> If the required software of the selected platform was not already installed, **Additional Software Required** alert will be displayed. However, you can continue the installation and install the required software later.
+	If you have multiple products installed in the same version, they will be listed under the **Installed** tab. You can also select which products to uninstall from the same version. Click the Next button.
+	
+	<em>**Installed**</em>
+	
+    ![Platform Selection wizard Installed](WebInstaller/Step-by-Step-Installation_img24.png)
+	
+	I> If the required software for the selected product isn't already installed, the **Additional Software Required** alert will appear. You can, however, continue the installation and install the necessary software later.
+	
+	**Required Software**
 	
 	![Additional Software Alert](WebInstaller/Step-by-Step-Installation_img5.png)
 		
 	
-4. Confirmation wizard will be displayed. Here you can view and modify the list of platforms that will be installed.
+4.	If previous version(s) for the selected products are installed, the Uninstall previous version wizard will be displayed. You can see the list of previously installed versions for the products you've chosen here. To remove all versions, check the **Uninstall All** checkbox. Click the Next button.
 
-    ![Confirmation for install](WebInstaller/Step-by-Step-Installation_img6.png)
+	![Existing Version for install](WebInstaller/Step-by-Step-Installation_img20.png)
 	
-	N> You can check the Estimated size of the Download and Installation by clicking the **Download Size and Installation Size** link.
+	N> From the 2021 Volume 1 release, Syncfusion has provided option to uninstall the previous versions from 18.1 while installing the new version.
 	
-	![Downaload and Installation size](WebInstaller/Step-by-Step-Installation_img7.png)
+	
+5.	Pop up screen will be displayed to get the confirmation to uninstall selected previous versions.
 
-5.  Configuration wizard will be displayed. Here you can change the Download, Install and samples location. Also, you can change the Additional settings by platform basis. To install using the default configuration, click Next.
+	![Existing Version for install](WebInstaller/Step-by-Step-Installation_img21.png)
+	
+	
+6. 	The Confirmation Wizard will appear with the list of products to be installed/uninstalled. You can view and modify the list of products that will be installed and uninstalled from this page.
+
+    ![Downaload and Installation size install/uninstall](WebInstaller/Step-by-Step-Installation_img16.png)
+	
+	N> By clicking the **Download Size and Installation** Size links, you can determine the approximate size of the download and installation
+	
+
+7.  The Configuration Wizard will appear. You can change the Download, Install, and Demos locations from here. You can also change the Additional settings on a product-by-product basis. Click Next to install with the default settings.
 
     ![Install and samples location for install](WebInstaller/Step-by-Step-Installation_img8.png)
 	
-	I> From version 17.3 (2019 Vol 3), Syncfusion provides option to provide custom download location.
+	**Additional settings**
 	
- 
-    N> From the 2018 Volume 2 release, Syncfusion has changed the install and samples location 
-	   **Default Install location:** {ProgramFilesFolder}\Syncfusion\{Platform}\{version}
-	   **Default Samples location:** C:\Users\Public\Documents\Syncfusion\{platform}\{version}
-	   However, you can change the locations by clicking browse button.
-
-	
-
-    * Select the **Install Demos** check box to install Syncfusion samples, or leave the check box clear, when you do not want to install Syncfusion samples.
-    * Select the **Register Syncfusion Assemblies in GAC** check box to install the latest Syncfusion assemblies in GAC, or clear this check box when you do not want to install the latest assemblies in GAC.
+    * Select the **Install Demos** check box to install Syncfusion samples, or leave the check box unchecked, if you do not want to install Syncfusion samples
+	* Select the **Register Syncfusion Assemblies in GAC** check box to install the latest Syncfusion assemblies in GAC, or clear this check box when you do not want to install the latest assemblies in GAC.
     * Select the **Configure Syncfusion controls in Visual Studio** check box to configure the Syncfusion controls in the Visual Studio toolbox, or clear this check box when you do not want to configure the Syncfusion controls in the Visual Studio toolbox during installation. Note that you must also select the Register Syncfusion assemblies in GAC check box when you select this check box.
     * Select the **Configure Syncfusion Extensions controls in Visual Studio** checkbox to configure the Syncfusion Extensions in Visual Studio or clear this check box when you do not want to configure the Syncfusion Extensions in Visual Studio.
-	* Select the **Create Desktop Shortcut** checkbox to create the desktop shortcut for Syncfusion Control Panel.
+    * Check the **Create Desktop Shortcut** checkbox to add a desktop shortcut for Syncfusion Control Panel
+    * Check the **Create Start Menu Shortcut** checkbox to add a shortcut to the start menu for Syncfusion Control Panel
 
 
-6.  After reading the License Terms and Conditions, check the **I agree to the License Terms and Privacy Policy** check box. Click Next.
 
-7. Login wizard will be displayed. You should enter your Syncfusion Direct-Trac login credentials. If you don't have Syncfusion Direct-Trac login credentials, then you can click on **Create an Account**. Else if you forgot your password, click on **Forgot Password** to create new password. Click Install. 
+8.  After reading the License Terms and Conditions, check the **I agree to the License Terms and Privacy Policy** check box. Click the Next button.
+
+9.  The login wizard will appear. You must enter your Syncfusion email address and password. If you do not already have a Syncfusion account, you can create one by clicking on **Create an Account**. If you have forgotten your password, click **Forgot Password** to create a new one. Click the Install button. 
 
     ![Login wizard install](WebInstaller/Step-by-Step-Installation_img9.png)
 	
-	I> The selected platforms will be installed based on your Syncfusion License (Trial or Licensed).
+	I> The products you have chosen will be installed based on your Syncfusion License (Trial or Licensed).
 
-8. Download and Installation progress will be displayed.
+10. The download and installation\uninstallation progress will be displayed as shown below.
 
     ![Download and Installation progress install](WebInstaller/Step-by-Step-Installation_img10.png)
 
-9. Once the Installation is complete, **Summary** wizard will be displayed. Here you can check the list of platforms which are installed successfully and failed. Click Finish to exit the Summary wizard. 
+11. When the installation is finished, the **Summary** wizard will appear. Here you can see the list of products that have been installed successfully and those that have failed. To close the Summary wizard, click Finish. 
 
     ![Installation Summary](WebInstaller/Step-by-Step-Installation_img11.png)
 	
-	* Click **Launch Control Panel** to open the Syncfusion Control Panel.
+	* To open the Syncfusion Control Panel, click **Launch Control Panel**.
 
+12. After installation, there will be two Syncfusion control panel entries, as shown below. The Essential Studio entry will manage all Syncfusion products installed in the same version, while the Product entry will only uninstall the specific product setup.
 
+    ![Control Panel](WebInstaller/Step-by-Step-Installation_img19.png)
+	
+	
+	
 ## Uninstallation
 
-Till version 17.2, Syncfusion Web Installer had option for installation alone. Starting with the version 17.3 (2019 Vol 3), Syncfusion provides option for uninstalling the platforms of the same version from the Web Installer application itself. Select the list of the platforms to be uninstalled and Web Installer will uninstall those platforms one by one.
+Syncfusion FileFormats installer can be uninstalled in two ways.
 
-The following procedure illustrates how to uninstall Essential Studio Platform from Web Installer. 
+   * Uninstall the FileFormats using the Syncfusion FileFormats web installer
+   * Uninstall the FileFormats from Windows Control Panel
 
-1.  Double-click the Syncfusion Essential Studio Platform Online Installer file. The installer Wizard opens and extracts the package automatically.
+Follow either one of the option below to uninstall Syncfusion Essential Studio FileFormats installer.
+  
+**Option 1: Uninstall the FileFormats using the Syncfusion FileFormats web installer**
 
-    ![Installer Extraction Wizard uninstall](WebInstaller/Step-by-Step-Installation_img1.png)
+Syncfusion provides the option to uninstall products of the same version directly from the Web Installer application. Select the products to be uninstalled from the list, and Web Installer will uninstall them one by one.
+
+Open the Syncfusion Essential Studio FileFormats Online Installer file from downloaded location by double-clicking it. The Installer Wizard automatically opens and extracts the package
+
+![Installer Extraction Wizard uninstall](WebInstaller/Step-by-Step-Installation_img1.png)
 	
-2. Welcome wizard of the Syncfusion Online Installer will be displayed. Click Next.
+The Syncfusion FileFormats Web Installer's welcome wizard will be displayed. Click the Next button
+	
+![Welcome wizard uninstall](WebInstaller/Step-by-Step-Installation_img2.png)
+	
+	
+**Option 2: Uninstall the FileFormats from Windows Control Panel**  
+	
+You can uninstall all the installed products by selecting the **Syncfusion Essential Studio {version}** entry (element 1 in the below screenshot) from the Windows control panel, or you can uninstall FileFormats alone by selecting the **Syncfusion Essential Studio for FileFormats {version}** entry (element 2 in the below screenshot) from the Windows control panel.
 
-   ![Welcome wizard uninstall](WebInstaller/Step-by-Step-Installation_img2.png)
-   
-3. Platform Selection wizard will be displayed. Select the platforms to be uninstalled from the **Installed** tab. Select **Uninstall All** checkbox to select all the platforms. Click Next.
+![Control Panel](WebInstaller/Step-by-Step-Installation_img22.png)
+	
+N> If the **Syncfusion Essential Studio for FileFormats {version}** entry is selected from the Windows control panel, the Syncfusion Essential Studio FileFormats alone will be removed and the below default MSI uninstallation window will be displayed.	
+
+1.  The Platform Selection Wizard will appear. From the **Installed** tab, select the products to be uninstalled. To select all products, check the **Uninstall All** checkbox. Click the Next button.
     
+	<em>**Installed**</em>
+	
 	![Platform Selection wizard Installed](WebInstaller/Step-by-Step-Installation_img4.png)
 	
-4. Confirmation wizard will be displayed. Here you can view and modify the list of platforms that will be uninstalled. Click Uninstall.
+	You can also select the products to be installed from the **Available** tab.Click the Next button.
+	
+	<em>**Available**</em>
+	
+	![Platform Selection wizard Available](WebInstaller/Step-by-Step-Installation_img25.png)
+	
+2.  If any other products selected for installation, Uninstall previous version wizard will be displayed with previous version(s) installed for the selected products. Here you can view the list of installed previous versions for the selected products. Select **Uninstall All** checkbox to select all the versions. Click Next.
 
-    ![Confirmation for uninstall](WebInstaller/Step-by-Step-Installation_img12.png)
+	![Existing Version for install](WebInstaller/Step-by-Step-Installation_img26.png)
 	
-5. Uninstallation progress will be displayed.
-  
-    ![Progress for uninstall](WebInstaller/Step-by-Step-Installation_img13.png)
-	
-6. Once the Uninstallation is complete, **Summary** wizard will be displayed. Here you can check the list of platforms which are uninstalled successfully and failed. Click Finish to exit the Summary wizard. 
+3.	Pop up screen will be displayed to get the confirmation to uninstall selected previous versions.
 
-    ![Uninstallation Summary](WebInstaller/Step-by-Step-Installation_img14.png)
+	![Existing Version for install](WebInstaller/Step-by-Step-Installation_img21.png)	
 	
-	
-## Installation and Uninstallation
-
-Till version 17.2, Syncfusion Web Installer had option for installation alone. Starting with the version 17.3 (2019 Vol 3), Syncfusion provides option for both install and uninstall the platforms of the same version from the Web Installer application itself.
-
-The following procedure illustrates how to install/uninstall Essential Studio Platform from Web Installer. 
-
-1.  Double-click the Syncfusion Essential Studio Platform Online Installer file. The installer Wizard opens and extracts the package automatically.
-
-    ![Installer Extraction Wizard Install/Uninstall](WebInstaller/Step-by-Step-Installation_img1.png)
-	
-2. Welcome wizard of the Syncfusion Online Installer will be displayed. Click Next.
-
-   ![Welcome wizard for Install/Uninstall](WebInstaller/Step-by-Step-Installation_img2.png)
-   
-3. Platform Selection wizard will be displayed. Select the platforms to be installed from the **Available** tab and platforms to be uninstalled from the **Installed** tab. Click Next.
-
-   **Available**
-	
-    ![Platform Selection wizard Available Install/Uninstall](WebInstaller/Step-by-Step-Installation_img3.png)
-	
-   **Installed**
-	
-    ![Platform Selection wizard Installed](WebInstaller/Step-by-Step-Installation_img4.png)
-	
-4. Confirmation wizard will be displayed. Here you can view and modify the list of platforms that will be installed/uninstalled.
+4.  The Confirmation Wizard will appear with the list of products to be installed/uninstalled. Here you can view and modify the list of products that will be installed/uninstalled.
 
     ![Confirmation for install/uninstall](WebInstaller/Step-by-Step-Installation_img15.png)
 	
-	N> You can check the Estimated size of the Download and Installation by clicking the **Download Size and Installation Size** link.
+	N> By clicking the **Download Size and Installation** Size links, you can determine the approximate size of the download and installation
 	
-	![Downaload and Installation size install/uninstall](WebInstaller/Step-by-Step-Installation_img16.png)
+5.	The Configuration Wizard will appear. You can change the Download, Install, and Demos locations from here. You can also change the Additional settings on a product-by-product basis. Click Next to install with the default settings.
 
-5.  Configuration wizard will be displayed. Here you can change the Download, Install and samples location. Also, you can change the Additional settings by platform basis. To install using the default configuration, click Next.
-
-    ![Install and samples location install/uninstall](WebInstaller/Step-by-Step-Installation_img8.png)
+    ![Install and samples location install/uninstall](WebInstaller/Step-by-Step-Installation_img23.png)
 	
-	I> From version 17.3 (2019 Vol 3), Syncfusion provides option to provide custom download location.
-	
-6.  After reading the License Terms and Conditions, check the **I agree to the License Terms and Privacy Policy** check box. Click Next.
+6.	After reading the License Terms and Conditions, check the **I agree to the License Terms and Privacy Policy** check box. Click the Next button.
 
-7. Login wizard will be displayed. You should enter your Syncfusion Direct-Trac login credentials. If you don't have Syncfusion Direct-Trac login credentials, then you can click on **Create an Account**. Else if you forgot your password, click on **Forgot Password** to create new password. Click Install. 
+7.	The login wizard will appear. You must enter your Syncfusion email address and password. If you do not already have a Syncfusion account, you can create one by clicking on **Create an Account**. If you have forgotten your password, click **Forgot Password** to create a new one. Click the Install button.
 
     ![Login wizard install/uninstall](WebInstaller/Step-by-Step-Installation_img9.png)
 	
-	I> The selected platforms will be installed based on your Syncfusion License (Trial or Licensed).
+	I> The products you have chosen will be installed based on your Syncfusion License (Trial or Licensed).
 
-8. Download, Installation and Uninstallation progress will be displayed.
+8.	The download, installation, and uninstallation progresses will be shown.
 
     ![Download and Installation progress install/uninstall](WebInstaller/Step-by-Step-Installation_img17.png)
 
-9. Once the Installation is complete, **Summary** wizard will be displayed. Here you can check the list of platforms which are **installed/uninstalled** successfully and failed. Click Finish to exit the Summary wizard. 
+9.	When the installation is finished, the **Summary** wizard will appear. Here you can see the list of products that have been successfully and unsuccessfully installed/uninstalled. To close the Summary wizard, click Finish.
 
     ![Summary install/uninstall](WebInstaller/Step-by-Step-Installation_img18.png)
 	
-	* Click **Launch Control Panel** to open the Syncfusion Control Panel.
+	* To open the Syncfusion Control Panel, click **Launch Control Panel**.
