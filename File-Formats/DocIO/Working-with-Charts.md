@@ -1,6 +1,6 @@
 ---
 title: Working with Charts | DocIO | Syncfusion
-description: This section illustrates how to perform working with Charts using Syncfusion Word library (Essential DocIO)
+description: This section illustrates how to work with Charts in Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
