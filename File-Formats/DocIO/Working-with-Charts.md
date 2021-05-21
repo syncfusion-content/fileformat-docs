@@ -2287,40 +2287,12 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
-## Chart To Image Conversion
+## Convert chart to image
 
-The Essential DocIO converts the Word document containing charts elements to images using the `SaveAsImage` method in OfficeChartToImageConverter. The following assemblies are referred for converting charts to image conversion:
-
-<table>
-<thead> 
-<tr>
-<th>Assembly Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tr>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td>
-<td>
-This assembly is used to convert the chart to image.<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.SfChart.WPF<br/><br/></td>
-<td>
-This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td>
-</tr>
-</table>
-
-The following namespaces are required to compile the code in this topic:
-
-* using Syncfusion.DocIO
-* using Syncfusion.DocIO.DLS
-* using Syncfusion.OfficeChart
-* using Syncfusion.OfficeChartToImageConverter
+You can convert the chart in Word document as image using the `SaveAsImage` method in OfficeChartToImageConverter.
 
 
-The following code illustrates how to convert the chart to image.
+The following code example shows how to chart in the Word document as image.
 
 
 {% tabs %}
@@ -2340,6 +2312,8 @@ MemoryStream stream = new MemoryStream();
 //Converts chart to image
 wordDocument.ChartToImageConverter.SaveAsImage(chart.OfficeChart, stream);
 Image image = Image.FromStream(stream);
+//Dispose the stream.
+stream.Close();
 //Saving image stream to file
 image.Save("ChartToImage.jpeg", ImageFormat.Jpeg);
 //Closes the document
@@ -2362,10 +2336,12 @@ Dim stream As New MemoryStream()
 'Converts chart to image
 wordDocument.ChartToImageConverter.SaveAsImage(chart.OfficeChart, stream)
 Dim image As Image = Image.FromStream(stream)
+'Dispose the stream.
+stream.Close()
 'Saving image stream to file
 image.Save("ChartToImage.jpeg", ImageFormat.Jpeg)
 'Closes the document
-wordDocument.Close
+wordDocument.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -2381,10 +2357,8 @@ wordDocument.Close
 {% endhighlight %}
 {% endtabs %}
 
-N> 1. Chart to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, ASP.NET Core, Blazor and Universal Windows Platform applications.
-N> 2. In Azure Web Service and Azure APP Service, .NET GDI+ (System.Drawing) does not support the Metafile image (vector image). So, the image will be generated as Bitmap (raster image).
-N> 3. Creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
-N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
+N> 1. To convert chart in Word document as image, it is need to refer chart conversion related [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-charts) or [NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-charts).
+N> 2. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 
 ## Supported Chart Types 
 
