@@ -1,5 +1,5 @@
 ---
-title: Required NuGet Packages for PowerPoint library |Syncfusion|
+title: Required NuGet Packages for PowerPoint library |Syncfusion
 description: This section illustrates the NuGet packages required to use Syncfusion PowerPoint library (Essential Presentation) in various platforms and frameworks
 platform: file-formats
 control: PowerPoint
@@ -30,14 +30,6 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET Framework 3.5 or 4.0 Client Profile
-</td>
-<td>
-{{'[Syncfusion.Presentation.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -122,14 +114,6 @@ WPF
 </tr>
 <tr>
 <td>
-.NET Framework 3.5 or 4.0 Client Profile
-</td>
-<td>
-{{'[Syncfusion.PresentationToPDFConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.ClientProfile/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
 ASP.NET Web
 </td>
 <td>
@@ -200,14 +184,6 @@ WPF
 </td>
 <td>
 {{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET Framework 3.5 or 4.0 Client Profile
-</td>
-<td>
-{{'[Syncfusion.Presentation.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.ClientProfile/)'| markdownify }}
 </td>
 </tr>
 <tr>
