@@ -2289,7 +2289,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 ## Convert chart to image
 
-You can convert the chart in Word document as image using the `SaveAsImage` method in ChartToImageConverter`.
+You can convert the chart in Word document as image using the `SaveAsImage` method in ChartToImageConverter.
 
 
 The following code example shows how to chart in the Word document as image.
