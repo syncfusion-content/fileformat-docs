@@ -178,7 +178,7 @@ This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, othe
 
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
-    X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555)
+    X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=26999](https://www.microsoft.com/en-in/download/details.aspx?id=26999)
 
 	Instead, the required assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\System32</i></span>),
 
@@ -3491,9 +3491,7 @@ settings.WebKitPath = Server.MapPath("~/bin/QtBinaries");
 <td>
 Install the VC++ and OpenSSL packages from the below mentioned download links, 
 <br/><br/>
-X86 - <a href="https://www.microsoft.com/en-in/download/details.aspx?id=5555#">https://www.microsoft.com/en-in/download/details.aspx?id=5555</a>
-<br/><br/>
-X64 - <a href="https://www.microsoft.com/en-in/download/details.aspx?id=14632#">https://www.microsoft.com/en-in/download/details.aspx?id=14632</a>
+X86, X64- <a href="https://www.microsoft.com/en-us/download/details.aspx?id=26999#">https://www.microsoft.com/en-us/download/details.aspx?id=26999</a>
 <br/><br/>
 Instead, the required assemblies can be added in the Windows system folder.
 (for 64-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></span> and 
