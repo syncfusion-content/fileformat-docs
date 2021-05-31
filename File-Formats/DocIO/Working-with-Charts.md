@@ -1,11 +1,11 @@
 ---
 title: Working with Charts | DocIO | Syncfusion
-description: This section illustrates how to work with Charts
+description: This section illustrates how to work with Charts in Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Working with Charts
+# Working with Charts in Word document
 
 A Chart is a graphical representation of data where the data is represented as symbols such as bars, lines etc. Charts can represent numerical data, functions or some kinds of qualitative structures. DocIO supports the following chart types:
 
@@ -2286,6 +2286,79 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Convert chart to image
+
+You can convert the chart in Word document as image using the `SaveAsImage` method in ChartToImageConverter.
+
+
+The following code example shows how to chart in the Word document as image.
+
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing Word document.
+WordDocument wordDocument = new WordDocument(@"TemplateWithChart.docx", FormatType.Docx);
+//Initializes the ChartToImageConverter for converting charts during Word to image conversion.
+wordDocument.ChartToImageConverter = new ChartToImageConverter();
+//Sets the scaling mode for charts. (Normal mode reduces the file size)
+wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
+//Gets the first paragraph from section.
+WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
+//Gets the chart element in the paragarph item.
+WChart chart = paragraph.ChildEntities[0] as WChart;
+//Creating the memory stream for chart image.
+MemoryStream stream = new MemoryStream();
+//Converts chart to image.
+wordDocument.ChartToImageConverter.SaveAsImage(chart.OfficeChart, stream);
+Image image = Image.FromStream(stream);
+//Dispose the stream.
+stream.Close();
+//Saving image stream to file.
+image.Save("ChartToImage.jpeg", ImageFormat.Jpeg);
+//Closes the document.
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document.
+Dim wordDocument As New WordDocument("TemplateWithChart.docx", FormatType.Docx)
+'Initializes the ChartToImageConverter for converting charts during Word to image conversion.
+wordDocument.ChartToImageConverter = New ChartToImageConverter()
+'Sets the scaling mode for charts. (Normal mode reduces the file size)
+wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
+'Gets the first paragraph from section.
+Dim paragraph As WParagraph = wordDocument.LastSection.Paragraphs(0)
+'Gets the chart element in the paragarph item.
+Dim chart As WChart = TryCast(paragraph.ChildEntities(0),WChart)
+'Creating the memory stream for chart image.
+Dim stream As New MemoryStream()
+'Converts chart to image.
+wordDocument.ChartToImageConverter.SaveAsImage(chart.OfficeChart, stream)
+Dim image As Image = Image.FromStream(stream)
+'Dispose the stream.
+stream.Close()
+'Saving image stream to file.
+image.Save("ChartToImage.jpeg", ImageFormat.Jpeg)
+'Closes the document.
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+{% endtabs %}
+
+N> 1. To convert chart in Word document as image, it is need to refer chart conversion related [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-charts) or [NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-charts).
+N> 2. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 
 ## Supported Chart Types 
 
