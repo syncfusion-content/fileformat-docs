@@ -1198,6 +1198,11 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
+<td>Updating Table of Content<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td>
+</tr>
+<tr>
 <td>Find and Replace<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
