@@ -2289,7 +2289,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 ## Convert chart to image
 
-You can convert the chart in Word document as image using the `SaveAsImage` method in OfficeChartToImageConverter.
+You can convert the chart in Word document as image using the `SaveAsImage` method in ChartToImageConverter`.
 
 
 The following code example shows how to chart in the Word document as image.
@@ -2297,63 +2297,63 @@ The following code example shows how to chart in the Word document as image.
 
 {% tabs %}
 {% highlight c# %}
-//Loads an existing Word document
+//Loads an existing Word document.
 WordDocument wordDocument = new WordDocument(@"TemplateWithChart.docx", FormatType.Docx);
-//Initializes the ChartToImageConverter for converting charts during Word to image conversion
+//Initializes the ChartToImageConverter for converting charts during Word to image conversion.
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
-//Sets the scaling mode for charts (Normal mode reduces the file size)
+//Sets the scaling mode for charts. (Normal mode reduces the file size)
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-//Gets the first paragraph from section
+//Gets the first paragraph from section.
 WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
-//Gets the chart element in the paragarph item
+//Gets the chart element in the paragarph item.
 WChart chart = paragraph.ChildEntities[0] as WChart;
-//Creating the memory stream for chart image
+//Creating the memory stream for chart image.
 MemoryStream stream = new MemoryStream();
-//Converts chart to image
+//Converts chart to image.
 wordDocument.ChartToImageConverter.SaveAsImage(chart.OfficeChart, stream);
 Image image = Image.FromStream(stream);
 //Dispose the stream.
 stream.Close();
-//Saving image stream to file
+//Saving image stream to file.
 image.Save("ChartToImage.jpeg", ImageFormat.Jpeg);
-//Closes the document
+//Closes the document.
 wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Loads an existing Word document
+'Loads an existing Word document.
 Dim wordDocument As New WordDocument("TemplateWithChart.docx", FormatType.Docx)
-'Initializes the ChartToImageConverter for converting charts during Word to image conversion
+'Initializes the ChartToImageConverter for converting charts during Word to image conversion.
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
-'Sets the scaling mode for charts (Normal mode reduces the file size)
+'Sets the scaling mode for charts. (Normal mode reduces the file size)
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-'Gets the first paragraph from section
+'Gets the first paragraph from section.
 Dim paragraph As WParagraph = wordDocument.LastSection.Paragraphs(0)
-'Gets the chart element in the paragarph item
+'Gets the chart element in the paragarph item.
 Dim chart As WChart = TryCast(paragraph.ChildEntities(0),WChart)
-'Creating the memory stream for chart image
+'Creating the memory stream for chart image.
 Dim stream As New MemoryStream()
-'Converts chart to image
+'Converts chart to image.
 wordDocument.ChartToImageConverter.SaveAsImage(chart.OfficeChart, stream)
 Dim image As Image = Image.FromStream(stream)
 'Dispose the stream.
 stream.Close()
-'Saving image stream to file
+'Saving image stream to file.
 image.Save("ChartToImage.jpeg", ImageFormat.Jpeg)
-'Closes the document
+'Closes the document.
 wordDocument.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 {% endtabs %}
 
