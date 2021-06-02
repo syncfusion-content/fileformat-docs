@@ -292,6 +292,7 @@ paragraph = section.AddParagraph();
 //Adds new text to the paragraph
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
+//Sets the locale identifier(language) of the formatted characters.
 firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
@@ -320,6 +321,7 @@ paragraph = section.AddParagraph();
 'Adds new text to the paragraph
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
+'Sets the locale identifier(language) of the formatted characters.
 firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -348,6 +350,7 @@ paragraph = section.AddParagraph();
 //Adds new text to the paragraph
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
+//Sets the locale identifier(language) of the formatted characters.
 firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
@@ -381,6 +384,7 @@ paragraph = section.AddParagraph();
 //Adds new text to the paragraph
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
+//Sets the locale identifier(language) of the formatted characters.
 firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
@@ -413,6 +417,7 @@ paragraph = section.AddParagraph();
 //Adds new text to the paragraph
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
+//Sets the locale identifier(language) of the formatted characters.
 firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
