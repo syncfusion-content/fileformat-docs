@@ -287,6 +287,12 @@ paragraph.ParagraphFormat.BackColor = Color.LightGray;
 paragraph.ParagraphFormat.FirstLineIndent = 10f;
 paragraph.ParagraphFormat.LineSpacing = 10f;
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+//Adds new paragraph to the section
+paragraph = section.AddParagraph();
+//Adds new text to the paragraph
+firstText = paragraph.AppendText("שלום עולם");
+firstText.CharacterFormat.Bidi = true;
+firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
@@ -309,6 +315,12 @@ paragraph.ParagraphFormat.BackColor = Color.LightGray
 paragraph.ParagraphFormat.FirstLineIndent = 10.0F
 paragraph.ParagraphFormat.LineSpacing = 10.0F
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
+'Adds new paragraph to the section
+paragraph = section.AddParagraph();
+'Adds new text to the paragraph
+firstText = paragraph.AppendText("שלום עולם");
+firstText.CharacterFormat.Bidi = true;
+firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
@@ -331,6 +343,12 @@ paragraph.ParagraphFormat.BackColor = Color.LightGray;
 paragraph.ParagraphFormat.FirstLineIndent = 10f;
 paragraph.ParagraphFormat.LineSpacing = 10f;
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
+//Adds new paragraph to the section
+paragraph = section.AddParagraph();
+//Adds new text to the paragraph
+firstText = paragraph.AppendText("שלום עולם");
+firstText.CharacterFormat.Bidi = true;
+firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -358,6 +376,12 @@ paragraph.ParagraphFormat.BackColor = Color.LightGray;
 paragraph.ParagraphFormat.FirstLineIndent = 10f;
 paragraph.ParagraphFormat.LineSpacing = 10f;
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
+//Adds new paragraph to the section
+paragraph = section.AddParagraph();
+//Adds new text to the paragraph
+firstText = paragraph.AppendText("שלום עולם");
+firstText.CharacterFormat.Bidi = true;
+firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -384,6 +408,12 @@ paragraph.ParagraphFormat.BackColor = Syncfusion.Drawing.Color.LightGray;
 paragraph.ParagraphFormat.FirstLineIndent = 10f;
 paragraph.ParagraphFormat.LineSpacing = 10f;
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
+//Adds new paragraph to the section
+paragraph = section.AddParagraph();
+//Adds new text to the paragraph
+firstText = paragraph.AppendText("שלום עולם");
+firstText.CharacterFormat.Bidi = true;
+firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
