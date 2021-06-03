@@ -293,7 +293,7 @@ paragraph = section.AddParagraph();
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
 //Sets the locale identifier(language) of the formatted characters.
-firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
+firstText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
@@ -322,7 +322,7 @@ paragraph = section.AddParagraph();
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
 'Sets the locale identifier(language) of the formatted characters.
-firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
+firstText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
@@ -351,7 +351,7 @@ paragraph = section.AddParagraph();
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
 //Sets the locale identifier(language) of the formatted characters.
-firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
+firstText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -385,7 +385,7 @@ paragraph = section.AddParagraph();
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
 //Sets the locale identifier(language) of the formatted characters.
-firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
+firstText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -418,7 +418,7 @@ paragraph = section.AddParagraph();
 firstText = paragraph.AppendText("שלום עולם");
 firstText.CharacterFormat.Bidi = true;
 //Sets the locale identifier(language) of the formatted characters.
-firstText.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.he_IL;
+firstText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
