@@ -1183,6 +1183,13 @@ secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Color.Green;
+//Adds new paragraph to the section
+IWParagraph secondParagraph = section.AddParagraph();
+//Adds new text to the paragraph
+IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
+thirdText.CharacterFormat.Bidi = true;
+//Sets language identifier for right to left characters.
+thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
@@ -1210,6 +1217,13 @@ secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash
 secondText.CharacterFormat.Italic = True
 secondText.CharacterFormat.FontName = "Times New Roman"
 secondText.CharacterFormat.TextColor = Color.Green
+'Adds new paragraph to the section
+IWParagraph secondParagraph = section.AddParagraph()
+'Adds new text to the paragraph
+IWTextRange thirdText = secondParagraph.AppendText("שלום עולם")
+thirdText.CharacterFormat.Bidi = true
+'Sets language identifier for right to left characters.
+thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
@@ -1237,6 +1251,13 @@ secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Color.Green;
+//Adds new paragraph to the section
+IWParagraph secondParagraph = section.AddParagraph();
+//Adds new text to the paragraph
+IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
+thirdText.CharacterFormat.Bidi = true;
+//Sets language identifier for right to left characters.
+thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -1269,6 +1290,13 @@ secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Color.Green;
+//Adds new paragraph to the section
+IWParagraph secondParagraph = section.AddParagraph();
+//Adds new text to the paragraph
+IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
+thirdText.CharacterFormat.Bidi = true;
+//Sets language identifier for right to left characters.
+thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -1300,6 +1328,13 @@ secondText.CharacterFormat.UnderlineStyle = Syncfusion.Drawing.UnderlineStyle.Do
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Green;
+//Adds new paragraph to the section
+IWParagraph secondParagraph = section.AddParagraph();
+//Adds new text to the paragraph
+IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
+thirdText.CharacterFormat.Bidi = true;
+//Sets language identifier for right to left characters.
+thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
