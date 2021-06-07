@@ -1577,7 +1577,7 @@ destinationDocument.Close();
 
 ## Printing a Word document
 
-You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class
+You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class
 
 Initially you have to render the pages as images as shown below
 
@@ -1615,7 +1615,7 @@ document.Close()
 
 {% endtabs %}  
 
-You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx#) event should be handled to layout the document for printing. 
+You can specify the printer settings and page settings through the [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class. The [PrintDocument.PrintPage](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument.printpage?view=net-5.0) event should be handled to layout the document for printing. 
 
 The following code example demonstrates how to print the Word document pages that have been rendered as an image:
 
