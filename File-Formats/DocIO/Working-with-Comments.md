@@ -383,29 +383,29 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 ##Accessing parent comment
 
-You can access the parent comment of a particular comment (reply) in Word document using `Ancestor` API. The ancestor for parent comment returns `null` as default.
+You can access the parent comment of a particular comment (reply) in a Word document using `Ancestor` API. The ancestor for parent comment returns `null` as default.
 
-The following code examples shows how to access the parent comment of a particular comment in the Word document.
+The following code examples show how to access the parent comment of a particular comment in a Word document.
 
 {% tabs %}  
 
 {% highlight c# %}
-//Loads an existing Word document into DocIO instance
+//Load an existing Word document into DocIO instance.
 WordDocument document = new WordDocument("Comment.docx");
-//Gets the Ancestor comment
+//Get the Ancestor comment.
 WComment ancestorComment = document.Comments[1].Ancestor;
-//Saves and Closes the Word document
+//Save and Close the Word document.
 document.Save("Result.docx", FormatType.Docx);
 document.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Loads an existing Word document into DocIO instance
+'Load an existing Word document into DocIO instance.
 Dim document As WordDocument = New WordDocument("Comment.docx")
-'Gets the Ancestor comment
+'Get the Ancestor comment.
 Dim ancestorComment As WComment = document.Comments[1].Ancestor
-'Saves and Closes the Word document
+'Save and Close the Word document.
 document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
@@ -413,47 +413,47 @@ document.Close()
 {% highlight UWP %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets. Comment.docx"), FormatType.Docx);
-//Gets the Ancestor comment
+//Get the Ancestor comment.
 document.Comments[1].Ancestor;
-//Saves the Word file to MemoryStream
+//Save the Word file to MemoryStream.
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
+//Save the stream as Word file in local machine.
 Save(stream, "Result.docx");
-//Closes the document
+//Close the document.
 document.Close();
-//Please refer the below link to save Word document in UWP platform
+//Please refer to the following link to save a Word document in the UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-// Gets the Ancestor comment
+// Get the Ancestor comment.
 document.Comments[1].Ancestor;
-//Saves the Word document to  MemoryStream
+//Save the Word document to  MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Close the document.
 document.Close();
 stream.Position = 0;
-//Download Word document in the browser
+//Download the Word document in the browser
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Comment.docx"), FormatType.Docx)
-//Gets the Ancestor comment
+//Get the Ancestor comment.
 document.Comments[1].Ancestor;
-//Saves the Word document to  MemoryStream
+//Save the Word document to  MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Close the document.
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
