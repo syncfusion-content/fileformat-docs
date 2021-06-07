@@ -1,6 +1,6 @@
 ---
 title: Working with Comments | DocIO | Syncfusion
-description: This section illustrates how to add, modify, remove and accessing parent comment from the given comments
+description: This section illustrates about working with comments in the Word document without MS Word or Office interop
 platform: file-formats
 control: DocIO
 documentation: UG
