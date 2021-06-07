@@ -1,6 +1,6 @@
 ---
 title: Working with Comments | DocIO | Syncfusion
-description: This section illustrates how to add, modify and remove the comments
+description: This section illustrates how to add, modify, remove and accessing parent comment from the given comments
 platform: file-formats
 control: DocIO
 documentation: UG
