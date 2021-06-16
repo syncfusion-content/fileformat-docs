@@ -8,7 +8,7 @@ documentation: UG
 
 # How to set or format a Header/Footer?
 
-Script commands are used to set header/ footer formatting. The following code snippet illustrate this. For more information on formatting the string, see [Inserting and Formatting Text in Headers and Footers](https://docs.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb225426(v=office.12)?redirectedfrom=MSDN)
+Script commands are used to set header/ footer formatting. The following code snippet illustrate this. For more information on formatting the string, see [Inserting and Formatting Text in Headers and Footers](https://docs.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb225426(v=office.12))
 
 {% tabs %}  
 
