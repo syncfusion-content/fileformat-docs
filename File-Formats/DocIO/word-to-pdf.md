@@ -2763,7 +2763,7 @@ Only DOCX and WordML format documents are supported.
 Underline
 </td>
 <td>
-Only Single, Dotted, Dash, DotDash and DotDotDash underline styles are supported.
+Only Single, Dotted, Dash, DotDash, DotDotDash, Words, DashHeavy, DashLong, DashLongHeavy and DotDashHeavy underline styles are supported.
 </td>
 </tr>
 <tr>
