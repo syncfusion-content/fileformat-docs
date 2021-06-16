@@ -10,7 +10,7 @@ documentation: UG
 
 The frequently asked questions in Essential XlsIO are listed below.
 
-* [How to open an existing XLSX workbook and save it as XLS?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
+* [How to open an existing XLSX workbook and save it as XLS?](faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
 * [How to open an Excel file from stream?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-open-an-excel-file-from-stream)
 * [How to save a file to stream?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-save-a-file-to-stream)
 * [How to create and open Excel Template files by using XlsIO?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-create-and-open-excel-template-files-by-using-xlsio)
