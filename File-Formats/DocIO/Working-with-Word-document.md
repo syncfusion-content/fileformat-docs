@@ -2412,11 +2412,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 ### Updating Pages count
 
-You can update page count in an existing Word document or document created from the scratch. Updates page count if performLayout set to true using Word to PDF layout engine.
-
-N>  1. Updating page count makes use of the Word to PDF layout engine to calculate the page count in the document.
-N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
-
+You can update page count in an existing Word document or document created from the scratch by passing true for `UpdateWordCount(performLayout)` API.
 
 The following code example shows how to update page count in an existing word document.
 {% tabs %} 
@@ -2424,7 +2420,7 @@ The following code example shows how to update page count in an existing word do
 //Opens an existing document.
 using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
 {
-    //Update the word count in the document.
+    //Update the page count along with word count in the document.
     document.UpdateWordCount(true);
     //Get the page count in the document.
     int pageCount = document.BuiltinDocumentProperties.PageCount;
@@ -2435,7 +2431,7 @@ using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
 {% highlight vb.net %}
 'Opens an existing document.
 Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
-    'Update the word count in the document.
+    'Update the page count along with word count in the document.
      document.UpdateWordCount(True)
     'Get the page count in the document.
     Dim pageCount As Integer = document.BuiltinDocumentProperties.PageCount
@@ -2445,7 +2441,7 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports updating word count in WPF, Windows Forms, ASP.NET and ASP.NET MVC, platforms alone.
+//DocIO supports updating page count in WPF, Windows Forms, ASP.NET and ASP.NET MVC, platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -2453,7 +2449,7 @@ FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.
 //Opens an existing document.
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 {
-    //Update the word count in the document.
+    //Update the page count along with word count in the document.
     document.UpdateWordCount(true);
     //Get the page count in the document.
     int pageCount = document.BuiltinDocumentProperties.PageCount;
@@ -2471,9 +2467,9 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document.
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
 {
-    //Update the word count in the document.
+    //Update the page count along with word count in the document.
     document.UpdateWordCount(true);
-	//Get the page count in the document. 
+    //Get the page count in the document. 
     int pageCount = document.BuiltinDocumentProperties.PageCount;	
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
@@ -2484,6 +2480,10 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 {% endtabs %}
+
+N>  1. Updating page count makes use of the Word to PDF layout engine to calculate the page count in the document.
+N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
+
 
 
 ### Adding Custom Document properties
