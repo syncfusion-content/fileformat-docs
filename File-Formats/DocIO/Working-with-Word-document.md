@@ -2410,7 +2410,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
-### Updating Pages count
+### Updating pages count
 
 You can update page count in an existing Word document or document created from the scratch by passing true for `UpdateWordCount(performLayout)` API.
 
@@ -2481,7 +2481,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
-N>  1. Updating page count makes use of the Word to PDF layout engine to calculate the page count in the document.
+N>  1. Updating page count makes use of the Word to PDF layout engine that may lead to update incorrect page count due to its limitations.
 N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
 
 
