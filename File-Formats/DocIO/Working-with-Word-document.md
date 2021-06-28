@@ -2341,7 +2341,7 @@ using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
     int charCount = document.BuiltinDocumentProperties.CharCount;
     //Get the paragraph count in the document.
     int paragraphCount = document.BuiltinDocumentProperties.ParagraphCount;
-    //Saves and closes the document instance.
+    //Saves the Word document.
     document.Save("Result.docx");
 }
 {% endhighlight %}
@@ -2356,7 +2356,7 @@ Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx
     Dim charCount As Integer = document.BuiltinDocumentProperties.CharCount
     'Get the paragraph count in the document.
     Dim paragraphCount As Integer = document.BuiltinDocumentProperties.ParagraphCount
-    'Saves and closes the document instance.
+    'Saves the Word document.
     document.Save("Result.docx")
 End Using	
 {% endhighlight %}
@@ -2379,7 +2379,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     //Get the paragraph count in the document.
     int paragraphCount = document.BuiltinDocumentProperties.ParagraphCount;
     MemoryStream stream = new MemoryStream();
-    //Saves and closes the document instance.
+    //Saves the Word document.
     document.Save(stream, FormatType.Docx);
     stream.Position = 0;
     fileStream.Dispose();
@@ -2424,7 +2424,7 @@ using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
     document.UpdateWordCount(true);
     //Get the page count in the document.
     int pageCount = document.BuiltinDocumentProperties.PageCount;
-    //Saves and closes the document instance.
+    //Saves the Word document.
     document.Save("Result.docx");
 }
 {% endhighlight %}
@@ -2435,7 +2435,7 @@ Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx
      document.UpdateWordCount(True)
     'Get the page count in the document.
     Dim pageCount As Integer = document.BuiltinDocumentProperties.PageCount
-    'Saves and closes the document instance.
+    'Saves the Word document.
     document.Save("Result.docx")
 End Using	
 {% endhighlight %}
@@ -2454,7 +2454,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     //Get the page count in the document.
     int pageCount = document.BuiltinDocumentProperties.PageCount;
     MemoryStream stream = new MemoryStream();
-    //Saves and closes the document instance.
+    //Saves the Word document.
     document.Save(stream, FormatType.Docx);
     stream.Position = 0;
     fileStream.Dispose();
