@@ -946,3 +946,273 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 {% endtabs %}
+
+## Get redaction progress 
+
+You can get the redaction process using TrackRedactionProgress event. 
+
+The code snippet to illustrate the same is given below.
+{% tabs %}
+{% highlight c# %}
+
+//Load a PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Load the first page
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage ;
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(37, 94, 50, 10), System.Drawing.Color.Black);
+
+//Add redaction to the loaded page
+
+page.Redactions.Add(redaction);
+
+loadedDocument.RedactionProgress += redaction_TrackProgress;
+
+//Save the document
+
+loadedDocument.Save("Output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Event handler for Track redaction process
+
+void redaction_TrackProgress(object sender, RedactionProgressEventArgs arguments)
+{
+MessageBox.Show(String.Format("Redaction Process " + arguments.Progress + " % completed"));
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load an existing PDF 
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
+
+'Load the first page 
+Dim page As PdfLoadedPage =  loadedDocument.Pages(0) as PdfLoadedPage
+
+Dim redaction As PdfRedaction =  New PdfRedaction(New RectangleF(37,94,50,10),System.Drawing.Color.Black)
+
+'Add redaction to the loaded page
+page.Redactions.Add(redaction)
+
+loadedDocument.RedactionProgress += redaction_TrackProgress
+
+Dim stream As New MemoryStream()
+
+'Save the document
+
+loadedDocument.Save(stream) 
+
+'Close the document
+loadedDocument.Close(True)
+
+'Event handler for Track redaction process
+Private  Sub redaction_TrackProgress(ByVal sender As Object, ByVal arguments As RedactionProgressEventArgs)
+MessageBox.Show(String.Format("Redaction Process " + arguments.Progress + " % completed"))
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF.
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load the first page.
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(37, 94, 50, 10), System.Drawing.Color.Black);
+//Add redaction to the loaded page
+page.AddRedaction(redaction);
+
+loadedDocument.RedactionProgress += redaction_TrackProgress;
+
+//Create the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+stream.Position = 0;
+
+//Close the document
+loadedDocument.Close(true);
+
+// Event handler for Track redaction process
+void redaction_TrackProgress(object sender, RedactionProgressEventArgs arguments)
+{
+ MessageBox.Show(String.Format("Redaction Process " + arguments.Progress + " % completed"));
+}
+
+//Define the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC Platforms.
+
+{% endhighlight %}
+{% endtabs %}
+
+## Redaction result 
+
+Using PdfRedactionResult, you can get the status of the redaction with other information.  The result of the redaction operation can be obtained using Essential PDF.
+
+The code snippet to illustrate the same is given below.
+
+{% tabs %}
+{% highlight c# %}
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+//Load the first page
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(37, 94, 50, 10), System.Drawing.Color.Black);
+
+//Add redaction object into redaction collection of loaded page
+
+page.Redactions.Add(redaction);
+
+//Redact the contents from PDF document.
+List<PdfRedactionResult> redactionResults = lDoc.Redact();
+
+foreach(PdfRedactionResult result in redactionResults)
+{
+if (result.IsRedactionSuccess)
+Console.WriteLine("Content redacted successfully...");
+else
+Console.WriteLine("Content not redacted properly...");
+}
+
+//Save the document
+
+lDoc.Save("Output.pdf");
+
+//Close the document
+
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load an existing PDF 
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
+
+'Load the first page 
+Dim page As PdfLoadedPage =  loadedDocument.Pages(0) as PdfLoadedPage
+
+Dim redaction As PdfRedaction =  New PdfRedaction(New RectangleF(37,94,50,10),System.Drawing.Color.Black)
+
+ 'Add redaction to the loaded page
+page.Redactions.Add(redaction)
+
+'Redact the contents from PDF document
+Dim results As List<PdfRedactionResult> = loadedDocument.Redact();
+
+For Each result As PdfRedactionResult In redactionResults
+If result.IsRedactionSuccess Then 
+
+Console.WriteLine("Content redacted successfully...")
+
+Else
+
+Console.WriteLine("Content not redacted properly...")
+
+End If
+Next
+Dim stream As New MemoryStream()
+
+'Save the document
+
+loadedDocument.Save(stream) 
+
+'Close the document
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load the first page.
+PdfLoadedPage page = loadedDocument.Pages[0];
+
+PdfRedaction redaction = new PdfRedaction(new RectangleF(37, 94, 50, 10), System.Drawing.Color.Black);
+
+//Add redaction to the loaded page
+page.AddRedaction(redaction);
+
+//Redact the contents from PDF document
+List<PdfRedactionResult> results = loadedDocument.Redact();
+
+foreach(PdfRedactionResult result in redactionResults)
+{
+if (result.IsRedactionSuccess)
+Console.WriteLine("Content redacted successfully...");
+else
+Console.WriteLine("Content not redacted properly...");
+}
+
+//Create the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+stream.Position = 0;
+
+//Close the document
+loadedDocument.Close(true);
+
+//Define the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC Platforms.
+
+{% endhighlight %}
+{% endtabs %}
