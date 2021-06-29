@@ -947,7 +947,7 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 {% endtabs %}
 
-##Get redaction progress 
+## Get redaction progress 
 
 You can get the redaction process using TrackRedactionProgress event. 
 
@@ -1077,7 +1077,7 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 {% endtabs %}
 
-##Redaction result 
+## Redaction result 
 
 Using PdfRedactionResult, you can get the status of the redaction with other information.  The result of the redaction operation can be obtained using Essential PDF.
 
