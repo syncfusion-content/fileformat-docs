@@ -1945,3 +1945,118 @@ return File(stream, contentType, fileName);
 {% endtabs %}
 
 N> 1. Essential PDF supports converting TIFF to PDF with [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in ASP.NET Core.
+
+## Remove Images
+
+The RemoveImage method of the page collection allows you to remove an image. You can remove images from an existing document using Essential PDF.
+
+The code snippet to illustrate the same is given below.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load a PDF document
+
+PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
+
+//Load the first page
+
+PdfPageBase pageBase = doc.Pages[0];
+
+//Extract images from the first page
+
+PdfImageInfo imageInfo = pageBase.ImagesInfo[0];
+
+//Remove the Image
+
+pageBase.RemoveImage(imageInfo);
+
+//Save the document
+
+doc.Save("Output.pdf");
+
+//Close the document
+
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Load an existing PDF 
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
+
+'Load the first page 
+Dim pageBase As PdfPageBase = loadedDocument.Pages(0)
+ 
+'Extract images from the first page
+Dim imageInfo As PdfImageInfo = pageBase.ImagesInfo(0)
+ 
+'Remove the Image
+pageBase.RemoveImage(imageInfo)
+
+Dim stream As New MemoryStream()
+
+'Save the document
+
+loadedDocument.Save(stream) 
+
+'Close the document
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports remove image from the existing PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load the first page.
+PdfPageBase pageBase = loadedDocument.Pages[0];
+
+//Extract images from the first page.
+PdfImageInfo[] imageInfo = loadedDocument.Pages[0].GetImagesInfo();
+
+//Remove the Image.
+pageBase.RemoveImage(imageInfo[0]);
+
+//Create the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+stream.Position = 0;
+
+//Close the document
+loadedDocument.Close(true);
+
+//Define the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports remove image from the existing PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> 1. Essential PDF supports remove image from the existing PDF document with Syncfusion.Pdf.Imaging.Portable assembly reference in ASP.NET Core.
