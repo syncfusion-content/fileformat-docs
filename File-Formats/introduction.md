@@ -74,7 +74,7 @@ Essential Presentation
 
 ## Quick Start links:
 
-[Create a PDF file in C# without Adobe](https://help.syncfusion.com/file-formats/pdf/getting-started)
+[Create a PDF file in C# without Adobe](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net)
 [Create Excel file in C# without Microsoft Office](https://help.syncfusion.com/file-formats/xlsio/getting-started)
 [Create Word file in C# without Microsoft Office](https://help.syncfusion.com/file-formats/docio/getting-started)
 [Create PowerPoint file in C# without Microsoft Office](https://help.syncfusion.com/file-formats/presentation/getting-started)
