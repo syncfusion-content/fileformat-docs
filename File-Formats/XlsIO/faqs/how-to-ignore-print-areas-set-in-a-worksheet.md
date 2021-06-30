@@ -1,0 +1,40 @@
+---
+title: FAQ Section| XlsIO | Syncfusion
+description: This page shows how to ignore print areas set in a worksheet using Syncfusion .NET Excel library (XlsIO).
+platform: File-formats
+control: XlsIO
+documentation: UG
+---
+
+# How to ignore print areas set in a worksheet?
+
+You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the **PrintArea** property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
+
+{% tabs %}
+{% highlight C# %}
+worksheet.PageSetup.PrintArea = string.Empty;
+{% endhighlight %}
+
+{% highlight vb %}
+worksheet.PageSetup.PrintArea = string.Empty
+{% endhighlight %}
+
+{% highlight UWP %}
+worksheet.PageSetup.PrintArea = string.Empty;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+worksheet.PageSetup.PrintArea = string.Empty;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+worksheet.PageSetup.PrintArea = string.Empty;
+{% endhighlight %}
+{% endtabs %}
+
+## See Also
+
+* [How to set print titles?](faqs/how-to-set-print-titles)
+* [How to print Excel document?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion#print-excel-document)
+* [What are page setup settings?](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#page-setup-settings)
+* [How to ignore the green error marker in worksheets?](faqs/how-to-ignore-the-green-error-marker-in-worksheets)
