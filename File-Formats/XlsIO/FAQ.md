@@ -48,7 +48,7 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to check whether an Excel document contains macro?](faqs/how-to-check-whether-an-excel-document-contains-macro)
 * [Does XlsIO support password protected macro in the Excel documents?](faqs/does-xlsio-support-password-protected-macro-in-the-excel-documents)
 * [Does XlsIO support Excel files with macros that are digitally signed?](faqs/does-xlsio-support-excel-files-with-macros-that-are-digitally-signed)
-* [How to overcome StackOverflow exception with IWorksheet Calculate()?](faqs/how-to-overcome-stackoverflow-exception-with-iworksheet-calculate())
+* [How to overcome StackOverflow exception with IWorksheet Calculate()?](faqs/how-to-overcome-stackoverflow-exception-with-iworksheet-calculate)
 * [How to overcome UnauthorizedAccessException?](faqs/how-to-overcome-unauthorizedaccessexception)
 * [How to ignore print areas set in a worksheet?](faqs/how-to-ignore-print-areas-set-in-a-worksheet)
 * [In which situation we use AutoDetectComplexScript converter property?](faqs/in-which-situation-we-use-autodetectcomplexscript-converter-property)
