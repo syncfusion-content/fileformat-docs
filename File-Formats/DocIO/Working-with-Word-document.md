@@ -2325,12 +2325,12 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 ### Updating words count
 
-You can update paragraphs count, word count, and character count in an existing Word document or document created from the scratch.
+You can update the count of Paragraphs, words and characters in an existing Word document or document that created from the scratch.
 
 The following code example shows how to update word count in an existing word document.
 {% tabs %} 
 {% highlight c# %}
-//Opens an existing document.
+//Open an existing document.
 using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
 {
     //Update the word count in the document.
@@ -2341,12 +2341,12 @@ using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
     int charCount = document.BuiltinDocumentProperties.CharCount;
     //Get the paragraph count in the document.
     int paragraphCount = document.BuiltinDocumentProperties.ParagraphCount;
-    //Saves the Word document.
+    //Save the Word document.
     document.Save("Result.docx");
 }
 {% endhighlight %}
 {% highlight vb.net %}
-'Opens an existing document.
+'Open an existing document.
 Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
     'Update the word count in the document.
      document.UpdateWordCount(False)
@@ -2356,7 +2356,7 @@ Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx
     Dim charCount As Integer = document.BuiltinDocumentProperties.CharCount
     'Get the paragraph count in the document.
     Dim paragraphCount As Integer = document.BuiltinDocumentProperties.ParagraphCount
-    'Saves the Word document.
+    'Save the Word document.
     document.Save("Result.docx")
 End Using	
 {% endhighlight %}
@@ -2367,7 +2367,7 @@ End Using
 
 {% highlight ASP.NET CORE %}
 FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing document.
+//Open an existing document.
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 {
     //Update the word count in the document.
@@ -2379,7 +2379,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     //Get the paragraph count in the document.
     int paragraphCount = document.BuiltinDocumentProperties.ParagraphCount;
     MemoryStream stream = new MemoryStream();
-    //Saves the Word document.
+    //Save the Word document.
     document.Save(stream, FormatType.Docx);
     stream.Position = 0;
     fileStream.Dispose();
@@ -2389,7 +2389,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 {% endhighlight %}
 {% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document.
+//Open an existing document.
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
 {
     //Update the word count in the document.
@@ -2412,30 +2412,30 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 ### Updating pages count
 
-You can update page count in an existing Word document or document created from the scratch by passing true for `UpdateWordCount(performLayout)` API.
+You can update page count in an existing Word document or document that created from the scratch by passing true for `UpdateWordCount(performLayout)` API.
 
 The following code example shows how to update page count in an existing word document.
 {% tabs %} 
 {% highlight c# %}
-//Opens an existing document.
+//Open an existing document.
 using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
 {
     //Update the page count along with word count in the document.
     document.UpdateWordCount(true);
     //Get the page count in the document.
     int pageCount = document.BuiltinDocumentProperties.PageCount;
-    //Saves the Word document.
+    //Save the Word document.
     document.Save("Result.docx");
 }
 {% endhighlight %}
 {% highlight vb.net %}
-'Opens an existing document.
+'Open an existing document.
 Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
     'Update the page count along with word count in the document.
      document.UpdateWordCount(True)
     'Get the page count in the document.
     Dim pageCount As Integer = document.BuiltinDocumentProperties.PageCount
-    'Saves the Word document.
+    'Save the Word document.
     document.Save("Result.docx")
 End Using	
 {% endhighlight %}
@@ -2446,7 +2446,7 @@ End Using
 
 {% highlight ASP.NET CORE %}
 FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing document.
+//Open an existing document.
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 {
     //Update the page count along with word count in the document.
@@ -2454,7 +2454,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     //Get the page count in the document.
     int pageCount = document.BuiltinDocumentProperties.PageCount;
     MemoryStream stream = new MemoryStream();
-    //Saves the Word document.
+    //Save the Word document.
     document.Save(stream, FormatType.Docx);
     stream.Position = 0;
     fileStream.Dispose();
@@ -2464,10 +2464,10 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 {% endhighlight %}
 {% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document.
+//Open an existing document.
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
 {
-    //Update the page count along with word count in the document.
+    //Update the page count and word count in the document.
     document.UpdateWordCount(true);
     //Get the page count in the document. 
     int pageCount = document.BuiltinDocumentProperties.PageCount;	
@@ -2481,8 +2481,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
-N>  1. Updating page count makes use of the Word to PDF layout engine that may lead to update incorrect page count due to its limitations.
-N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
+N>  1. The word to PDF layout engine is used for updating the page count in word document. Due to its limitations it may result in an incorrect page count.
+N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application to update page count in a Word document.
 
 
 
