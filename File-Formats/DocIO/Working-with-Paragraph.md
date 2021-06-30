@@ -1190,6 +1190,19 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
+//Add new paragraph to the section.
+IWParagraph thirdParagraph = section.AddParagraph();
+//Add text to the third paragraph
+IWTextRange fourthText = thirdParagraph.AppendText("X");
+IWTextRange fifthText = thirdParagraph.AppendText("2");
+//Apply super script formatting for fifth text range.
+fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+IWParagraph fourthParagraph = section.AddParagraph();
+//Add text to the fourth paragraph
+IWTextRange sixthText = fourthParagraph.AppendText("m");
+IWTextRange seventhText = fourthParagraph.AppendText("3");
+//Apply sub script formatting for seventh text range
+seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
@@ -1218,12 +1231,22 @@ secondText.CharacterFormat.Italic = True
 secondText.CharacterFormat.FontName = "Times New Roman"
 secondText.CharacterFormat.TextColor = Color.Green
 'Adds new paragraph to the section
-IWParagraph secondParagraph = section.AddParagraph()
+Dim secondParagraph As IWParagraph = section.AddParagraph()
 'Adds new text to the paragraph
-IWTextRange thirdText = secondParagraph.AppendText("שלום עולם")
-thirdText.CharacterFormat.Bidi = true
+Dim thirdText As IWTextRange = secondParagraph.AppendText("שלום עולם")
+thirdText.CharacterFormat.Bidi = True
 'Sets language identifier for right to left characters.
-thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL
+thirdText.CharacterFormat.LocaleIdBidi = LocaleIDs.he_IL
+Dim thirdParagraph As IWParagraph = section.AddParagraph()
+Dim fourthText As IWTextRange = thirdParagraph.AppendText("X")
+Dim fifthText As IWTextRange = thirdParagraph.AppendText("2")
+'Apply super script formatting for fifth text range.
+fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript
+Dim fourthParagraph As IWParagraph = section.AddParagraph()
+Dim sixthText As IWTextRange = fourthParagraph.AppendText("m")
+Dim seventhText As IWTextRange = fourthParagraph.AppendText("3")
+'Apply sub script formatting for seventh text range
+seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
@@ -1258,6 +1281,19 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
+//Add new paragraph to the section.
+IWParagraph thirdParagraph = section.AddParagraph();
+//Add text to the third paragraph
+IWTextRange fourthText = thirdParagraph.AppendText("X");
+IWTextRange fifthText = thirdParagraph.AppendText("2");
+//Apply super script formatting for fifth text range.
+fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+IWParagraph fourthParagraph = section.AddParagraph();
+//Add text to the fourth paragraph
+IWTextRange sixthText = fourthParagraph.AppendText("m");
+IWTextRange seventhText = fourthParagraph.AppendText("3");
+//Apply sub script formatting for seventh text range
+seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -1297,6 +1333,19 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
+//Add new paragraph to the section.
+IWParagraph thirdParagraph = section.AddParagraph();
+//Add text to the third paragraph
+IWTextRange fourthText = thirdParagraph.AppendText("X");
+IWTextRange fifthText = thirdParagraph.AppendText("2");
+//Apply super script formatting for fifth text range.
+fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+IWParagraph fourthParagraph = section.AddParagraph();
+//Add text to the fourth paragraph
+IWTextRange sixthText = fourthParagraph.AppendText("m");
+IWTextRange seventhText = fourthParagraph.AppendText("3");
+//Apply sub script formatting for seventh text range
+seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -1335,6 +1384,19 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
+//Add new paragraph to the section.
+IWParagraph thirdParagraph = section.AddParagraph();
+//Add text to the third paragraph
+IWTextRange fourthText = thirdParagraph.AppendText("X");
+IWTextRange fifthText = thirdParagraph.AppendText("2");
+//Apply super script formatting for fifth text range.
+fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+IWParagraph fourthParagraph = section.AddParagraph();
+//Add text to the fourth paragraph
+IWTextRange sixthText = fourthParagraph.AppendText("m");
+IWTextRange seventhText = fourthParagraph.AppendText("3");
+//Apply sub script formatting for seventh text range
+seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
