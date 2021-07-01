@@ -5157,7 +5157,7 @@ FileStream stream = new FileStream("Book1.xlsx", FileMode.Open);
 WPicture picture = new WPicture(document);
 picture.LoadImage(Image.FromFile("Image.png"));
 //Appends the OLE object to the paragraph
-WOleObject object = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet);
+WOleObject oleObject = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet);
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
@@ -5177,7 +5177,7 @@ Dim stream As New FileStream("Book1.xlsx", FileMode.Open)
 Dim picture As New WPicture(document)
 picture.LoadImage(Image.FromFile("Image.png"))
 'Appends the OLE object to the paragraph
-Dim object As WOleObject = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet)
+Dim oleObject As WOleObject = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet)
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
