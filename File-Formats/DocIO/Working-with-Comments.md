@@ -381,7 +381,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-##Accessing parent comment
+## Accessing parent comment
 
 You can access the parent comment of a particular comment (reply) in a Word document using `Ancestor` API. The ancestor for parent comment returns `null` as default.
 
