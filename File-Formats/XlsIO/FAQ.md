@@ -53,3 +53,5 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to ignore print areas set in a worksheet?](faqs/how-to-ignore-print-areas-set-in-a-worksheet)
 * [In which situation we use AutoDetectComplexScript converter property?](faqs/in-which-situation-we-use-autodetectcomplexscript-converter-property)
 * [What is the image quality when using the ExportQualityImage property?](faqs/what-is-the-image-quality-when-using-the-exportqualityimage-property)
+* [How to open an Excel document using XlsIO that is already open in MS-Excel?](faqs/how-to-open-an-excel-document-that-is-already-open-in-msexcel)
+* [Reason for Parameter Not Valid exception when converting Excel to PDF with Custom Paper Size](faqs/reason-for-parameter-not-valid-exception-when-converting-exceltopdf-with-custompapersize)
