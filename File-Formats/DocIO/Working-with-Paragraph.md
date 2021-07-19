@@ -906,7 +906,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}   
 
-## Working with text 
+## Working with Text 
 
 Text within a paragraph is represented by one or more instances of the `WTextRange`. Each `WTextRange` instance can have its own font (text) formatting.  
 
@@ -1163,32 +1163,32 @@ The following code example explains how to apply formatting to the text.
 {% tabs %}  
 
 {% highlight c# %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add new section to the document
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange firstText = firstParagraph.AppendText("This is the first text range. ");
-//Applies formatting for first text range
+//Apply formatting for first text range
 firstText.CharacterFormat.Bold = true;
 firstText.CharacterFormat.FontSize = 14;
 firstText.CharacterFormat.Shadow = true;
 firstText.CharacterFormat.SmallCaps = true;
 IWTextRange secondText = firstParagraph.AppendText("This the second text range");
-//Applies formatting for second text range
+//Apply formatting for second text range
 secondText.CharacterFormat.HighlightColor = Color.GreenYellow;
 secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Color.Green;
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph secondParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
-//Sets language identifier for right to left characters.
+//Set language Identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
@@ -1203,39 +1203,39 @@ IWTextRange sixthText = fourthParagraph.AppendText("m");
 IWTextRange seventhText = fourthParagraph.AppendText("3");
 //Apply sub script formatting for seventh text range
 seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
-//Saves the Word document
+//Save the Word document
 document.Save("Sample.docx", FormatType.Docx);
-//Closes the document
+//Close the document
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Creates a new Word document 
+'Create a new Word document 
 Dim document As New WordDocument()
-'Adds new section to the document
+'Add new section to the document
 Dim section As IWSection = document.AddSection()
-'Adds new paragraph to the section
+'Add new paragraph to the section
 Dim firstParagraph As IWParagraph = section.AddParagraph()
-'Adds new text to the paragraph
+'Add new text to the paragraph
 Dim firstText As IWTextRange = firstParagraph.AppendText("This is the first text range. ")
-'Applies formatting for first text range
+'Apply formatting for first text range
 firstText.CharacterFormat.Bold = True
 firstText.CharacterFormat.FontSize = 14
 firstText.CharacterFormat.Shadow = True
 firstText.CharacterFormat.SmallCaps = True
 Dim secondText As IWTextRange = firstParagraph.AppendText("This the second text range")
-'Applies formatting for second text range
+'Apply formatting for second text range
 secondText.CharacterFormat.HighlightColor = Color.GreenYellow
 secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash
 secondText.CharacterFormat.Italic = True
 secondText.CharacterFormat.FontName = "Times New Roman"
 secondText.CharacterFormat.TextColor = Color.Green
-'Adds new paragraph to the section
+'Add new paragraph to the section
 Dim secondParagraph As IWParagraph = section.AddParagraph()
-'Adds new text to the paragraph
+'Add new text to the paragraph
 Dim thirdText As IWTextRange = secondParagraph.AppendText("שלום עולם")
 thirdText.CharacterFormat.Bidi = True
-'Sets language identifier for right to left characters.
+'Set language Identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = LocaleIDs.he_IL
 'Add third paragraph to the section
 Dim thirdParagraph As IWParagraph = section.AddParagraph()
@@ -1250,39 +1250,39 @@ Dim sixthText As IWTextRange = fourthParagraph.AppendText("m")
 Dim seventhText As IWTextRange = fourthParagraph.AppendText("3")
 'Apply sub script formatting for seventh text range
 seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript
-'Saves the Word document
+'Save the Word document
 document.Save("Sample.docx", FormatType.Docx)
-'Closes the document
+'Close the document
 document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add new section to the document
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange firstText = firstParagraph.AppendText("This is the first text range. ");
-//Applies formatting for first text range
+//Apply formatting for first text range
 firstText.CharacterFormat.Bold = true;
 firstText.CharacterFormat.FontSize = 14;
 firstText.CharacterFormat.Shadow = true;
 firstText.CharacterFormat.SmallCaps = true;
 IWTextRange secondText = firstParagraph.AppendText("This the second text range");
-//Applies formatting for second text range
+//Apply formatting for second text range
 secondText.CharacterFormat.HighlightColor = Color.GreenYellow;
 secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Color.Green;
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph secondParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
-//Sets language identifier for right to left characters.
+//Set language Identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
@@ -1297,44 +1297,44 @@ IWTextRange sixthText = fourthParagraph.AppendText("m");
 IWTextRange seventhText = fourthParagraph.AppendText("3");
 //Apply sub script formatting for seventh text range
 seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
-//Saves and closes the Word document instance
+//Save and close the Word document instance
 MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
+//Save the Word file to MemoryStream
 await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
-//Saves the stream as Word file in local machine
+//Save the stream as Word file in local machine
 Save(stream, "Result.docx");
 //Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
 {% highlight ASP.NET CORE %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add new section to the document
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange firstText = firstParagraph.AppendText("This is the first text range. ");
-//Applies formatting for first text range
+//Apply formatting for first text range
 firstText.CharacterFormat.Bold = true;
 firstText.CharacterFormat.FontSize = 14;
 firstText.CharacterFormat.Shadow = true;
 firstText.CharacterFormat.SmallCaps = true;
 IWTextRange secondText = firstParagraph.AppendText("This the second text range");
-//Applies formatting for second text range
+//Apply formatting for second text range
 secondText.CharacterFormat.HighlightColor = Color.GreenYellow;
 secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Color.Green;
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph secondParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
-//Sets language identifier for right to left characters.
+//Set language Identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
@@ -1349,9 +1349,9 @@ IWTextRange sixthText = fourthParagraph.AppendText("m");
 IWTextRange seventhText = fourthParagraph.AppendText("3");
 //Apply sub script formatting for seventh text range
 seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
-//Saves and closes the Word document instance
+//Save and close the Word document instance
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
+//Save the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
 document.Close();
 stream.Position = 0;
@@ -1360,32 +1360,32 @@ return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add new section to the document
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange firstText = firstParagraph.AppendText("This is the first text range. ");
-//Applies formatting for first text range
+//Apply formatting for first text range
 firstText.CharacterFormat.Bold = true;
 firstText.CharacterFormat.FontSize = 14;
 firstText.CharacterFormat.Shadow = true;
 firstText.CharacterFormat.SmallCaps = true;
 IWTextRange secondText = firstParagraph.AppendText("This the second text range");
-//Applies formatting for second text range
+//Apply formatting for second text range
 secondText.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.GreenYellow;
 secondText.CharacterFormat.UnderlineStyle = Syncfusion.Drawing.UnderlineStyle.DotDash;
 secondText.CharacterFormat.Italic = true;
 secondText.CharacterFormat.FontName = "Times New Roman";
 secondText.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Green;
-//Adds new paragraph to the section
+//Add new paragraph to the section
 IWParagraph secondParagraph = section.AddParagraph();
-//Adds new text to the paragraph
+//Add new text to the paragraph
 IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
-//Sets language identifier for right to left characters.
+//Set language Identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
 //Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
@@ -1400,9 +1400,9 @@ IWTextRange sixthText = fourthParagraph.AppendText("m");
 IWTextRange seventhText = fourthParagraph.AppendText("3");
 //Apply sub script formatting for seventh text range
 seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
-//Saves and closes the Word document instance
+//Save and close the Word document instance
 MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
+//Save the Word file to MemoryStream
 document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
