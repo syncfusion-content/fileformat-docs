@@ -1190,7 +1190,7 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
-//Add new paragraph to the section.
+//Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
 //Add text to the third paragraph
 IWTextRange fourthText = thirdParagraph.AppendText("X");
@@ -1237,11 +1237,14 @@ Dim thirdText As IWTextRange = secondParagraph.AppendText("שלום עולם")
 thirdText.CharacterFormat.Bidi = True
 'Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = LocaleIDs.he_IL
+'Add third paragraph to the section
 Dim thirdParagraph As IWParagraph = section.AddParagraph()
+'Add text to the third paragraph
 Dim fourthText As IWTextRange = thirdParagraph.AppendText("X")
 Dim fifthText As IWTextRange = thirdParagraph.AppendText("2")
 'Apply super script formatting for fifth text range.
 fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript
+'Add text to the fourth paragraph
 Dim fourthParagraph As IWParagraph = section.AddParagraph()
 Dim sixthText As IWTextRange = fourthParagraph.AppendText("m")
 Dim seventhText As IWTextRange = fourthParagraph.AppendText("3")
@@ -1281,7 +1284,7 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
-//Add new paragraph to the section.
+//Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
 //Add text to the third paragraph
 IWTextRange fourthText = thirdParagraph.AppendText("X");
@@ -1333,7 +1336,7 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
-//Add new paragraph to the section.
+//Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
 //Add text to the third paragraph
 IWTextRange fourthText = thirdParagraph.AppendText("X");
@@ -1384,7 +1387,7 @@ IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
 thirdText.CharacterFormat.Bidi = true;
 //Sets language identifier for right to left characters.
 thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
-//Add new paragraph to the section.
+//Add third paragraph to the section.
 IWParagraph thirdParagraph = section.AddParagraph();
 //Add text to the third paragraph
 IWTextRange fourthText = thirdParagraph.AppendText("X");
