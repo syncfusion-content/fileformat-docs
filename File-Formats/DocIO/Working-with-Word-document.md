@@ -1577,7 +1577,7 @@ destinationDocument.Close();
 
 ## Printing a Word document
 
-You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class
+You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class
 
 Initially you have to render the pages as images as shown below
 
@@ -1615,7 +1615,7 @@ document.Close()
 
 {% endtabs %}  
 
-You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx#) event should be handled to layout the document for printing. 
+You can specify the printer settings and page settings through the [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class. The [PrintDocument.PrintPage](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument.printpage?view=net-5.0) event should be handled to layout the document for printing. 
 
 The following code example demonstrates how to print the Word document pages that have been rendered as an image:
 
@@ -2322,6 +2322,169 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 
 {% endtabs %}  
+
+### Updating words count
+
+You can update the count of Paragraphs, words and characters in an existing Word document or document that created from the scratch.
+
+The following code example shows how to update word count in an existing word document.
+{% tabs %} 
+{% highlight c# %}
+//Open an existing document.
+using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
+{
+    //Update the word count in the document.
+    document.UpdateWordCount(false);
+    //Get the word count in the document.
+    int wordCount = document.BuiltinDocumentProperties.WordCount;
+    //Get the character count in the document.
+    int charCount = document.BuiltinDocumentProperties.CharCount;
+    //Get the paragraph count in the document.
+    int paragraphCount = document.BuiltinDocumentProperties.ParagraphCount;
+    //Save the Word document.
+    document.Save("Result.docx");
+}
+{% endhighlight %}
+{% highlight vb.net %}
+'Open an existing document.
+Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
+    'Update the word count in the document.
+     document.UpdateWordCount(False)
+    'Get the word count in the document.
+    Dim wordCount As Integer = document.BuiltinDocumentProperties.WordCount
+    'Get the character count in the document.
+    Dim charCount As Integer = document.BuiltinDocumentProperties.CharCount
+    'Get the paragraph count in the document.
+    Dim paragraphCount As Integer = document.BuiltinDocumentProperties.ParagraphCount
+    'Save the Word document.
+    document.Save("Result.docx")
+End Using	
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports updating word count in WPF, Windows Forms, ASP.NET and ASP.NET MVC, platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Open an existing document.
+using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+{
+    //Update the word count in the document.
+    document.UpdateWordCount(false);
+    //Get the word count in the document.
+    int wordCount = document.BuiltinDocumentProperties.WordCount;
+    //Get the character count in the document.
+    int charCount = document.BuiltinDocumentProperties.CharCount;
+    //Get the paragraph count in the document.
+    int paragraphCount = document.BuiltinDocumentProperties.ParagraphCount;
+    MemoryStream stream = new MemoryStream();
+    //Save the Word document.
+    document.Save(stream, FormatType.Docx);
+    stream.Position = 0;
+    fileStream.Dispose();
+    //Download Word document in the browser.
+    return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Open an existing document.
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
+{
+    //Update the word count in the document.
+    document.UpdateWordCount(false); 
+    //Get the word count in the document. 
+    int wordCount = document.BuiltinDocumentProperties.WordCount;
+    //Get the character count in the document. 
+    int charCount = document.BuiltinDocumentProperties.CharCount;
+    //Get the paragraph count in the document. 
+    int paragraphCount = document.BuiltinDocumentProperties.ParagraphCount;	
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing.
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform.
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Updating pages count
+
+You can update page count in an existing Word document or document that created from the scratch by passing true for `UpdateWordCount(performLayout)` API.
+
+The following code example shows how to update page count in an existing word document.
+{% tabs %} 
+{% highlight c# %}
+//Open an existing document.
+using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
+{
+    //Update the page count along with word count in the document.
+    document.UpdateWordCount(true);
+    //Get the page count in the document.
+    int pageCount = document.BuiltinDocumentProperties.PageCount;
+    //Save the Word document.
+    document.Save("Result.docx");
+}
+{% endhighlight %}
+{% highlight vb.net %}
+'Open an existing document.
+Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
+    'Update the page count along with word count in the document.
+     document.UpdateWordCount(True)
+    'Get the page count in the document.
+    Dim pageCount As Integer = document.BuiltinDocumentProperties.PageCount
+    'Save the Word document.
+    document.Save("Result.docx")
+End Using	
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports updating page count in WPF, Windows Forms, ASP.NET and ASP.NET MVC, platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Open an existing document.
+using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+{
+    //Update the page count along with word count in the document.
+    document.UpdateWordCount(true);
+    //Get the page count in the document.
+    int pageCount = document.BuiltinDocumentProperties.PageCount;
+    MemoryStream stream = new MemoryStream();
+    //Save the Word document.
+    document.Save(stream, FormatType.Docx);
+    stream.Position = 0;
+    fileStream.Dispose();
+    //Download Word document in the browser.
+    return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Open an existing document.
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
+{
+    //Update the page count and word count in the document.
+    document.UpdateWordCount(true);
+    //Get the page count in the document. 
+    int pageCount = document.BuiltinDocumentProperties.PageCount;	
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing.
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform.
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+{% endtabs %}
+
+N>  1. The word to PDF layout engine is used for updating the page count in word document. Due to its limitations it may result in an incorrect page count.
+N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application to update page count in a Word document.
+
+
 
 ### Adding Custom Document properties
 
@@ -3150,3 +3313,4 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 {% endtabs %}
+
