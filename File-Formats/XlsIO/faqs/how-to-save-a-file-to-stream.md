@@ -95,11 +95,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to open an Excel file from stream?](faqs/how-to-open-an-excel-file-from-stream)
+* [How to open an Excel file from stream?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-open-an-excel-file-from-stream)
 [How to save an Excel workbook to stream?](https://help.syncfusion.com/file-formats/xlsio/loading-and-saving-workbook#saving-a-excel-workbook-to-stream)
-* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](faqs/how-to-resolve-the-file-does-not-contain-workbook-stream-error-in-syncfusion-xlsio-base-dll)
-* [How to resolve Excel cannot open the file filename.xlsx... error?](faqs/how-to-resolve-excel-cannot-open-the-file-because-the-file-format-for-the-file-extension-is-not-valid)
-* [How to open an existing XLSX workbook and save it as XLS?](faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
-* [How to merge excel files from more than one workbook to a single file?](faqs/how-to-merge-excel-files-from-more-than-one-workbook-to-a-single-file)
-* [Does XlsIO support Excel files with macros that are digitally signed?](faqs/does-xlsio-support-excel-files-with-macros-that-are-digitally-signed)
-* [How does Excel file with uninstalled fonts is converted to PDF/Image?](faqs/how-does-excel-file-with-uninstalled-fonts-is-converted-to-pdf-image)
+* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-resolve-the-file-does-not-contain-workbook-stream-error)
+* [How to resolve Excel cannot open the file filename.xlsx... error?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-resolve-excel-cannot-open-the-file-because-the-file-format-for-the-file-extension-is-not-valid)
+* [How to open an existing XLSX workbook and save it as XLS?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
+* [How to merge excel files from more than one workbook to a single file?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-merge-excel-files-from-more-than-one-workbook-to-a-single-file)
+* [Does XlsIO support Excel files with macros that are digitally signed?](https://help.syncfusion.com/file-formats/xlsio/faqs/does-xlsio-support-excel-files-with-macros-that-are-digitally-signed)
+* [How does Excel file with uninstalled fonts is converted to PDF/Image?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-does-excel-file-with-uninstalled-fonts-is-converted-to-pdf-image)

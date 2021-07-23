@@ -612,11 +612,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to define discontinuous ranges?](faqs/how-to-define-discontinuous-ranges)
-* [How to add chart labels to scatter points?](faqs/how-to-add-chart-labels-to-scatter-points)
-* [How to change data point label color of a Waterfall chart?](faqs/how-to-change-data-point-label-color-of-a-waterfall-chart)
+* [How to define discontinuous ranges?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-define-discontinuous-ranges)
+* [How to add chart labels to scatter points?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-add-chart-labels-to-scatter-points)
+* [How to change data point label color of a Waterfall chart?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-change-data-point-label-color-of-a-waterfall-chart)
 * [How to set data range to chart?](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#set-data-range-to-chart)
 * [How to access discontinuous ranges?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#accessing-discontinuous-ranges)
 * [How to create a chart?](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart)
 * [How to create a pie chart in Excel?](https://help.syncfusion.com/file-formats/xlsio/migrate-from-office-automation-to-syncfusion-xlsio/create-pie-chart-in-excel)
-* [How to create a sparkline from a named range?](faqs/how-to-create-a-sparkline-from-a-named-range)
+* [How to create a sparkline from a named range?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-create-a-sparkline-from-a-named-range)

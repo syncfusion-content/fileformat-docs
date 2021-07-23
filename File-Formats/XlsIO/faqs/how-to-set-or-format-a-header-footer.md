@@ -121,6 +121,6 @@ N> Go to “ View -> Page Layout” option to view the header and footer in Micr
 
 * [How to enable/disable header footer?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-converter-settings#header-footer-option)
 * [What are page setup settings?](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#page-setup-settings)
-* [How to set a line break inside a cell?](faqs/how-to-set-a-line-break-inside-a-cell)
-* [How to set print titles?](faqs/how-to-set-print-titles)
-* [How to format text within a cell?](faqs/how-to-format-text-within-a-cell)
+* [How to set a line break inside a cell?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-set-a-line-break-inside-a-cell)
+* [How to set print titles?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-set-print-titles)
+* [How to format text within a cell?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-format-text-within-a-cell)
