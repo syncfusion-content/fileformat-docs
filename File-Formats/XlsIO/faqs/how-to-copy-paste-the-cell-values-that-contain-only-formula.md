@@ -156,10 +156,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to copy a range from one workbook to another?](faqs/how-to-copy-a-range-from-one-workbook-to-another)
-* [How to protect certain cells in a worksheet?](faqs/how-to-protect-certain-cells-in-a-worksheet)
-* [How to set a line break inside a cell?](faqs/how-to-set-a-line-break-inside-a-cell)
-* [How to format text within a cell?](faqs/how-to-format-text-within-a-cell)
+* [How to copy a range from one workbook to another?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-copy-a-range-from-one-workbook-to-another)
+* [How to protect certain cells in a worksheet?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-protect-certain-cells-in-a-worksheet)
+* [How to set a line break inside a cell?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-set-a-line-break-inside-a-cell)
+* [How to format text within a cell?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-format-text-within-a-cell)
 * [How to copy or move a range?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#copy-or-move-a-range)
 * [How to copy and paste as link?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#copy-and-paste-as-link)
 * [How to skip blanks while copying?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#skip-blanks-while-copying)
