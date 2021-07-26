@@ -217,9 +217,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to avoid exception when adding worksheets with same name?](faqs/how-to-avoid-exception-when-adding-worksheets-with-same-name)
+* [How to avoid exception when adding worksheets with same name?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-avoid-exception-when-adding-worksheets-with-same-name)
 * [How to create named range in Excel?](https://help.syncfusion.com/file-formats/xlsio/migrate-from-office-automation-to-syncfusion-xlsio/create-named-range-in-excel)
-* [How to create a sparkline from a named range?](faqs/how-to-create-a-sparkline-from-a-named-range)
+* [How to create a sparkline from a named range?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-create-a-sparkline-from-a-named-range)
 * [How to define names?](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#defined-names)
 * [How to use named ranges in formulas?](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#named-ranges-in-formulas)
-* [In which situation we use AutoDetectComplexScript converter property?](faqs/in-which-situation-we-use-autodetectcomplexscript-converter-property)
+* [In which situation we use AutoDetectComplexScript converter property?](https://help.syncfusion.com/file-formats/xlsio/faqs/in-which-situation-we-use-autodetectcomplexscript-converter-property)

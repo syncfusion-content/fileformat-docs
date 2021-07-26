@@ -18,6 +18,6 @@ If your input Excel file contains such complex script languages, then the AutoDe
 * [How to use substitute font in Excel to PDF conversion?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion#substitute-font-in-excel-to-pdf-conversion)
 * [How to Embed Fonts?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-converter-settings#embed-fonts)
 * [How to capture warnings in Excel to PDF conversion?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-converter-settings#capture-warnings-in-excel-to-pdf-conversion)
-* [What is the image quality when using the ExportQualityImage property?](faqs/what-is-the-image-quality-when-using-the-exportqualityimage-property)
+* [What is the image quality when using the ExportQualityImage property?](https://help.syncfusion.com/file-formats/xlsio/faqs/what-is-the-image-quality-when-using-the-exportqualityimage-property)
 
 

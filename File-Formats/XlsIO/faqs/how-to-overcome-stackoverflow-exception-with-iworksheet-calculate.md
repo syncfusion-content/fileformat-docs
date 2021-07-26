@@ -56,8 +56,8 @@ CalcEngine.MaxStackDepth = 10000;
 
 ## See Also
 
-* [How to overcome UnauthorizedAccessException?](faqs/how-to-overcome-unauthorizedaccessexception)
-* [How to avoid exception when adding worksheets with same name?](faqs/how-to-avoid-exception-when-adding-worksheets-with-same-name)
+* [How to overcome UnauthorizedAccessException?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-overcome-unauthorizedaccessexception)
+* [How to avoid exception when adding worksheets with same name?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-avoid-exception-when-adding-worksheets-with-same-name)
 * [What are the known exceptions of XlsIO?](https://help.syncfusion.com/file-formats/xlsio/known-exceptions)
 * [What is Calculation Engine?](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#calculation-engine)
 * [What are Calculate Options?](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#calculate-options)

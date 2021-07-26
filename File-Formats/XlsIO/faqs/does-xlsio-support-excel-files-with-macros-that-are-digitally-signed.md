@@ -11,10 +11,10 @@ Yes. XlsIO preserves the digital signature from the macro-enabled Excel document
 
 ## See Also
 
-* [Does XlsIO support password protected macro in the Excel documents?](faqs/does-xlsio-support-password-protected-macro-in-the-excel-documents)
-* [How to check whether an Excel document contains macro?](faqs/how-to-check-whether-an-excel-document-contains-macro)
-* [How to open an Excel 2013 Macro Enabled Template?](faqs/how-to-open-an-excel-2013-macro-enabled-template)
-* [How to create and open Excel Template files by using XlsIO?](faqs/how-to-create-and-open-excel-template-files-by-using-xlsio)
+* [Does XlsIO support password protected macro in the Excel documents?](https://help.syncfusion.com/file-formats/xlsio/faqs/does-xlsio-support-password-protected-macro-in-the-excel-documents)
+* [How to check whether an Excel document contains macro?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-check-whether-an-excel-document-contains-macro)
+* [How to open an Excel 2013 Macro Enabled Template?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-open-an-excel-2013-macro-enabled-template)
+* [How to create and open Excel Template files by using XlsIO?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-create-and-open-excel-template-files-by-using-xlsio)
 * [How to create a macro?](https://help.syncfusion.com/file-formats/xlsio/working-with-macros#creating-a-macro)
 * [How to edit a macro?](https://help.syncfusion.com/file-formats/xlsio/working-with-macros#editing-a-macro)
 * [How to remove macros?](https://help.syncfusion.com/file-formats/xlsio/working-with-macros#removing-macros)
