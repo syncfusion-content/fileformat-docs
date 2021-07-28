@@ -13,7 +13,7 @@ The library can be used in Windows Forms, WPF, UWP, ASP.NET Web Forms, ASP.NET M
 
 **Key Features**
 
-* Support to [create Excel documents](https://help.syncfusion.com/file-formats/xlsio/getting-started) from scratch.
+* Support to [create Excel documents](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet) from scratch.
 * Support to [modify](https://help.syncfusion.com/file-formats/xlsio/loading-and-saving-workbook) existing Excel documents.
 * Support to [import and export](https://help.syncfusion.com/file-formats/xlsio/working-with-data) data.
 * Supports Excel [formulas](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas).
