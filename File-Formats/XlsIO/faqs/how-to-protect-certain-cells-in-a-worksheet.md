@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to protect certain cells in a worksheet? | XlsIO | Syncfusion
 description: This page demonstrates with an example to protect certain cells in a worksheet using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

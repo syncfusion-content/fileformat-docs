@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Un-protect zip files using Syncfusion.Compression.Base | Syncfusion
 description: This page demonstrates with an example to un-protect the zip files using Syncfusion.Compression.Base.
 platform: File-formats
 control: XlsIO
