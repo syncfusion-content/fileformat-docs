@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Import data table with data type using template markers | Syncfusion
 description: Code example of Syncfusion .NET Excel library (XlsIO) to import data table with its data type using template markers.
 platform: File-formats
 control: XlsIO
