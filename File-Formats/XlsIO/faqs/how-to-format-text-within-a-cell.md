@@ -1,5 +1,5 @@
 ---
-title: How to format text within a cell? | XlsIO | Syncfusion
+title: How to format text within a cell | XlsIO | Syncfusion
 description: This page demonstrates how to format text within a cell using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

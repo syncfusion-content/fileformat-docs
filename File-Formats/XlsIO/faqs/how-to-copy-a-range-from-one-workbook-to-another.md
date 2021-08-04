@@ -1,5 +1,5 @@
 ---
-title: How to copy a range from one workbook to another? | XlsIO | Syncfusion
+title: How to copy a range from one workbook to another | XlsIO | Syncfusion
 description: Code example to copy a range from one workbook to another using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
