@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Does Essential XlsIO provide support for Client Profile | Syncfusion
 description: This page tells whether the Syncfusion .NET Excel library (XlsIO) provides support for Client Profile.
 platform: File-formats
 control: XlsIO

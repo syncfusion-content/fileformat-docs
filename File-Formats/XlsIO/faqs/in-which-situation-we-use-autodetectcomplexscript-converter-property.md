@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Using ​AutoDetectComplexScript converter property | XlsIO | Syncfusion
 description: This page explains the situation in which the AutoDetectComplexScript converter property in XlsIO can be used.
 platform: File-formats
 control: XlsIO

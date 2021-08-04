@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to save a file to stream | XlsIO | Syncfusion
 description: This page demonstrates with an example to save a file to stream using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
