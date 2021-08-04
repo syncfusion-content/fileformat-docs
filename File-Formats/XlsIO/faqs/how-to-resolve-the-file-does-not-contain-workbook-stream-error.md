@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Resolve the File does not contain workbook stream error | Syncfusion
 description: This page explains how to resolve the "File does not contain workbook stream" error in Syncfusion.XlsIO.Base.dll.
 platform: File-formats
 control: XlsIO

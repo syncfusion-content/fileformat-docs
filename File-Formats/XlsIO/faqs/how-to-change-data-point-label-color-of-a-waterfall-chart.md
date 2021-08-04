@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to change data point label color of Waterfall chart | Syncfusion
 description: Code example to change data point label color of a Waterfall chart using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

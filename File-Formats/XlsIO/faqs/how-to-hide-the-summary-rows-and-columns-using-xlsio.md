@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Hide the summary rows and columns using XlsIO | Syncfusion
 description: This page shows how to hide the summary rows and columns using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Ignore green error marker in worksheets | XlsIo | Syncfusion
 description: This page demonstrates how to ignore the green error marker in worksheets using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

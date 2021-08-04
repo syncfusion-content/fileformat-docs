@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to overcome UnauthorizedAccessException | XlsIO | Syncfusion
 description: This page shows how to overcome UnauthorizedAccessException using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

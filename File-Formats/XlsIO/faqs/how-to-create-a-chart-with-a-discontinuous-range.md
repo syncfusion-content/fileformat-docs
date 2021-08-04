@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to create a Chart with a discontinuous range | XlsIO | Syncfusion
 description: Code example to create a Chart with a discontinuous range using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

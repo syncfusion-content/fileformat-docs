@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Copy/paste cell values that contain only formula| XlsIO | Syncfusion
 description: Code example to copy and paste the values of the cells that contain only formulas using Essential XlsIO.
 platform: File-formats
 control: XlsIO
