@@ -2111,7 +2111,7 @@ doc.Close()
 
 N> 
 For more information on Mail merge using DocIO, you can refer to online documentation link:
-[MailMerge](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge)
+[MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
 
 ### Find and Replace
 
@@ -2343,7 +2343,7 @@ document.Close()
 
 
 N>  For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
-[Find and Replace](https://help.syncfusion.com/file-formats/docio/working-with-find-and-replace)
+[Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
 
 
 
@@ -3001,7 +3001,7 @@ doc.Close()
  {% endtabs %}  
 
 N>  For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
-[Applying Watermark](https://help.syncfusion.com/file-formats/docio/applying-watermark)
+[Applying Watermark](/File-Formats/DocIO/Applying-Watermark)
 
 ### Headers and Footers
 
@@ -3561,7 +3561,7 @@ document.Close()
 
    
 N>  For more information on creating tables using DocIO, refer to online documentation link:
-[Working with Tables](https://help.syncfusion.com/file-formats/docio/working-with-tables)
+[Working with Tables](/File-Formats/DocIO/Working-with-Tables)
 
 
 ### Comments 
@@ -3747,7 +3747,7 @@ doc.Save("Sample.doc", FormatType.Doc)
 
 
 N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
-[Working with Comments](https://help.syncfusion.com/file-formats/docio/working-with-comments) 
+[Working with Comments](/File-Formats/DocIO/Working-with-Comments) 
 
 
 
@@ -3757,7 +3757,7 @@ You can protect your Word documents with or without a password from anyone accid
 
 Using Microsoft Office Automation
 
-[WdProtectionType](https://docs.microsoft.com/en-us/office/vba/api/Word.WdProtectionType) is used to specify the protection type of the Word document.
+[WdProtectionType](https://msdn.microsoft.com/en-us/library/office/ff844959.aspx) is used to specify the protection type of the Word document.
 
 {% tabs %} 
 
@@ -4150,7 +4150,7 @@ document.Close()
 
 Refer to the online documentation link for more information about adding the table of contents to the Word document by using DocIO:
 
-[Working with table of contents](https://help.syncfusion.com/file-formats/docio/working-with-table-of-contents)
+[Working with table of contents](/File-Formats/DocIO/Working-with-Table-Of-Contents)
 
 
 

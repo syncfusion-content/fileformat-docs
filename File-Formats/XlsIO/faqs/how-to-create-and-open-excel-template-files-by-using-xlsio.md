@@ -1,5 +1,5 @@
 ---
-title: Create and open Excel Template files by using XlsIO | Syncfusion
+title: FAQ Section| XlsIO | Syncfusion
 description: This page shows how to create and open Excel Template files using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO

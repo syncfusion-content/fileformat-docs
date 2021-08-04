@@ -1,5 +1,5 @@
 ---
-title: Image quality when using the ExportQualityImage property | Syncfusion
+title: FAQ Section| XlsIO | Syncfusion
 description: This page explains about the impact on image quality when using the ExportQualityImage property of XlsIO.
 platform: File-formats
 control: XlsIO
