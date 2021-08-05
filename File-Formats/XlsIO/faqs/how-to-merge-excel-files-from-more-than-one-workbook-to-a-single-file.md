@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Merge Excel files from multiple workbooks into single file |Syncfusion
 description: Code example to merge several Excel files from more than one workbook to a single file using Suncfusion's XlsIO.
 platform: File-formats
 control: XlsIO

@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Zip all files in subfolders using Syncfusion's Compression |Syncfusion
 description: This page illustrates with an example to zip all the files in subfolders using the Syncfusion.Compression.Zip namespace.
 platform: File-formats
 control: XlsIO
