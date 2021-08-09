@@ -184,6 +184,7 @@ From v18.4, in addition to the previous NuGet packages, we recommend to use [Ski
 
 If you are using prior to v18.4 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v184-release) to know about how to perform Word to PDF conversion in Linux.
 
+Please refer the [here](https://help.syncfusion.com/file-formats/docio/word-to-pdf-linux-docker) for Word to PDF conversion in Linux Docker
 
 **Frequently Asked Questions**
 * [How to copy necessary fonts to Linux containers?](https://help.syncfusion.com/file-formats/docio/faq#how-to-copy-necessary-fonts-to-linux-containers)
