@@ -10,7 +10,7 @@ documentation: UG
 
 ## Prerequisites 
 
-* Docker must be installed on your system. For information on how to install Docker on Windows or Mac, refer to the links in the [See Also](https://help.syncfusion.com/fileformat-docs/DocIO/word-to-pdf-linux-docker.md#see-also) section.
+* Docker must be installed on your system. For information on how to install Docker on Windows or Mac, refer to the links in the [See Also](https://help.syncfusion.com/file-formats/docio/word-to-pdf-linux-docker#see-also) section.
 * Also, note that Visual Studio 2019, .NET Core 3.1 SDK is used in the example, provided below.
 
 ## Creating the Console Application
@@ -48,7 +48,7 @@ ENTRYPOINT ["dotnet", "ConsoleApp1.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-5. Add below fontconfig linw to avoid unwanted exception in Word to PDF conversion.
+5. Add below fontconfig line to avoid unwanted exception in Word to PDF conversion.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -63,9 +63,9 @@ N> After installing the fontconfig, we can able to perform Word to PDF conversio
 ![Run sample](LinuxDocker-Images/runsample.png)
 8. Word document will converted properly and saved as PDF.
 
-# Docker commands for various Linux distributions
+## Docker commands for various Linux distributions
 
-## Alpine:
+### Alpine:
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -95,7 +95,7 @@ ENTRYPOINT ["dotnet", "ConsoleApp1.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-## CentOS:
+### CentOS:
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -112,7 +112,7 @@ ENTRYPOINT ["dotnet" "ConsoleApp1.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-## Debian:
+### Debian:
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -142,7 +142,7 @@ ENTRYPOINT ["dotnet", "ConsoleApp1.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-## Fedora:
+### Fedora:
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -159,7 +159,7 @@ ENTRYPOINT ["dotnet" "ConsoleApp1.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-## RHEL - Red Hat Enterprise Linux:
+### RHEL - Red Hat Enterprise Linux:
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -188,7 +188,7 @@ ENTRYPOINT ["dotnet", "App1.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-## Ubuntu:
+### Ubuntu:
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -216,6 +216,6 @@ ENTRYPOINT ["dotnet", "UbuntuDocker.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-# See Also:
+## See Also:
 * [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/)
 * [Install .NET on Linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux)
