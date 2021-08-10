@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Un-protect zip files using Syncfusion.Compression.Base | Syncfusion
 description: This page demonstrates with an example to un-protect the zip files using Syncfusion.Compression.Base.
 platform: File-formats
 control: XlsIO
@@ -58,9 +58,9 @@ End Module
 
 ## See Also
 
-* [How to protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-protect-the-zip-files-using-syncfusion-compression-base)
-* [How to zip files using the Syncfusion.Compression.Zip namespace?](faqs/how-to-zip-files-using-the-syncfusion-compression-zip-namespace)
-* [How to zip all the files in subfolders using Syncfusion Compression?](faqs/how-to-zip-all-the-files-in-subfolders-using-syncfusion-compression)
-* [How to protect certain cells in a worksheet?](faqs/how-to-protect-certain-cells-in-a-worksheet)
+* [How to protect the zip files using Syncfusion.Compression.Base?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-protect-the-zip-files-using-syncfusion-compression-base)
+* [How to zip files using the Syncfusion.Compression.Zip namespace?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-zip-files-using-the-syncfusion-compression-zip-namespace)
+* [How to zip all the files in subfolders using Syncfusion Compression?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-zip-all-the-files-in-subfolders-using-syncfusion-compression)
+* [How to protect certain cells in a worksheet?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-protect-certain-cells-in-a-worksheet)
 * [How to unprotect Excel workbook?](https://help.syncfusion.com/file-formats/xlsio/migrate-from-office-automation-to-syncfusion-xlsio/unprotect-excel-workbook)
 * [How to protect worksheet?](https://help.syncfusion.com/file-formats/xlsio/security#protect-worksheet)

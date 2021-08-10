@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to format text within a cell | XlsIO | Syncfusion
 description: This page demonstrates how to format text within a cell using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
@@ -262,9 +262,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to set a line break inside a cell?](faqs/how-to-set-a-line-break-inside-a-cell)
-* [How to protect certain cells in a worksheet?](faqs/how-to-protect-certain-cells-in-a-worksheet)
-* [How to copy/paste the cell values that contain only formula?](faqs/how-to-copy-paste-the-cell-values-that-contain-only-formula)
+* [How to set a line break inside a cell?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-set-a-line-break-inside-a-cell)
+* [How to protect certain cells in a worksheet?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-protect-certain-cells-in-a-worksheet)
+* [How to copy/paste the cell values that contain only formula?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-copy-paste-the-cell-values-that-contain-only-formula)
 * [How to rich-text formatting?](https://help.syncfusion.com/file-formats/xlsio/working-with-cell-or-range-formatting#rich-text-formatting)
 * [How to apply number formats?](https://help.syncfusion.com/file-formats/xlsio/working-with-cell-or-range-formatting#apply-number-formats)
 * [How to apply cell text alignment?](https://help.syncfusion.com/file-formats/xlsio/working-with-cell-or-range-formatting#apply-cell-text-alignment)

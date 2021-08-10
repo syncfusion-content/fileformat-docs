@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to overcome UnauthorizedAccessException | XlsIO | Syncfusion
 description: This page shows how to overcome UnauthorizedAccessException using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
@@ -14,7 +14,7 @@ First, check whether you can access the folder and the file directly. Then, righ
 
 ## See Also
 
-* [How to overcome StackOverflow exception with IWorksheet Calculate()?](faqs/how-to-overcome-stackoverflow-exception-with-iworksheet-calculate())
-* [How to avoid exception when adding worksheets with same name?](faqs/how-to-avoid-exception-when-adding-worksheets-with-same-name)
+* [How to overcome StackOverflow exception with IWorksheet Calculate()?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-overcome-stackoverflow-exception-with-iworksheet-calculate())
+* [How to avoid exception when adding worksheets with same name?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-avoid-exception-when-adding-worksheets-with-same-name)
 * [What are the known exceptions of XlsIO?](https://help.syncfusion.com/file-formats/xlsio/known-exceptions)
 * [How to secure Excel documents?](https://help.syncfusion.com/file-formats/xlsio/security)

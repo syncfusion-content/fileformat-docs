@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to copy a range from one workbook to another | XlsIO | Syncfusion
 description: Code example to copy a range from one workbook to another using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
@@ -191,8 +191,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to copy/paste the cell values that contain only formula?](faqs/how-to-copy-paste-the-cell-values-that-contain-only-formula)
+* [How to copy/paste the cell values that contain only formula?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-copy-paste-the-cell-values-that-contain-only-formula)
 * [How to copy or move a range?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#copy-or-move-a-range)
 * [How to copy and paste as link?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#copy-and-paste-as-link)
 * [How to skip blanks while copying?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#skip-blanks-while-copying)
-* [How to open an existing XLSX workbook and save it as XLS?](faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
+* [How to open an existing XLSX workbook and save it as XLS?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)

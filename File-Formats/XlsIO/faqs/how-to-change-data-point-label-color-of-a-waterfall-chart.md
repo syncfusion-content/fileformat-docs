@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to change data point label color of Waterfall chart | Syncfusion
 description: Code example to change data point label color of a Waterfall chart using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
@@ -152,10 +152,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to change the grid line color of the Excel sheet?](how-to-change-the-grid-line-color-of-the-excel-sheet)
-* [How to import data table with its data type using template markers?](faqs/how-to-import-data-table-with-its-data-type-using-template-markers)
-* [How to add chart labels to scatter points?](faqs/how-to-add-chart-labels-to-scatter-points)
-* [How to create a Chart with a discontinuous range?](faqs/how-to-create-a-chart-with-a-discontinuous-range)
+* [How to change the grid line color of the Excel sheet?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-change-the-grid-line-color-of-the-excel-sheet)
+* [How to import data table with its data type using template markers?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-import-data-table-with-its-data-type-using-template-markers)
+* [How to add chart labels to scatter points?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-add-chart-labels-to-scatter-points)
+* [How to create a Chart with a discontinuous range?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-create-a-chart-with-a-discontinuous-range)
 * [How to create a Waterfall chart?](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#waterfall)
 * [What are the chart data label formatting?](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#data-labels-appearance)
 * [What are the font settings for chart legend and data labels?](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#font-settings-for-chart-legend-and-data-labels)
