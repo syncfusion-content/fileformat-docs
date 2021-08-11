@@ -1,11 +1,11 @@
 ---
-title: Working with Tables | Syncfusion
+title: Working with Tables | PDF Library | Syncfusion
 description: Learn how to create or add table to a PDF document, applying cell style & built-in table styles, automatic pagination and customize the rows and columns etc.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Tables
+# Working with Tables in PDF Library
 
 Essential PDF provides support for two types of table models, both having a different levels of customization, which is explained below. The two types of table models are
 

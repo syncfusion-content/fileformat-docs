@@ -5,7 +5,7 @@ platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# NuGet Packages Required
+# NuGet Packages Required for PowerPoint Library
 
 To work with PowerPoint Presentations, install the following NuGet packages in your application:
 

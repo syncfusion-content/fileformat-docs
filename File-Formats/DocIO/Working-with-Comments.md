@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Working with Comments
+# Working with Comments in Word Library
 
 A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with `WComment` instance.
 
