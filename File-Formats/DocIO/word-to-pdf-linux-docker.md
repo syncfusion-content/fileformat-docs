@@ -23,7 +23,7 @@ The following code example illustrates how to convert a Word document into PDF d
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
-docStream.Close();
+docStream.Dispose();
 //Instantiation of DocIORenderer for Word to PDF conversion
 DocIORenderer render = new DocIORenderer();
 //Converts Word document into PDF document
