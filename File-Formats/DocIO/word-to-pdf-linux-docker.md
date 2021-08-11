@@ -116,7 +116,7 @@ RUN dotnet publish "WordToPDFDockerSample.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ConsoleApp1.dll"]
+ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 {% endhighlight %}
 {% endtabs %}
