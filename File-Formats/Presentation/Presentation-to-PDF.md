@@ -1,6 +1,6 @@
 ---
-title: Converting PowerPoint Presentation to PDF |Syncfusion|
-description: This section illustrates how to convert PowerPoint Presentation document to PDF; PowerPoint Presentation conversion
+title: Converting PowerPoint Presentation to PDF | Syncfusion
+description: Learn here all about Converting PowerPoint Presentation document to PDF feature of Syncfusion Powerpoint Library and more.
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -914,7 +914,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endtabs %}
 
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
-N> 2. Its only supported in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=csharp#powerpoint-to-pdf-conversion-in-azure-platform) and [Portable](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=asp.net%20core) PDF conversion modules.
+N> 2. Its only supported in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf#powerpoint-to-pdf-conversion-in-azure-platform) and [Portable](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) PDF conversion modules.
 
 ## Show Warning for unsupported elements
 
