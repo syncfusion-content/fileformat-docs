@@ -13,7 +13,7 @@ Docker is an open platform for developing, shipping, and running applications. Y
 To convert a Word document to PDF in Linux Docker, the following packages are required to be referenced in your application.
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)
-* [SkiaSharp.NativeAssets.Linux](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
+* [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
 
 The following code example illustrates how to convert a Word document into PDF document.
 
@@ -23,6 +23,7 @@ The following code example illustrates how to convert a Word document into PDF d
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+docStream.Close();
 //Instantiation of DocIORenderer for Word to PDF conversion
 DocIORenderer render = new DocIORenderer();
 //Converts Word document into PDF document
@@ -35,6 +36,7 @@ MemoryStream outputStream = new MemoryStream();
 pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 pdfDocument.Close();
+outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}
 
