@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: Zip all files in subfolders using Syncfusion's Compression |Syncfusion
 description: This page illustrates with an example to zip all the files in subfolders using the Syncfusion.Compression.Zip namespace.
 platform: File-formats
 control: XlsIO
@@ -393,7 +393,7 @@ End Class
 
 ## See Also
 
-* [How to zip files using the Syncfusion.Compression.Zip namespace?](faqs/how-to-zip-files-using-the-syncfusion-compression-zip-namespace)
-* [How to protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-protect-the-zip-files-using-syncfusion-compression-base)
-* [How to un-protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-un-protect-the-zip-files-using-syncfusion-compression-base)
-* [How to merge excel files from more than one workbook to a single file?](faqs/how-to-merge-excel-files-from-more-than-one-workbook-to-a-single-file)
+* [How to zip files using the Syncfusion.Compression.Zip namespace?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-zip-files-using-the-syncfusion-compression-zip-namespace)
+* [How to protect the zip files using Syncfusion.Compression.Base?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-protect-the-zip-files-using-syncfusion-compression-base)
+* [How to un-protect the zip files using Syncfusion.Compression.Base?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-un-protect-the-zip-files-using-syncfusion-compression-base)
+* [How to merge excel files from more than one workbook to a single file?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-merge-excel-files-from-more-than-one-workbook-to-a-single-file)

@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to protect certain cells in a worksheet | XlsIO | Syncfusion
 description: This page demonstrates with an example to protect certain cells in a worksheet using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
@@ -162,5 +162,5 @@ N> Locking/Unlocking cells in an unprotected worksheet has no effect.
 
 * [How to protect Excel workbook?](https://help.syncfusion.com/file-formats/xlsio/migrate-from-office-automation-to-syncfusion-xlsio/protect-excel-workbook)
 * [How to protect worksheet?](https://help.syncfusion.com/file-formats/xlsio/security#protect-worksheet)
-* [How to protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-protect-the-zip-files-using-syncfusion-compression-base)
-* [How to un-protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-un-protect-the-zip-files-using-syncfusion-compression-base)
+* [How to protect the zip files using Syncfusion.Compression.Base?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-protect-the-zip-files-using-syncfusion-compression-base)
+* [How to un-protect the zip files using Syncfusion.Compression.Base?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-un-protect-the-zip-files-using-syncfusion-compression-base)

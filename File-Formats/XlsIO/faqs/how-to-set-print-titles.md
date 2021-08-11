@@ -1,5 +1,5 @@
 ---
-title: FAQ Section| XlsIO | Syncfusion
+title: How to set print titles | XlsIO | Syncfusion
 description: This page demonstrates with an example to set print titles using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
@@ -245,8 +245,8 @@ For information on Print settings, refer to section [Page Setup Settings](/file-
 
 ## See Also
 
-* [How to ignore print areas set in a worksheet?](faqs/how-to-ignore-print-areas-set-in-a-worksheet)
-* [How to set a line break inside a cell?](faqs/how-to-set-a-line-break-inside-a-cell)
-* [How to set or format a Header/Footer?](faqs/how-to-set-or-format-a-header-footer)
+* [How to ignore print areas set in a worksheet?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-ignore-print-areas-set-in-a-worksheet)
+* [How to set a line break inside a cell?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-set-a-line-break-inside-a-cell)
+* [How to set or format a Header/Footer?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-set-or-format-a-header-footer)
 * [How to print Excel document?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion#print-excel-document)
 * [What are page setup settings?](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#page-setup-settings)
