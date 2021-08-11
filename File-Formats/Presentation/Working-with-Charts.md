@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with charts using various operations
+# Working with charts using various operations in PowerPoint Library
 
 ## Creating a Chart from scratch
 

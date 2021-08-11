@@ -5,7 +5,7 @@ platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# NuGet Packages Required
+# NuGet Packages Required for Excel Library
 
 To work with Excel documents, the following NuGet packages need to be installed in your application.
 

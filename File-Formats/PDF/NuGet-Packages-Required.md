@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# NuGet Packages Required 
+# NuGet Packages Required for PDF Library
 
 To work with PDF documents, the following NuGet packages need to be installed in your application.
 
