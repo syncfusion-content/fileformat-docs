@@ -5,7 +5,7 @@ platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Presentation to PDF conversion
+# Presentation to PDF conversion using PowerPoint Library
 
 PowerPoint allows you to convert an entire Presentation or a single slide into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to convert PowerPoint document into PDF.
 
