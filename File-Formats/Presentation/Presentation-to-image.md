@@ -1,11 +1,11 @@
 ---
 title: Converting PowerPoint Presentation to image | Syncfusion
-description: Learn here all about converting PowerPoint Presentation to image feature of Syncfusion PowerPoint Presentation Library and more.
+description: Learn here all about converting PowerPoint Presentation to image feature of Syncfusion PowerPoint Library and more.
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Presentation to image conversion in PowerPoint Presentation Library
+# Presentation to image conversion using PowerPoint Library
 
 ## .NET Framework
 

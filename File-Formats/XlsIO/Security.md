@@ -1,12 +1,12 @@
 ---
-title: Security
-description: Briefs about Security in XlsIO
+title: Security in Excel (XlsIO) Library | Syncfusion
+description: Learn here all about the security feature of Syncfusion File Formats Excel (XlsIO) library and more.
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Security
+# Security in Excel (XlsIO) Library
 
 You can protect an anonymous user from viewing, moving, editing or deleting important data from a worksheet or workbook by [protecting a worksheet or workbook](https://support.office.com/en-ca/article/Password-protect-worksheet-or-workbook-elements-dbf706e0-ba22-4a08-84d8-552db16eef11#bmprotectelements), with or without a password.
 
