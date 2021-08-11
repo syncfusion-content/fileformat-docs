@@ -190,7 +190,6 @@ If you are using prior to v18.4 release, please refer [here](https://help.syncfu
 * [How to set culture / locale in Docker containers (Windows & Linux containers)?](https://help.syncfusion.com/file-formats/docio/faq#how-to-set-culturelocale-in-docker-containers-windows-and-linux-containers)
 * [How to copy necessary Microsoft compatible fonts to Linux?](https://help.syncfusion.com/file-formats/docio/faq#how-to-copy-necessary-microsoft-compatible-fonts-to-linux)
 * [How to resolve LibSkiaSharp not found Exception?](https://help.syncfusion.com/file-formats/docio/faq#how-to-resolve-libskiasharp-not-found-exception)
-* [Word to PDF conversion in Linux Docker](https://help.syncfusion.com/file-formats/docio/word-to-pdf-linux-docker)
 
 ## Customization settings
 The Essential DocIO provides settings while performing Word to PDF conversion mentioned below, 
