@@ -1155,6 +1155,10 @@ else
 
 {% endtabs %}
 
+By executing the program, you will get the PowerPoint slide as follows.
+
+![Edited Header text in slide](HeaderFooter_Images/Header_text.png)
+
 
 ### Modify Date and Time format of an existing Slide
 
