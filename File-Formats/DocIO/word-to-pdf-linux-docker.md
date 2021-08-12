@@ -22,8 +22,8 @@ Docker is an open platform for developing, shipping, and running applications. Y
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)
 * [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
 
-![Add DocIORenderer](LinuxDockerImages/Step-3.png)
-![Add Skiasharp](LinuxDockerImages/Step-4.png)
+![Install DocIORenderer NuGet package](LinuxDockerImages/Step-3.png)
+![Install Skiasharp NuGet package](LinuxDockerImages/Step-4.png)
 
 3. Include the following Namespaces in the Program.cs file.
 
@@ -66,11 +66,11 @@ outputStream.Dispose();
 
 5. Add Docker support to that application by clicking <b>Add -> Docker Support.</b>
 
-![Add Dockerfile](LinuxDockerImages/Step-5.png)
+![Add Docker support to that console app](LinuxDockerImages/Step-5.png)
 
 6. Choose Linux option in order to run the application in Linux environment.
 
-![Add Dockerfile](LinuxDockerImages/Step-6.png)
+![Choose Linux option](LinuxDockerImages/Step-6.png)
 
 7. Open the DockerFile and you can see default Docker commands as below.
 
@@ -106,7 +106,7 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 Finally, you will get the converted PDF document as follows.
 
-![Output](LinuxDockerImages/Step-8.png)
+![Output PDF document](LinuxDockerImages/Step-8.png)
 
 
 ## Dockerfile Examples
@@ -114,6 +114,8 @@ Finally, you will get the converted PDF document as follows.
 The following examples demonstrate how the Docker file should be configured in order to convert a Word document to PDF in different Linux distributions.
 
 ## Alpine
+
+You can use below Dockerfile to convert a Word document to PDF in Alpine Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -145,6 +147,8 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 ## CentOS
 
+You can use below Dockerfile to convert a Word document to PDF in CentOS Linux.
+
 {% tabs %}
 {% highlight Dockerfile %}
 
@@ -161,6 +165,8 @@ ENTRYPOINT ["dotnet" "WordToPDFDockerSample.dll"]
 {% endtabs %}
 
 ## Debian
+
+You can use below Dockerfile to convert a Word document to PDF in Debian Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -192,6 +198,8 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 ## Fedora
 
+You can use below Dockerfile to convert a Word document to PDF in Fedora Linux.
+
 {% tabs %}
 {% highlight Dockerfile %}
 
@@ -208,6 +216,8 @@ ENTRYPOINT ["dotnet" "WordToPDFDockerSample.dll"]
 {% endtabs %}
 
 ## RHEL - Red Hat Enterprise Linux
+
+You can use below Dockerfile to convert a Word document to PDF in RHEL Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -237,6 +247,8 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endtabs %}
 
 ## Ubuntu
+
+You can use below Dockerfile to convert a Word document to PDF in Ubuntu Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
