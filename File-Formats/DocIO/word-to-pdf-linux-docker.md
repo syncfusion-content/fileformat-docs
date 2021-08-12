@@ -8,7 +8,7 @@ documentation: UG
 
 # Essential DocIO in Docker
 
-Docker is an open platform for developing, shipping, and running applications. You can use Essential DocIO in Docker container to create, read, write, and convert Microsoft Word documents to various formats. In this page, you can see how to convert Word document to PDF using Syncfusion Word library (Essential DocIO) in Linux Docker. 
+Docker is an open platform for developing, shipping and running applications. You can use Essential DocIO in Docker container to create, read, write and convert Microsoft Word documents into various formats. From this page, you can learn how to convert Word document to PDF in Linux Docker using Syncfusion Word library (Essential DocIO). 
 
 ## Steps to convert a Word document to PDF in Linux Docker
 
@@ -17,7 +17,7 @@ Docker is an open platform for developing, shipping, and running applications. Y
 ![Create console app](LinuxDockerImages/Step-1.png)
 ![Name console app](LinuxDockerImages/Step-2.png)
 
-2. Install below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
+2. Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)
 * [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
@@ -45,20 +45,20 @@ using Syncfusion.Pdf;
 {% highlight asp.net core %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
-//Loads file stream into Word document
+//Load file stream into Word document
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 docStream.Dispose();
 //Instantiation of DocIORenderer for Word to PDF conversion
 DocIORenderer render = new DocIORenderer();
-//Converts Word document into PDF document
+//Convert Word document into PDF document
 PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-//Releases all resources used by the Word document and DocIO Renderer objects
+//Release all resources used by the Word document and DocIO Renderer objects
 render.Dispose();
 wordDocument.Dispose();
 //Saves the PDF file
 FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 pdfDocument.Save(outputStream);
-//Closes the instance of PDF document object
+//Close the instance of PDF document object
 pdfDocument.Close();
 outputStream.Dispose();
 {% endhighlight %}
@@ -72,7 +72,7 @@ outputStream.Dispose();
 
 ![Choose Linux option](LinuxDockerImages/Step-6.png)
 
-7. Open the DockerFile and you can see default Docker commands as below.
+7. Open the DockerFile to see the default Docker commands that are shown below.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -115,7 +115,7 @@ The following examples demonstrate how the Docker file should be configured in o
 
 ## Alpine
 
-You can use below Dockerfile to convert a Word document to PDF in Alpine Linux.
+You can use the below Dockerfile to convert a Word document to PDF in Alpine Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -146,7 +146,7 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 ## CentOS
 
-You can use below Dockerfile to convert a Word document to PDF in CentOS Linux.
+You can use the below Dockerfile to convert a Word document to PDF in CentOS Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -165,7 +165,7 @@ ENTRYPOINT ["dotnet" "WordToPDFDockerSample.dll"]
 
 ## Debian
 
-You can use below Dockerfile to convert a Word document to PDF in Debian Linux.
+You can use the below Dockerfile to convert a Word document to PDF in Debian Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -195,7 +195,7 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 ## Fedora
 
-You can use below Dockerfile to convert a Word document to PDF in Fedora Linux.
+You can use the below Dockerfile to convert a Word document to PDF in Fedora Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -214,7 +214,7 @@ ENTRYPOINT ["dotnet" "WordToPDFDockerSample.dll"]
 
 ## RHEL - Red Hat Enterprise Linux
 
-You can use below Dockerfile to convert a Word document to PDF in RHEL Linux.
+You can use the below Dockerfile to convert a Word document to PDF in RHEL Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -245,7 +245,7 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 ## Ubuntu
 
-You can use below Dockerfile to convert a Word document to PDF in Ubuntu Linux.
+You can use the below Dockerfile to convert a Word document to PDF in Ubuntu Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
