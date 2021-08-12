@@ -72,7 +72,7 @@ outputStream.Dispose();
 
 ![Choose Linux option](LinuxDockerImages/Step-6.png)
 
-7. Open the DockerFile to see the default Docker commands that are shown below.
+7. Open the Dockerfile to see the default Docker commands that are shown below.
 
 {% tabs %}
 {% highlight Dockerfile %}
