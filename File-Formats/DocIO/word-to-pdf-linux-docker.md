@@ -119,19 +119,18 @@ You can use below Dockerfile to convert a Word document to PDF in Alpine Linux.
 
 {% tabs %}
 {% highlight Dockerfile %}
+
 FROM mcr.microsoft.com/dotnet/aspnet:3.1-alpine3.12 AS base
 RUN apk update && apk upgrade && apk add fontconfig
 RUN apk add --update ttf-dejavu fontconfig
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1-alpine3.12 AS build
 WORKDIR /src
-COPY ["WordToPDFDockerSample/WordToPDFDockerSample.csproj", "WordToPDFDockerSample/"]
-RUN dotnet restore "WordToPDFDockerSample/WordToPDFDockerSample.csproj"
+COPY ["WordToPDFDockerSample.csproj", "."]
+RUN dotnet restore "./WordToPDFDockerSample.csproj"
 COPY . .
-WORKDIR "/src/WordToPDFDockerSample"
+WORKDIR "/src/."
 RUN dotnet build "WordToPDFDockerSample.csproj" -c Release -o /app/build
 
 FROM build AS publish
@@ -174,15 +173,13 @@ You can use below Dockerfile to convert a Word document to PDF in Debian Linux.
 FROM mcr.microsoft.com/dotnet/aspnet:3.1-buster-slim AS base
 RUN apt-get update -y && apt-get install fontconfig -y
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1-buster-slim AS build
 WORKDIR /src
-COPY ["WordToPDFDockerSample/WordToPDFDockerSample.csproj", "WordToPDFDockerSample/"]
-RUN dotnet restore "WordToPDFDockerSample/WordToPDFDockerSample.csproj"
+COPY ["WordToPDFDockerSample.csproj", "."]
+RUN dotnet restore "./WordToPDFDockerSample.csproj"
 COPY . .
-WORKDIR "/src/WordToPDFDockerSample"
+WORKDIR "/src/."
 RUN dotnet build "WordToPDFDockerSample.csproj" -c Release -o /app/build
 
 FROM build AS publish
