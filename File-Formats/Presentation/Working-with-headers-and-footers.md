@@ -1040,6 +1040,122 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ![Edited Footer text in slide](HeaderFooter_Images/EditText.png)
 
+
+### Edit Header text of an existing Slide
+
+Essential Presentation library facilitates editing Headers to the Notes slide of the PowerPoint Presentation.
+
+The following code example demonstrates how to edit a Headers to the Notes slide of the presentation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Open a PowerPoint presentation. 
+IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
+//Get the note slide from the presenatation. 
+INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
+//Modify the existing content of header. 
+noteSlide.HeadersFooters.Header.Text = "Header content is modified"; 
+//Save the modified PowerPoint presentation. 
+pptxDoc.Save("Result.pptx"); 
+//Close the Presentation.
+pptxDoc.Close(); 
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Open a PowerPoint presentation. 
+Dim pptxDoc As IPresentation = Presentation.Open("Header.pptx")
+'Get the note slide from the presenatation.
+Dim noteSlide As INotesSlide = pptxDoc.Slides(0).NotesSlide
+'Modify the existing content of header. 
+noteSlide.HeadersFooters.Header.Text = "Header content is modified"
+'Save the modified PowerPoint presentation. 
+pptxDoc.Save("Result.pptx")
+'Close the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+//Load or open an PowerPoint Presentation
+IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
+
+//Get the note slide from the presenatation.
+INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide;
+//Modify the existing content of header.
+noteSlide.HeadersFooters.Header.Text = "Header content is modified";
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+// Launch the saved file
+await Windows.System.Launcher.LaunchFileAsync(storageFile);
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Open a PowerPoint presentation. 
+IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
+//Get the note slide from the presenatation. 
+INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
+//Modify the existing content of header. 
+noteSlide.HeadersFooters.Header.Text = "Header content is modified"; 
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Open a PowerPoint presentation. 
+IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
+//Get the note slide from the presenatation. 
+INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
+//Modify the existing content of header. 
+noteSlide.HeadersFooters.Header.Text = "Header content is modified";
+//Create new memory stream to save Presentation
+MemoryStream stream = new MemoryStream();
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+//Close the presentation.
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the Presentation/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ### Modify Date and Time format of an existing Slide
 
 Essential Presentation library facilitates modifying the Date and Time of an existing slide in the PowerPoint Presentation. 
