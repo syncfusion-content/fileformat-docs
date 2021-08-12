@@ -25,7 +25,7 @@ Docker is an open platform for developing, shipping, and running applications. Y
 ![Install DocIORenderer NuGet package](LinuxDockerImages/Step-3.png)
 ![Install Skiasharp NuGet package](LinuxDockerImages/Step-4.png)
 
-3. Include the following Namespaces in the Program.cs file.
+3. Include the following namespaces in the Program.cs file.
 
 {% tabs %}
 {% highlight asp.net core %}
@@ -68,7 +68,7 @@ outputStream.Dispose();
 
 ![Add Docker support to that console app](LinuxDockerImages/Step-5.png)
 
-6. Choose Linux option in order to run the application in Linux environment.
+6. Choose Linux option in order to run the application in Linux Docker container.
 
 ![Choose Linux option](LinuxDockerImages/Step-6.png)
 
