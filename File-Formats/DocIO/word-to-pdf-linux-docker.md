@@ -101,11 +101,11 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of converting Word document to PDF in default Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Debian/WordToPDFDockerSample).
-
 8.Select Docker option and Run the application.
 
 ![Run console app](LinuxDockerImages/Step-7.png)
+
+A complete working example of converting Word document to PDF in default Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Debian/WordToPDFDockerSample).
 
 Finally, you will get the converted PDF document as follows.
 
