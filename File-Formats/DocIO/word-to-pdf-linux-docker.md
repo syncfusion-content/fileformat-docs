@@ -10,14 +10,14 @@ documentation: UG
 
 Docker is an open platform for developing, shipping and running applications. You can use Essential DocIO in Docker container to create, read, write and convert Microsoft Word documents into various formats. From this page, you can learn how to convert Word document to PDF in Linux Docker using Syncfusion Word library (Essential DocIO). 
 
-## Steps to convert a Word document to PDF in Linux Docker
+## Steps to convert a Word document to PDF in Linux Docker:
 
-1. Create a new Core Console application.
+1.Create a new Core Console application.
 
 ![Create console app](LinuxDockerImages/Step-1.png)
 ![Name console app](LinuxDockerImages/Step-2.png)
 
-2. Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
+2.Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)
 * [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
@@ -25,7 +25,9 @@ Docker is an open platform for developing, shipping and running applications. Yo
 ![Install DocIORenderer NuGet package](LinuxDockerImages/Step-3.png)
 ![Install Skiasharp NuGet package](LinuxDockerImages/Step-4.png)
 
-3. Include the following namespaces in the Program.cs file.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+
+3.Include the following namespaces in the Program.cs file.
 
 {% tabs %}
 {% highlight asp.net core %}
@@ -39,7 +41,7 @@ using Syncfusion.Pdf;
 {% endtabs %}
 
 
-4. Add the following code snippet in Program.cs file.
+4.Add the following code snippet in Program.cs file.
 
 {% tabs %}
 {% highlight asp.net core %}
@@ -64,15 +66,15 @@ outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}
 
-5. Add Docker support to that application by clicking <b>Add -> Docker Support.</b>
+5.Add Docker support to that application by clicking <b>Add -> Docker Support.</b>
 
 ![Add Docker support to that console app](LinuxDockerImages/Step-5.png)
 
-6. Choose Linux option in order to run the application in Linux Docker container.
+6.Choose Linux option in order to run the application in Linux Docker container.
 
 ![Choose Linux option](LinuxDockerImages/Step-6.png)
 
-7. Open the Dockerfile to see the default Docker commands that are shown below.
+7.Open the Dockerfile to see the default Docker commands that are shown below.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -99,17 +101,18 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-
-8. Select Docker option and Run the application.
+8.Select Docker option and Run the application.
 
 ![Run console app](LinuxDockerImages/Step-7.png)
+
+A complete working example of converting Word document to PDF in Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Debian/WordToPDFDockerSample).
 
 Finally, you will get the converted PDF document as follows.
 
 ![Output PDF document](LinuxDockerImages/Step-8.png)
 
 
-## Dockerfile Examples
+## Dockerfile Examples:
 
 The following examples demonstrate how the Docker file should be configured in order to convert a Word document to PDF in different Linux distributions.
 
@@ -144,6 +147,8 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of converting Word document to PDF in Alpine Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Alpine/WordToPDFDockerSample).
+
 ## CentOS
 
 You can use the below Dockerfile to convert a Word document to PDF in CentOS Linux.
@@ -162,6 +167,8 @@ ENTRYPOINT ["dotnet" "WordToPDFDockerSample.dll"]
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of converting Word document to PDF in CentOS Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/CentOS/WordToPDFDockerSample).
 
 ## Debian
 
@@ -193,6 +200,8 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of converting Word document to PDF in Debian Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Debian/WordToPDFDockerSample).
+
 ## Fedora
 
 You can use the below Dockerfile to convert a Word document to PDF in Fedora Linux.
@@ -211,6 +220,8 @@ ENTRYPOINT ["dotnet" "WordToPDFDockerSample.dll"]
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of converting Word document to PDF in Fedora Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Fedora/WordToPDFDockerSample).
 
 ## RHEL - Red Hat Enterprise Linux
 
@@ -243,6 +254,8 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of converting Word document to PDF in RHEL Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/RHEL/WordToPDFDockerSample).
+
 ## Ubuntu
 
 You can use the below Dockerfile to convert a Word document to PDF in Ubuntu Linux.
@@ -272,3 +285,5 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of converting Word document to PDF in Ubuntu Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Ubuntu/WordToPDFDockerSample).
