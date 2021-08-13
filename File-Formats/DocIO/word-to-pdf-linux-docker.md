@@ -146,7 +146,7 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of converting Word document to PDF in Alpin Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Alpine).
+A complete working example of converting Word document to PDF in Alpine Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/Linux%20Docker/Alpine).
 
 ## CentOS
 
