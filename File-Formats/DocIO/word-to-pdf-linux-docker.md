@@ -10,7 +10,7 @@ documentation: UG
 
 Docker is an open platform for developing, shipping and running applications. You can use Essential DocIO in Docker container to create, read, write and convert Microsoft Word documents into various formats. From this page, you can learn how to convert Word document to PDF in Linux Docker using Syncfusion Word library (Essential DocIO). 
 
-## Steps to convert a Word document to PDF in Linux Docker:
+## Steps to convert a Word document to PDF in Linux Docker
 
 1.Create a new Core Console application.
 
@@ -30,7 +30,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 3.Include the following namespaces in the Program.cs file.
 
 {% tabs %}
-{% highlight asp.net core %}
+{% highlight C# %}
 
 using System.IO;
 using Syncfusion.DocIO.DLS;
@@ -44,7 +44,7 @@ using Syncfusion.Pdf;
 4.Add the following code snippet in Program.cs file.
 
 {% tabs %}
-{% highlight asp.net core %}
+{% highlight C# %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Load file stream into Word document
@@ -112,7 +112,7 @@ Finally, you will get the converted PDF document as follows.
 ![Output PDF document](LinuxDockerImages/Step-8.png)
 
 
-## Dockerfile Examples:
+## Dockerfile Examples
 
 The following examples demonstrate how the Docker file should be configured in order to convert a Word document to PDF in different Linux distributions.
 
