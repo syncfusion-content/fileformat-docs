@@ -1043,9 +1043,9 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ### Edit Header text of an existing Slide
 
-Essential Presentation library facilitates editing Headers to the Notes slide of the PowerPoint Presentation.
+Essential Presentation library facilitates editing of Headers for the Notes slide of the PowerPoint Presentation.
 
-The following code example demonstrates how to edit a Headers to the Notes slide of the presentation.
+The following code example demonstrates how to edit the Headers for the Notes slide of the presentation.
 
 {% tabs %}
 
@@ -1055,7 +1055,7 @@ The following code example demonstrates how to edit a Headers to the Notes slide
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
 //Get the note slide from the presenatation. 
 INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
-//Modify the existing content of header. 
+//Modify the existing content of the header. 
 noteSlide.HeadersFooters.Header.Text = "Header content is modified"; 
 //Save the modified PowerPoint presentation. 
 pptxDoc.Save("Result.pptx"); 
@@ -1070,7 +1070,7 @@ pptxDoc.Close();
 Dim pptxDoc As IPresentation = Presentation.Open("Header.pptx")
 'Get the note slide from the presenatation.
 Dim noteSlide As INotesSlide = pptxDoc.Slides(0).NotesSlide
-'Modify the existing content of header. 
+'Modify the existing content of the header. 
 noteSlide.HeadersFooters.Header.Text = "Header content is modified"
 'Save the modified PowerPoint presentation. 
 pptxDoc.Save("Result.pptx")
@@ -1081,33 +1081,33 @@ pptxDoc.Close()
 
 {% highlight UWP %}
 
-//Instantiates the File Picker
+//Instantiate the File Picker.
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
+//Create a storage file from FileOpenPicker.
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Load or open an PowerPoint Presentation
+//Load or open a PowerPoint Presentation.
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 
 //Get the note slide from the presenatation.
 INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide;
-//Modify the existing content of header.
+//Modify the existing content of the header.
 noteSlide.HeadersFooters.Header.Text = "Header content is modified";
 
-//Initializes FileSavePicker
+//Initialize the FileSavePicker.
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Output";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
 
-//Creates a storage file from FileSavePicker
+//Create a storage file from the FileSavePicker.
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
+//Save changes to the specified storage file.
 await pptxDoc.SaveAsync(storageFile);
 
-// Launch the saved file
+// Launch the saved file.
 await Windows.System.Launcher.LaunchFileAsync(storageFile);
 
 
@@ -1119,12 +1119,12 @@ await Windows.System.Launcher.LaunchFileAsync(storageFile);
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
 //Get the note slide from the presenatation. 
 INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
-//Modify the existing content of header. 
+//Modify the existing content of the header. 
 noteSlide.HeadersFooters.Header.Text = "Header content is modified"; 
-//Save the PowerPoint Presentation as stream
+//Save the PowerPoint Presentation as stream.
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-//Closes the Presentation
+//Close the Presentation.
 pptxDoc.Close();
 
 {% endhighlight %}
@@ -1133,19 +1133,19 @@ pptxDoc.Close();
 
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
-//Get the note slide from the presenatation. 
+//Get the note slide from the presentation. 
 INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
-//Modify the existing content of header. 
+//Modify the existing content of the header. 
 noteSlide.HeadersFooters.Header.Text = "Header content is modified";
-//Create new memory stream to save Presentation
+//Create a new memory stream to save the Presentation
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
+//Save the Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation.
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the Presentation/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Refer the Presentation/Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
