@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Applying Watermark
+# Applying Watermark in Word (DocIO) Library
 
 Watermarks are text or pictures that appear behind the docment text. You can access the watermark in the document by using the `Watermark` property of `WordDocument` class.
 

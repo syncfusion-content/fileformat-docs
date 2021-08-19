@@ -416,7 +416,7 @@ pptxDoc.Save(outputStream);
 
 ## Sending to a client browser
 
-You can save and send the Presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://msdn.microsoft.com/en-us/library/gg145018(v=vs.110).aspx) assembly.
+You can save and send the Presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://docs.microsoft.com/en-us/previous-versions/gg145018(v=vs.110)) assembly.
 
 {% tabs %}
 

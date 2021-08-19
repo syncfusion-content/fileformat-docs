@@ -1,7 +1,7 @@
 ---
 title: Working with Animations | PowerPoint Library | Syncfusion
 description: Learn here all about working with animations of Syncfusion PowerPoint Presentation Library and more.
-platform: Windows Forms, WPF, ASP.NET Web, ASP.NET MVC, ASP.NET Core, JavaScript, UWP and Xamarin.
+platform: file-formats
 control: Essential Presentation
 documentation: UG
 keywords: PowerPoint animation, slide animation, shape animation, pptx animation
