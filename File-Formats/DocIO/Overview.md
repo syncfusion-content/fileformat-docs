@@ -15,7 +15,7 @@ It is a non-UI component that provides a full-fledged document instance model si
 
 * Support to [create Word document](https://help.syncfusion.com/file-formats/docio/getting-started) from scratch.
 * Support to open, modify and save existing Word documents.
-* Advanced [Mail merge](https://help.syncfusion.com/file-formats/docio/working-with-mailmerge) support with different data sources.
+* Advanced [Mail merge](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge) support with different data sources.
 * Ability to create or edit Word 97-2003 and later version documents, and convert them to commonly used file formats such as [RTF](https://help.syncfusion.com/file-formats/docio/rtf), [WordML](https://help.syncfusion.com/file-formats/docio/word-file-formats#word-processing-xml-xml), [TXT](https://help.syncfusion.com/file-formats/docio/text), [HTML](https://help.syncfusion.com/file-formats/docio/html) and vice versa.
 * Ability to export a Word document as an [Image](https://help.syncfusion.com/file-formats/docio/word-to-image), [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf) file, and [EPUB](https://help.syncfusion.com/file-formats/docio/word-to-epub) in high quality.
 * Ability to create and manipulate [charts](https://help.syncfusion.com/file-formats/docio/working-with-charts), [Shapes](https://help.syncfusion.com/file-formats/docio/working-with-shapes), and [Group shape](https://help.syncfusion.com/file-formats/docio/working-with-shapes#grouping-shapes) in DOCX and WordML format documents.
