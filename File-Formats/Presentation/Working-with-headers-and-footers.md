@@ -1041,7 +1041,7 @@ By executing the program, you will get the PowerPoint slide as follows.
 ![Edited Footer text in slide](HeaderFooter_Images/EditText.png)
 
 
-### Edit Header text of an existing Slide
+### Edit Header text of an existing Notes slide
 
 N> 1. As per Microsoft PowerPoint behavior, you can edit Header only in Notes slide of the PowerPoint using our Essential Presentation Library.
 N> 2. Header edited in Notes slide will be visible only in the Notes page of the PowerPoint viewer. 
@@ -1057,9 +1057,9 @@ The following code example demonstrates how to edit the Headers for the Notes sl
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
 //Get the note slide from the presenatation. 
-INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
+INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide; 
 //Modify the existing content of the header. 
-noteSlide.HeadersFooters.Header.Text = "Header content is modified"; 
+notesSlide.HeadersFooters.Header.Text = "Header content is modified"; 
 //Save the modified PowerPoint presentation. 
 pptxDoc.Save("Result.pptx"); 
 //Close the Presentation.
@@ -1072,9 +1072,9 @@ pptxDoc.Close();
 'Open a PowerPoint presentation. 
 Dim pptxDoc As IPresentation = Presentation.Open("Header.pptx")
 'Get the note slide from the presenatation.
-Dim noteSlide As INotesSlide = pptxDoc.Slides(0).NotesSlide
+Dim notesSlide As INotesSlide = pptxDoc.Slides(0).NotesSlide
 'Modify the existing content of the header. 
-noteSlide.HeadersFooters.Header.Text = "Header content is modified"
+notesSlide.HeadersFooters.Header.Text = "Header content is modified"
 'Save the modified PowerPoint presentation. 
 pptxDoc.Save("Result.pptx")
 'Close the Presentation
@@ -1094,9 +1094,9 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 
 //Get the note slide from the presenatation.
-INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide;
+INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide;
 //Modify the existing content of the header.
-noteSlide.HeadersFooters.Header.Text = "Header content is modified";
+notesSlide.HeadersFooters.Header.Text = "Header content is modified";
 
 //Initialize the FileSavePicker.
 FileSavePicker savePicker = new FileSavePicker();
@@ -1121,9 +1121,9 @@ await Windows.System.Launcher.LaunchFileAsync(storageFile);
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
 //Get the note slide from the presenatation. 
-INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
+INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide; 
 //Modify the existing content of the header. 
-noteSlide.HeadersFooters.Header.Text = "Header content is modified"; 
+notesSlide.HeadersFooters.Header.Text = "Header content is modified"; 
 //Save the PowerPoint Presentation as stream.
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -1137,9 +1137,9 @@ pptxDoc.Close();
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
 //Get the note slide from the presentation. 
-INotesSlide noteSlide = pptxDoc.Slides[0].NotesSlide; 
+INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide; 
 //Modify the existing content of the header. 
-noteSlide.HeadersFooters.Header.Text = "Header content is modified";
+notesSlide.HeadersFooters.Header.Text = "Header content is modified";
 //Create a new memory stream to save the Presentation
 MemoryStream stream = new MemoryStream();
 //Save the Presentation in stream format.
