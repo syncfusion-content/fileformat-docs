@@ -1043,6 +1043,9 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ### Edit Header text of an existing Slide
 
+N> 1. As per Microsoft PowerPoint behavior, you can edit Header only in Notes slide of the PowerPoint using our Essential Presentation Library.
+N> 2. Header edited in Notes slide will be visible only in the Notes page of the PowerPoint viewer. 
+
 Essential Presentation library facilitates editing of Headers for the Notes slide of the PowerPoint Presentation.
 
 The following code example demonstrates how to edit the Headers for the Notes slide of the presentation.
