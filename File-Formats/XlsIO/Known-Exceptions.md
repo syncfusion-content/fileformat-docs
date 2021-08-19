@@ -1,11 +1,11 @@
 ---
-title: Known exceptions thrown in XlsIO
-description: Known exception throwns in XlsIO
+title: Known exceptions thrown in XlsIO | Syncfusion
+description: Learn here all about the Known exceptions thrown in the Syncfusion's Excel (XlsIO) Library and more.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# Known Exceptions Details
+# Known Exceptions Details in Excel Library
 
 The list of known exceptions thrown in Essential XlsIO is listed below.
 

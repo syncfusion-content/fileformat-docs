@@ -1,6 +1,6 @@
 ---
 title: Applying Watermark | DocIO | Syncfusion
-description: This section illustrates how to insert text or pictures watermark to the Word document
+description: Learn here how to insert text or pictures watermark to the Word document in Syncfusion Word (DocIO) Library and more.
 platform: file-formats
 control: DocIO
 documentation: UG
