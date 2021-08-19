@@ -8,7 +8,7 @@ documentation: UG
 
 # Applying Watermark in Word (DocIO) Library
 
-Watermarks are text or pictures that appear behind the docment text. You can access the watermark in the document by using the `Watermark` property of `WordDocument` class.
+Watermarks are text or pictures that appear behind the document text. You can access the watermark in the document by using the `Watermark` property of `WordDocument` class.
 
 There are two types of watermarks: Text and Picture.
 
