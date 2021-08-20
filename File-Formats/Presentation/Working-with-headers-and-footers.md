@@ -1043,10 +1043,10 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ### Edit Header text of an existing Notes slide
 
+Essential Presentation library facilitates editing of Headers for the Notes slide of the PowerPoint Presentation.
+
 N> 1. As per Microsoft PowerPoint behavior, you can edit Header only in Notes slide of the PowerPoint using our Essential Presentation Library.
 N> 2. Header edited in Notes slide will be visible only in the Notes page of the PowerPoint viewer. 
-
-Essential Presentation library facilitates editing of Headers for the Notes slide of the PowerPoint Presentation.
 
 The following code example demonstrates how to edit the Headers for the Notes slide of the presentation.
 
@@ -1056,7 +1056,7 @@ The following code example demonstrates how to edit the Headers for the Notes sl
 
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
-//Get the note slide from the presenatation. 
+//Get the notes slide from the presenatation. 
 INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide; 
 //Modify the existing content of the header. 
 notesSlide.HeadersFooters.Header.Text = "Header content is modified"; 
@@ -1071,7 +1071,7 @@ pptxDoc.Close();
 
 'Open a PowerPoint presentation. 
 Dim pptxDoc As IPresentation = Presentation.Open("Header.pptx")
-'Get the note slide from the presenatation.
+'Get the notes slide from the presenatation.
 Dim notesSlide As INotesSlide = pptxDoc.Slides(0).NotesSlide
 'Modify the existing content of the header. 
 notesSlide.HeadersFooters.Header.Text = "Header content is modified"
@@ -1093,7 +1093,7 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Load or open a PowerPoint Presentation.
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 
-//Get the note slide from the presenatation.
+//Get the notes slide from the presenatation.
 INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide;
 //Modify the existing content of the header.
 notesSlide.HeadersFooters.Header.Text = "Header content is modified";
@@ -1120,7 +1120,7 @@ await Windows.System.Launcher.LaunchFileAsync(storageFile);
 
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
-//Get the note slide from the presenatation. 
+//Get the notes slide from the presenatation. 
 INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide; 
 //Modify the existing content of the header. 
 notesSlide.HeadersFooters.Header.Text = "Header content is modified"; 
@@ -1136,7 +1136,7 @@ pptxDoc.Close();
 
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
-//Get the note slide from the presentation. 
+//Get the notes slide from the presentation. 
 INotesSlide notesSlide = pptxDoc.Slides[0].NotesSlide; 
 //Modify the existing content of the header. 
 notesSlide.HeadersFooters.Header.Text = "Header content is modified";
@@ -1158,7 +1158,7 @@ else
 
 {% endtabs %}
 
-By executing the program, you will get the PowerPoint slide as follows.
+By executing the program, you will get the PowerPoint Notes slide as follows.
 
 ![Edited Header text in slide](HeaderFooter_Images/Header_text.png)
 
