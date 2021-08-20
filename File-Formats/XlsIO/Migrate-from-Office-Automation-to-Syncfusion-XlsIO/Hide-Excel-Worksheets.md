@@ -1,6 +1,6 @@
 ---
 title: Hide Excel Worksheets | Syncfusion
-description: Explains with an example on how to hide Excel worksheets programmatically using Interop and XlsIO.
+description: This documentation explains with an example on how to hide Excel worksheets programmatically using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
