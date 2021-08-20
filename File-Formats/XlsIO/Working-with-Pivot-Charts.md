@@ -1,12 +1,12 @@
 ---
-title: Working with Pivot Charts
-description: Briefs about Pivot Charts in XlsIO
+title: Working with Pivot Charts | Syncfusion
+description: Learn here all about working with the Pivot Charts in the Syncfusion Excel (XlsIO) Library and more.
 platform: File-formats
 control: XlsIO
 documentation: UG 
 ---
 
-# Working with Pivot Charts
+# Working with Pivot Charts in Excel Library
 
 PivotCharts are interactive graphical representations of PivotTable data that allows rapid analysis of the displayed data. In XlsIO, **PivotCharts** are created by __IChart__ interface by setting its pivot source as __PivotTable__.
 
