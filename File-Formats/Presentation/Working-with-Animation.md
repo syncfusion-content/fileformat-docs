@@ -1,12 +1,12 @@
 ---
-title: Working with Animations
-description: Working with Animations
-platform: Windows Forms, WPF, ASP.NET Web, ASP.NET MVC, ASP.NET Core, JavaScript, UWP and Xamarin.
+title: Working with Animations | PowerPoint Library | Syncfusion
+description: Learn here all about working with animations of Syncfusion PowerPoint Presentation Library and more.
+platform: file-formats
 control: Essential Presentation
 documentation: UG
 keywords: PowerPoint animation, slide animation, shape animation, pptx animation
 ---
-# Working with Animations
+# Working with Animations in PowerPoint Library
 
 Animations are visual effects for the objects in PowerPoint presentation and animation helps to make a PowerPoint presentation more dynamic. Animation effects can be grouped into four categories.,
 

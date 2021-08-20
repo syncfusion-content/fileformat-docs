@@ -1,10 +1,10 @@
 ---
-title: Essential Studio File Formats 2018 volume 1 Migration document
-description: Essential Studio File Formats 2018 volume 1 Migration document
+title: Essential Studio File Formats 2018 volume 1 Migration | Syncfusion
+description: Learn here all about Essential Studio File Formats 2018 volume 1 Migration of Syncfusion's Word (DocIO) Library and more.
 platform: file-formats
 keywords: migration, upgrade-changes, 2018vol1-changes
 ---
-# DocIO
+# Essential Studio File Formats 2018 volume 1 Migration in Word Library
  
 Complete field code is now included in Document Object Model(DOM). Whereas in v15.4.0.20 and earlier versions, the first paragraph item after field start is not included in Document Object Model(DOM).
 <table class="params">

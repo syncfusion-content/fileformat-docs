@@ -1,13 +1,13 @@
 ---
 
-title: Working with comments in PowerPoint presentation
-description: Working with comments in PowerPoint presentation.
+title: Working with comments in PowerPoint presentation | Syncfusion
+description: Learn here all about Working with comments feature of Syncfusion PowerPoint Presentation Library and more.
 platform: file-formats
 control: Presentation
 documentation: UG
 keywords: comments
 ---
-# Working with Comments
+# Working with Comments in PowerPoint Presentation
 A comment is a text note attached to a location on a slide. Each comment contains an unformatted text string, information about its author and the time it was added. In a PowerPoint slide, the comments and the reply comments are sequentially maintained in a single collection. The top most comment will have the index position 0 and the other comments and replies in that slide will have the incremental index positions.
 
 ## Adding a comment
