@@ -1,12 +1,12 @@
 ---
-title: Working with sections in PowerPoint Presentation
-description: Working with sections in PowerPoint Presentation
+title: Working with sections in PowerPoint Presentation | Syncfusion
+description: Learn here all about working with sections in the Syncfusion PowerPoint Presentation Library and more.
 platform: file-formats
 control: Presentation
 documentation: UG
 keywords: sections in PowerPoint presentation
 ---
-# Working with Sections
+# Working with Sections in PowerPoint Library
 
 Sections helps to manage the slides of a PowerPoint presentation. If a presentation has many slides, you can organize the slides using sections to make the navigation easier.
 
