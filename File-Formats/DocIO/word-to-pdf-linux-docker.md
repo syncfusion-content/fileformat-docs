@@ -46,23 +46,26 @@ using Syncfusion.Pdf;
 {% tabs %}
 {% highlight C# %}
 //Open the file as Stream
-FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
-//Load file stream into Word document
-WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
-docStream.Dispose();
-//Instantiation of DocIORenderer for Word to PDF conversion
-DocIORenderer render = new DocIORenderer();
-//Convert Word document into PDF document
-PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-//Release all resources used by the Word document and DocIO Renderer objects
-render.Dispose();
-wordDocument.Dispose();
-//Saves the PDF file
-FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-pdfDocument.Save(outputStream);
-//Close the instance of PDF document object
-pdfDocument.Close();
-outputStream.Dispose();
+using (FileStream docStream = new FileStream(@"Adventure.docx", FileMode.Open, FileAccess.Read))
+{
+    //Loads file stream into Word document
+    using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
+    {
+        //Instantiation of DocIORenderer for Word to PDF conversion
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Converts Word document into PDF document
+            PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+            //Saves the PDF file
+            using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            {
+                pdfDocument.Save(outputStream);
+                //Closes the instance of PDF document object
+                pdfDocument.Close();
+            }
+        }
+    }
+}
 {% endhighlight %}
 {% endtabs %}
 
