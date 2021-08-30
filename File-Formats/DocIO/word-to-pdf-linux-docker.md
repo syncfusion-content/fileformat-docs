@@ -55,13 +55,13 @@ using (FileStream docStream = new FileStream(@"Adventure.docx", FileMode.Open, F
         using (DocIORenderer render = new DocIORenderer())
         {
             //Converts Word document into PDF document
-            PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-            //Saves the PDF file
-            using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
             {
-                pdfDocument.Save(outputStream);
-                //Closes the instance of PDF document object
-                pdfDocument.Close();
+                //Saves the PDF file
+                using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    pdfDocument.Save(outputStream);
+                }
             }
         }
     }
