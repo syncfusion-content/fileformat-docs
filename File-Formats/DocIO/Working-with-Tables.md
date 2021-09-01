@@ -1275,6 +1275,15 @@ cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Access the instance of the third cell in the row
+cell = row.Cells[2];
+//Set color for tablecell borders
+cell.CellFormat.Borders.BorderType = BorderStyle.Thick;
+cell.CellFormat.Borders.Color = Color.Red;
+cell.CellFormat.Borders.Top.Color = Color.Red;
+cell.CellFormat.Borders.Bottom.Color = Color.Red;
+cell.CellFormat.Borders.Right.Color = Color.Red;
+cell.CellFormat.Borders.Left.Color = Color.Red;
 //Saves and closes the document instance
 document.Save("TableCellFormatting.docx", FormatType.Docx);
 document.Close();
@@ -1318,6 +1327,15 @@ cell.CellFormat.Paddings.All = 5
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
 'Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = False
+'Access the instance of the third cell in the row
+cell = row.Cells(2)
+'Set color for tablecell borders
+cell.CellFormat.Borders.BorderType = BorderStyle.Thick
+cell.CellFormat.Borders.Color = Color.Red
+cell.CellFormat.Borders.Top.Color = Color.Red
+cell.CellFormat.Borders.Bottom.Color = Color.Red
+cell.CellFormat.Borders.Right.Color = Color.Red
+cell.CellFormat.Borders.Left.Color = Color.Red
 'Saves and closes the document instance
 document.Save("TableCellFormatting.docx", FormatType.Docx)
 document.Close()
@@ -1362,6 +1380,15 @@ cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Access the instance of the third cell in the row
+cell = row.Cells[2];
+//Set color for tablecell borders
+cell.CellFormat.Borders.BorderType = BorderStyle.Thick;
+cell.CellFormat.Borders.Color = Color.Red;
+cell.CellFormat.Borders.Top.Color = Color.Red;
+cell.CellFormat.Borders.Bottom.Color = Color.Red;
+cell.CellFormat.Borders.Right.Color = Color.Red;
+cell.CellFormat.Borders.Left.Color = Color.Red;
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -1411,6 +1438,15 @@ cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Access the instance of the third cell in the row
+cell = row.Cells[2];
+//Set color for tablecell borders
+cell.CellFormat.Borders.BorderType = BorderStyle.Thick;
+cell.CellFormat.Borders.Color = Color.Red;
+cell.CellFormat.Borders.Top.Color = Color.Red;
+cell.CellFormat.Borders.Bottom.Color = Color.Red;
+cell.CellFormat.Borders.Right.Color = Color.Red;
+cell.CellFormat.Borders.Left.Color = Color.Red;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -1460,6 +1496,15 @@ cell.CellFormat.Paddings.All = 5;
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Disables the text wrap option to avoid displaying longer text on multiple lines
 cell.CellFormat.TextWrap = false;
+//Access the instance of the third cell in the row
+cell = row.Cells[2];
+//Set color for tablecell borders
+cell.CellFormat.Borders.BorderType = BorderStyle.Thick;
+cell.CellFormat.Borders.Color = Color.Red;
+cell.CellFormat.Borders.Top.Color = Color.Red;
+cell.CellFormat.Borders.Bottom.Color = Color.Red;
+cell.CellFormat.Borders.Right.Color = Color.Red;
+cell.CellFormat.Borders.Left.Color = Color.Red;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
