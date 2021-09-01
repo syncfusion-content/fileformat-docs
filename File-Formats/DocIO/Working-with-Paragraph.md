@@ -3898,6 +3898,271 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+The following code example explains how to create user defined bulleted list style.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Create a new Word document.
+WordDocument document = new WordDocument();
+//Add new section to the document.
+IWSection section = document.AddSection();
+//Add new list style to the document.
+ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
+WListLevel levelOne = listStyle.Levels[0];
+//Define the follow character, pattern, start index for level 0.
+levelOne.FollowCharacter = FollowCharacterType.Nothing;
+levelOne.PatternType = ListPatternType.Bullet;
+levelOne.BulletCharacter = "*";
+levelOne.StartAt = 1;
+WListLevel levelTwo = listStyle.Levels[1];
+//Define the follow character, pattern, start index for level 1.
+levelTwo.FollowCharacter = FollowCharacterType.Nothing;
+levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.StartAt = 1;
+WListLevel levelThree = listStyle.Levels[2];
+//Define the follow character, pattern, start index for level 2.
+levelThree.FollowCharacter = FollowCharacterType.Nothing;
+levelThree.PatternType = ListPatternType.Bullet;
+levelThree.StartAt = 1;
+//Add new paragraph to the section.
+IWParagraph paragraph = section.AddParagraph();
+//Add text to the paragraph.
+paragraph.AppendText("User defined list - Level 0");
+//Apply default bulleted list style.
+paragraph.ListFormat.ApplyStyle("UserDefinedList");
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 1");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 2");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Save the Word document.
+document.Save("Sample.docx", FormatType.Docx);
+//Close the document.
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new Word document. 
+Dim document As New WordDocument()
+'Add new section to the document.
+Dim section As IWSection = document.AddSection()
+'Add new list style to the document.          
+Dim listStyle As ListStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList")
+Dim levelOne As WListLevel = listStyle.Levels(0)
+'Define the follow character, pattern, start index for level 0.
+levelOne.FollowCharacter = FollowCharacterType.Nothing
+levelOne.PatternType = ListPatternType.Bullet
+levelOne.BulletCharacter = "*"
+levelOne.StartAt = 1
+Dim levelTwo As WListLevel = listStyle.Levels(1)
+'Define the follow character, pattern, start index for level 1.
+levelTwo.FollowCharacter = FollowCharacterType.Nothing
+levelTwo.PatternType = ListPatternType.Bullet
+levelTwo.StartAt = 1
+Dim levelThree As WListLevel = listStyle.Levels(2)
+'Define the follow character, pattern, start index for level 2.
+levelThree.FollowCharacter = FollowCharacterType.Nothing
+levelThree.PatternType = ListPatternType.Bullet
+levelThree.StartAt = 1
+'Add new paragraph to the section.
+Dim paragraph As IWParagraph = section.AddParagraph()
+'Add text to the paragraph.
+paragraph.AppendText("User defined list - Level 0")
+'Apply default bulleted list style.
+paragraph.ListFormat.ApplyStyle("UserDefinedList")
+'Add second paragraph.
+paragraph = section.AddParagraph()
+paragraph.AppendText("User defined list - Level 1")
+'Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering()
+'Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel()
+'Add second paragraph.
+paragraph = section.AddParagraph()
+paragraph.AppendText("User defined list - Level 2")
+'Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering()
+'Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel()
+'Save the Word document.
+document.Save("Sample.docx", FormatType.Docx)
+'Close the document.
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new Word document.
+WordDocument document = new WordDocument();
+//Add new section to the document.
+IWSection section = document.AddSection();
+//Add new list style to the document.
+ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
+WListLevel levelOne = listStyle.Levels[0];
+//Define the follow character, pattern, start index for level 0.
+levelOne.FollowCharacter = FollowCharacterType.Nothing;
+levelOne.PatternType = ListPatternType.Bullet;
+levelOne.BulletCharacter = "*";
+levelOne.StartAt = 1;
+WListLevel levelTwo = listStyle.Levels[1];
+//Define the follow character, pattern, start index for level 1.
+levelTwo.FollowCharacter = FollowCharacterType.Nothing;
+levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.StartAt = 1;
+WListLevel levelThree = listStyle.Levels[2];
+//Define the follow character, pattern, start index for level 2.
+levelThree.FollowCharacter = FollowCharacterType.Nothing;
+levelThree.PatternType = ListPatternType.Bullet;
+levelThree.StartAt = 1;
+//Add new paragraph to the section.
+IWParagraph paragraph = section.AddParagraph();
+//Add text to the paragraph.
+paragraph.AppendText("User defined list - Level 0");
+//Apply default bulleted list style.
+paragraph.ListFormat.ApplyStyle("UserDefinedList");
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 1");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 2");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Save and close the Word document instance.
+MemoryStream stream = new MemoryStream();
+//Save the Word file to MemoryStream.
+await document.SaveAsync(stream, FormatType.Docx);
+document.Close();
+//Save the stream as Word file in local machine.
+Save(stream, "Result.docx");
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+//Create a new Word document.
+WordDocument document = new WordDocument();
+//Add new section to the document.
+IWSection section = document.AddSection();
+//Add new list style to the document.
+ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
+WListLevel levelOne = listStyle.Levels[0];
+//Define the follow character, pattern, start index for level 0.
+levelOne.FollowCharacter = FollowCharacterType.Nothing;
+levelOne.PatternType = ListPatternType.Bullet;
+levelOne.BulletCharacter = "*";
+levelOne.StartAt = 1;
+WListLevel levelTwo = listStyle.Levels[1];
+//Define the follow character, pattern, start index for level 1.
+levelTwo.FollowCharacter = FollowCharacterType.Nothing;
+levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.StartAt = 1;
+WListLevel levelThree = listStyle.Levels[2];
+//Define the follow character, pattern, start index for level 2.
+levelThree.FollowCharacter = FollowCharacterType.Nothing;
+levelThree.PatternType = ListPatternType.Bullet;
+levelThree.StartAt = 1;
+//Add new paragraph to the section.
+IWParagraph paragraph = section.AddParagraph();
+//Add text to the paragraph.
+paragraph.AppendText("User defined list - Level 0");
+//Apply default bulleted list style.
+paragraph.ListFormat.ApplyStyle("UserDefinedList");
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 1");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 2");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Save and close the Word document instance.
+MemoryStream stream = new MemoryStream();
+//Save the Word document to  MemoryStream.
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser.
+return File(stream, "application/msword", "Result.docx");
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+//Create a new Word document.
+WordDocument document = new WordDocument();
+//Add new section to the document.
+IWSection section = document.AddSection();
+//Add new list style to the document.
+ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
+WListLevel levelOne = listStyle.Levels[0];
+//Define the follow character, pattern, start index for level 0.
+levelOne.FollowCharacter = FollowCharacterType.Nothing;
+levelOne.PatternType = ListPatternType.Bullet;
+levelOne.BulletCharacter = "*";
+levelOne.StartAt = 1;
+WListLevel levelTwo = listStyle.Levels[1];
+//Define the follow character, pattern, start index for level 1.
+levelTwo.FollowCharacter = FollowCharacterType.Nothing;
+levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.StartAt = 1;
+WListLevel levelThree = listStyle.Levels[2];
+//Define the follow character, pattern, start index for level 2.
+levelThree.FollowCharacter = FollowCharacterType.Nothing;
+levelThree.PatternType = ListPatternType.Bullet;
+levelThree.StartAt = 1;
+//Add new paragraph to the section.
+IWParagraph paragraph = section.AddParagraph();
+//Add text to the paragraph.
+paragraph.AppendText("User defined list - Level 0");
+//Apply default bulleted list style.
+paragraph.ListFormat.ApplyStyle("UserDefinedList");
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 1");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 2");
+//Continue last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Save and close the Word document instance.
+MemoryStream stream = new MemoryStream();
+//Save the Word file to MemoryStream.
+document.Save(stream, FormatType.Docx);
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing.
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %} 
+
 ### Get list value
 
 You can get the string that represents the appearance of **list value of the paragraph** in the Word document using the `ListString` API. 
