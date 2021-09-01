@@ -3911,19 +3911,20 @@ IWSection section = document.AddSection();
 ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
 WListLevel levelOne = listStyle.Levels[0];
 //Define the follow character, pattern, start index for level 0.
-levelOne.FollowCharacter = FollowCharacterType.Nothing;
 levelOne.PatternType = ListPatternType.Bullet;
 levelOne.BulletCharacter = "*";
 levelOne.StartAt = 1;
 WListLevel levelTwo = listStyle.Levels[1];
 //Define the follow character, pattern, start index for level 1.
-levelTwo.FollowCharacter = FollowCharacterType.Nothing;
 levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.BulletCharacter = "\u00A9";
+levelTwo.CharacterFormat.FontName = "Wingdings";
 levelTwo.StartAt = 1;
 WListLevel levelThree = listStyle.Levels[2];
 //Define the follow character, pattern, start index for level 2.
-levelThree.FollowCharacter = FollowCharacterType.Nothing;
 levelThree.PatternType = ListPatternType.Bullet;
+levelThree.BulletCharacter = "\u0076";
+levelThree.CharacterFormat.FontName = "Wingdings";
 levelThree.StartAt = 1;
 //Add new paragraph to the section.
 IWParagraph paragraph = section.AddParagraph();
@@ -3960,19 +3961,20 @@ Dim section As IWSection = document.AddSection()
 Dim listStyle As ListStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList")
 Dim levelOne As WListLevel = listStyle.Levels(0)
 'Define the follow character, pattern, start index for level 0.
-levelOne.FollowCharacter = FollowCharacterType.Nothing
 levelOne.PatternType = ListPatternType.Bullet
 levelOne.BulletCharacter = "*"
 levelOne.StartAt = 1
 Dim levelTwo As WListLevel = listStyle.Levels(1)
 'Define the follow character, pattern, start index for level 1.
-levelTwo.FollowCharacter = FollowCharacterType.Nothing
 levelTwo.PatternType = ListPatternType.Bullet
+levelTwo.BulletCharacter = ChrW(169)
+levelTwo.CharacterFormat.FontName = "Wingdings"
 levelTwo.StartAt = 1
 Dim levelThree As WListLevel = listStyle.Levels(2)
 'Define the follow character, pattern, start index for level 2.
-levelThree.FollowCharacter = FollowCharacterType.Nothing
 levelThree.PatternType = ListPatternType.Bullet
+levelThree.BulletCharacter = ChrW(118)
+levelThree.CharacterFormat.FontName = "Wingdings"
 levelThree.StartAt = 1
 'Add new paragraph to the section.
 Dim paragraph As IWParagraph = section.AddParagraph()
@@ -4009,19 +4011,20 @@ IWSection section = document.AddSection();
 ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
 WListLevel levelOne = listStyle.Levels[0];
 //Define the follow character, pattern, start index for level 0.
-levelOne.FollowCharacter = FollowCharacterType.Nothing;
 levelOne.PatternType = ListPatternType.Bullet;
 levelOne.BulletCharacter = "*";
 levelOne.StartAt = 1;
 WListLevel levelTwo = listStyle.Levels[1];
 //Define the follow character, pattern, start index for level 1.
-levelTwo.FollowCharacter = FollowCharacterType.Nothing;
 levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.BulletCharacter = "\u00A9";
+levelTwo.CharacterFormat.FontName = "Wingdings";
 levelTwo.StartAt = 1;
 WListLevel levelThree = listStyle.Levels[2];
 //Define the follow character, pattern, start index for level 2.
-levelThree.FollowCharacter = FollowCharacterType.Nothing;
 levelThree.PatternType = ListPatternType.Bullet;
+levelThree.BulletCharacter = "\u0076";
+levelThree.CharacterFormat.FontName = "Wingdings";
 levelThree.StartAt = 1;
 //Add new paragraph to the section.
 IWParagraph paragraph = section.AddParagraph();
@@ -4063,19 +4066,20 @@ IWSection section = document.AddSection();
 ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
 WListLevel levelOne = listStyle.Levels[0];
 //Define the follow character, pattern, start index for level 0.
-levelOne.FollowCharacter = FollowCharacterType.Nothing;
 levelOne.PatternType = ListPatternType.Bullet;
 levelOne.BulletCharacter = "*";
 levelOne.StartAt = 1;
 WListLevel levelTwo = listStyle.Levels[1];
 //Define the follow character, pattern, start index for level 1.
-levelTwo.FollowCharacter = FollowCharacterType.Nothing;
 levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.BulletCharacter = "\u00A9";
+levelTwo.CharacterFormat.FontName = "Wingdings";
 levelTwo.StartAt = 1;
 WListLevel levelThree = listStyle.Levels[2];
 //Define the follow character, pattern, start index for level 2.
-levelThree.FollowCharacter = FollowCharacterType.Nothing;
 levelThree.PatternType = ListPatternType.Bullet;
+levelThree.BulletCharacter = "\u0076";
+levelThree.CharacterFormat.FontName = "Wingdings";
 levelThree.StartAt = 1;
 //Add new paragraph to the section.
 IWParagraph paragraph = section.AddParagraph();
@@ -4116,19 +4120,20 @@ IWSection section = document.AddSection();
 ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
 WListLevel levelOne = listStyle.Levels[0];
 //Define the follow character, pattern, start index for level 0.
-levelOne.FollowCharacter = FollowCharacterType.Nothing;
 levelOne.PatternType = ListPatternType.Bullet;
 levelOne.BulletCharacter = "*";
 levelOne.StartAt = 1;
 WListLevel levelTwo = listStyle.Levels[1];
 //Define the follow character, pattern, start index for level 1.
-levelTwo.FollowCharacter = FollowCharacterType.Nothing;
 levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.BulletCharacter = "\u00A9";
+levelTwo.CharacterFormat.FontName = "Wingdings";
 levelTwo.StartAt = 1;
 WListLevel levelThree = listStyle.Levels[2];
 //Define the follow character, pattern, start index for level 2.
-levelThree.FollowCharacter = FollowCharacterType.Nothing;
 levelThree.PatternType = ListPatternType.Bullet;
+levelThree.BulletCharacter = "\u0076";
+levelThree.CharacterFormat.FontName = "Wingdings";
 levelThree.StartAt = 1;
 //Add new paragraph to the section.
 IWParagraph paragraph = section.AddParagraph();
