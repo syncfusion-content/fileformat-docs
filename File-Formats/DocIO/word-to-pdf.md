@@ -842,7 +842,7 @@ pdfDocument.Close();
 
 {% endtabs %}
 
-The following code sample shows how to preserve Word document headings and Bookmarks as PDF bookmarks in the converted PDF document.
+The following code sample shows how to preserve both Word document headings and Bookmarks as PDF bookmarks in the converted PDF document.
 
 {% tabs %}
 {% highlight c# %}
