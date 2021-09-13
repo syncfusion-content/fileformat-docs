@@ -165,7 +165,7 @@ using (WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType
 
 {% highlight vb.net %}
 'Load an existing Word document.
-Using wordDocument As WordDocument = New WordDocument("D:\SupportWork\KB-Changes\WF-60939\Template.docx", FormatType.Docx)
+Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Initializes the ChartToImageConverter for converting charts during Word to image conversion.
     wordDocument.ChartToImageConverter = New ChartToImageConverter()
     'Set the scaling mode for charts (Normal mode reduces the file size).
