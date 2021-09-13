@@ -128,7 +128,7 @@ wordDocument.Close()
 {% endtabs %}
 
 
-The following code snippet illustrates how to convert a Word document to image using custom image resolution.
+The following code snippet illustrates how to convert a Word document to an image using custom image resolution.
 
 
 {% tabs %}
@@ -140,9 +140,9 @@ using (WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType
     wordDocument.ChartToImageConverter = new ChartToImageConverter();
     //Set the scaling mode for charts (Normal mode reduces the file size).
     wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-    //Convert word document to image.
+    //Convert the word document to images.
     Image[] images = wordDocument.RenderAsImages(ImageType.Metafile);
-    //Declare variables to hold custom width and height
+    //Declare the variables to hold custom width and height.
     int customWidth = 1500;
     int customHeight = 1500;
     foreach (Image image in images)
@@ -151,13 +151,13 @@ using (WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType
         image.Save(stream, ImageFormat.Png);
         //Create a bitmap of specific width and height.
         Bitmap bitmap = new Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb);
-        //Get the graphics from image.
+        //Get the graphics from an image.
         Graphics graphics = Graphics.FromImage(bitmap);
         //Set the resolution.
         bitmap.SetResolution(300, 300);
         //Recreate the image in custom size.
         graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-        //Save the image as bitmap.
+        //Save the image as a bitmap.
         bitmap.Save(@"ImageOutput" + Guid.NewGuid().ToString() + ".png");
     }
 }
@@ -166,13 +166,13 @@ using (WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType
 {% highlight vb.net %}
 'Load an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
-    'Initializes the ChartToImageConverter for converting charts during Word to image conversion.
+    'Initialize the ChartToImageConverter for converting charts during Word to image conversion.
     wordDocument.ChartToImageConverter = New ChartToImageConverter()
     'Set the scaling mode for charts (Normal mode reduces the file size).
     wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-    'Convert word document to image.
+    'Convert the word document to images.
     Dim images() As Image = wordDocument.RenderAsImages(ImageType.Metafile)
-    'Declare variables to hold custom width and height.
+    'Declare the variables to hold custom width and height.
     Dim customWidth As Integer = 1500
     Dim customHeight As Integer = 1500
     For Each image As Image In images
@@ -180,13 +180,13 @@ Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatTyp
         image.Save(stream, ImageFormat.Png)
         'Create a bitmap of specific width and height.
         Dim bitmap As Bitmap = New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb)
-        'Get the graphics from image.
+        'Get the graphics from an image.
         Dim graphics As Graphics = Graphics.FromImage(bitmap)
         'Set the resolution.
         bitmap.SetResolution(300, 300)
         'Recreate the image in custom size.
         graphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
-        'Save the image as bitmap.
+        'Save the image as a bitmap.
         bitmap.Save(("ImageOutput" + (Guid.NewGuid.ToString + ".png")))
     Next
 
@@ -194,15 +194,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+//DocIO only supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+//DocIO only supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+//DocIO only supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform.
 {% endhighlight %}
 {% endtabs %}
 
