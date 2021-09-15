@@ -259,6 +259,99 @@ N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not s
 N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
+
+The following code example shows how to set XHTML validation option while appending HTML file into Word document.
+
+{% tabs %}
+{% highlight c# %}
+//Creates Word document instance. 
+using (WordDocument document = new WordDocument())
+{
+    //HTML string.
+    string html1 = "<div x='123'>XYZ</div>";
+    string html2 = "<div id='1'>Lucky</div>";
+    //Sets XHTML validation option 
+    document.XHTMLValidateOption = XHTMLValidationType.None;
+    IWSection section = document.AddSection();
+    IWParagraph paragraph = section.AddParagraph();
+    //Append HTML into Word document.
+    paragraph.AppendHTML(html1);
+    paragraph.AppendHTML(html2);
+    //Save the Word document.
+    document.Save("Output.docx");
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+ Using document As WordDocument = New WordDocument
+    'HTML string.
+    Dim html1 As String = "<div x='123'>XYZ</div>"
+    Dim html2 As String = "<div id='1'>Lucky</div>"
+    'Sets XHTML validation option. 
+    document.XHTMLValidateOption = XHTMLValidationType.None
+    Dim section As IWSection = document.AddSection
+    Dim paragraph As IWParagraph = section.AddParagraph
+    'Append HTML into Word document.
+    paragraph.AppendHTML(html1)
+    paragraph.AppendHTML(html2)
+    'Save the Word document.
+    document.Save("Output.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+// DocIO only supports XHTML Validation option in Windows Forms, WPF, ASP.NET and ASP.NET MVC, ASP.NET Core platform.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Create Word document instance. 
+using (WordDocument document = new WordDocument())
+{
+//HTML string.
+string html1 = "<div x='123'>XYZ</div>";
+string html2 = "<div id='1'>Lucky</div>";
+//Set XHTML validation option. 
+document.XHTMLValidateOption = XHTMLValidationType.None;
+IWSection section = document.AddSection();
+IWParagraph paragraph = section.AddParagraph();
+//Append HTML into Word document.
+paragraph.AppendHTML(html1);
+paragraph.AppendHTML(html2);
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+//Download Word document in the browser.
+return File(stream, "application/msword", "Output.docx");
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+        
+    //HTML string.
+    string html1 = "<div x='123'>XYZ</div>";
+    string html2 = "<div id='1'>Lucky</div>";
+    //Sets XHTML validation option 
+    document.XHTMLValidateOption = XHTMLValidationType.None;
+    IWSection section = document.AddSection();
+    IWParagraph paragraph = section.AddParagraph();
+    //Append HTML into Word document.
+    paragraph.AppendHTML(html1);
+    paragraph.AppendHTML(html2);
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, Syncfusion.DocIO.FormatType.Docx);
+    stream.Position = 0;
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.docx", "application/msword", stream);
+}
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+{% endtabs %}
+
 ### Customize image data
 
 The Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
