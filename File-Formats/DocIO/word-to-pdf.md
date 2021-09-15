@@ -842,6 +842,144 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+The following code sample shows how to preserve both Word document headings and Bookmarks as PDF bookmarks in the converted PDF document.
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing Word document
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+DocToPDFConverter converter = new DocToPDFConverter();
+//Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+converter.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings | Syncfusion.DocIO.ExportBookmarkType.Bookmarks;
+//Converts Word document into PDF document
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+//Saves the PDF file to file system
+pdfDocument.Save("WordtoPDF.pdf");
+//Closes the instance of document objects
+pdfDocument.Close(true);
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+Dim converter As New DocToPDFConverter()
+'Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+converter.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings | Syncfusion.DocIO.ExportBookmarkType.Bookmarks
+'Converts Word document into PDF document
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+'Saves the PDF file to file system
+pdfDocument.Save("WordtoPDF.pdf")
+'Closes the instance of document objects
+pdfDocument.Close(True)
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
+              FormatType.Docx))
+{
+    //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+    DocIORenderer docIORenderer = new DocIORenderer();
+    //Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+    docIORenderer.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings | Syncfusion.DocIO.ExportBookmarkType.Bookmarks;
+    //Converts Word document into PDF document
+    PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+    //Save the document into stream.
+    MemoryStream stream = new MemoryStream();
+    pdfDocument.Save(stream);
+    //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+    Save(stream, "WordToPDF.pdf");
+    //Closes the Word and PDF document
+    document.Close();
+    pdfDocument.Close();
+}
+
+//Saves the PDF document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+//Open the file as Stream
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
+//Loads file stream into Word document
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+render.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings | Syncfusion.DocIO.ExportBookmarkType.Bookmarks;
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+wordDocument.Dispose();
+//Saves the PDF file
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Load the Word document as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+// Loads the stream into Word Document.
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+render.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings | Syncfusion.DocIO.ExportBookmarkType.Bookmarks;
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+wordDocument.Dispose();
+//Saves the PDF file
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+{% endhighlight %}
+
+{% endtabs %}
+
 ### Word document form field to PDF form field.
 
 This setting allows you to determine whether to **preserve Word document form fields** (Text form field, Checkbox form field and Drop-down form field) as PDF form fields in the converted PDF document. This features helps in **creating fillable PDF forms from Word document**.
@@ -2412,6 +2550,178 @@ wordDocument.Close()
 
 {% highlight Xamarin %}
 //DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+
+{% endtabs %}
+
+### Restrict all permission in a PDF document
+
+you can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html)
+
+The below code example shows how to restrict Copying and Printing permission of the PDF document.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument("Template.docx");
+//Creates an instance of the DocToPDFConverter
+DocToPDFConverter converter = new DocToPDFConverter();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = converter.ConvertToPDF(document);
+//Document security.
+PdfSecurity security = pdfDocument.Security;
+//Specifies key size and encryption algorithm using 256-bit key in AES mode.
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+security.Algorithm = Syncfusion.Pdf.Security.PdfEncryptionAlgorithm.AES;
+security.OwnerPassword = "syncfusion";
+//It restrict printing and copying of PDF document
+security.Permissions =  ~(PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.Print);
+pdfDocument.Save("Output.pdf");
+pdfDocument.Close();
+converter.Dispose();
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an instance of WordDocument class
+Dim document As WordDocument = New WordDocument("Template.docx")
+'Creates an instance of the DocToPDFConverter
+Dim converter As DocToPDFConverter = New DocToPDFConverter()
+'Converts Word document into PDF document
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(document)
+'Document security.
+Dim security As PdfSecurity = pdfDocument.Security
+'Specifies key size and encryption algorithm using 256-bit key in AES mode.
+security.KeySize = PdfEncryptionKeySize.Key256Bit
+security.Algorithm = Syncfusion.Pdf.Security.PdfEncryptionAlgorithm.AES
+security.OwnerPassword = "syncfusion"
+'It restrict printing and copying of PDF document
+security.Permissions = Not (PdfPermissionsFlags.CopyContent Or PdfPermissionsFlags.Print)
+pdfDocument.Save("Output.pdf")
+pdfDocument.Close()
+converter.Dispose()
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Automatic);
+inputStream.Dispose();
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Document security.
+PdfSecurity security = pdfDocument.Security;
+//Specifies key size and encryption algorithm using 256-bit key in AES mode.
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+security.Algorithm = Syncfusion.Pdf.Security.PdfEncryptionAlgorithm.AES;
+security.OwnerPassword = "syncfusion";
+//It restrict printing and copying of PDF document
+security.Permissions = ~(PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.Print);
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+wordDocument.Dispose();
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+pdfDocument.Save(stream);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+pdfDocument.Close();
+			
+//Saves the PDF document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Open the file as Stream
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
+//Loads file stream into Word document
+WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic);
+docStream.Dispose();
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Document security.
+PdfSecurity security = pdfDocument.Security;
+//Specifies key size and encryption algorithm using 256-bit key in AES mode.
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+security.Algorithm = Syncfusion.Pdf.Security.PdfEncryptionAlgorithm.AES;
+security.OwnerPassword = "syncfusion";
+//It restrict printing and copying of PDF document
+security.Permissions = ~(PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.Print);
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+wordDocument.Dispose();
+//Saves the PDF file
+FileStream outputFile = new FileStream("Output.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+pdfDocument.Save(outputFile);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+outputFile.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
+//Opens an existing document from file system through constructor of WordDocument class
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+fileStream.Dispose();
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(document);
+//Document security.
+PdfSecurity security = pdfDocument.Security;
+//Specifies key size and encryption algorithm using 256-bit key in AES mode.
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+security.Algorithm = Syncfusion.Pdf.Security.PdfEncryptionAlgorithm.AES;
+security.OwnerPassword = "syncfusion";
+//It restrict printing and copying of PDF document
+security.Permissions = ~(PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.Print);
+render.Dispose();
+document.Close();
+//Saves the PDF file to file on local storage    
+MemoryStream pdfStream = new MemoryStream();
+pdfDocument.Save(pdfStream);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", pdfStream);
 {% endhighlight %}
 
 {% endtabs %}
