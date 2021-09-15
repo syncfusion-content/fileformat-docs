@@ -5466,7 +5466,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
-## Appending OLE objects
+## Working with OLE objects
 
 OLE (Object Linking and Embedding) objects allow embedding and linking to documents and other objects. It allows the content of one program to be used in a Word document. The Objects can be inserted in the following two ways:
 
@@ -5474,6 +5474,8 @@ OLE (Object Linking and Embedding) objects allow embedding and linking to docume
 * Embedded: The content is copied to the Word document and is not linked to the source file 
 
 You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using `WOleObject` instance.
+
+### Add OLE Objects in Word document
 
 The following code example explains how to add OLE objects to the document.
 
@@ -5599,6 +5601,717 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}  
+
+### Extract OLE Objects from Word document
+
+The following code example explains how to extract OLE objects from the document and save as seperate file.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Opens an existing document
+using (WordDocument document = new WordDocument("Template.docx"))
+{
+    // Extract the OLE object from the word document
+    ExtractOLEObject(document);
+}
+
+private static void ExtractOLEObject(WordDocument document)
+{
+    WOleObject oleObject = null;
+    int oleIndex = -1;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            foreach (Entity entity in paragraph.ChildEntities)
+            {
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    //Gets OleObject
+                    oleObject = entity as WOleObject;
+                    //Gets index of OleObject
+                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
+                    //Gets ole type
+                    string oleTypeStr = oleObject.ObjectType;
+                    // Checks for Excel type so that file can be saved with proper extension.
+                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                    {
+                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                        {
+                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xlsx", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                        else
+                        {
+                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xls", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                    }
+                    //Checks for Word document embedded object and save them
+                    if (oleTypeStr.Contains("Word.Document"))
+                    {
+                        if (oleTypeStr.Contains("Word.Document.12"))
+                        {
+                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".docx", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                        else if (oleTypeStr.Contains("Word.Document.8"))
+                        {
+                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".doc", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                    }
+                    //Checks for PDF embedded object and save them
+                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
+                    {
+                        FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".pdf", FileMode.Create);
+                        fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                        fstream.Flush();
+                        fstream.Close();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Opens an existing document
+Using document As WordDocument = New WordDocument(inputFileName)
+    'Extract the OLE object from the word document
+    ExtractOLEObject(document)
+End Using
+
+Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
+    Dim oleObject As WOleObject = Nothing
+    Dim oleIndex As Integer = -1
+
+    ' Retrieving embedded object.
+    For Each section As WSection In document.Sections
+        For Each paragraph As WParagraph In section.Paragraphs
+            For Each entity As Entity In paragraph.ChildEntities
+                'Checks for oleObject
+                If entity.EntityType Is EntityType.OleObject Then
+                    'Gets OleObject
+                    oleObject = TryCast(entity, WOleObject)
+                    'Gets index of OleObject
+                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject)
+                    'Gets ole type
+                    Dim oleTypeStr As String = oleObject.ObjectType
+
+                    ' Checks for Excel type so that file can be saved with proper extension.
+                    If oleTypeStr.Contains("Excel 2003 Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.8") OrElse oleTypeStr.Contains("Excel Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.12") Then
+                        If oleTypeStr.Contains("Excel Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.12") Then
+                             Dim fstream As FileStream = New FileStream("Workbook" & oleObject.OleStorageName & ".xlsx", FileMode.Create)
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length)
+                            fstream.Flush()
+                            fstream.Close()
+                            Exit For
+                        Else
+                            Dim fstream As FileStream = New FileStream("Workbook" & oleObject.OleStorageName & ".xls", FileMode.Create)
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length)
+                            fstream.Flush()
+                            fstream.Close()
+                            Exit For
+                        End If
+                    End If
+
+                    'Checks for Word document embedded object and save them
+                    If oleTypeStr.Contains("Word.Document") Then
+                        If oleTypeStr.Contains("Word.Document.12") Then
+                            Dim fstream As FileStream = New FileStream("Sample" & oleObject.OleStorageName & ".docx", FileMode.Create)
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length)
+                            fstream.Flush()
+                            fstream.Close()
+                            Exit For
+                        ElseIf oleTypeStr.Contains("Word.Document.8") Then
+                            Dim fstream As FileStream = New FileStream("Sample" & oleObject.OleStorageName & ".doc", FileMode.Create)
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length)
+                            fstream.Flush()
+                            fstream.Close()
+                            Exit For
+                        End If
+                    End If
+
+                    'Checks for PDF embedded object and save them
+                    If oleTypeStr.Contains("Acrobat Document") OrElse oleTypeStr.StartsWith("AcroExch.Document.7") OrElse oleTypeStr.Contains("AcroExch.Document.11") OrElse oleTypeStr.StartsWith("AcroExch.Document.DC") Then
+                        Dim fstream As FileStream = New FileStream("Sample" & oleObject.OleStorageName & ".pdf", FileMode.Create)
+                        fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length)
+                        fstream.Flush()
+                        fstream.Close()
+                        Exit For
+                    End If
+                End If
+            Next
+        Next
+    Next
+End Sub
+
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
+WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+// Extract the OLE object from the word document
+ExtractOLEObject(document);
+document.Close();
+
+private static void ExtractOLEObject(WordDocument document)
+{
+    WOleObject oleObject = null;
+    int oleIndex = -1;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            foreach (Entity entity in paragraph.ChildEntities)
+            {
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    //Gets OleObject
+                    oleObject = entity as WOleObject;
+                    //Gets index of OleObject
+                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
+                    //Gets ole type
+                    string oleTypeStr = oleObject.ObjectType;
+                    // Checks for Excel type so that file can be saved with proper extension.
+                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                    {
+                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                        {
+                            MemoryStream stream = new MemoryStream();
+                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Save(stream, "application/msexcel" ,"Workbook" + oleObject.OleStorageName + ".xlsx");
+                            break;
+                        }
+                        else
+                        {
+                            MemoryStream stream = new MemoryStream();
+                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Save(stream, "application/msexcel", "Workbook" + oleObject.OleStorageName + ".xls");
+                            break;
+                        }
+                    }
+                    //Checks for Word document embedded object and save them
+                    if (oleTypeStr.Contains("Word.Document"))
+                    {
+                        if (oleTypeStr.Contains("Word.Document.12"))
+                        {
+                            MemoryStream stream = new MemoryStream();
+                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Save(stream, "application/msword", "Sample" + oleObject.OleStorageName + ".docx");
+                            break;
+                        }
+                        else if (oleTypeStr.Contains("Word.Document.8"))
+                        {
+                            MemoryStream stream = new MemoryStream();
+                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Save(stream, "application/msword", "Sample" + oleObject.OleStorageName + ".doc");
+                            break;
+                        }
+                    }
+                    //Checks for PDF embedded object and save them
+                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
+                    {
+                        MemoryStream stream = new MemoryStream();
+                        stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                        Save(stream, "application/pdf", "Sample" + oleObject.OleStorageName + ".pdf");
+                        break;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+async void Save(MemoryStream streams, string contentType, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".docx";
+        savePicker.SuggestedFileName = filename;
+        switch (contentType)
+        {
+            case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+                savePicker.FileTypeChoices.Add("PowerPoint Presentation", new List<string>() { ".pptx", ".ppt" });
+                break;
+
+            case "application/msexcel":
+                savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx", ".xls" });
+                break;
+
+            case "application/msword":
+                savePicker.FileTypeChoices.Add("Word Document", new List<string>() { ".docx", ".doc" });
+                break;
+
+            case "application/pdf":
+                savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+                break;
+            case "application/html":
+                savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html" });
+                break;
+        }
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+using (FileStream inputStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read))
+{
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
+    {
+	    // Extract the OLE object from the word document
+        ExtractOLEObject(document);
+    }
+}
+
+private static void ExtractOLEObject(WordDocument document)
+{
+    WOleObject oleObject = null;
+    int oleIndex = -1;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            foreach (Entity entity in paragraph.ChildEntities)
+            {
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    //Gets OleObject
+                    oleObject = entity as WOleObject;
+                    //Gets index of OleObject
+                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
+                    //Gets ole type
+                    string oleTypeStr = oleObject.ObjectType;
+                    // Checks for Excel type so that file can be saved with proper extension.
+                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                    {
+                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                        {
+                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xlsx", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                        else
+                        {
+                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xls", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                    }
+                    //Checks for Word document embedded object and save them
+                    if (oleTypeStr.Contains("Word.Document"))
+                    {
+                        if (oleTypeStr.Contains("Word.Document.12"))
+                        {
+                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".docx", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                        else if (oleTypeStr.Contains("Word.Document.8"))
+                        {
+                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".doc", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                    }
+                    //Checks for PDF embedded object and save them
+                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
+                    {
+                        FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".pdf", FileMode.Create);
+                        fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                        fstream.Flush();
+                        fstream.Close();
+                        break;
+                    }
+
+                }
+            }
+        }
+    }
+}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
+// Extract the OLE object from the word document
+ExtractOLEObject(wordDocument);
+wordDocument.Close();
+
+private static void ExtractOLEObject(WordDocument document)
+{
+    WOleObject oleObject = null;
+    int oleIndex = -1;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            foreach (Entity entity in paragraph.ChildEntities)
+            {
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    //Gets OleObject
+                    oleObject = entity as WOleObject;
+                    //Gets index of OleObject
+                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
+                    //Gets ole type
+                    string oleTypeStr = oleObject.ObjectType;
+                    // Checks for Excel type so that file can be saved with proper extension.
+                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                    {
+                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                        {
+                            MemoryStream memoryStream = new MemoryStream();
+                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Workbook" + oleObject.OleStorageName + ".xlsx", "application/msexcel", memoryStream);
+                            break;
+                        }
+                        else
+                        {
+                            MemoryStream memoryStream = new MemoryStream();
+                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Workbook" + oleObject.OleStorageName + ".xls", "application/msexcel", memoryStream);
+                            break;
+                        }
+                    }
+                    //Checks for Word document embedded object and save them
+                    if (oleTypeStr.Contains("Word.Document"))
+                    {
+                        if (oleTypeStr.Contains("Word.Document.12"))
+                        {
+                            MemoryStream memoryStream = new MemoryStream();
+                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".docx", "application/msword", memoryStream);
+                            break;
+                        }
+                        else if (oleTypeStr.Contains("Word.Document.8"))
+                        {
+                            MemoryStream memoryStream = new MemoryStream();
+                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".doc", "application/msword", memoryStream);
+                            break;
+                        }
+                    }
+                    //Checks for PDF embedded object and save them
+                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
+                    {
+                        MemoryStream memoryStream = new MemoryStream();
+                        memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".pdf", "application/pdf", memoryStream);
+                        break;
+                    }
+
+                }
+            }
+        }
+    }
+}
+{% endhighlight %} 
+
+{% endtabs %}  
+
+### Remove OLE Objects from Word document
+  
+The following code example explains how to remove OLE objects from the document.  
+  
+{% tabs %}  
+
+{% highlight c# %}
+//Opens the source document 
+WordDocument document = new WordDocument(@"Template.docx");
+//Remove OLE object from the document
+RemoveOLEObject(document);
+//Saves the Word document
+document.Save("Output.docx", FormatType.Docx);
+//Closes the document
+document.Close();
+
+private static void RemoveOLEObject(WordDocument document)
+{
+    bool isFieldStart = false;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+            {
+                Entity entity = paragraph.ChildEntities[i];
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = true;
+                    i--;
+                }
+                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
+                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = false;
+                    i--;
+                }
+                else if (isFieldStart)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    i--;
+                }
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Opens the source document 
+Dim document As WordDocument = New WordDocument("Template.docx")
+'Remove OLE object from the document
+RemoveOLEObject(document)
+'Saves the Word document
+document.Save("Output.docx", FormatType.Docx)
+'Closes the document
+document.Close()
+
+
+Private Shared Sub RemoveOLEObject(ByVal document As WordDocument)
+    Dim isFieldStart As Boolean = False
+    'Retrieving embedded object.
+    For Each section As WSection In document.Sections
+        For Each paragraph As WParagraph In section.Paragraphs
+            For i As Integer = 0 To paragraph.ChildEntities.Count - 1
+                Dim entity As Entity = paragraph.ChildEntities(i)
+                'Checks for oleObject
+                If entity.EntityType Is EntityType.OleObject Then
+                    paragraph.ChildEntities.Remove(entity)
+                    isFieldStart = True
+                    i -= 1
+                ElseIf isFieldStart AndAlso entity.EntityType Is EntityType.FieldMark AndAlso TryCast(entity, WFieldMark).Type Is FieldMarkType.FieldEnd Then
+                    paragraph.ChildEntities.Remove(entity)
+                    isFieldStart = False
+                    i -= 1
+                ElseIf isFieldStart Then
+                    paragraph.ChildEntities.Remove(entity)
+                    i -= 1
+                End If
+            Next
+        Next
+    Next
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
+WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+//Remove OLE object from the document
+RemoveOLEObject(document);
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word document file in local machine
+Save(stream, "Output.docx");
+//Refer to the following link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+
+private void RemoveOLEObject(WordDocument document)
+{
+    bool isFieldStart = false;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+            {
+                Entity entity = paragraph.ChildEntities[i];
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = true;
+                    i--;
+                }
+                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
+                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = false;
+                    i--;
+                }
+                else if (isFieldStart)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    i--;
+                }
+            }
+        }
+    }
+}
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+FileStream inputStream = new FileStream(@"Input.docx", FileMode.Open, FileAccess.Read);
+WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
+inputStream.Dispose();
+//Remove OLE object from the document
+RemoveOLEObject(document);
+//Saves the word document
+FileStream outputFile = new FileStream("Output.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+document.Save(outputFile, FormatType.Docx);
+//Closes the document
+document.Close();
+outputFile.Dispose();
+
+private static void RemoveOLEObject(WordDocument document)
+{
+    bool isFieldStart = false;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+            {
+                Entity entity = paragraph.ChildEntities[i];
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = true;
+                    i--;
+                }
+                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
+                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = false;
+                    i--;
+                }
+                else if (isFieldStart)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    i--;
+                }
+            }
+        }
+    }
+}
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+//Remove OLE object from the document
+RemoveOLEObject(document);
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.docx", "application/msword", stream);
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+
+private static void RemoveOLEObject(WordDocument document)
+{
+    bool isFieldStart = false;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+            {
+                Entity entity = paragraph.ChildEntities[i];
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = true;
+                    i--;
+                }
+                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
+                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = false;
+                    i--;
+                }
+                else if (isFieldStart)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    i--;
+                }
+            }
+        }
+    }
+}
+{% endhighlight %} 
+
+{% endtabs %}  
+  
   
 ## Working with Text Box
 
