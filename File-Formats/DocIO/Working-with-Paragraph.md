@@ -5604,7 +5604,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 ### Extract OLE Objects from Word document
 
-The following code example explains how to extract OLE objects from the document and save as seperate file.
+The following code example explains how to extract OLE objects from the document and save as separate file.
 
 {% tabs %}  
 
