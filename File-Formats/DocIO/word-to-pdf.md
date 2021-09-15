@@ -2556,7 +2556,7 @@ wordDocument.Close()
 
 ### Restrict all permission in a PDF document
 
-you can restrict all the permission in a PDF document using PdfPermissionsFlags[https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html]
+you can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html)
 
 The below code example shows how to restrict Copying and Printing permission of the PDF document.
 
