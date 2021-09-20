@@ -148,6 +148,12 @@ N> 1. PowerPoint Presentation to PDF conversion is supported in Blazor server-si
 N> 2. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
 N> 3. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
+N> 5. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
+
+N>To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Presentation to PDF conversion.
+
+N>Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) Forms platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf?cs-save-lang=1&cs-lang=csharp) code examples for it. But in Mac and Linux environment, using the WPF or Windows Forms platform NuGet packages have limitations.
+
 
 **Customizing the PowerPoint Presentation to PDF conversion**
 
