@@ -2523,9 +2523,6 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", FormatType.
 		{
 			//Saves the PDF file to file system.
 			pdfDocument.Save("Sample.pdf");
-			//Closes the instance of document objects.
-			pdfDocument.Close(true);
-			wordDocument.Close();
 		}
 	}
 }
@@ -2548,9 +2545,6 @@ Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatTyp
 		Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
 			'Saves the PDF file to file system.
 			pdfDocument.Save("Sample.pdf")
-			'Closes the instance of document objects.
-			pdfDocument.Close(True)
-			wordDocument.Close()
 		End Using
 	End Using
 End Using
@@ -2578,9 +2572,6 @@ using (WordDocument wordDocument = new WordDocument((assembly.GetManifestResourc
 				pdfDocument.Save(stream);
 				//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
 				Save(stream, "Sample.pdf");
-				//Closes the Word and PDF document.
-				wordDocument.Close();
-				pdfDocument.Close();
 			}
 		}
 	}
@@ -2641,11 +2632,6 @@ using (FileStream fileStream = new FileStream("Template.docx", FileMode.Open))
 				using (FileStream outputStream = new FileStream("Sample.pdf", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
 				{
 					pdfDocument.Save(outputStream);
-					//Closes the instance of document objects.
-					renderer.Dispose();
-					pdfDocument.Close();
-					wordDocument.Close();
-					outputStream.Position = 0;
 				}
 			}
 		}
@@ -2675,8 +2661,7 @@ using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResource
 				pdfDocument.Save(stream);
 				//Save the stream as a file in the device and invoke it for viewing
 				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pdf", "application/pdf", stream);
-				//Closes the document instance
-				wordDocument.Close();
+
 				//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 				//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 			}

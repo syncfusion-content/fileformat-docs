@@ -29,8 +29,6 @@ using (IPresentation presentation = Presentation.Create())
 	presentation.Encrypt("PASSWORD!@1#$");
 	//Saves the Presentation.
 	presentation.Save("Sample.pptx");
-	//Closes the Presentation instance.
-	presentation.Close();
 }
 {% endhighlight %}
 
@@ -47,8 +45,6 @@ Using presentationDocument As IPresentation = Presentation.Create()
 	presentationDocument.Encrypt("PASSWORD!@1#$")
 	'Saves the Presentation.
 	presentationDocument.Save("Sample.pptx")
-	'Closes the Presentation instance.
-	presentationDocument.Close()
 End Using
 {% endhighlight %}
 
@@ -67,9 +63,6 @@ using (IPresentation presentation = Presentation.Create())
 	using (FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create))
 	{
 		presentation.Save(outputStream);
-		//Closes the Presentation instance.
-		outputStream.Dispose();
-		presentation.Close();
 	}
 }
 {% endhighlight %}
@@ -90,8 +83,6 @@ using (IPresentation presentation = Presentation.Create())
 	using (MemoryStream stream = new MemoryStream())
 	{
 		presentation.Save(stream);
-		//Close the PowerPoint presentation
-		presentation.Close();
 		//Save the stream as a file in the device and invoke it for viewing
 		Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 	}
@@ -118,8 +109,6 @@ using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@
 {
 	//Saves the Presentation.
 	presentation.Save("Output.pptx");
-	//Closes the Presentation instance.
-	presentation.Close();
 }
 {% endhighlight %}
 
@@ -128,8 +117,6 @@ using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@
 Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
 	'Saves the Presentation
 	presentationDocument.Save("Output.pptx")
-	'Closes the Presentation instance.
-	presentationDocument.Close()
 End Using
 presentationDocument.Close()
 {% endhighlight %}
@@ -144,9 +131,6 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
 		using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create))
 		{
 			presentation.Save(outputStream);
-			//Closes the Presentation instance.
-			outputStream.Dispose();
-			presentation.Close();
 		}
 	}
 }
@@ -162,8 +146,6 @@ using (IPresentation presentation = Presentation.Open(assembly.GetManifestResour
 	using (MemoryStream stream = new MemoryStream())
 	{
 		presentation.Save(stream);
-		//Close the PowerPoint presentation
-		presentation.Close();
 		//Save the stream as a file in the device and invoke it for viewing
 		Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 	}
@@ -186,8 +168,6 @@ using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@
 	presentation.RemoveEncryption();
 	//Saves the presentation.
 	presentation.Save("Output.pptx");
-	//Closes the Presentation instance.
-	presentation.Close();
 }
 {% endhighlight %}
 
@@ -198,8 +178,6 @@ Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "
 	presentationDocument.RemoveEncryption()
 	'Saves the Presentation.
 	presentationDocument.Save("Output.pptx")
-	'Closes the Presentation instance.
-	presentationDocument.Close()
 End Using
 {% endhighlight %}
 
@@ -216,9 +194,6 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
 		using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create))
 		{
 			presentation.Save(outputStream);
-			//Closes the Presentation instance.
-			outputStream.Dispose();
-			presentation.Close();
 		}
 	}
 }
@@ -236,8 +211,6 @@ using (IPresentation presentation = Presentation.Open(assembly.GetManifestResour
 	using (MemoryStream stream = new MemoryStream())
 	{
 		presentation.Save(stream);
-		//Close the PowerPoint presentation
-		presentation.Close();
 		//Save the stream as a file in the device and invoke it for viewing
 		Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 	}
