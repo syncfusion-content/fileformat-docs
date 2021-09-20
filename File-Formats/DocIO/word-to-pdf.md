@@ -2516,14 +2516,18 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", FormatType.
 	//Sets the scaling mode for charts.
 	wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
 	//Creates an instance of the DocToPDFConverter.
-	DocToPDFConverter converter = new DocToPDFConverter();
-	//Converts Word document into PDF document.
-	PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
-	//Saves the PDF file to file system.
-	pdfDocument.Save("Sample.pdf");
-	//Closes the instance of document objects.
-	pdfDocument.Close(true);
-	wordDocument.Close();
+	using (DocToPDFConverter converter = new DocToPDFConverter())
+	{
+		//Converts Word document into PDF document.
+		using (PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument))
+		{
+			//Saves the PDF file to file system.
+			pdfDocument.Save("Sample.pdf");
+			//Closes the instance of document objects.
+			pdfDocument.Close(true);
+			wordDocument.Close();
+		}
+	}
 }
 {% endhighlight %}
 
@@ -2539,14 +2543,16 @@ Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatTyp
 	'Sets the scaling mode for charts.
 	wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
 	'Creates an instance of the DocToPDFConverter.
-	Dim converter As New DocToPDFConverter()
-	'Converts Word document into PDF document.
-	Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
-	'Saves the PDF file to file system.
-	pdfDocument.Save("Sample.pdf")
-	'Closes the instance of document objects.
-	pdfDocument.Close(True)
-	wordDocument.Close()
+	Using converter As New DocToPDFConverter()
+		'Converts Word document into PDF document.
+		Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+			'Saves the PDF file to file system.
+			pdfDocument.Save("Sample.pdf")
+			'Closes the instance of document objects.
+			pdfDocument.Close(True)
+			wordDocument.Close()
+		End Using
+	End Using
 End Using
 {% endhighlight %}
 
@@ -2561,17 +2567,23 @@ using (WordDocument wordDocument = new WordDocument((assembly.GetManifestResourc
 	//Sets the color to be used for Comment Balloon.
 	wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
 	//Creates an instance of DocIORenderer.
-	DocIORenderer docIORenderer = new DocIORenderer();
-	//Converts Word document into PDF document.
-	PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument);
-	//Save the document into stream.
-	MemoryStream stream = new MemoryStream();
-	pdfDocument.Save(stream);
-	//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-	Save(stream, "Sample.pdf");
-	//Closes the Word and PDF document.
-	wordDocument.Close();
-	pdfDocument.Close();
+	using (DocIORenderer docIORenderer = new DocIORenderer())
+	{
+		//Converts Word document into PDF document.
+		using (PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument))
+		{
+			//Save the document into stream.
+			using (MemoryStream stream = new MemoryStream())
+			{
+				pdfDocument.Save(stream);
+				//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+				Save(stream, "Sample.pdf");
+				//Closes the Word and PDF document.
+				wordDocument.Close();
+				pdfDocument.Close();
+			}
+		}
+	}
 }
 //Saves the PDF document.
 async void Save(MemoryStream streams, string filename)
@@ -2610,26 +2622,34 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
-//Loads an existing Word document.
-using (WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx))
+using (FileStream fileStream = new FileStream("Template.docx", FileMode.Open))
 {
-	//Sets ShowInBalloons to render a document comments in converted PDF document.
-	wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
-	//Sets the color to be used for Comment Balloon.
-	wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
-	//Creates an instance of DocIORenderer.
-	DocIORenderer renderer = new DocIORenderer();
-	//Converts Word document into PDF document.
-	PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
-	//Saves the PDF file to file system.    
-	FileStream outputStream = new FileStream("Sample.pdf", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-	pdfDocument.Save(outputStream);
-	//Closes the instance of document objects.
-	renderer.Dispose();
-	pdfDocument.Close();
-	wordDocument.Close();
-	outputStream.Position = 0;
+	//Loads an existing Word document.
+	using (WordDocument wordDocument = new WordDocument(fileStream,FormatType.Docx))
+	{
+		//Sets ShowInBalloons to render a document comments in converted PDF document.
+		wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
+		//Sets the color to be used for Comment Balloon.
+		wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
+		//Creates an instance of DocIORenderer.
+		using (DocIORenderer renderer = new DocIORenderer())
+		{
+			//Converts Word document into PDF document.
+			using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+			{
+				//Saves the PDF file to file system.    
+				using (FileStream outputStream = new FileStream("Sample.pdf", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+				{
+					pdfDocument.Save(outputStream);
+					//Closes the instance of document objects.
+					renderer.Dispose();
+					pdfDocument.Close();
+					wordDocument.Close();
+					outputStream.Position = 0;
+				}
+			}
+		}
+	}
 }
 {% endhighlight %}
 
@@ -2644,18 +2664,24 @@ using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResource
 	//Sets the color to be used for Comment Balloon.
 	wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
 	//Creates an instance of DocIORenderer.
-	DocIORenderer docIORenderer = new DocIORenderer();
-	//Converts Word document into PDF document.
-	PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument);
-	//Saves the Word document to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	pdfDocument.Save(stream);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pdf", "application/pdf", stream);
-	//Closes the document instance
-	wordDocument.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+	using (DocIORenderer docIORenderer = new DocIORenderer())
+	{
+		//Converts Word document into PDF document.
+		using (PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument))
+		{
+			//Saves the Word document to MemoryStream
+			using (MemoryStream stream = new MemoryStream())
+			{
+				pdfDocument.Save(stream);
+				//Save the stream as a file in the device and invoke it for viewing
+				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pdf", "application/pdf", stream);
+				//Closes the document instance
+				wordDocument.Close();
+				//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+				//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+			}
+		}
+	}
 }
 {% endhighlight %}
 
