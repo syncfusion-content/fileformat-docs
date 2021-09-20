@@ -118,7 +118,6 @@ Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "
 	'Saves the Presentation
 	presentationDocument.Save("Output.pptx")
 End Using
-presentationDocument.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
