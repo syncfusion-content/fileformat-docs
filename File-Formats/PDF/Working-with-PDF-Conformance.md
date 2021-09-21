@@ -2519,3 +2519,110 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %} 
+
+## Get PDF to PDF/A conversion progress
+
+You can get conversion progress using PdfAConversionProgress event.
+
+The following code sample shows the delegate for handling PDF to PDF/A conversion process
+
+{% tabs %}
+{% highlight c# %}
+
+//Load a PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+// Set the conformance for PDF/A-1b conversion.
+
+loadedDocument.Conformance = PdfConformanceLevel.Pdf_A1B;
+
+loadedDocument.PdfAConversionProgress += pdfAConversion_TrackProgress;
+
+//Save the document
+
+loadedDocument.Save("Output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Event handler for Track PDF to PDF/A conversion process
+
+void pdfAConversion_TrackProgress(object sender, PdfAConversionProgressEventArgs arguments)
+{
+MessageBox.Show(String.Format("PDF to PDF/A conversion Process " + arguments. ProgressValue + " % completed"));
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+' Load a PDF document 
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
+
+' Set the conformance for PDF/A-1b conversion.
+loadedDocument.Conformance = PdfConformanceLevel.Pdf_A1B
+
+loadedDocument.PdfAConversionProgress += pdfAConversion_TrackProgress
+
+'Save the document
+
+loadedDocument.Save("Output.pdf")
+
+'Close the document
+loadedDocument.Close(True)
+
+'Event handler for Track PDF to PDF/A conversion process
+Private  Sub pdfAConversion_TrackProgress(ByVal sender As Object, ByVal arguments As PdfAConversionProgressEventArgs)
+MessageBox.Show(String.Format(PDF to PDF/A conversion Process " + arguments. ProgressValue + " % completed"))
+
+
+{% endhighlight %}
+
+
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF.
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Set the conformance for PDF/A-1b conversion.
+
+loadedDocument.Conformance = PdfConformanceLevel.Pdf_A1B;
+
+loadedDocument.PdfAConversionProgress += pdfAConversion_TrackProgress;
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+loadedDocument.Position = 0;
+
+//Close the document
+loadedDocument.Close(true);
+
+//Event handler for Track PDF to PDF/A conversion process
+void pdfAConversion_TrackProgress(object sender, PdfAConversionProgressEventArgs arguments)
+{
+MessageBox.Show(String.Format("PDF to PDF/A conversion Process " + arguments. ProgressValue + " % completed"));
+}
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% endtabs %}
