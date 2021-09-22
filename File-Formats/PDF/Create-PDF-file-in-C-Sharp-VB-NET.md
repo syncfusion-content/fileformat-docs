@@ -1118,7 +1118,7 @@ The following screenshot shows the invoice PDF document created by using Essenti
 
 ## Filling forms
 
-An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A PDF document can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
 Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
 
@@ -1300,7 +1300,7 @@ The filled form is shown in adobe reader application as follows.
 
 ## Converting HTML contents to PDF
 
-Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF conversion functionality by using WebKit rendering engine, the following assemblies need to be added as reference to the project.
+Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF conversion functionality by using [WebKit rendering engine](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlRenderingEngine.html), the following assemblies need to be added as reference to the project.
 
 <table>
   <tr>
@@ -1570,7 +1570,7 @@ finalDoc.Close(True)
 
 {% endhighlight %}
 {% endtabs %}
-You can merge the PDF document streams by using the following code example.
+You can merge the [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) streams by using the following code example.
 
 {% tabs %}
 {% highlight c# %}
