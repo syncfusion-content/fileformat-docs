@@ -3284,14 +3284,6 @@ Not supported
 </tr>
 <tr>
 <td>
-Comments
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
 Vertical Alignment of the section
 </td>
 <td>

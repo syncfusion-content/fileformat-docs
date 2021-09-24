@@ -91,7 +91,8 @@ using (IPresentation presentation = Presentation.Create())
 
 {% endtabs %}
 
-N> PowerPoint Presentation doesn't support encryption in ASP.NET Core, Blazor and Xamarin.
+N> 1. In Xamarin application, this feature is supported from the target framework .NET Standard 2.0 version onwards. 
+N> 2. For ASP.NET Core, this feature is supported from .NET Core 2.0 version onwards.
 
 ## Decrypting the PowerPoint Presentation
 
