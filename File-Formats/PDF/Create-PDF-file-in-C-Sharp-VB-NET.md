@@ -1366,7 +1366,7 @@ For converting HTTPS sites, it requires OPENSSL libraries to be installed in the
 
 WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
 
-X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=26999](https://www.microsoft.com/en-in/download/details.aspx?id=26999)
+[https://www.microsoft.com/en-in/download/details.aspx?id=26999](https://www.microsoft.com/en-in/download/details.aspx?id=26999)
 
 To convert website URL or local HTML file to PDF by using WebKit rendering engine, refer to the following code example.
 
