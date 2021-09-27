@@ -30,7 +30,7 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 4.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Presentation .Net Core Nuget](Workingwith_WinUI/Workingwith_WinUI.png)
+![Install Presentation .Net Core Nuget](Workingwith_WinUI/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
@@ -71,7 +71,7 @@ using System.IO;
 
 {% endtabs %}
 
-7.Add a new action method **CreatePresentaion** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
+7.Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
 
 {% tabs %}
 
@@ -180,7 +180,7 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 4.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Presentation .Net Core Nuget](Workingwith_WinUI/install_nuget.png)
+![Install Presentation .Net Core Nuget](Workingwith_WinUI/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
@@ -225,7 +225,7 @@ using System.Reflection;
 
 {% endtabs %}
 
-7.Add a new action method **CreatePresentaion** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
+7.Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
 
 {% tabs %}
 
@@ -355,7 +355,7 @@ async void Save(MemoryStream stream)
 			}
 		}
 	}
-	//Launches the saved Powerpoint file.
+	//Launches the saved PowerPoint file.
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 {% endhighlight %}
