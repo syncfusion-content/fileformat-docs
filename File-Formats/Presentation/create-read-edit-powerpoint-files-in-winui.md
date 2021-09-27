@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read and edit a PowerPoint file in WinUI
 
-You can create or edit a PowerPoint file in WinUI with Syncfusion PowerPoint library. The below are the steps.
+Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net-core) used to create, read, and edit **PowerPoint** documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **create a PowerPoint document in WinUI**.
 
 **Prerequisites:**
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment).
@@ -130,9 +130,11 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endtabs %}
 
-The output of the above code example will generate the below PowerPoint slide.
+A complete working example to create a Word document in WinUI Desktop app can be downloaded from this link.
 
-![WinUI UWP Output](Workingwith_WinUI/GettingStartedSample.png)
+By executing the program, you will get the **PowerPoint slide** as follows.
+
+![WinUI Desktop Output](Workingwith_WinUI/GettingStartedSample.png)
 
 ### Read and edit a PowerPoint file in WinUI
 
@@ -284,7 +286,9 @@ using (IPresentation pptxDoc = Presentation.Create())
 		Save(stream);
 	}
 }
-The output of the above code example will generate the below PowerPoint slide.
+A complete working example to create a Word document in WinUI UWP app can be downloaded from this link.
+
+By executing the program, you will get the **PowerPoint slide** as follows.
 
 ![WinUI UWP Output](Workingwith_WinUI/GettingStartedSample.png)
 

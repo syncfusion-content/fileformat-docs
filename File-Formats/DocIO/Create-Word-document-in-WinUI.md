@@ -305,6 +305,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+A complete working example to create a Word document in WinUI Desktop app can be downloaded from this link.
+
 By executing the program, you will get the **Word document** as follows.
 
 ![WinUI Desktop output Word document](WinUI_Images/GettingStartedOutput.jpg)
@@ -604,6 +606,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+
+A complete working example to create a Word document in WinUI UWP app can be downloaded from this link.
 
 By executing the program, you will get the **Word document** as follows.
 
