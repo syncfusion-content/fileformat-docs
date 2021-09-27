@@ -20,11 +20,11 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 ![Create WinUI Desktop app in Visual Studio](WinUI_Images/Create_Desktop_Project.png)
 
-2.Enter the project name and **click** Create.
+2.Enter the project name and click **Create**.
 
 ![Create a project name for your new project](WinUI_Images/Desktop_Configure.png)
 
-3.Set the Target version to Windows 10, version 2004 (build 19041) and Minimum version to Windows 10, version 1809 (build 17763) and then click OK.
+3.Set the Target version to Windows 10, version 2004 (build 19041) and Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
 ![Set target version](WinUI_Images/Target_Version.png)
 
@@ -317,11 +317,11 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 ![Create WinUI UWP app in Visual Studio](WinUI_Images/Create_UWP_Project.png)
 
-2.Enter the project name and **click** Create.
+2.Enter the project name and click **Create**.
 
 ![Create a project name for your new project](WinUI_Images/UWP_Configure.png)
 
-3.Set the Target version to Windows 10, version 2004 (build 19041) and Minimum version to Windows 10, version 1809 (build 17763) and then click OK.
+3.Set the Target version to Windows 10, version 2004 (build 19041) and Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
 ![Set target version](WinUI_Images/Target_Version.png)
 
@@ -362,10 +362,9 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% highlight c# %}
 
-using System.IO;
+using System.Reflection;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
-using System.Reflection;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.Storage.Pickers;
