@@ -305,7 +305,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-A complete working example to create a Word document in WinUI Desktop app can be downloaded from this link.
+A complete working example to create a Word document in WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample415176333).
 
 By executing the program, you will get the **Word document** as follows.
 
@@ -607,7 +607,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-A complete working example to create a Word document in WinUI UWP app can be downloaded from this link.
+A complete working example to create a Word document in WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample_UWP-1270097257).
 
 By executing the program, you will get the **Word document** as follows.
 
