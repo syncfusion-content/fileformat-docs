@@ -237,7 +237,7 @@ The output screen-shot of the above code.
 
 ## Create a Simple Excel File
 
-An instance of the ExcelEngine gives access to create an application instance that is similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
+An instance of the [ExcelEngine](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelEngine.html) gives access to create an application instance that is similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
 
 {% tabs %}  
 {% highlight c# %}
@@ -968,7 +968,7 @@ The output screen-shot of the above code.
 
 ## Import Data to Excel Worksheets
 
-XlsIO helps to import data from various data sources into a worksheet. The following data sources can be imported using XlsIO:
+[XlsIO](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.html) helps to import data from various data sources into a worksheet. The following data sources can be imported using XlsIO:
 
 * Collection Objects
 * Data Table

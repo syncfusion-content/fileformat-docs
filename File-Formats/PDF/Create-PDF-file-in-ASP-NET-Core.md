@@ -24,7 +24,7 @@ Create a new C# ASP.NET Core Web Application project.
 Select Web Application pattern (Model-View-Controller) for the project.
 ![Creation2](Asp.Net.Core_images/Creation2.jpg)
 
-Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Creation3](Asp.Net.Core_images/Creation3.jpg)
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
@@ -321,7 +321,7 @@ The following screenshot shows the invoice PDF document created by using Essenti
 
 ## Filling forms
 
-An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A PDF document can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
 Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
 

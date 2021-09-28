@@ -25,7 +25,7 @@ Create a new C# ASP.NET Core Web Application project.
 Select Web Application pattern (Model-View-Controller) for the project.
 ![Convert_WebKit2](Asp.Net.Core_images/Convert_WebKit2.png)
 
-Install the [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Install the [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Convert_WebKit3](Asp.Net.Core_images/Convert_WebKit3.png)
 
 Copy the QtBinariesWindows folder from the installed HtmlToPdfConverter package and paste it into the folder which contains the HTMLtoPDF.csproj file.
@@ -107,7 +107,7 @@ Select Web Application pattern (Model-View-Controller) for the project.
 Install the [Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Convert_Blink1](Asp.Net.Core_images/Convert_Blink1.png)
 
-Copy the BlinkBinariesWindows folder from the installed HtmlToPdfConverter package and paste it into the folder which contains the HTMLtoPDF.csproj file.
+Copy the BlinkBinariesWindows folder from the installed [HtmlToPdfConverter](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter) package and paste it into the folder which contains the HTMLtoPDF.csproj file.
 ![BlinkCore_BinariesImage](Convert-HTML-To-PDF/htmlconversion_images/BlinkCore_BinariesImage.png)
 ![Convert_Blink2](Asp.Net.Core_images/Convert_Blink2.png)
 
