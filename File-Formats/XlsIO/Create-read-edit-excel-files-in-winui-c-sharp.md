@@ -50,7 +50,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
 
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Create a workbook with a worksheet
     IWorkbook workbook = application.Workbooks.Create(1);
@@ -284,7 +284,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
 
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     Assembly executingAssembly = typeof(App).GetTypeInfo().Assembly;
     Stream inputStream = executingAssembly.GetManifestResourceStream("WinUISample.Sample.xlsx");
