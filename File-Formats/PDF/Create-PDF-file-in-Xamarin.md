@@ -25,7 +25,7 @@ N> If .NET Standard is not available in the code sharing strategy, the Portable 
 
 ![Creation2](Xamarin_images/Creation2.jpg)
 
-Install the [Syncfusion.Xamarin.PDF](https://www.nuget.org/packages/Syncfusion.Xamarin.PDF/) NuGet package as a reference to your.NET Framework applications from [NuGet.org](https://www.nuget.org/).
+Install the [Syncfusion.Xamarin.PDF](https://www.nuget.org/packages/Syncfusion.Xamarin.PDF/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as a reference to your.NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation3](Xamarin_images/Creation3.jpg)
 
 Add new Forms XAML page in portable project if there is no XAML page is defined in the App class. Otherwise, proceed to the next step.
