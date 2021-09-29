@@ -130,7 +130,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endtabs %}
 
-A complete working example of creating a Presentaion file in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint1714506431).
+A complete working example of creating a Presentation file in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint1714506431).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
