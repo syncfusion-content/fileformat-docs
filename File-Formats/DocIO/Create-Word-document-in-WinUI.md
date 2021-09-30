@@ -317,7 +317,7 @@ By executing the program, you will get the **Word document** as follows.
 
 ![Create the WinUI UWP app in Visual Studio](WinUI_Images/Create_UWP_Project.png)
 
-N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension] (https://aka.ms/projectreunion/previewdownload) for Visual Studio.
+N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://aka.ms/projectreunion/previewdownload) for Visual Studio.
 
 2.Enter the project name and click **Create**.
 
@@ -333,7 +333,7 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5.Add a new button in the **MainPage.xaml ** as shown below.
+5.Add a new button in the **MainPage.xaml** as shown below.
 
 {% tabs %}
 
@@ -640,7 +640,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			//Write compressed data from memory to file
+			//Write compressed data from memory to file.
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -649,7 +649,7 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	//Launch the saved Word file
+	//Launch the saved Word file.
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
