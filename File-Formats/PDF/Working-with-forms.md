@@ -8687,9 +8687,9 @@ loadedDocument.Close(True)
 
 {% endtabs %}  
 
-## Export Form Data From PD
+## Export Form Data From PDF
 
-You can export the pdf form data to different formats such as FDF, XFDF or XML using the [ExportFormSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class. You can use the [ExportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html#Syncfusion_Pdf_Parsing_PdfLoadedForm_ExportData_System_IO_Stream_Syncfusion_Pdf_Parsing_DataFormat_System_String_  method with ExportFormSettings to export the form data to different formats. 
+You can export the pdf form data to different formats such as FDF, XFDF or XML using the [ExportFormSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class. You can use the [ExportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html#Syncfusion_Pdf_Parsing_PdfLoadedForm_ExportData_System_IO_Stream_Syncfusion_Pdf_Parsing_DataFormat_System_String_)  method with ExportFormSettings to export the form data to different formats. 
 
 The below code illustrates how to export a FDF file from a PDF document using the ExportFormSettings class.
 
