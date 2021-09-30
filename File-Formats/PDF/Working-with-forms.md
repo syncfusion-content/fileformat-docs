@@ -8387,7 +8387,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being imported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
 
@@ -8427,7 +8427,7 @@ settings.DataFormat = DataFormat.Fdf
 
 'Get or set the value that indicates the form name of the PDF form is being imported.
  
-settings.FormName   = "formname"
+settings.FormName   = "form name"
 
 ‘Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
 
@@ -8481,7 +8481,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being imported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
 
@@ -8533,7 +8533,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being imported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
 
@@ -8595,7 +8595,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being imported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
 
@@ -8715,7 +8715,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being exported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Export the form data to a file with the specified ExportFormSettings.
 
@@ -8751,7 +8751,7 @@ settings.DataFormat = DataFormat.Fdf
 
 'Get or set the value that indicates the form name of the PDF form is being exported.
  
-settings.FormName   = "formname"
+settings.FormName   = "form name"
 
 'Export the form data to a file with the specified ExportFormSettings.
 
@@ -8801,7 +8801,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being exported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Load the FDF file stream from the disk.
 
@@ -8843,7 +8843,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being exported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Load the FDF file stream from the disk.
 
@@ -8895,7 +8895,7 @@ settings.DataFormat = DataFormat.Fdf;
 
 //Get or set the value that indicates the form name of the PDF form is being exported.
 
-settings.FormName = "formname";
+settings.FormName = "form name";
 
 //Load the FDF file stream from the disk.
 
