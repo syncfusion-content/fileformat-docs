@@ -286,7 +286,10 @@ using (IPresentation pptxDoc = Presentation.Create())
 		Save(stream);
 	}
 }
-A complete working example of creating a Presentaion file in the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint_UWP-1992934961).
+{% endhighlight %}
+
+{% endtabs %}
+A complete working example of creating a Presentation file in the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint_UWP-1992934961).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
