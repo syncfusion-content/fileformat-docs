@@ -16,72 +16,80 @@ The following code example demonstrates how to encrypt a PowerPoint Presentation
 {% tabs %}
 
 {% highlight c# %}
-
-//Creates an instance for Presentation
-
-IPresentation presentation = Presentation.Create();
-
-//Adds slide to Presentation
-
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
-
-//Adds textbox to slide
-
-IShape shape = slide.Shapes.AddTextBox(100, 30, 200, 300);
-
-//Adds a paragraph with text content.
-
-IParagraph paragraph = shape.TextBody.AddParagraph("Password Protected.");
-
-//Protects the file with password
-
-presentation.Encrypt("PASSWORD!@1#$");
-
-//Saves the Presentation
-
-presentation.Save("Sample.pptx");
-
-//Closes the Presentation
-
-presentation.Close();
-
+//Creates an instance for Presentation.
+using (IPresentation presentation = Presentation.Create())
+{
+	//Adds slide to Presentation.
+	ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+	//Adds textbox to slide.
+	IShape shape = slide.Shapes.AddTextBox(100, 30, 200, 300);
+	//Adds a paragraph with text content.
+	IParagraph paragraph = shape.TextBody.AddParagraph("Password Protected.");
+	//Protects the file with password.
+	presentation.Encrypt("PASSWORD!@1#$");
+	//Saves the Presentation.
+	presentation.Save("Sample.pptx");
+}
 {% endhighlight %}
 
 {% highlight vb.net %}
+'Creates an instance for Presentation.
+Using presentationDocument As IPresentation = Presentation.Create()
+	'Adds slide to Presentation.
+	Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+	'Adds textbox to slide.
+	Dim shape As IShape = slide.Shapes.AddTextBox(100, 30, 200, 300)
+	'Adds a paragraph with text content.
+	Dim paragraph As IParagraph = shape.TextBody.AddParagraph("Password Protected.")
+	'Protects the file with password.
+	presentationDocument.Encrypt("PASSWORD!@1#$")
+	'Saves the Presentation.
+	presentationDocument.Save("Sample.pptx")
+End Using
+{% endhighlight %}
 
-'Creates an instance for Presentation
+{% highlight ASP.NET CORE %}
+using (IPresentation presentation = Presentation.Create())
+{
+	//Adds slide to Presentation.
+	ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+	//Adds textbox to slide.
+	IShape shape = slide.Shapes.AddTextBox(100, 30, 200, 300);
+	//Adds a paragraph with text content.
+	IParagraph paragraph = shape.TextBody.AddParagraph("Password Protected.");
+	//Protects the file with password.
+	presentation.Encrypt("PASSWORD!@1#$");
+	//Save the PowerPoint Presentation as stream.
+	using (FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create))
+	{
+		presentation.Save(outputStream);
+	}
+}
+{% endhighlight %}
 
-Dim presentationDocument As IPresentation = Presentation.Create()
-
-'Adds slide to Presentation
-
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
-
-'Adds textbox to slide
-
-Dim shape As IShape = slide.Shapes.AddTextBox(100, 30, 200, 300)
-
-'Adds a paragraph with text content.
-
-Dim paragraph As IParagraph = shape.TextBody.AddParagraph("Password Protected.")
-
-'Protects the file with password
-
-presentationDocument.Encrypt("PASSWORD!@1#$")
-
-'Saves the Presentation
-
-presentationDocument.Save("Sample.pptx")
-
-'Closes the Presentation
-
-presentationDocument.Close()
-
+{% highlight XAMARIN %}
+//Creates an instance for Presentation.
+using (IPresentation presentation = Presentation.Create())
+{
+	//Adds slide to Presentation.
+	ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+	//Adds textbox to slide.
+	IShape shape = slide.Shapes.AddTextBox(100, 30, 200, 300);
+	//Adds a paragraph with text content.
+	IParagraph paragraph = shape.TextBody.AddParagraph("Password Protected.");
+	//Protects the file with password.
+	presentation.Encrypt("PASSWORD!@1#$");
+	//Save the PowerPoint to stream in pptx format. 
+	using (MemoryStream stream = new MemoryStream())
+	{
+		presentation.Save(stream);
+		//Save the stream as a file in the device and invoke it for viewing
+		Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+	}
+}
 {% endhighlight %}
 
 {% endtabs %}
-
-N> PowerPoint Presentation doesn't support encryption in ASP.NET Core, Blazor and Xamarin.
 
 ## Decrypting the PowerPoint Presentation
 
@@ -94,35 +102,51 @@ The following code example demonstrates opening the encrypted PowerPoint Present
 {% tabs %}
 
 {% highlight c# %}
-
 //Opens an existing Presentation from file system and it can be decrypted by using the provided password.
-
-IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$");
-
-//Saves the Presentation
-
-presentation.Save("Output.pptx");
-
-//Closes the Presentation
-
-presentation.Close();
-
+using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$"))
+{
+	//Saves the Presentation.
+	presentation.Save("Output.pptx");
+}
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
+Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
+	'Saves the Presentation
+	presentationDocument.Save("Output.pptx")
+End Using
+{% endhighlight %}
 
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
+{% highlight ASP.NET CORE %}
+//Opens an existing Presentation from file system and it can be decrypted by using the provided password.
+using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
+{
+	using (IPresentation presentation = Presentation.Open(inputStream, "PASSWORD!@1#$"))
+	{
+		//Save the PowerPoint Presentation as stream.
+		using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create))
+		{
+			presentation.Save(outputStream);
+		}
+	}
+}
+{% endhighlight %}
 
-'Saves the Presentation
-
-presentationDocument.Save("Output.pptx")
-
-'Closes the Presentation
-
-presentationDocument.Close()
-
+{% highlight XAMARIN %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads or open an existing PowerPoint Presentation
+using (IPresentation presentation = Presentation.Open(assembly.GetManifestResourceStream("Sample.Assets.Sample.pptx"), "PASSWORD!@1#$"))
+{
+	//Save the PowerPoint to stream in pptx format. 
+	using (MemoryStream stream = new MemoryStream())
+	{
+		presentation.Save(stream);
+		//Save the stream as a file in the device and invoke it for viewing
+		Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+	}
+}
 {% endhighlight %}
 
 {% endtabs %}
@@ -134,45 +158,61 @@ The following code example demonstrates removing the encryption from a PowerPoin
 {% tabs %}
 
 {% highlight c# %}
-
 //Opens an existing Presentation from file system and it can be decrypted by using the provided password.
-
-IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$");
-
-//Decrypts the document
-
-presentation.RemoveEncryption();
-
-//Saves the presentation
-
-presentation.Save("Output.pptx");
-
-//Closes the Presentation
-
-presentation.Close();
-
+using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$"))
+{
+	//Decrypts the document.
+	presentation.RemoveEncryption();
+	//Saves the presentation.
+	presentation.Save("Output.pptx");
+}
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
-
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
-
-'Decrypts the document
-
-presentationDocument.RemoveEncryption()
-
-'Saves the Presentation
-
-presentationDocument.Save("Output.pptx")
-
-'Closes the Presentation
-
-presentationDocument.Close()
-
+Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
+	'Decrypts the document.
+	presentationDocument.RemoveEncryption()
+	'Saves the Presentation.
+	presentationDocument.Save("Output.pptx")
+End Using
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+ //Opens an existing Presentation from file system and it can be decrypted by using the provided password.
+using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
+{
+	//Opens an existing Presentation from file system and it can be decrypted by using the provided password.
+	using (IPresentation presentation = Presentation.Open(inputStream, "PASSWORD!@1#$"))
+	{
+		//Decrypts the document.
+		presentation.RemoveEncryption();
+		//Save the PowerPoint Presentation as stream.
+		using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create))
+		{
+			presentation.Save(outputStream);
+		}
+	}
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads or open an existing PowerPoint Presentation
+using (IPresentation presentation = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx"), "PASSWORD!@1#$"))
+{
+	//Decrypts the document.
+	presentation.RemoveEncryption();
+	//Save the PowerPoint to stream in pptx format. 
+	using (MemoryStream stream = new MemoryStream())
+	{
+		presentation.Save(stream);
+		//Save the stream as a file in the device and invoke it for viewing
+		Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+	}
+}
+{% endhighlight %}
 {% endtabs %}
 
 ## Write Protection
@@ -501,6 +541,6 @@ else
 
 {% endtabs %}
 
-N> 1. In Xamarin application, this feature is supported from the target framework .NET Standard 2.0 version onwards. 
-N> 2. For ASP.NET Core, this feature is supported from .NET Core 2.0 version onwards.
+N> 1. In Xamarin applications, Encryption, Decryption and Write Protection features are supported from the target framework .NET Standard 2.0 version onwards.
+N> 2. For ASP.NET Core, Encryption, Decryption and Write Protection features are supported from the .NET Core 2.0 version onwards.
 
