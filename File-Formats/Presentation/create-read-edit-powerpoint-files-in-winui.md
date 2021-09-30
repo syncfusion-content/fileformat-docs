@@ -172,7 +172,7 @@ using (IPresentation pptxDoc = Presentation.Open(new FileStream("Sample.pptx", F
 
 ![Create the WinUI UWP app in Visual Studio](Workingwith_WinUI/Create_UWP_Project.png)
 
-N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension] (https://aka.ms/projectreunion/previewdownload) for Visual Studio.
+N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://aka.ms/projectreunion/previewdownload) for Visual Studio.
 
 2.Enter the project name and click **Create**.
 
@@ -188,7 +188,7 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5.Add a new button to the **MainPage.xaml ** as shown below.
+5.Add a new button to the **MainPage.xaml** as shown below.
 
 {% tabs %}
 
