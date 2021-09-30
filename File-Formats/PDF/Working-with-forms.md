@@ -8359,6 +8359,278 @@ loadedDocument.Close(True)
 
 {% endtabs %}  
  
+## Importing Form Data to PDF
+
+You can import the pdf form data from different formats such as FDF, XFDF or XML using the [ImportFormSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html)  class. You can use the [ImportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html#Syncfusion_Pdf_Parsing_PdfLoadedForm_ImportData)  method with ImportFormSettings to import the form data from different formats. 
+
+The below code illustrates how to import a FDF file from a PDF document using ImportFormSettings class.
+
+{% tabs %} 
+
+{% highlight c# %}
+
+// Load an existing document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(".../.../input.pdf");
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to import form settings.
+
+ImportFormSettings settings = new ImportFormSettings();
+
+//Get or set the data format to import form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being imported.
+
+settings.FormName = "formname";
+
+//Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
+
+settings.IgnoreErrors = true;
+
+//Import the form data from the file with the specified ImportFormSettings.
+
+loadedForm.ImportData("Export.Fdf", settings);
+
+//Save the PDF document.
+
+loadedDocument.Save("Output.pdf");
+
+//close the document.
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load an existing document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Load an existing form
+
+Dim loadedForm As PdfLoadedForm = loadedDocument.Form
+
+'ImportFormSettings that represents the form field import settings.
+
+Dim settings As ImportFormSettings = New ImportFormSettings()
+
+'Get or set the data format to import form fields. 
+
+settings.DataFormat = DataFormat.Fdf
+
+'Get or set the value that indicates the form name of the PDF form is being imported.
+ 
+settings.FormName   = "formname"
+
+‘Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
+
+settings.IgnoreErrors = true;
+
+'Import the form data from the file with the specified ImportFormSettings.
+
+loadedForm.ImportData("Export.Fdf", settings)
+
+'Save the PDF document.
+
+loadedDocument.Save("Output.pdf")
+
+'close the document.
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker.
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file.
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Load or open an existing PDF document through the Open method of the PdfLoadedDocument class.
+
+await loadedDocument.OpenAsync(file);
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to import form settings.
+
+ImportFormSettings settings = new ImportFormSettings();
+
+//Get or set the data format to import form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being imported.
+
+settings.FormName = "formname";
+
+//Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
+
+settings.IgnoreErrors = true;
+
+
+//Load the FDF file stream from the disk.
+
+Stream fdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Export.fdf");
+
+
+//Import the form data from the file with the specified ImportFormSettings.
+
+loadedForm.ImportData(fdfStream, settings);
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for the respective code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to import form settings.
+
+ImportFormSettings settings = new ImportFormSettings();
+
+//Get or set the data format to import form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being imported.
+
+settings.FormName = "formname";
+
+//Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
+
+settings.IgnoreErrors = true;
+
+//Load the FDF file stream from the disk.
+
+FileStream fdfStream = new FileStream("Export.fdf", FileMode.Open, FileAccess.Read);
+
+//Import the form data from the file with the specified ImportFormSettings.
+
+loadedForm.ImportData(fdfStream, settings);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Define the ContentType for the PDF file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the PDF document.
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("GettingStarted.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to import form settings.
+
+ImportFormSettings settings = new ImportFormSettings();
+
+//Get or set the data format to import form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being imported.
+
+settings.FormName = "formname";
+
+//Get or set a flag that describes whether to ignore errors while importing a PDF form. The default value is false.
+
+settings.IgnoreErrors = true;
+
+Stream fdfStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.fdf");
+
+//Import the form data from the file with the specified ImportFormSettings.
+
+loadedForm.ImportData(fdfStream, settings);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into PDF file.
+//The operation of Saving under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for the respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Export PDF file to FDF
 
@@ -8414,6 +8686,242 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Export Form Data From PD
+
+You can export the pdf form data to different formats such as FDF, XFDF or XML using the [ExportFormSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class. You can use the [ExportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html#Syncfusion_Pdf_Parsing_PdfLoadedForm_ExportData_System_IO_Stream_Syncfusion_Pdf_Parsing_DataFormat_System_String_  method with ExportFormSettings to export the form data to different formats. 
+
+The below code illustrates how to export a FDF file from a PDF document using the ExportFormSettings class.
+
+{% tabs %} 
+
+{% highlight c# %}
+
+// Load an existing document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(".../.../input.pdf");
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to export form settings.
+
+ExportFormSettings settings = new ExportFormSettings();
+
+//Get or set the data format to export form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being exported.
+
+settings.FormName = "formname";
+
+//Export the form data to a file with the specified ExportFormSettings.
+
+loadedForm.ExportData("Export.Fdf", settings);
+
+//Save the PDF document.
+
+loadedDocument.Save("Output.pdf");
+
+//close the document.
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load an existing document.
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Load an existing form.
+
+Dim loadedForm As PdfLoadedForm = loadedDocument.Form
+
+'Create a new instance to export form settings.
+
+Dim settings As ExportFormSettings = New ExportFormSettings()
+
+'Get or set the data format to export form fields. 
+
+settings.DataFormat = DataFormat.Fdf
+
+'Get or set the value that indicates the form name of the PDF form is being exported.
+ 
+settings.FormName   = "formname"
+
+'Export the form data to a file with the specified ExportFormSettings.
+
+loadedForm.ExportData("Export.Fdf", settings)
+
+'Save the PDF document.
+
+loadedDocument.Save("Output.pdf")
+
+'close the document.
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker.
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file.
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Create an empty PDF loaded document instance.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Load or open an existing PDF document through the Open method of the PdfLoadedDocument class.
+
+await loadedDocument.OpenAsync(file);
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to export form settings.
+
+ExportFormSettings settings = new ExportFormSettings();
+
+//Get or set the data format to export form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being exported.
+
+settings.FormName = "formname";
+
+//Load the FDF file stream from the disk.
+
+Stream fdfStream = new MemoryStream();
+
+//Export the form data to a file with the specified ExportFormSettings.
+
+loadedForm.ExportData(fdfStream, settings);
+
+//Save the fdfStream as a FDF document file in the local machine. Refer to the PDF/UWP section for the respective code samples.
+
+Save(fdfStream, "Export.fdf");
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to export form settings.
+
+ExportFormSettings settings = new ExportFormSettings();
+
+//Get or set the data format to export form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being exported.
+
+settings.FormName = "formname";
+
+//Load the FDF file stream from the disk.
+
+Stream fdfStream = new MemoryStream();
+
+//Export the form data to a file with the specified ExportFormSettings.
+
+loadedForm.ExportData(fdfStream, settings);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+fdfStream.Position = 0;
+
+//Define the ContentType for the FDF file.
+
+string contentType = "application/fdf";
+
+//Define the file name.
+
+string fileName = "Export.Fdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name.
+
+return File(fdfStream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream.
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Load an existing form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create a new instance to export form settings.
+
+ExportFormSettings settings = new ExportFormSettings();
+
+//Get or set the data format to export form fields. 
+
+settings.DataFormat = DataFormat.Fdf;
+
+//Get or set the value that indicates the form name of the PDF form is being exported.
+
+settings.FormName = "formname";
+
+//Load the FDF file stream from the disk.
+
+Stream fdfStream = new MemoryStream();
+
+//Export the form data to a file with the specified ExportFormSettings.
+
+loadedForm.ExportData(fdfStream, settings);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into FDF file.
+//The operation of Saving under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for the respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Export.Fdf", "application/Fdf", fdfStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Export.Fdf", "application/Fdf", fdfStream);
+}
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Complex script support for form fields
 
@@ -10253,3 +10761,266 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Rotate form fields
+
+The Essential PDF library provides support for rotating the form fields in PDF documents. You can rotate the form fields such as text box, radio button, check box, combo box, button, list etc. by using  the [RotationAngle] (https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html#Syncfusion_Pdf_Interactive_PdfStyledField_RotationAngle)  property available in the [PdfStyledField] (https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfStyledField.html) class.
+
+N>The rotation angle value should be a multiple of 90 (0, 90, 180, 270). Default value: 0.
+
+{% tabs %} 
+
+{% highlight c# %}
+
+//create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//set the page rotation angle.
+
+document.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 40, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Get and set the rotation angle of the form fields.
+
+textBoxField.RotationAngle =  90;
+
+//add the field to the collection.
+
+document.Form.Fields.Add(textBoxField);
+
+//enable or disable set appearance.
+
+document.Form.SetDefaultAppearance(true);
+
+//Save the document.
+
+document.Save("Output.pdf");
+
+//close the document.
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+
+Dim document As PdfDocument = New PdfDocument()
+
+'Add a new page to the PDF document.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'set the page rotation angle.
+
+document.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0
+
+'Create a textbox field and add the properties.
+
+Dim textBoxField As PdfTextBoxField = New PdfTextBoxField(page, "FirstName")
+
+textBoxField.ToolTip = "First Name"
+    
+'Get and set the rotation angle of the form fields.
+
+textBoxField.RotationAngle =  90
+
+'add the field to the collection.
+
+document.Form.Fields.Add(textBoxField)
+
+'enable or disable set appearance.
+
+document.Form.SetDefaultAppearance(True)
+
+'save the document.
+
+document.Save("Output.pdf")
+
+'close the document.
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//set the page rotation angle.
+
+document.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 40, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Get and set the rotation angle of the form fields.
+
+textBoxField.RotationAngle =  90;
+
+//add the field to the collection.
+
+document.Form.Fields.Add(textBoxField);
+
+//enable or disable set appearance.
+
+document.Form.SetDefaultAppearance(true);
+
+//Create memory stream
+
+MemoryStream stream = new MemoryStream();
+
+// Open the document in the browser after saving it.
+
+document.Save(stream);
+
+//close the document.
+
+document.Close(true);
+
+//Save the stream as a PDF document file in a local machine. Refer to the PDF/UWP section for the respective code samples
+
+Save(stream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//set the page rotation angle.
+
+document.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 40, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Get and set the rotation angle of the form fields.
+
+textBoxField.RotationAngle =  90;
+
+//add the field to the collection..
+
+document.Form.Fields.Add(textBoxField);
+
+//enable or disable set appearance.
+
+document.Form.SetDefaultAppearance(true);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//If the position is not set to '0',then the PDF will be empty. 
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Define the ContentType for the pdf file. 
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//set the page rotation angle.
+
+document.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 40, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Get and set the rotation angle of the form fields.
+
+textBoxField.RotationAngle =  90;
+
+//add the field to the collection.
+
+document.Form.Fields.Add(textBoxField);
+
+//enable or disable set appearance.
+
+document.Form.SetDefaultAppearance(true);
+
+//Save the document into stream .
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+// Close the document.
+
+document.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing.
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application / pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+

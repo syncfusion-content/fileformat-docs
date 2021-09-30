@@ -1837,6 +1837,8 @@ Essential PDF provides support to render simple HTML string in a PDF document th
 2. The [PdfMetafileLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfMetafileLayoutFormat.html) class enables to break the HTML text into multiple pages.
 3. Complex HTML with CSS are not supported in this class. Please use [HTML to PDF](/file-formats/pdf/converting-html-to-pdf "Converting HTML documents To PDF") section for complex HTML with CSS and URL's
 
+N>The [IsNativeRenderingEnabled] (https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfHTMLTextElement_IsNativeRenderingEnabled.html) property was introduced to decide the rendering mode of the html text in .NET Framework PDF library. By default, this properly is enabled and uses the native (GDI+) rendering approach (converting HTML text to a metafile, then rendering the metafile to a PDF page). This approach is not supported in the Azure App service. We can use this feature in Azure with the new rendering approach (Own parsing and direct rendering approach) by disabling the IsNativeRenderingEnabled property. 
+
 The following code example illustrates how to render the HTML string in a PDF document.   
 
 {% tabs %}
