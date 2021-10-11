@@ -60,8 +60,8 @@ Yes<br/><br/></td></tr>
 <tr>
 <td>
 Encryption and Decryption<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
 Yes—limited [except Word 2013]<br/><br/></td><td>
 Yes—limited [except Word 2013]<br/><br/></td><td>
 N/A<br/><br/></td><td>
