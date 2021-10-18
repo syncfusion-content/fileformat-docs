@@ -3048,3 +3048,103 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+## Removing the table rows
+
+You can remove a particular table row from a table rows collection by its instance or by its index position in the collection. The following code example shows how to remove a particular row from table in the Word document.
+
+{% tabs %} 
+
+{% highlight c# %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument("Template.docx");
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Remove particular row from the table
+table.Rows.RemoveAt(6);
+//Saves the Word document
+document.Save("Sample.docx", FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an instance of WordDocument class
+Dim document As New WordDocument("Template.docx")
+'Accesses the instance of the first section in the Word document
+Dim section As WSection = document.Sections(0)
+'Accesses the instance of the first table in the section
+Dim table As WTable = TryCast(section.Tables(0), WTable)
+'Remove particular row from the table
+table.Rows.RemoveAt(6)
+'Saves the Word document
+document.Save("Sample.docx", FormatType.Docx)
+'Closes the document
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Remove particular row from the table
+table.Rows.RemoveAt(6);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Remove particular row from the table
+table.Rows.RemoveAt(6);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Assets.Template.docx"), FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Remove particular row from the table
+table.Rows.RemoveAt(6);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
