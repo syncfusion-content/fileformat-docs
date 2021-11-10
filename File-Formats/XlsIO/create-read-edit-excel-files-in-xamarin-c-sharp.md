@@ -653,63 +653,63 @@ class SaveWindowsPhone: ISave
 {% highlight c# %}
 using System;
 using System.IO;
-using GettingStarted.Droid;
 using Android.Content;
 using Java.IO;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using Android.Support.V4.Content;
+using Android;
+using Android.Content.PM;
+using Android.Support.V4.App;
 
 [assembly: Dependency(typeof(SaveAndroid))]
 
 class SaveAndroid: ISave
 {
-    //Method to save document as a file in Android and view the saved document.
-    public async Task SaveAndView(string fileName, String contentType, MemoryStream stream, Context context)
-    {
-		string exception = string.Empty;
-        string root = null;
-		
-        //Get the root path of android device.
-        if (Android.OS.Environment.IsExternalStorageEmulated)
-        {
-            root = Android.OS.Environment.ExternalStorageDirectory.ToString();
-        }
-        else
-            root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+  //Method to save document as a file in Android and view the saved document
+  public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
+  {
+    string root = null;
 
-        //Create directory and file.
-        Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
-        myDir.Mkdir();
+	if (ContextCompat.CheckSelfPermission(Forms.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+	{
+	  ActivityCompat.RequestPermissions((Android.App.Activity)Forms.Context, new String[] { Manifest.Permission.WriteExternalStorage }, 1);
+	}
 
-        Java.IO.File file = new Java.IO.File(myDir, fileName);
+	//Get the root path in android device.
+	if (Android.OS.Environment.IsExternalStorageEmulated)
+	{
+	  root = Android.OS.Environment.ExternalStorageDirectory.ToString();
+	}
+	else
+	  root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-        //Remove the file if exists.
-        if (file.Exists()) file.Delete();
+	//Create directory and file 
+	Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
+	myDir.Mkdir();
 
-        try
-        {
-            FileOutputStream outs = new FileOutputStream(file);
-            outs.Write(stream.ToArray());
+	Java.IO.File file = new Java.IO.File(myDir, fileName);
 
-            outs.Flush();
-            outs.Close();
-        }
-        catch (Exception e)
-        {
-            exception = e.ToString();
-        }
+	//Write the stream into the file
+	FileOutputStream outs = new FileOutputStream(file);
+	outs.Write(stream.ToArray());
 
-        //Launch the saved file for viewing in default viewer.
-        if (file.Exists())
-        {
-            Android.Net.Uri path = Android.Net.Uri.FromFile(file);
-            string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
-            string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
-            Intent intent = new Intent(Intent.ActionView);
-            intent.SetDataAndType(path, mimeType);
-            context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
-        }
-    }
+	outs.Flush();
+	outs.Close();
+
+	//Invoke the created file for viewing
+	if (file.Exists())
+	{
+	  string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
+	  string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
+	  Intent intent = new Intent(Intent.ActionView);
+	  intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+	  Android.Net.Uri path = FileProvider.GetUriForFile(Forms.Context, Android.App.Application.Context.PackageName + ".provider", file);
+	  intent.SetDataAndType(path, mimeType);
+	  intent.AddFlags(ActivityFlags.GrantReadUriPermission);
+	  Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
+	}
+  }
 }
 {% endhighlight %}
 {% endtabs %}
