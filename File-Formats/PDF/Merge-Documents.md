@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Merge Documents
+# Merge PDF Documents .NET PDF Library
 
 Essential PDF supports [merging multiple PDF](https://www.syncfusion.com/pdf-framework/net/pdf-library/split-merge-pdf) documents from disk and stream.
 

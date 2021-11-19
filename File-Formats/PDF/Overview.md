@@ -13,7 +13,7 @@ The PDF framework is a feature rich [.NET PDF class library](https://www.syncfus
 
 The following list shows the key features available in the Essential PDF.
 
-* Support to [create PDF files](https://help.syncfusion.com/file-formats/pdf/getting-started) from scratch.
+* Support to [create PDF files](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net) from scratch.
 * Support to add [text](https://help.syncfusion.com/file-formats/pdf/working-with-text), various formats of [images](https://help.syncfusion.com/file-formats/pdf/working-with-images), [tables](https://help.syncfusion.com/file-formats/pdf/working-with-tables) and [shapes](https://help.syncfusion.com/file-formats/pdf/working-with-shapes).
 * Support for [creation](https://help.syncfusion.com/file-formats/pdf/working-with-forms#creating-a-new-pdf-form), [filling](https://help.syncfusion.com/file-formats/pdf/working-with-forms#filling-form-fields-in-an-existing-pdf-document) and [flattening](https://help.syncfusion.com/file-formats/pdf/working-with-forms#removing-editing-capability-of-form-fields) forms (AcroForms and XFA).  
 * Open, modify and save existing PDF files.
