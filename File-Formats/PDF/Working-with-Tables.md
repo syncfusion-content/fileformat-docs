@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Tables .NET PDF Library
+# Working with .NET PDF Tables 
 
 Essential PDF provides support for two types of [PDF table](https://www.syncfusion.com/pdf-framework/net/pdf-library/pdf-tables) models, both having a different levels of customization, which is explained below. The two types of table models are
 
