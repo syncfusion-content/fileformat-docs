@@ -32,7 +32,7 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 ![Install the PDF .NET Core NuGet package](WinUI_Images/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
 5.Add a new button to the **MainWindow.xaml** as shown below.
 
@@ -75,7 +75,7 @@ using System.Xml.Linq;
 
 {% endtabs %}
 
-7.Add a new action method **createPdf_Click** in MainWindow.xaml.cs and include the below code snippet to **create a PDF document**.
+7.Add a new action method **createPdf_Click** in MainWindow.xaml.cs and include the below code snippet to **create a PDF document**. Include helper classes, methods and required files in the assets folder.
 
 {% tabs %}
 
@@ -98,7 +98,7 @@ element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
 
-//Draw the image to PDF page with specified size. 
+//Draw the image to a PDF page with the specified size
 Stream imgStream = typeof(MainWindow).GetTypeInfo().Assembly.GetManifestResourceStream("CreatePdfDemoSample.Assets.logo.jpg");
 PdfImage img = new PdfBitmap(imgStream);
 graphics.DrawImage(img, new RectangleF(graphics.ClientSize.Width - 200, result.Bounds.Y, 190, 45));
@@ -113,13 +113,13 @@ string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
 SizeF textSize = subHeadingFont.MeasureString(currentDate);
 graphics.DrawString(currentDate, subHeadingFont, element.Brush, new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y));
 
-//Create a text element and draw it to PDF page.
+//Create a text element and draw it to a PDF page.
 element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 graphics.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3));
 
-//Get products list to create invoice 
+//Get products list to create invoice.
 IEnumerable<CustOrders> products = Orders.GetProducts();
 
 List<CustOrders> list = new List<CustOrders>();
@@ -133,28 +133,28 @@ var reducedList = list.Select(f => new { f.ProductID, f.ProductName, f.Quantity,
 IEnumerable<ShipDetails> shipDetails = Orders.GetShipDetails();]]
 GetShipDetails(shipDetails);
 
-//Create a text element and draw it to PDF page.
+//Create a text element and draw it to a PDF page.
 element = new PdfTextElement(shipName, new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 5, graphics.ClientSize.Width / 2, 100));
 
-//Create a text element and draw it to PDF page.
+//Create a text element and draw it to a PDF page.
 element = new PdfTextElement(string.Format("{0}, {1}, {2}", address, shipCity, shipCountry), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, graphics.ClientSize.Width / 2, 100));
 
-//Create a PDF grid with product details.
+//Create a PDF grid with the product details.
 PdfGrid grid = new PdfGrid();
 grid.DataSource = reducedList;
 
-//Initialize PdfGridCellStyle and set border color.
+//Initialize PdfGridCellStyle and set the border color.
 PdfGridCellStyle cellStyle = new PdfGridCellStyle();
 cellStyle.Borders.All = PdfPens.White;
 cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
 cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
 cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
 
-//Initialize PdfGridCellStyle and set header style.
+//Initialize PdfGridCellStyle and set the header style.
 PdfGridCellStyle headerStyle = new PdfGridCellStyle();
 headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
 headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
@@ -201,7 +201,7 @@ grid.Columns[1].Width = 200;
 PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
 layoutFormat.Layout = PdfLayoutType.Paginate;
 
-//Draw grid to the page of PDF document.
+//Draw a grid on the page of the PDF document.
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 float pos = 0.0f;
 for (int i = 0; i < grid.Columns.Count - 1; i++)
@@ -256,7 +256,7 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 ![Install the PDF .NET Core NuGet package](WinUI_Images/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
 5.Add a new button in the **MainPage.xaml** as shown below.
 
@@ -303,15 +303,15 @@ using Windows.Storage.Streams;
 
 {% endtabs %}
 
-7.Add a new action method **createPdf_Click** in MainPage.xaml.cs and include the below code snippet to **create a PDF document**.
+7.Add a new action method **createPdf_Click** in MainWindow.xaml.cs and include the below code snippet to **create a PDF document**. Include helper classes, methods and required files in the assets folder.
 
 {% tabs %}
 
 {% highlight c# %}
 
 //Create a new PDF document.
-PdfDocument document = new PdfDocument();
-document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+ PdfDocument document = new PdfDocument();
+ document.PageSettings.Orientation = PdfPageOrientation.Landscape;
 document.PageSettings.Margins.All = 50;
 
 //Add a page to the document.
@@ -326,8 +326,8 @@ element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
 
-//Draw the image to PDF page with specified size. 
-Stream imgStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("CreatePdfDemoSampleUwp.Assets.logo.jpg");
+//Draw the image to a PDF page with the specified size
+Stream imgStream = typeof(MainWindow).GetTypeInfo().Assembly.GetManifestResourceStream("CreatePdfDemoSample.Assets.logo.jpg");
 PdfImage img = new PdfBitmap(imgStream);
 graphics.DrawImage(img, new RectangleF(graphics.ClientSize.Width - 200, result.Bounds.Y, 190, 45));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
@@ -341,13 +341,13 @@ string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
 SizeF textSize = subHeadingFont.MeasureString(currentDate);
 graphics.DrawString(currentDate, subHeadingFont, element.Brush, new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y));
 
-//Create a text element and draw it to PDF page.
+//Create a text element and draw it to a PDF page.
 element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 graphics.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3));
 
-//Get products list to create invoice 
+//Get products list to create invoice.
 IEnumerable<CustOrders> products = Orders.GetProducts();
 
 List<CustOrders> list = new List<CustOrders>();
@@ -358,31 +358,31 @@ foreach (CustOrders cust in products)
 var reducedList = list.Select(f => new { f.ProductID, f.ProductName, f.Quantity, f.UnitPrice, f.Discount, f.Price }).ToList();
 
 //Get the shipping address details. 
-IEnumerable<ShipDetails> shipDetails = Orders.GetShipDetails();
+IEnumerable<ShipDetails> shipDetails = Orders.GetShipDetails();]]
 GetShipDetails(shipDetails);
 
-//Create a text element and draw it to PDF page.
+//Create a text element and draw it to a PDF page.
 element = new PdfTextElement(shipName, new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 5, graphics.ClientSize.Width / 2, 100));
 
-//Create a text element and draw it to PDF page.
+//Create a text element and draw it to a PDF page.
 element = new PdfTextElement(string.Format("{0}, {1}, {2}", address, shipCity, shipCountry), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, graphics.ClientSize.Width / 2, 100));
 
-//Create a PDF grid with product details.
+//Create a PDF grid with the product details.
 PdfGrid grid = new PdfGrid();
 grid.DataSource = reducedList;
 
-//Initialize PdfGridCellStyle and set border color.
+//Initialize PdfGridCellStyle and set the border color.
 PdfGridCellStyle cellStyle = new PdfGridCellStyle();
 cellStyle.Borders.All = PdfPens.White;
 cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
 cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
 cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
 
-//Initialize PdfGridCellStyle and set header style.
+//Initialize PdfGridCellStyle and set the header style.
 PdfGridCellStyle headerStyle = new PdfGridCellStyle();
 headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
 headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
@@ -419,7 +419,7 @@ foreach (PdfGridRow row in grid.Rows)
             float.TryParse(cell.Value.ToString(), out val);
             cell.Value = '$' + val.ToString("0.00");
         }
-     }
+    }
 }
 
 grid.Columns[0].Width = 100;
@@ -429,7 +429,7 @@ grid.Columns[1].Width = 200;
 PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
 layoutFormat.Layout = PdfLayoutType.Paginate;
 
-//Draw grid to the page of PDF document.
+//Draw a grid on the page of the PDF document.
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 float pos = 0.0f;
 for (int i = 0; i < grid.Columns.Count - 1; i++)
@@ -464,6 +464,8 @@ By executing the program, you will get the **PDF document** as follows.
 ![WinUI UWP output PDF document](WinUI_Images/GettingStartedOutput.png)
 
 ### Save PDF document in UWP
+
+Use the following code snippet to save and open the PDF document as a file using FileSavePicker.
 
 {% tabs %}
 
