@@ -461,7 +461,7 @@ A complete working example of creating a PDF document in  the WinUI UWP app can 
 
 By executing the program, you will get the **PDF document** as follows.
 
-![WinUI UWP output PDF document](WinUI_Images/GettingStartedOutput.jpg)
+![WinUI UWP output PDF document](WinUI_Images/GettingStartedOutput.png)
 
 ### Save PDF document in UWP
 
