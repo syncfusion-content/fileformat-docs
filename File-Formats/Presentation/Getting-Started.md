@@ -844,5 +844,5 @@ N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
 **PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF/Image. For more information about this, see [Conversion](/file-formats/presentation/getting-started).
 
-N> You can refer to our [.NET PDF framework](https://www.syncfusion.com/pdf-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.NET PDF framework demo](https://www.syncfusion.com/demos/fileformats/powerpoint-library) that shows how to create and modify PDF files from C# with just five lines of code on different platforms.
+N> You can refer to our [.NET PowerPoint framework](https://www.syncfusion.com/powerpoint-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.NET PowerPoint framework demo](https://www.syncfusion.com/demos/fileformats/powerpoint-library) that shows how to create and modify PDF files from C# with just five lines of code on different platforms.
 
