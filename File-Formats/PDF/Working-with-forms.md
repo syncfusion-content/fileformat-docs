@@ -11,7 +11,7 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 
 ## Creating a new PDF form
 
-Essential PDF allows you to create and manage the form (AcroForm) in PDF document by using [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html) class. The [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFormFieldCollection.html) class represents the entire field collection of the form.
+Essential PDF allows you to [create and manage the form](https://www.syncfusion.com/pdf-framework/net/pdf-library/pdf-form-fields) (AcroForm) in PDF document by using [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html) class. The [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFormFieldCollection.html) class represents the entire field collection of the form.
 
 ### Adding the text box field 
 
