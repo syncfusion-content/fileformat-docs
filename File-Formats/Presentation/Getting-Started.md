@@ -9,7 +9,7 @@ documentation: UG
 
 ## Creating a simple PowerPoint Presentation with basic elements from scratch
 
-In this page, you can learn how to create a simple PowerPoint Presentation by using Essential Presentation API.
+In this page, you can learn how to create a simple [.NET PowerPoint Presentation](https://www.syncfusion.com/powerpoint-framework/net) by using Essential Presentation API.
 
 For creating and manipulating a PowerPoint Presentation, include the following assemblies in the application.
 
@@ -843,4 +843,6 @@ N> * Creating an instance of **ChartToImageConverter** class is mandatory to co
 N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
 **PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF/Image. For more information about this, see [Conversion](/file-formats/presentation/getting-started).
+
+N> You can refer to our [.NET PowerPoint framework](https://www.syncfusion.com/powerpoint-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.NET PowerPoint framework demo](https://www.syncfusion.com/demos/fileformats/powerpoint-library) that shows how to create and modify PowerPoint files from C# with just five lines of code on different platforms.
 

@@ -5,15 +5,15 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Overview of Essential PDF
+# Overview of PDF Framework
 
-Essential PDF is a feature rich .NET PDF class library developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin, Flutter applications and Unity platform without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
+The PDF framework is a feature rich [.NET PDF class library](https://www.syncfusion.com/pdf-framework/net) developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in [Windows Forms](https://www.syncfusion.com/pdf-framework/net), [WPF](https://www.syncfusion.com/pdf-framework/net), [ASP.NET Web Forms](https://www.syncfusion.com/pdf-framework/net), [ASP.NET MVC](https://www.syncfusion.com/pdf-framework/net), [ASP.NET Core](https://www.syncfusion.com/pdf-framework/net-core), [Blazor](https://www.syncfusion.com/pdf-framework/blazor), [UWP](https://www.syncfusion.com/pdf-framework/uwp), [Xamarin](https://www.syncfusion.com/pdf-framework/xamarin), [Flutter](https://www.syncfusion.com/flutter-widgets/pdf-library) applications and Unity platform without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
 
 ## Key Features of Essential PDF
 
 The following list shows the key features available in the Essential PDF.
 
-* Support to [create PDF files](https://help.syncfusion.com/file-formats/pdf/getting-started) from scratch.
+* Support to [create PDF files](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net) from scratch.
 * Support to add [text](https://help.syncfusion.com/file-formats/pdf/working-with-text), various formats of [images](https://help.syncfusion.com/file-formats/pdf/working-with-images), [tables](https://help.syncfusion.com/file-formats/pdf/working-with-tables) and [shapes](https://help.syncfusion.com/file-formats/pdf/working-with-shapes).
 * Support for [creation](https://help.syncfusion.com/file-formats/pdf/working-with-forms#creating-a-new-pdf-form), [filling](https://help.syncfusion.com/file-formats/pdf/working-with-forms#filling-form-fields-in-an-existing-pdf-document) and [flattening](https://help.syncfusion.com/file-formats/pdf/working-with-forms#removing-editing-capability-of-form-fields) forms (AcroForms and XFA).  
 * Open, modify and save existing PDF files.
