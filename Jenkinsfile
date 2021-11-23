@@ -18,6 +18,7 @@ String platform='file-formats';
 		     checkout scm
 			 
 			 def branchCommit = '"' + 'https://api.github.com/repos/syncfusion-content/FileFormat-docs/pulls/'+env.pullRequestId+'/files'
+             
             String branchCommitDetails = bat returnStdout: true, script: 'curl -H "Accept: application/vnd.github.v3+json" -u SyncfusionBuild:' + env.GithubBuildAutomation_PrivateToken + " " + branchCommit
 
             def ChangeFiles= branchCommitDetails.split('"filename": ');
