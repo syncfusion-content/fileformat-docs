@@ -233,12 +233,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to create a Chart with a discontinuous range?](faqs/how-to-create-a-chart-with-a-discontinuous-range)
-* [How to create a sparkline from a named range?](faqs/how-to-create-a-sparkline-from-a-named-range)
-* [How to open an Excel 2013 Macro Enabled Template?](faqs/how-to-open-an-excel-2013-macro-enabled-template)
-* [How to open an Excel file from stream?](faqs/how-to-open-an-excel-file-from-stream)
-* [How to open an existing XLSX workbook and save it as XLS?](faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
-* [Does XlsIO support Excel files with macros that are digitally signed?](faqs/does-xlsio-support-excel-files-with-macros-that-are-digitally-signed)
+* [How to create a Chart with a discontinuous range?](how-to-create-a-chart-with-a-discontinuous-range)
+* [How to create a sparkline from a named range?](how-to-create-a-sparkline-from-a-named-range)
+* [How to open an Excel 2013 Macro Enabled Template?](how-to-open-an-excel-2013-macro-enabled-template)
+* [How to open an Excel file from stream?](how-to-open-an-excel-file-from-stream)
+* [How to open an existing XLSX workbook and save it as XLS?](how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
+* [Does XlsIO support Excel files with macros that are digitally signed?](does-xlsio-support-excel-files-with-macros-that-are-digitally-signed)
 * [How to create a simple Excel file?](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet#create-a-simple-excel-file)
 * [How to fill template based data Template Markers](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet#template-based-data-filling-using-template-markers)
 * [How to open an existing workbook?](https://help.syncfusion.com/file-formats/xlsio/loading-and-saving-workbook#opening-an-existing-workbook)

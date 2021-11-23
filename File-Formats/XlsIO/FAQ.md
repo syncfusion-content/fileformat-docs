@@ -40,7 +40,7 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-protect-the-zip-files-using-syncfusion-compression-base)
 * [How to un-protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-un-protect-the-zip-files-using-syncfusion-compression-base)
 * [Does Essential XlsIO provide support for Client Profile?](faqs/does-essential-xlsio-provide-support-for-client-profile)
-* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](faqs/how-to-resolve-the-file-does-not-contain-workbook-stream-error-in-syncfusion-xlsio-base-dll)
+* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](faqs/how-to-resolve-the-file-does-not-contain-workbook-stream-error)
 * [How to resolve Excel cannot open the file filename.xlsx... error?](faqs/how-to-resolve-excel-cannot-open-the-file-because-the-file-format-for-the-file-extension-is-not-valid)
 * [How does Excel file with uninstalled fonts is converted to PDF/Image?](faqs/how-does-excel-file-with-uninstalled-fonts-is-converted-to-pdf-image)
 * [How to avoid exception when adding worksheets with same name?](faqs/how-to-avoid-exception-when-adding-worksheets-with-same-name)

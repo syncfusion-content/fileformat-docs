@@ -162,7 +162,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to create a Chart with a discontinuous range?](faqs/how-to-create-a-chart-with-a-discontinuous-range)
+* [How to create a Chart with a discontinuous range?](how-to-create-a-chart-with-a-discontinuous-range)
 * [How to show or hide a specific range?](https://help.syncfusion.com/file-formats/xlsio/worksheet-rows-and-columns-manipulation#show-or-hide-specific-range)
 * [How to access a cell or a range?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#accessing-a-cell-or-a-range)
 * [How to access relative range?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#accessing-relative-range)
