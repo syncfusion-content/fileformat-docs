@@ -3799,14 +3799,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
         //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
         //Decides the element type by using EntityType
         switch (entity.EntityType)
-        {
-            case EntityType.TextRange:
-                //Replaces the text with another
-                WTextRange textRange = entity as WTextRange;
-                break;
-            case EntityType.Field:
-                WField field = entity as WField;
-                break;
+        {            
             case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
@@ -3819,23 +3812,9 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                GetContentControl(inlineContentControl);
+                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
-    }
-}
-private static void GetContentControl(InlineContentControl inlineContentControl)
-{
-    //Gets a tag property to identify the content control
-    string tag = inlineContentControl.ContentControlProperties.Tag;
-    switch (tag)
-    {
-        case "name":
-            ReplaceTextWithInlineContentControl("Nancy", inlineContentControl);
-            break;
-        case "age":
-            ReplaceTextWithInlineContentControl("20", inlineContentControl);
-            break;
     }
 }
 private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
@@ -3849,6 +3828,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
+	//Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
@@ -3914,12 +3894,7 @@ Private Shared Sub IterateParagraph(ByVal paraItems As ParagraphItemCollection)
         Dim entity As Entity = paraItems(i)
         'A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
         'Decides the element type by using EntityType
-        Select Case entity.EntityType
-            Case EntityType.TextRange
-                'Replaces the text with another
-                Dim textRange As WTextRange = TryCast(entity, WTextRange)
-            Case EntityType.Field
-                Dim field As WField = TryCast(entity, WField)
+        Select Case entity.EntityType            
             Case EntityType.TextBox
                 'Iterates to the body items of textbox.
                 Dim textBox As WTextBox = TryCast(entity, WTextBox)
@@ -3930,20 +3905,9 @@ Private Shared Sub IterateParagraph(ByVal paraItems As ParagraphItemCollection)
                 IterateTextBody(shape.TextBody)
             Case EntityType.InlineContentControl
                 Dim inlineContentControl As InlineContentControl = TryCast(entity, InlineContentControl)
-                SurroundingClass.GetContentControl(inlineContentControl)
+                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl)
         End Select
     Next
-End Sub
-
-Private Shared Sub GetContentControl(ByVal inlineContentControl As InlineContentControl)
-   'Gets a tag property to identify the content control
-    Dim tag As String = inlineContentControl.ContentControlProperties.Tag
-    Select Case tag
-        Case "name"
-            SurroundingClass.ReplaceTextWithInlineContentControl("Nancy", inlineContentControl)
-        Case "age"
-            SurroundingClass.ReplaceTextWithInlineContentControl("20", inlineContentControl)
-    End Select
 End Sub
 
 Private Shared Sub ReplaceTextWithInlineContentControl(ByVal text As String, ByVal inlineContentControl As InlineContentControl)
@@ -3954,6 +3918,7 @@ Private Shared Sub ReplaceTextWithInlineContentControl(ByVal text As String, ByV
             Exit For
         End If
     Next
+	'Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear()
     Dim textRange As WTextRange = New WTextRange(inlineContentControl.Document)
     textRange.Text = text
@@ -4035,14 +4000,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
         //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
         //Decides the element type by using EntityType
         switch (entity.EntityType)
-        {
-            case EntityType.TextRange:
-                //Replaces the text with another
-                WTextRange textRange = entity as WTextRange;
-                break;
-            case EntityType.Field:
-                WField field = entity as WField;
-                break;
+        {            
             case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
@@ -4055,25 +4013,12 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                GetContentControl(inlineContentControl);
+                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
     }
 }
-private static void GetContentControl(InlineContentControl inlineContentControl)
-{
-    //Gets a tag property to identify the content control
-    string tag = inlineContentControl.ContentControlProperties.Tag;
-    switch (tag)
-    {
-        case "name":
-            ReplaceTextWithInlineContentControl("Nancy", inlineContentControl);
-            break;
-        case "age":
-            ReplaceTextWithInlineContentControl("20", inlineContentControl);
-            break;
-    }
-}
+
 private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
 {
     WCharacterFormat characterFormat = null;
@@ -4085,6 +4030,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
+	//Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
@@ -4168,13 +4114,6 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
         //Decides the element type by using EntityType
         switch (entity.EntityType)
         {
-            case EntityType.TextRange:
-                //Replaces the text with another
-                WTextRange textRange = entity as WTextRange;
-                break;
-            case EntityType.Field:
-                WField field = entity as WField;
-                break;
             case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
@@ -4187,25 +4126,12 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                GetContentControl(inlineContentControl);
+                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
     }
 }
-private static void GetContentControl(InlineContentControl inlineContentControl)
-{
-    //Gets a tag property to identify the content control
-    string tag = inlineContentControl.ContentControlProperties.Tag;
-    switch (tag)
-    {
-        case "name":
-            ReplaceTextWithInlineContentControl("Nancy", inlineContentControl);
-            break;
-        case "age":
-            ReplaceTextWithInlineContentControl("20", inlineContentControl);
-            break;
-    }
-}
+
 private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
 {
     WCharacterFormat characterFormat = null;
@@ -4217,6 +4143,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
+	//Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
@@ -4304,13 +4231,6 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
         //Decides the element type by using EntityType
         switch (entity.EntityType)
         {
-            case EntityType.TextRange:
-                //Replaces the text with another
-                WTextRange textRange = entity as WTextRange;
-                break;
-            case EntityType.Field:
-                WField field = entity as WField;
-                break;
             case EntityType.TextBox:
                 //Iterates to the body items of textbox.
                 WTextBox textBox = entity as WTextBox;
@@ -4323,25 +4243,12 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                GetContentControl(inlineContentControl);
+                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
     }
 }
-private static void GetContentControl(InlineContentControl inlineContentControl)
-{
-    //Gets a tag property to identify the content control
-    string tag = inlineContentControl.ContentControlProperties.Tag;
-    switch (tag)
-    {
-        case "name":
-            ReplaceTextWithInlineContentControl("Nancy", inlineContentControl);
-            break;
-        case "age":
-            ReplaceTextWithInlineContentControl("20", inlineContentControl);
-            break;
-    }
-}
+
 private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
 {
     WCharacterFormat characterFormat = null;
@@ -4353,6 +4260,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
+	//Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
