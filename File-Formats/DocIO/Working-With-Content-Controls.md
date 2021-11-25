@@ -1,6 +1,6 @@
 ---
 title: Working with Content Controls | DocIO | Syncfusion
-description: This section illustrates how to work with Content Controls
+description: This section illustrates how to works with Content Controls in the Word document without MS Word or Office interop
 platform: file-formats
 control: DocIO
 documentation: UG
