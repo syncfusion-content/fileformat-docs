@@ -15,7 +15,7 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to save a file to stream?](faqs/how-to-save-a-file-to-stream)
 * [How to create and open Excel Template files by using XlsIO?](faqs/how-to-create-and-open-excel-template-files-by-using-xlsio)
 * [How to open an Excel 2013 Macro Enabled Template?](faqs/how-to-open-an-excel-2013-macro-enabled-template)
-* [How to change the grid line color of the Excel sheet?](how-to-change-the-grid-line-color-of-the-excel-sheet)
+* [How to change the grid line color of the Excel sheet?](faqs/how-to-change-the-grid-line-color-of-the-excel-sheet)
 * [How to copy/paste the cell values that contain only formula?](faqs/how-to-copy-paste-the-cell-values-that-contain-only-formula)
 * [How to copy a range from one workbook to another?](faqs/how-to-copy-a-range-from-one-workbook-to-another)
 * [How to merge excel files from more than one workbook to a single file?](faqs/how-to-merge-excel-files-from-more-than-one-workbook-to-a-single-file)
