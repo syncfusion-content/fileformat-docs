@@ -1,6 +1,6 @@
 ---
 title: Working with Content Controls | DocIO | Syncfusion
-description: This section illustrates how to works with Content Controls in the Word document without MS Word or Office interop
+description: This section illustrates how to works with Content Controls in the Word document without Microsoft Word or Office interop
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -3729,7 +3729,7 @@ document.Close();
 
 ## Edit Content Control Text
 
-You can edit the content control text by iterating the child items of inline content control. Refer to the following code.
+You can edit the content control text by iterating the child items of inline content control. The following code example shows how to edit content control text in the Word document.
 
 {% tabs %}
 {% highlight c# %}
@@ -3932,6 +3932,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
             
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+inputStream.Dispose();
 ///Processes the body contents for each section in the Word document
 foreach (WSection section in document.Sections)
 {
@@ -3944,6 +3945,7 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "application/msword", "Sample.docx");
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 
@@ -4045,7 +4047,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument(docStream, FormatType.Automatic);
-
+docStream.Dispose();
 ///Processes the body contents for each section in the Word document
 foreach (WSection section in document.Sections)
 {
@@ -4059,6 +4061,7 @@ MemoryStream outputStream = new MemoryStream();
 //Saves and closes the Word document instance
 document.Save(outputStream, FormatType.Docx);
 document.Close();
+outputStream.Dispose();
 
 private static void IterateTextBody(WTextBody textBody)
 {
@@ -4157,8 +4160,8 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 {% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("XamarainFormsApp.Data.Template.docx");
-WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
-
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+fileStream.Dispose();
 ///Processes the body contents for each section in the Word document
 foreach (WSection section in document.Sections)
 {
