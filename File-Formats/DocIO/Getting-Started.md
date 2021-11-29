@@ -36,6 +36,8 @@ N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 
 
+N> You can also explore our [.NET Word Library](https://www.syncfusion.com/demos/fileformats/word-library) demo that shows how to create and modify word files from C# with just five lines of code on different platforms.
+
 Include the following namespaces in your .cs or .vb file
 
 {% tabs %}  
