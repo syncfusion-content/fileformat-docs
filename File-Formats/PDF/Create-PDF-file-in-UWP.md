@@ -8,6 +8,8 @@ documentation: UG
 
 # Create of Generate PDF file in UWP
 
+Syncfusion Essential PDF is a [UWP PDF library](https://www.syncfusion.com/pdf-framework/uwp/pdf-library) used to create, read, and edit PDF documents in UWP. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
+
 In your UWP application, add the following assembly to use PDF.  knfjnfj
 
 * Syncfusion.Pdf.UWP
