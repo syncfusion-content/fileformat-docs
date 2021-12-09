@@ -1564,7 +1564,7 @@ else
 
 {% endtabs %}
 
-## Externally sing a PDF document 
+## Externally sign a PDF document 
 
 You can sign the PDF document from external digital signature created from various sources such as HSM, USB token, smart card, or other cloud services such as DigitalSign.
 
