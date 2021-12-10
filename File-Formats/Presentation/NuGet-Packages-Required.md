@@ -80,6 +80,14 @@ Xamarin
 {{'[Syncfusion.Xamarin.Presentation.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+WinUI and MAUI
+</td>
+<td>
+{{'[Syncfusion.Presentation.NET.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.NET/)'| markdownify }}
+</td>
+</tr>
 </table>
 
 N> 1.Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to learn about registering Syncfusion license key in your applications to use the components.
@@ -152,6 +160,15 @@ Xamarin
 <td>
 {{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WinUI and MAUI
+</td>
+<td>
+{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/><br/>
+{{'[Syncfusion.SkiaSharpHelper.NET.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.NET/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -234,6 +251,15 @@ Xamarin
 <td>
 {{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WinUI and MAUI
+</td>
+<td>
+{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/><br/>
+{{'[Syncfusion.SkiaSharpHelper.NET.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.NET/)'| markdownify }}
 </td>
 </tr>
 </tbody>
@@ -455,6 +481,21 @@ Xamarin
 * Uninstall-package Syncfusion.Xamarin.Presentation –RemoveDependencies<br/><br/>
 * Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies<br/><br/>
 * Uninstall-package Syncfusion.Xamarin.SkiaSharpHelper - RemoveDependencies 
+</td>
+</tr>
+<tr>
+<td>
+WinUI and MAUI
+</td>
+<td>
+* Install-package Syncfusion.Presentation.NET<br/><br/>
+* Install-package Syncfusion.PresentationRenderer.NET<br/><br/>
+* Install-package Syncfusion.SkiaSharpHelper.NET
+</td>
+<td>
+* Uninstall-package Syncfusion.Presentation.NET –RemoveDependencies<br/><br/>
+* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies<br/><br/>
+* Uninstall-package Syncfusion.SkiaSharpHelper.NET - RemoveDependencies 
 </td>
 </tr>
 </table>

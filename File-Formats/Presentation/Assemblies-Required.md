@@ -37,6 +37,10 @@ Syncfusion.Presentation.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfus
 <td>
 Universal Windows Platform<br/></td><td>
 Syncfusion.Presentation.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
+<tr>
+<td>
+WinUI and MAUI<br/></td><td>
+Syncfusion.Presentation.NET<br/>Syncfusion.OfficeChart.NET<br/></td></tr>
 </table>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
@@ -77,6 +81,20 @@ Syncfusion.OfficeChart.Portable<br/>
 Syncfusion.Pdf.Portable<br/>
 Syncfusion.PresentationRenderer.Portable<br/>
 Syncfusion.SkiaSharpHelper.Portable<br/>
+Skiasharp
+</td>
+</tr>
+<tr>
+<td>
+WinUI and MAUI <br/>
+</td>
+<td>
+Syncfusion.Presentation.NET<br/>
+Syncfusion.Compression.NET<br/>
+Syncfusion.OfficeChart.NET<br/>
+Syncfusion.Pdf.NET<br/>
+Syncfusion.PresentationRenderer.NET<br/>
+Syncfusion.SkiaSharpHelper.NET<br/>
 Skiasharp
 </td>
 </tr>
