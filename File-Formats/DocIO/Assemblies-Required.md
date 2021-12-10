@@ -64,6 +64,10 @@ Syncfusion.DocIO.Silverlight<br/>Syncfusion.Compression.Silverlight<br/></td></t
 <td>
 Universal (Classic)<br/></td><td>
 Syncfusion.DocIO.Universal<br/></td></tr>
+<tr>
+<td>
+WinUI, MAUI<br/></td><td>
+Syncfusion.DocIO.NET<br/></td></tr>
 </table>
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
@@ -92,6 +96,10 @@ Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.Of
 <td>
 ASP.NET Core, Xamarin and Blazor<br/></td><td>
 Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
+<tr>
+<td>
+WinUI, MAUI<br/></td><td>
+Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/>SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
 </table>
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.

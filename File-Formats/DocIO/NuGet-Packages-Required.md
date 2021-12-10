@@ -124,6 +124,17 @@ Syncfusion.DocIO.UWP.nupkg
 Install-Package Syncfusion.DocIO.UWP
 </td>
 </tr>
+<tr>
+<td>
+WinUI, MAUI
+</td>
+<td>
+Syncfusion.DocIO.NET.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.NET
+</td>
+</tr>
 </table>
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
@@ -238,6 +249,17 @@ Syncfusion.Xamarin.DocIORenderer.nupkg
 </td>
 <td>
 Install-Package Syncfusion.Xamarin.DocIORenderer
+</td>
+</tr>
+<tr>
+<td>
+WinUI, MAUI
+</td>
+<td>
+Syncfusion.DocIORenderer.NET
+</td>
+<td>
+Install-Package Syncfusion.DocIORenderer.NET
 </td>
 </tr>
 </table>
@@ -610,4 +632,34 @@ Install-Package Syncfusion.DocIO.UWP
 ~~~
 // Uninstall package
 Uninstall-Package Syncfusion.DocIO.UWP -RemoveDependencies 
+~~~
+
+### WinUI and MAUI
+
+**NuGet Package:**  Syncfusion.DocIO.NET
+
+The package contains DocIO library that allows you to create, read and edit Word documents.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocIO.NET
+~~~
+
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocIO.NET -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.DocIORenderer.NET
+
+The package contains the DocIORenderer .NET library that allows you to convert the Word documents to PDF.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocIORenderer.NET
+
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocIORenderer.NET -RemoveDependencies 
 ~~~
