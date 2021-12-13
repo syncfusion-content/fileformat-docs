@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in Xamarin
 
-[Syncfusion Excel library for Xamarin platform](https://www.syncfusion.com/excel-framework/xamarin) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for Xamarin platform](https://www.syncfusion.com/excel-framework/xamarin/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 

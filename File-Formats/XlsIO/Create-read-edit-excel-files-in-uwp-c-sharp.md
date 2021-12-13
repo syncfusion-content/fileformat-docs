@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in UWP
 
-[Syncfusion Excel library for UWP platform](https://www.syncfusion.com/excel-framework/xamarin) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for UWP platform](https://www.syncfusion.com/excel-framework/uwp/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 

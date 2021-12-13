@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in Blazor
 
-[Syncfusion Excel library for Blazor platform](https://www.syncfusion.com/excel-framework/blazor) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for Blazor platform](https://www.syncfusion.com/excel-framework/blazor/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report in Blazor Server-Side application
 

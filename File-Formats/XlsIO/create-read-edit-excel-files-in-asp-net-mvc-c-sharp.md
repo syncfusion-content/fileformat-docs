@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in ASP.NET MVC
 
-[Syncfusion Excel library for ASP.NET MVC platform](https://www.syncfusion.com/excel-framework/net) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for ASP.NET MVC platform](https://www.syncfusion.com/excel-framework/net/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
