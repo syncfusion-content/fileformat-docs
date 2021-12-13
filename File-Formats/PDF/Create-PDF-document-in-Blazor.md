@@ -8,7 +8,7 @@ documentation: UG
 
 # Create or Generate PDF file in Blazor
 
-Syncfusion Essential PDF is a [Blazor PDF library](https://www.syncfusion.com/pdf-framework/blazor/pdf-library) used to create, read, and edit PDF documents in Blazor. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
+The Syncfusion [Blazor PDF library](https://www.syncfusion.com/pdf-framework/blazor/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
 In your Blazor application, add the following assemblies to use Essential PDF:
 

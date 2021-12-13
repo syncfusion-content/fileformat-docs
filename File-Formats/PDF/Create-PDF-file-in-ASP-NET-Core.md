@@ -9,7 +9,7 @@ keywords: Assemblies
 
 # Create or Generate PDF file in ASP.NET Core
 
-Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) used to create, read, and edit PDF documents in ASP.NET core. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
+The Syncfusion [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
 In your ASP.NET Core application, add the following assemblies to use Essential PDF:
 
