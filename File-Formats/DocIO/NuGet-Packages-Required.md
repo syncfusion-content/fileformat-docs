@@ -126,7 +126,7 @@ Install-Package Syncfusion.DocIO.UWP
 </tr>
 <tr>
 <td>
-WinUI, MAUI
+Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
 Syncfusion.DocIO.NET.nupkg
@@ -253,7 +253,7 @@ Install-Package Syncfusion.Xamarin.DocIORenderer
 </tr>
 <tr>
 <td>
-WinUI, MAUI
+Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
 Syncfusion.DocIORenderer.NET
@@ -634,7 +634,7 @@ Install-Package Syncfusion.DocIO.UWP
 Uninstall-Package Syncfusion.DocIO.UWP -RemoveDependencies 
 ~~~
 
-### WinUI and MAUI
+### Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 
 **NuGet Package:**  Syncfusion.DocIO.NET
 

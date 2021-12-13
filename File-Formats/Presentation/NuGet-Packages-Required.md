@@ -82,7 +82,7 @@ Xamarin
 </tr>
 <tr>
 <td>
-WinUI and MAUI
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
 {{'[Syncfusion.Presentation.NET.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.NET/)'| markdownify }}
@@ -164,12 +164,10 @@ Xamarin
 </tr>
 <tr>
 <td>
-WinUI and MAUI
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.NET.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.NET/)'| markdownify }}
-</td>
+{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/></td>
 </tr>
 </table>
 
@@ -255,11 +253,10 @@ Xamarin
 </tr>
 <tr>
 <td>
-WinUI and MAUI
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.NET.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.NET/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/>
 </td>
 </tr>
 </tbody>
@@ -485,17 +482,12 @@ Xamarin
 </tr>
 <tr>
 <td>
-WinUI and MAUI
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-* Install-package Syncfusion.Presentation.NET<br/><br/>
-* Install-package Syncfusion.PresentationRenderer.NET<br/><br/>
-* Install-package Syncfusion.SkiaSharpHelper.NET
-</td>
+* Install-package Syncfusion.PresentationRenderer.NET<br/></td>
 <td>
-* Uninstall-package Syncfusion.Presentation.NET –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.SkiaSharpHelper.NET - RemoveDependencies 
+* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies<br/> 
 </td>
 </tr>
 </table>
