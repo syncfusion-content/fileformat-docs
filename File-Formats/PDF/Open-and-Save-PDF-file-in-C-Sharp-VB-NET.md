@@ -729,7 +729,7 @@ N> Close(true) method will dispose all the memory consumed by PDF DOM as well as
 
 ## Secured documents exception
 
-You can catch the secured document exception by opening an existing encrypted PDF document from either the file system or the stream or the byte array using the following code sample as shown below
+You can catch the secured document exception [PdfInvalidPasswordException](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfInvalidPasswordException.html) by opening an existing encrypted PDF document from either the file system or the stream or the byte array using the following code sample as shown below
 
 {% tabs %}
 {% highlight c# %}
