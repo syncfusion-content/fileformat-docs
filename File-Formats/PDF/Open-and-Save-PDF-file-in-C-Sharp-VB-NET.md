@@ -727,3 +727,4 @@ loadedDocument.Close(true);
 N> Close() method will dispose all the memory consumed by PDF DOM.
 N> Close(true) method will dispose all the memory consumed by PDF DOM as well as disposes its document stream
 
+
