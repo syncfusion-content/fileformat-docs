@@ -719,6 +719,8 @@ else
 
 {% endtabs %}
 
+N> Generally, the PDF Page orientation will be updated based on the custom page size. But if custom page orientation is set using the [Orientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html#Syncfusion_Pdf_PdfPageSettings_Orientation) property, then the PDF page size will be updated based on the custom orientation.
+
 You can also change orientation by setting the rotation angle using [PdfPageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageRotateAngle.html) Enum. The following code snippet illustrates the same.
 
 {% tabs %}
