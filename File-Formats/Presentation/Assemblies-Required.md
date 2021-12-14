@@ -41,12 +41,14 @@ Syncfusion.Presentation.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
 <td>
 Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)
 <br/>
-N> Support to create PowerPoint Presentation in Windows, Android and iOS only.
 </td><td>
-Syncfusion.Presentation.NET<br/></td></tr>
+Syncfusion.Presentation.NET<br/>Syncfusion.Compression.NET<br/>
+Syncfusion.OfficeChart.NET<br/>
+</td></tr>
 </table>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Essential Presentation is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting PowerPoint Presentation to PDF
 
@@ -91,10 +93,10 @@ Skiasharp
 <td>
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 <br/>
-N> Support to create PowerPoint Presentation in Windows, Android and iOS only.
 </td>
 <td>
-Syncfusion.PresentationRenderer.NET<br/>
+Syncfusion.Presentation.NET<br/>Syncfusion.Compression.NET<br/>
+Syncfusion.OfficeChart.NET<br/>Syncfusion.PresentationRenderer.NET<br/> Syncfusion.SkiaSharpHelper.NET<br/>Skiasharp
 </td>
 </tr>
 </table>
