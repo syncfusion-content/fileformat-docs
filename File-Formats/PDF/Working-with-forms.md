@@ -7566,6 +7566,204 @@ else
 N> The form fields will be flattened only after the PDF document is saved. 
 
 
+You can also flatten the form fields before saving the PDF document
+
+Please refer the code sample to flatten the form fields before saving the PDF document
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load a PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+           
+//Flatten the form fields
+
+loadedForm.FlattenFields();
+
+//Save the document
+
+loadedDocument.Save("Output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+
+'Load the PDF document.
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Get the loaded form.
+
+Dim loadedForm As PdfLoadedForm = loadedDocument.Form
+
+'Flatten the form fields
+
+loadedForm.FlattenFields()
+
+'Save and close the modified document.
+
+loadedDocument.Save("output.pdf")
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Flatten the form fields
+
+loadedForm.FlattenFields();
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load an existing PDF.
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+           
+//Flatten the form fields
+
+loadedForm.FlattenFields();
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+
+loadedDocument.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+           
+//Flatten the form fields
+
+loadedForm.FlattenFields();
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+
+loadedDocument.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+            Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+           Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
 To prevent the user from changing the form field content, you can also use [Readonly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfField.html#Syncfusion_Pdf_Interactive_PdfField_ReadOnly) property.
 
 The below code snippet illustrates how to set the ``ReadOnly`` property to a new PDF document.
