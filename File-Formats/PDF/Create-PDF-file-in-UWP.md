@@ -8,7 +8,9 @@ documentation: UG
 
 # Create of Generate PDF file in UWP
 
-In your UWP application, add the following assembly to use PDF.  knfjnfj
+The Syncfusion [UWP PDF library](https://www.syncfusion.com/pdf-framework/uwp/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
+
+In your UWP application, add the following assembly to use PDF.
 
 * Syncfusion.Pdf.UWP
 
