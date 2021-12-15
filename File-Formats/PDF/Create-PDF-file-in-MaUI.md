@@ -1,12 +1,12 @@
 ---
-title: Create or Generate PDF file in MaUI | Syncfusion
-description: Learn how to create or generate a PDF file in MaUI with easy steps using Syncfusion .NET Core PDF library without depending on Adobe.
+title: Create or Generate PDF file in MAUI | Syncfusion
+description: Learn how to create or generate a PDF file in MAUI with easy steps using Syncfusion .NET Core PDF library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Create PDF file in MaUI
+# Create PDF file in MAUI
 
 Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) that allows you to used to create, read, and edit **PDF** documents. This library also includes functions for merging, splitting, stamping, forms, and securing PDF files and more.This library also offers functionalities to merge, split, stamp, forms, and secure PDF files and more. Using this library, you can **create a PDF document in the MAUI application.**
 
@@ -15,7 +15,7 @@ Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com
 To use the MAUI project templates, install the Mobile development with .NET extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
 
 
-## .NET MaUI Application:
+## .NET MAUI Application:
 
 N> Our PDF library is currently supported in MAUI applications on the Android, iOS, and Windows platform. Currently, the PDF library is not supported in the Mac Catalyst platform. 
 
@@ -356,7 +356,7 @@ using System.Xml.Linq;
 
 {% endtabs %}
 
-## Save and View the PDF document in windows:
+## Save and View the PDF document in windows
 
 Add the following **SaveWindows.cs** file to the **Project-> Platforms-> Windows** directory to save and view the PDF document in the windows machine.
 
@@ -435,13 +435,11 @@ class SaveWindows : ISave
     }
 }
 
-
-
 {% endhighlight %}
 
 {% endtabs %}
 
-## Save and View the PDF document in Android:
+## Save and View the PDF document in Android
 
 Add the following **SaveAndroid.cs** file to the **Project-> Platforms-> Android** directory folder to save and view the PDF document in the Android Device.
 
@@ -531,7 +529,7 @@ class SaveAndroid : ISave
 
 {% endtabs %}
 
-## Save and View the PDF document in iOS:
+## Save and View the PDF document in iOS
 
 Add the following **SaveIOS.cs** file to the **Project-> Platforms-> iOS** directory to save the PDF document in the iOS Device.
 
