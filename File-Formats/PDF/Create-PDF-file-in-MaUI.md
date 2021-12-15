@@ -15,7 +15,7 @@ Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com
 To use the MAUI project templates, install the Mobile development with .NET extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
 
 
-## .NET MAUI Application:
+## .NET MAUI Application
 
 N> Our PDF library is currently supported in MAUI applications on the Android, iOS, and Windows platform. Currently, the PDF library is not supported in the Mac Catalyst platform. 
 
