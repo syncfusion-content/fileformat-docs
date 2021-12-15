@@ -633,4 +633,4 @@ By executing the program in android, you will get the **PDF document** as follow
 
 By executing the program in iOS, you will get the **PDF document** as follows,
 
-<<iOS Output>>
+![MaUI iOS output PDF document](MaUI_Images/invoice_ios.png)
