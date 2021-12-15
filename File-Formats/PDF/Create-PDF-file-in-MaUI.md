@@ -619,7 +619,7 @@ class SaveIOS : ISave
 
 {% endtabs %}
 
-A complete working example of creating a PDF document in the MaUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample2067637560).
+A complete working example of creating a PDF document in the MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample2067637560).
 
 By executing the program in windows, you will get the **PDF document** as follows.
 
