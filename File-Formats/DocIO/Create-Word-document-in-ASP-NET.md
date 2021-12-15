@@ -1,6 +1,6 @@
 ---
-title: Create Word document in ASP.NET | Syncfusion 
-description: Create Word document without Microsoft Word or interop dependencies in ASP.NET application using Syncfusion .NET Word (Essential DocIO) library
+title: ASP.NET Word Library | Create Word document in ASP.NET | Syncfusion
+description: The ASP.NET Word Library is used to create Word document without Microsoft Word or interop dependencies in ASP.NET application.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in ASP.NET
 
-Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/word-framework/net/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in ASP.NET Web Forms**.
+Syncfusion [.NET Word library](https://www.syncfusion.com/word-framework/net/word-library) is used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in ASP.NET Web Forms**.
 
 ## Steps to create Word document programmatically:
 
@@ -289,3 +289,5 @@ document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, Http
 By executing the program, you will get the **Word document** as follows.
 
 ![ASP.Net Web output Word document](ASP-NET_images/GettingStartedOutput.jpg)
+
+N> You can also explore our [ASP.NET Word library demo](https://asp.syncfusion.com/demos/web/docio/helloworld.aspx) that shows how to create and modify Word files from C# with just five lines of code.

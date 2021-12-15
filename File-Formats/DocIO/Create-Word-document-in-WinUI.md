@@ -1,6 +1,6 @@
 ---
-title: Create Word document in WinUI | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in WinUI application using Syncfusion .NET Core Word (Essential DocIO) library
+title: WinUI Word Library | Create Word document in WinUI | Syncfusion
+description: The WinUI Word Library is used to create, read, and edit Word document without Microsoft Word or interop dependencies in WinUI application.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in WinUI
 
-Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in WinUI**.
+Syncfusion [WinUI Word library](https://www.syncfusion.com/word-framework/net-core/word-library) is used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in WinUI**.
 
 **Prerequisites:**
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment).
@@ -656,3 +656,5 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% endtabs %}
+
+N> You can also explore our [WinUI Word library demo](https://www.syncfusion.com/demos/fileformats/word-library) that shows how to create and modify Word files from C# with just five lines of code.

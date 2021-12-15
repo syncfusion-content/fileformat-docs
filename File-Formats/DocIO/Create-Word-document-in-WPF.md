@@ -1,6 +1,6 @@
 ---
-title: Create Word document in WPF | Syncfusion 
-description: Create Word document without Microsoft Word or interop dependencies in WPF application using Syncfusion .NET Word (Essential DocIO) library
+title: WPF Word Library | Create Word document in WPF | Syncfusion 
+description: The WPF Word Library is used to create, read, and edit Word document without Microsoft Word or interop dependencies in WPF application.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -287,3 +287,5 @@ document.Save("Sample.docx");
 By executing the program, you will get the **Word document** as follows.
 
 ![WPF output Word document](WPF_images/GettingStartedOutput.jpg)
+
+N> You can also explore our [WPF Word library demo](https://github.com/syncfusion/file-formats-wpf-demos/tree/master/docio) that shows how to create and modify Word files from C# with just five lines of code.

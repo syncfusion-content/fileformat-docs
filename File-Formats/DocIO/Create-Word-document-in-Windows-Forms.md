@@ -1,6 +1,6 @@
 ---
-title: Create Word document in Windows Forms | Syncfusion 
-description: Create Word document without Microsoft Word or interop dependencies in Windows Forms application using Syncfusion .NET Word (Essential DocIO) library
+title: Windows Forms Word Library | Create Word file using C# | Syncfusion
+description: The Windows Forms Word Library is used to create Word document without Microsoft Word or interop dependencies in Windows Forms application.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in Windows Forms
 
-Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/word-framework/net/word-library) used to create, read, and edit **Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in Windows Forms**.
+Syncfusion [.NET Word library](https://www.syncfusion.com/word-framework/net/word-library) is used to create, read, and edit **Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in Windows Forms**.
 
 ## Steps to create Word document programmatically:
 
@@ -301,3 +301,5 @@ document.Save("Sample.docx");
 By executing the program, you will get the **Word document** as follows.
 
 ![Windows Forms output Word document](Windows-Forms_images/GettingStartedOutput.jpg)
+
+N> You can also explore our [Windows Forms Word library demo](https://github.com/syncfusion/file-formats-windows-forms-demos/tree/master/DocIO) that shows how to create and modify Word files from C# with just five lines of code.

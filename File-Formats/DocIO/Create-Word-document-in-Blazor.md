@@ -1,6 +1,6 @@
 ---
-title: Create Word document in Blazor | DocIO | Syncfusion 
-description: Create Word document without Microsoft Word or interop dependencies in Blazor application using Syncfusion .NET Core Word (Essential DocIO) library
+title: Blazor Word Library | Create Word document in Blazor | Syncfusion
+description: The Blazor Word Library is used to create Word document without Microsoft Word or interop dependencies in Blazor application.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in Blazor
 
-Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in Blazor**.
+Syncfusion [Blazor Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in Blazor**.
 
 **Prerequisites:**
 
@@ -421,6 +421,8 @@ public static class FileUtils
 By executing the program, you will get the **Word document** as follows.
 
 ![Blazor Client-side output Word document](Blazor_Images/Blazor_Output.png)
+
+N> You can also explore our [Blazor Word library demo](https://blazor.syncfusion.com/demos/docio/hello-world) that shows how to create and modify Word files from C# with just five lines of code.
 
 N> Even though Word library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
 
