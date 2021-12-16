@@ -727,3 +727,107 @@ loadedDocument.Close(true);
 N> Close() method will dispose all the memory consumed by PDF DOM.
 N> Close(true) method will dispose all the memory consumed by PDF DOM as well as disposes its document stream
 
+## Secured documents exception
+
+You can catch the secured document exception by opening an existing encrypted PDF document from either the file system, stream, or byte array using the following code sample as follows,
+
+{% tabs %}
+{% highlight c# %}
+
+PdfLoadedDocument document = null;
+try
+{
+//Load an existing document.
+document = new PdfLoadedDocument("input.pdf", "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+//Save a document.
+document.Save("Output.pdf");
+//Close a document.
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Dim document As PdfLoadedDocument = Nothing
+Try
+'Load an existing document.
+document = New PdfLoadedDocument("input.pdf", "password")
+Catch exception As Syncfusion.Pdf.PdfInvalidPasswordException
+'Secured PDF document password is invalid or opened without a password.
+End Try
+'Save a document.
+document.Save("Output.pdf")
+'Close a document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing encrypted document from the byte array.
+document = new PdfLoadedDocument(byteArray, "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+//Save a document into a stream.
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream);
+//Close a document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load a PDF document.
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing PDF document from a stream.
+document = new PdfLoadedDocument(docStream, "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream.
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing PDF document from a stream.
+document = new PdfLoadedDocument(docStream, "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close a document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
