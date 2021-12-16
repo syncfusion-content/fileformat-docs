@@ -1,6 +1,6 @@
 ---
-title: Create Word document in UWP | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in UWP application using Syncfusion UWP Word (Essential DocIO) library
+title: UWP Word Library | Create Word document in UWP | Syncfusion
+description: The UWP Word Library is used to create Word document without Microsoft Word or interop dependencies in UWP application.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in UWP
 
-Syncfusion Essential DocIO is a [UWP Word library](https://www.syncfusion.com/word-framework/uwp/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in UWP**.
+Syncfusion [UWP Word library](https://www.syncfusion.com/word-framework/uwp/word-library) is used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in UWP**.
 
 ## Steps to create Word document programmatically in UWP:
 
@@ -343,3 +343,5 @@ async void Save(MemoryStream streams, string filename)
 By executing the program, you will get the Word document as follows.
 
 ![UWP output Word document](UWP_images/GettingStartedOutput.jpg)
+
+N> You can also explore our [UWP Word library demo](https://www.syncfusion.com/demos/fileformats/word-library) that shows how to create and modify Word files from C# with just five lines of code.
