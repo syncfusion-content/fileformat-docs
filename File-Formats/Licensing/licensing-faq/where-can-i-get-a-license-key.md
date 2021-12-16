@@ -9,7 +9,7 @@ documentation: ug
 
 # Where can I get a license key?
 
-License keys can be generated from the [License & Downloads](https://syncfusion.com/account/downloads) or [Trail & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) section of the Syncfusion website. 
+License keys can be generated from the [License & Downloads](https://syncfusion.com/account/downloads) or [Trial & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) section of the Syncfusion website. 
 
 ![Get License Key](licensing-images/generate-license.png)
 
