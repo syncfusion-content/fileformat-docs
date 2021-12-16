@@ -99,22 +99,6 @@ Blazor
 {{'[Syncfusion.XlsIO.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/)'| markdownify }}
 </td>
 </tr>
-<tr>
-<td>
-WinUI
-</td>
-<td>
-{{'[Syncfusion.XlsIO.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-{{'[Syncfusion.XlsIO.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/)'| markdownify }}
-</td>
-</tr>
 </table>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
@@ -205,22 +189,6 @@ Xamarin
 <tr>
 <td>
 Blazor (Server-Side)
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-WinUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
 </td>
 <td>
 {{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
@@ -318,22 +286,6 @@ Blazor (Server-Side)
 {{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
-<tr>
-<td>
-WinUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
 </tbody>
 </table>
 
@@ -413,22 +365,6 @@ Xamarin
 <tr>
 <td>
 Blazor (Server-Side)
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-WinUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
 </td>
 <td>
 {{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
@@ -576,32 +512,6 @@ Blazor Client-Side
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
-</td>
-</tr>
-<tr>
-<td>
-WinUI
-</td>
-<td>
-* Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
-* Install-package Syncfusion.XlsIORenderer.Net.Core
-</td>
-<td>
-* Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.XlsIORenderer.Net.Core –RemoveDependencies
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-* Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
-* Install-package Syncfusion.XlsIORenderer.Net.Core
-</td>
-<td>
-* Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.XlsIORenderer.Net.Core –RemoveDependencies
 </td>
 </tr>
 </table>

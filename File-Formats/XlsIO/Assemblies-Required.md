@@ -46,7 +46,7 @@ Syncfusion.XlsIO.UWP
 </tr>
 <tr>
 <td>
-.NET Core, Xamarin, Blazor, WinUI and .NET MAUI
+.NET Core, Xamarin and Blazor
 </td>
 <td>
 Syncfusion.XlsIO.Portable<br/>
@@ -167,7 +167,7 @@ Syncfusion.ExcelToPDFConverter.ClientProfile
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin, Blazor (Server-Side), WinUI and .NET MAUI
+UWP, .NET Core, Xamarin and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
@@ -207,7 +207,7 @@ Syncfusion.XlsIO.Base
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin, Blazor (Server-Side), WinUI and .NET MAUI
+UWP, .NET Core, Xamarin and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
@@ -247,7 +247,7 @@ Syncfusion.SfChart.WPF
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin, Blazor (Server-Side), WinUI and .NET MAUI
+UWP, .NET Core, Xamarin and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>

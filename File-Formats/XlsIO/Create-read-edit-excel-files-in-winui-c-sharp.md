@@ -62,7 +62,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Stream inputStream = executingAssembly.GetManifestResourceStream("WinUISample.AdventureCycles-Logo.png");
 
     //Add a picture
-    IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
+    IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream);
 
     //Disable gridlines in the worksheet
     worksheet.IsGridLinesVisible = false;
