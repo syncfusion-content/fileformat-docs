@@ -5645,7 +5645,7 @@ else
 
 ## Deferred signing without PKCS7 encoding
 
-The following code sample shows how to be deferred signing in a PDF document without PKCS7 encoding from an external signature.
+The following code sample shows deferred signing in a PDF document without PKCS7 encoding from an external signature.
 
 Steps for deferred signing: 
 1.	Create a PDF document with an empty signature.
@@ -5674,10 +5674,10 @@ IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
 System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
 signature.AddExternalSigner(externalSignature, certificates, null);
 
-//Saves the document.
+//Saves a document.
 loadedDocument.Save("EmptySignature.pdf");
 
-//Closes the document.
+//Closes a document.
 loadedDocument.Close(true);
 
 //Create an external signer with a signed hash message.
@@ -5690,12 +5690,12 @@ publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)
 //Create an output file stream.
 MemoryStream outputFileStream = new MemoryStream();
 
-// Get the stream from the document
+// Get the stream from a document.
 FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
 
 string pdfPassword = string.Empty;
 
-//Deferred signing without PKCS7 encoding
+//Deferred signing without PKCS7 encoding.
 PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates, false);
 
 /// <summary>
@@ -5747,6 +5747,7 @@ timeStampResponse = null;
 return signedBytes;
 }
 }
+
 
 {% endhighlight %}
 
@@ -5818,6 +5819,7 @@ Dim signedBytes() As Byte = Nothing
 timeStampResponse = Nothing
 Return signedBytes
 End Function
+
 End Class
 
 
@@ -5847,11 +5849,12 @@ Return signedBytes
 End Function
 End Class
 
+
 {% endhighlight %}
 
 {% highlight UWP %}
 
-//Get the stream from the document.
+//Get the stream from a document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
 
 //Load an existing PDF document.
@@ -5872,11 +5875,11 @@ IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
 System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
 signature.AddExternalSigner(externalSignature, certificates, null);
 
-//Save the document.
+//Save a document.
 MemoryStream stream = new MemoryStream();
 loadedDocument.Save(stream);
 
-//Close the PDF document.
+//Close a PDF document.
 loadedDocument.Close(true);
 
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
@@ -5957,7 +5960,7 @@ return signedBytes;
 
 {% highlight ASP.NET Core %}
 
-// Get the stream from the document.
+// Get the stream from a document.
 FileStream documentStream = new FileStream("PDF_Succinctly.pdf ", FileMode.Open, FileAccess.Read);
 
 //Load an existing PDF document.
@@ -5978,11 +5981,11 @@ IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
 System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
 signature.AddExternalSigner(externalSignature, certificates, null);
 
-//Save the document.
+//Save a document.
 MemoryStream stream = new MemoryStream();
 loadedDocument.Save(stream);
 
-//Close the PDF document.
+//Close a PDF document.
 loadedDocument.Close(true);
 
 //Defining the ContentType for a PDF file.
@@ -6004,7 +6007,7 @@ publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)
 //Create an output file stream.
 MemoryStream outputFileStream = new MemoryStream();    
 
-// Get the stream from the document
+// Get the stream from a document.
 FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
 
 string pdfPassword = string.Empty;
@@ -6063,11 +6066,12 @@ return signedBytes;
 }
 }
 
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Get the stream from the document.
+//Get the stream from a document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
 
 //Load an existing PDF document.
@@ -6088,18 +6092,18 @@ IPdfExternalSigner externalSignature = new SignEmpty("SHA1");
 System.Collections.Generic.List<X509Certificate2> certificates = new System.Collections.Generic.List<X509Certificate2>();
 signature.AddExternalSigner(externalSignature, certificates, null);
 
-//Save the document to the stream.
+//Save a document to the stream.
 MemoryStream stream = new MemoryStream();
 loadedDocument.Save(stream);
 
-//Close the document.
+//Close a document.
 loadedDocument.Close(true);
 
 stream.Position = 0;
 
 //Save the stream into a PDF file.
 
-//The operation in save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
+//The operation in save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for respective code samples.
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -6179,6 +6183,7 @@ timeStampResponse = null;
 return signedBytes;
 }
 }
+
 
 {% endhighlight %}
 
