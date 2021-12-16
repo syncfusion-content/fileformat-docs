@@ -85,7 +85,7 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-{{'[Syncfusion.Presentation.NET.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.NET/)'| markdownify }}
+Syncfusion.Presentation.NET.nupkg
 </td>
 </tr>
 </table>
@@ -168,7 +168,7 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/></td>
+Syncfusion.PresentationRenderer.NET.nupkg<br/></td>
 </tr>
 </table>
 
@@ -258,7 +258,7 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/>
+Syncfusion.PresentationRenderer.NET.nupkg<br/>
 </td>
 </tr>
 </tbody>
