@@ -23,7 +23,7 @@ From v16.1.0.24, the entire field code is included in Document Object Model(DOM)
 
 5. `WFieldMark`: Represents the end of a Field.
 
-Find more information about migration changes [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24#). 
+Find more information about migration changes [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24). 
 
 ## Adding fields
 
