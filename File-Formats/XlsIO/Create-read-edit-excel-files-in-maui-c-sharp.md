@@ -9,6 +9,10 @@ documentation: UG
 
 Syncfusion Excel library for .NET MAUI platform can be used to create, read, edit Excel files. This also convert Excel files to PDF. Syncfusion Excel library is compatible with .NET MAUI Windows, iOS, and Android platforms only.
 
+**Prerequisites:**
+
+To use the MAUI project templates, install the Mobile development with .NET extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
+
 ## Create a simple Excel report
 
 The below steps illustrates creating a simple Invoice formatted Excel document in .NET MAUI.
@@ -31,7 +35,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 {% highlight c# %}
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CreateExcel.MainPage"
+             x:Class="MAUISample.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
      <ScrollView>    
        <Button 
