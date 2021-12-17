@@ -28,9 +28,9 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 ![Set the target version](WinUI_Images/Target_Version.png)
 
-4.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+4.Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 
-![Install the DocIO .NET Core NuGet package](WinUI_Images/Install_Nuget.png)
+![Install the DocIO .NET NuGet package](WinUI_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -301,7 +301,7 @@ document.Save(outputStream, FormatType.Docx);
 
 {% endtabs %}
 
-A complete working example of creating a Word document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample415176333).
+A complete working example of creating a Word document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample295611316.zip).
 
 By executing the program, you will get the **Word document** as follows.
 
@@ -323,9 +323,9 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 ![Set the target version](WinUI_Images/Target_Version.png)
 
-4.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+4.Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 
-![Install the DocIO .NET Core NuGet package](WinUI_Images/Install_Nuget.png)
+![Install the DocIO .NET NuGet package](WinUI_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -603,7 +603,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-A complete working example of creating a Word document in  the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample_UWP-1270097257).
+A complete working example of creating a Word document in  the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample_UWP193025116.zip).
 
 By executing the program, you will get the **Word document** as follows.
 

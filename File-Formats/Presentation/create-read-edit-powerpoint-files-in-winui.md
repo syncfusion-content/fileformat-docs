@@ -28,9 +28,9 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 ![Set the target version](Workingwith_WinUI/Target_Version.png)
 
-4.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
+4.Install the Syncfusion.Presentation.NET NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
 
-![Install the Presentation .Net Core Nuget](Workingwith_WinUI/Install_Nuget.png)
+![Install the Presentation .NET Nuget](Workingwith_WinUI/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -127,7 +127,7 @@ pptxDoc.Save(outputStream);
 
 {% endtabs %}
 
-A complete working example of creating a Presentation file in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint1714506431).
+A complete working example of creating a Presentation file in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint724079917.zip).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
@@ -175,9 +175,9 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 ![Set the target version](Workingwith_WinUI/Target_Version.png)
 
-4.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
+4.Install the Syncfusion.Presentation.NET NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
 
-![Install the Presentation .Net Core Nuget](Workingwith_WinUI/Install_Nuget.png)
+![Install the Presentation .NET Nuget](Workingwith_WinUI/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -282,7 +282,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 {% endhighlight %}
 
 {% endtabs %}
-A complete working example of creating a Presentation file in the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint_UWP-1992934961).
+A complete working example of creating a Presentation file in the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint_UWP-1654817345.zip).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
