@@ -1,6 +1,6 @@
 ---
 title: Create and edit PowerPoint files in MAUI |Syncfusion|
-description: A .NET Core PowerPoint library to create, read and edit PowerPoint files in .NET MAUI applications. Supports text, shape, chart, table and combine PowerPoints.
+description: A .NET MAUI PowerPoint library to create, read and edit PowerPoint files in .NET MAUI applications. Supports text, shape, chart, table and combine PowerPoints.
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -14,7 +14,7 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 
 ## Steps to create PowerPoint file in .NET MAUI
 
-1.Create a new C# MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
+1.Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
 ![Create the MAUI app in Visual Studio](Workingwith_MAUI/Create_Project.png)
 
