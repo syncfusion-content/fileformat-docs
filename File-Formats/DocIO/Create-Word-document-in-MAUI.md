@@ -1,6 +1,6 @@
 ---
-title: Create Word document in MAUI | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in .NET MAUI application using Syncfusion .NET Core Word (Essential DocIO) library
+title: Create Word document in .NET MAUI | Syncfusion
+description: Create Word document without Microsoft Word or interop dependencies in .NET MAUI application using Syncfusion .NET MAUI Word (Essential DocIO) library
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -317,7 +317,7 @@ By executing the program, you will get the **Word document** as follows.
 
 N> Essential DocIO is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
-## Helper files for MAUI
+## Helper files for .NET MAUI
 
 Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO1833147622.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 

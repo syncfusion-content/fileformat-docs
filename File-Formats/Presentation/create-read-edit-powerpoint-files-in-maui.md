@@ -1,5 +1,5 @@
 ---
-title: Create and edit PowerPoint files in MAUI |Syncfusion|
+title: Create and edit PowerPoint files in .NET MAUI |Syncfusion|
 description: A .NET MAUI PowerPoint library to create, read and edit PowerPoint files in .NET MAUI applications. Supports text, shape, chart, table and combine PowerPoints.
 platform: file-formats
 control: PowerPoint
@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read and edit a PowerPoint file in .NET MAUI
 
-Syncfusion Essential PowerPoint is a .NET MAUI PowerPoint library used to create, read, and edit PowerPoint documents programmatically without Microsoft PowerPoint or interop dependencies. Using this library, you can create a PowerPoint document in .NET MAUI.
+Syncfusion Essential Presentation is a .NET MAUI PowerPoint library used to create, read, and edit PowerPoint documents programmatically without Microsoft PowerPoint or interop dependencies. Using this library, you can create a PowerPoint document in .NET MAUI.
 
 **Prerequisites:**
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
