@@ -220,7 +220,7 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 <td>
 Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
 <i>Note</i><br/>
-<i>Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq)'| markdownify }} to know about the NuGet packages that need to be installed to perform Word to PDF conversion in Linux OS.</i><br/>
+<i>Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuGet-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os)'| markdownify }} to know about the NuGet packages that need to be installed to perform Word to PDF conversion in Linux OS.</i><br/>
 </td>
 <td>
 Install-Package Syncfusion.DocIORenderer.Net.Core
