@@ -25,7 +25,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 ![Target version](WinUI_images/WinUI_images_img3.png)
 
-4.Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
+4.Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](WinUI_images/WinUI_images_img4.png)
 
@@ -291,7 +291,7 @@ async void Save(MemoryStream stream, string filename)
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in WinUI can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinUISample-1799847016.zip).
+A complete working example of how to create an Excel file in WinUI can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinUISample1272534914.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](WinUI_images/WinUI_images_img5.png)

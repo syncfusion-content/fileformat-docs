@@ -25,7 +25,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 ![Name the project](MAUI_images/MAUI_images_img2.png)
 
-3.Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
+3.Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](MAUI_images/MAUI_images_img3.png)
 
@@ -496,7 +496,7 @@ class SaveIOS : ISave
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of creating an Excel document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/MAUISample1638511121.zip).
+A complete working example of creating an Excel document in the .NET MAUI application can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/MAUISample-523212596.zip).
 
 By executing the program in windows, you will get the **Excel document** as follows.
 

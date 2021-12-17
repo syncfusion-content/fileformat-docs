@@ -101,18 +101,10 @@ Blazor
 </tr>
 <tr>
 <td>
-WinUI
+WinUI and .NET MAUI
 </td>
 <td>
-{{'[Syncfusion.XlsIO.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-{{'[Syncfusion.XlsIO.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/)'| markdownify }}
+{{'[Syncfusion.XlsIO.NET.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -212,18 +204,10 @@ Blazor (Server-Side)
 </tr>
 <tr>
 <td>
-WinUI
+WinUI and .NET MAUI
 </td>
 <td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.XlsIORenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.NET/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -320,18 +304,10 @@ Blazor (Server-Side)
 </tr>
 <tr>
 <td>
-WinUI
+WinUI and .NET MAUI
 </td>
 <td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.XlsIORenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.NET/)'| markdownify }}
 </td>
 </tr>
 </tbody>
@@ -420,18 +396,10 @@ Blazor (Server-Side)
 </tr>
 <tr>
 <td>
-WinUI
+WinUI and .NET MAUI
 </td>
 <td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.XlsIORenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.NET/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -580,28 +548,15 @@ Blazor Client-Side
 </tr>
 <tr>
 <td>
-WinUI
+WinUI and .NET MAUI
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
-* Install-package Syncfusion.XlsIORenderer.Net.Core
+* Install-package Syncfusion.XlsIO.NET <br/><br/>
+* Install-package Syncfusion.XlsIORenderer.NET
 </td>
 <td>
-* Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.XlsIORenderer.Net.Core –RemoveDependencies
-</td>
-</tr>
-<tr>
-<td>
-.NET MAUI
-</td>
-<td>
-* Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
-* Install-package Syncfusion.XlsIORenderer.Net.Core
-</td>
-<td>
-* Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.XlsIORenderer.Net.Core –RemoveDependencies
+* Uninstall-package Syncfusion.XlsIO.NET –RemoveDependencies<br/><br/>
+* Uninstall-package Syncfusion.XlsIORenderer.NET –RemoveDependencies
 </td>
 </tr>
 </table>
