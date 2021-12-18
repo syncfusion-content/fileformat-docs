@@ -3757,7 +3757,7 @@ You can protect your Word documents with or without a password from anyone accid
 
 Using Microsoft Office Automation
 
-[WdProtectionType](https://msdn.microsoft.com/en-us/library/office/ff844959.aspx) is used to specify the protection type of the Word document.
+[WdProtectionType](https://docs.microsoft.com/en-gb/office/vba/api/Word.WdProtectionType) is used to specify the protection type of the Word document.
 
 {% tabs %} 
 
