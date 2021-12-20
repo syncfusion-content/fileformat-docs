@@ -118,6 +118,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to ignore print areas set in a worksheet?](faqs/how-to-ignore-print-areas-set-in-a-worksheet)
-* [How to resolve Excel cannot open the file filename.xlsx... error?](faqs/how-to-resolve-excel-cannot-open-the-file-because-the-file-format-for-the-file-extension-is-not-valid)
-* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](faqs/how-to-resolve-the-file-does-not-contain-workbook-stream-error-in-syncfusion-xlsio-base-dll)
+* [How to ignore print areas set in a worksheet?](how-to-ignore-print-areas-set-in-a-worksheet)
+* [How to resolve Excel cannot open the file filename.xlsx... error?](how-to-resolve-excel-cannot-open-the-file-because-the-file-format-for-the-file-extension-is-not-valid)
+* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](how-to-resolve-the-file-does-not-contain-workbook-stream-error-in-syncfusion-xlsio-base-dll)

@@ -208,6 +208,6 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "applica
   
 ## See Also
 
-* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](faqs/how-to-resolve-the-file-does-not-contain-workbook-stream-error-in-syncfusion-xlsio-base-dll)
+* [How to resolve the File does not contain workbook stream error in Syncfusion.XlsIO.Base.dll?](how-to-resolve-the-file-does-not-contain-workbook-stream-error-in-syncfusion-xlsio-base-dll)
 * [What are the known exceptions of XlsIO?](https://help.syncfusion.com/file-formats/xlsio/known-exceptions)
 * [What are the supported features by file formats?](https://help.syncfusion.com/file-formats/xlsio/supported-features-by-file-formats)
