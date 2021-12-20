@@ -147,10 +147,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   
 ## See Also
 
-* [What is the maximum range of Rows and Columns?](faqs/what-is-the-maximum-range-of-rows-and-columns)
-* [How to unfreeze the rows and columns in XlsIO?](faqs/how-to-unfreeze-the-rows-and-columns-in-xlsio)
-* [How to hide the summary rows and columns using XlsIO?](faqs/how-to-hide-the-summary-rows-and-columns-using-xlsio)
-* [How to merge excel files from more than one workbook to a single file?](faqs/how-to-merge-excel-files-from-more-than-one-workbook-to-a-single-file)
+* [What is the maximum range of Rows and Columns?](what-is-the-maximum-range-of-rows-and-columns)
+* [How to unfreeze the rows and columns in XlsIO?](how-to-unfreeze-the-rows-and-columns-in-xlsio)
+* [How to hide the summary rows and columns using XlsIO?](how-to-hide-the-summary-rows-and-columns-using-xlsio)
+* [How to merge excel files from more than one workbook to a single file?](how-to-merge-excel-files-from-more-than-one-workbook-to-a-single-file)
 * [What is data sorting?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#data-sorting)
 * [How to sort by value in Pivot Table?](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-tables#sort-by-value-in-pivot-table)
 * [How to filter Excel data?](https://help.syncfusion.com/file-formats/xlsio/migrate-from-office-automation-to-syncfusion-xlsio/filter-excel-data)

@@ -238,8 +238,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to create a Chart with a discontinuous range?](faqs/how-to-create-a-chart-with-a-discontinuous-range)
-* [How to create and open Excel Template files by using XlsIO?](faqs/how-to-create-and-open-excel-template-files-by-using-xlsio)
+* [How to create a Chart with a discontinuous range?](how-to-create-a-chart-with-a-discontinuous-range)
+* [How to create and open Excel Template files by using XlsIO?](how-to-create-and-open-excel-template-files-by-using-xlsio)
 * [How to create sparkline?](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#sparkline)
 * [How to create named range in Excel?](https://help.syncfusion.com/file-formats/xlsio/migrate-from-office-automation-to-syncfusion-xlsio/create-named-range-in-excel)
 * [How to define names?](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#defined-names)

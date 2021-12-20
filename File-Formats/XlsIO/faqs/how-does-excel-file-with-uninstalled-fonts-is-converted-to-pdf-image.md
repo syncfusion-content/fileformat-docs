@@ -158,7 +158,7 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 * [How to use Substitute Font in Excel-to-PDF Conversion?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion#substitute-font-in-excel-to-pdf-conversion)
 * [How to Embed Fonts?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-converter-settings#embed-fonts)
 * [How to Capture Warnings in Excel-to-PDF Conversion?](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-converter-settings#capture-warnings-in-excel-to-pdf-conversion)
-* [What is the image quality when using the ExportQualityImage property?](faqs/what-is-the-image-quality-when-using-the-exportqualityimage-property)
+* [What is the image quality when using the ExportQualityImage property?](what-is-the-image-quality-when-using-the-exportqualityimage-property)
 * [How to convert a Worksheet to Image?](https://help.syncfusion.com/file-formats/xlsio/worksheet-to-image-conversion)
 * [How to convert a Chart to Image?](https://help.syncfusion.com/file-formats/xlsio/chart-to-image-conversion)
 
