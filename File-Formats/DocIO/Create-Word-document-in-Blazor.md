@@ -31,7 +31,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-![Create a project name for your new project](Blazor_Images/Blazor_Configure.png)
+![Create a project name for your new project](Blazor_Images/Blazor_images_Server_ProjectName.png)
 
 3.Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
@@ -55,7 +55,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 {% endtabs %}
 
-6.Add the following code to create a new button.
+6.Add the following code in **DocIO.razor** file to create a new button.
 
 {% tabs %}
 {% highlight CSHTML %}
@@ -90,15 +90,15 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% highlight C# %}
 
-@using Syncfusion.DocIO;
-@using Syncfusion.DocIO.DLS;
-@using System.IO;
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+using System.IO;
 
 {% endhighlight %}
 
 {% endtabs %}
 
-9.Create a new MemoryStream method with name as **CreateWord** and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
+9.Create a new MemoryStream method with name as **CreateWord** in **WordService** class and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
 
 {% tabs %}
 
@@ -171,8 +171,7 @@ public MemoryStream CreateWord()
     document.Close();
     stream.Position = 0;
 
-    //Download the Word document in the browser
-    JS.SaveAs("Sample.docx", stream.ToArray());
+    return stream;
 }
 {% endhighlight %}
 
@@ -230,6 +229,24 @@ public static class FileUtils
 
 {% endtabs %}
 
+12.Add the following code snippet in the NavMenu.razor in the Shared folder.
+
+{% tabs %}
+
+{% highlight HTML %}
+
+<li class="nav-item px-3">
+     <NavLink class="nav-link" href="docio">
+         <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
+     </NavLink>
+</li>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+A complete working example of how to create a Word file in Blazor Server-Side Application can be downloaded from [Create-Word-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ServerSideApplication1446629651.zip).
+
 By executing the program, you will get the **Word document** as follows.
 
 ![Blazor Server-side output Word document](Blazor_Images/Blazor_Output.png)
@@ -242,7 +259,7 @@ By executing the program, you will get the **Word document** as follows.
 
 2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-![Create a project name for your new project](Blazor_Images/Blazor_Configure.png)
+![Create a project name for your new project](Blazor_Images/Blazor_image_Client_ProjectName.png)
 
 3.Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
@@ -385,7 +402,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-9.Add the following JavaScript function in the Index.html.
+9.Add the following JavaScript function in the Index.html file present under ``wwwroot``.
 
 {% tabs %}
 
@@ -417,6 +434,24 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+
+10.Add the following code snippet in the NavMenu.razor in the Shared folder.
+
+{% tabs %}
+
+{% highlight HTML %}
+
+<li class="nav-item px-3">
+     <NavLink class="nav-link" href="docio">
+         <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
+     </NavLink>
+</li>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+A complete working example of how to create a Word file in Blazor Client-Side can be downloaded from [Create-Word-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication2017636034.zip).
 
 By executing the program, you will get the **Word document** as follows.
 
