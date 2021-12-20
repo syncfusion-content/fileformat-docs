@@ -3757,7 +3757,7 @@ You can protect your Word documents with or without a password from anyone accid
 
 Using Microsoft Office Automation
 
-[WdProtectionType](https://msdn.microsoft.com/en-us/library/office/ff844959.aspx) is used to specify the protection type of the Word document.
+[WdProtectionType](https://docs.microsoft.com/en-gb/office/vba/api/Word.WdProtectionType) is used to specify the protection type of the Word document.
 
 {% tabs %} 
 
@@ -4747,4 +4747,45 @@ To preserve the expected images in the PDF, we suggest you convert the metafile 
 
 Otherwise, you can use the[WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/docio/word-to-pdf) code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages have limitations.
 
+## What are the NuGet packages to be installed to perform Word to PDF conversion in Linux OS?
+In Linux OS, you can perform Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) applications with Word to PDF conversion capabilities.
 
+In addition to the previous NuGet packages, the following NuGet packages need to be installed in your application.
+
+<table>
+<thead>
+<tr>
+<th width="20%">
+Version
+</th>
+<th width="40%">
+NuGet packages to install
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+From v19.4.0.x
+</td>
+<td>
+{{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
+{{'[HarfBuzzSharp.NativeAssets.Linux v2.6.1.7 NuGet](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.6.1.7)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+From v18.4.0.x to 19.4.0.x
+</td>
+<td>
+{{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
+</td>
+</tr>
+<tr>
+<td>
+Before v18.4.0.x
+</td>
+<td>
+Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from {{'[here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.
+</td>
+</tr>
+</table>
