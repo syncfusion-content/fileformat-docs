@@ -230,7 +230,7 @@ using (FileStream outputStream = new FileStream(filePath, FileMode.Create, FileA
 
 {% endtabs %}
 
-A complete working example of creating a PDF document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample-1441042814).
+A complete working example of creating a PDF document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample208256365).
 
 By executing the program, you will get the **PDF document** as follows.
 
