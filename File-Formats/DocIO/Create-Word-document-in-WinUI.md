@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in WinUI
 
-Syncfusion Essential DocIO is a .NET WinUI Word library used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in WinUI**.
+Syncfusion Essential DocIO is a [WinUI Word library](https://www.syncfusion.com/word-framework/winui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in WinUI**.
 
 **Prerequisites:**
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment).
