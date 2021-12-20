@@ -229,7 +229,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-12.Add the following code snippet in the NavMenu.razor in the Shared folder.
+12.Add the following code snippet in the ``NavMenu.razor`` in the Shared folder.
 
 {% tabs %}
 
@@ -435,7 +435,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-10.Add the following code snippet in the NavMenu.razor in the Shared folder.
+10.Add the following code snippet in the ``NavMenu.razor`` in the Shared folder.
 
 {% tabs %}
 
