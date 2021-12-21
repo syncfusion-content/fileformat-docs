@@ -1,33 +1,33 @@
 ---
-title: Create or Generate PDF file in MAUI | Syncfusion
-description: Learn how to create or generate a PDF file in MAUI with easy steps using Syncfusion .NET Core PDF library without depending on Adobe.
+title: Create or Generate PDF file in .NET MAUI | Syncfusion
+description: Learn how to create or generate a PDF file in .NET MAUI with easy steps using Syncfusion .NET Core PDF library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Create PDF file in MAUI
+# Create PDF file in .NET MAUI
 
-Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) that allows you to used to create, read, and edit **PDF** documents. This library also includes functions for merging, splitting, stamping, forms, and securing PDF files and more.This library also offers functionalities to merge, split, stamp, forms, and secure PDF files and more. Using this library, you can **create a PDF document in the MAUI application.**
+Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) that allows you to used to create, read, and edit **PDF** documents. This library also includes functions for merging, splitting, stamping, forms, and securing PDF files and more. Using this library, you can **create a PDF document in the .NET MAUI application.**
 
 **Prerequisites:**
 
-To use the MAUI project templates, install the Mobile development with .NET extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
+To use the .NET MAUI project templates, install the Mobile development with .NET extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
 
 
-## Create PDF file in .NET MAUI Application
+## Steps to create PDF document programmatically in .NET MAUI
 
-N> Our PDF library is currently supported in MAUI applications on the Android, iOS, and Windows platform. Currently, the PDF library is not supported in the Mac Catalyst platform. 
+N> Our PDF library is currently supported in .NET MAUI applications on the Android, iOS, and Windows platform. Currently, the PDF library is not supported in the Mac Catalyst platform. 
 
 1.Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
 
-![Create the MaUI  app in Visual Studio](MaUI_Images/Create_Project.png)
+![Create the .NET MaUI  app in Visual Studio](MaUI_Images/Create_Project.png)
 
 2.Enter the project name and click **Create**.
 
 ![Create a project name for your new project](MaUI_Images/Configure_Project.png)
 
-3.Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+3.Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 
 ![Install the PDF .NET Core NuGet package](MaUI_Images/Install_Nuget.png)
 
@@ -619,7 +619,7 @@ class SaveIOS : ISave
 
 {% endtabs %}
 
-A complete working example of creating a PDF document in the MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample2082094668).
+A complete working example of creating a PDF document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample2082094668).
 
 By executing the program in windows, you will get the **PDF document** as follows.
 
