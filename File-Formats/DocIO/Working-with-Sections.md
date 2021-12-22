@@ -1560,9 +1560,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
-### Remove Header and Footer
+### Remove Headers and Footers
 
-The following code example explains how to remove the header and footer items from the existing Word document.
+You can remove the headers and footers from an existing Word document. The following code example explains how to remove the headers and footers  from an existing Word document.
 
 {% tabs %}  
 
@@ -1572,18 +1572,18 @@ WordDocument document = new WordDocument("Input.docx", FormatType.Automatic);
 //Iterate to each section in the Word document.
 foreach (WSection section in document.Sections)
 {
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the odd header.
    section.HeadersFooters.OddHeader.ChildEntities.Clear();
    //Remove the even header.
    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-   //Remove the first page header.
-   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-   //Remove the odd footer.
-   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the even footer.
    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
-   //Remove the first page footer.
-   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
 }
 //Save the Word document.
 document.Save("Output.docx", FormatType.Docx);
@@ -1595,18 +1595,18 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Input.docx", FormatType.Automatic)
 'Iterate to each section in the Word document.
 For Each section As WSection In document.Sections
-    'Remove the odd header.
+    'Remove the first page header.
+    section.HeadersFooters.FirstPageHeader.ChildEntities.Clear()
+	'Remove the first page footer.
+    section.HeadersFooters.FirstPageFooter.ChildEntities.Clear()
+    'Remove the odd footer.
+    section.HeadersFooters.OddFooter.ChildEntities.Clear()
+	'Remove the odd header.
     section.HeadersFooters.OddHeader.ChildEntities.Clear()
     'Remove the even header.
     section.HeadersFooters.EvenHeader.ChildEntities.Clear()
-    'Remove the first page header.
-    section.HeadersFooters.FirstPageHeader.ChildEntities.Clear()
-    'Remove the odd footer.
-    section.HeadersFooters.OddFooter.ChildEntities.Clear()
     'Remove the even footer.
     section.HeadersFooters.EvenFooter.ChildEntities.Clear()
-    'Remove the first page footer.
-    section.HeadersFooters.FirstPageFooter.ChildEntities.Clear()
 Next
 'Save the Word document.
 document.Save("Output.docx", FormatType.Docx)
@@ -1620,18 +1620,18 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterate to each section in the Word document.
 foreach (WSection section in document.Sections)
 {
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the odd header.
    section.HeadersFooters.OddHeader.ChildEntities.Clear();
    //Remove the even header.
    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-   //Remove the first page header.
-   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-   //Remove the odd footer.
-   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the even footer.
    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
-   //Remove the first page footer.
-   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
 }
 //Save and close the Word document instance.
 MemoryStream stream = new MemoryStream();
@@ -1651,18 +1651,18 @@ WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
 //Iterate to each section in the Word document.
 foreach (WSection section in document.Sections)
 {
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the odd header.
    section.HeadersFooters.OddHeader.ChildEntities.Clear();
    //Remove the even header.
    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-   //Remove the first page header.
-   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-   //Remove the odd footer.
-   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the even footer.
    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
-   //Remove the first page footer.
-   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
 }
 //Save and close the Word document instance.
 MemoryStream stream = new MemoryStream();
@@ -1682,18 +1682,18 @@ WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
 //Iterate to each section in the Word document.
 foreach (WSection section in document.Sections)
 {
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the odd header.
    section.HeadersFooters.OddHeader.ChildEntities.Clear();
    //Remove the even header.
    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-   //Remove the first page header.
-   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-   //Remove the odd footer.
-   section.HeadersFooters.OddFooter.ChildEntities.Clear();
    //Remove the even footer.
    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
-   //Remove the first page footer.
-   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
 }
 //Save and close the Word document instance.
 MemoryStream stream = new MemoryStream();
