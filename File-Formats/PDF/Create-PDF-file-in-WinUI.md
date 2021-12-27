@@ -28,7 +28,7 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 ![Set the target version](WinUI_Images/Target_Version.png)
 
-4.Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+4.Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 
 ![Install the PDF .NET Core NuGet package](WinUI_Images/Install_Nuget.png)
 
@@ -230,7 +230,7 @@ using (FileStream outputStream = new FileStream(filePath, FileMode.Create, FileA
 
 {% endtabs %}
 
-A complete working example of creating a PDF document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample-1441042814).
+A complete working example of creating a PDF document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample208256365).
 
 By executing the program, you will get the **PDF document** as follows.
 

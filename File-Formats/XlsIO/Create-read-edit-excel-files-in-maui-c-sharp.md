@@ -9,6 +9,10 @@ documentation: UG
 
 Syncfusion Excel library for .NET MAUI platform can be used to create, read, edit Excel files. This also convert Excel files to PDF. Syncfusion Excel library is compatible with .NET MAUI Windows, iOS, and Android platforms only.
 
+**Prerequisites:**
+
+To use the MAUI project templates, install the Mobile development with .NET extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
+
 ## Create a simple Excel report
 
 The below steps illustrates creating a simple Invoice formatted Excel document in .NET MAUI.
@@ -21,7 +25,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 ![Name the project](MAUI_images/MAUI_images_img2.png)
 
-3.Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
+3.Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](MAUI_images/MAUI_images_img3.png)
 
@@ -31,7 +35,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 {% highlight c# %}
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CreateExcel.MainPage"
+             x:Class="MAUISample.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
      <ScrollView>    
        <Button 
@@ -492,7 +496,7 @@ class SaveIOS : ISave
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of creating an Excel document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/MAUISample1638511121.zip).
+A complete working example of creating an Excel document in the .NET MAUI application can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/MAUISample-523212596.zip).
 
 By executing the program in windows, you will get the **Excel document** as follows.
 
