@@ -180,9 +180,9 @@ N> 6. "DocIO supports Word to PDF conversion in UWP application using DocIORende
 
 In Linux OS, you can perform the Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Word to PDF conversion capabilities.
 
-From v18.4, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) to perform Word to PDF conversion in Linux environment.
+From v19.4, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) and [HarfBuzzSharp.NativeAssets.Linux v2.6.1.7](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.6.1.7) NuGets to perform Word to PDF conversion in Linux environment.
 
-If you are using prior to v18.4 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v184-release) to know about how to perform Word to PDF conversion in Linux.
+If you are using prior to v19.4 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os) to know about how to perform Word to PDF conversion in Linux.
 
 
 **Frequently Asked Questions**
