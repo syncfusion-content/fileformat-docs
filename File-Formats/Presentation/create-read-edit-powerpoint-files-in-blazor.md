@@ -8,7 +8,7 @@ documentation: UG
 
 # Create PowerPoint document in Blazor
 
-Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net-core) used to create, read, and edit **PowerPoint** documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **create a PowerPoint document in Blazor**.
+Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net-core) used to create, read, and edit **PowerPoint** documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can create a [Blazor PowerPoint library](https://www.syncfusion.com/powerpoint-framework/blazor/powerpoint-library).
 
 **Prerequisites**
 
@@ -27,7 +27,7 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 
 1.Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio](Workingwith_Blazor/Create_project.png)
+![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document ](Workingwith_Blazor/Create_project.png)
 
 2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
@@ -233,7 +233,7 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 1.Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio](Workingwith_Blazor/Create_project.png)
+![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document](Workingwith_Blazor/Create_project.png)
 
 2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
@@ -400,8 +400,8 @@ public static class FileUtils
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
-![Blazor Server-side output PowerPoint document](Workingwith_Blazor/Output.png)
+![Blazor Client-Side output PowerPoint document](Workingwith_Blazor/Output.png)
 
-N> Even though PowerPoint library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
+N> Even though PowerPoint library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size. You can also explore our [Blazor PowerPoint library demo](https://blazor.syncfusion.com/demos/presentation/getting-started) that shows how to create and modify PowerPoint files from C# with just five lines of code.
 
 Kindly explore the [supported and unsupported features of PowerPoint library in Blazor](https://help.syncfusion.com/file-formats/presentation/supported-and-unsupported-features).

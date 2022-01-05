@@ -8,7 +8,7 @@ keywords: Working with presentation library in Xamarin Platform
 ---
 # Create, read and edit a PowerPoint file in Xamarin
 
-You can create or edit a PowerPoint file in Xamarin with Syncfusion PowerPoint library. The below are the steps.
+You can create or edit a PowerPoint file with Syncfusion [Xamarin PowerPoint library](https://www.syncfusion.com/powerpoint-framework/xamarin/powerpoint-library). The below are the steps.
 
 ## Create a PowerPoint file in Xamarin
 
@@ -295,7 +295,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
 
 The output of the above code example will generate the below PowerPoint slide.
 
-![Xamarin Output](Workingwith_Xamarin/GettingStartedSample.png)
+![Xamarin PowerPoint Library Output](Workingwith_Xamarin/GettingStartedSample.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
