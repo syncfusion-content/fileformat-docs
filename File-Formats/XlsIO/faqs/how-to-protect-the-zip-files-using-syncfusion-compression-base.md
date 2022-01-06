@@ -64,9 +64,9 @@ End Module
 
 ## See Also
 
-* [How to un-protect the zip files using Syncfusion.Compression.Base?](faqs/how-to-un-protect-the-zip-files-using-syncfusion-compression-base)
-* [How to zip files using the Syncfusion.Compression.Zip namespace?](faqs/how-to-zip-files-using-the-syncfusion-compression-zip-namespace)
-* [How to zip all the files in subfolders using Syncfusion Compression?](faqs/how-to-zip-all-the-files-in-subfolders-using-syncfusion-compression)
-* [How to protect certain cells in a worksheet?](faqs/how-to-protect-certain-cells-in-a-worksheet)
+* [How to un-protect the zip files using Syncfusion.Compression.Base?](how-to-un-protect-the-zip-files-using-syncfusion-compression-base)
+* [How to zip files using the Syncfusion.Compression.Zip namespace?](how-to-zip-files-using-the-syncfusion-compression-zip-namespace)
+* [How to zip all the files in subfolders using Syncfusion Compression?](how-to-zip-all-the-files-in-subfolders-using-syncfusion-compression)
+* [How to protect certain cells in a worksheet?](how-to-protect-certain-cells-in-a-worksheet)
 * [How to protect Excel workbook?](https://help.syncfusion.com/file-formats/xlsio/migrate-from-office-automation-to-syncfusion-xlsio/protect-excel-workbook)
 * [How to protect worksheet?](https://help.syncfusion.com/file-formats/xlsio/security#protect-worksheet)

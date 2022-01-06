@@ -3001,7 +3001,7 @@ doc.Close()
  {% endtabs %}  
 
 N>  For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
-[Applying Watermark](/File-Formats/DocIO/Applying-Watermark)
+[Applying Watermark](/file-formats/docio/applying-watermark)
 
 ### Headers and Footers
 
@@ -3561,7 +3561,7 @@ document.Close()
 
    
 N>  For more information on creating tables using DocIO, refer to online documentation link:
-[Working with Tables](/File-Formats/DocIO/Working-with-Tables)
+[Working with Tables](/file-formats/docio/working-with-tables)
 
 
 ### Comments 
@@ -3747,7 +3747,7 @@ doc.Save("Sample.doc", FormatType.Doc)
 
 
 N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
-[Working with Comments](/File-Formats/DocIO/Working-with-Comments) 
+[Working with Comments](/file-formats/docio/working-with-comments) 
 
 
 
@@ -4150,7 +4150,7 @@ document.Close()
 
 Refer to the online documentation link for more information about adding the table of contents to the Word document by using DocIO:
 
-[Working with table of contents](/File-Formats/DocIO/Working-with-Table-Of-Contents)
+[Working with table of contents](/file-formats/docio/working-with-table-of-contents)
 
 
 
