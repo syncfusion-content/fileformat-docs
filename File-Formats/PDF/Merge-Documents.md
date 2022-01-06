@@ -1506,3 +1506,129 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+## Reducing the size of the PDF file while importing pages
+
+Essential PDF provides support for optimization of memory using EnableMemoryOptimization property in the PdfDocument instance. Optimization will be effective only with merge, append and import functions. Enabling this property will optimize the memory but a difference in time occurs based on the document size.
+
+For example, if the PDF document has 100 pages and each page has an image in common. If we import those document pages with the EnableMemoryOptimization disabled (by default it is disabled). We will clone the image resource for each page separately. That leads to the imported document having a huge size when compared to the source PDF. If we enable the EnableMemoryOptimization, we won’t clone any resources from the source. That does not cause any PDF file size issue. Moreover, it does not cause any memory leak issues. So, without any hassle, you can enable the EnableMemoryOptimization property whenever you need this behavior.
+
+Refer to the following code snippet to reduce the PDF file size while importing pages from multiple documents.
+{% tabs %}
+{% highlight c# %}     
+
+//Load the document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("file1.pdf");
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization.
+
+document.EnableMemoryOptimization = true;
+
+//Import the page at 1 from the lDoc.
+
+document.ImportPageRange(lDoc, 0, 1);
+
+//Save the document.
+
+document.Save("sample.pdf");
+
+//Close the document.
+
+document.Close(true);
+
+lDoc.Close(true);
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+'Load the document.
+
+Dim lDoc As New PdfLoadedDocument("file1.pdf")
+
+'Create a new document.
+
+Dim document As New PdfDocument()
+
+'Enable memory optimization.
+
+document.EnableMemoryOptimization= true
+
+'Import the page at 1 from the lDoc
+
+document.ImportPageRange(lDoc, 0, 1)
+
+'Save the document.
+
+document.Save("sample.pdf")
+
+'Close the document.
+
+document.Close(True)
+
+lDoc.Close(True)
+
+
+{% endhighlight %}
+
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+//Create a PDF document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization.
+
+document.EnableMemoryOptimization= true;
+
+//Import the page at 1 from the lDoc.
+
+document.ImportPageRange(lDoc, 0, 1);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Define the ContentType for the pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "sample.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% endtabs %}
+
