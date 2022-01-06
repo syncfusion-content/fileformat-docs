@@ -1531,7 +1531,7 @@ document.EnableMemoryOptimization = true;
 
 //Import the page at 1 from the lDoc.
 
-document.ImportPageRange(lDoc, 0, 1);
+document.ImportPage(lDoc, 1);
 
 //Save the document.
 
@@ -1564,7 +1564,7 @@ document.EnableMemoryOptimization= true
 
 'Import the page at 1 from the lDoc
 
-document.ImportPageRange(lDoc, 0, 1)
+document.ImportPage(lDoc, 1)
 
 'Save the document.
 
@@ -1600,7 +1600,7 @@ document.EnableMemoryOptimization= true;
 
 //Import the page at 1 from the lDoc.
 
-document.ImportPageRange(lDoc, 0, 1);
+document.ImportPage(lDoc, 1);
 
 //Save the document as stream.
 
