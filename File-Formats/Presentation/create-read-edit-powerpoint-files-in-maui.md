@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read and edit a PowerPoint file in .NET MAUI
 
-Syncfusion Essential Presentation is a .NET MAUI PowerPoint library used to create, read, and edit PowerPoint documents programmatically without Microsoft PowerPoint or interop dependencies. Using this library, you can create a PowerPoint document in .NET MAUI.
+Syncfusion Essential Presentation is a [.NET MAUI PowerPoint library](https://www.syncfusion.com/powerpoint-framework/maui/powerpoint-library) used to create, read, and edit PowerPoint documents programmatically without Microsoft PowerPoint or interop dependencies. Using this library, you can create a PowerPoint document in .NET MAUI.
 
 **Prerequisites:**
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
@@ -46,7 +46,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
                 FontAttributes="Bold"
                 Grid.Row="0"
                 SemanticProperties.Hint="Creates Presentation you click"
-                Clicked="OnButtonClicked"
+                Clicked="CreatePresentation"
                 HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
@@ -121,7 +121,7 @@ stampShape.Fill.FillType = FillType.None;
 stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmentType.Center;
 
 //Saves the presentation to the memory stream.
-using (MemoryStream stream = new();
+using MemoryStream stream = new();
 pptxDoc.Save(stream);
 stream.Position = 0;
 //Saves the memory stream as file.
@@ -131,7 +131,7 @@ DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openx
 
 {% endtabs %}
 
-A complete working example of creating a Presentation file in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample1545592917.zip).
+A complete working example of creating a Presentation file in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint-708478965.zip).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
@@ -159,7 +159,7 @@ IShape shape = slide.Shapes[0] as IShape;
 if (shape.TextBody.Text == "Company History")
     shape.TextBody.Text = "Company Profile";
 //Saves the presentation to the memory stream.
-using (MemoryStream stream = new();
+using MemoryStream stream = new();
 pptxDoc.Save(stream);
 stream.Position = 0;
 //Saves the memory stream as file.
@@ -232,7 +232,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     PreviewControllerDS.cs<br/>QLPreviewItemFileSystem.cs
   </td>
   <td>
-    Helper classes for viewing the <b>Word document</b> in iOS device.
+    Helper classes for viewing the <b>PowerPoint file</b> in iOS device.
   </td>
   </tr>
 </table>

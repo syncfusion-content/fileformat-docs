@@ -276,7 +276,7 @@ public override bool FinishedLaunching(UIApplication application, NSDictionary l
 {% endhighlight %}
 {% endtabs %}
 
-### Java
+## Java
 
 Import ‘syncfusion.licensing' package and register the license key in the **main method** of your console application.
 

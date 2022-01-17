@@ -139,6 +139,7 @@ Install-Package Syncfusion.DocIO.NET
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. You can use the above WPF or Windows Forms platform NuGet packages for .NET Core 3.0 targeting applications and use the same "C# tab" code examples for it.
+N> 4.Essential DocIO is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting Word document to PDF
 
@@ -230,8 +231,9 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
 Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
+<br/>
 <i>Note:</i><br/>
-<i>Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuGet-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os)'| markdownify }} to know about the NuGet packages that need to be installed to perform Word to PDF conversion in Linux OS.</i><br/>
+<i>Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os)'| markdownify }} to know about the NuGet packages that need to be installed to perform Word to PDF conversion in Linux OS.</i><br/>
 </td>
 <td>
 Install-Package Syncfusion.DocIORenderer.Net.Core
@@ -265,6 +267,7 @@ N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 N> 4. From v18.4.0.x, the dependent package SkiaSharp is upgraded from 1.59.3 to 2.80.2 version and it is mandatory to use SkiaSharp.NativeAssets.Linux v2.80.2 package instead of SkiaSharp.Linux v1.59.3 for converting Word documents into PDF in Linux environment.
+N> 5.Essential DocIO is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting Charts
 
