@@ -1,5 +1,5 @@
 ---
-title: Converting PowerPoint Presentation to image |Syncfusion|
+title: Converting PowerPoint Presentation to image in File Formats|Syncfusion
 description: This section illustrates how to convert PowerPoint Presentation document to image; PowerPoint Presentation conversion
 platform: file-formats
 control: Presentation
@@ -771,4 +771,4 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endtabs %}
 
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
-N> 2. Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image?cs-save-lang=1&cs-lang=asp.net%20core) conversion.
+N> 2. Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image) conversion.

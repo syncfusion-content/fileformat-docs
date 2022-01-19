@@ -46,7 +46,7 @@ Syncfusion.XlsIO.UWP
 </tr>
 <tr>
 <td>
-.NET Core, Xamarin, Blazor, WinUI and .NET MAUI
+.NET Core, Xamarin, and Blazor
 </td>
 <td>
 Syncfusion.XlsIO.Portable<br/>
@@ -123,6 +123,14 @@ Universal (Classic)
 Syncfusion.XlsIO.Universal
 </td>
 </tr>
+<tr>
+<td>
+WinUI and .NET MAUI
+</td>
+<td>
+Syncfusion.XlsIO.NET
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -167,7 +175,7 @@ Syncfusion.ExcelToPDFConverter.ClientProfile
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin, Blazor (Server-Side), WinUI and .NET MAUI
+UWP, .NET Core, Xamarin, and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
@@ -175,6 +183,18 @@ Syncfusion.XlsIO.Portable<br/>
 Syncfusion.Pdf.Portable<br/>
 Syncfusion.SkiaSharpHelper.Portable<br/>
 Syncfusion.XlsIORenderer.Portable
+</td>
+</tr>
+<tr>
+<td>
+WinUI and .NET MAUI
+</td>
+<td>
+Syncfusion.Compression.NET<br/>
+Syncfusion.XlsIO.NET<br/>
+Syncfusion.Pdf.NET<br/>
+Syncfusion.SkiaSharpHelper.NET<br/>
+Syncfusion.XlsIORenderer.NET<br/>
 </td>
 </tr>
 </tbody>
@@ -207,13 +227,24 @@ Syncfusion.XlsIO.Base
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin, Blazor (Server-Side), WinUI and .NET MAUI
+UWP, .NET Core, Xamarin, and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
 Syncfusion.XlsIO.Portable<br/>
 Syncfusion.SkiaSharpHelper.Portable<br/>
 Syncfusion.XlsIORenderer.Portable
+</td>
+</tr>
+<tr>
+<td>
+WinUI and .NET MAUI
+</td>
+<td>
+Syncfusion.Compression.NET<br/>
+Syncfusion.XlsIO.NET<br/>
+Syncfusion.SkiaSharpHelper.NET<br/>
+Syncfusion.XlsIORenderer.NET<br/>
 </td>
 </tr>
 </tbody>
@@ -247,13 +278,24 @@ Syncfusion.SfChart.WPF
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin, Blazor (Server-Side), WinUI and .NET MAUI
+UWP, .NET Core, Xamarin, and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
 Syncfusion.XlsIO.Portable<br/>
 Syncfusion.SkiaSharpHelper.Portable<br/>
 Syncfusion.XlsIORenderer.Portable
+</td>
+</tr>
+<tr>
+<td>
+WinUI and .NET MAUI
+</td>
+<td>
+Syncfusion.Compression.NET<br/>
+Syncfusion.XlsIO.NET<br/>
+Syncfusion.SkiaSharpHelper.NET<br/>
+Syncfusion.XlsIORenderer.NET<br/>
 </td>
 </tr>
 </tbody>

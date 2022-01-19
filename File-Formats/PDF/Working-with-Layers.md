@@ -2422,3 +2422,71 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Removing the layer with its graphical content
+
+The Syncfusion PDF library allows users to remove layers from PDF documents, and we can also remove the graphical content of layers upto n layer recursively.
+We can remove  layers from the layer collection, represented by the ['PdfPageLayerCollection'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageLayerCollection.html) of the loaded page by mentioning only the index ['RemoveAt(0)'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentLayerCollection.html#Syncfusion_Pdf_PdfDocumentLayerCollection_Remove_System_String_). We can also remove the graphic content of the layer by using ['RemoveAt(0, true)'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentLayerCollection.html#Syncfusion_Pdf_PdfDocumentLayerCollection_RemoveAt_System_Int32_System_Boolean_) method from the layer collection by mentioning the index and enabling the removeGraphicalContent parameter.
+
+This is illustrated in the following code sample.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Layers.pdf");
+
+//Get the layer collection.
+PdfDocumentLayerCollection layers = loadedDocument.Layers;
+
+ if (layers?.Count > 0)
+ {
+ if (layers[0].Layers.Count>0) 
+ {
+//Remove the first child layer with graphical content.
+  layers[0].Layers.RemoveAt(0, true);
+ }                       
+ }
+
+//Save the PDF document.
+loadedDocument.Save("Output.pdf");
+
+//Close the instance of PdfLoadedDocument.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Private Sub SurroundingSub()
+‘Load the existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Output.pdf")
+
+‘Get the layer collection.
+Dim layers As PdfDocumentLayerCollection = loadedDocument.Layers
+
+If layers?.Count > 0 Then
+If layers(0).Layers.Count > 0 Then
+‘Remove the first child layer with graphical content.
+layers(0).Layers.RemoveAt(0,True)
+End If
+End If
+
+‘Save the PDF document.
+loadedDocument.Save("Layer2.pdf")
+‘Close the instance of PdfLoadedDocument.
+loadedDocument.Close(True)
+
+End Sub
+
+{% endhighlight %}
+
+
+{% highlight ASP.NET Core %}
+
+//PDF supports Removing Layers and its graphical content only in Windows Forms, WPF platform.
+
+{% endhighlight %}
+
+{% endtabs %}  

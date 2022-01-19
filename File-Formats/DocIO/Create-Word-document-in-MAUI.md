@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in .NET MAUI
 
-Syncfusion Essential DocIO is a .NET MAUI Word library used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
+Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/word-framework/maui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
 
 **Prerequisites:**
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
@@ -48,7 +48,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
                 FontAttributes="Bold"
                 Grid.Row="0"
                 SemanticProperties.Hint="Creates Word document you click"
-                Clicked="OnButtonClicked"
+                Clicked="CreateDocument"
                 HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
@@ -319,7 +319,7 @@ N> Essential DocIO is only supported in .NET MAUI application targeting Windows,
 
 ## Helper files for .NET MAUI
 
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO1833147622.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO1550372231.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
