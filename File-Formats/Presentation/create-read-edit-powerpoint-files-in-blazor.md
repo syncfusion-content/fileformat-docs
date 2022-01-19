@@ -8,7 +8,7 @@ documentation: UG
 
 # Create PowerPoint document in Blazor
 
-Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net-core) used to create, read, and edit **PowerPoint** documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can create a [Blazor PowerPoint library](https://www.syncfusion.com/powerpoint-framework/blazor/powerpoint-library).
+Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net-core) used to create, read, and edit **PowerPoint** documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can create a **PowerPoint document in Blazor**.
 
 **Prerequisites**
 
