@@ -78,8 +78,8 @@ using System.IO;
 
 {% highlight c# %}
 
-// Create a new document.
-using (WordDocument document = new();
+//Create a new document.
+using WordDocument document = new();
 //Add a new section to the document.
 WSection section = document.AddSection() as WSection;
 //Set Margin of the section.
@@ -107,8 +107,10 @@ style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
 IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
-// Get the image stream.
-FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Get the image stream.
+Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.AdventureCycle.jpg");
 IWPicture picture = paragraph.AppendPicture(imageStream);
 picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
 picture.VerticalOrigin = VerticalOrigin.Margin;
@@ -164,7 +166,7 @@ paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 //Append the picture to the paragraph.
-FileStream image1 = new FileStream("Mountain-200.jpg", FileMode.Open, FileAccess.Read);
+Stream image1 = assembly.GetManifestResourceStream("CreateWordSample.Assets.Mountain-200.jpg");
 picture = paragraph.AppendPicture(image1);
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
 picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -240,7 +242,7 @@ paragraph = table[1, 1].AddParagraph();
 paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.LineSpacing = 12f;
 //Append the picture to the paragraph.
-FileStream image2 = new FileStream("Mountain-300.jpg", FileMode.Open, FileAccess.Read);
+Stream image2 = assembly.GetManifestResourceStream("CreateWordSample.Assets.Mountain-300.jpg");
 
 picture = paragraph.AppendPicture(image2);
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -256,7 +258,7 @@ paragraph = table[2, 0].AddParagraph();
 paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.LineSpacing = 12f;
 //Append the picture to the paragraph.
-FileStream image3 = new FileStream("Road-550-W.jpg", FileMode.Open, FileAccess.Read);
+Stream image3 = assembly.GetManifestResourceStream("CreateWordSample.Assets.Road-550-W.jpg");
 picture = paragraph.AppendPicture(image3);
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
 picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -294,8 +296,10 @@ textRange.CharacterFormat.FontName = "Times New Roman";
 section.AddParagraph();
 
 //Save the Word document to stream.
-using (FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite));
+using MemoryStream outputStream = new();
 document.Save(outputStream, FormatType.Docx);
+//Save the stream as a Word document file in the local machine.
+Save(outputStream, "Sample.docx");
 
 {% endhighlight %}
 
