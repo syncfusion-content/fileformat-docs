@@ -843,7 +843,7 @@ I.	Please find some of the following corrupted error messages that cannot be rep
 7.    Fatal Error occurred.
 II.	Please find  some of the possible offset error messages that may be repairable:
      1.Invalid cross-reference table with offset position.
-     2.Trailer Prev offset is located in the same crosstable section.
+     2.Trailer Prev offset is located in the same cross table section.
 
 {% tabs %}
 {% highlight c# %}
@@ -857,7 +857,7 @@ document = new PdfLoadedDocument(“input.pdf”,true);
 catch (Exception message)
 {
 //Invalid cross-reference table with offset position
-//Trailer Prev offset is located in the same crosstable section
+//Trailer Prev offset is located in the same cross table section
 //Could not find a valid signature (%PDF-).
 //Bad Format error
 //Lexical error: Unmatched input
@@ -876,7 +876,7 @@ Try
 document = New PdfLoadedDocument("input.pdf”,true)
 Catch exception As Exception
 ‘Invalid cross-reference table with offset position
-‘Trailer Prev offset is located in the same crosstable section
+‘Trailer Prev offset is located in the same cross table section
 ‘Could not find a valid signature (%PDF-).
 ‘Bad Format error
 ‘Lexical error: Unmatched input
@@ -906,7 +906,7 @@ document = new PdfLoadedDocument(docStream,true);
 catch (PdfException exception)
 {
 //Invalid cross-reference table with offset position
-//Trailer Prev offset is located in the same crosstable section
+//Trailer Prev offset is located in the same cross table section
 //Could not find a valid signature (%PDF-).
 //Bad Format error
 //Lexical error: Unmatched input
