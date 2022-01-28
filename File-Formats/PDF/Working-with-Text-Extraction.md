@@ -314,7 +314,7 @@ loadedDocument.Close(true);
 
 ## Working with layout based text extraction
 
-You can extract text from the given PDF page based on its layout using [ExtractText(bool)](https://helpstaging.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText_System_Boolean_) overload. In this method, the text is extracted in the layout as it is viewed in the reader application.
+You can extract text from the given PDF page based on its layout using [ExtractText(bool)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText().html) overload. In this method, the text is extracted in the layout as it is viewed in the reader application.
 
 Please refer the following code snippet to extract the text with layout.
 
