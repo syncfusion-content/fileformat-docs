@@ -7,17 +7,17 @@ documentation: UG
 ---
 # Create, read and edit a PowerPoint file in ASP.NET Core
 
-You can create or edit a PowerPoint file in ASP.NET Core with Syncfusion PowerPoint library. The below are the steps.
+You can create or edit a PowerPoint file with the Syncfusion [ASP.NET Core PowerPoint library](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-core-c-sharp). The below are the steps.
 
 ## Create a PowerPoint file in ASP.NET Core
 
 1.Create a new C# ASP.NET Core web application project.
 
-![Create ASP.NET Core Web project](Workingwith_Core/CreateCore.png)
+![Create ASP.NET Core Web project for PowerPoint file](Workingwith_Core/CreateCore.png)
 
 2.Select Web Application pattern (Model-View-Controller) for the project.
 
-![Select Web Application pattern](Workingwith_Core/MVC.png)
+![Select Web Application pattern for PowerPoint file](Workingwith_Core/MVC.png)
 
 3.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
@@ -189,7 +189,7 @@ pptxDoc.Close();
 
 The output of the above code example will generate the below PowerPoint slide.
 
-![ASP.Net Core Output](Workingwith_Core/GettingStartedSample.png)
+![ASP.Net Core PowerPoint Library Output](Workingwith_Core/GettingStartedSample.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
@@ -227,3 +227,5 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+N> You can also explore our [.NET Core PowerPoint library demo](https://ej2.syncfusion.com/aspnetcore/Presentation/Default#/bootstrap5) that shows how to create and modify PowerPoint files from C# with just five lines of code.
