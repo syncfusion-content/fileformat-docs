@@ -3071,3 +3071,170 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+## Span a text element to multiple pages and draw the next element
+
+The ['PdfLayoutFormat'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class helps to allow the text to flow across pages. The ['PdfLayoutResult'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutResult.html) class provides the rendered bounds of the previously added text, which can be used to place successive elements without overlapping. 
+The ['Syncfusion PDF library'](https://www.syncfusion.com/pdf-framework/net) provides ['PageAddedEventArgs'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PageAddedEventArgs.html) to get the current Page details, and we can draw the next new text element from where the last text element ends.
+The following code example illustrates the same.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Add the event.
+document.Pages.PageAdded += new PageAddedEventHandler(Pages_PageAdded);
+//Create a new page and add it as the last page of the document.
+PdfPage page = document.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+//Read the long text from the text file.
+StreamReader reader = new StreamReader(@"input.txt", Encoding.ASCII);
+string text = reader.ReadToEnd();
+reader.Close();
+
+const int paragraphGap = 10;
+
+//Create a text element with the text and font.
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+PdfLayoutFormat layoutFormat = new PdfLayoutFormat();
+layoutFormat.Layout = PdfLayoutType.Paginate;
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+//Draw the first paragraph.
+PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Draw the second paragraph from the first paragraph’s end position.
+result = textElement.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Save and close the document.
+document.Save("Sample.pdf");
+document.Close(true);
+
+//Event handler for PageAdded event.
+void Pages_PageAdded(object sender, PageAddedEventArgs args)
+{
+PdfPage page = args.Page;
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+Dim document As New PdfDocument()
+'Add the event.
+document.Pages.PageAdded += New PageAddedEventHandler(Pages_PageAdded)
+'Create a new page and add it as the last page of the document.
+Dim page As PdfPage = document.Pages.Add()
+Dim graphics As PdfGraphics = page.Graphics
+
+'Read the RTL text from the text file.
+Dim reader As New StreamReader("input.txt", Encoding.ASCII)
+Dim text As String = reader.ReadToEnd()
+reader.Close()
+Const paragraphGap As Integer = 10
+
+'Create a text element with the text and font.
+Dim textElement As New PdfTextElement(text, New PdfStandardFont(PdfFontFamily.TimesRoman, 14))
+Dim layoutFormat As New PdfLayoutFormat()
+layoutFormat.Layout = PdfLayoutType.Paginate
+layoutFormat.Break = PdfLayoutBreakType.FitPage
+
+'Draw the first paragraph.
+Dim result As PdfLayoutResult = textElement.Draw(page, New RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat)
+
+'Draw the second paragraph from the first paragraph’s end position.
+result = textElement.Draw(page, New RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat)
+
+'Save and close the document.
+document.Save("Sample.pdf")
+document.Close(True)
+
+'Event handler for PageAdded event.
+Private Sub Pages_PageAdded(sender As Object, args As PageAddedEventArgs)
+Dim page As PdfPage = args.Page
+End Sub
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a PDF document instance
+
+PdfDocument document = new PdfDocument();
+
+//Add the event.
+document.Pages.PageAdded += new PageAddedEventHandler(Pages_PageAdded);
+
+//Create a new page and add it as the last page of the document.
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Read the long text from the text file.
+
+FileStream inputStream = new FileStream("Input.txt", FileMode.Open, FileAccess.Read);
+
+StreamReader reader = new StreamReader(inputStream, Encoding.ASCII);
+
+string text = reader.ReadToEnd();
+
+reader.Dispose();
+
+
+const int paragraphGap = 10;
+
+
+//Create a text element with the text and font.
+
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+PdfLayoutFormat layoutFormat = new PdfLayoutFormat();
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+//Draw the first paragraph.
+
+PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Draw the second paragraph from the first paragraph’s end position.
+
+result = textElement.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Creating the stream object.
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream.
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Define the ContentType for the pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+
+{% endtabs %}  
+
