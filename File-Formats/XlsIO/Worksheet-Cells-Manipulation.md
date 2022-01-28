@@ -1908,7 +1908,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Skip Blanks While Copying
 
-Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://helpstaging.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CopyTo_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelCopyRangeOptions_) to TRUE.
+Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) to TRUE.
 
 The following code illustrates how to skip blank cells while copying.
 
