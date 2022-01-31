@@ -6188,3 +6188,136 @@ return signedBytes;
 {% endhighlight %}
 
 {% endtabs %}
+
+## Create a PDF digital signature without visual appearance
+
+Syncfusion PDF library provides support to digitally sign an existing PDF document without including any text, image in the signature field.
+The following code illustrates the same.
+
+{% tabs %}
+{% highlight c# %}
+
+//Load the PDF document with the signature field
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");         
+
+//Get the page
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a signature field
+
+PdfSignatureField signatureField = new PdfSignatureField(page, "SignatureField");
+
+signatureField.Signature = new PdfSignature();
+
+//Add certificate to the signature field
+
+signatureField.Signature.Certificate = new PdfCertificate(@"PDF.pfx", "syncfusion");
+
+signatureField.Signature.Reason = "I am author of this document";
+
+//Add the field
+
+loadedDocument.Form.Fields.Add(signatureField);
+
+//Save the certified PDF document
+
+loadedDocument.Save(@"Output.pdf");
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document with the signature field
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Get the page
+
+Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Create a signature field
+
+Dim signatureField As New PdfSignatureField(page, "SignatureField")
+
+signatureField.Signature = New PdfSignature()
+
+'Add certificate to the signature field
+
+signatureField.Signature.Certificate = New PdfCertificate("PDF.pfx", "syncfusion")
+
+signatureField.Signature.Reason = "I am author of this document"
+
+'Add the field
+
+loadedDocument.Form.Fields.Add(signatureField)
+
+'Save the certified PDF document
+
+loadedDocument.Save("Output.pdf")
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the page
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a signature field
+
+PdfSignatureField signatureField = new PdfSignatureField(page, "SignatureField");
+
+signatureField.Signature = new PdfSignature();
+
+//Add certificate to the signature field
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "syncfusion");
+
+signatureField.Signature.Reason = "I am author of this document";
+
+//Add the field
+
+loadedDocument.Form.Fields.Add(signatureField);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Define the ContentType for a pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% endtabs %}
