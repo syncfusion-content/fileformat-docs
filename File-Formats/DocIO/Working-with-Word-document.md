@@ -1426,7 +1426,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 ### Import styles from source to destination document
 
-You can import contents along with all the styles from the source document to destination document by specifying whether to import styles that have the same name between the source and destination document. The following code example illustrates how to import the contents along with styles from source document into destination document.
+You can import all the contents  as well as all of the styles from the source document to the destination document by specifying whether to import styles with the same name in the source and destination document. The following code example illustrates how to import the contents along with styles from the source document into the destination document.
 
 {% tabs %} 
 
@@ -1435,7 +1435,7 @@ You can import contents along with all the styles from the source document to de
 WordDocument sourceDocument = new WordDocument("sourceFile.docx");
 //Open the destination document. 
 WordDocument destinationDocument = new WordDocument("DestinationFile.docx");
-//Import the contents and styles of source document at the end of destination document.
+//Import the contents and styles of the source document at the end of the destination document.
 destinationDocument.ImportContent(sourceDocument, true);
 //Save the destination document.
 destinationDocument.Save(outputFileName, FormatType.Docx);
@@ -1449,7 +1449,7 @@ destinationDocument.Close();
 Dim sourceDocument As New WordDocument("sourceFile.docx")
 'Open the destination document. 
 Dim destinationDocument As New WordDocument("DestinationFile.docx")
-'Import the contents and styles of source document at the end of destination document.
+'Import the contents and styles of the source document at the end of the destination document.
 destinationDocument.ImportContent(sourceDocument, True)
 'Save the destination document.
 destinationDocument.Save(outputFileName, FormatType.Docx)
@@ -1465,14 +1465,14 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {
 	//Open the destination document.
 	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.DestinationFile.docx"), FormatType.Docx);
-	//Import the contents and styles of source document at the end of destination document.
+	//Import the contents and styles of the source document at the end of the destination document.
 	destinationDocument.ImportContent(document, true);
 	MemoryStream stream = new MemoryStream();
 	//Save the Word file to MemoryStream.
 	await destinationDocument.SaveAsync(stream, FormatType.Docx);
-	//Save the stream as Word file in local machine.Please find Save method in [link](https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp)
+	//Save the stream as a Word file in the local machine.Please find Save method in [link](https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp)
 	Save(stream, "Result.docx");
-	//Please refer to the below link to save Word document in UWP platform.
+	//Please refer to the below link to save a Word document in the UWP platform.
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 	document.Close();
 	destinationDocument.Close();
@@ -1482,12 +1482,12 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% highlight ASP.NET CORE %}
 FileStream sourceStreamPath = new FileStream("sourceFile.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 FileStream destinationStreamPath = new FileStream("DestinationFile.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an source document from file system through constructor of WordDocument class.
+//Open an source document from the file system through the constructor of WordDocument class.
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
 {
 	//Open the destination document. 
 	WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
-	//Import the contents and styles of source document at the end of destination document.
+	//Import the contents and styles of the source document at the end of the destination document.
 	destinationDocument.ImportContent(document, true);
 	MemoryStream stream = new MemoryStream();
 	//Save and close the destination document to MemoryStream.
@@ -1507,7 +1507,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {
 	//Open the destination document. 
 	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.DestinationFile.docx"), FormatType.Docx);
-	//Import the contents and styles of source document at the end of destination document.
+	//Import the contents and styles of the source document at the end of the destination document.
 	destinationDocument.ImportContent(document, true);
 	MemoryStream stream = new MemoryStream();
 	destinationDocument.Save(stream, FormatType.Docx);
@@ -1516,7 +1516,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 	//Close the documents.               
 	document.Close();
 	destinationDocument.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform.
+	//Please download the helper files from the below link to save the stream as a file and open the file for viewing in the Xamarin platform.
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
