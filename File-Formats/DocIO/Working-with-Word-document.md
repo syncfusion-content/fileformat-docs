@@ -1424,6 +1424,105 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}  
 
+### Import styles from source to destination document
+
+You can import contents along with all the styles from the source document to destination document by specifying whether to import styles that have the same name between the source and destination document. The following code example illustrates how to import the contents along with styles from source document into destination document.
+
+{% tabs %} 
+
+{% highlight c# %}
+//Open the source document. 
+WordDocument sourceDocument = new WordDocument("sourceFile.docx");
+//Open the destination document. 
+WordDocument destinationDocument = new WordDocument("DestinationFile.docx");
+//Import the contents and styles of source document at the end of destination document.
+destinationDocument.ImportContent(sourceDocument, true);
+//Save the destination document.
+destinationDocument.Save(outputFileName, FormatType.Docx);
+//close the document instances.
+sourceDocument.Close();
+destinationDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Open the source document. 
+Dim sourceDocument As New WordDocument("sourceFile.docx")
+'Open the destination document. 
+Dim destinationDocument As New WordDocument("DestinationFile.docx")
+'Import the contents and styles of source document at the end of destination document.
+destinationDocument.ImportContent(sourceDocument, True)
+'Save the destination document.
+destinationDocument.Save(outputFileName, FormatType.Docx)
+'close the document instances.
+sourceDocument.Close()
+destinationDocument.Close()
+{% endhighlight %} 
+
+{% highlight UWP %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.SourceFile.docx"), FormatType.Docx))
+{
+	//Open the destination document.
+	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.DestinationFile.docx"), FormatType.Docx);
+	//Import the contents and styles of source document at the end of destination document.
+	destinationDocument.ImportContent(document, true);
+	MemoryStream stream = new MemoryStream();
+	//Save the Word file to MemoryStream.
+	await destinationDocument.SaveAsync(stream, FormatType.Docx);
+	//Save the stream as Word file in local machine.Please find Save method in [link](https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp)
+	Save(stream, "Result.docx");
+	//Please refer to the below link to save Word document in UWP platform.
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+	document.Close();
+	destinationDocument.Close();
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+FileStream sourceStreamPath = new FileStream("sourceFile.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream destinationStreamPath = new FileStream("DestinationFile.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Open an source document from file system through constructor of WordDocument class.
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+{
+	//Open the destination document. 
+	WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
+	//Import the contents and styles of source document at the end of destination document.
+	destinationDocument.ImportContent(document, true);
+	MemoryStream stream = new MemoryStream();
+	//Save and close the destination document to MemoryStream.
+	destinationDocument.Save(stream, FormatType.Docx);
+	destinationDocument.Close();
+	document.Close(); 
+	stream.Position = 0;
+	//Download Word document in the browser.
+	return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.sourceFile.docx"), FormatType.Docx))
+{
+	//Open the destination document. 
+	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.DestinationFile.docx"), FormatType.Docx);
+	//Import the contents and styles of source document at the end of destination document.
+	destinationDocument.ImportContent(document, true);
+	MemoryStream stream = new MemoryStream();
+	destinationDocument.Save(stream, FormatType.Docx);
+	//Save the stream as a file in the device and invoke it for viewing.
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+	//Close the documents.               
+	document.Close();
+	destinationDocument.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform.
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+
+{% endtabs %}  
+
 ### Maintain Imported List style information
 
 The following code example shows how to maintain information about imported list styles in a Word document while cloning and merging multiple Word documents.
