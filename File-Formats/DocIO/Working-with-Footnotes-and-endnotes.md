@@ -1,6 +1,6 @@
 ---
 title: Working with Footnotes and endnotes | DocIO | Syncfusion
-description: This section illustrates how to insert the footnote and endnote in a Word document
+description: This section illustrates how to insert the footnote and endnote in a Word document using DocIO
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -692,7 +692,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-## Removing a Footnotes
+## Removing a Footnotes/Editnotes
 
 The following code example shows how to remove the footnotes from the Word document.
 
