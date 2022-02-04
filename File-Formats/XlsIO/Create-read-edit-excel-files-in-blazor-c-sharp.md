@@ -1,13 +1,13 @@
 ---
 title: Create, read, and edit Excel files in Blazor | Syncfusion
-description: Explains how to create, read, and edit Excel files in Blazor applications using Syncfusion XlsIO.
+description: Learn here how to create, read, and edit Excel files in Blazor applications using Syncfusion Excel library.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 # Create, read, and edit Excel files in Blazor
 
-[Syncfusion Excel library for Blazor platform](https://www.syncfusion.com/excel-framework/blazor) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for Blazor platform](https://www.syncfusion.com/excel-framework/blazor/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report in Blazor Server-Side application
 
@@ -638,4 +638,4 @@ A complete working example of how to create an Excel file in Blazor Client-Side 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Client_Output.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Blazor Excel library demo](https://blazor.syncfusion.com/demos/xlsio/create-excel?theme=bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.
