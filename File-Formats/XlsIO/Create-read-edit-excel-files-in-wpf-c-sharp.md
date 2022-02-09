@@ -1,13 +1,13 @@
 ---
 title: Create, read, and edit Excel files in WPF | Syncfusion
-description: Explains how to create, read, and edit Excel files in WPF applications using Syncfusion XlsIO.
+description: Learn here how to create, read, and edit Excel files in WPF applications using Syncfusion Excel library.
 platform: wpf
 control: XlsIO
 documentation: UG
 ---
 # Create, read, and edit Excel files in WPF
 
-[Syncfusion Excel library for WPF platform](https://www.syncfusion.com/excel-framework/net) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for WPF platform](https://www.syncfusion.com/excel-framework/net/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
@@ -468,4 +468,4 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [WPF Excel library demo](https://github.com/syncfusion/file-formats-wpf-demos/tree/master/xlsio) that shows how to create and modify Excel files from C# with just five lines of code.
