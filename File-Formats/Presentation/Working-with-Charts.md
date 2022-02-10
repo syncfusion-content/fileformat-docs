@@ -3229,6 +3229,406 @@ else
 
 {% endtabs %}
 
+
+## Creating a Doughnut chart
+
+The following code example demonstrates how to create a doughnut chart.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a Presentation instance.
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to the Presentation.
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add chart to the slide with position and size.
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 500, 500);
+
+//Set the chart type.
+chart.ChartType = OfficeChartType.Doughnut;
+
+//Set the chart line pattern.
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+
+//Set the Chart title.
+chart.ChartTitle = "Current 963 Schematic Health";
+chart.ChartTitleArea.FontName = "Helvetica";
+chart.ChartTitleArea.Size = 10;
+
+//Set the Chart data.
+chart.ChartData.SetValue(2, 1, "Good");
+chart.ChartData.SetValue(2, 2, 2);
+chart.ChartData.SetValue(3, 1, "Config errors [Missing graphic]");
+chart.ChartData.SetValue(3, 2, 4);
+chart.ChartData.SetValue(4, 1, "Config errors [Broken GOTO link]");
+chart.ChartData.SetValue(4, 2, 8);
+chart.ChartData.SetValue(5, 1, "Config errors [Orphan points]");
+chart.ChartData.SetValue(5, 2, 14);
+
+//Create a series for the chart.
+IOfficeChartSerie pieSeries = chart.Series.Add("");
+pieSeries.Values = chart.ChartData[2, 2, 5, 2];
+
+//Set the Chart labels.
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.White;
+
+//Set the chart legend.
+chart.Legend.TextArea.FontName = "Helvetica";
+chart.Legend.TextArea.Size = 10;
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 5, 1];
+chart.Legend.Position = OfficeLegendPosition.Right;
+chart.Legend.IncludeInLayout = true;
+chart.Legend.FrameFormat.Border.AutoFormat = true;
+chart.Legend.FrameFormat.Border.IsAutoLineColor = true;
+
+//Set the chart legend positions.
+chart.Legend.Layout.ManualLayout.Left = 0.668;
+chart.Legend.Layout.ManualLayout.Top = 0.355;
+chart.Legend.Layout.ManualLayout.Height = 0.413;
+chart.Legend.Layout.ManualLayout.Width = 0.319;
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+
+//Set the chart plot area positions.
+chart.PlotArea.Layout.ManualLayout.Left = 0.122;
+chart.PlotArea.Layout.ManualLayout.Top = 0.239;
+chart.PlotArea.Layout.ManualLayout.Height = 0.433;
+chart.PlotArea.Layout.ManualLayout.Width = 0.417;
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner; 
+
+//Save the Presentation.
+pptxDoc.Save("output.pptx");
+
+//Close the presentation.
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a Presentation instance.
+Dim pptxDoc As IPresentation = Presentation.Create
+
+'Add a blank slide to the Presentation.
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Add chart to the slide with position and size.
+Dim chart As IPresentationChart = slide.Charts.AddChart(100, 10, 500, 500)
+
+'Set the chart type.
+chart.ChartType = OfficeChartType.Doughnut
+
+'Set the chart line pattern.
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None
+
+'Set the Chart title.
+chart.ChartTitle = "Current 963 Schematic Health"
+chart.ChartTitleArea.FontName = "Helvetica"
+chart.ChartTitleArea.Size = 10
+
+'Set the Chart data.
+chart.ChartData.SetValue(2, 1, "Good")
+chart.ChartData.SetValue(2, 2, 2)
+chart.ChartData.SetValue(3, 1, "Config errors [Missing graphic]")
+chart.ChartData.SetValue(3, 2, 4)
+chart.ChartData.SetValue(4, 1, "Config errors [Broken GOTO link]")
+chart.ChartData.SetValue(4, 2, 8)
+chart.ChartData.SetValue(5, 1, "Config errors [Orphan points]")
+chart.ChartData.SetValue(5, 2, 14)
+
+'Create a series for the chart.
+Dim pieSeries As IOfficeChartSerie = chart.Series.Add("")
+pieSeries.Values = chart.ChartData(2, 2, 5, 2)
+
+'Set the Chart labels.
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.White
+
+'Set the chart legend.
+chart.Legend.TextArea.FontName = "Helvetica"
+chart.Legend.TextArea.Size = 10
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData(2, 1, 5, 1)
+chart.Legend.Position = OfficeLegendPosition.Right
+chart.Legend.IncludeInLayout = True
+chart.Legend.FrameFormat.Border.AutoFormat = True
+chart.Legend.FrameFormat.Border.IsAutoLineColor = True
+
+'Set the chart legend positions.
+chart.Legend.Layout.ManualLayout.Left = 0.668
+chart.Legend.Layout.ManualLayout.Top = 0.355
+chart.Legend.Layout.ManualLayout.Height = 0.413
+chart.Legend.Layout.ManualLayout.Width = 0.319
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge
+
+'Set the chart plot area positions.
+chart.PlotArea.Layout.ManualLayout.Left = 0.122
+chart.PlotArea.Layout.ManualLayout.Top = 0.239
+chart.PlotArea.Layout.ManualLayout.Height = 0.433
+chart.PlotArea.Layout.ManualLayout.Width = 0.417
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner
+
+'Save the Presentation.
+pptxDoc.Save("output.pptx")
+
+'Close the Presentation.
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a Presentation instance.
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to the Presentation.
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add chart to the slide with position and size.
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 500, 500);
+
+//Set the chart type.
+chart.ChartType = OfficeChartType.Doughnut;
+
+//Set the chart line pattern.
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+
+//Set the Chart title.
+chart.ChartTitle = "Current 963 Schematic Health";
+chart.ChartTitleArea.FontName = "Helvetica";
+chart.ChartTitleArea.Size = 10;
+
+//Set the Chart data.
+chart.ChartData.SetValue(2, 1, "Good");
+chart.ChartData.SetValue(2, 2, 2);
+chart.ChartData.SetValue(3, 1, "Config errors [Missing graphic]");
+chart.ChartData.SetValue(3, 2, 4);
+chart.ChartData.SetValue(4, 1, "Config errors [Broken GOTO link]");
+chart.ChartData.SetValue(4, 2, 8);
+chart.ChartData.SetValue(5, 1, "Config errors [Orphan points]");
+chart.ChartData.SetValue(5, 2, 14);
+
+//Create a series for the chart.
+IOfficeChartSerie pieSeries = chart.Series.Add("");
+pieSeries.Values = chart.ChartData[2, 2, 5, 2];
+
+//Set the Chart labels.
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.White;
+
+//Set the chart legend.
+chart.Legend.TextArea.FontName = "Helvetica";
+chart.Legend.TextArea.Size = 10;
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 5, 1];
+chart.Legend.Position = OfficeLegendPosition.Right;
+chart.Legend.IncludeInLayout = true;
+chart.Legend.FrameFormat.Border.AutoFormat = true;
+chart.Legend.FrameFormat.Border.IsAutoLineColor = true;
+
+//Set the chart legend positions.
+chart.Legend.Layout.ManualLayout.Left = 0.668;
+chart.Legend.Layout.ManualLayout.Top = 0.355;
+chart.Legend.Layout.ManualLayout.Height = 0.413;
+chart.Legend.Layout.ManualLayout.Width = 0.319;
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+
+//Set the chart plot area positions.
+chart.PlotArea.Layout.ManualLayout.Left = 0.122;
+chart.PlotArea.Layout.ManualLayout.Top = 0.239;
+chart.PlotArea.Layout.ManualLayout.Height = 0.433;
+chart.PlotArea.Layout.ManualLayout.Width = 0.417;
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner; 
+
+//Initialize  the FileSavePicker.
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Create a storage file from FileSavePicker.
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Save changes to the specified storage file.
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create a Presentation instance.
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to the Presentation.
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add chart to the slide with position and size.
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 500, 500);
+
+//Set the chart type.
+chart.ChartType = OfficeChartType.Doughnut;
+
+//Set the chart line pattern.
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+
+//Set the Chart title.
+chart.ChartTitle = "Current 963 Schematic Health";
+chart.ChartTitleArea.FontName = "Helvetica";
+chart.ChartTitleArea.Size = 10;
+
+//Set the Chart data.
+chart.ChartData.SetValue(2, 1, "Good");
+chart.ChartData.SetValue(2, 2, 2);
+chart.ChartData.SetValue(3, 1, "Config errors [Missing graphic]");
+chart.ChartData.SetValue(3, 2, 4);
+chart.ChartData.SetValue(4, 1, "Config errors [Broken GOTO link]");
+chart.ChartData.SetValue(4, 2, 8);
+chart.ChartData.SetValue(5, 1, "Config errors [Orphan points]");
+chart.ChartData.SetValue(5, 2, 14);
+
+//Create the series for the chart.
+IOfficeChartSerie pieSeries = chart.Series.Add("");
+pieSeries.Values = chart.ChartData[2, 2, 5, 2];
+
+//Sets Chart labels.
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.White;
+
+//Set the chart legend.
+chart.Legend.TextArea.FontName = "Helvetica";
+chart.Legend.TextArea.Size = 10;
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 5, 1];
+chart.Legend.Position = OfficeLegendPosition.Right;
+chart.Legend.IncludeInLayout = true;
+chart.Legend.FrameFormat.Border.AutoFormat = true;
+chart.Legend.FrameFormat.Border.IsAutoLineColor = true;
+
+//Set the chart legend positions.
+chart.Legend.Layout.ManualLayout.Left = 0.668;
+chart.Legend.Layout.ManualLayout.Top = 0.355;
+chart.Legend.Layout.ManualLayout.Height = 0.413;
+chart.Legend.Layout.ManualLayout.Width = 0.319;
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+
+//Set the chart plot area positions.
+chart.PlotArea.Layout.ManualLayout.Left = 0.122;
+chart.PlotArea.Layout.ManualLayout.Top = 0.239;
+chart.PlotArea.Layout.ManualLayout.Height = 0.433;
+chart.PlotArea.Layout.ManualLayout.Width = 0.417;
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner; 
+
+//Save the PowerPoint Presentation as stream.
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Create a Presentation instance.
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to the Presentation.
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add chart to the slide with position and size.
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 500, 500);
+
+//Set the chart type.
+chart.ChartType = OfficeChartType.Doughnut;
+
+//Set the chart line pattern.
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+
+//Set the Chart title.
+chart.ChartTitle = "Current 963 Schematic Health";
+chart.ChartTitleArea.FontName = "Helvetica";
+chart.ChartTitleArea.Size = 10;
+
+//Set the Chart data.
+chart.ChartData.SetValue(2, 1, "Good");
+chart.ChartData.SetValue(2, 2, 2);
+chart.ChartData.SetValue(3, 1, "Config errors [Missing graphic]");
+chart.ChartData.SetValue(3, 2, 4);
+chart.ChartData.SetValue(4, 1, "Config errors [Broken GOTO link]");
+chart.ChartData.SetValue(4, 2, 8);
+chart.ChartData.SetValue(5, 1, "Config errors [Orphan points]");
+chart.ChartData.SetValue(5, 2, 14);
+
+//Create a series for the chart.
+IOfficeChartSerie pieSeries = chart.Series.Add("");
+pieSeries.Values = chart.ChartData[2, 2, 5, 2];
+
+//Set the Chart labels.
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.White;
+
+//Set the chart legend.
+chart.Legend.TextArea.FontName = "Helvetica";
+chart.Legend.TextArea.Size = 10;
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 5, 1];
+chart.Legend.Position = OfficeLegendPosition.Right;
+chart.Legend.IncludeInLayout = true;
+chart.Legend.FrameFormat.Border.AutoFormat = true;
+chart.Legend.FrameFormat.Border.IsAutoLineColor = true;
+
+//Set the chart legend positions.
+chart.Legend.Layout.ManualLayout.Left = 0.668;
+chart.Legend.Layout.ManualLayout.Top = 0.355;
+chart.Legend.Layout.ManualLayout.Height = 0.413;
+chart.Legend.Layout.ManualLayout.Width = 0.319;
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+
+//Set the chart plot area positions.
+chart.PlotArea.Layout.ManualLayout.Left = 0.122;
+chart.PlotArea.Layout.ManualLayout.Top = 0.239;
+chart.PlotArea.Layout.ManualLayout.Height = 0.433;
+chart.PlotArea.Layout.ManualLayout.Width = 0.417;
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner; 
+
+//Create a new memory stream to save the Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save the Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operations in Save under Xamarin vary between Windows Phone, Android and iOS platforms. Please refer to the presentation/xamarin section for the respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## PowerPoint 2016 Charts
 
 Essential Presentation supports creating and manipulating new and modern chart types such as waterfall, histogram, pareto, box and whisker, tree map, and sunburst, which are introduced in Microsoft PowerPoint 2016.
