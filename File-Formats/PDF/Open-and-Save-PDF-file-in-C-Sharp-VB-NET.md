@@ -914,6 +914,7 @@ catch (PdfException exception)
 //The document has corrupted cross reference table
 //Error: Bad input stream initializer
 //Fatal error occured
+//Unexpected token name before 257
 }
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
