@@ -284,6 +284,72 @@ document.Close(True)
 
 {% endtabs %}
 
+##Steps to disable IE warning while performing HTML To PDF using the IE rendering engine
+
+The local HTML file is converted to pdf while performing HTML To PDF conversion using the IE rendering engine. The PDF is generated with the following default IE warning message:
+
+![IEWarning message in the PDF Document](htmlconversion_images/IEWarning.png)
+
+DisableIEWarning API helps to remove the default IE warning from the PDF document, you can also try our Blink or WebKit engines.
+
+The following code snippet illustrates how to remove default IE warning message from the PDF document:
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter 
+ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.IE);
+
+IEConverterSettings settings = new IEConverterSettings();
+
+//Disable Default IE warning message.
+settings.DisableIEWarning = true;
+            
+//Assign IE settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Initialize the HTML to PDF converter 
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
+
+Dim settings As New IEConverterSettings()
+
+'Disable Default IE Warning Message
+settings.DisableIEWarning = true
+
+'Assign IE settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Save and close the PDF document 
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Currently, IE rendering engine does not support conversion in .NET Core platform
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ## Steps to apply the patch for HTML converter.
 
 Download and extract the patch provided in the incident. Before applying the patch assemblies, the older assemblies should be removed from the GAC.
