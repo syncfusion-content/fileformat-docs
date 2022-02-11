@@ -288,7 +288,7 @@ document.Close(True)
 
 The local HTML file is converted to pdf while performing HTML To PDF conversion using the IE rendering engine. The PDF is generated with the following default IE warning message:
 
-![IEWarning message in the PDF Document](htmlconversion_images/IEWarning.png)
+![IEWarning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png)
 
 DisableIEWarning API helps to remove the default IE warning from the PDF document, you can also try our Blink or WebKit engines.
 
