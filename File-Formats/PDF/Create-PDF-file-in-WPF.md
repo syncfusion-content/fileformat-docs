@@ -83,7 +83,7 @@ using (PdfDocument document = new PdfDocument())
 }
 {% endhighlight %}
 
-A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-623867468.zip )
+A complete working sample can be downloaded from [Create-PDF-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-623867468.zip )
 
 By executing the program, you will get the PDF document as follows.
 ![output](GettingStarted_images/Hello World.jpg)
