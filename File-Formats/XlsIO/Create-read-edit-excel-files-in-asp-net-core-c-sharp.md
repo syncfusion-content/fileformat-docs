@@ -440,7 +440,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example of how to create an Excel file in ASP.NET Core can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted_Core727789699.zip).
+A complete working example of how to create an Excel file in ASP.NET Core can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted_Core-2065839032.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET-Core_images/ASP-NET-Core_images_img4.png)

@@ -408,7 +408,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example of how to create an Excel file in ASP.NET MVC can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-MVC-860065560.zip).
+A complete working example of how to create an Excel file in ASP.NET MVC can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-MVC-128503978.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET-MVC_images/ASP-NET-MVC_images_img3.png)
