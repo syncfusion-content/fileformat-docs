@@ -4959,7 +4959,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Add Picture to Chart and assign Hyperlink
 
-Essential XlsIO supports assigning hyperlink to the picture added in a chart in the Excel workbook. To achieve this, create a [chart in workbook](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart-sheet) and add picture to the chart using [AddPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Ipictures.html#Syncfusion_XlsIO_IPictures_AddPicture_System_String_) of **IPictures** interface. You can assign hyperlink to the picture using [Add](https://helpstaging.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IHyperLinks.html#Syncfusion_XlsIO_IHyperLinks_Add_Syncfusion_XlsIO_IShape_Syncfusion_XlsIO_ExcelHyperLinkType_System_String_System_String_) property of **IHyperlinks** interface.
+Essential XlsIO supports assigning hyperlink to the picture added in a chart in the Excel workbook. To achieve this, create a [chart in workbook](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart-sheet) and add picture to the chart using [AddPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Ipictures.html#Syncfusion_XlsIO_IPictures_AddPicture_System_String_) of **IPictures** interface. You can assign hyperlink to the picture using [Add](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IHyperLinks.html#Syncfusion_XlsIO_IHyperLinks_Add_Syncfusion_XlsIO_IShape_Syncfusion_XlsIO_ExcelHyperLinkType_System_String_System_String_) property of **IHyperlinks** interface.
 
 Refer to the following complete code snippets.
 
@@ -6121,7 +6121,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Funnel1191611286.zip#).
+The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Funnel1191611286.zip#).
 
 The following screen shot shows the output of above code.
 
@@ -6418,7 +6418,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Box_and_Whisker1075978354.zip#).
+The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Box_and_Whisker1075978354.zip#).
 
 The following screen shot shows the output of above code.
 
@@ -6655,7 +6655,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The input template can be downloaded [here.](http://www.syncfusion.com/downloads/support/directtrac/general/ze/waterfall1416377471.zip#)
+The input template can be downloaded [here.](https://www.syncfusion.com/downloads/support/directtrac/general/ze/waterfall1416377471.zip#)
 
 The following screen shot shows the output of above code.
 
@@ -6887,7 +6887,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The input template can be downloaded [here.](http://www.syncfusion.com/downloads/support/directtrac/general/ze/histogram1512012627.zip#)
+The input template can be downloaded [here.](https://www.syncfusion.com/downloads/support/directtrac/general/ze/histogram1512012627.zip#)
 
 The following screen shot shows the output of above code.
 
@@ -7125,7 +7125,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/pareto1141391394.zip# ).
+The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/pareto1141391394.zip# ).
 
 The following screen shot shows the output of above code.
 
@@ -7332,7 +7332,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/treemap1366604090.zip#).
+The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/treemap1366604090.zip#).
 
 The following screen shot shows the output of above code.
 
@@ -7539,7 +7539,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/sunburst1589499118.zip#).
+The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/sunburst1589499118.zip#).
 
 The following screen shot shows the output of above code.
 
