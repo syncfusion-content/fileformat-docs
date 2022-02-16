@@ -463,7 +463,7 @@ End Using
 {% endhighlight %}
 {% endtabs %} 
 
-A complete working example of how to create an Excel file in UWP can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-UWP184086684.zip).
+A complete working example of how to create an Excel file in UWP can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-UWP1551670760.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](UWP_images/UWP_images_img3.png)
