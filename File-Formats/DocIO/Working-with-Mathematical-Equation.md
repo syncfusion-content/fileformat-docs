@@ -195,6 +195,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of adding an accent mark to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-an-accent-mark-to-the-equation).
+
 ### Bar
 
 You can add a bar (which adds horizontal line on top or bottom) to the equation. The following code example shows how to add a bar to the equation.
@@ -328,6 +330,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of adding a bar to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-bar-to-the-equation).
 
 ### Box
 
@@ -549,6 +553,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of adding a box to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-box-to-the-equation).
+
 ### Border box
 
 You can add a box with the borders on four sides and strikethrough on horizontal, vertical, and diagonal directions to the equation. The following code example shows how to add a border box to the equation.
@@ -759,6 +765,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of adding a border box to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-border-box-to-the-equation).
+
 ### Delimiter
 
 You can add a delimiter (parenthesis, square brackets and other characters) to the equation. The following code example shows how to a add delimiter to the equation. 
@@ -932,6 +940,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of adding delimiter to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-delimiter-to-the-equation).
 
 ### Equation array
 
@@ -1137,6 +1147,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of creating an array of equations from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-an-array-of-equations).
+
 ### Fraction
 
 You can create a fraction equation with a numerator and denominator in Word document. The following code example shows how to create a fraction equation.
@@ -1301,6 +1313,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of creating a fraction equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-fraction-equation).
+
 ### Function
 
 You can create trigonometric functions in a Word document. The following code example shows how to create a function.  
@@ -1459,6 +1473,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of creating a function from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-trigonometric-function).
 
 ### Group character
 
@@ -1623,6 +1639,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of creating an equation with grouping character from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Equation-with-grouping-character).
 
 ### Limit
 
@@ -1825,6 +1843,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of creating limit equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-limit-equation).
 
 ### Matrix
 
@@ -2189,6 +2209,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of creating a matrix equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-matrix-equation).
+
 ### N-Array
 
 You can create an equation with common large operators such as summation, integrals, union, intersection, logical OR, logical AND, products and co-products. The following code example shows how to create a summation with limits.
@@ -2404,6 +2426,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of creating a summation with limits from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-n-array-equation).
+
 ### Radical
 
 You can create a radical equation in Word document. The following example shows how to create a radical equation.
@@ -2564,6 +2588,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of creating a radical equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-radical-equation).
 
 ### Phantom
 
@@ -2776,6 +2802,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample of creating a phantom equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-phantom-equation).
+
 ### SubSuperscript
 
 You can add a superscript or subscript equation in a Word document. The following code shows how to create a superscript equation.
@@ -2946,6 +2974,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of creating a superscript equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-superscript-equation).
 
 ### Left SubSuperscript
 
@@ -3123,6 +3153,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of adding superscript and subscript on the left side of the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Superscript-and-subscript-on-left).
 
 ### Right SubSuperscript
 
@@ -3309,6 +3341,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of adding superscript and subscript on the right side of the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Superscript-and-subscript-on-right).
 
 ## Modify existing equation
 
@@ -3507,6 +3541,8 @@ Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "a
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-XAMARIN#helper-files-for-XAMARIN
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample of modifying an existing mathematical equation in the Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Modify-an-existing-equation).
 
 By executing the above code example, it generates output Word document as follows.
 ![Resultant output Word document](WorkingwithMathematicalEquation_images/EditedEquation.png)
