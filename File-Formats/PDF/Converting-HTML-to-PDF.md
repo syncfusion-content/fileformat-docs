@@ -290,7 +290,7 @@ By default, the PDF document generated with the IE rendering engine comes with t
 
 ![IEWarning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png)
 
-please refer to the below code snippet to use the DisableIEWarning API to remove the default IE warning from the PDF document.
+Please refer to the below code snippet to use the DisableIEWarning API to remove the default IE warning from the PDF document.
 
 {% tabs %}
 
