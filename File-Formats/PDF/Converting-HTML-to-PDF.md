@@ -286,13 +286,11 @@ document.Close(True)
 
 ### Steps to disable IE warning while performing HTML To PDF using the IE rendering engine
 
-The local HTML file is converted to pdf while performing HTML To PDF conversion using the IE rendering engine. The PDF is generated with the following default IE warning message:
+By default, the PDF document generated with the IE rendering engine comes with the following warning message.
 
 ![IEWarning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png)
 
-DisableIEWarning API helps to remove the default IE warning from the PDF document, you can also try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/blink) or [WebKit](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) engines.
-
-The following code snippet illustrates how to remove default IE warning message from the PDF document:
+please refer to the below code snippet to use the DisableIEWarning API to remove the default IE warning from the PDF document.
 
 {% tabs %}
 
@@ -349,6 +347,7 @@ document.Close(True)
 
 {% endtabs %}
 
+N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/blink) or [WebKit](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) engines to improve the quality and accuracy of the HTML to PDF conversion.
 
 ## Steps to apply the patch for HTML converter.
 
