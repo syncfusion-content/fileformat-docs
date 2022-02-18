@@ -167,6 +167,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
+You can download a complete working sample of creating a new Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-document).
+
 ## Creating a new Word document from scratch with basic elements
 
 An entire Word document is represented by an instance of WordDocument and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
@@ -951,6 +953,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "applic
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample of creating a new Word document with basic elements from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-with-basic-elements).
 
 The resultant Word document looks as follows.
 
