@@ -3570,7 +3570,7 @@ Please follow the below instructions for manual troubleshooting.
 <td>
 For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. The OPENSSL library can be installed by downloading its setup from the below link, 
 <br/><br/>
-<a href="http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064">OpenSSL</a>
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064">OpenSSL</a>
 
 <br/><br/>
 Instead, the required assemblies can added in the Windows system folder (for 64 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></p> and for 32 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$SystemDrive\Windows\System32</i></p>),

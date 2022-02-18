@@ -1362,7 +1362,7 @@ webKitSettings.WebKitPath = @"/QtBinaries/";
 
 For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
 
-[OpenSSL](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064 )
+[OpenSSL](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064 )
 
 WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
 
