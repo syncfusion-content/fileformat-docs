@@ -894,19 +894,18 @@ private static void RemoveFootNote(WTable table)
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream("Footnote.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream inputStream = new FileStream("Footnote.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Loads the template document as stream
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+inputStream.Dispose();
 //Removes footnote from the document
 RemoveFootNote(document);
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
+//Saves the Word document to MemoryStream
+FileStream outputStream = new FileStream("Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+document.Save(outputStream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
+outputStream.Dispose();
 
 
 private static void RemoveFootNote(WordDocument document)
@@ -969,7 +968,7 @@ private static void RemoveFootNote(WTable table)
 {% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads the template document as stream
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Footnote.docx"), FormatType.Docx)
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Footnote.docx"), FormatType.Docx);
 //Removes footnote from the document
 RemoveFootNote(document);
 //Saves the Word document to  MemoryStream
