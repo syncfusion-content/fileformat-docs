@@ -3314,3 +3314,476 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
+## Split Word documents
+
+Using Essential DocOIO, we can split a document into multiple smaller documents based on sections, placeholder text, or any document element.
+
+### Split by Section.
+The following code example shows how to split the Word document by using sections.
+{% tabs %} 
+{% highlight c# %}
+
+//Load the template document
+using (WordDocument document = new WordDocument(@"Template.docx"))
+{
+    int i = 0;
+    //Iterate each section from Word document
+    foreach (WSection section in document.Sections)
+    {
+        //Create new Word document
+        WordDocument newDocument = new WordDocument();
+        //Add cloned section into new Word document
+        newDocument.Sections.Add(section.Clone());
+        //Save and close the new Word documet
+        newDocument.Save("Section" + i + ".docx");
+        newDocument.Close();
+        i++;
+    }
+}
+
+{% endhighlight %}
+{% highlight vb.net %}
+
+'Load the template document
+Using document As WordDocument = New WordDocument("Template.docx")
+    Dim i As Integer = 0
+    'Iterate each section from Word document
+    For Each section As WSection In document.Sections
+		'Create new Word document
+        Dim newDocument As WordDocument = New WordDocument()
+		'Add cloned section into new Word document
+        newDocument.Sections.Add(section.Clone())
+		'Save and close the new Word documet
+        newDocument.Save("Section" & i & ".docx")
+        newDocument.Close()
+        i += 1
+    Next
+End Using
+
+
+{% endhighlight %}
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+//Loads the template document as stream
+using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+{
+    int i = 0;
+	//Iterate each section from Word document
+    foreach (WSection section in document.Sections)
+    {
+        //Create new Word document
+        WordDocument newDocument = new WordDocument();
+        //Add cloned section into new Word document
+        newDocument.Sections.Add(section.Clone());
+        //Save and close the new Word documet
+        MemoryStream stream = new MemoryStream();
+        //Save the Word document to MemoryStream.
+        await newDocument.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as Word document file in local machine.
+        Save(stream, "Section" + i + ".docx");
+        i++;
+        //Please refer the below link to save Word document in UWP platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+
+FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Load the template document as stream
+using(WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+{
+	inputStream.Dispose();
+    int i = 0;
+    //Iterate each section from Word document
+    foreach (WSection section in document.Sections)
+    {
+        //Create new Word document
+        WordDocument newDocument = new WordDocument();
+        //Add cloned section into new Word document
+        newDocument.Sections.Add(section.Clone());
+        //Saves the Word document to  MemoryStream
+		FileStream outputStream = new FileStream("Section" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+		newDocument.Save(outputStream, FormatType.Docx);
+		//Closes the document
+		newDocument.Close();
+		outputStream.Dispose();
+        i++;
+    }
+}
+
+
+{% endhighlight %}
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+//Loads the template document as stream
+using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+{
+    int i = 0;
+    //Iterate each section from Word document
+    foreach (WSection section in document.Sections)
+    {
+        //Create new Word document
+        WordDocument newDocument = new WordDocument();
+        //Add cloned section into new Word document
+        newDocument.Sections.Add(section.Clone());
+        //Saves the Word document to  MemoryStream
+        MemoryStream stream = new MemoryStream();
+        newDocument.Save(stream, FormatType.Docx);
+        //Closes the document
+        newDocument.Close();
+        i++;
+        //Save the stream as a file in the device and invoke it for viewing
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Section" + i + ".docx", "application/msword", stream);
+        //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+### Split by Headings.
+The following code example shows how to split the Word document by using headings.
+
+{% tabs %} 
+{% highlight c# %}
+
+//Load the template document
+using (WordDocument doc = new WordDocument(@"Template.docx"))
+{
+    WordDocument newDocument = null;
+    WSection newSection = null;
+    int i = 1;
+    //Iterate each section from Word document
+    foreach (WSection sec in doc.Sections)
+    {
+        foreach (TextBodyItem textbodyitem in sec.Body.ChildEntities)
+        {
+            if (textbodyitem is WParagraph)
+            {
+                WParagraph para = textbodyitem as WParagraph;
+				// Check whether the paragraph has heading style or normal style
+                if (para.StyleName == "Heading 1")
+                {
+                    if (newDocument != null)
+                    {
+                        //Save and close the new Word documet
+                        newDocument.Save("Heading" + i + ".docx", FormatType.Docx);
+                        newDocument.Close();
+                        newDocument = null;
+                        i++;
+                    }
+                    //Create new Word document
+                    newDocument = new WordDocument();
+                    newSection = newDocument.AddSection() as WSection;
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+                else if (para.StyleName != "Heading 1" && newDocument != null)
+                {
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+            }
+            else if (textbodyitem is WTable)
+            {
+                //Add cloned table into new section
+                WTable table = textbodyitem as WTable;
+                newSection.Body.ChildEntities.Add(table.Clone());
+            }
+            else if (textbodyitem is BlockContentControl)
+            {
+                //Add cloned block content control into new section
+                BlockContentControl contentControl = textbodyitem as BlockContentControl;
+                newSection.Body.ChildEntities.Add(contentControl.Clone());
+            }
+        }
+    }
+    if (newDocument != null)
+    {
+        //Save and close the new Word documet
+        newDocument.Save("Heading" + i + ".docx", FormatType.Docx);
+        newDocument.Close();
+    }
+}
+
+{% endhighlight %}
+{% highlight vb.net %}
+
+'Load the template document
+Using doc As WordDocument = New WordDocument("Template.docx")
+    Dim newDocument As WordDocument = Nothing
+    Dim newSection As WSection = Nothing
+    Dim i As Integer = 1
+    'Iterate each section from Word document
+    For Each sec As WSection In doc.Sections
+        For Each textbodyitem As TextBodyItem In sec.Body.ChildEntities
+            If TypeOf textbodyitem Is WParagraph Then
+                Dim para As WParagraph = TryCast(textbodyitem, WParagraph)
+				'Check whether the paragraph has heading style or normal style
+                If para.StyleName = "Heading 1" Then
+                    If newDocument IsNot Nothing Then
+						'Save and close the new Word documet
+                        newDocument.Save("Heading" & i & ".docx", FormatType.Docx)
+                        newDocument.Close()
+                        newDocument = Nothing
+                        i += 1
+                    End If
+					'Create new Word document
+                    newDocument = New WordDocument()
+                    newSection = TryCast(newDocument.AddSection(), WSection)
+					'Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone())
+                ElseIf para.StyleName <> "Heading 1" AndAlso newDocument IsNot Nothing Then
+					'Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone())
+                End If
+            ElseIf TypeOf textbodyitem Is WTable Then
+				'Add cloned table into new section
+                Dim table As WTable = TryCast(textbodyitem, WTable)
+                newSection.Body.ChildEntities.Add(table.Clone())
+            ElseIf TypeOf textbodyitem Is BlockContentControl Then
+				'Add cloned block content control into new section
+                Dim contentControl As BlockContentControl = TryCast(textbodyitem, BlockContentControl)
+                newSection.Body.ChildEntities.Add(contentControl.Clone())
+            End If
+        Next
+    Next
+
+    If newDocument IsNot Nothing Then
+		'Save and close the new Word documet
+        newDocument.Save("Heading" & i & ".docx", FormatType.Docx)
+        newDocument.Close()
+    End If
+End Using
+
+{% endhighlight %}
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+//Load an existing Word document.
+using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+{
+    WordDocument newDocument = null;
+    WSection newSection = null;
+    int i = 0;
+    foreach (WSection section in document.Sections)
+    {
+        foreach (TextBodyItem textbodyitem in section.Body.ChildEntities)
+        {
+            if (textbodyitem is WParagraph)
+            {
+                WParagraph para = textbodyitem as WParagraph;
+                if (para.StyleName == "Heading 1")
+                {
+                    if (newDocument != null)
+                    {
+                        //Save and close the new Word documet
+                        MemoryStream stream = new MemoryStream();
+                        //Save the Word document to MemoryStream.
+                        await newDocument.SaveAsync(stream, FormatType.Docx);
+                        //Save the stream as Word document file in local machine.
+                        Save(stream, "Heading" + i + ".docx");
+                        i++;
+                        //Please refer the below link to save Word document in UWP platform
+                        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+                    }
+                    //Create new Word document
+                    newDocument = new WordDocument();
+                    newSection = newDocument.AddSection() as WSection;
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+                else if (para.StyleName != "Heading 1" && newDocument != null)
+                {
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+            }
+            else if (textbodyitem is WTable)
+            {
+                //Add cloned table into new section
+                WTable table = textbodyitem as WTable;
+                newSection.Body.ChildEntities.Add(table.Clone());
+            }
+            else if (textbodyitem is BlockContentControl)
+            {
+                //Add cloned block content control into new section
+                BlockContentControl contentControl = textbodyitem as BlockContentControl;
+                newSection.Body.ChildEntities.Add(contentControl.Clone());
+            }
+        }        
+    }
+    if (newDocument != null)
+    {
+        //Save and close the new Word documet
+        MemoryStream stream = new MemoryStream();
+        //Save the Word document to MemoryStream.
+        await newDocument.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as Word document file in local machine.
+        Save(stream, "Heading" + i + ".docx");
+        //Please refer the below link to save Word document in UWP platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+
+FileStream inputStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+//Load the template document as stream
+using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+{
+    inputStream.Dispose();
+    WordDocument newDocument = null;
+    WSection newSection = null;
+    int i = 0;
+    //Iterate each section from Word document
+    foreach (WSection section in document.Sections)
+    {
+        foreach (TextBodyItem textbodyitem in section.Body.ChildEntities)
+        {
+            if (textbodyitem is WParagraph)
+            {
+                WParagraph para = textbodyitem as WParagraph;
+
+                if (para.StyleName == "Heading 1")
+                {
+                    if (newDocument != null)
+                    {
+                        //Saves the Word document to  MemoryStream
+                        FileStream outputStream = new FileStream("Heading" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                        newDocument.Save(outputStream, FormatType.Docx);
+                        //Closes the document
+                        newDocument.Close();
+                        outputStream.Dispose();
+                        newDocument = null;
+                        i++;
+                    }
+                    //Create new Word document
+                    newDocument = new WordDocument();
+                    newSection = newDocument.AddSection() as WSection;
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+                else if (para.StyleName != "Heading 1" && newDocument != null)
+                {
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+            }
+            else if (textbodyitem is WTable)
+            {
+                //Add cloned table into new section
+                WTable table = textbodyitem as WTable;
+                newSection.Body.ChildEntities.Add(table.Clone());
+            }
+            else if (textbodyitem is BlockContentControl)
+            {
+                //Add cloned block content control into new section
+                BlockContentControl contentControl = textbodyitem as BlockContentControl;
+                newSection.Body.ChildEntities.Add(contentControl.Clone());
+            }
+        }
+    }
+    if (newDocument != null)
+    {
+        //Saves the Word document to  MemoryStream
+        FileStream outputStream = new FileStream("Heading" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        newDocument.Save(outputStream, FormatType.Docx);
+        //Closes the document
+        newDocument.Close();
+        outputStream.Dispose();
+    }
+}
+
+{% endhighlight %}
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream("XamarinAPp.Data.Adventure.docx");
+//Loads the template document as stream
+using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+{
+    WordDocument newDocument = null;
+    WSection newSection = null;
+    int i = 0;
+    //Iterate each section from Word document
+    foreach (WSection section in document.Sections)
+    {
+        foreach (TextBodyItem textbodyitem in section.Body.ChildEntities)
+        {
+            if (textbodyitem is WParagraph)
+            {
+                WParagraph para = textbodyitem as WParagraph;
+
+                if (para.StyleName == "Heading 1")
+                {
+                    if (newDocument != null)
+                    {
+                        //Saves the Word document to  MemoryStream
+                        MemoryStream stream = new MemoryStream();
+                        newDocument.Save(stream, FormatType.Docx);
+                        //Closes the document
+                        newDocument.Close();
+                        //Save the stream as a file in the device and invoke it for viewing
+                        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Heading" + i + ".docx", "application/msword", stream);
+                        //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+                        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+                        i++;
+                    }
+                    //Create new Word document
+                    newDocument = new WordDocument();
+                    newSection = newDocument.AddSection() as WSection;
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+                else if (para.StyleName != "Heading 1" && newDocument != null)
+                {
+                    //Add cloned paragraphs into new section
+                    newSection.Body.ChildEntities.Add(para.Clone());
+                }
+            }
+            else if (textbodyitem is WTable)
+            {
+                //Add cloned table into new section
+                WTable table = textbodyitem as WTable;
+                newSection.Body.ChildEntities.Add(table.Clone());
+            }
+            else if (textbodyitem is BlockContentControl)
+            {
+                //Add cloned block content control into new section
+                BlockContentControl contentControl = textbodyitem as BlockContentControl;
+                newSection.Body.ChildEntities.Add(contentControl.Clone());
+            }
+        }
+    }
+    if (newDocument != null)
+    {
+        //Saves the Word document to  MemoryStream
+        MemoryStream stream = new MemoryStream();
+        newDocument.Save(stream, FormatType.Docx);
+        //Closes the document
+        newDocument.Close();
+        //Save the stream as a file in the device and invoke it for viewing
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Heading" + i + ".docx", "application/msword", stream);
+        //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+
+
+
