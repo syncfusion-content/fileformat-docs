@@ -1,11 +1,11 @@
 ---
-title: Working with Footnotes and Endnotes | DocIO | Syncfusion
-description: This section illustrates about working with adding and removing a footnote and endnote in a Word document using DocIO
+title: Working with Footnotes and endnotes | DocIO | Syncfusion
+description: This section illustrates how to insert the footnote and endnote in a Word document using DocIO
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Footnotes and Endnotes
+# Footnotes and endnotes
 
 Footnotes and endnotes are separate text body contents used in documents to show the source of supplementary information that does not interrupt the normal body text of the Word document. Footnotes are typically located at the bottom of a page or beneath text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. When document has been divided up into one or more sections, each section of a document can contain endnotes.
 
@@ -692,9 +692,9 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-## Removing a Footnotes/Endnotes
+## Removing a Footnotes/Editnotes
 
-The following code example shows how to remove the footnotes/endnotes from the Word document.
+The following code example shows how to remove the footnotes from the Word document.
 
 {% tabs %} 
 
