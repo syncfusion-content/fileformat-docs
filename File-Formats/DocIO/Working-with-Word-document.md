@@ -2218,196 +2218,180 @@ Please download the helper files from the following link to save the stream as a
 
 ### Link Paragraph and Character Style
 
-You can link paragraph and character style using the `LinkedStyleName` property.
+You can link character styles with paragraph and vice versa in a Word document using LinkedStyleName property.
 
-The following code example explains how to link paragraph and character style.
+The following code example explains how to link character and paragraph style.
 
 {% tabs %} 
 
 {% highlight c# %}
-//Opens an input Word template
+//Creates a Word document
 WordDocument document = new WordDocument();
 //This method adds a section and a paragraph in the document
 document.EnsureMinimal();
-//Adds a new paragraph style named "MyParaStyle"
-IWParagraphStyle myParaStyle = document.AddParagraphStyle("MyParaStyle");
+//Adds a new paragraph style named "ParagraphStyle"
+WParagraphStyle paraStyle = document.AddParagraphStyle("ParagraphStyle") as WParagraphStyle;
 //Sets the formatting of the style
-myParaStyle.CharacterFormat.FontSize = 16f;
-myParaStyle.CharacterFormat.TextColor = Color.DarkBlue;
-myParaStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Adds a new character style named "MyCharStyle"
-IWCharacterStyle myCharStyle = document.AddCharacterStyle("MyCharStyle");
+paraStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds a new character style named "CharacterStyle"
+IWCharacterStyle charStyle = document.AddCharacterStyle("CharacterStyle");
 //Sets the formatting of the style
-myCharStyle.CharacterFormat.Bold = true;
-myCharStyle.CharacterFormat.Italic = true;
-myCharStyle.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+charStyle.CharacterFormat.Bold = true;
+charStyle.CharacterFormat.Italic = true;
 //Link both paragraph and character style
-(myParaStyle as WParagraphStyle).LinkedStyleName = "MyCharStyle";
+paraStyle.LinkedStyleName = "CharacterStyle";
 //Appends the contents into the paragraph
 document.LastParagraph.AppendText("AdventureWorks Cycles");
 //Applies the style to paragraph
-document.LastParagraph.ApplyStyle("MyParaStyle");
+document.LastParagraph.ApplyStyle("ParagraphStyle");
 //Appends new paragraph in section
 document.LastSection.AddParagraph();
 //Appends the contents into the paragraph
 document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Applies Linked paragraph style to the Text range
-(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("MyParaStyle");
+//Applies style to the text range
+(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("CharacterStyle");
 //Saves and closes the document instance
 document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Opens an input Word template
+'Creates a Word document
 Dim document As New WordDocument()
 'This method adds a section and a paragraph in the document
 document.EnsureMinimal()
-'Adds a new paragraph style named "MyParaStyle"
-Dim myStyle As IWParagraphStyle = document.AddParagraphStyle("MyParaStyle")
+'Adds a new paragraph style named "ParagraphStyle"
+Dim paraStyle As WParagraphStyle = TryCast(document.AddParagraphStyle("ParagraphStyle"), WParagraphStyle)
 'Sets the formatting of the style
-myStyle.CharacterFormat.FontSize = 16.0F
-myStyle.CharacterFormat.TextColor = Color.DarkBlue
-myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
-'Adds a new character style named "MyCharStyle"
-Dim myCharStyle As IWCharacterStyle = document.AddCharacterStyle("MyCharStyle")
+paraStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+'Adds a new character style named "CharacterStyle"
+Dim charStyle As IWCharacterStyle = document.AddCharacterStyle("CharacterStyle")
 'Sets the formatting of the style
-myCharStyle.CharacterFormat.Bold = True
-myCharStyle.CharacterFormat.Italic = True
-myCharStyle.CharacterFormat.UnderlineStyle = UnderlineStyle.Single
+charStyle.CharacterFormat.Bold = True
+charStyle.CharacterFormat.Italic = True
 'Link both paragraph and character style
-(TryCast(myParaStyle, WParagraphStyle)).LinkedStyleName = "MyCharStyle"
+paraStyle.LinkedStyleName = "CharacterStyle"
 'Appends the content into the paragraph
 document.LastParagraph.AppendText("AdventureWorks Cycles")
 'Applies the style to paragraph
-document.LastParagraph.ApplyStyle("MyParaStyle")
+document.LastParagraph.ApplyStyle("ParagraphStyle")
 'Appends new paragraph in section
 document.LastSection.AddParagraph()
 'Appends the content into the paragraph
 document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
-'Applies Linked paragraph style to the Text range
-(TryCast(document.LastParagraph.ChildEntities(0), WTextRange)).ApplyStyle("MyParaStyle")
+'Applies style to the text range
+Dim textRange As WTextRange = TryCast(document.LastParagraph.ChildEntities(0), WTextRange)
+        textRange.ApplyStyle("CharacterStyle")
 'Saves and closes the document instance
 document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
-{
-	//Adds a new paragraph style named "MyParaStyle"
-	IWParagraphStyle myParaStyle = document.AddParagraphStyle("MyParaStyle");
-	//Sets the formatting of the style
-	myParaStyle.CharacterFormat.FontSize = 16f;
-	myParaStyle.CharacterFormat.TextColor = Color.DarkBlue;
-	myParaStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	//Adds a new character style named "MyCharStyle"
-	IWCharacterStyle myCharStyle = document.AddCharacterStyle("MyCharStyle");
-	//Sets the formatting of the style
-	myCharStyle.CharacterFormat.Bold = true;
-	myCharStyle.CharacterFormat.Italic = true;
-	myCharStyle.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-	//Link both paragraph and character style
-	(myParaStyle as WParagraphStyle).LinkedStyleName = "MyCharStyle";
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyParaStyle");
-	//Appends new paragraph in section
-	document.LastSection.AddParagraph();
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies Linked paragraph style to the Text range
-	(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("MyParaStyle");
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
-}
+//Creates a Word document
+WordDocument document = new WordDocument();
+//This method adds a section and a paragraph in the document
+document.EnsureMinimal();
+//Adds a new paragraph style named "ParagraphStyle"
+WParagraphStyle paraStyle = document.AddParagraphStyle("ParagraphStyle") as WParagraphStyle;
+//Sets the formatting of the style
+paraStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds a new character style named "CharacterStyle"
+IWCharacterStyle charStyle = document.AddCharacterStyle("CharacterStyle");
+//Sets the formatting of the style
+charStyle.CharacterFormat.Bold = true;
+charStyle.CharacterFormat.Italic = true;
+//Link both paragraph and character style
+paraStyle.LinkedStyleName = "CharacterStyle";
+//Appends the contents into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles");
+//Applies the style to paragraph
+document.LastParagraph.ApplyStyle("ParagraphStyle");
+//Appends new paragraph in section
+document.LastSection.AddParagraph();
+//Appends the contents into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Applies style to the text range
+(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("CharacterStyle");
+//Saves the Word file to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Result.docx");
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+document.Close();
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an source document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
-{
-	//Adds a new paragraph style named "MyParaStyle"
-	IWParagraphStyle myParaStyle = document.AddParagraphStyle("MyParaStyle");
-	//Sets the formatting of the style
-	myParaStyle.CharacterFormat.FontSize = 16f;
-	myParaStyle.CharacterFormat.TextColor = Color.DarkBlue;
-	myParaStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	//Adds a new character style named "MyCharStyle"
-	IWCharacterStyle myCharStyle = document.AddCharacterStyle("MyCharStyle");
-	//Sets the formatting of the style
-	myCharStyle.CharacterFormat.Bold = true;
-	myCharStyle.CharacterFormat.Italic = true;
-	myCharStyle.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-	//Link both paragraph and character style
-	(myParaStyle as WParagraphStyle).LinkedStyleName = "MyCharStyle";
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyParaStyle");
-	//Appends new paragraph in section
-	document.LastSection.AddParagraph();
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies Linked paragraph style to the Text range
-	(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("MyParaStyle");
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+//Creates a Word document
+WordDocument document = new WordDocument();
+//This method adds a section and a paragraph in the document
+document.EnsureMinimal();
+//Adds a new paragraph style named "ParagraphStyle"
+WParagraphStyle paraStyle = document.AddParagraphStyle("ParagraphStyle") as WParagraphStyle;
+//Sets the formatting of the style
+paraStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds a new character style named "CharacterStyle"
+IWCharacterStyle charStyle = document.AddCharacterStyle("CharacterStyle");
+//Sets the formatting of the style
+charStyle.CharacterFormat.Bold = true;
+charStyle.CharacterFormat.Italic = true;
+//Link both paragraph and character style
+paraStyle.LinkedStyleName = "CharacterStyle";
+//Appends the contents into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles");
+//Applies the style to paragraph
+document.LastParagraph.ApplyStyle("ParagraphStyle");
+//Appends new paragraph in section
+document.LastSection.AddParagraph();
+//Appends the contents into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Applies style to the text range
+(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("CharacterStyle");
+MemoryStream stream = new MemoryStream();
+//Saves and closes the destination document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
-{
-	//Adds a new paragraph style named "MyParaStyle"
-	IWParagraphStyle myParaStyle = document.AddParagraphStyle("MyParaStyle");
-	//Sets the formatting of the style
-	myParaStyle.CharacterFormat.FontSize = 16f;
-	myParaStyle.CharacterFormat.TextColor = Color.DarkBlue;
-	myParaStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	//Adds a new character style named "MyCharStyle"
-	IWCharacterStyle myCharStyle = document.AddCharacterStyle("MyCharStyle");
-	//Sets the formatting of the style
-	myCharStyle.CharacterFormat.Bold = true;
-	myCharStyle.CharacterFormat.Italic = true;
-	myCharStyle.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-	//Link both paragraph and character style
-	(myParaStyle as WParagraphStyle).LinkedStyleName = "MyCharStyle";
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyParaStyle");
-	//Appends new paragraph in section
-	document.LastSection.AddParagraph();
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies Linked paragraph style to the Text range
-	(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("MyParaStyle");
-	MemoryStream stream = new MemoryStream();
-	document.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the document              
-	document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-}
+//Creates a Word document
+WordDocument document = new WordDocument();
+//This method adds a section and a paragraph in the document
+document.EnsureMinimal();
+//Adds a new paragraph style named "ParagraphStyle"
+WParagraphStyle paraStyle = document.AddParagraphStyle("ParagraphStyle") as WParagraphStyle;
+//Sets the formatting of the style
+paraStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds a new character style named "CharacterStyle"
+IWCharacterStyle charStyle = document.AddCharacterStyle("CharacterStyle");
+//Sets the formatting of the style
+charStyle.CharacterFormat.Bold = true;
+charStyle.CharacterFormat.Italic = true;
+//Link both paragraph and character style
+paraStyle.LinkedStyleName = "CharacterStyle";
+//Appends the contents into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles");
+//Applies the style to paragraph
+document.LastParagraph.ApplyStyle("ParagraphStyle");
+//Appends new paragraph in section
+document.LastSection.AddParagraph();
+//Appends the contents into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Applies style to the text range
+(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("CharacterStyle");
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+//Closes the document              
+document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %} 
