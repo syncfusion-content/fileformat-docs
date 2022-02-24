@@ -125,6 +125,8 @@ document.Open(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.d
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
+
 ## Opening an existing document from Stream
 
 You can open an existing document from stream by using either the overloads of `Open` methods or the constructor of `WordDocument` class
@@ -222,6 +224,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from Stream from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
 
 ## Opening an Encrypted Word document
 
@@ -365,6 +369,8 @@ document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx, "passwo
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-read-only-Word-document).
+
 ## Saving a Word document to file system
 
 You can save the created or manipulated Word document to file system using `Save` method of `WordDocument` class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
@@ -449,6 +455,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
 
 ## Saving a Word document to Stream
 
@@ -552,6 +560,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
+
 ## Sending to a client browser
 
 You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of `Save` method.  This method explicitly makes use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx#) as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
@@ -611,6 +621,8 @@ return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Send-Word-to-client-browser).
 
 ## Closing a document
 
@@ -719,3 +731,5 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
