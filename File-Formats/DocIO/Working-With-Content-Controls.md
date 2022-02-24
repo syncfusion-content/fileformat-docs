@@ -3840,12 +3840,12 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 
 {% highlight vb.net %}
 'Loads a template document
-Dim document As WordDocument = New WordDocument("..\..\Data\tabletest_b720c70e.docx")
+Dim document As WordDocument = New WordDocument("Template.docx")
 ''' Processes the body contents for each section in the Word document
 For Each section As WSection In document.Sections
     'Accesses the Body of section where all the contents in document are apart
     Dim sectionBody As WTextBody = section.Body
-    SurroundingClass.IterateTextBody(sectionBody)
+    IterateTextBody(sectionBody)
 Next
 'Saves and closes the document instance
 document.Save("Sample.docx")
@@ -3929,7 +3929,7 @@ End Sub
 
 {% highlight UWP %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
+Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
             
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
 inputStream.Dispose();
@@ -4159,7 +4159,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 
 {% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarainFormsApp.Data.Template.docx");
+Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
 fileStream.Dispose();
 ///Processes the body contents for each section in the Word document
