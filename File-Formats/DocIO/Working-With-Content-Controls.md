@@ -3812,7 +3812,8 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
     }
@@ -3905,7 +3906,8 @@ Private Shared Sub IterateParagraph(ByVal paraItems As ParagraphItemCollection)
                 IterateTextBody(shape.TextBody)
             Case EntityType.InlineContentControl
                 Dim inlineContentControl As InlineContentControl = TryCast(entity, InlineContentControl)
-                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl)
+                If inlineContentControl.ContentControlProperties.Title = "ReplaceText" Then 
+				    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl)
         End Select
     Next
 End Sub
@@ -4015,7 +4017,8 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
     }
@@ -4129,7 +4132,8 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
     }
@@ -4246,7 +4250,8 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
                 break;
             case EntityType.InlineContentControl:
                 InlineContentControl inlineContentControl = entity as InlineContentControl;
-                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                 break;
         }
     }
