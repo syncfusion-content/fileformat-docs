@@ -305,7 +305,7 @@ Save(outputStream, "Sample.docx");
 
 {% endtabs %}
 
-A complete working example of creating a Word document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample295611316.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WinUI/WinUI-Desktop-app).
 
 By executing the program, you will get the **Word document** as follows.
 
@@ -607,7 +607,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-A complete working example of creating a Word document in  the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample_UWP193025116.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WinUI/WinUI-UWP-app).
 
 By executing the program, you will get the **Word document** as follows.
 

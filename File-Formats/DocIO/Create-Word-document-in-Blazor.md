@@ -245,7 +245,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-A complete working example of how to create a Word file in Blazor Server-Side Application can be downloaded from [Create-Word-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ServerSideApplication1446629651.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Blazor/Server-side-application).
 
 By executing the program, you will get the **Word document** as follows.
 
@@ -451,7 +451,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-A complete working example of how to create a Word file in Blazor Client-Side can be downloaded from [Create-Word-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication2017636034.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Blazor/Client-side-application).
 
 By executing the program, you will get the **Word document** as follows.
 
