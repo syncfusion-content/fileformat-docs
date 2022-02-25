@@ -2100,12 +2100,12 @@ LEFT, LEFTB<br/><br/></td><td>
 Returns the leftmost characters from a text value<br/><br/></td></tr>
 <tr>
 <td>
-LET<br/><br/></td><td>
-Returns the result of a formula that can use variables. Calculating the formula result in XlsIO is not supported.<br/><br/></td></tr>
-<tr>
-<td>
 LEN, LENB<br/><br/></td><td>
 Returns the number of characters in a text string<br/><br/></td></tr>
+<tr>
+<td>
+LET<br/><br/></td><td>
+Returns the result of a formula that can use variables. Calculating the formula result in XlsIO is not supported.<br/><br/></td></tr>
 <tr>
 <td>
 LN<br/><br/></td><td>
