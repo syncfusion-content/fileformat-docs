@@ -1,6 +1,6 @@
 ---
 title: Working with Content Controls | DocIO | Syncfusion
-description: This section illustrates how to work with Content Controls
+description: This section illustrates how to work with Content Controls in the Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
