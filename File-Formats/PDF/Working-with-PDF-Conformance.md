@@ -2626,3 +2626,92 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+## PDF/A to PDF conversion
+
+An existing PDF/A conformance document can be converted to a PDF document using the RemoveConformance method in the PdfLoadedDocument. Refer to the following code sample to achieve the same,
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load an existing document.
+PdfLoadedDocument document = new PdfLoadedDocument("input.pdf");
+
+//Remove PDF/A conformance.
+document.RemoveConformance();
+
+//Save the document.
+document.Save("Output.pdf");
+
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load an existing document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Remove PDF/A conformance.
+document.RemoveConformance()
+
+'Save the document.
+document.Save("Output.pdf")
+
+'Close the document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load a PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Remove PDF/A conformance.
+document.RemoveConformance();
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+
+//Defining the ContentType for pdf file 
+string contentType = "application/pdf";
+
+//Define the file name 
+string fileName = "output.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream.
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Remove PDF/A conformance.
+document.RemoveConformance();
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document.
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}  
