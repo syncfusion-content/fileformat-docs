@@ -2572,6 +2572,10 @@ TYPE<br/><br/></td><td>
 Returns a number indicating the data type of a value<br/><br/></td></tr>
 <tr>
 <td>
+UNIQUE<br/><br/></td><td>
+Returns the list of unique value present inside a list or range<br/><br/></td></tr>
+<tr>
+<td>
 UPPER<br/><br/></td><td>
 Converts text to uppercase<br/><br/></td></tr>
 <tr>
