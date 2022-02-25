@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Licensing FAQ – Is internet access required for Essential studio license validation | Syncfusion
+title: Licensing FAQ – Net need for ES license validation | Syncfusion
 description: Learn here some information about whether syncfusion Essential Studio license validation needs internet conncetion.
-platform: file-formats
+platform: File Formats
 control: Essential Studio
 documentation: ug
 ---
 
-# Is an internet connection required for Syncfusion Essential Studio license validation?
+# Is the internet required for Essential Studio license validation?
 
 * Syncfusion license validation is done offline during application execution and does not require internet access. 
 
