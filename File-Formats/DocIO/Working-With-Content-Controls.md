@@ -1,6 +1,6 @@
 ---
 title: Working with Content Controls | DocIO | Syncfusion
-description: This section illustrates how to work with Content Controls
+description: This section illustrates how to work with Content Controls in the Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -168,6 +168,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Block-content-control).
+
 ### Inline Content Control
 
 You can add content control as a child to a paragraph using the inline content control. You can add text, pictures, fields or other paragraph items into the inline content control. Refer to the following code.
@@ -286,6 +288,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Inline-content-control).
 
 N> Currently, DocIO does not support RowContentControl and CellContentControl.
 
@@ -514,6 +518,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Content-control-properties).
+
 ## Why Content Control?
 
 The content controls have the following three major use cases:
@@ -697,6 +703,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Protect-content-control).
 
 ### Form Filling
 
@@ -2092,6 +2100,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Create-form-in-Word-document).
+
 You can also fill the forms using the DocIO. Refer to the following code example.
 
 Form filling:
@@ -2571,6 +2581,8 @@ document1.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Fill-form-in-Word-document).
+
 ### Data Binding with Content Controls (XML Mapping)
 
 Word allows you to store XML data, named *custom XML parts*, in a Word document. You can control the display of this data by binding content controls to elements in a custom XML part. When you open the Word document, the content controls display the values of the XML elements. Any changes that you make to the text in the content controls are saved in the custom XML part (two-way data binding). Refer to the following code sample to map custom XML parts to content control.
@@ -2748,6 +2760,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Xml-mapping).
+
 ## Types of Content Controls
 
 The following types of content controls can be created by using the Essential DocIO.
@@ -2914,6 +2928,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Rich-text-content-control).
+
 ### Plain Text
 
 A plain text content control contains text and cannot contain other items, such as tables, pictures, or other content controls. Refer to the following code to add plain text content control.
@@ -3032,6 +3048,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Plain-text-content-control).
+
 ### Check Box
 
 A check box content control provides a UI that represents a binary state: checked or unchecked. Default state for check box is unchecked. Refer to the following code to add check box content control.
@@ -3135,6 +3153,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Check-box-content-control).
 
 ### Date picker
 
@@ -3284,6 +3304,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Date-picker-content-control).
 
 ### Drop-Down List and Combo Box
 
@@ -3597,6 +3619,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Drop-down-list-and-combo-box).
+
 ### Picture
 
 A picture content control displays an image. Refer to the following code to add new picture content control.
@@ -3726,5 +3750,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Picture-content-control).
 
 N> In the above-mentioned code samples, for Xamarin platforms the document is saved as stream only. To save the stream to file kindly refer code sample [here](https://help.syncfusion.com/file-formats/docio/xamarin#save-the-document#).

@@ -309,7 +309,7 @@ DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", 
 
 {% endtabs %}
 
-A complete working example of creating a Word document in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateWordSample1545592917.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET-MAUI).
 
 By executing the program, you will get the **Word document** as follows.
 

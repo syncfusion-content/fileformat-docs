@@ -139,7 +139,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %} 
 
-You can download a complete working sample of enable track changes of the Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Enable-track-changes-of-Word).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Enable-track-changes-of-Word).
 
 ## Accept all changes
 
@@ -232,7 +232,7 @@ document.Close();
 
 {% endtabs %}
 
-You can download a complete working sample of accepting all the tracked changes in Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-all-changes).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-all-changes).
 
 By executing the above code example, it generates output Word document as follows.
 
@@ -328,7 +328,7 @@ document.Close();
 
 {% endtabs %}
 
-You can download a complete working sample of rejecting all the tracked changes in Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Reject-all-changes).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Reject-all-changes).
 
 By executing the above code example, it generates output Word document as follows.
 
@@ -459,7 +459,7 @@ document.Close();
 
 {% endtabs %}
 
-You can download a complete working sample of accepting all the tracked changes made by the author in Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-all-changes-made-by-author).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-all-changes-made-by-author).
 
 ## Reject all changes by particular reviewer
 
@@ -586,7 +586,7 @@ document.Close();
 
 {% endtabs %}
 
-You can download a complete working sample of rejecting all the tracked changes made by the author in Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Reject-all-changes-made-by-author).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Reject-all-changes-made-by-author).
 
 ## Revision information
 
@@ -684,7 +684,7 @@ document.Close();
 
 {% endtabs %}
 
-You can download a complete working sample of getting the details about the revision information of track changes from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Get-revision-information).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Get-revision-information).
 
 **Frequently Asked Questions**
 
