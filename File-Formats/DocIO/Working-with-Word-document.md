@@ -2298,7 +2298,7 @@ using (WordDocument document = new WordDocument())
 	//Adds a new paragraph style named "ParagraphStyle"
 	WParagraphStyle paraStyle = document.AddParagraphStyle("ParagraphStyle") as WParagraphStyle;
 	//Sets the formatting of the style
-	paraStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+	paraStyle.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
 	//Adds a new character style named "CharacterStyle"
 	IWCharacterStyle charStyle = document.AddCharacterStyle("CharacterStyle");
 	//Sets the formatting of the style
@@ -2320,16 +2320,16 @@ using (WordDocument document = new WordDocument())
 	await document.SaveAsync(stream, FormatType.Docx);
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
+	document.Close();
 	//Please refer the below link to save Word document in UWP platform
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
 }
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
+//Creates a Word document
 using (WordDocument document = new WordDocument())
 {
-	WordDocument document = new WordDocument();
 	//This method adds a section and a paragraph in the document
 	document.EnsureMinimal();
 	//Adds a new paragraph style named "ParagraphStyle"
@@ -2398,6 +2398,7 @@ using (WordDocument document = new WordDocument())
 	document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
 {% endhighlight %}
 
 {% endtabs %} 
