@@ -2499,7 +2499,7 @@ pdfDocument.Close();
 {% endtabs %}
 
 ### Comments in Word-to-PDF conversion
-The following code sample shows how to **preserve comments balloon in a generated PDF** when converting Word documents with comments. Also you can customize how comments balloon color appears in a generated PDF .
+The following code sample shows how to **preserve comments balloon in a generated PDF** when converting Word documents with comments. Also you can customize how comments balloon color appears in a generated PDF.
 
 {% tabs %}  
 
