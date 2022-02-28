@@ -3149,3 +3149,37 @@ else
 analyzer.Close();
 {% endhighlight %}
 {% endtabs %}
+
+## Embed all the non-embedded fonts in the existing PDF document  
+
+You can embed all the non-embedded fonts in the existing PDF document using the EmbedFonts method. 
+Refer to the following code sample to achieve the same,
+
+{% tabs %}
+{% highlight C# %}
+//Load an existing document.
+PdfLoadedDocument document = new PdfLoadedDocument("input.pdf");
+//Embed all the non-embedded fonts.
+if (loadedDocument.IsAllFontsEmbedded == false)
+{.
+     loadedDocument.EmbedFonts();
+}
+//Save the document.
+document.Save("Output.pdf");
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+//Load an existing document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+// Embed all the non-embedded fonts.
+If loadedDocument.IsAllFontsEmbedded = False Then
+    loadedDocument.EmbedFonts()
+End If
+//Save the document.
+document.Save("Output.pdf")
+//Close the document.
+document.Close(True)
+{% endhighlight %}
+{% endtabs %}

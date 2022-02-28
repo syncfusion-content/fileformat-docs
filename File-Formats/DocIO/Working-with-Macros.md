@@ -1,11 +1,11 @@
 ---
 title: Working with Macros | DocIO | Syncfusion
-description: This section illustrates how to load and save a macro enabled documents
+description: This section illustrates how to load and save a macro enabled documents using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Working with Macros
+# Working with Macros in Word document
 
 Macro is a way to automate the tasks that you perform repeatedly. It is a saved sequence of commands or keyboard strokes that can be recalled with a single command or keyboard stroke. 
 
@@ -131,6 +131,8 @@ End Function
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Macros/Open-and-save-macro-enabled-document).
+
 The following code example illustrates how to remove the macros present in the document by using `RemoveMacros` method.
 
 {% tabs %}  
@@ -218,3 +220,5 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Macros/Remove-macros-in-document).

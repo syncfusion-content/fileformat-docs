@@ -273,6 +273,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-simple-table).
+
 The following code example illustrates how to create a simple table by dynamically adding rows.
 
 {% tabs %} 
@@ -661,6 +663,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Dynamic-table-by-adding-rows).
+
 ## Nested Table 
 
 You can create a nested table by adding a new table into a cell. The following code example illustrates how to add a table into a cell.
@@ -896,6 +900,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-nested-table).
+
 ## Align text within a table
 
 You can iterate the cells within a table and align text for each cell. Find more information about iterating the cells from [here](https://help.syncfusion.com/file-formats/docio/working-with-tables#iterating-through-table-elements)
@@ -957,6 +963,8 @@ private void AlignCellContentForTable(WTable table, Syncfusion.DocIO.DLS.Horizon
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Align-text-within-a-table).
 
 ## Apply formatting to Table, Row and Cell
 
@@ -1230,6 +1238,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-table-formatting).
 
 ### Applying cell formatting
   
@@ -1518,6 +1528,8 @@ document.Close();
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-cell-formatting).
+
 ### Resize table
 
 You can automatically resize the table cell to fit its contents based on the given **autofit options** such as `FitToContent`, `FitToWindow`, `FixedColumnWidth`. 
@@ -1668,6 +1680,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Resize-table).
+
 N> In ASP.NET Core, UWP, and Xamarin platforms, to apply autofit for table in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) packages as a reference in your application.
 
 ### Working with Table Style
@@ -1760,6 +1774,8 @@ document.Close();
 {% endhighlight %}   
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-built-in-table-style).
 
 ### Table style options
 
@@ -1910,6 +1926,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Table-style-options).
 
 ### Custom table style
 
@@ -2098,7 +2116,9 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}  
- 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-custom-table-style).
+
 ## Merging cells vertically and horizontally
 
 You can combine two or more table cells located in the same row or column into a single cell.
@@ -2194,6 +2214,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-horizontal-merge-to-cells).
+
 The following code example illustrates how to apply vertical merge to specified range of rows in a specified column.
 
 {% tabs %}  
@@ -2284,6 +2306,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-vertical-merge-to-cells).
 
 The following code example illustrate how to create a table that contains horizontal merged cells.
 
@@ -2421,6 +2445,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-horizontal-merged-cells).
+
 The following code example illustrates how to create a table with vertical merged cells.
 
 {% tabs %} 
@@ -2556,7 +2582,9 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}  
-  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-vertical-merged-cells).
+
 ## Specifying table header row to repeat on each page
 
 You can specify one or more rows in a table to be repeated as header row at the top of each page, when the table spans across multiple pages. 
@@ -2706,6 +2734,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-table-with-header-row).
+
 ## Keeping rows from breaking across pages
 
 You can enable or disable the table row content to split across multiple pages, when the row contents do not fit in a previous page.
@@ -2799,7 +2829,9 @@ document.Close();
 {% endhighlight %}  
 
 {% endtabs %} 
-  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Disable-row-to-break-across-pages).
+
 ## Iterating through table elements
 
 The following code example illustrates how to iterate through the table and apply back color to a particular cell.
@@ -2949,6 +2981,8 @@ document.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Iterating-through-table-elements).
+
 ## Removing the table
 
 You can remove a table from a text body by its instance or by its index position in the text body item collection. The following code example shows how to remove a table in Word document.
@@ -3049,6 +3083,8 @@ document.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Remove-table).
+
 ## Removing the table rows
 
 You can remove a particular table row from a table rows collection by its instance or by its index position in the collection. The following code example shows how to remove a particular row from table in the Word document.
@@ -3148,3 +3184,5 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Remove-particular-row-from-table).

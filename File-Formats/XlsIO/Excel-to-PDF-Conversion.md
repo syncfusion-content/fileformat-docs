@@ -2069,6 +2069,10 @@ This feature supports the following elements:
 * Conditional formats
 * Pivot tables
 * Comments
+* Form controls
+	* Check box
+	* Combo box
+	* Option button
 
 ## Unsupported elements
 
@@ -2083,7 +2087,6 @@ The following list contains unsupported elements that presently not preserved in
 * Tables
 	* Custom styles
 * Row and column headings
-* Form controls
 * ActiveX controls
 * OLE objects
 

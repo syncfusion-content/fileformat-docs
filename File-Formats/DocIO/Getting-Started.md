@@ -167,7 +167,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-You can download a complete working sample of creating a new Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-document).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-document).
 
 ## Creating a new Word document from scratch with basic elements
 
@@ -954,7 +954,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "applic
 
 {% endtabs %}  
 
-You can download a complete working sample of creating a new Word document with basic elements from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-with-basic-elements).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-with-basic-elements).
 
 The resultant Word document looks as follows.
 

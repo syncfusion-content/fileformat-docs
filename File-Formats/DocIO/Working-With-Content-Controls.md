@@ -1,6 +1,6 @@
 ---
 title: Working with Content Controls | DocIO | Syncfusion
-description: This section illustrates how to work with Content Controls
+description: This section illustrates how to work with Content Controls in the Word document using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -168,6 +168,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Block-content-control).
+
 ### Inline Content Control
 
 You can add content control as a child to a paragraph using the inline content control. You can add text, pictures, fields or other paragraph items into the inline content control. Refer to the following code.
@@ -286,6 +288,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Inline-content-control).
 
 N> Currently, DocIO does not support RowContentControl and CellContentControl.
 
@@ -514,6 +518,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Content-control-properties).
+
 ## Why Content Control?
 
 The content controls have the following three major use cases:
@@ -697,6 +703,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Protect-content-control).
 
 ### Form Filling
 
@@ -2092,6 +2100,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Create-form-in-Word-document).
+
 You can also fill the forms using the DocIO. Refer to the following code example.
 
 Form filling:
@@ -2571,6 +2581,8 @@ document1.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Fill-form-in-Word-document).
+
 ### Data Binding with Content Controls (XML Mapping)
 
 Word allows you to store XML data, named *custom XML parts*, in a Word document. You can control the display of this data by binding content controls to elements in a custom XML part. When you open the Word document, the content controls display the values of the XML elements. Any changes that you make to the text in the content controls are saved in the custom XML part (two-way data binding). Refer to the following code sample to map custom XML parts to content control.
@@ -2748,6 +2760,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Xml-mapping).
+
 ## Types of Content Controls
 
 The following types of content controls can be created by using the Essential DocIO.
@@ -2914,6 +2928,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Rich-text-content-control).
+
 ### Plain Text
 
 A plain text content control contains text and cannot contain other items, such as tables, pictures, or other content controls. Refer to the following code to add plain text content control.
@@ -3032,6 +3048,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Plain-text-content-control).
+
 ### Check Box
 
 A check box content control provides a UI that represents a binary state: checked or unchecked. Default state for check box is unchecked. Refer to the following code to add check box content control.
@@ -3135,6 +3153,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Check-box-content-control).
 
 ### Date picker
 
@@ -3284,6 +3304,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Date-picker-content-control).
 
 ### Drop-Down List and Combo Box
 
@@ -3597,6 +3619,8 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Drop-down-list-and-combo-box).
+
 ### Picture
 
 A picture content control displays an image. Refer to the following code to add new picture content control.
@@ -3726,5 +3750,559 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Content-Controls/Picture-content-control).
+
+## Edit Content Control
+
+You can edit the inline content control text by iterating the child items of inline content control. The following code example shows how to edit content control text in the Word document.
+
+{% tabs %}
+{% highlight c# %}
+//Loads a template document
+WordDocument document = new WordDocument(@"Template.docx");
+///Processes the body contents for each section in the Word document
+foreach (WSection section in document.Sections)
+{
+    //Accesses the Body of section where all the contents in document are apart
+    WTextBody sectionBody = section.Body;
+    IterateTextBody(sectionBody);
+}
+//Saves and closes the document instance
+document.Save("Sample.docx");
+document.Close();
+
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph.Items);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+private static void IterateParagraph(ParagraphItemCollection paraItems)
+{
+    for (int i = 0; i < paraItems.Count; i++)
+    {
+        Entity entity = paraItems[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {            
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                break;
+        }
+    }
+}
+private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
+{
+    WCharacterFormat characterFormat = null;
+    foreach (ParagraphItem item in inlineContentControl.ParagraphItems)
+    {
+        if (item is WTextRange)
+        {
+            characterFormat = (item as WTextRange).CharacterFormat;
+            break;
+        }
+    }
+    //Remove exiting items and add new text range with required text
+    inlineContentControl.ParagraphItems.Clear();
+    WTextRange textRange = new WTextRange(inlineContentControl.Document);
+    textRange.Text = text;
+    if (characterFormat != null)
+        textRange.ApplyCharacterFormat(characterFormat);
+    inlineContentControl.ParagraphItems.Add(textRange);
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads a template document
+Dim document As WordDocument = New WordDocument("Template.docx")
+''' Processes the body contents for each section in the Word document
+For Each section As WSection In document.Sections
+    'Accesses the Body of section where all the contents in document are apart
+    Dim sectionBody As WTextBody = section.Body
+    IterateTextBody(sectionBody)
+Next
+'Saves and closes the document instance
+document.Save("Sample.docx")
+document.Close()
+		
+Private Shared Sub IterateTextBody(ByVal textBody As WTextBody)
+	'Iterates through each of the child items of WTextBody
+	For i As Integer = 0 To textBody.ChildEntities.Count - 1
+		'IEntity is the basic unit in DocIO DOM. 
+		'Accesses the body items (should be either paragraph, table or block content control) as IEntity
+		Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
+		'A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+		'Decides the element type by using EntityType
+		Select Case bodyItemEntity.EntityType
+			Case EntityType.Paragraph
+				Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
+				'Processes the paragraph contents
+				'Iterates through the paragraph's DOM
+				IterateParagraph(paragraph.Items)
+			Case EntityType.Table
+				'Table is a collection of rows and cells
+				'Iterates through table's DOM
+				SurroundingClass.IterateTable(TryCast(bodyItemEntity, WTable))
+			Case EntityType.BlockContentControl
+				Dim blockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
+				'Iterates to the body items of Block Content Control.
+				IterateTextBody(blockContentControl.TextBody)
+		End Select
+	Next
+End Sub
+
+Private Shared Sub IterateTable(ByVal table As WTable)
+    'Iterates the row collection in a table
+    For Each row As WTableRow In table.Rows
+        'Iterates the cell collection in a table row
+        For Each cell As WTableCell In row.Cells
+            'Table cell is derived from (also a) TextBody
+            'Reusing the code meant for iterating TextBody
+            IterateTextBody(cell)
+        Next
+    Next
+End Sub
+
+Private Shared Sub IterateParagraph(ByVal paraItems As ParagraphItemCollection)
+    For i As Integer = 0 To paraItems.Count - 1
+        Dim entity As Entity = paraItems(i)
+        'A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        'Decides the element type by using EntityType
+        Select Case entity.EntityType            
+            Case EntityType.TextBox
+                'Iterates to the body items of textbox.
+                Dim textBox As WTextBox = TryCast(entity, WTextBox)
+                IterateTextBody(textBox.TextBoxBody)
+            Case EntityType.Shape
+                'Iterates to the body items of shape.
+                Dim shape As Shape = TryCast(entity, Shape)
+                IterateTextBody(shape.TextBody)
+            Case EntityType.InlineContentControl
+                Dim inlineContentControl As InlineContentControl = TryCast(entity, InlineContentControl)
+                If inlineContentControl.ContentControlProperties.Title = "ReplaceText" Then 
+				    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl)
+        End Select
+    Next
+End Sub
+
+Private Shared Sub ReplaceTextWithInlineContentControl(ByVal text As String, ByVal inlineContentControl As InlineContentControl)
+    Dim characterFormat As WCharacterFormat = Nothing
+        For Each item As ParagraphItem In inlineContentControl.ParagraphItems
+            If TypeOf item Is WTextRange Then
+                characterFormat = TryCast(item, WTextRange).CharacterFormat
+            Exit For
+        End If
+    Next
+	'Remove exiting items and add new text range with required text
+    inlineContentControl.ParagraphItems.Clear()
+    Dim textRange As WTextRange = New WTextRange(inlineContentControl.Document)
+    textRange.Text = text
+    If characterFormat IsNot Nothing Then textRange.ApplyCharacterFormat(characterFormat)
+    inlineContentControl.ParagraphItems.Add(textRange)
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+            
+WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+inputStream.Dispose();
+///Processes the body contents for each section in the Word document
+foreach (WSection section in document.Sections)
+{
+    //Accesses the Body of section where all the contents in document are apart
+    WTextBody sectionBody = section.Body;
+    IterateTextBody(sectionBody);
+}
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word document file in local machine
+Save(stream, "application/msword", "Sample.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph.Items);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+private static void IterateParagraph(ParagraphItemCollection paraItems)
+{
+    for (int i = 0; i < paraItems.Count; i++)
+    {
+        Entity entity = paraItems[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {            
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                break;
+        }
+    }
+}
+
+private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
+{
+    WCharacterFormat characterFormat = null;
+    foreach (ParagraphItem item in inlineContentControl.ParagraphItems)
+    {
+        if (item is WTextRange)
+        {
+            characterFormat = (item as WTextRange).CharacterFormat;
+            break;
+        }
+    }
+	//Remove exiting items and add new text range with required text
+    inlineContentControl.ParagraphItems.Clear();
+    WTextRange textRange = new WTextRange(inlineContentControl.Document);
+    textRange.Text = text;
+    if (characterFormat != null)
+        textRange.ApplyCharacterFormat(characterFormat);
+    inlineContentControl.ParagraphItems.Add(textRange);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Open the file as Stream
+FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument(docStream, FormatType.Automatic);
+docStream.Dispose();
+///Processes the body contents for each section in the Word document
+foreach (WSection section in document.Sections)
+{
+    //Accesses the Body of section where all the contents in document are apart
+    WTextBody sectionBody = section.Body;
+    IterateTextBody(sectionBody);
+}
+			
+//Creates memory stream
+MemoryStream outputStream = new MemoryStream();
+//Saves and closes the Word document instance
+document.Save(outputStream, FormatType.Docx);
+document.Close();
+outputStream.Dispose();
+
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph.Items);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+private static void IterateParagraph(ParagraphItemCollection paraItems)
+{
+    for (int i = 0; i < paraItems.Count; i++)
+    {
+        Entity entity = paraItems[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                break;
+        }
+    }
+}
+
+private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
+{
+    WCharacterFormat characterFormat = null;
+    foreach (ParagraphItem item in inlineContentControl.ParagraphItems)
+    {
+        if (item is WTextRange)
+        {
+            characterFormat = (item as WTextRange).CharacterFormat;
+            break;
+        }
+    }
+	//Remove exiting items and add new text range with required text
+    inlineContentControl.ParagraphItems.Clear();
+    WTextRange textRange = new WTextRange(inlineContentControl.Document);
+    textRange.Text = text;
+    if (characterFormat != null)
+        textRange.ApplyCharacterFormat(characterFormat);
+    inlineContentControl.ParagraphItems.Add(textRange);
+}
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+fileStream.Dispose();
+///Processes the body contents for each section in the Word document
+foreach (WSection section in document.Sections)
+{
+    //Accesses the Body of section where all the contents in document are apart
+    WTextBody sectionBody = section.Body;
+    IterateTextBody(sectionBody);
+}
+
+//Creates memory stream
+MemoryStream outputStream = new MemoryStream();
+//Saves and closes the Word document instance
+document.Save(outputStream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+document.Close();
+
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph.Items);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+private static void IterateParagraph(ParagraphItemCollection paraItems)
+{
+    for (int i = 0; i < paraItems.Count; i++)
+    {
+        Entity entity = paraItems[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {
+            case EntityType.TextBox:
+                //Iterates to the body items of textbox.
+                WTextBox textBox = entity as WTextBox;
+                IterateTextBody(textBox.TextBoxBody);
+                break;
+            case EntityType.Shape:
+                //Iterates to the body items of shape.
+                Shape shape = entity as Shape;
+                IterateTextBody(shape.TextBody);
+                break;
+            case EntityType.InlineContentControl:
+                InlineContentControl inlineContentControl = entity as InlineContentControl;
+                if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                break;
+        }
+    }
+}
+
+private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
+{
+    WCharacterFormat characterFormat = null;
+    foreach (ParagraphItem item in inlineContentControl.ParagraphItems)
+    {
+        if (item is WTextRange)
+        {
+            characterFormat = (item as WTextRange).CharacterFormat;
+            break;
+        }
+    }
+	//Remove exiting items and add new text range with required text
+    inlineContentControl.ParagraphItems.Clear();
+    WTextRange textRange = new WTextRange(inlineContentControl.Document);
+    textRange.Text = text;
+    if (characterFormat != null)
+        textRange.ApplyCharacterFormat(characterFormat);
+    inlineContentControl.ParagraphItems.Add(textRange);
+}
+{% endhighlight %}
+{% endtabs %}  
 
 N> In the above-mentioned code samples, for Xamarin platforms the document is saved as stream only. To save the stream to file kindly refer code sample [here](https://help.syncfusion.com/file-formats/docio/xamarin#save-the-document#).
