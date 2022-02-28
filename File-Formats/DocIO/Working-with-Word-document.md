@@ -2249,7 +2249,7 @@ using (WordDocument document = new WordDocument())
     document.LastSection.AddParagraph();
     //Appends the contents into the paragraph
     document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    //Applies style to the text range
+    //Applies paragraph style to the text range
     (document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("ParagraphStyle");
     //Saves the document
     document.Save("Result.docx", FormatType.Docx);
@@ -2280,7 +2280,7 @@ Using document As WordDocument = New WordDocument()
     document.LastSection.AddParagraph()
     'Appends the content into the paragraph
     document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
-    'Applies style to the text range
+    'Applies paragraph style to the text range
     Dim textRange As WTextRange = TryCast(document.LastParagraph.ChildEntities(0), WTextRange)
     textRange.ApplyStyle("ParagraphStyle")
     'Saves the document
@@ -2313,7 +2313,7 @@ using (WordDocument document = new WordDocument())
 	document.LastSection.AddParagraph();
 	//Appends the contents into the paragraph
 	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies style to the text range
+	//Applies paragraph style to the text range
 	(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("ParagraphStyle");
 	//Saves the Word file to MemoryStream
 	await document.SaveAsync(stream, FormatType.Docx);
@@ -2349,7 +2349,7 @@ using (WordDocument document = new WordDocument())
 	document.LastSection.AddParagraph();
 	//Appends the contents into the paragraph
 	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies style to the text range
+	//Applies paragraph style to the text range
 	(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("ParagraphStyle");
 	MemoryStream stream = new MemoryStream();
 	//Saves the document to  MemoryStream
@@ -2385,7 +2385,7 @@ using (WordDocument document = new WordDocument())
 	document.LastSection.AddParagraph();
 	//Appends the contents into the paragraph
 	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies style to the text range
+	//Applies paragraph style to the text range
 	(document.LastParagraph.ChildEntities[0] as WTextRange).ApplyStyle("ParagraphStyle");
 	MemoryStream stream = new MemoryStream();
 	document.Save(stream, FormatType.Docx);
