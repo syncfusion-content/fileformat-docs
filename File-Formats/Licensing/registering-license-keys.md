@@ -17,7 +17,8 @@ Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY
 {% endhighlight %}
 {% endtabs %}
 
-N> Place the license key between double quotes.  Also, ensure that Syncfusion.Licensing.dll is referenced in your project where the license key is being registered.
+N> * Place the license key between double quotes.  Also, ensure that Syncfusion.Licensing.dll is referenced in your project where the license key is being registered.
+* Syncfusion license validation is done offline during application execution and does not require internet access.  Apps registered with a Syncfusion license key can be deployed on any system that does not have an internet connection.
 
 Recommended place to register the license in the various platforms controls (ASP.NET Core, Xamarin, etc.) Which included in FileFormats platforms is covered in the following section.
 
