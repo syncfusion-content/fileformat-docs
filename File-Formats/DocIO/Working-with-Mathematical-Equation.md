@@ -195,7 +195,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of adding an accent mark to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-an-accent-mark-to-the-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-an-accent-mark-to-the-equation).
 
 ### Bar
 
@@ -331,7 +331,7 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of adding a bar to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-bar-to-the-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-bar-to-the-equation).
 
 ### Box
 
@@ -553,7 +553,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of adding a box to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-box-to-the-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-box-to-the-equation).
 
 ### Border box
 
@@ -765,7 +765,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of adding a border box to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-border-box-to-the-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-border-box-to-the-equation).
 
 ### Delimiter
 
@@ -941,7 +941,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of adding delimiter to the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-delimiter-to-the-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Add-delimiter-to-the-equation).
 
 ### Equation array
 
@@ -1147,7 +1147,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating an array of equations from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-an-array-of-equations).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-an-array-of-equations).
 
 ### Fraction
 
@@ -1313,7 +1313,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating a fraction equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-fraction-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-fraction-equation).
 
 ### Function
 
@@ -1474,7 +1474,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating a function from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-trigonometric-function).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-trigonometric-function).
 
 ### Group character
 
@@ -1640,7 +1640,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating an equation with grouping character from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Equation-with-grouping-character).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Equation-with-grouping-character).
 
 ### Limit
 
@@ -1844,7 +1844,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating limit equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-limit-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-limit-equation).
 
 ### Matrix
 
@@ -2209,7 +2209,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating a matrix equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-matrix-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-matrix-equation).
 
 ### N-Array
 
@@ -2426,7 +2426,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating a summation with limits from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-n-array-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-n-array-equation).
 
 ### Radical
 
@@ -2589,7 +2589,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating a radical equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-radical-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-radical-equation).
 
 ### Phantom
 
@@ -2802,7 +2802,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating a phantom equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-phantom-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-phantom-equation).
 
 ### SubSuperscript
 
@@ -2975,7 +2975,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of creating a superscript equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-superscript-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Create-superscript-equation).
 
 ### Left SubSuperscript
 
@@ -3154,7 +3154,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of adding superscript and subscript on the left side of the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Superscript-and-subscript-on-left).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Superscript-and-subscript-on-left).
 
 ### Right SubSuperscript
 
@@ -3342,7 +3342,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of adding superscript and subscript on the right side of the equation from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Superscript-and-subscript-on-right).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Superscript-and-subscript-on-right).
 
 ## Modify existing equation
 
@@ -3542,7 +3542,7 @@ Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "a
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample of modifying an existing mathematical equation in the Word document from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Modify-an-existing-equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Modify-an-existing-equation).
 
 By executing the above code example, it generates output Word document as follows.
 ![Resultant output Word document](WorkingwithMathematicalEquation_images/EditedEquation.png)

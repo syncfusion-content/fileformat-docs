@@ -412,6 +412,8 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
 
 Compile and execute the application. Now this application **creates a Word document**.
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Xamarin).
+
 By executing the program, you will get the Word document as follows.
 
 ![Xamarin output Word document](Xamarin_images/GettingStartedOutput.jpg)
