@@ -158,6 +158,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TextWatermark.docx", "
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Watermark/Add-text-watermark).
+
 ## Picture Watermark
 
 You can add or modify picture watermark in the Word document. `PictureWatermark` class represents picture watermark in the Word document.
@@ -219,3 +221,5 @@ document.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Watermark/Add-picture-watermark).

@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in Xamarin
 
-[Syncfusion Excel library for Xamarin platform](https://www.syncfusion.com/excel-framework/xamarin) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for Xamarin platform](https://www.syncfusion.com/excel-framework/xamarin/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
@@ -461,7 +461,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-8.Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8.Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~2-289729089.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
 <tr>
@@ -554,7 +554,7 @@ Save implementation for WinRT device.
 9.Compile and execute the application. Now this application creates a simple Excel document.
 
 
-A complete working example of how to create an Excel file in Xamarin can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted79812135.zip).
+A complete working example of how to create an Excel file in Xamarin can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-1863474945.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
@@ -853,4 +853,4 @@ public class QLPreviewItemBundle : QLPreviewItem
 {% endhighlight %}
 {% endtabs %}
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Xamarin Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.

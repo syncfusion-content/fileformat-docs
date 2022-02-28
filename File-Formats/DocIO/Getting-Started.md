@@ -36,6 +36,8 @@ N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 
 
+N> You can also explore our [.NET Word Library](https://www.syncfusion.com/demos/fileformats/word-library) demo that shows how to create and modify word files from C# with just five lines of code on different platforms.
+
 Include the following namespaces in your .cs or .vb file
 
 {% tabs %}  
@@ -164,6 +166,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-document).
 
 ## Creating a new Word document from scratch with basic elements
 
@@ -328,6 +332,8 @@ The following code example shows how to add an image into the Word document.
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 8;
 //Adds a picture into the paragraph
 IWPicture picture = paragraph.AppendPicture(Image.FromFile("DummyProfilePicture.jpg"));
 //Specify the size of the picture
@@ -339,6 +345,8 @@ picture.Width = 100;
 'Adds another paragraph and aligns it as center
 Dim paragraph As IWParagraph = section.AddParagraph()
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+'Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 8
 'Adds a picture into the paragraph
 Dim picture As IWPicture = paragraph.AppendPicture(Image.FromFile("DummyProfilePicture.jpg"))
 'Specifies the size of the picture
@@ -350,6 +358,8 @@ picture.Width = 100
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 8;
 //Adds a picture into the paragraph
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -364,6 +374,8 @@ picture.Width = 100;
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 8;
 //Adds a picture into the paragraph
 FileStream image1 = new FileStream("DummyProfilePicture.jpg", FileMode.Open, FileAccess.Read);
 IWPicture picture = paragraph.AppendPicture(image1);
@@ -376,6 +388,8 @@ picture.Width = 100;
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 8;
 //Adds a picture into the paragraph
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -414,6 +428,8 @@ textRange.CharacterFormat.Bold = true;
 firstCell = table.Rows[1].Cells[0];
 firstCell.Width = 150;
 paragraph = firstCell.AddParagraph();
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 6;
 IWPicture profilePicture = paragraph.AppendPicture(Image.FromFile(DummyProfile-Picture.jpg"));
 profilePicture.Height = 100;
 profilePicture.Width = 100;
@@ -445,6 +461,8 @@ textRange.CharacterFormat.Bold = True
 firstCell = table.Rows(1).Cells(0)
 firstCell.Width = 150
 paragraph = firstCell.AddParagraph()
+'Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 6
 Dim profilePicture As IWPicture = paragraph.AppendPicture(Image.FromFile("DummyProfile-Picture.jpg"))
 profilePicture.Height = 100
 profilePicture.Width = 100
@@ -476,6 +494,8 @@ textRange.CharacterFormat.Bold = true;
 firstCell = table.Rows[1].Cells[0];
 firstCell.Width = 150;
 paragraph = firstCell.AddParagraph();
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 6;
 Stream imageStream2 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfile-Picture.jpg");
 IWPicture profilePicture = paragraph.AppendPicture(imageStream2); 
 profilePicture.Height = 100;
@@ -508,6 +528,8 @@ textRange.CharacterFormat.Bold = true;
 firstCell = table.Rows[1].Cells[0];
 firstCell.Width = 150;
 paragraph = firstCell.AddParagraph();
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 6;
 FileStream image2 = new FileStream("DummyProfile-Picture.jpg", FileMode.Open, FileAccess.Read);
 IWPicture profilePicture = paragraph.AppendPicture(image2);
 profilePicture.Height = 100;
@@ -540,6 +562,8 @@ textRange.CharacterFormat.Bold = true;
 firstCell = table.Rows[1].Cells[0];
 firstCell.Width = 150;
 paragraph = firstCell.AddParagraph();
+//Sets after spacing for paragraph.
+paragraph.ParagraphFormat.AfterSpacing = 6;
 Stream imageStream2 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfile-Picture.jpg");
 IWPicture profilePicture = paragraph.AppendPicture(imageStream2); 
 profilePicture.Height = 100;
@@ -559,190 +583,320 @@ Essential DocIO allow you to create simple and multi-level lists. The following 
 {% highlight c# %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
+//Sets before spacing for paragraph.
+paragraph.ParagraphFormat.BeforeSpacing = 6;
 paragraph.AppendText("Level 0");
 //Applies the default numbered list formats 
 paragraph.ListFormat.ApplyDefNumberedStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 //Writes default bulleted list. 
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Applies the default bulleted list formats
 paragraph.ListFormat.ApplyDefBulletStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Writes default numbered list. 
 paragraph = section.AddParagraph()
+'Sets before spacing for paragraph.
+paragraph.ParagraphFormat.BeforeSpacing = 6
 paragraph.AppendText("Level 0")
 'Applies the default numbered list formats 
 paragraph.ListFormat.ApplyDefNumberedStyle()
+'Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 paragraph = section.AddParagraph()
 paragraph.AppendText("Level 1")
 'Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering()
 'Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel()
+'Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 paragraph = section.AddParagraph()
 paragraph.AppendText("Level 0")
 paragraph.ListFormat.ContinueListNumbering()
 'Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel()
+'Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph()
 'Writes default bulleted list. 
 paragraph = section.AddParagraph()
 paragraph.AppendText("Level 0")
 'Applies the default bulleted list formats
 paragraph.ListFormat.ApplyDefBulletStyle()
+'Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 paragraph = section.AddParagraph()
 paragraph.AppendText("Level 1")
 'Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering()
 'Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel()
+'Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 paragraph = section.AddParagraph()
 paragraph.AppendText("Level 0")
 'Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering()
 'Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel()
+'Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph()
 {% endhighlight %}
 
 {% highlight UWP %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
+//Sets before spacing for paragraph.
+paragraph.ParagraphFormat.BeforeSpacing = 6;
 paragraph.AppendText("Level 0");
 //Applies the default numbered list formats 
 paragraph.ListFormat.ApplyDefNumberedStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 //Writes default bulleted list. 
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Applies the default bulleted list formats
 paragraph.ListFormat.ApplyDefBulletStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 {% endhighlight %} 
 
 {% highlight ASP.NET CORE %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
+//Sets before spacing for paragraph.
+paragraph.ParagraphFormat.BeforeSpacing = 6;
 paragraph.AppendText("Level 0");
 //Applies the default numbered list formats 
 paragraph.ListFormat.ApplyDefNumberedStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 //Writes default bulleted list. 
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Applies the default bulleted list formats
 paragraph.ListFormat.ApplyDefBulletStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
+//Sets before spacing for paragraph.
+paragraph.ParagraphFormat.BeforeSpacing = 6;
 paragraph.AppendText("Level 0");
 //Applies the default numbered list formats 
 paragraph.ListFormat.ApplyDefNumberedStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 //Writes default bulleted list. 
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Applies the default bulleted list formats
 paragraph.ListFormat.ApplyDefBulletStyle();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 1");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Increments the list level
 paragraph.ListFormat.IncreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 72;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 paragraph = section.AddParagraph();
 paragraph.AppendText("Level 0");
 //Specifies the list format to continue from last list
 paragraph.ListFormat.ContinueListNumbering();
 //Decrements the list level
 paragraph.ListFormat.DecreaseIndentLevel();
+//Applies list formatting.
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
+paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
+paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
 {% endhighlight %} 
 
@@ -799,6 +953,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "applic
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-with-basic-elements).
 
 The resultant Word document looks as follows.
 

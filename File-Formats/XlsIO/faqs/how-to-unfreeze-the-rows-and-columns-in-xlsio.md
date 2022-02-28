@@ -133,9 +133,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [What is the maximum range of Rows and Columns?](faqs/what-is-the-maximum-range-of-rows-and-columns)
-* [How to hide the summary rows and columns using XlsIO?](faqs/how-to-hide-the-summary-rows-and-columns-using-xlsio)
-* [How to sort two or more columns in a pivot table?](faqs/how-to-sort-two-or-more-columns-in-a-pivot-table)
+* [What is the maximum range of Rows and Columns?](what-is-the-maximum-range-of-rows-and-columns)
+* [How to hide the summary rows and columns using XlsIO?](how-to-hide-the-summary-rows-and-columns-using-xlsio)
+* [How to sort two or more columns in a pivot table?](how-to-sort-two-or-more-columns-in-a-pivot-table)
 * [How to freeze panes?](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#freeze-panes)
 * [How to unfreeze panes?](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#unfreeze-panes)
 * [How to split panes?](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#split-panes)

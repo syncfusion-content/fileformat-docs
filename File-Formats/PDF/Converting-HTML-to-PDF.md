@@ -284,6 +284,71 @@ document.Close(True)
 
 {% endtabs %}
 
+### Steps to disable IE warning while performing HTML To PDF using the IE rendering engine
+
+By default, the PDF document generated with the IE rendering engine comes with the following warning message.
+
+![IEWarning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png)
+
+Please refer to the below code snippet to use the DisableIEWarning API to remove the default IE warning from the PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter 
+ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.IE);
+
+IEConverterSettings settings = new IEConverterSettings();
+
+//Disable Default IE warning message.
+settings.DisableIEWarning = true;
+            
+//Assign IE settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Initialize the HTML to PDF converter 
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
+
+Dim settings As New IEConverterSettings()
+
+'Disable Default IE Warning Message
+settings.DisableIEWarning = true
+
+'Assign IE settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Save and close the PDF document 
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Currently, IE rendering engine does not support conversion in .NET Core platform
+{% endhighlight %}
+
+{% endtabs %}
+
+N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/blink) or [WebKit](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) engines to improve the quality and accuracy of the HTML to PDF conversion.
+
 ## Steps to apply the patch for HTML converter.
 
 Download and extract the patch provided in the incident. Before applying the patch assemblies, the older assemblies should be removed from the GAC.
@@ -559,7 +624,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>Azure App Service</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Except free and shared plan)</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Works in Azure App Service on Linux)</td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
@@ -573,7 +638,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>Azure Function</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Except consumption plan)</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Works in Azure Function on Linux)</td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 

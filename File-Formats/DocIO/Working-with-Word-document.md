@@ -1782,7 +1782,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}   
 
-You can download the complete working samples of the code from [here](http://www.syncfusion.com/downloads/support/directtrac/general/Sample-627835418.zip#).
+You can download the complete working samples of the code from [here](https://www.syncfusion.com/downloads/support/directtrac/general/Sample-627835418.zip#).
 
 ## Working with Styles
 

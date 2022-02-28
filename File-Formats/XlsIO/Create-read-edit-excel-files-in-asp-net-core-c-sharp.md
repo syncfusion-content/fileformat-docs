@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in ASP.NET Core
 
-[Syncfusion Excel library for ASP.NET Core platform](https://www.syncfusion.com/excel-framework/net-core) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for ASP.NET Core platform](https://www.syncfusion.com/excel-framework/net-core/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
@@ -440,7 +440,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example of how to create an Excel file in ASP.NET Core can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted_Core727789699.zip).
+A complete working example of how to create an Excel file in ASP.NET Core can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted_Core-2065839032.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET-Core_images/ASP-NET-Core_images_img4.png)
@@ -489,6 +489,7 @@ workbook.SaveAs(stream);
 stream.Position = 0;
 
 //Closing the workbook.
+
 workbook.Close();
 
 //Dispose the Excel engine
@@ -501,4 +502,4 @@ return File(stream, ContentType, fileName);
 
 N> _hostingEnvironment is the base path for input files of type IHostingEnvironment.
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET Core Excel library demo](https://ej2.syncfusion.com/aspnetcore/XlsIO/Create#/material) that shows how to create and modify Excel files from C# with just five lines of code.

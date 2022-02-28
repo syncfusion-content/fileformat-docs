@@ -97,6 +97,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-sections-in-Word-document).
+
 You can add the multiple sections into the document. When you add more than one section into the word document, the section starts from the next page by default.
 
 You can also add a new section that starts on a same page by specifying the `BreakCode` as shown in following code example.
@@ -234,6 +236,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-continuous-sections-in-Word).
+
 ## Specifying Page Properties
 
 Each section has its own page setup properties such as page size, orientation, margins, borders, and more. 
@@ -365,7 +369,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}  
- 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Page-setup-properties).
+
 ## Creating Multi-column document
 
 You can split the contents into two or more columns by specifying the column width and spacing between columns.
@@ -568,6 +574,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Create-multi-column-document).
+
 ## Creating document with different page settings
 
 You can prefer to have more sections in a Word document when you need to have different page settings or headers and footers for a specific set of contents. The following code example illustrates how to create a Word document with multiple sections whose page orientation are portrait and landscape respectively.
@@ -742,7 +750,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}
-   
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Document-with-different-page-settings).
+ 
 ## Working with Headers and Footers
 
 Header and footer also represent the group of paragraphs and tables that occur at the top and bottom of the page respectively. Header and footer may vary for each section. The following are the types of Headers/Footers:
@@ -921,6 +931,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Simple-headers-and-footers).
 
 You can have a specific header and footer contents for the first page in a Word document. The following code illustrates the same. 
 
@@ -1129,6 +1141,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Header-and-footers-for-first-page).
 
 A Word document can have different header and footer for odd and even pages.
 
@@ -1339,6 +1353,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Odd-and-even-page-header-footer).
 
 You can use the previous section header and footer for the current section by using `LinkToPrevious` property.
 
@@ -1559,6 +1575,158 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Link-previous-section).
+
+### Remove Headers and Footers
+
+You can remove the headers and footers from an existing Word document. The following code example explains how to remove the headers and footers from an existing Word document.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Open an existing document.
+WordDocument document = new WordDocument("Input.docx", FormatType.Automatic);
+//Iterate to each section in the Word document.
+foreach (WSection section in document.Sections)
+{
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
+   //Remove the odd header.
+   section.HeadersFooters.OddHeader.ChildEntities.Clear();
+   //Remove the even header.
+   section.HeadersFooters.EvenHeader.ChildEntities.Clear();
+   //Remove the even footer.
+   section.HeadersFooters.EvenFooter.ChildEntities.Clear();
+}
+//Save the Word document.
+document.Save("Output.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Open an existing document.
+Dim document As WordDocument = New WordDocument("Input.docx", FormatType.Automatic)
+'Iterate to each section in the Word document.
+For Each section As WSection In document.Sections
+    'Remove the first page header.
+    section.HeadersFooters.FirstPageHeader.ChildEntities.Clear()
+	'Remove the first page footer.
+    section.HeadersFooters.FirstPageFooter.ChildEntities.Clear()
+    'Remove the odd footer.
+    section.HeadersFooters.OddFooter.ChildEntities.Clear()
+	'Remove the odd header.
+    section.HeadersFooters.OddHeader.ChildEntities.Clear()
+    'Remove the even header.
+    section.HeadersFooters.EvenHeader.ChildEntities.Clear()
+    'Remove the even footer.
+    section.HeadersFooters.EvenFooter.ChildEntities.Clear()
+Next
+'Save the Word document.
+document.Save("Output.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %} 
+
+{% highlight UWP %}
+//Open an existing document.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Input.docx"), FormatType.Docx);
+//Iterate to each section in the Word document.
+foreach (WSection section in document.Sections)
+{
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
+   //Remove the odd header.
+   section.HeadersFooters.OddHeader.ChildEntities.Clear();
+   //Remove the even header.
+   section.HeadersFooters.EvenHeader.ChildEntities.Clear();
+   //Remove the even footer.
+   section.HeadersFooters.EvenFooter.ChildEntities.Clear();
+}
+//Save and close the Word document instance.
+MemoryStream stream = new MemoryStream();
+//Save the Word file to the MemoryStream.
+await document.SaveAsync(stream, FormatType.Docx);
+document.Close();
+//Save the stream a Word file in the local machine.
+Save(stream, "Output.docx");
+//Please refer to the below link to save the Word document in the UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+//Open an existing document.
+FileStream inputStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read);
+WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
+//Iterate to each section in the Word document.
+foreach (WSection section in document.Sections)
+{
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
+   //Remove the odd header.
+   section.HeadersFooters.OddHeader.ChildEntities.Clear();
+   //Remove the even header.
+   section.HeadersFooters.EvenHeader.ChildEntities.Clear();
+   //Remove the even footer.
+   section.HeadersFooters.EvenFooter.ChildEntities.Clear();
+}
+//Save and close the Word document instance.
+MemoryStream stream = new MemoryStream();
+//Save the Word document to the MemoryStream.
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download the Word document in the browser.
+return File(stream, "application/msword", "Output.docx");
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+//Open an existing document.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
+//Iterate to each section in the Word document.
+foreach (WSection section in document.Sections)
+{
+   //Remove the first page header.
+   section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+   //Remove the first page footer.
+   section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+   //Remove the odd footer.
+   section.HeadersFooters.OddFooter.ChildEntities.Clear();
+   //Remove the odd header.
+   section.HeadersFooters.OddHeader.ChildEntities.Clear();
+   //Remove the even header.
+   section.HeadersFooters.EvenHeader.ChildEntities.Clear();
+   //Remove the even footer.
+   section.HeadersFooters.EvenFooter.ChildEntities.Clear();
+}
+//Save and close the Word document instance.
+MemoryStream stream = new MemoryStream();
+//Save the Word file to the MemoryStream.
+document.Save(stream, FormatType.Docx);
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing.
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream a file and open the file for viewing in the Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %} 
+
+{% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Remove-headers-and-footers).
 
 ## Adding Page Numbers
 
@@ -2071,6 +2239,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-page-number-in-footer).
+
 ## Removing a Section
 
 The following code example illustrates how to remove a particular section from the Word document
@@ -2151,6 +2321,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Remove-section-from-document).
 
 N> The Word document is a flow document in which contents will not be preserved page by page; instead the contents will be preserved sequentially section by section. Each section may extend to various pages based on its contents like table, text, images etc.
 N> Word viewer/editor renders the contents of the Word document page by page dynamically when opened for viewing or editing and this page wise rendered information will not be preserved in the document level as per the Word file format specification.

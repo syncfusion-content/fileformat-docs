@@ -80,10 +80,19 @@ Xamarin
 {{'[Syncfusion.Xamarin.Presentation.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+</td>
+<td>
+{{'[Syncfusion.Presentation.NET.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.NET/)'|markdownify }}
+</td>
+</tr>
 </table>
 
 N> 1.Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to learn about registering Syncfusion license key in your applications to use the components.
 N> 2.From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
+N> 3.Essential Presentation is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting PowerPoint Presentation into PDF
 
@@ -154,9 +163,17 @@ Xamarin
 {{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+</td>
+<td>
+{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/></td>
+</tr>
 </table>
 
 N> PowerPoint Presentation to PDF conversion is supported from .NET Standard 1.4 onwards for ASP.NET Core and Xamarin.
+N> Essential Presentation is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting PowerPoint Presentation to image
 
@@ -236,10 +253,19 @@ Xamarin
 {{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+</td>
+<td>
+Syncfusion.PresentationRenderer.NET.nupkg<br/>
+</td>
+</tr>
 </tbody>
 </table>
 
 N> PowerPoint Presentation to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards for ASP.NET Core and Xamarin.
+N> Essential Presentation is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting charts in Presentation
 
@@ -455,6 +481,16 @@ Xamarin
 * Uninstall-package Syncfusion.Xamarin.Presentation –RemoveDependencies<br/><br/>
 * Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies<br/><br/>
 * Uninstall-package Syncfusion.Xamarin.SkiaSharpHelper - RemoveDependencies 
+</td>
+</tr>
+<tr>
+<td>
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+</td>
+<td>
+* Install-package Syncfusion.PresentationRenderer.NET<br/></td>
+<td>
+* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies<br/> 
 </td>
 </tr>
 </table>

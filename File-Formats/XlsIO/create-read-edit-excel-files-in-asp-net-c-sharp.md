@@ -1,13 +1,13 @@
 ---
 title: Create, read, and edit Excel files in ASP.NET | Syncfusion
-description: Explains how to create, read, and edit Excel files in ASP.NET applications using Syncfusion XlsIO.
+description: Learn here how to create, read, and edit Excel files in ASP.NET applications using Syncfusion Excel library.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 # Create, read, and edit Excel files in ASP.NET
 
-[Syncfusion Excel library for ASP.NET platform](https://www.syncfusion.com/excel-framework/net) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for ASP.NET platform](https://www.syncfusion.com/excel-framework/net/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
@@ -413,7 +413,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example of how to create an Excel file in ASP.NET can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-ASP.NET660806643.zip).
+A complete working example of how to create an Excel file in ASP.NET can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-ASP.NET861559468.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET_images/ASP-NET_images_img3.png)
@@ -472,4 +472,4 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET Excel library demo](https://asp.syncfusion.com/demos/web/xlsio/exceltoods.aspx) that shows how to create and modify Excel files from C# with just five lines of code.

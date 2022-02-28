@@ -139,6 +139,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Enable-track-changes-of-Word).
+
 ## Accept all changes
 
 You can **accept all track changes in Word document** using `AcceptAll`method.
@@ -229,6 +231,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-all-changes).
 
 By executing the above code example, it generates output Word document as follows.
 
@@ -323,6 +327,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Reject-all-changes).
 
 By executing the above code example, it generates output Word document as follows.
 
@@ -453,6 +459,8 @@ document.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-all-changes-made-by-author).
+
 ## Reject all changes by particular reviewer
 
 You can **reject all changes made by the author** in the Word document using `Reject` method.
@@ -578,6 +586,8 @@ document.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Reject-all-changes-made-by-author).
+
 ## Revision information
 
 You can get the **revision information of track changes** in the Word document like author name, date, and type of revision.
@@ -673,6 +683,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Get-revision-information).
 
 **Frequently Asked Questions**
 

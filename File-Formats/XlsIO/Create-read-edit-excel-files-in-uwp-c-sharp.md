@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in UWP
 
-[Syncfusion Excel library for UWP platform](https://www.syncfusion.com/excel-framework/xamarin) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for UWP platform](https://www.syncfusion.com/excel-framework/uwp/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
@@ -463,7 +463,7 @@ End Using
 {% endhighlight %}
 {% endtabs %} 
 
-A complete working example of how to create an Excel file in UWP can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-UWP184086684.zip).
+A complete working example of how to create an Excel file in UWP can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-UWP1551670760.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](UWP_images/UWP_images_img3.png)
@@ -558,4 +558,4 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [UWP Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.

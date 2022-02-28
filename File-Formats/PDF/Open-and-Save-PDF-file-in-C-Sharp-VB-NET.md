@@ -727,3 +727,201 @@ loadedDocument.Close(true);
 N> Close() method will dispose all the memory consumed by PDF DOM.
 N> Close(true) method will dispose all the memory consumed by PDF DOM as well as disposes its document stream
 
+## Secured documents exception
+
+You can catch the secured document exception by opening an existing encrypted PDF document from either the file system, stream, or byte array using the following code sample as follows,
+
+{% tabs %}
+{% highlight c# %}
+
+PdfLoadedDocument document = null;
+try
+{
+//Load an existing document.
+document = new PdfLoadedDocument("input.pdf", "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+//Save a document.
+document.Save("Output.pdf");
+//Close a document.
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Dim document As PdfLoadedDocument = Nothing
+Try
+'Load an existing document.
+document = New PdfLoadedDocument("input.pdf", "password")
+Catch exception As Syncfusion.Pdf.PdfInvalidPasswordException
+'Secured PDF document password is invalid or opened without a password.
+End Try
+'Save a document.
+document.Save("Output.pdf")
+'Close a document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing encrypted document from the byte array.
+document = new PdfLoadedDocument(byteArray, "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+//Save a document into a stream.
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream);
+//Close a document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load a PDF document.
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing PDF document from a stream.
+document = new PdfLoadedDocument(docStream, "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream.
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing PDF document from a stream.
+document = new PdfLoadedDocument(docStream, "password");
+}
+catch (Syncfusion.Pdf.PdfInvalidPasswordException exception)
+{
+//Secured PDF document password is invalid or opened without a password.
+}
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close a document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+## Possible error messages of invalid PDF documents while loading
+The following are the possible error messages of invalid PDF documents while loading:
+I.	Please find some of the following corrupted error messages that cannot be repaired:
+1.    Could not find a valid signature (%PDF-).
+2.    Bad Format error.
+3.    Lexical Error: Unmatched Input.
+4.    The document does not contain EOF.
+5.    The document has corrupted cross reference tables.
+6.    Error: Bad input stream initializer.
+7.    Fatal Error occurred.
+II.	Please find  some of the possible offset error messages that may be repairable:
+     1.Invalid cross-reference table with offset position.
+     2.Trailer Prev offset is located in the same cross table section.
+
+{% tabs %}
+{% highlight c# %}
+
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing PDF document from the disk.
+document = new PdfLoadedDocument(“input.pdf”,true);
+}
+catch (Exception message)
+{
+//Invalid cross-reference table with offset position
+//Trailer Prev offset is located in the same cross table section
+//Could not find a valid signature (%PDF-).
+//Bad Format error
+//Lexical error: Unmatched input
+//The document does not contain EOF
+//The document has corrupted cross reference tables
+//Error: Bad input stream initializer
+//Fatal error occured
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Dim document As PdfLoadedDocument = Nothing
+Try
+'Load an existing document.
+document = New PdfLoadedDocument("input.pdf”,true)
+Catch exception As Exception
+‘Invalid cross-reference table with offset position
+‘Trailer Prev offset is located in the same cross table section
+‘Could not find a valid signature (%PDF-).
+‘Bad Format error
+‘Lexical error: Unmatched input
+‘The document does not contain EOF
+‘The document has corrupted cross reference tables
+‘Error: Bad input stream initializer
+‘Fatal error occured
+End Try
+'Save the document.
+document.Save("Output.pdf")
+'Close the document.
+document.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load a PDF document.
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = null;
+try
+{
+//Open an existing PDF document from the stream.
+document = new PdfLoadedDocument(docStream,true);
+}
+catch (PdfException exception)
+{
+//Invalid cross-reference table with offset position
+//Trailer Prev offset is located in the same cross table section
+//Could not find a valid signature (%PDF-).
+//Bad Format error
+//Lexical error: Unmatched input
+//The document does not contain EOF
+//The document has corrupted cross reference table
+//Error: Bad input stream initializer
+//Fatal error occured
+//Unexpected token name before 257
+}
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+
+{% endtabs %}

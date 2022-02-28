@@ -23,7 +23,7 @@ From v16.1.0.24, the entire field code is included in Document Object Model(DOM)
 
 5. `WFieldMark`: Represents the end of a Field.
 
-Find more information about migration changes [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24#). 
+Find more information about migration changes [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24)
 
 ## Adding fields
 
@@ -308,8 +308,10 @@ Field updating engine calculates the resultant value based on the field code inf
 
 The following are the known limitations:
 
-* Updating of NUMPAGES field and Cross Reference field with Page number and Paragraph number options are not supported in Silverlight, WinRT, Universal, Windows Phone, and Xamarin applications.
+* Updating of NUMPAGES field and Cross Reference field with Page number and Paragraph number options are not supported in Silverlight, WinRT, Universal, and Windows Phone applications.
 * Currently group shapes, drawing canvas, and table auto resizing are not supported in Word to PDF layouting, and this may lead to update incorrect page number and total number of pages.
+
+N> In ASP.NET Core, Blazor, and Xamarin platforms, to update fields (including Page, NumPages) in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application.
 
 The following code example explains how to update the fields present in Word document.
 
@@ -355,7 +357,7 @@ document.Close();
 FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Updates the fields present in a document
-document.UpdateDocumentFields();
+document.UpdateDocumentFields(true);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -371,7 +373,7 @@ return File(stream, "application/msword", "Result.docx");
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Input.docx"), FormatType.Docx);
 //Updates the fields present in a document
-document.UpdateDocumentFields();
+document.UpdateDocumentFields(true);
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);

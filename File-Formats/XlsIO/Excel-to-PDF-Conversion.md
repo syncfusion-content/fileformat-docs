@@ -8,7 +8,7 @@ documentation: UG
 
 # Excel to PDF Conversion
 
-XlsIO allows you to convert an entire workbook or a single worksheet into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
+[XlsIO](https://www.syncfusion.com/excel-framework/net/excel-to-pdf-conversion) allows you to convert an entire workbook or a single worksheet into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-document-to-pdf) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf)
@@ -1772,7 +1772,7 @@ nuget pack SkiaSharp.Linux\SkiaSharp.Linux.nuspec -outputdirectory "C:\NuGet"
 
 The output directory can be customized as per your need.
 
-Now, SkiaSharp.Linux NuGet will be generated in the mentioned output directory and add the generated NuGet as additional reference. You can also find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
+Now, SkiaSharp.Linux NuGet will be generated in the mentioned output directory and add the generated NuGet as additional reference. You can also find the SkiaSharp.Linux NuGet package created by us from [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
 
 ## Print Excel document
 
@@ -2069,6 +2069,10 @@ This feature supports the following elements:
 * Conditional formats
 * Pivot tables
 * Comments
+* Form controls
+	* Check box
+	* Combo box
+	* Option button
 
 ## Unsupported elements
 
@@ -2083,6 +2087,8 @@ The following list contains unsupported elements that presently not preserved in
 * Tables
 	* Custom styles
 * Row and column headings
-* Form controls
 * ActiveX controls
 * OLE objects
+
+
+N> You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

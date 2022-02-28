@@ -5,9 +5,9 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Merge Documents
+# Merge PDF Documents using .NET PDF Library
 
-Essential PDF supports merging multiple PDF documents from disk and stream.
+Essential PDF supports [merging multiple PDF](https://www.syncfusion.com/pdf-framework/net/pdf-library/split-merge-pdf) documents from disk and stream.
 
 ## Merging multiple documents from disk and stream
 
@@ -1505,4 +1505,266 @@ else
 }
 
 {% endhighlight %}
+{% endtabs %}
+
+## Reducing the size of the PDF file while importing pages
+
+Essential PDF provides support for optimization of memory using EnableMemoryOptimization property in the PdfDocument instance. Optimization will be effective only with merge, append and import functions. Enabling this property will optimize the memory but a difference in time occurs based on the document size.
+
+For example, if the PDF document has 100 pages and each page has an image in common. If we import those document pages with the EnableMemoryOptimization disabled (by default it is disabled). We will clone the image resource for each page separately. That leads to the imported document having a huge size when compared to the source PDF. If we enable the EnableMemoryOptimization, we won’t clone any resources from the source. That does not cause any PDF file size issue. Moreover, it does not cause any memory leak issues. So, without any hassle, you can enable the EnableMemoryOptimization property whenever you need this behavior.
+
+Refer to the following code snippet to reduce the PDF file size while importing pages from multiple documents.
+{% tabs %}
+{% highlight c# %}     
+
+//Load the document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("file1.pdf");
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization.
+
+document.EnableMemoryOptimization = true;
+
+//Import the page at 1 from the lDoc.
+
+document.ImportPageRange(lDoc, 0, 1);
+
+//Save the document.
+
+document.Save("sample.pdf");
+
+//Close the document.
+
+document.Close(true);
+
+lDoc.Close(true);
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+'Load the document.
+
+Dim lDoc As New PdfLoadedDocument("file1.pdf")
+
+'Create a new document.
+
+Dim document As New PdfDocument()
+
+'Enable memory optimization.
+
+document.EnableMemoryOptimization= true
+
+'Import the page at 1 from the lDoc
+
+document.ImportPageRange(lDoc, 0, 1)
+
+'Save the document.
+
+document.Save("sample.pdf")
+
+'Close the document.
+
+document.Close(True)
+
+lDoc.Close(True)
+
+
+{% endhighlight %}
+
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+//Create a PDF document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization.
+
+document.EnableMemoryOptimization= true;
+
+//Import the page at 1 from the lDoc.
+
+document.ImportPageRange(lDoc, 0, 1);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Define the ContentType for the pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "sample.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Extend the margin of the PDF pages while merging PDF document
+
+The ['Syncfusion PDF library'](https://www.syncfusion.com/pdf-framework/net) provides support for extending the margins of the pdf pages by using the ['ExtendMargin'](https://help.syncfusion.com/cr/aspnet/Syncfusion.Pdf.PdfMergeOptions.html#Syncfusion_Pdf_PdfMergeOptions_ExtendMargin) property available from the ['PdfMergeOptions'](https://help.syncfusion.com/cr/aspnet/Syncfusion.Pdf.PdfMergeOptions.html) class. When ExtendMargin is set to true, then a specified margin is considered while merging the existing documents. 
+ The following code sample illustrates this.
+
+{% tabs %}
+{% highlight c# %}
+
+ 
+//Create a new PDF document
+
+PdfDocument finalDoc = new PdfDocument();
+
+//Create new instance for the document margin.
+PdfMargins margin = new PdfMargins();
+
+margin.All = 40;
+
+//Create a string array of source files to be merged
+
+string[] source = { "file1.pdf", "file2.pdf" };
+
+PdfMergeOptions mergeOptions = new PdfMergeOptions();
+
+// Enable the Extend Margin Property
+mergeOptions.ExtendMargin=true;
+
+//Merge PDFDocument
+
+PdfDocument.Merge(finalDoc, mergeOptions, source);
+
+//Save the final document
+
+finalDoc.Save("Sample.pdf");
+
+//Close the document
+
+finalDoc.Close(true);
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+ Dim finalDoc As New PdfDocument()
+'Create new instance for the document margin.
+Dim margin As PdfMargins = New PdfMargins()
+margin.All = 40
+
+'Create a string array of source files to be merged
+Dim source As String() = {"file1.pdf", "file2.pdf"}
+
+Dim mergeOptions As New PdfMergeOptions()
+
+'Enable the Extend Margin Property
+mergeOptions.ExtendMargin=true
+
+ 'Merge PDFDocument
+
+ PdfDocument.Merge(finalDoc, mergeOptions, source)
+
+ 'Save the final document
+
+ finalDoc.Save("Sample.pdf")
+
+ 'Close the document
+
+ finalDoc.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from a stream using the following code snippet
+
+//Create a PDF document
+
+PdfDocument finalDoc = new PdfDocument();
+
+//Create new instance for the document margin.
+PdfMargins margin= new PdfMargins();
+margin.All=40;
+
+FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+
+//Create a PDF stream for merging
+
+Stream[] streams = { stream1, stream2 };
+
+PdfMergeOptions mergeOptions = new PdfMergeOptions();
+
+//Enable the Extend Margin
+mergeOptions.ExtendMargin = true;
+
+//Merge PDFDocument
+
+PdfDocumentBase.Merge(finalDoc, mergeOptions, streams);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+finalDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+finalDoc.Close(true);
+
+//Dispose the stream
+
+stream1.Dispose();
+
+stream2.Dispose();
+
+//Define the ContentType for the pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "sample.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}

@@ -208,11 +208,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to open an existing XLSX workbook and save it as XLS?](faqs/how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
-* [How to create and open Excel Template files by using XlsIO?](faqs/how-to-create-and-open-excel-template-files-by-using-xlsio)
-* [How to copy a range from one workbook to another?](faqs/how-to-copy-a-range-from-one-workbook-to-another)
-* [Does XlsIO support Excel files with macros that are digitally signed?](faqs/does-xlsio-support-excel-files-with-macros-that-are-digitally-signed)
-* [How does Excel file with uninstalled fonts is converted to PDF/Image?](faqs/how-does-excel-file-with-uninstalled-fonts-is-converted-to-pdf-image)
-* [How to sort two or more columns in a pivot table?](faqs/how-to-sort-two-or-more-columns-in-a-pivot-table)
+* [How to open an existing XLSX workbook and save it as XLS?](how-to-open-an-existing-xlsx-workbook-and-save-it-as-xls)
+* [How to create and open Excel Template files by using XlsIO?](how-to-create-and-open-excel-template-files-by-using-xlsio)
+* [How to copy a range from one workbook to another?](how-to-copy-a-range-from-one-workbook-to-another)
+* [Does XlsIO support Excel files with macros that are digitally signed?](does-xlsio-support-excel-files-with-macros-that-are-digitally-signed)
+* [How does Excel file with uninstalled fonts is converted to PDF/Image?](how-does-excel-file-with-uninstalled-fonts-is-converted-to-pdf-image)
+* [How to sort two or more columns in a pivot table?](how-to-sort-two-or-more-columns-in-a-pivot-table)
 * [How to move or copy a worksheet?](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#move-or-copy-a-worksheet)
 

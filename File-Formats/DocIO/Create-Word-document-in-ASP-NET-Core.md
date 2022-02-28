@@ -293,6 +293,8 @@ return File(stream, "application/msword", "Sample.docx");
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/ASP.NET-Core).
+
 By executing the program, you will get the **Word document** as follows.
 
 ![ASP.Net Core output Word document](ASP-NET-Core_images/GettingStartedOutput.jpg)

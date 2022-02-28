@@ -37,9 +37,18 @@ Syncfusion.Presentation.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfus
 <td>
 Universal Windows Platform<br/></td><td>
 Syncfusion.Presentation.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
+<tr>
+<td>
+Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)
+<br/>
+</td><td>
+Syncfusion.Presentation.NET<br/>Syncfusion.Compression.NET<br/>
+Syncfusion.OfficeChart.NET<br/>
+</td></tr>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> 2. Essential Presentation is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting PowerPoint Presentation to PDF
 
@@ -80,6 +89,16 @@ Syncfusion.SkiaSharpHelper.Portable<br/>
 Skiasharp
 </td>
 </tr>
+<tr>
+<td>
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+<br/>
+</td>
+<td>
+Syncfusion.Presentation.NET<br/>Syncfusion.Compression.NET<br/>
+Syncfusion.OfficeChart.NET<br/>Syncfusion.PresentationRenderer.NET<br/> Syncfusion.SkiaSharpHelper.NET<br/>Skiasharp
+</td>
+</tr>
 </table>
 
 The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
@@ -103,4 +122,4 @@ Syncfusion.SfChart.WPF<br/>
 </td>
 </tr>
 </table>
-N> 1.The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
+N> The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards

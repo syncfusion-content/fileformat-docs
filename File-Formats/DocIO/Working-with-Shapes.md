@@ -192,6 +192,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Add-shapes-in-Word).
+
 ### Format shapes
 
 Shape can have formatting such as line color, fill color, positioning, wrap formats, etc. The following code example illustrates how to apply formatting options for shape.
@@ -377,6 +379,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Format-shapes).
+
 ### Rotate shapes
 
 You can rotate the shape and also apply flipping (horizontal and vertical) to it. The following code example explains how to rotate and flip the shape.
@@ -516,6 +520,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Rotate-shapes).
 
 ## Grouping shapes
 
@@ -882,6 +888,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Add-group-shape-in-Word).
 
 The following code example illustrates how to add collection of shapes or images as a group shape in Word document.
 
@@ -1436,6 +1444,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Collection-of-shapes-into-group-shape).
+
 ### Nested group shapes
 
 The following code example illustrates how to group the nested group shapes as a group shape in Word document.
@@ -1908,6 +1918,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Add-nested-group-shapes).
+
 ## Ungrouping shapes
 
 You can ungroup the group shapes in the Word document to preserve each shape as individual item.
@@ -2045,3 +2057,5 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Ungroup-shapes).

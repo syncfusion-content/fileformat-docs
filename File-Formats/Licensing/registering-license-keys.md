@@ -276,7 +276,7 @@ public override bool FinishedLaunching(UIApplication application, NSDictionary l
 {% endhighlight %}
 {% endtabs %}
 
-### Java
+## Java
 
 Import ‘syncfusion.licensing' package and register the license key in the **main method** of your console application.
 
@@ -296,4 +296,32 @@ N> License key registration is not required for Java before v19.1.
 
 ## JavaScript
 
-Syncfusion License keys are not required for script files (.js files). For the following platforms, you can use the script files without registering the license keys.
+You must have an active Syncfusion Essential JS license to use Syncfusion Essential JS2 or Essential JS1 (.js files). However, if you only use the Syncfusion Essential JavaScript product, you do not need to register the Syncfusion License keys in your scripts (.js files).
+
+For the following platforms, you can use the script files without registering the license keys.
+
+### **JavaScript (Essential JS 2)**
+
+* Angular
+
+* React
+
+* Vue
+
+* JavaScript (ES5)
+
+* TypeScript & JavaScript (ES6)
+
+### **JavaScript (Essential JS 1)**
+
+* AngularJS
+
+* Angular
+
+* Aurelia
+
+* ReactJS
+
+* TypeScript
+
+* EmberJS

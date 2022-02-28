@@ -13,11 +13,11 @@ Syncfusion Excel library for WinUI platform can be used to create, read, edit Ex
 
 The below steps illustrates creating a simple Invoice formatted Excel document in WinUI.
 
-1.Create a new C# Blank App (WinUI 3 in UWP) Application project.
+1.Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
 ![Create WinUI application in Visual Studio](WinUI_images/WinUI_images_img1.png)
 
-2.Name the project.
+2.Enter the project name and click **Create**.
 
 ![Name the project](WinUI_images/WinUI_images_img2.png)
 
@@ -25,11 +25,31 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 ![Target version](WinUI_images/WinUI_images_img3.png)
 
-4.Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
+4.Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](WinUI_images/WinUI_images_img4.png)
 
-5.Include the following namespaces in MainPage.xaml.cs file.
+5. Add a new button to the **MainWindow.xaml** as shown below.
+
+{% tabs %}
+{% highlight c# %}
+<Window
+    x:Class="WinUISample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUISample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button x:Name="button" Click="CreateDocument">Create Excel</Button>
+    </StackPanel>
+</Window>
+{% endhighlight %}
+{% endtabs %}
+
+6.Include the following namespaces in MainPage.xaml.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -38,10 +58,11 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using System.Reflection;
 using Syncfusion.XlsIO;
+using System.IO;
 {% endhighlight %}
 {% endtabs %} 
 
-6.Include the below code snippet in button click event to create an Excel file and download it.
+7.Include the below code snippet in button click event to create an Excel file and download it.
 
 {% tabs %}  
 {% highlight c# %}
@@ -62,7 +83,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Stream inputStream = executingAssembly.GetManifestResourceStream("WinUISample.AdventureCycles-Logo.png");
 
     //Add a picture
-    IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream);
+    IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
 
     //Disable gridlines in the worksheet
     worksheet.IsGridLinesVisible = false;
@@ -228,7 +249,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-7.Include this below helper Save method in MainPage.xaml.cs file.
+8.Include this below helper Save method in **MainPage.xaml.cs** file.
 
 {% tabs %}
 {% highlight C# %}
@@ -242,6 +263,8 @@ async void Save(MemoryStream stream, string filename)
         savePicker.DefaultFileExtension = ".xlsx";
         savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Excel Documents", new List<string>() { ".xlsx" });
+        var hwnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+        WinRT.Interop.InitializeWithWindow.Initialize(savePicker, hwnd);
         stFile = await savePicker.PickSaveFileAsync();
     }
     else
@@ -268,7 +291,7 @@ async void Save(MemoryStream stream, string filename)
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in WinUI can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinUISample-191739498.zip).
+A complete working example of how to create an Excel file in WinUI can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinUISample1272534914.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](WinUI_images/WinUI_images_img5.png)
@@ -305,4 +328,4 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [WinUI Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.

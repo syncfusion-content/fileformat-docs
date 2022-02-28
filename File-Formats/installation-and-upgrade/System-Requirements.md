@@ -20,8 +20,15 @@ Syncfusion File Formats platform can be installed on any of the following operat
 * Windows 7
 * Windows Vista
 * Windows Server 2008 and later
-* Ubuntu 20.10, 20.04, 18.04, 16.04 (X64)
-* Mac OS 10.12+ (x64)
+* Alpine: 3.10+
+* Debian: 9+
+* Ubuntu: 16.04+
+* Fedora: 29+
+* centOS: 7+
+* RHEL: 6+
+* openSUSE: 15+
+* SUSE Enterprise Linux (SLES): 12 SP2+
+* Mac OS 10.13+ (x64)
 
 ### Hardware Environment
 
