@@ -1,6 +1,6 @@
 ---
 title: Working with Content Controls | DocIO | Syncfusion
-description: This section illustrates how to works with Content Controls in the Word document without Microsoft Word or Office interop
+description: This section illustrates how to work with Content Controls in the Word document without Microsoft Word or Office interop
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -3727,9 +3727,9 @@ document.Close();
 {% endhighlight %}
 {% endtabs %}
 
-## Edit Content Control Text
+## Edit Content Control
 
-You can edit the content control text by iterating the child items of inline content control. The following code example shows how to edit content control text in the Word document.
+You can edit the inline content control text by iterating the child items of inline content control. The following code example shows how to edit content control text in the Word document.
 
 {% tabs %}
 {% highlight c# %}
