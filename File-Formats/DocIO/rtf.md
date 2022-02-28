@@ -13,7 +13,7 @@ The [Rich Text Format (RTF)](http://en.wikipedia.org/wiki/Rich_Text_Format#) is 
 
 Most of the Word processors (including Microsoft Word) uses the XML-based file formats, Microsoft has discontinued enhancements to the RTF and still supporting it. The last version was 1.9.1 released in 2008.
 
-The Essential DocIO converts the RTF document into Word document and vice versa. The following code shows how to convert RTF document into Word document.
+The Essential DocIO converts the RTF document into Word document and vice versa. The following code shows how to convert RTF document into Word document .
 
 {% tabs %}
 {% highlight c# %}
