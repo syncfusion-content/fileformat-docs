@@ -1,6 +1,6 @@
 ---
 title: Working with Footnotes and endnotes | DocIO | Syncfusion
-description: This section illustrates how to insert the footnote and endnote in a Word document
+description: This section illustrates about working with adding and removing a footnote and endnote in a Word document using DocIO
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -687,6 +687,355 @@ using (WordDocument document = new WordDocument())
 	document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+## Removing a Footnotes/Endnotes
+
+The following code example shows how to remove the footnotes/endnotes from the Word document.
+
+{% tabs %} 
+
+{% highlight c# %}
+//Loads the template document
+WordDocument document = new WordDocument("Footnote.docx");
+//Removes footnote/endnote from the document
+RemoveFootNoteEndNote(document);
+//Saves and closes the Word document
+document.Save("Result.docx", FormatType.Docx);
+document.Close();
+
+
+private static void RemoveFootNoteEndNote(WordDocument document)
+{
+    foreach (WSection section in document.Sections)
+    {
+        RemoveFootNoteEndNote(section.Body);
+    }
+}
+private static void RemoveFootNoteEndNote(WTextBody textBody)
+{
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                for (int j = 0; j < paragraph.ChildEntities.Count; j++)
+                {
+                    if (paragraph.ChildEntities[j] is WFootnote)
+                    {
+                        paragraph.ChildEntities.RemoveAt(j);
+                    }
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM and and Remove footnote.
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control and Remove footnote.
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+
+private static void RemoveFootNoteEndNote(WTable table)
+{
+    //Iterates the row collection in a table.
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row.
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Iterate items in cell and and Remove footnote.
+            RemoveFootNoteEndNote(cell);
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads the template document
+Dim document As New WordDocument("Footnote.docx")
+'Removes footnote from the document
+RemoveFootNoteEndNote(document);
+'Saves and closes the Word document
+document.Save("Result.docx", FormatType.Docx)
+document.Close()
+
+Private Shared Sub RemoveFootNoteEndNote(ByVal document As WordDocument)
+    For Each section As WSection In document.Sections
+        RemoveFootNoteEndNote(section.Body)
+    Next
+End Sub
+	
+Private Shared Sub RemoveFootNoteEndNote(ByVal textBody As WTextBody)
+    For i As Integer = 0 To textBody.ChildEntities.Count - 1
+	    'IEntity is the basic unit in DocIO DOM. 
+        'Accesses the body items as IEntity
+        Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
+		'A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        'Decides the element type by using EntityType
+        Select Case bodyItemEntity.EntityType
+            Case EntityType.Paragraph
+                Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
+                For j As Integer = 0 To paragraph.ChildEntities.Count - 1
+                    If TypeOf paragraph.ChildEntities(j) Is WFootnote Then
+                        paragraph.ChildEntities.RemoveAt(j)
+                    End If
+                Next
+            Case EntityType.Table
+			    'Table is a collection of rows and cells
+                'Iterates through table's DOM and and Remove footnote.
+                RemoveFootNoteEndNote(TryCast(bodyItemEntity, WTable))
+            Case EntityType.BlockContentControl			    
+                Dim blockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
+				'Iterates to the body items of Block Content Control and Remove footnote.
+                RemoveFootNoteEndNote(blockContentControl.TextBody)
+        End Select
+    Next
+End Sub
+	
+Private Shared Sub RemoveFootNoteEndNote(ByVal table As WTable)
+    'Iterates the row collection in a table.
+    For Each row As WTableRow In table.Rows
+	    'Iterates the cell collection in a table row.
+        For Each cell As WTableCell In row.Cells
+		    'Iterate items in cell and and Remove footnote.
+            RemoveFootNoteEndNote(cell)
+        Next
+    Next
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads the template document as stream
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Footnote.docx"), FormatType.Docx);
+//Removes footnote from the document
+RemoveFootNoteEndNote(document);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Result.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+
+
+private static void RemoveFootNoteEndNote(WordDocument document)
+{
+    foreach (WSection section in document.Sections)
+    {
+        RemoveFootNoteEndNote(section.Body);
+    }
+}
+private static void RemoveFootNoteEndNote(WTextBody textBody)
+{
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                for (int j = 0; j < paragraph.ChildEntities.Count; j++)
+                {
+                    if (paragraph.ChildEntities[j] is WFootnote)
+                    {
+                        paragraph.ChildEntities.RemoveAt(j);
+                    }
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM and and Remove footnote.
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control and Remove footnote.
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+
+private static void RemoveFootNoteEndNote(WTable table)
+{
+    //Iterates the row collection in a table.
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row.
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Iterate items in cell and and Remove footnote.
+            RemoveFootNoteEndNote(cell);
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+FileStream inputStream = new FileStream("Footnote.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Loads the template document as stream
+WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+inputStream.Dispose();
+//Removes footnote from the document
+RemoveFootNoteEndNote(document);
+//Saves the Word document to MemoryStream
+FileStream outputStream = new FileStream("Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+document.Save(outputStream, FormatType.Docx);
+//Closes the document
+document.Close();
+outputStream.Dispose();
+
+
+private static void RemoveFootNoteEndNote(WordDocument document)
+{
+    foreach (WSection section in document.Sections)
+    {
+        RemoveFootNoteEndNote(section.Body);
+    }
+}
+private static void RemoveFootNoteEndNote(WTextBody textBody)
+{
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                for (int j = 0; j < paragraph.ChildEntities.Count; j++)
+                {
+                    if (paragraph.ChildEntities[j] is WFootnote)
+                    {
+                        paragraph.ChildEntities.RemoveAt(j);
+                    }
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM and and Remove footnote.
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control and Remove footnote.
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+
+private static void RemoveFootNoteEndNote(WTable table)
+{
+    //Iterates the row collection in a table.
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row.
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Iterate items in cell and and Remove footnote.
+            RemoveFootNoteEndNote(cell);
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads the template document as stream
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Footnote.docx"), FormatType.Docx);
+//Removes footnote from the document
+RemoveFootNoteEndNote(document);
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+
+private static void RemoveFootNoteEndNote(WordDocument document)
+{
+    foreach (WSection section in document.Sections)
+    {
+        RemoveFootNoteEndNote(section.Body);
+    }
+}
+private static void RemoveFootNoteEndNote(WTextBody textBody)
+{
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                for (int j = 0; j < paragraph.ChildEntities.Count; j++)
+                {
+                    if (paragraph.ChildEntities[j] is WFootnote)
+                    {
+                        paragraph.ChildEntities.RemoveAt(j);
+                    }
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM and and Remove footnote.
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control and Remove footnote.
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
+                break;
+        }
+    }
+}
+
+private static void RemoveFootNoteEndNote(WTable table)
+{
+    //Iterates the row collection in a table.
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row.
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Iterate items in cell and and Remove footnote.
+            RemoveFootNoteEndNote(cell);
+        }
+    }
 }
 {% endhighlight %}
 
