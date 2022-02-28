@@ -459,9 +459,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-## Retrieve commented word of a Comment
+## Retrieve the commented word of a Comment
 
-The following code illustrates how to get the commented word or items of an existing comment in the Word document.
+The following code illustrates how to get the commented word or items from an existing comment in the Word document.
 
 {% tabs %}  
 
@@ -509,9 +509,9 @@ using(WordDocument document = new WordDocument(assembly.GetManifestResourceStrea
    //Save the Word file to MemoryStream.
    MemoryStream stream = new MemoryStream();
    await document.SaveAsync(stream, FormatType.Docx);
-   //Save the stream as Word file in local machine.
+   //Save the stream as Word file in the local machine.
    Save(stream, "Result.docx");
-   //Please refer the below link to save Word document in the UWP platform.
+   //Please refer to the below link to save a Word document in the UWP platform.
    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
@@ -533,7 +533,7 @@ using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
    MemoryStream stream = new MemoryStream();
    document.Save(stream, FormatType.Docx);
    stream.Position = 0;
-   //Download Word document in the browser.
+   //Download the Word document in the browser.
    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
@@ -554,7 +554,7 @@ using(WordDocument document = new WordDocument(assembly.GetManifestResourceStrea
    //Save the Word document to MemoryStream.
    MemoryStream stream = new MemoryStream();
    document.Save(stream, FormatType.Docx);
-   //Save the stream as a file in the device and invoke it for the viewing.
+   //Save the stream as a file in the device and invoke it for viewing.
    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
    //Please download the helper files from the below link to save the stream as file and open the file for viewing in the Xamarin platform.
    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
