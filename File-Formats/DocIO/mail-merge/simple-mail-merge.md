@@ -12,7 +12,7 @@ You can create a Word document template using Microsoft Word application or by a
 
 ## Mail merge with string arrays
 
-The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
+The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data .
 
 ### Create Word document template
 The following code example shows how to create a Word template document with merge fields.
