@@ -256,7 +256,7 @@ document.Close()
 
 N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and Xamarin applications.
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
-N> 3. XHTMLValidationType.None: Default validation while importing HTML file.
+N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
 ### Customize image data
