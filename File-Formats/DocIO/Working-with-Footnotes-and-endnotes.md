@@ -694,28 +694,28 @@ using (WordDocument document = new WordDocument())
 
 ## Removing a Footnotes/Endnotes
 
-The following code example shows how to remove the footnotes from the Word document.
+The following code example shows how to remove the footnotes/endnotes from the Word document.
 
 {% tabs %} 
 
 {% highlight c# %}
 //Loads the template document
 WordDocument document = new WordDocument("Footnote.docx");
-//Removes footnote from the document
-RemoveFootNote(document);
+//Removes footnote/endnote from the document
+RemoveFootNoteEndNote(document);
 //Saves and closes the Word document
 document.Save("Result.docx", FormatType.Docx);
 document.Close();
 
 
-private static void RemoveFootNote(WordDocument document)
+private static void RemoveFootNoteEndNote(WordDocument document)
 {
     foreach (WSection section in document.Sections)
     {
-        RemoveFootNote(section.Body);
+        RemoveFootNoteEndNote(section.Body);
     }
 }
-private static void RemoveFootNote(WTextBody textBody)
+private static void RemoveFootNoteEndNote(WTextBody textBody)
 {
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
@@ -739,18 +739,18 @@ private static void RemoveFootNote(WTextBody textBody)
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM and and Remove footnote.
-                RemoveFootNote(bodyItemEntity as WTable);
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
                 break;
             case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control and Remove footnote.
-                RemoveFootNote(blockContentControl.TextBody);
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
                 break;
         }
     }
 }
 
-private static void RemoveFootNote(WTable table)
+private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
     foreach (WTableRow row in table.Rows)
@@ -759,7 +759,7 @@ private static void RemoveFootNote(WTable table)
         foreach (WTableCell cell in row.Cells)
         {
             //Iterate items in cell and and Remove footnote.
-            RemoveFootNote(cell);
+            RemoveFootNoteEndNote(cell);
         }
     }
 }
@@ -769,18 +769,18 @@ private static void RemoveFootNote(WTable table)
 'Loads the template document
 Dim document As New WordDocument("Footnote.docx")
 'Removes footnote from the document
-RemoveFootNote(document);
+RemoveFootNoteEndNote(document);
 'Saves and closes the Word document
 document.Save("Result.docx", FormatType.Docx)
 document.Close()
 
-Private Shared Sub RemoveFootNote(ByVal document As WordDocument)
+Private Shared Sub RemoveFootNoteEndNote(ByVal document As WordDocument)
     For Each section As WSection In document.Sections
-        RemoveFootNote(section.Body)
+        RemoveFootNoteEndNote(section.Body)
     Next
 End Sub
 	
-Private Shared Sub RemoveFootNote(ByVal textBody As WTextBody)
+Private Shared Sub RemoveFootNoteEndNote(ByVal textBody As WTextBody)
     For i As Integer = 0 To textBody.ChildEntities.Count - 1
 	    'IEntity is the basic unit in DocIO DOM. 
         'Accesses the body items as IEntity
@@ -798,22 +798,22 @@ Private Shared Sub RemoveFootNote(ByVal textBody As WTextBody)
             Case EntityType.Table
 			    'Table is a collection of rows and cells
                 'Iterates through table's DOM and and Remove footnote.
-                RemoveFootNote(TryCast(bodyItemEntity, WTable))
+                RemoveFootNoteEndNote(TryCast(bodyItemEntity, WTable))
             Case EntityType.BlockContentControl			    
                 Dim blockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
 				'Iterates to the body items of Block Content Control and Remove footnote.
-                RemoveFootNote(blockContentControl.TextBody)
+                RemoveFootNoteEndNote(blockContentControl.TextBody)
         End Select
     Next
 End Sub
 	
-Private Shared Sub RemoveFootNote(ByVal table As WTable)
+Private Shared Sub RemoveFootNoteEndNote(ByVal table As WTable)
     'Iterates the row collection in a table.
     For Each row As WTableRow In table.Rows
 	    'Iterates the cell collection in a table row.
         For Each cell As WTableCell In row.Cells
 		    'Iterate items in cell and and Remove footnote.
-            RemoveFootNote(cell)
+            RemoveFootNoteEndNote(cell)
         Next
     Next
 End Sub
@@ -824,7 +824,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads the template document as stream
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Footnote.docx"), FormatType.Docx);
 //Removes footnote from the document
-RemoveFootNote(document);
+RemoveFootNoteEndNote(document);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -836,14 +836,14 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 
 
-private static void RemoveFootNote(WordDocument document)
+private static void RemoveFootNoteEndNote(WordDocument document)
 {
     foreach (WSection section in document.Sections)
     {
-        RemoveFootNote(section.Body);
+        RemoveFootNoteEndNote(section.Body);
     }
 }
-private static void RemoveFootNote(WTextBody textBody)
+private static void RemoveFootNoteEndNote(WTextBody textBody)
 {
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
@@ -867,18 +867,18 @@ private static void RemoveFootNote(WTextBody textBody)
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM and and Remove footnote.
-                RemoveFootNote(bodyItemEntity as WTable);
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
                 break;
             case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control and Remove footnote.
-                RemoveFootNote(blockContentControl.TextBody);
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
                 break;
         }
     }
 }
 
-private static void RemoveFootNote(WTable table)
+private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
     foreach (WTableRow row in table.Rows)
@@ -887,7 +887,7 @@ private static void RemoveFootNote(WTable table)
         foreach (WTableCell cell in row.Cells)
         {
             //Iterate items in cell and and Remove footnote.
-            RemoveFootNote(cell);
+            RemoveFootNoteEndNote(cell);
         }
     }
 }
@@ -899,7 +899,7 @@ FileStream inputStream = new FileStream("Footnote.docx", FileMode.Open, FileAcce
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
 inputStream.Dispose();
 //Removes footnote from the document
-RemoveFootNote(document);
+RemoveFootNoteEndNote(document);
 //Saves the Word document to MemoryStream
 FileStream outputStream = new FileStream("Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 document.Save(outputStream, FormatType.Docx);
@@ -908,14 +908,14 @@ document.Close();
 outputStream.Dispose();
 
 
-private static void RemoveFootNote(WordDocument document)
+private static void RemoveFootNoteEndNote(WordDocument document)
 {
     foreach (WSection section in document.Sections)
     {
-        RemoveFootNote(section.Body);
+        RemoveFootNoteEndNote(section.Body);
     }
 }
-private static void RemoveFootNote(WTextBody textBody)
+private static void RemoveFootNoteEndNote(WTextBody textBody)
 {
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
@@ -939,18 +939,18 @@ private static void RemoveFootNote(WTextBody textBody)
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM and and Remove footnote.
-                RemoveFootNote(bodyItemEntity as WTable);
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
                 break;
             case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control and Remove footnote.
-                RemoveFootNote(blockContentControl.TextBody);
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
                 break;
         }
     }
 }
 
-private static void RemoveFootNote(WTable table)
+private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
     foreach (WTableRow row in table.Rows)
@@ -959,7 +959,7 @@ private static void RemoveFootNote(WTable table)
         foreach (WTableCell cell in row.Cells)
         {
             //Iterate items in cell and and Remove footnote.
-            RemoveFootNote(cell);
+            RemoveFootNoteEndNote(cell);
         }
     }
 }
@@ -970,7 +970,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads the template document as stream
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Footnote.docx"), FormatType.Docx);
 //Removes footnote from the document
-RemoveFootNote(document);
+RemoveFootNoteEndNote(document);
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -982,14 +982,14 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 
 
-private static void RemoveFootNote(WordDocument document)
+private static void RemoveFootNoteEndNote(WordDocument document)
 {
     foreach (WSection section in document.Sections)
     {
-        RemoveFootNote(section.Body);
+        RemoveFootNoteEndNote(section.Body);
     }
 }
-private static void RemoveFootNote(WTextBody textBody)
+private static void RemoveFootNoteEndNote(WTextBody textBody)
 {
     for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
@@ -1013,18 +1013,18 @@ private static void RemoveFootNote(WTextBody textBody)
             case EntityType.Table:
                 //Table is a collection of rows and cells
                 //Iterates through table's DOM and and Remove footnote.
-                RemoveFootNote(bodyItemEntity as WTable);
+                RemoveFootNoteEndNote(bodyItemEntity as WTable);
                 break;
             case EntityType.BlockContentControl:
                 BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                 //Iterates to the body items of Block Content Control and Remove footnote.
-                RemoveFootNote(blockContentControl.TextBody);
+                RemoveFootNoteEndNote(blockContentControl.TextBody);
                 break;
         }
     }
 }
 
-private static void RemoveFootNote(WTable table)
+private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
     foreach (WTableRow row in table.Rows)
@@ -1033,7 +1033,7 @@ private static void RemoveFootNote(WTable table)
         foreach (WTableCell cell in row.Cells)
         {
             //Iterate items in cell and and Remove footnote.
-            RemoveFootNote(cell);
+            RemoveFootNoteEndNote(cell);
         }
     }
 }
