@@ -3829,7 +3829,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
-    //Remove exiting items and add new text range with required text
+	//Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
