@@ -256,7 +256,7 @@ document.Close()
 
 N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and Xamarin applications.
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
-N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
+N> 3. XHTMLValidationType.None: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
 ### Customize image data
@@ -415,7 +415,7 @@ N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platfo
 
 **Frequently Asked Questions**
 
-* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/12373/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
+* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/13053/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
 
 ### Customizing the Word to HTML conversion
 
