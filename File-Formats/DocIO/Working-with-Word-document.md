@@ -3317,7 +3317,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 ### Split by Bookmark
 
-The following examples show how to split a Word document using bookmarks.
+The following code example illustrates how to split the Word document using bookmarks.
 
 {% tabs %} 
 {% highlight c# %}
@@ -3471,7 +3471,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 ### Split by placeholder text
 
-The following examples show how to split a Word document using the placeholder text.
+The following code example illustrates how to split the Word document using the placeholder text.
 
 {% tabs %} 
 {% highlight c# %}
@@ -3602,6 +3602,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
     }
 }
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
