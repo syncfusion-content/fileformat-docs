@@ -4085,6 +4085,328 @@ private void SaveWordDocument(WordDocument newDocument, string fileName)
 {% endhighlight %}
 {% endtabs %}
 
+### Split by Bookmark
 
+The following code example illustrates how to split the Word document using bookmarks.
 
+{% tabs %} 
+{% highlight c# %}
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Create a bookmark navigator instance to access the bookmark.
+    BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+    //Get the bookmark collections in the document.
+    BookmarkCollection bookmarkCollection =  document.Bookmarks;
+    foreach (Bookmark bookmark in bookmarkCollection)
+    {
+        //Move the virtual cursor to the location before the end of the bookmark.
+        bookmarkNavigator.MoveToBookmark(bookmark.Name);
+        //Get the bookmark content.
+        TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content to another new document.
+        for (int i = 0; i < part.BodyItems.Count; i++)
+            newDocument.LastSection.Body.ChildEntities.Add(part.BodyItems[i].Clone());
+        //Save the Word document.
+        newDocument.Save(@"Result"+ bookmark.Name + ".docx", FormatType.Docx);
+		newDocument.Close();
+    }
+}
+{% endhighlight %}
 
+{% highlight vb.net %}
+'Load an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Create a bookmark navigator instance to access the bookmark.
+    Dim bookmarkNavigator As BookmarksNavigator = New BookmarksNavigator(document)
+    'Get the bookmark collections in the document.
+    Dim bookmarkCollection As BookmarkCollection = document.Bookmarks
+    For Each bookmark As Bookmark In bookmarkCollection
+        'Move the virtual cursor to the location before the end of the bookmark.
+        bookmarkNavigator.MoveToBookmark(bookmark.Name)
+        'Get the bookmark content.
+        Dim part As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
+        'Create a new Word document.
+        Dim newDocument As WordDocument = New WordDocument()
+        newDocument.AddSection()
+        'Add the retrieved content to another new document.
+        For i As Integer = 0 To part.BodyItems.Count - 1
+            newDocument.LastSection.Body.ChildEntities.Add(part.BodyItems(i).Clone())
+        Next
+        'Save the Word document
+        newDocument.Save("Result" & bookmark.Name & ".docx", FormatType.Docx)
+		newDocument.Close()
+    Next
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+//Load an existing Word document.
+using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+{
+    //Create a bookmark navigator instance to access the bookmark.
+    BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+    //Get the bookmark collections in the document.
+    BookmarkCollection bookmarkCollection = document.Bookmarks;
+    foreach (Bookmark bookmark in bookmarkCollection)
+    {
+        //Move the virtual cursor to the location before the end of the bookmark.
+        bookmarkNavigator.MoveToBookmark(bookmark.Name);
+        //Get the bookmark content.
+        TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content to another new document.
+        for (int i = 0; i < part.BodyItems.Count; i++)
+            newDocument.LastSection.Body.ChildEntities.Add(part.BodyItems[i].Clone());
+        MemoryStream stream = new MemoryStream();
+        //Save the Word document to MemoryStream.
+        await newDocument.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as Word document file in the local machine.
+        Save(stream, "Result" + bookmark.Name + ".docx");
+		//Please refer to the below link to save the Word document in the UWP platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Load an existing Word document.
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+    //Create a bookmark navigator instance to access the bookmark.
+    BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+    //Get the bookmark collections in the document.
+    BookmarkCollection bookmarkCollection = document.Bookmarks;
+    foreach (Bookmark bookmark in bookmarkCollection)
+    {
+        //Move the virtual cursor to the location before the end of the bookmark.
+        bookmarkNavigator.MoveToBookmark(bookmark.Name);
+        //Get the bookmark content.
+        TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content to another new document.
+        for (int i = 0; i < part.BodyItems.Count; i++)
+            newDocument.LastSection.Body.ChildEntities.Add(part.BodyItems[i].Clone());
+        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Result" + bookmark.Name + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+        {
+            //Saves the Word document to file stream.
+            newDocument.Save(outputFileStream, FormatType.Docx);
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from the file system through the constructor of WordDocument class.
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Template.docx")), FormatType.Docx))
+{
+    //Create a bookmark navigator instance to access the bookmark.
+    BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+    //Get the bookmark collections in the document.
+    BookmarkCollection bookmarkCollection = document.Bookmarks;
+    foreach (Bookmark bookmark in bookmarkCollection)
+    {
+        //Move the virtual cursor to the location before the end of the bookmark.
+        bookmarkNavigator.MoveToBookmark(bookmark.Name);
+        //Get the bookmark content.
+        TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content to another new document.
+        for (int i = 0; i < part.BodyItems.Count; i++)
+            newDocument.LastSection.Body.ChildEntities.Add(part.BodyItems[i].Clone());
+        MemoryStream stream = new MemoryStream();         
+        //Saves the Word document to file stream.
+        newDocument.Save(stream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result" + bookmark.Name + ".docx", "application/msword", stream);
+        //Please download the helper files from the below link to save the stream as file and open the file for viewing in the Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin		
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Split by placeholder text
+
+The following code example illustrates how to split the Word document using the placeholder text.
+
+{% tabs %} 
+{% highlight c# %}
+//Load an existing Word document into DocIO instance.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    String[] findPlaceHolderWord = new string[] { "[First Content Start]", "[Second Content Start]", "[Third Content Start]" };
+    for (int i = 0; i < findPlaceHolderWord.Length; i++)
+    {
+        //Get the start placeholder paragraph in the document.
+        WParagraph startParagraph = document.Find(findPlaceHolderWord[i], true, true).GetAsOneRange().OwnerParagraph;
+        //Get the end placeholder paragraph in the document.
+        WParagraph endParagraph = document.Find(findPlaceHolderWord[i].Replace("Start", "End"), true, true).GetAsOneRange().OwnerParagraph;
+        //Get the text body.
+        WTextBody textBody = startParagraph.OwnerTextBody;
+        //Get the start PlaceHolder index.
+        int startPlaceHolderIndex = textBody.ChildEntities.IndexOf(startParagraph);
+        //Get the end PlaceHolder index.
+        int endPlaceHolderIndex = textBody.ChildEntities.IndexOf(endParagraph);
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content to another new document.
+        for (int j = startPlaceHolderIndex + 1; j < endPlaceHolderIndex; j++)
+            newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities[j].Clone());
+        //Save the Word document.
+        newDocument.Save("Result" + i + ".docx", FormatType.Docx);
+		newDocument.Close();
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Load an existing Word document into DocIO instance.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    Dim findPlaceHolderWord As String() = New String() {"[First Content Start]", "[Second Content Start]", "[Third Content Start]"}
+    For i As Integer = 0 To findPlaceHolderWord.Length - 1
+	   'Get the start placeholder paragraph in the document.
+       Dim startParagraph As WParagraph = document.Find(findPlaceHolderWord(i), True, True).GetAsOneRange().OwnerParagraph
+	   'Get the end placeholder paragraph in the document.
+       Dim endParagraph As WParagraph = document.Find(findPlaceHolderWord(i).Replace("Start", "End"), True, True).GetAsOneRange().OwnerParagraph
+	   'Get the text body.
+       Dim textBody As WTextBody = startParagraph.OwnerTextBody
+	   'Get the start PlaceHolder index.
+       Dim startPlaceHolderIndex As Integer = textBody.ChildEntities.IndexOf(startParagraph)
+	   'Get the end PlaceHolder index.
+       Dim endPlaceHolderIndex As Integer = textBody.ChildEntities.IndexOf(endParagraph)
+	   'Create a new Word document.
+       Dim newDocument As WordDocument = New WordDocument()
+       newDocument.AddSection()
+	   'Add the retrieved content to another new document.
+       For j As Integer = startPlaceHolderIndex + 1 To endPlaceHolderIndex - 1
+            newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities(j).Clone())
+       Next
+	   'Save the Word document.
+       newDocument.Save("Result" & i & ".docx", FormatType.Docx) 
+       newDocument.Close();	   
+    Next
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+//Load an existing Word document.
+using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+{
+    String[] findPlaceHolderWord = new string[] { "[First Content Start]", "[Second Content Start]", "[Third Content Start]" };
+    for (int i = 0; i < findPlaceHolderWord.Length; i++)
+    {
+        //Get the start placeholder paragraph in the document.
+        WParagraph startParagraph = document.Find(findPlaceHolderWord[i], true, true).GetAsOneRange().OwnerParagraph;
+        //Get the end placeholder paragraph in the document.
+        WParagraph endParagraph = document.Find(findPlaceHolderWord[i].Replace("Start", "End"), true, true).GetAsOneRange().OwnerParagraph;
+        //Get the text body.
+        WTextBody textBody = startParagraph.OwnerTextBody;
+        //Get the start PlaceHolder index.
+        int startPlaceHolderIndex = textBody.ChildEntities.IndexOf(startParagraph);
+        //Get the end PlaceHolder index.
+        int endPlaceHolderIndex = textBody.ChildEntities.IndexOf(endParagraph);
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content to another new document.
+        for (int j = startPlaceHolderIndex + 1; j < endPlaceHolderIndex; j++)
+            newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities[j].Clone());
+        MemoryStream stream = new MemoryStream();
+        //Save the Word document to MemoryStream.
+        await newDocument.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as Word document file in the local machine.
+        Save(stream, "Result" + i + ".docx");
+		//Please refer to the below link to save Word document in the UWP platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Load an existing Word document.
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+    String[] findPlaceHolderWord = new string[] { "[First Content Start]", "[Second Content Start]", "[Third Content Start]" };
+    for (int i = 0; i < findPlaceHolderWord.Length; i++)
+    {
+        //Get the start placeholder paragraph in the document.
+        WParagraph startParagraph = document.Find(findPlaceHolderWord[i], true, true).GetAsOneRange().OwnerParagraph;
+        //Get the end placeholder paragraph in the document.
+        WParagraph endParagraph = document.Find(findPlaceHolderWord[i].Replace("Start", "End"), true, true).GetAsOneRange().OwnerParagraph;
+        //Get the text body.
+        WTextBody textBody = startParagraph.OwnerTextBody;
+        //Get the start PlaceHolder index.
+        int startPlaceHolderIndex = textBody.ChildEntities.IndexOf(startParagraph);
+        //Get the end PlaceHolder index.
+        int endPlaceHolderIndex = textBody.ChildEntities.IndexOf(endParagraph);
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content to another new document.
+        for (int j = startPlaceHolderIndex + 1; j < endPlaceHolderIndex; j++)
+            newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities[j].Clone());
+        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Result" + i + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+        {
+            //Save the Word document to file stream.
+            newDocument.Save(outputFileStream, FormatType.Docx);
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Template.docx");
+using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+{
+    String[] findPlaceHolderWord = new string[] { "[First Content Start]", "[Second Content Start]", "[Third Content Start]" };
+    for (int i = 0; i < findPlaceHolderWord.Length; i++)
+    {
+        //Get the start placeholder paragraph in the document.
+        WParagraph startParagraph = document.Find(findPlaceHolderWord[i], true, true).GetAsOneRange().OwnerParagraph;
+        //Get the end placeholder paragraph in the document.
+        WParagraph endParagraph = document.Find(findPlaceHolderWord[i].Replace("Start", "End"), true, true).GetAsOneRange().OwnerParagraph;
+        //Get the text body.
+        WTextBody textBody = startParagraph.OwnerTextBody;
+        //Get the start PlaceHolder index.
+        int startPlaceHolderIndex = textBody.ChildEntities.IndexOf(startParagraph);
+        //Get the end PlaceHolder index.
+        int endPlaceHolderIndex = textBody.ChildEntities.IndexOf(endParagraph);
+        //Create a new Word document.
+        WordDocument newDocument = new WordDocument();
+        newDocument.AddSection();
+        //Add the retrieved content into another new document.
+        for (int j = startPlaceHolderIndex + 1; j < endPlaceHolderIndex; j++)
+            newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities[j].Clone());
+	    MemoryStream stream = new MemoryStream();         
+        //Saves the Word document to file stream.
+        newDocument.Save(stream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result" + i + ".docx", "application/msword", stream);
+        //Please download the helper files from the below link to save the stream as file and open the file for viewing in the Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+{% endtabs %}
