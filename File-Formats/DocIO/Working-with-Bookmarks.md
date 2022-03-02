@@ -158,6 +158,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Bookmarks.docx", "appl
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Add-bookmark-in-Word-document).
+
 ## Obtaining a bookmark instance
 
 The following code example shows how to retrieve an instance of bookmark from a Word document.
@@ -244,6 +246,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-an-instance-of-bookmark).
+
 ## Removing a Bookmark from Word document
 
 The following code example shows how to remove a bookmark from Word document.
@@ -329,6 +333,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Remove-bookmark-from-Word-document).
 
 ## Retrieving contents within a bookmark 
 
@@ -451,6 +457,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-as-body-part).
 
 The following code example shows how to retrieve the specified bookmark content by using `GetContent` method in a Word document.
 
@@ -575,6 +583,8 @@ newDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-as-document-part).
 
 ## Retrieving bookmark contents within a table 
 
@@ -966,6 +976,8 @@ return table;
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-within-table).
+
 ## Inserting content into a bookmark
 
 You can insert table, paragraph, simple text and paragraph item at the start or end location of the current bookmark by using bookmark navigator.
@@ -1059,6 +1071,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-simple-text-into-bookmark).
 
 The following code example shows how to insert a paragraph item by using BookmarkNavigator.
 
@@ -1168,6 +1182,8 @@ document.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-item-into-bookmark).
+
 The following code example shows how to insert a paragraph by using BookmarkNavigator.
 
 {% tabs %}  
@@ -1267,6 +1283,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-into-bookmark).
 
 The following code example shows how to insert a table by using BookmarkNavigator.
 
@@ -1418,6 +1436,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-table-into-bookmark).
+
 The following code example shows how to insert a TextBodyPart by using BookmarkNavigator.
 
 {% tabs %}  
@@ -1558,6 +1578,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-text-body-part-into-bookmark).
+
 ## Deleting content from a bookmark
 
 You can delete the contents between bookmark start and end of the specified bookmark in a Word document.
@@ -1653,6 +1675,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Delete-bookmark-content).
 
 ## Replacing content in a bookmark
 
@@ -1814,6 +1838,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Replace-content-with-body-part).
+
 The following code example shows how to replace a specified bookmark content by using `ReplaceContent` method in Word document.
 
 {% tabs %} 
@@ -1966,3 +1992,5 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Replace-content-with-document-part).

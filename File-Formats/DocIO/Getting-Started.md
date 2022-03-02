@@ -1043,6 +1043,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-all).
+
 The following code example explains how to search a particular text and highlight it.
 
 {% tabs %}  
@@ -1146,6 +1148,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.d
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
 ## Performing Mail merge
 

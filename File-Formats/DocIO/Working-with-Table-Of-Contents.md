@@ -262,6 +262,8 @@ document.Close();
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Add-table-of-contents).
+
 ## Updating table of contents
 
 You can also update or re-build the TOC in an existing document or document created from the scratch.  
@@ -334,7 +336,9 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}  
-   
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Update-table-of-contents).
+
 ## Creating table of contents with user-defined styles
 
 The following code example shows how to create table of contents with user-defined styles instead of heading styles.
@@ -578,3 +582,5 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/TOC-with-user-defined-styles).

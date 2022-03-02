@@ -149,6 +149,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-find-next).
+
 You can find all the occurrence of a particular text within a single paragraph in the document by using `FindAll` method. 
 
 The following code example illustrates how to find all the occurrences of a particular text in the document.
@@ -255,6 +257,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
 You can find the first occurrence of a particular text extended to several paragraphs in the document by using `FindSingleLine` method and its next occurrence by using `FindNextSingleLine` method.
 
@@ -412,6 +416,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-find-next-paragraphs).
+
 ## Replacing the Search results
 
 You can replace a particular text with another text, part of a document or entire document by using `Replace` method. 
@@ -511,6 +517,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "applic
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-text-with-body-part).
 
 You can specify to replace only the first occurrence of the specified text by setting `ReplaceFirst` property of `WordDocument` class to true. 
 
@@ -620,6 +628,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "applic
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-first-occurrence).
+
 The following code example illustrates how to replace a particular text with a Word document.
 
 {% tabs %}  
@@ -707,6 +717,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-text-with-Word-document).
+
 You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using `ReplaceSingleLine` method.
 
 The following code example illustrates how to replace the text extended to several paragraphs with simple text.
@@ -784,6 +796,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "applic
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-paragraphs-with-text).
 
 ## Find and replace text with other text
 
@@ -867,6 +881,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-misspelled-word).
 
 ## Find and replace text with an image
 You can find placeholder text in a Word document and replace it with any desired image.
@@ -1000,6 +1016,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-text-with-image).
 
 ## Find and replace a pattern of text with a merge field 
 You can find and replace a pattern of text in a Word document with merge fields using Regex.
@@ -1161,6 +1179,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-with-merge-field).
 
 ## Find and replace text with a table 
 You can find placeholder text in a Word document and replace it with a table.
@@ -1807,6 +1827,9 @@ private void ImportDataToRow(XmlReader reader, WTableRow tableRow)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-text-with-table).
+
 ## Find and replace text in Word document with another document 
 
 You can find and replace text with another Word document.
@@ -1925,6 +1948,9 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-with-Word-document).
+
 ## Find and replace text extending to several paragraphs
 
 Apart from finding text in a paragraph, you can also find and replace text that extends to several paragraphs in a Word document. You can find the first occurrence of the text that extends to several paragraphs by using the `FindSingleLine` method. Find the next occurrences of the text by using the `FindNextSingleLine` method. Similarly, you can replace text that extends to several paragraphs by using `ReplaceSingleLine` method.
@@ -2051,6 +2077,9 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-multiple-paragraphs).
+
 ## Find text in a Word document and format 
 
 You can find text in a Word document and format or highlight it .You can find the first occurrence of text using the `Find` method. Find the next occurrences of the text using the `FindNext` method.
@@ -2161,3 +2190,5 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
