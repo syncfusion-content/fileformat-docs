@@ -957,7 +957,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-A complete working example convert Excel with commnets to PDF and render comments in place in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20in%20Place%20to%20PDF).
+A complete working example convert Excel with comments to PDF and render comments in place in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20in%20Place%20to%20PDF).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
@@ -1157,7 +1157,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-A complete working example convert Excel with commnets to PDF and render comments at the end in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20to%20PDF%20at%20End).
+A complete working example convert Excel with comments to PDF and render comments at the end in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20to%20PDF%20at%20End).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img4.png)
@@ -1358,7 +1358,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-A complete working example convert Excel with commnets to PDF ignoring the comments in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Comments%20in%20PDF).
+A complete working example convert Excel with comments to PDF ignoring the comments in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Comments%20in%20PDF).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)

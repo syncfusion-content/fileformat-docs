@@ -612,7 +612,7 @@ A complete working example for creating and editing an Excel workbook in C# is p
  
 ## Sending to a client browser
 
-You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of Save method.  This method explicitly make use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references System.Web assembly.
+You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of Save method.  This method explicitly make use of an instance of [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references System.Web assembly.
 
 {% tabs %}  
 {% highlight c# %}

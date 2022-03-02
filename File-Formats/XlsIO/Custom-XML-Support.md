@@ -1,11 +1,11 @@
 ---
-title: Custom XML Support
-description: Briefs about Custom XML Support in XlsIO
+title: Custom XML Support in Syncfusion .NET Excel Library
+description: In this section, you can learn how to create or edit Custom XML in Excel document using Syncfusion .NET Excel library
 platform: File-Formats
 control: XlsIO
 documentation: UG
 ---
-# Custom XML Support
+# Custom XML Support in Syncfusion Excel Library
 
 When you embed XML data in a document, the data is named as custom XML part, which is used to store arbitrary XML data in the workbook. 
 

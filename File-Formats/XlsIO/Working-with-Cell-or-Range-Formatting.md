@@ -2715,7 +2715,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to apply diffent font settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Font%20Settings).
+A complete working example to apply different font settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Font%20Settings).
 
 The output of the previous code is shown as follows.
 
@@ -2819,7 +2819,7 @@ worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
 {% endhighlight %}
 {% endtabs %} 
 
-A complete working example to apply diffent color settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Color%20Settings).   
+A complete working example to apply different color settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Color%20Settings).   
 
 ## Apply Border Settings
 
@@ -3071,7 +3071,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to apply diffent border settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Border%20Settings).   
+A complete working example to apply different border settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Border%20Settings).   
 
 The output of the previous code is shown in the following screenshot:
 
