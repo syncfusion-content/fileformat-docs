@@ -263,7 +263,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
       DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example to convert Excel worksheet to image in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20to%20Image/Worksheet%20to%20Image). 
 
 N> 1. Instance of XlsIORenderer class is mandatory to convert the worksheet to image using .NET Standard assemblies.
 N> 2. In .NET Standard, the Image format and quality can be specified using the ExportImageOptions class. By default the ImageFormat is set to PNG and ScalingMode is set to Best.

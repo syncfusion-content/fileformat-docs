@@ -405,80 +405,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %} 
- 
-## Sending to a client browser
-
-You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of Save method.  This method explicitly make use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references System.Web assembly.
-
-{% tabs %}  
-{% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Loads or open an existing workbook through Open method of IWorkbooks
-  IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
-
-  //To-Do some manipulation
-  //To-Do some manipulation
-
-  //Set the version of the workbook
-  workbook.Version = ExcelVersion.Excel2013;
-
-  //Save the workbook in file system
-  workbook.SaveAs(OutputFileName, Response, ExcelDownloadType.Open);
-}
-{% endhighlight %}
-
-{% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  'Loads or open an existing workbook through Open method of IWorkbooks
-  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
-
-  'To-Do some manipulation
-  'To-Do some manipulation
-
-  'Set the version of the workbook
-  workbook.Version = ExcelVersion.Excel2013
-
-  'Save the workbook in file system
-  workbook.SaveAs(OutputFileName, Response, ExcelDownloadType.Open)
-End Using
-{% endhighlight %}
-
-{% highlight UWP %}
-//Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Loads or open an existing workbook through Open method of IWorkbooks
-  FileStream inputStream = new FileStream(inputFilePath, FileMode.Open);  
-  IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
-
-  //To-Do some manipulation
-  //To-Do some manipulation
-
-  //Initialize content type
-  string ContentType = null;
-
-  //Set the version of the workbook
-  workbook.Version = ExcelVersion.Excel2013;
-  ContentType = "Application/msexcel";
-
-  //Save the workbook to stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-  outputStream.Position = 0;
-
-  //Return the file with content type
-  return File(outputStream, ContentType, outputFileName);
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-//Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
-{% endhighlight %}
-{% endtabs %}  
 
 ## Closing a workbook
 
@@ -680,5 +606,83 @@ ExcelEngine excelEngine = new ExcelEngine();
 //No exception will be thrown if there are unsaved workbooks
 excelEngine.ThrowNotSavedOnDestroy = true;
 {% endhighlight %}
+{% endtabs %} 
+
+A complete working example for creating and editing an Excel workbook in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Read%20and%20Edit%20Excel/Read%20and%20Edit%20Excel).
+ 
+## Sending to a client browser
+
+You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of Save method.  This method explicitly make use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references System.Web assembly.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Loads or open an existing workbook through Open method of IWorkbooks
+  IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
+
+  //To-Do some manipulation
+  //To-Do some manipulation
+
+  //Set the version of the workbook
+  workbook.Version = ExcelVersion.Excel2013;
+
+  //Save the workbook in file system
+  workbook.SaveAs(OutputFileName, Response, ExcelDownloadType.Open);
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Loads or open an existing workbook through Open method of IWorkbooks
+  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
+
+  'To-Do some manipulation
+  'To-Do some manipulation
+
+  'Set the version of the workbook
+  workbook.Version = ExcelVersion.Excel2013
+
+  'Save the workbook in file system
+  workbook.SaveAs(OutputFileName, Response, ExcelDownloadType.Open)
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Loads or open an existing workbook through Open method of IWorkbooks
+  FileStream inputStream = new FileStream(inputFilePath, FileMode.Open);  
+  IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
+
+  //To-Do some manipulation
+  //To-Do some manipulation
+
+  //Initialize content type
+  string ContentType = null;
+
+  //Set the version of the workbook
+  workbook.Version = ExcelVersion.Excel2013;
+  ContentType = "Application/msexcel";
+
+  //Save the workbook to stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+  outputStream.Position = 0;
+
+  //Return the file with content type
+  return File(outputStream, ContentType, outputFileName);
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
+{% endhighlight %}
 {% endtabs %}  
+
+ 
 

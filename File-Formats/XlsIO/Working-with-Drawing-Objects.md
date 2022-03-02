@@ -213,6 +213,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to add a text box in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Text%20Box). 
+
 ### Check Box
 
 **ICheckBoxShape** object represents a check box in a worksheet. The following code example illustrates how to insert and manipulate a check box control.
@@ -397,6 +399,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to add a check box in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Check%20Box). 
 
 ### Combo Box
 
@@ -638,6 +642,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add a combo box in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Combo%20Box). 
+
 ### Option Button
 
 **IOptionButtonShape** object represents an option button in a worksheet. The following code example illustrates how to insert and manipulate an option button control.
@@ -855,6 +861,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add option button in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Option%20Button). 
+
 ## Comments
 
 **ICommentShape** object represents a [comment](https://support.office.com/en-au/article/Annotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
@@ -1020,6 +1028,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Comment).
+
 You can also fill the comments with various types of fills by using the **IFill** interface. Following code example illustrates how to fill the comment shape with a TwoColor gradient.
 
 {% tabs %}
@@ -1177,6 +1187,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to fill comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Fill%20Comment).
 
 ### Show or Hide Excel Comments
 
@@ -1338,6 +1350,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to show or hide comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Show%20or%20Hide%20Comment).
+
 Following code snippets illustrates how to remove all the comments in existing worksheet.
 
 {% tabs %}
@@ -1459,6 +1473,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to remove comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Remove%20Comments). 
 
 ## AutoShapes
 
@@ -1653,6 +1669,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to add auto shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/AutoShapes). 
 
 ## Group Shapes
 
@@ -1863,6 +1881,8 @@ excelEngine.Dispose();
 
 {% endtabs %}  
 
+A complete working example to group shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Group%20Shapes). 
+
 ### Ungroup shapes
 
 Group shape can be ungrouped, and its inner shapes are added to worksheet as an individual shape. 
@@ -2046,6 +2066,8 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% endtabs %} 
+
+A complete working example to ungroup shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Ungroup%20Shapes). 
 
 ### Ungroup all shapes
 
@@ -2232,6 +2254,7 @@ excelEngine.Dispose();
 
 {% endtabs %} 
 
+A complete working example to ungroup all shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Ungroup%20All%20Shapes). 
 
 ## OLE Objects 
 

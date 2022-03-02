@@ -223,6 +223,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to insert formula in Excel cell in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Set%20Formula).
+
 ### Formula with Cross-sheet References
 
 XlsIO supports using formulas across worksheets. The following code shows how to apply formula with cross-sheet references.
@@ -332,6 +334,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to insert formula in Excel cell with cross sheet reference in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Cross%20Sheet%20Formula).
 
 ## Reading a Formula
 
@@ -511,6 +515,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to access calculated value of a formula in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Calculated%20Value).
 
 Apart from __CalculatedValue__ property, the evaluated values can be accessed as **bool**, **DateTime** and **double** data types. To obtain updated values of these types, **CalculatedValue** property must be called in prior.
 
@@ -778,6 +784,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to access calculated value of a formula in different forms in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Types%20of%20Calculated%20Value).
+
 N> Calculated value for external reference formulas can be evaluated in XlsIO.
 
 ## Applying Argument Separators Based on Cultures
@@ -887,6 +895,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to add argument separator in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Argument%20Separator).
 
 ## Array of Formula
 
@@ -1031,6 +1041,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add formula array in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Argument%20Separator).
+
 ## Incremental Formula
 
 The relative cell references in the formulas are automatically incremented by 1, when you fill formulas down a column or across a row by enabling the EnableIncrementalFormula property of **IApplication** interface.
@@ -1163,6 +1175,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add incremental formula in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Incremental%20Formula).
+
 ## External Formula
 
 XlsIO supports to write and preserve external formula.
@@ -1276,6 +1290,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to add external formula in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/External%20Formula).
 
 N> Links are updated automatically in Microsoft Excel to view the result for the preceding code.
 
@@ -1479,6 +1495,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example for calculated column in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Calculated%20Column).
 
 ## Supported Functions
 
@@ -3041,6 +3059,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to use named ranges in formulas in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Named%20Range).
+
 ### Deleting Named Ranges
 
 Named ranges defined in workbook and worksheet levels can be deleted in different ways. The following code shows the possibilities of deleting named ranges.
@@ -3101,6 +3121,8 @@ workbook.Names["BookLevelName"].Delete();
 sheet.Names["SheetLevelName"].Delete();
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example to delete named ranges in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Delete%20Named%20Range).
 
 ## Formula Auditing
 
@@ -3247,6 +3269,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to ignore error in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Ignore%20Error).
+
 ## Calculation Engine
 
 Essential Calculate is now (from v9.1.x.x) integrated with Essential XlsIO, and thus makes it possible to calculate formulas entered at runtime without any additional references or packages.
@@ -3374,6 +3398,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of calculation modes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Calculation%20Modes).
 
 ### Recalculate Before Save
 
@@ -3559,3 +3585,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example of iteration in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Iteration).

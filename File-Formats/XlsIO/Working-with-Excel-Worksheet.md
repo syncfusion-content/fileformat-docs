@@ -132,6 +132,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example for creating Excel worksheets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Create%20Worksheet).
+
 ## Access a Worksheet 
 
 Worksheets collection holds one or more worksheets present in a workbook. Accessing a particular worksheet can be done by the following ways. 
@@ -256,6 +258,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example for accessing Excel worksheets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Access%20Worksheet).
 
 T>If the workbook contains multiple worksheet, then the parsing of the workbook will consume time. You can use **ExcelParseOptions****.****ParseWorksheetsOnDemand** in IWorkbooks.Open method which parses the worksheet only when it is accessed. This option can be used in a scenario where workbook contains multiple worksheets but you are going to use few worksheets among them.
 
@@ -386,6 +390,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example for removing an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Remove%20Worksheet).
 
 ## Move or Copy a Worksheet
 
@@ -525,6 +531,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example for copying Excel worksheets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Copy%20Worksheet).
+
 You can specify copy options while copying a worksheet, which helps to achieve customized copying by ignore the certain formatting. For more information about copy options, please refer **ExcelWorksheetCopyFlags** .
 
 ### Moving a Worksheet
@@ -637,6 +645,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example for moving Excel worksheets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Move%20Worksheet).
+
 ## Highlight Worksheet Tabs 
 
 You can highlight the worksheet tab of a particular sheet to denote its importance. You can set the tab color through the **TabColor** property, as given below.
@@ -746,6 +756,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to highlight an Excel worksheet tab in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Highlight%20Worksheet%20Tab).
 
 ## Freeze Panes 	
 
@@ -987,6 +999,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example to freeze panes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Freeze%20Panes). 
 
 ## Unfreeze Panes
 
@@ -1242,6 +1256,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to split panes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Split%20Panes). 
+
 ## Page Setup Settings
 
 You can select the size, orientation of the paper, margins, page breaks, scaling, paper size, header/ footer settings and background settings. The following code snippet shows how to set the page setup. To more about, please refer **Page** **setup**.
@@ -1407,6 +1423,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example for Excel pagesetup settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/PageSetup). 
+
 ## Show or Hide Worksheet 
 
 The following code snippet shows how to hide the sheets using **Visibility** property.
@@ -1522,6 +1540,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to show or hide an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Hide%20Worksheet). 
+
 ## Activate a Worksheet
 
 You can set a worksheet as active sheet in the workbook by using the **Activate** method.
@@ -1636,6 +1656,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to activate an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Activate%20Worksheet). 
 
 ## Show or Hide Worksheet Tabs 
 
@@ -1761,10 +1783,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to hide Excel worksheet tab in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Hide%20Worksheet%20Tabs). 
  
 ## View Settings
 
-**Show** **or** **Hide** **Row** **and** **Column** **Headers** 
+### Show or Hide Row and Column Headers 
 
 You can show/hide row and column headings by using the **IsRowColumnHeadersVisible** property of IWorksheet.
 
@@ -1873,6 +1897,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to hide row and column headers in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Hide%20Row%20and%20Column%20Headers). 
 
 ### Show or Hide Grid Lines 
 
@@ -1989,6 +2015,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to hide gridlines in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Hide%20Gridlines).
+
 ### Set Zoom Level
 
 The following code snippet shows how to set the zoom level by using **Zoom** property.
@@ -2103,6 +2131,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to set zoom percentage in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Set%20Zoom%20Level).
 
 ## Open a CSV File
 
@@ -2305,6 +2335,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
  
+A complete working example to read and save a CSV file in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Read%20and%20Save%20CSV).
+
 ### Save worksheet as text (*.txt)
 
 Essential XlsIO allows to save worksheet as a text file. This can be done by leaving the delimiter with a space as shown in the below codes.
@@ -2430,6 +2462,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example to save an Excel worksheet as text file in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Save%20TextFile).
 
 ## Save Worksheet as HTML
 
@@ -2699,5 +2733,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-
+A complete working example to save an Excel worksheet as HTML file using HtmlSaveOptions in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Save%20HTML).
 

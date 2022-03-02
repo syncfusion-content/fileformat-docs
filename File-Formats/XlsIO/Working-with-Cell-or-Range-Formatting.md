@@ -139,6 +139,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to create style in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Create%20Style).
+
 ## Set Default Style for row or column
 
 It is the recommended and optimized approach to format entire row or column with same styles instead of formatting each and every cell individually. Use the following code to set default style.
@@ -289,6 +291,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply default style for rows and columns in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Row%20and%20Column%20Style).
 
 N> Applying custom styles will override original styles.
 
@@ -647,6 +651,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply global style in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Global%20Style).
 
 ![Excel document with global styles](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img1.jpeg)
 
@@ -1235,6 +1241,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The screenshot of the previous code is shown as follows:
 
+A complete working example to apply number formats in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Number%20Format).
+
 ![Excel document with number formats](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg)
 
 
@@ -1531,6 +1539,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to hide cell content by applying number format in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Hide%20Cell%20Content).
 
 ## Apply Cell Text Alignment
 
@@ -1995,6 +2005,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to apply cell text alignment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Alignment).
+
 The following screenshot is the output of previous code:
 
 ![Excel document with different alignment options](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg)
@@ -2178,6 +2190,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to merge and unmerge cells in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Merge%20and%20UnMerge).
+
 ## Apply Wrap Text
 
 If a cell content is too wide to fit a column and do not want to split over into adjacent cells, you can use the **WrapText** property. This will set the content within the cell border. The following code snippet illustrates this behavior.
@@ -2309,6 +2323,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply wrap text in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Wrap%20Text).
 
 ## Auto-Fit Rows or Columns
 
@@ -2452,7 +2468,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The output of the previous code is shown as follows.
+A complete working example to autofit rows and columns in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/AutoFit%20Rows%20and%20Columns).
 
 ## Apply Font Settings 
 
@@ -2699,6 +2715,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to apply diffent font settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Font%20Settings).
+
 The output of the previous code is shown as follows.
 
 ![Excel document with different font settings](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg)
@@ -2799,7 +2817,9 @@ worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
 //Apply cell pattern
 worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
 {% endhighlight %}
-{% endtabs %}    
+{% endtabs %} 
+
+A complete working example to apply diffent color settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Color%20Settings).   
 
 ## Apply Border Settings
 
@@ -3050,6 +3070,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply diffent border settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Border%20Settings).   
 
 The output of the previous code is shown in the following screenshot:
 
@@ -3332,6 +3354,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply rich text formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Rich%20Text).   
 
 The output of the previous code is shown as follows:
 

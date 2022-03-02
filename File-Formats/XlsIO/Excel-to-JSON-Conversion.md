@@ -189,6 +189,8 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert Excel to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Workbook%20to%20JSON%20with%20Schema). 
+
 ## Workbook to JSON without schema
 
 The following code illustrates how to convert an Excel workbook to the JSON file or JSON file stream without schema.
@@ -341,6 +343,8 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to convert Excel to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Workbook%20to%20JSON%20without%20Schema). 
 
 ## Worksheet to JSON as schema
 
@@ -518,6 +522,8 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert Excel worksheet to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Worksheet%20to%20JSON%20with%20Schema). 
+
 ## Worksheet to JSON without schema
 
 The following code illustrates how to convert an Excel worksheet to the JSON file or file stream without schema.
@@ -675,6 +681,8 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to convert Excel worksheet to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Worksheet%20to%20JSON%20without%20Schema). 
 
 ## Range to JSON as schema
 
@@ -866,6 +874,8 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert range to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Range%20to%20JSON%20with%20Schema). 
+
 ## Range to JSON without schema
 
 The following code illustrates how to convert an Excel Custom Range to the JSON file or JSON file stream without schema.
@@ -1035,3 +1045,5 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to convert range to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Range%20to%20JSON%20without%20Schema). 

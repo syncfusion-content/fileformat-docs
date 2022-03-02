@@ -162,6 +162,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add custom XML in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Custom%20XML%20Support/Add%20Custom%20XML). 
+
 **Read** **Custom** **XML** 
 
 Reading Custom XML part from workbook is achieved by using the **GetById** method of **ICustomXmlPart** interface. The following code snippet illustrates on how to read Custom XML parts from workbook.
@@ -312,6 +314,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to read custom XML in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Custom%20XML%20Support/Read%20Custom%20XML). 
 
 N> Custom XML cannot be modified when the file is saved in Excel 97-2003 (\*.xls) format.
 N> Custom XML can be created and modified when the file is saved in Excel 2007 and later versions (\*.xlsx).

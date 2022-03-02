@@ -193,6 +193,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+A complete working example convert workbook to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Workbook%20to%20PDF).      
+
 To learn more about different conversion settings in Excel To PDF conversion, refer to the ExcelToPdfConverterSettings in API section.
 
 ## Worksheet to PDF
@@ -373,6 +375,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example convert worksheet to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Worksheet%20to%20PDF). 
 
 **Creating** **individual** **PDF** **document** **for** **each** **worksheet**
 
@@ -558,6 +562,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example convert each worksheet to individual PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Each%20Worksheet%20to%20PDF).
   
 ## Excel with chart to PDF
 
@@ -748,6 +754,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% endtabs %}  
+
+A complete working example convert Excel chart to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Chart%20to%20PDF).
 
 ## Excel with comments (notes) to PDF
 
@@ -949,6 +957,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+A complete working example convert Excel with commnets to PDF and render comments in place in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20in%20Place%20to%20PDF).
+
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
 
@@ -1146,6 +1156,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% endtabs %}
+
+A complete working example convert Excel with commnets to PDF and render comments at the end in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20to%20PDF%20at%20End).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img4.png)
@@ -1345,6 +1357,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% endtabs %}
+
+A complete working example convert Excel with commnets to PDF ignoring the comments in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Comments%20in%20PDF).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)

@@ -441,6 +441,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to create conditional formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Create%20Conditional%20Format).
+
 N> Excel allows the addition of a maximum of three conditions for the same cell in the Biff8 format and XlsIO. However, this restriction is removed from the Excel 2007 formats.
 
 N> The conditional formats for a single range should be added in descending order in XlsIO.
@@ -585,6 +587,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to read conditional formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Read%20Conditional%20Format).
+
 ## Removing Conditional Formats
 
 All the conditional formats for a specified range can be removed using the **Remove** method. This is illustrated as follows.
@@ -709,6 +713,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to remove conditional formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Remove%20Conditional%20Format).
 
 ### Removing Conditional Formats at specified index value
 
@@ -835,6 +841,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to remove conditional formatting at specified index in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Remove%20at%20Index).
+
 ### Removing Conditional Formats from entire sheet
 
 The entire conditional formats from the worksheet can be removed as follows.
@@ -960,6 +968,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to remove conditional formatting in entire worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Remove%20all%20Conditional%20Formats).
+
 ## Using FormulaR1C1 property in Conditional Formats
 
 XlsIO sets the formula for the conditional format in R1C1-style notation. The following code example illustrates this.
@@ -1084,6 +1094,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to create conditional formatting with R1C1 in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Conditional%20Format%20with%20R1C1).
 
 ## Format Unique and Duplicate Values
 
@@ -1498,6 +1510,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to format unique and duplicate values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Unique%20and%20Duplicate).
+
 The following screenshot represents generated Excel file with unique and duplicate conditional format in XlsIO.
 ![unique and duplicate conditional Formatting](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img3.jpg)
 
@@ -1709,6 +1723,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to format top and bottom rank values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Top%20to%20Bottom%20Rank).
 
 The following screenshot represents the Excel file generated with TopBottom conditional format with `Rank` set to 10 in XlsIO.
 
@@ -1926,6 +1942,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to format top and bottom rank percentage in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Top%20To%20Bottom%20Percent).
+
 The following screenshot represents the Excel file generated with TopBottom conditional format with `Percent` value set to 50 in XlsIO.
 
 ![Top or Bottom conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
@@ -2127,6 +2145,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to format above and below average values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Above%20and%20Below%20Average).
 
 The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format with `AverageType` set as `Below` in XlsIO.
 
@@ -2331,6 +2351,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to format above and below standard deviation values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Above%20and%20Below%20Standard%20Deviation).
 
 The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format when `AverageType` is set as `AboveStdDev` in XlsIO.
 
@@ -3202,6 +3224,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to format values with advanced conditional formatting options like data bars, color scales, icon sets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Advanced%20Conditional%20Formats).
 
 ![Advanced conditional Formatting](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img2.jpeg)
 

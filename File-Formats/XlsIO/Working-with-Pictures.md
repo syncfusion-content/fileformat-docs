@@ -120,6 +120,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to insert picture in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pictures%20in%20Excel/Add%20Picture).   
+
 ## Positioning and Re-Sizing Pictures
 
 Pictures can be re-sized, positioned, and formatted using various properties of **IPictureShape** interface. Refer to the following code snippet.
@@ -275,6 +277,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to position and resize picture in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pictures%20in%20Excel/Position%20and%20Resize%20Picture).   
+
 ## Adding Images from External Link
 
 An image can be added to a worksheet as an external link without downloading the original image. The picture will be downloaded every time the spreadsheet is opened in Microsoft Excel. The image is not physically embedded into the Excel document, but points to a web resource. Refer to the following code snippet.
@@ -386,6 +390,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to add picture from external link in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pictures%20in%20Excel/External%20Image).   
 
 ## Adding SVG Images
 
@@ -517,4 +523,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to add SVG images in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pictures%20in%20Excel/Add%20SVG%20Picture).
 
