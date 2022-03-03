@@ -611,6 +611,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to bind data from data table to template marker in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20Data%20to%20Template/Import%20Data%20Table).
+
 The following screenshot represents an Excel file in which the data type is detected and then number format is applied.
 
 ![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
@@ -1179,6 +1181,8 @@ public partial class Order
 }
 {% endhighlight %}
 {% endtabs %} 
+
+A complete working example to bind data from nested collections to template marker in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20Data%20to%20Template/Import%20Nested%20Collection).
 
 The output of all the import data and group options with input templates are as follows.
 
@@ -2061,6 +2065,8 @@ public class Sales
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to import data to template marker with conditional formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20Data%20to%20Template/Conditional%20Formatting).
+
 The following screenshot represents generated Excel file in which the conditional format is applied.
 
 ![Template marker with conditional formatting Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
@@ -2511,6 +2517,8 @@ public class Company
 }
 {% endhighlight %}
 {% endtabs %} 
+
+A complete working example to import data to template marker with hyperlink in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20Data%20to%20Template/Import%20with%20Hyperlinks).
 
 The following screenshot represents generated Excel file in which the hyperlink is added.
 

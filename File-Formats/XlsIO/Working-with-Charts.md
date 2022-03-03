@@ -165,6 +165,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to create a chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Create%20Chart). 
+
 ### Creating a Chart from directly entered Values
 
 A chart in XlsIO can also be created from directly entered values. The Following code snippets illustrate how to create a chart from directly entered values.
@@ -314,6 +316,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to create a chart from scratch in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20from%20Scratch).
  
 ### Creating a Chart by adding Series
 
@@ -603,6 +607,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to create a chart through series in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20through%20Series).
  
 ### Creating a chart Sheet 
 
@@ -737,6 +743,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to create a chart worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20Sheet).
 
 ## Creating Custom Charts 
 
@@ -1748,6 +1756,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to create a custom chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Custom%20Chart).
+
 ![chart](Working-with-Charts_images/Working-with-charts_img1.jpeg)
 
 
@@ -1879,6 +1889,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to remove chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Remove%20Chart).
  
 ## Chart Appearance Settings
 
@@ -2318,7 +2330,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   }
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example for chart appearance in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20Appearance). 
 
 ### Font settings for chart legend and data labels
 
@@ -2533,6 +2547,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example for chart font settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Font%20Settings%20in%20Chart). 
+
 ### Border Style for Chart Series
 
 A unique border style like line color, line weight, and line pattern can be set for each chart series. Also, these settings can be made for each data point in the chart series. 
@@ -2714,6 +2730,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example for chart series border settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20Series%20Border). 
+
 ### Adjust space between chart bars
 
 Spaces between chart bars are of two types.
@@ -2890,6 +2908,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example for adjusting space between chart bars in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20Bars%20Spacing). 
+
 ### Hide Chart Gridlines
 
 Excel chart consists of two types of gridlines such as **major gridlines** and **minor gridlines**. Major gridlines represent the main values in the axis and minor gridlines represent possible values between two adjacent axis values. You can show or hide these gridlines using [HasMajorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMajorGridLines) and [HasMinorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMinorGridLines) of **IChartAxis** interface.
@@ -3063,6 +3083,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to hide chart gridlines in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20Gridlines). 
+
 ### Add High-Low Lines
 
 High-low lines are used in Excel line charts and stock charts that connect the highest and lowest points of a category.
@@ -3218,6 +3240,8 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to show high low lines of chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/High%20Low%20Lines). 
 
 The following screen shot shows the high-low lines in the line chart.
 
@@ -3379,6 +3403,8 @@ using (ExcelEngine engine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add drop lines of chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Drop%20Lines). 
+
 The following screen shot shows the drop lines in the line chart.
 
 ![Drop lines](Working-with-Charts_images/droplines.jpg)
@@ -3539,6 +3565,8 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to add series lines of chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Series%20Lines). 
 
 The following screen shot shows the series lines in the stacker bar chart.
 
@@ -3719,6 +3747,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to fill plot area with picture in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Picture%20in%20Plot%20Area). 
+
 ### Fill chart area with picture
 
 Chart area holds plot area, legend, axes, data table, and so on. This chart area can be filled with solid colors, texture, picture, and pattern. 
@@ -3888,6 +3918,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to fill chart area with picture in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Picture%20in%20Chart%20Area). 
 
 ## Applying 3D Formats
 
@@ -4208,6 +4240,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example for 3D chart formats in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/3D%20Chart). 
 
 ## Customizing chart and Chart Elements
 
@@ -4780,7 +4814,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   }
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example explaining different chart elements in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20Elements).  
 
 N> In order to position the chart elements, plot area should be smaller than chart area.
 
@@ -4956,6 +4992,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to explode a pie chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Explode%20Pie%20Chart).  
 
 ## Add Picture to Chart and assign Hyperlink
 
@@ -5139,6 +5177,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example for picture hyperlink in chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Picture%20Hyperlink%20in%20Chart).  
 
 N> XlsIO supports adding picture only to a chart in the workbook,but does not support adding picture to a chart in the worksheet. 
 
@@ -5416,6 +5456,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add data table in chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/DataTable%20in%20Chart).
+
 ## Sparkline 
 
 [Sparkline](https://support.office.com/en-us/article/use-sparklines-to-show-data-trends-1474e169-008c-4783-926b-5c60e620f5ca) is a small chart in a worksheet cell that provides a visual representation of data.
@@ -5603,6 +5645,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to create sparklines in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Create%20Sparkline).
+
 ### Modifying an existing spark line
 
 XlsIO provides an option to edit the data of existing Sparklines. The following code snippet shows how to achieve this.
@@ -5749,6 +5793,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to edit sparklines in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Edit%20Sparkline).
 
 ### Removing Sparklines
 
@@ -5918,6 +5964,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to remove sparklines in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Remove%20Sparklines).
 
 N> Sparklines are supported only from Excel 2007 onwards and are ignored in the earlier versions.
 
@@ -6122,6 +6170,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Funnel1191611286.zip#).
+
+A complete working example to create funnel chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Funnel).
 
 The following screen shot shows the output of above code.
 
@@ -6420,6 +6470,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Box_and_Whisker1075978354.zip#).
 
+A complete working example to create box and whisker chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Box%20and%20Whisker).
+
 The following screen shot shows the output of above code.
 
 ![box and whisker chart](Working-with-Charts_images/boxandwhisker.jpeg)
@@ -6657,6 +6709,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The input template can be downloaded [here.](https://www.syncfusion.com/downloads/support/directtrac/general/ze/waterfall1416377471.zip#)
 
+A complete working example to create waterfall chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Waterfall).
+
 The following screen shot shows the output of above code.
 
 ![waterfall chart](Working-with-Charts_images/waterfall.jpeg)
@@ -6888,6 +6942,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 The input template can be downloaded [here.](https://www.syncfusion.com/downloads/support/directtrac/general/ze/histogram1512012627.zip#)
+
+A complete working example to create histogram chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Histogram).
 
 The following screen shot shows the output of above code.
 
@@ -7127,6 +7183,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/pareto1141391394.zip# ).
 
+A complete working example to create pareto chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Pareto).
+
 The following screen shot shows the output of above code.
 
 ![pareto chart](Working-with-Charts_images/pareto.jpeg)
@@ -7334,6 +7392,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/treemap1366604090.zip#).
 
+A complete working example to create treemap chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Treemap).
+
 The following screen shot shows the output of above code.
 
 ![treemap chart](Working-with-Charts_images/treemap.jpeg)
@@ -7540,6 +7600,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 The input template can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/sunburst1589499118.zip#).
+
+A complete working example to create sunburst chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Sunburst).
 
 The following screen shot shows the output of above code.
 

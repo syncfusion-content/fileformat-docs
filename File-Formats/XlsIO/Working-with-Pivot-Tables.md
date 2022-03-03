@@ -348,6 +348,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to create a pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Create%20Pivot%20Table).
+
 ## Editing and formatting a pivot table
 
 A pivot table can be accessed from the **IPivotTables** interface that have the collection of pivot tables in the worksheet. You can modify the pivot table format or pivot cell format using IPivotTable properties and methods.
@@ -495,7 +497,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   }
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example to format a pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Format%20Pivot%20Table). 
 
 ### Pivot Cell Formatting
 
@@ -631,6 +635,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to format a pivot cell in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Format%20Pivot%20Cell). 
 
 The following screenshot represents the input template of pivot table inline formatting.
 
@@ -773,7 +779,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   }
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example to refresh a pivot table dynamically in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Dynamic%20Refresh).  
 
 The following code snippet illustrates how to refresh the pivot table after update the cell value in pivot data source.
 
@@ -932,6 +940,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to refresh a pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Refresh%20Pivot%20Table). 
+
 ## Pivot table Layout
 
 When you create pivot table in XlsIO, the pivot values are not set in the worksheet cells. Pivot table layout option set the pivot values to worksheet cells. XlsIO supports the layout option for all three pivot table types.
@@ -1061,6 +1071,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to layout a pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Pivot%20Layout). 
 
 The following screenshots represents the generated Excel file with pivot table layout in XlsIO.
 
@@ -1368,6 +1380,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to layout a pivot table classically in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Classic%20Layout). 
+
 ## Expand or collapse rows in pivot table
 
 Essential XlsIO allows you to expand and collapse the **PivotFieldItems** or simply the pivot table rows using **IsHiddenDetails** of **PivotItemOptions**.
@@ -1588,6 +1602,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to expand or collapse rows in pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Expand%20or%20Collapse%20Pivot%20Rows). 
 
 ## Applying pivot table filters 
 
@@ -2053,7 +2069,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   }
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example to apply pivot filter in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Pivot%20Filter).  
   
 ## Applying pivot table settings  
 
@@ -2511,6 +2529,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %} 
 
+A complete working example for top to bottom sort in pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Sort%20Top%20to%20Bottom). 
+
 ### Sort a Pivot Table Field Left to Right
 
 Left to Right sorting can sort the pivot table row field values based on the sort type. To apply Left to Right sorting in pivot table, you should apply the sorting in pivot column field by AutoSort method. The following code example illustrates how to apply Left to Right sorting to a pivot table.
@@ -2655,6 +2675,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example for left to right sort in pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Sort%20Left%20to%20Right). 
 
 N> PivotCacheImpl.IsRefreshOnLoad property is set as true when applying AutoSort to pivot fields.
 
@@ -2960,84 +2982,4 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-### Layout the pivot table like Excel
-
-A pivot table can be created similar to the Excel layout. 
-
-The following code example illustrates how to enable Essential XlsIO to layout the pivot table like Excel. 
-
-{% tabs %}
-{% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-  IWorksheet pivotSheet = workbook.Worksheets[1];
-
-  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
-
-  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
-  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
-  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
-
-  IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
-  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
-
-  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
-
-  //pivot table layout
-  pivotTable.Layout();
-
-  workbook.SaveAs("PivotTable.xlsx");
-  excelEngine.ThrowNotSavedOnDestroy = false;
-}
-{% endhighlight %}
-
-{% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-
-  Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-  Dim pivotSheet As IWorksheet = workbook.Worksheets(1)
-
-  Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
-
-  Dim pivotTable As IPivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A1"), cache)
-  pivotTable.Fields(4).Axis = PivotAxisTypes.Page
-  pivotTable.Fields(2).Axis = PivotAxisTypes.Row
-  pivotTable.Fields(6).Axis = PivotAxisTypes.Row
-  pivotTable.Fields(3).Axis = PivotAxisTypes.Column
-
-  Dim dataField As IPivotField = pivotSheet.PivotTables(0).Fields(5)
-  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum)
-
-  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12
-
-  'pivot table layout
-  pivotTable.Layout()
-
-  workbook.SaveAs("PivotTable.xlsx")
-  excelEngine.ThrowNotSavedOnDestroy = False
-End Using
-{% endhighlight %}
-
-{% highlight UWP %}
-//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight asp.net core %}
-//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight Xamarin %}
-//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-{% endtabs %}  
-
+A complete working example to add calculated field in pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Calculated%20Field). 

@@ -77,6 +77,8 @@ validation.SecondFormula = "5";
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example for text length data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Text%20Length%20Validation).
+
 ## Time Validation
 
 The following code snippet illustrates how to set time validation.
@@ -136,7 +138,9 @@ validation.CompareOperator = ExcelDataValidationComparisonOperator.Between;
 validation.FirstFormula = "10.00";
 validation.SecondFormula = "12.00";
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example for time data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Time%20Validation).  
 
 ## List Validation
 
@@ -173,6 +177,8 @@ IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.ListOfValues = new string[] { "ListItem1", "ListItem2", "ListItem3" };
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example for list data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/List%20Validation). 
 
 N> The ListOfValues property should be used when the values in the Data Validation list are entered manually whose limit is only 255 characters including separators.
 
@@ -237,6 +243,8 @@ validation.SecondFormula = "10";
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example for number data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Number%20Validation). 
+
 ## Date Validation
 
 The following code snippet illustrates how to set date validation.
@@ -296,7 +304,9 @@ validation.CompareOperator = ExcelDataValidationComparisonOperator.Between;
 validation.FirstDateTime = new DateTime(2003, 5, 10);
 validation.SecondDateTime = new DateTime(2004, 5, 10);
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example for number data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Number%20Validation).   
 
 ## Custom Validation
 

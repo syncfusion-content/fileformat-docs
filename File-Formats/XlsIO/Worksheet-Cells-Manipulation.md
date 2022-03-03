@@ -192,6 +192,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to access a cell or range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Access%20Cell%20or%20Range).
+
 T> You can use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
 
 ## Accessing Relative Range
@@ -378,6 +380,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to access relative range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Access%20Relative%20Range).
+
 ### Accessing Discontinuous Ranges
 
 You can access discontinuous ranges and add them to the **RangesCollection**.  You can modify the contents or applying formatting of discontinuous range through RangeCollection instance. 
@@ -524,6 +528,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to access discontinuous range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Access%20Discontinuous%20Range).
 
 ### Accessing a Cell or Range using IMigrantRange 
 
@@ -680,6 +686,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to access migrant range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Access%20Migrant%20Range).
+
 ## Accessing used range of a Worksheet
 
 The following code snippet shows how to get the range of cells used in a given sheet.
@@ -825,6 +833,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to access used range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Access%20Used%20Range).
 
 ## Get Precedent and Dependent Cells or Range
 
@@ -1367,6 +1377,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to get the precedent and dependent cells in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Precedent%20and%20Dependent%20Cells).
+
 ## Clearing a Cell Content
 
 You can delete everything in the cell, or just remove the formatting, contents, comments. The following code example illustrates how to clear a range along with its formatting.
@@ -1491,6 +1503,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to clear cell content in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Clear%20Content).
 
 ## Copy or Move a Range
 
@@ -1640,6 +1654,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to copy range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Copy%20Range).
+
 **MoveTo** method is used for moving a range of cells to another range as shown below. 
 
 N> MoveTo method does not update formulas.
@@ -1771,6 +1787,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to move range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Move%20Range).
 
 ## Copy and Paste As Link
 
@@ -1905,6 +1923,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to copy and paste as link in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Paste%20As%20Link).
 
 ## Skip Blanks While Copying
 
@@ -2453,7 +2473,7 @@ You can sort a range of cells based on data in one or more columns. You can perf
 
 N> Currently XlsIO don’t support sorting based on cell icon, parsing and serialization of its sorting details.
 
-**Based** **on** **Cell** **Values**
+### Based on Cell Values
 
 The following code snippet explains how to sort a range of cells by values 
 
@@ -2634,6 +2654,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to sort Excel data based on cell values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Sort%20On%20Cell%20Values).
 
 ### Based on Font Color
 
@@ -2847,6 +2869,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to sort Excel data based on font color in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Sort%20on%20Font%20Color).
+
 ### Based on Cell Color
 
 The following code snippet explains how to move a range of cells with the specified cell background color to either top or bottom of the sorting range.
@@ -3057,6 +3081,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to sort Excel data based on cell color in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Sort%20On%20Cell%20Color).
+
 ## Data Filtering 
 
 Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e), you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria. The following are the types of filters that can be used in XlsIO.
@@ -3240,6 +3266,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to apply filter on Excel data in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Filter).
+
 ### Custom Filter
 
 Following code snippets illustrates how to apply custom filter, based on first and second condition.
@@ -3417,6 +3445,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to apply custom filter on Excel data in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Custom%20Filter).
+
 ### Combination Filter
 
 This filter contains both Text filter and DateTime filter, it filters the data based on multiple criteria. Following code snippets illustrates how to apply combination filter with multiple of Text filter and DateTime filter.
@@ -3589,6 +3619,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to apply combination filter on Excel data in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Combination%20Filter).
+
 ### Dynamic Filter
 
 Dynamic filter is a relative date filter, which filters data based on DynamicFilterType enumeration. Following code snippets illustrates how to apply Dynamic filter.
@@ -3740,6 +3772,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply dynamic filter on Excel data in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Dynamic%20Filter).
 
 ### Color Filter
 
@@ -3893,6 +3927,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to apply color filter on Excel data based on cell color in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Cell%20Color%20Filter).
+
 To filter cells based on Font color of the text inside cells just change the ExcelColorFilterType to Font Color. The following snippets show how to filter the cells based on font color.
 
 {% tabs %}
@@ -4042,6 +4078,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply color filter on Excel data based on font color in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Font%20Color%20Filter).
 
 ### Icon Filter
 
@@ -4194,6 +4232,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply icon filter on Excel data in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Icon%20Filter).
 
 ### Advanced Filter
 
@@ -4348,6 +4388,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply advanced filter on Excel data in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Advanced%20Filter).
 
 ### Accessing Filter
 
@@ -4668,6 +4710,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to access filters from Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Accessing%20Filter).
+
 ## Hyperlinks
 
 You can create hyperlink in a workbook to provide quick access to web pages, places in your document and files. Hyperlink may target to any one of the following
@@ -4935,6 +4979,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add hyperlinks in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Hyperlinks).
+
 ### Modifying Existing Hyperlink
 
 You can modify the properties of existing hyperlink by accessing the Hyperlinks collection of the IRange instance.
@@ -5062,6 +5108,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to modify existing hyperlink in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Modify%20Hyperlink).
+
 ### Removing Hyperlink
 
 You can remove a hyperlink from a range by accessing the Hyperlinks collection of the IRange instance.
@@ -5183,6 +5231,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to remove existing hyperlink in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Remove%20Hyperlink).
 
 ### Hyperlinks on Shapes
 
@@ -5381,6 +5431,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to add hyperlink to shape in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Shape%20Hyperlink).
+
 **Modifying** **Hyperlinks** **on** **Shapes**
 
 Properties of existing hyperlink can be modified by accessing either the Hyperlinks collection of the IWorksheet instance or Hyperlink property in respective IShape instance.
@@ -5530,6 +5582,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to modify shape hyperlink in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Modify%20Shape%20Hyperlink).
+
 **Removing** **Hyperlinks** **from** **Shapes**
 
 Hyperlinks from shapes can be removed by accessing Hyperlinks collection of the worksheet instance.
@@ -5653,6 +5707,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to remove shape hyperlink in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Remove%20Shape%20Hyperlink).
 
 ## List of APIs under IRange 
 

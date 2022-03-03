@@ -255,5 +255,7 @@ pivotChart.ShowValueFieldButtons = false;
 {% endhighlight %}
 
   {% endtabs %}  
+  
+A complete working example to create pivot chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Charts/Create%20Pivot%20Chart). 
 
 
