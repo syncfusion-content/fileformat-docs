@@ -72,6 +72,16 @@ Essential Presentation
 </tr>
 </table>
 
+## File Format Security Information
+
+Syncfusion products are used around the world in some very sensitive applications.  We must be concerned about security.
+
+We have built our products with security as a priority.  Each control is self-contained and needs no outside server or Syncfusion API.  Our products only exist as defined by the developer and only do the commands defined by the developer.  We built them so they should fit into any security paradigms used by our customers.
+
+Syncfusion does not offer any hosted Web APIs our customers can use.  We provide the necessary libraries and code examples for our customers to build their own APIs so they can customize the functionality as needed and manage their own security.
+
+![File Format Security Information](introductionpage_images/securityinfo.png)
+	
 ## Quick Start links:
 
 [Create a PDF file in C# without Adobe](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net)
