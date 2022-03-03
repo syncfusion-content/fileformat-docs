@@ -180,6 +180,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Checkbox.docx", "appli
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Add-checkbox-form-field).
+
 You can modify the checkbox properties such as checked state, size, help text in a Word document. The following code illustrates how to modify the checkbox form field properties.
 
 {% tabs %} 
@@ -306,6 +308,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Modify-checkbox-form-field).
 
 ## Drop-Down
 
@@ -451,6 +455,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Dropdown.docx", "appli
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Add-dropdown-form-field).
+
 You can add or modify list of items of a Dropdown form field in a Word document. The following code illustrates how to modify the dropdown list of a Dropdown form field.
 
 {% tabs %}  
@@ -576,6 +582,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Modify-dropdown-form-field).
 
 ## Text Form field
 
@@ -771,6 +779,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Add-text-form-field).
+
 You can add or modify text form field properties such as default text, type in a Word document. The following code illustrates how to modify the text form field
 
 {% tabs %} 
@@ -960,3 +970,5 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Modify-text-form-field).

@@ -141,6 +141,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
+
 ## Modifying a Comment
 
 The following code illustrates how to modify the text of an existing comment in the Word document:
@@ -236,7 +238,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ModifiedComment.docx",
 {% endhighlight %}
 
 {% endtabs %}  
-  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Modify-text-of-an-existing-comment).
+
 ## Removing Comments
 
 You can either remove all the comments or a particular comment from the Word document.
@@ -310,6 +314,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Remove-all-comments-in-Word-document).
+
 The following code illustrates how to remove a particular comment from Word document.
 
 {% tabs %} 
@@ -380,6 +386,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Remove-particular-comment-from-Word).
 
 ## Accessing parent comment
 
@@ -458,3 +466,5 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Access-parent-comment).
