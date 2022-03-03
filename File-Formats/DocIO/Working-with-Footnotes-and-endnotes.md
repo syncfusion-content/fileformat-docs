@@ -175,6 +175,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Add-footnotes-in-Word-document).
+
 ## Adding a Endnotes
 
 The following code example shows how to insert the endnotes into the Word document.
@@ -335,7 +337,9 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}  
-   
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Add-endnotes-in-Word-document).
+
 ## Footnote and Endnote separators
 
 Footnote/Endnote separator is used to separate the text body content and footnote/endnote by a small line. 
@@ -518,6 +522,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Change-default-footnote-separator).
+
 The following code example shows how to change the default endnote separator.
 
 {% tabs %} 
@@ -691,6 +697,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Change-default-endnote-separator).
 
 ## Removing a Footnotes/Endnotes
 
@@ -1040,3 +1048,5 @@ private static void RemoveFootNoteEndNote(WTable table)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Remove-footnotes-and-endnotes).

@@ -303,6 +303,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from Stream from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Security/Open-encrypted-Word-document).
+
 ## Opening the read only Word document
 
 You can open the ready only documents or read only streams using the OpenReadOnly method. If the Word document for reading is opened by any other application such as Microsoft Word, then the same document can be opened using DocIO in ReadOnly mode. The following code sample demonstrates the same.
