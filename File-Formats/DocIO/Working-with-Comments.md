@@ -471,7 +471,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Retrieve the commented word of a Comment
 
-The following code illustrates how to get the commented word or items from an existing comment in the Word document.
+The following code example illustrates how to get the commented word or items from an existing comment in the Word document.
 
 {% tabs %}  
 
