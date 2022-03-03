@@ -5,7 +5,7 @@ platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Macros
+# Working with Macros in Syncfusion Excel library
 
 Macro is a set of process that can be run repeatedly in Excel document. 
 
@@ -221,7 +221,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %}
+
+A complete working example to create macro as document in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20Document).    
 
 The Vba project in the output looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image1.png)
@@ -435,6 +437,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to create macro as standard module in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20StdModule).    
+
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image3.png)
 
@@ -477,7 +481,7 @@ IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% highlight Xamarin %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
+IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% endhighlight %}
 {% endtabs %}   
 
@@ -662,6 +666,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example to create macro as class in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20Class).    
 
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image5.png)
@@ -943,6 +949,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to create macro as MS Form in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20MSForm).
+
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image7.png)
 
@@ -1151,6 +1159,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to assign macro to shape in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Shapes%20with%20Macro).
+
 When the shape is clicked, the output looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image8.png)
 
@@ -1306,7 +1316,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to save macro enabled document into stream in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Save%20as%20Stream).  
 
 ## Editing a Macro
 XlsIO allows to edit the existing macros in the Excel documents. To edit macros in Excel document, the module containing the macro code needs to be modified. By using the name of the module, it can be accessed and edited in XlsIO.
@@ -1506,6 +1518,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to edit macro in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Edit%20Macro).  
+
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image9.png)
 
@@ -1697,7 +1711,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to remove macro using name in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Name).    
 
 ### RemoveAt(int index)
 Vba module can be removed using the position from the IVbaModules collection.
@@ -1873,7 +1889,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to remove macro using index in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Index).      
 
 ### Clear()
 Clear() method removes all the Vba modules at once by clearing the module collection.
@@ -2048,6 +2066,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to remove all macros in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Clear%20All%20Macros).      
+
 ### SkipOnSave
 SkipOnSave allows to resave the Excel document into normal XLSX and XLS documents.
 
@@ -2192,4 +2212,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to skip macro on save in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Skip%20Macro%20and%20Save).      
+  

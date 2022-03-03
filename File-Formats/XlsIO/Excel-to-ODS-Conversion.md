@@ -1,6 +1,6 @@
 ---
-title: Excel to ODS Conversion
-description: Briefs about Excel to ODS conversion in XlsIO
+title: Excel to ODS Conversion in Syncfusion .NET Excel Library
+description: In this section, you can learn how to convert Excel docuemnts to ODS docuemnts using Syncfusion .NET Excel library
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -277,6 +277,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to convert Excel to ODS in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20ODS/Excel%20to%20ODS). 
 
 ## Supported and unsupported elements in ODS conversion
 

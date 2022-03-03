@@ -145,6 +145,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to insert rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Insert%20Rows%20and%20Columns).
+
 N> Row and Column index of Insert methods are "one based".
 
 To know more about insert rows and columns, refer to the **WorksheetImpl** in API section.
@@ -283,6 +285,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to delete rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Delete%20Rows%20and%20Columns).
+
 T>To extract values little faster or to delete a larger number of rows and columns, use Un-Safe code option of **IApplication** interface as follows
 
 {% tabs %}  
@@ -308,6 +312,8 @@ application.DataProviderType = ExcelDataProviderType.Unsafe;
 {% endhighlight %}
 {% endtabs %}  
   
+### Move Rows and Columns 
+
 In addition, cells can be deleted by shifting other cells in a row or column towards up/left by one step. This can be done by using the **Clear** method as shown in the following code.
 
 {% tabs %}  
@@ -440,6 +446,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to move rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Move%20Rows%20and%20Columns).
+
 N> Deletion by using above method is more efficient than looping.
 N> Row/Column index of these methods are "one based".
 
@@ -571,6 +579,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to hide rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Hide%20Rows%20and%20Columns).
 
 ## Show or Hide Specific Range
 
@@ -727,6 +737,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to hide specific range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Hide%20Range).
 
 N> Resetting column width manually or through AutoFit, for the columns hidden using [ShowColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ShowColumn_System_Int32_System_Boolean_)/[HideColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_HideColumn_System_Int32_) methods will make the hidden columns visible.
 N> Resetting row height manually or through AutoFit,  for the rows hidden using [ShowRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ShowRow_System_Int32_System_Boolean_) /[HideRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_HideRow_System_Int32_) methods will make the hidden rows visible.
@@ -979,6 +991,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to resize rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Resize%20Rows%20and%20Columns).
 
 N> If a column width or a row height is 0, then the column or row is hidden.
 N> Column width and row height can also be set in pixels, by using the IWorksheet.SetColumnWidthInPixel and IWorksheet.SetRowHeightInPixel methods respectively.
@@ -1329,6 +1343,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to autofit rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Autofit%20Rows%20and%20Columns).
+
 N> 1) If a Range is text wrapped, the AutoFitColumn method will not be applied on it.
 N> 2) If a Range is merged, the Auto-Fit methods will not be applied on it. Note that this is the behavior of Excel as well.
 N> 3) Auto fitting is a time consuming process so, it might cause performance issues when used excessively.
@@ -1502,6 +1518,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to group rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Group%20Rows%20and%20Columns).
+
+A complete working example to ungroup rows and columns in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Ungroup%20Rows%20and%20Columns).
+
 ### Expand or Collapse Groups
 
 Groups can be expanded and collapsed using the **ExpandGroups** and **CollapseGroups** methods of __IRange__, which is given in the following code snippet.
@@ -1640,6 +1660,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to expand or collapse groups in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Format%20rows%20and%20columns/Expand%20or%20Collapse%20Groups).
 
 ### Subtotal
 

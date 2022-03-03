@@ -85,6 +85,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to import data from DataTable to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataTable%20to%20Worksheet).  
+
 ### Import Data from DataColumn
 
 The following code snippet illustrates how to import DataColumn into a worksheet using **ImportDataColumn** method.
@@ -155,6 +157,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to import data from DataColumn to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataColumn%20to%20Worksheet).  
+
 ### Import Data from DataView
 
 The following code snippet illustrates how to import DataView into a worksheet using **ImportDataView** method.
@@ -223,7 +227,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight Xamarin %}
 //XlsIO supports importing data view to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example to import data from DataView to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataView%20to%20Worksheet).   
 
 ### Import Data from Collection Objects
 
@@ -525,6 +531,8 @@ public class Customer
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to import data from Collection Objects to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/CollectionObjects%20to%20Worksheet).   
 
 ### Import Data Options
 
@@ -857,6 +865,8 @@ public class Customer
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to import data to Excel worksheet with import data options in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20Data%20Options).
 
 ### Import Data from Nested Collection Objects
 
@@ -1956,6 +1966,8 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to import data to Excel worksheet with layout option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Layout%20Options).
 
 The following screenshot represents the output document with Default layout option.
 
@@ -3150,6 +3162,8 @@ namespace ImportFromNestedCollection
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to import data to Excel worksheet with grouping option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Grouping%20Options).
+
 The following screenshot represents the output document of Grouped data imported from nested collection and collapsed at level 2.
 
 ![Grouped data imported from nested collection and collapsed at level 2](Working-with-Data_images/Working-with-Data_img4.png)
@@ -3564,6 +3578,8 @@ public class Company
 {% endhighlight %}
 {% endtabs %} 
 
+A complete working example to import data from collection objects with hyperlink to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20with%20Hyperlink).
+
 ### Import Data from Array
 
 The following code snippet shows how to import array of data into a worksheet using **ImportArray** method.
@@ -3684,6 +3700,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to import data from array to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Array%20to%20Worksheet).
+
 ## Exporting from Worksheet to Data Table 
 
 XlsIO allows to export the sheet data to a **DataTable** by using the **ExportDataTable****()** method. This method provides various options that allows to export data with specific requirement through ExcelExportDataTableOptions. 
@@ -3791,6 +3809,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to export data from Excel worksheet to DataTable in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20DataTable).
 
 ### Export to Data Table with an Event
 
@@ -4221,6 +4241,8 @@ public class Report
 {% endhighlight %}
 {% endtabs %} 
 
+A complete working example to export data from Excel worksheet to collection objects in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20CollectionObjects).
+
 ## Export data from Excel to Nested Class Objects
 
 XlsIO allows to export worksheet data to nested class objects. A new overload to the existing `ExportData<T>()` method helps to achieve this requirement by mapping column headers with class properties.
@@ -4589,6 +4611,8 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to export data from Excel worksheet to nested class in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20Nested%20Class).
 
 ## Importing Data from Microsoft Grid Controls to Worksheet
 
@@ -4987,6 +5011,8 @@ namespace ImportHtml
 {% endhighlight %}
 
 {% endtabs %}
+
+A complete working example to import data from HTML table to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/HTML%20Table%20to%20Worksheet).
 
 The following screenshot represents the image of the input HTML file with a table.
 

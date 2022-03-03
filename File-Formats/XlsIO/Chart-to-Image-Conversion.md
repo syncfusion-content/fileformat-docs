@@ -185,6 +185,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to convert Excel chart to image in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Chart%20to%20Image/Chart%20to%20Image).  
+
 N> 1. Instance of XlsIORenderer class is mandatory to convert the chart to image using .NET Standard 2.0 assemblies.
 N> 2. In .NET Standard, the Image format and quality can be specified using the ChartRenderingOptions property of XlsIORenderer class. By default the ImageFormat for chart is set to JPEG and ScalingMode is set to Best.
 N> 3. Chart conversion to image and PDF are supported from .NET Framework 4.0 and .NET Standard 2.0 onwards 

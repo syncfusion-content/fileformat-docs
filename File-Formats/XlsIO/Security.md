@@ -1238,3 +1238,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 
 N> Security features are now supported in .NET Standard 1.4 onwards.
+
+All complete working examples for above topics are present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/XlsIO-Excel-Protect-UnProtect). 
