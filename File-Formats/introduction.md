@@ -74,11 +74,11 @@ Essential Presentation
 
 ## File Format Security Information
 
-Syncfusion products are used around the world in some very sensitive applications.  We must be concerned about security.
+Syncfusion products are used   in some of the most sensitive applications.  We must be concerned about security.
 
-We have built our products with security as a priority.  Each control is self-contained and needs no outside server or Syncfusion API.  Our products only exist as defined by the developer and only do the commands defined by the developer.  We built them so they should fit into any security paradigms used by our customers.
+We prioritized security when developing our products.  Each control is self-contained and does not require outside server or Syncfusion API.  Our products  exist as defined by the developer and only do the commands defined by the developer.  We built them to work with any security paradigms that our customers can utilize.
 
-Syncfusion does not offer any hosted Web APIs our customers can use.  We provide the necessary libraries and code examples for our customers to build their own APIs so they can customize the functionality as needed and manage their own security.
+Our customers cannot use any hosted Web APIs provided by syncfusion.  We provide the necessary libraries and code examples for our customers to build their own APIs by allowing them to customize the functionality  and manage their own security.
 
 ![File Format Security Information](introductionpage_images/securityinfo.png)
 	
