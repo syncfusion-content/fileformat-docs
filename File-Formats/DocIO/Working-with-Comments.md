@@ -469,9 +469,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Access-parent-comment).
 
-## Retrieve the commented word of a Comment
+## Retrieve the commented word or items
 
-The following code example illustrates how to get the commented word or items from an existing comment in the Word document.
+The following code example illustrates how to get the paragraph item where existing in commented region based on the existing comment in the Word document.
 
 {% tabs %}  
 
