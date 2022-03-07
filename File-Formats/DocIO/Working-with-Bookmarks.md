@@ -1,5 +1,5 @@
 ---
-title: Working with Bookmarks | Word library | Syncfusion
+title: Working with Bookmarks in File Formats DocIO | Syncfusion
 description: This section illustrates how to work with Bookmarks in a Word document using Syncfusion Word library.
 platform: file-formats
 control: DocIO

@@ -1,5 +1,5 @@
 ---
-title: Working with Find and Replace | Syncfusion
+title: Working with Find and Replace  in File Formats DocIO | Syncfusion
 description: This section illustrates how to find a particular text and replace it with another text or part of the document
 platform: file-formats
 control: DocIO

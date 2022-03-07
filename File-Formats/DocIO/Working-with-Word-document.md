@@ -1,5 +1,5 @@
 ---
-title: Working with Word document | DocIO | Syncfusion
+title: Working with Word document in File Formats DocIO | Syncfusion
 description: Learn about combining multiple Word documents as one, printing Word document, applying styles, document properties, & iterating through DOM elements
 platform: file-formats
 control: DocIO

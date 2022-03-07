@@ -1,5 +1,5 @@
 ---
-title: Working with Fields | Syncfusion
+title: Working with Fields in File Formats DocIO | Syncfusion
 description: This section illustrates how to add dynamic information like title, time, page number, etc., in the Word document that updates automatically
 platform: file-formats
 control: DocIO
