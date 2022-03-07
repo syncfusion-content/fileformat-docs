@@ -471,7 +471,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Retrieve the commented word or items
 
-The following code example illustrates how to get the paragraph item where existing in commented region based on the existing comment in the Word document.
+The following code example illustrates how to get the paragraph item where it exists in the commented region based on the existing comment in the Word document.
 
 {% tabs %}  
 
