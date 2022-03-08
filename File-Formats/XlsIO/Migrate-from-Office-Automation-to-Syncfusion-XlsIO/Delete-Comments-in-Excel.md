@@ -15,7 +15,7 @@ The following code shows how to delete a comment from a cell with Interop and Xl
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void DeleteComment()
 {
     //Instantiate the application object
@@ -41,7 +41,7 @@ private void DeleteComment()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub DeleteComment()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -70,7 +70,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void DeleteComment()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -91,7 +91,7 @@ private void DeleteComment()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub DeleteComment()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

@@ -20,7 +20,7 @@ The following code shows how to hide Excel worksheets with Interop and XlsIO for
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void HideWorksheet()
 {
     //Instantiate the application object
@@ -46,7 +46,7 @@ private void HideWorksheet()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub HideWorksheet()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -75,7 +75,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void HideWorksheet()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -101,7 +101,7 @@ private void HideWorksheet()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub HideWorksheet()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

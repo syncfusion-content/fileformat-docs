@@ -13,7 +13,7 @@ Syncfusion XlsIO do support opening an Excel document that is already open in Mi
 OpenReadOnly method can be used in .NET Framework whereas FileShare.ReadWrite overload should be used while loading the file into file stream in .NET Standard. The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -25,7 +25,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;

@@ -15,7 +15,7 @@ The below code snippet illustrates how to load an Excel file using stream in Sil
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 
@@ -52,7 +52,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 'Load the file as stream
@@ -93,7 +93,7 @@ The following code snippet illustrate how to save an Excel document in Silverlig
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 SaveFileDialog dialog = new SaveFileDialog();
 
 dialog.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls";
@@ -146,7 +146,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim dialog As SaveFileDialog = New SaveFileDialog()
 
 dialog.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls"

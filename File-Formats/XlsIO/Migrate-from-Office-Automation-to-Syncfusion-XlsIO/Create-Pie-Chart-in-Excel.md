@@ -15,7 +15,7 @@ The following code shows how to create pie chart in Excel and to place it in a w
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void CreatePieChart()
 {
     //Instantiate the application object
@@ -63,7 +63,7 @@ private void CreatePieChart()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub CreatePieChart()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -113,7 +113,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void CreatePieChart()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -161,7 +161,7 @@ private void CreatePieChart()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub CreatePieChart()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object
