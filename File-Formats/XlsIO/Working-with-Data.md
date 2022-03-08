@@ -5021,3 +5021,5 @@ The following screenshot represents the image of the input HTML file with a tabl
 The following screenshot represents the image of the Excel output with data imported from HTML table.
 
 ![Output document imported from HTML table](Working-with-Data_images/Working-with-Data_img7.png)
+
+N> Syncfusion XlsIO supports importing HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.
