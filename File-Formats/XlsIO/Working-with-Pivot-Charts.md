@@ -18,7 +18,7 @@ The following code snippet illustrates how to create a PivotChart.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -42,7 +42,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = ExcelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -105,7 +105,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -135,7 +135,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -191,7 +191,7 @@ N> The PivotChart properties are supported exclusively from Excel 2010 onwards.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 //Adding PivotChart to the workbook
 IChart pivotChart = workbook.Charts.Add();
 
@@ -204,7 +204,7 @@ pivotChart.ShowValueFieldButtons = false;
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Insert the PivotChart sheet to the workbook
 Dim pivotChartSheet As IChart = workbook.Charts.Add()
 
@@ -229,7 +229,7 @@ pivotChart.ShowReportFilterFieldButtons = false;
 pivotChart.ShowValueFieldButtons = false;  
 
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 //Adding PivotChart to the workbook
 IChart pivotChart = workbook.Charts.Add();
 
@@ -241,7 +241,7 @@ pivotChart.ShowReportFilterFieldButtons = false;
 pivotChart.ShowValueFieldButtons = false;  
 
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Adding PivotChart to the workbook
 IChart pivotChart = workbook.Charts.Add();
 

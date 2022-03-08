@@ -1,6 +1,6 @@
 ---
 title: Add Comments in Excel | Syncfusion
-description: Explains with an example on how to add Excel comments programmatically using Interop and XlsIO.
+description: This section explains with an example on how to add Excel comments programmatically using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -15,7 +15,7 @@ The following code shows how to add a comment with text to a cell using Interop 
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void AddComment()
 {
     //Instantiate the application object
@@ -38,7 +38,7 @@ private void AddComment()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub AddComment()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -64,7 +64,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void AddComment()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -86,7 +86,7 @@ private void AddComment()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub AddComment()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

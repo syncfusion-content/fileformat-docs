@@ -13,7 +13,7 @@ Hidden sheets can be unhidden. The following code shows how to unhide Excel work
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void UnhideWorksheet()
 {
     //Instantiate the application object
@@ -36,7 +36,7 @@ private void UnhideWorksheet()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub UnhideWorksheet()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -62,7 +62,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void UnhideWorksheet()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -85,7 +85,7 @@ private void UnhideWorksheet()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub UnhideWorksheet()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

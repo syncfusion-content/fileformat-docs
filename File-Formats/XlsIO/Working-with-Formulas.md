@@ -16,14 +16,14 @@ To perform calculation in an Excel workbook, it is recommended to invoke **Enabl
 The following code sample illustrates on how to enable worksheet formula calculations.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 IWorksheet sheet = workbook.Worksheets[0];
 
 //Formula calculation is enabled for the sheet
 sheet.EnableSheetCalculations();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 'Formula calculation is enabled for the sheet
@@ -37,14 +37,14 @@ IWorksheet sheet = workbook.Worksheets[0];
 sheet.EnableSheetCalculations();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IWorksheet sheet = workbook.Worksheets[0];
 
 //Formula calculation is enabled for the sheet
 sheet.EnableSheetCalculations();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IWorksheet sheet = workbook.Worksheets[0];
 
 //Formula calculation is enabled for the sheet
@@ -57,14 +57,14 @@ On completion of worksheet calculation, it is recommended to invoke **DisableShe
 The following code sample illustrates on how to disable worksheet formula calculations.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 IWorksheet sheet = workbook.Worksheets[0];
 
 //Formula calculation is disabled for the sheet
 sheet.DisableSheetCalculations();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 'Formula calculation is disabled for the sheet
@@ -78,14 +78,14 @@ IWorksheet sheet = workbook.Worksheets[0];
 sheet.DisableSheetCalculations();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IWorksheet sheet = workbook.Worksheets[0];
 
 //Formula calculation is disabled for the sheet
 sheet.DisableSheetCalculations();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IWorksheet sheet = workbook.Worksheets[0];
 
 //Formula calculation is disabled for the sheet
@@ -98,7 +98,7 @@ sheet.DisableSheetCalculations();
 In a worksheet, formulas can be entered by using the **Formula** property of IRange instance. Following code example illustrates on how to write a formula.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -117,7 +117,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -164,7 +164,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -186,7 +186,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -230,7 +230,7 @@ A complete working example to insert formula in Excel cell in C# is present on [
 XlsIO supports using formulas across worksheets. The following code shows how to apply formula with cross-sheet references.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -245,7 +245,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -284,7 +284,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -302,7 +302,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -344,12 +344,12 @@ Formulas are string values which can be accessed using **Formula** property of _
 The following code shows how to read a formula.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Returns the formula in C1 style notation
 string formula = sheet["C1"].Formula;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Returns the formula in C1 style notation
 Dim formula as String = sheet("C1").Formula
 {% endhighlight %}
@@ -359,12 +359,12 @@ Dim formula as String = sheet("C1").Formula
 string formula = sheet["C1"].Formula;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Returns the formula in C1 style notation
 string formula = sheet["C1"].Formula;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Returns the formula in C1 style notation
 string formula = sheet["C1"].Formula;
 {% endhighlight %}
@@ -377,7 +377,7 @@ To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsi
 The following code shows how to access a calculated value.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -396,7 +396,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -452,7 +452,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -475,7 +475,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -525,7 +525,7 @@ To know more about evaluated values, please refer **IRange** in API section.
 The following code shows how to access calculated values in different types.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -568,7 +568,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 //D1_PreviousValue - 2.0                        D1_LatestValue - 3.0
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -672,7 +672,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 //D1_PreviousValue - 2.0                        D1_LatestValue - 3.0
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -719,7 +719,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 //D1_PreviousValue - 2.0                        D1_LatestValue - 3.0
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -795,7 +795,7 @@ Formula separators vary for different cultures, and exceptions can be thrown in 
 Following code illustrates on how to change the formula separators.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -810,7 +810,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -847,7 +847,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -864,7 +864,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -905,7 +905,7 @@ Array formula is a special type of formula in Excel. It works with an array or s
 Following code shows how an array of values from [Named Range](/file-formats/xlsio/working-with-formulas#defined-names) is used for computation. 
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -927,7 +927,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -978,7 +978,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1002,7 +1002,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1050,7 +1050,7 @@ The relative cell references in the formulas are automatically incremented by 1,
 The below code snippet shows how to increment the cell references by 1 in the formulas.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1069,7 +1069,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1116,7 +1116,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1138,7 +1138,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1186,7 +1186,7 @@ External formula is the one which refers to a cell or a range of cells or a defi
 Following code illustrates the insertion of a formula that refers to cell 'A1' in another workbook which is enclosed in a square bracket [One.xlsx].
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1201,7 +1201,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1240,7 +1240,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1258,7 +1258,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1304,7 +1304,7 @@ Also, XlsIO supports [structured reference](https://support.office.com/en-us/art
 The following code snippet illustrates how to create a calculated column.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1337,7 +1337,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1411,7 +1411,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1446,7 +1446,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2674,7 +2674,7 @@ Add-ins are mini-programs or custom functions that enhance the feature set of th
 The following code illustrates on how to include and access Add-ins in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Step1: Create AddIn (AddIn.xlam)
 //AddIn.xlam file has the below custom function
 //Function AddInFunction(firstValue As Integer, secondValue As Integer) As Integer
@@ -2708,7 +2708,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Step1: Create AddIn (AddIn.xlam)
 'AddIn.xlam file has the below custom function
 'Function AddInFunction(firstValue As Integer, secondValue As Integer) As Integer
@@ -2772,7 +2772,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2796,7 +2796,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2844,13 +2844,13 @@ Cell ranges can be [defined by names](https://support.office.com/en-ZA/article/d
 The following code shows how to define a named range from workbook level.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Defining a name in workbook level for the cell A1
 IName name = workbook.Names.Add("BookLevelName"); 
 name.RefersToRange = worksheet.Range["A1"];
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Defining a name in workbook level for the cell A1
 Dim name As IName = workbook.Names.Add("BookLevelName")
 name.RefersToRange = worksheet.Range("A1")
@@ -2862,13 +2862,13 @@ IName name = workbook.Names.Add("BookLevelName");
 name.RefersToRange = worksheet.Range["A1"];
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Defining a name in workbook level for the cell A1
 IName name = workbook.Names.Add("BookLevelName"); 
 name.RefersToRange = worksheet.Range["A1"];
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Defining a name in workbook level for the cell A1
 IName name = workbook.Names.Add("BookLevelName"); 
 name.RefersToRange = worksheet.Range["A1"];
@@ -2878,13 +2878,13 @@ name.RefersToRange = worksheet.Range["A1"];
 The following code shows how to define a named range from worksheet level.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Defining a name in worksheet level for the cell B1
 IName name = worksheet.Names.Add("SheetLevelName");
 name.RefersToRange = worksheet.Range["B1"];
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Defining a name in worksheet level for the cell B1
 Dim name As IName = worksheet.Names.Add("SheetLevelName")
 name.RefersToRange = worksheet.Range("B1")
@@ -2896,13 +2896,13 @@ IName name = worksheet.Names.Add("SheetLevelName");
 name.RefersToRange = worksheet.Range["B1"];
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Defining a name in worksheet level for the cell B1
 IName name = worksheet.Names.Add("SheetLevelName");
 name.RefersToRange = worksheet.Range["B1"];
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Defining a name in worksheet level for the cell B1
 IName name = worksheet.Names.Add("SheetLevelName");
 name.RefersToRange = worksheet.Range["B1"];
@@ -2914,7 +2914,7 @@ name.RefersToRange = worksheet.Range["B1"];
 Following code example illustrates how to create workbook-level named ranges and use it in formulas.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2937,7 +2937,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2992,7 +2992,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3018,7 +3018,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3066,7 +3066,7 @@ A complete working example to use named ranges in formulas in C# is present on [
 Named ranges defined in workbook and worksheet levels can be deleted in different ways. The following code shows the possibilities of deleting named ranges.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Deleting named range object
 IName name = workbook.Names[0];
 name.Delete();
@@ -3077,7 +3077,7 @@ workbook.Names["BookLevelName"].Delete();
 sheet.Names["SheetLevelName"].Delete();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Deleting named range object
 Dim name As IName = workbook.Names(0)
 name.Delete()
@@ -3099,7 +3099,7 @@ workbook.Names["BookLevelName"].Delete();
 sheet.Names["SheetLevelName"].Delete();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Deleting named range object
 IName name = workbook.Names[0];
 name.Delete();
@@ -3110,7 +3110,7 @@ workbook.Names["BookLevelName"].Delete();
 sheet.Names["SheetLevelName"].Delete();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Deleting named range object
 IName name = workbook.Names[0];
 name.Delete();
@@ -3135,7 +3135,7 @@ To know more about IgnoreErrorOptions, please refer ExcelIgnoreError enumeration
 Following code illustrates on how to ignore or set error indicators.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3153,7 +3153,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3207,7 +3207,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3229,7 +3229,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3294,7 +3294,7 @@ There are various calculation [modes](https://docs.microsoft.com/en-us/office/tr
 Following code illustrates on how to set calculation mode in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3309,7 +3309,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3348,7 +3348,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3366,7 +3366,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3406,14 +3406,14 @@ A complete working example of calculation modes in C# is present on [this GitHub
 In Manual mode, this option controls whether Microsoft Excel should recalculate the workbook as a part of Save process. You can set this option by using **RecalcOnSave** property of __ICalculationOptions__ interface.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 ICalculationOptions calcOptions = workbook.CalculationOptions;
 
 //Set RecalcOnSave to false to avoid re calculation of workbook while saving
 calcOptions.RecalcOnSave = false;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim calcOptions As ICalculationOptions = workbook.CalculationOptions
 
 'Set RecalcOnSave to false to avoid re calculation of workbook while saving
@@ -3427,14 +3427,14 @@ ICalculationOptions calcOptions = workbook.CalculationOptions;
 calcOptions.RecalcOnSave = false;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 ICalculationOptions calcOptions = workbook.CalculationOptions;
 
 //Set RecalcOnSave to false to avoid re calculation of workbook while saving
 calcOptions.RecalcOnSave = false;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 ICalculationOptions calcOptions = workbook.CalculationOptions;
 
 //Set RecalcOnSave to false to avoid re calculation of workbook while saving
@@ -3451,7 +3451,7 @@ Iteration settings will control the maximum number of iteration and the amount o
 Following code snippet illustrates how to set the Iterations.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3472,7 +3472,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3523,7 +3523,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3547,7 +3547,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

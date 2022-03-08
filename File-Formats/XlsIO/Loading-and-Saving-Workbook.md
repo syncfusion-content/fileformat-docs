@@ -13,7 +13,7 @@ documentation: UG
 You can open an existing workbook by using the Open method of IWorkbooks interface.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -21,7 +21,7 @@ ExcelEngine excelEngine = new ExcelEngine();
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputFileName);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Creates a new instance for ExcelEngine
 Dim excelEngine As New ExcelEngine()
 
@@ -46,7 +46,7 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStorageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -55,7 +55,7 @@ FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -71,14 +71,14 @@ IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 T>Files parsing can be optimized by setting **IApplication****.****UseFastRecordParsing** = **false** or **true** (true –fast mode, but less error checks and false – slower but more reliable).
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 IApplication application = excelEngine.Excel;
 
 //Optimize parsing
 application.UseFastRecordParsing = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim application As IApplication = excelEngine.Excel
 
 'Optimize parsing
@@ -92,14 +92,14 @@ IApplication application = excelEngine.Excel;
 application.UseFastRecordParsing = true;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IApplication application = excelEngine.Excel;
 
 //Optimize parsing
 application.UseFastRecordParsing = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IApplication application = excelEngine.Excel;
 
 //Optimize parsing
@@ -112,7 +112,7 @@ application.UseFastRecordParsing = true;
 You can open an existing workbook from stream by using the overloads of Open methods of IWorkbooks interface.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -123,7 +123,7 @@ FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Creates a new instance for ExcelEngine
 Dim excelEngine As New ExcelEngine()
 
@@ -145,7 +145,7 @@ FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -156,7 +156,7 @@ FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 IWorkbook workbook = application.Workbooks.Open(inputStream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -174,7 +174,7 @@ IWorkbook workbook = application.Workbooks.Open(inputStream);
 You can save the created or manipulated workbook to file system using Save method of IWorkbook interface. The workbook is saved in the XLS/XLSX format based on the application/workbook version specified, whereas saved in Excel 97-2003 (*.xls) format by default.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Loads or open an existing workbook through Open method of IWorkbooks
@@ -191,7 +191,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Loads or open an existing workbook through Open method of IWorkbooks
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
@@ -242,7 +242,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Loads or open an existing workbook
@@ -261,7 +261,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //"App" is the class of Portable project
@@ -302,7 +302,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 You can also save the created or manipulated workbook to stream using overloads of Save methods
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Loads or open an existing workbook through Open method of IWorkbooks
@@ -320,7 +320,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Loads or open an existing workbook through Open method of IWorkbooks
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
@@ -364,7 +364,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Loads or open an existing workbook through Open method of IWorkbooks
@@ -383,7 +383,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //"App" is the class of Portable project
@@ -413,7 +413,7 @@ Once after the workbook manipulation and save operation are completed, you shoul
 N> If the new instance for ExcelEngine is created in using statement, then there is no need to closing workbook and disposing excelEngine.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -436,7 +436,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Creates a new instance for ExcelEngine
 Dim excelEngine As New ExcelEngine()
 
@@ -500,7 +500,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -525,7 +525,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -572,14 +572,14 @@ excelEngine.Dispose();
 T>You can use ThrowNotSavedOnDestroy property of ExcelEngine object to prevent the data loss while unfortunately closing the workbook or disposing excel engine without saving contents. If it is set to true, then ExcelWorkbookNotSavedException will be thrown when you forgot to save the workbook before closing them. Following code illustrates how to set ThrowNotSavedOnDestroy property of ExcelEngine object.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 //No exception will be thrown if there are unsaved workbooks
 excelEngine.ThrowNotSavedOnDestroy = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim excelEngine As New ExcelEngine()
 
 'No exception will be thrown if there are unsaved workbooks
@@ -593,14 +593,14 @@ ExcelEngine excelEngine = new ExcelEngine();
 excelEngine.ThrowNotSavedOnDestroy = true;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 //No exception will be thrown if there are unsaved workbooks
 excelEngine.ThrowNotSavedOnDestroy = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 //No exception will be thrown if there are unsaved workbooks
@@ -615,7 +615,7 @@ A complete working example for creating and editing an Excel workbook in C# is p
 You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of Save method.  This method explicitly make use of an instance of [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references System.Web assembly.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Loads or open an existing workbook through Open method of IWorkbooks
@@ -632,7 +632,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Loads or open an existing workbook through Open method of IWorkbooks
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(inputFileName)
@@ -652,7 +652,7 @@ End Using
 //Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Loads or open an existing workbook through Open method of IWorkbooks
@@ -679,7 +679,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
 {% endhighlight %}
 {% endtabs %}  

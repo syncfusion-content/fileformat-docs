@@ -15,7 +15,7 @@ The following code shows how to apply borders in Excel with different line style
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void ApplyBorders()
 {
     //Instantiate the application object
@@ -77,7 +77,7 @@ private void ApplyBorders()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub ApplyBorders()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -142,7 +142,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void ApplyBorders()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -192,7 +192,7 @@ private void ApplyBorders()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub ApplyBorders()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

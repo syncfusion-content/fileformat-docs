@@ -22,13 +22,13 @@ N> Worksheet to Image conversion works proper in Blazor server-side alone and no
 The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 // Convert as bitmap
 Image image = sheet.ConvertToImage(1, 1, 10, 20);
 image.Save("Sample.png", ImageFormat.Png);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Convert as bitmap
 Dim image As Image = sheet.ConvertToImage(1, 1, 10, 20)
 image.Save("Sample.png", ImageFormat.Png)
@@ -47,7 +47,7 @@ Stream stream = new MemoryStream();
 worksheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -58,7 +58,7 @@ Stream stream = new MemoryStream();
 worksheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -75,13 +75,13 @@ worksheet.ConvertToImage(1, 1, 10, 20, stream);
 The following code snippet shows how to save a sheet as stream.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 // Converts and save as stream
 MemoryStream stream = new MemoryStream();
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Converts and save as stream
 Dim stream As MemoryStream = New MemoryStream()
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
@@ -100,7 +100,7 @@ Stream stream = new MemoryStream();
 worksheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -109,7 +109,7 @@ MemoryStream stream = new MemoryStream();
 sheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -122,7 +122,7 @@ sheet.ConvertToImage(1, 1, 10, 20, stream);
 The complete code snippet of the previous options is shown as follows.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -147,7 +147,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -209,7 +209,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }  
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -230,7 +230,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

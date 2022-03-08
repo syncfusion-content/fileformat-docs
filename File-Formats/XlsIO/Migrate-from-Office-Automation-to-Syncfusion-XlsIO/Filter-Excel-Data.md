@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Filter Excel Data
+# Filter the Data in Excel
 
 Auto filtering data allows you to view specific rows in a worksheet while hiding other rows. When an AutoFilter is added to the header row, a drop-down menu appears in each cell of the header row, which provides filter options that can be used to specify the rows to be displayed. This can be achieved programmatically by specifying the conditions.
 
@@ -15,7 +15,7 @@ The following code shows how to auto filter Excel data with specific conditions 
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void FilterData()
 {
     //Instantiate the application object
@@ -61,7 +61,7 @@ private void FilterData()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub FilterData()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -110,7 +110,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void FilterData()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -158,7 +158,7 @@ private void FilterData()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub FilterData()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

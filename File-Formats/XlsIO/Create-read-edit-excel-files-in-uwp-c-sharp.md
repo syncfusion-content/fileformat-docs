@@ -45,14 +45,14 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 4.Include the following namespaces in the MainPage.xaml.cs file.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using Syncfusion.XlsIO;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using Windows.UI;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Imports Syncfusion.XlsIO
 Imports Windows.Storage.Pickers
 Imports Windows.Storage
@@ -63,7 +63,7 @@ Imports Windows.UI
 5.Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create an Excel file and save the Excel document as a physical file and open the file for viewing.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Create an instance of ExcelEngine.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -264,7 +264,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub OnButtonClicked(ByVal sender As Object, ByVal args As EventArgs)
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
@@ -474,7 +474,7 @@ The below code illustrates how to read and edit an Excel file in UWP.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 //Create an instance of ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -515,7 +515,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Create an instance of ExcelEngine
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
