@@ -18,7 +18,7 @@ The following code shows how to protect Excel workbook with password using Inter
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void ProtectWorkbook()
 {
     //Instantiate the application object
@@ -38,7 +38,7 @@ private void ProtectWorkbook()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ProtectWorkbook()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -61,7 +61,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void ProtectWorkbook()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -83,7 +83,7 @@ private void ProtectWorkbook()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ProtectWorkbook()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

@@ -87,7 +87,7 @@ The following screenshot represents the input template which has a template mark
 Following code example illustrates how to bind the data from an array to a marker.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   ExcelEngine excelEngine = new ExcelEngine();
@@ -116,7 +116,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
@@ -143,7 +143,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -183,7 +183,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -215,7 +215,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -273,7 +273,7 @@ The following screenshot represents generated Excel file in which the array of d
 You can also add or insert template markers using XlsIO APIs as follows.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx");
@@ -307,7 +307,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx")
   IWorksheet sheet = workbook.Worksheets(0)
@@ -340,7 +340,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -389,7 +389,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -428,7 +428,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -503,7 +503,7 @@ By default, DataTable values will be filled in the worksheet as a string format.
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx");
@@ -534,7 +534,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 using excelEngine As ExcelEngine = new ExcelEngine()
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx")
 
@@ -564,10 +564,10 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Binding data from data table is supported only from ASP.NET Core 2.0
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -606,7 +606,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
@@ -750,7 +750,7 @@ The import data group options are:
 The following code snippet illustrates how to import data from nested collection objects with template marker.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -769,7 +769,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 using excelEngine As ExcelEngine = new ExcelEngine()
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx")
 
@@ -787,7 +787,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -824,7 +824,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Binding data from data table is supported only from ASP.NET Core 2.0
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -851,7 +851,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -894,7 +894,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -953,7 +953,7 @@ public partial class Order
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of sales reports
 Public Shared Function GetSalesReports() As List(Of Customer)
     Dim reports As List(Of Customer) = New List(Of Customer)()
@@ -1004,7 +1004,7 @@ Public Class Order
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -1063,7 +1063,7 @@ public partial class Order
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -1122,7 +1122,7 @@ public partial class Order
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -1258,7 +1258,7 @@ The following screenshot represents the input template, which has a template mar
 The following code sample illustrates how to create or apply conditional format to the marker.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   #region Initialize Workbook
@@ -1380,7 +1380,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Region "Initialize Workbook"
 
 using excelEngine As ExcelEngine = new ExcelEngine()
@@ -1504,7 +1504,7 @@ End Using
 
 
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -1639,7 +1639,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1765,7 +1765,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   #region Initialize Workbook
@@ -1906,7 +1906,7 @@ The following code snippet provides supporting method and class for the previous
 
 **GetSalesReports** **Method****:**
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 public IList<Sales> GetSalesReports()
 {
     IList<Sales> sales = new List<Sales>();
@@ -1939,7 +1939,7 @@ public class Sales
     }
 }
 {% endhighlight %}
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
  Public Function GetSalesReports() As IList(Of Sales)
   Dim sales As IList(Of Sales) = New List(Of Sales)()
   sales.Add(New Sales("Andy Bernard", 45000, 58000, 29))
@@ -1964,7 +1964,7 @@ Public Class Sales
 End Class
 
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public IList<Sales> GetSalesReports()
 {
     IList<Sales> sales = new List<Sales>();
@@ -1997,7 +1997,7 @@ public class Sales
     }
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public IList<Sales> GetSalesReports()
 {
     IList<Sales> sales = new List<Sales>();
@@ -2030,7 +2030,7 @@ public class Sales
     }
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public IList<Sales> GetSalesReports()
 {
     IList<Sales> sales = new List<Sales>();
@@ -2082,7 +2082,7 @@ The following screenshot represents the input template, which has a template mar
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2101,7 +2101,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 using excelEngine As ExcelEngine = new ExcelEngine()
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx")
 
@@ -2119,7 +2119,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2156,7 +2156,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Binding data from data table is supported only from ASP.NET Core 2.0
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -2183,7 +2183,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2226,7 +2226,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
@@ -2286,7 +2286,7 @@ public class Company
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of company details
 Private Function GetCompanyDetails() As List(Of Company)
     Dim companyList As List(Of Company) = New List(Of Company)()
@@ -2340,7 +2340,7 @@ End Class
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
@@ -2399,7 +2399,7 @@ public class Company
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
@@ -2458,7 +2458,7 @@ public class Company
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {

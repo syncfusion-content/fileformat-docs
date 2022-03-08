@@ -28,13 +28,13 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 4.A default controller with named HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in the HomeController.cs file.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.IO;
 using Syncfusion.Drawing;
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Imports System.IO
 Imports Syncfusion.Drawing
@@ -61,7 +61,7 @@ Imports Syncfusion.Drawing
 7.Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -252,7 +252,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -450,7 +450,7 @@ By executing the program, you will get the Excel file as below.
 The below code snippet illustrates how to read and edit an Excel file in ASP.NET Core.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //New instance of ExcelEngine is created 
 //Equivalent to launching Microsoft Excel with no workbooks open
 //Instantiate the spreadsheet creation engine

@@ -15,7 +15,7 @@ The following code shows how to add five worksheets within a workbook with Inter
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void AddWorksheet()
 {
     //Instantiate the application object
@@ -54,7 +54,7 @@ private void AddWorksheet()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub AddWorksheet()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -95,7 +95,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void AddWorksheet()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -132,7 +132,7 @@ private void AddWorksheet()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub AddWorksheet()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

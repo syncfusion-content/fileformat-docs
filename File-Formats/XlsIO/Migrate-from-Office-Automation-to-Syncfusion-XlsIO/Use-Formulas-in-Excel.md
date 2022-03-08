@@ -15,7 +15,7 @@ The following code shows how to use formulas in Excel by adding values in a rang
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void ExcelFormulas()
 {
     //Instantiate the application object
@@ -55,7 +55,7 @@ private void ExcelFormulas()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ExcelFormulas()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -98,7 +98,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void ExcelFormulas()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -138,7 +138,7 @@ private void ExcelFormulas()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ExcelFormulas()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

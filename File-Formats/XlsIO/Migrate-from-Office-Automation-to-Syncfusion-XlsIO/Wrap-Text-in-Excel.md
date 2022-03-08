@@ -15,7 +15,7 @@ The following code shows the comparison of some lengthy text in a cell with and 
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void WrapText()
 {
     //Instantiate the application object
@@ -44,7 +44,7 @@ private void WrapText()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub WrapText()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -76,7 +76,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void WrapText()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -105,7 +105,7 @@ private void WrapText()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub WrapText()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

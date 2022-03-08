@@ -12,7 +12,7 @@ You can import data table with its data type using template markers by setting t
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IWorkbook workbook = excelEngine.Excel.Workbooks.Open("TemplateMarker_Formulas.xlsx");
@@ -60,7 +60,7 @@ private static DataTable GetTable()
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("TemplateMarker_Formulas.xlsx")
 
@@ -107,7 +107,7 @@ End Function
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -165,7 +165,7 @@ private static DataTable GetTable()
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -217,7 +217,7 @@ private static DataTable GetTable()
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;

@@ -15,7 +15,7 @@ The following code shows how to unprotect Excel workbook using Interop and XlsIO
 ## Interop
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void UnprotectWorkbook()
 {
     //Instantiate the application object
@@ -38,7 +38,7 @@ private void UnprotectWorkbook()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub UnprotectWorkbook()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -64,7 +64,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void UnprotectWorkbook()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -84,7 +84,7 @@ private void UnprotectWorkbook()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub UnprotectWorkbook()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object
