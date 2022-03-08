@@ -1,6 +1,6 @@
 ---
 title: Add Comments in Excel | Syncfusion
-description: Explains with an example on how to add Excel comments programmatically using Interop and XlsIO.
+description: This section explains with an example on how to add Excel comments programmatically using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG

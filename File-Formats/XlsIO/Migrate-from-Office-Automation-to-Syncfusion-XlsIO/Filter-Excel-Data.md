@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Filter Excel Data
+# Filter the Data in Excel
 
 Auto filtering data allows you to view specific rows in a worksheet while hiding other rows. When an AutoFilter is added to the header row, a drop-down menu appears in each cell of the header row, which provides filter options that can be used to specify the rows to be displayed. This can be achieved programmatically by specifying the conditions.
 
