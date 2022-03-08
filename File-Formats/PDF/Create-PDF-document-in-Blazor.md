@@ -134,7 +134,7 @@ Step 6: Inject ``ExportService`` in-to ``FetchData.razor`` using the following c
 
 {% tabs %}
 {% highlight CSHTML %}
-@inject ExportToFileService exportService
+@inject ExportService exportService
 @inject Microsoft.JSInterop.IJSRuntime JS
 @using  System.IO;
 {% endhighlight %}
@@ -152,7 +152,7 @@ Add the ``ExportToPdf`` method in ``FetchData.razor`` page to call the export se
 
 {% tabs %}
 {% highlight C# %}
-@functions
+@code
 {
 
     protected async Task ExportToPdf()
