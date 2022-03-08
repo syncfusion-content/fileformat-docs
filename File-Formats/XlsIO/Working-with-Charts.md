@@ -16,7 +16,7 @@ The **IChartShape** interface represents the chart in a worksheet. A chart can b
 The following code example illustrates how to create a chart through the existing data in the worksheet.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -37,7 +37,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -97,7 +97,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -122,7 +122,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -172,7 +172,7 @@ A complete working example to create a chart in C# is present on [this GitHub pa
 A chart in XlsIO can also be created from directly entered values. The Following code snippets illustrate how to create a chart from directly entered values.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -195,7 +195,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -250,7 +250,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -276,7 +276,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -324,7 +324,7 @@ A complete working example to create a chart from scratch in C# is present on [t
 A chart can also be created by adding series one by one. The following code illustrates how to create a chart through series.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -375,7 +375,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -485,7 +485,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -539,7 +539,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -615,7 +615,7 @@ A complete working example to create a chart through series in C# is present on 
 The following code snippet shows how to create a chart sheet (separate sheet).
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -632,7 +632,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -684,7 +684,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -705,7 +705,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -757,13 +757,13 @@ This sample also explains different chart properties like
 ### Set Data Range to Chart
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 //Add a new chart with data range
 IChartShape chart = sheet.Charts.Add();
 chart.DataRange = sheet.Range["A3:C6"];
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Add a new chart with data range
 Dim chart As IChartShape = sheet.Charts.Add()
 chart.DataRange = sheet.Range("A3:C6")
@@ -775,13 +775,13 @@ IChartShape chart = sheet.Charts.Add();
 chart.DataRange = sheet.Range["A3:C6"];
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Add a new chart with data range
 IChartShape chart = sheet.Charts.Add();
 chart.DataRange = sheet.Range["A3:C6"];
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Add a new chart with data range
 IChartShape chart = sheet.Charts.Add();
 chart.DataRange = sheet.Range["A3:C6"];
@@ -791,13 +791,13 @@ chart.DataRange = sheet.Range["A3:C6"];
 ### Name the Chart and Set Chart Title
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 //Set chart name and chart title
 chart.Name = "CrescentCity,CA";
 chart.ChartTitle = "Crescent City, CA";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Set chart name and chart title
 chart.Name = "CrescentCity,CA"
 chart.ChartTitle = "Crescent City, CA"
@@ -809,13 +809,13 @@ chart.Name = "CrescentCity,CA";
 chart.ChartTitle = "Crescent City, CA";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Set chart name and chart title
 chart.Name = "CrescentCity,CA";
 chart.ChartTitle = "Crescent City, CA";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Set chart name and chart title
 chart.Name = "CrescentCity,CA";
 chart.ChartTitle = "Crescent City, CA";
@@ -825,7 +825,7 @@ chart.ChartTitle = "Crescent City, CA";
 ### Different Primary Value Axis Properties
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 //Axis title
 chart.PrimaryValueAxis.Title = "Precipitation,in.";
 
@@ -839,7 +839,7 @@ chart.PrimaryValueAxis.MaximumValue = 14.0;
 chart.PrimaryValueAxis.NumberFormat = "0.0";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Axis title
 chart.PrimaryValueAxis.Title = "Precipitation,in."
 
@@ -867,7 +867,7 @@ chart.PrimaryValueAxis.MaximumValue = 14.0;
 chart.PrimaryValueAxis.NumberFormat = "0.0";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Axis title
 chart.PrimaryValueAxis.Title = "Precipitation,in.";
 
@@ -881,7 +881,7 @@ chart.PrimaryValueAxis.MaximumValue = 14.0;
 chart.PrimaryValueAxis.NumberFormat = "0.0";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Axis title
 chart.PrimaryValueAxis.Title = "Precipitation,in.";
 
@@ -899,7 +899,7 @@ chart.PrimaryValueAxis.NumberFormat = "0.0";
 ### Different Secondary Value Axis Properties
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 //MaxCross in axis
 chart.SecondaryValueAxis.IsMaxCross = true;
 
@@ -910,7 +910,7 @@ chart.SecondaryValueAxis.Title = "Temperature,deg.F";
 chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'MaxCross in axis
 chart.SecondaryValueAxis.IsMaxCross = true
 
@@ -932,7 +932,7 @@ chart.SecondaryValueAxis.Title = "Temperature,deg.F";
 chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //MaxCross in axis
 chart.SecondaryValueAxis.IsMaxCross = true;
 
@@ -943,7 +943,7 @@ chart.SecondaryValueAxis.Title = "Temperature,deg.F";
 chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //MaxCross in axis
 chart.SecondaryValueAxis.IsMaxCross = true;
 
@@ -958,7 +958,7 @@ chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
 ### Different Secondary Category Axis Properties
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 //MaxCross in axis
 chart.SecondaryCategoryAxis.IsMaxCross = true;
 
@@ -972,7 +972,7 @@ chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
 chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'MaxCross in axis
 chart.SecondaryCategoryAxis.IsMaxCross = true
 
@@ -1000,7 +1000,7 @@ chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
 chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //MaxCross in axis
 chart.SecondaryCategoryAxis.IsMaxCross = true;
 
@@ -1014,7 +1014,7 @@ chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
 chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //MaxCross in axis
 chart.SecondaryCategoryAxis.IsMaxCross = true;
 
@@ -1032,7 +1032,7 @@ chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabel
 ### Different Chart Series Fill Properties
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 IChartSerie serieOne = chart.Series[0];
 
 //Series name
@@ -1051,7 +1051,7 @@ serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
 serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim serieOne As IChartSerie = chart.Series(0)
 
 'Series name
@@ -1089,7 +1089,7 @@ serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
 serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IChartSerie serieOne = chart.Series[0];
 
 //Series name
@@ -1108,7 +1108,7 @@ serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
 serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IChartSerie serieOne = chart.Series[0];
 
 //Series name
@@ -1131,7 +1131,7 @@ serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
 ### Different Marker Properties
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 IChartSerie serieTwo = chart.Series[1];
 
 //Marker style
@@ -1147,7 +1147,7 @@ serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
 serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim serieTwo As IChartSerie = chart.Series(1)
 
 'Marker style
@@ -1179,7 +1179,7 @@ serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
 serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IChartSerie serieTwo = chart.Series[1];
 
 //Marker style
@@ -1195,7 +1195,7 @@ serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
 serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IChartSerie serieTwo = chart.Series[1];
 
 //Marker style
@@ -1215,7 +1215,7 @@ serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
 ### Different Legend Properties
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 //Legend without overlapping the chart
 chart.Legend.IncludeInLayout = true;
 
@@ -1226,7 +1226,7 @@ chart.Legend.Position = ExcelLegendPosition.Bottom;
 chart.Legend.IsVerticalLegend = false;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Legend without overlapping the chart
 chart.Legend.IncludeInLayout = true
 
@@ -1248,7 +1248,7 @@ chart.Legend.Position = ExcelLegendPosition.Bottom;
 chart.Legend.IsVerticalLegend = false;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Legend without overlapping the chart
 chart.Legend.IncludeInLayout = true;
 
@@ -1259,7 +1259,7 @@ chart.Legend.Position = ExcelLegendPosition.Bottom;
 chart.Legend.IsVerticalLegend = false;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Legend without overlapping the chart
 chart.Legend.IncludeInLayout = true;
 
@@ -1274,7 +1274,7 @@ chart.Legend.IsVerticalLegend = false;
 The complete code snippet illustrating the above options along with creating custom charts is shown below.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1364,7 +1364,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim excelEngine As New ExcelEngine()
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
@@ -1555,7 +1555,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1648,7 +1648,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1766,7 +1766,7 @@ A complete working example to create a custom chart in C# is present on [this Gi
 The following code snippet shows how to remove the chart from the worksheet using **Remove** method.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1782,7 +1782,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1832,7 +1832,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1852,7 +1852,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1916,7 +1916,7 @@ The following screen shot shows the elements of chart.
 The following code snippet shows how to modify the appearance of the chart area.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Format Chart Area
 IChartFrameFormat chartArea = chart.ChartArea;
 
@@ -1928,7 +1928,7 @@ chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Color.White;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Format Chart Area
 Dim chartArea As IChartFrameFormat = chart.ChartArea
 
@@ -1952,7 +1952,7 @@ chartArea.Fill.BackColor = Color.FromArgb(255, 205, 217, 234);
 chartArea.Fill.ForeColor = Color.FromArgb(255, 255, 255, 255);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Format Chart Area
 IChartFrameFormat chartArea = chart.ChartArea;
 
@@ -1964,7 +1964,7 @@ chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Color.White;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Format Chart Area
 IChartFrameFormat chartArea = chart.ChartArea;
 
@@ -1982,7 +1982,7 @@ chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 The following code snippet shows how to modify the appearance of the plot area.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Set Plot Area
 IChartFrameFormat  chartPlotArea = chart.PlotArea;
 
@@ -1991,7 +1991,7 @@ chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartPlotArea.Fill.ForeColor = Color.White;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Set Plot Area
 Dim chartPlotArea As IChartFrameFormat = chart.PlotArea
 
@@ -2009,7 +2009,7 @@ chartPlotArea.Fill.BackColor = Color.FromArgb(255, 205, 217, 234);
 chartPlotArea.Fill.ForeColor = Color.FromArgb(255, 255, 255, 255);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Set Plot Area
 IChartFrameFormat chartPlotArea = chart.PlotArea;
 
@@ -2018,7 +2018,7 @@ chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartPlotArea.Fill.ForeColor = Color.White;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Set Plot Area
 IChartFrameFormat chartPlotArea = chart.PlotArea;
 
@@ -2033,7 +2033,7 @@ chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 The following code snippet illustrates how to modify the appearance of data labels.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 IChartSerie serie =  chart.Series[0];
 
 //Set data labels color
@@ -2041,7 +2041,7 @@ serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
 serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim serie As IChartSerie = chart.Series(0)
 
 'Set data labels color
@@ -2057,7 +2057,7 @@ serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
 serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IChartSerie serie =  chart.Series[0];
 
 //Set data labels color
@@ -2065,7 +2065,7 @@ serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
 serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IChartSerie serie =  chart.Series[0];
 
 //Set data labels color
@@ -2079,7 +2079,7 @@ serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 The following code snippet illustrates how to modify the appearance of chart series.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 IChartSerie serie =  chart.Series[0];
 
 //Fill Effects
@@ -2087,7 +2087,7 @@ serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
 serie.SerieFormat.Fill.ForeColor = Color.Yellow;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim serie As IChartSerie = chart.Series(0)
 
 'Fill Effects
@@ -2103,7 +2103,7 @@ serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
 serie.SerieFormat.Fill.ForeColor = Color.FromArgb(255, 255, 255, 0);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IChartSerie serie = chart.Series[0];
 
 //Fill Effects
@@ -2111,7 +2111,7 @@ serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
 serie.SerieFormat.Fill.ForeColor = Color.Yellow;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IChartSerie serie = chart.Series[0];
 
 //Fill Effects
@@ -2123,7 +2123,7 @@ serie.SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Yellow;
 The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2156,7 +2156,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2240,7 +2240,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2277,7 +2277,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2375,7 +2375,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2457,7 +2457,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2493,7 +2493,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2582,7 +2582,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2652,7 +2652,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2682,7 +2682,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2768,7 +2768,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2834,7 +2834,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2862,7 +2862,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2943,7 +2943,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3009,7 +3009,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3037,7 +3037,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3113,7 +3113,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using engine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = engine.Excel
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3172,7 +3172,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine engine = new ExcelEngine())
 {
     IApplication application = engine.Excel;
@@ -3197,7 +3197,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine engine = new ExcelEngine())
 {
     IApplication application = engine.Excel;
@@ -3275,7 +3275,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using engine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = engine.Excel
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3334,7 +3334,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine engine = new ExcelEngine())
 {
     IApplication application = engine.Excel;
@@ -3359,7 +3359,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine engine = new ExcelEngine())
 {
     IApplication application = engine.Excel;
@@ -3438,7 +3438,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using engine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = engine.Excel
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3497,7 +3497,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine engine = new ExcelEngine())
 {
     IApplication application = engine.Excel;
@@ -3522,7 +3522,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine engine = new ExcelEngine())
 {
     IApplication application = engine.Excel;
@@ -3604,7 +3604,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3671,7 +3671,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3700,7 +3700,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3776,7 +3776,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3843,7 +3843,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3872,7 +3872,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3926,7 +3926,7 @@ A complete working example to fill chart area with picture in C# is present on [
 The following code example explains how to apply 3D settings such as rotation, side wall, back wall, and floor settings.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3983,7 +3983,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4106,7 +4106,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4166,7 +4166,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4250,7 +4250,7 @@ A complete working example for 3D chart formats in C# is present on [this GitHub
 Chart can be positioned by specifying row and column indexes. The following code samples illustrates how to position a chart in a worksheet.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Positioning chart in a worksheet
 chart.TopRow = 5;
 chart.LeftColumn = 5;
@@ -4258,7 +4258,7 @@ chart.RightColumn = 10;
 chart.BottomRow = 10;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Positioning chart in a worksheet
 chart.TopRow = 5
 chart.LeftColumn = 5
@@ -4274,7 +4274,7 @@ chart.RightColumn = 10;
 chart.BottomRow = 10;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Positioning chart in a worksheet
 chart.TopRow = 5;
 chart.LeftColumn = 5;
@@ -4282,7 +4282,7 @@ chart.RightColumn = 10;
 chart.BottomRow = 10;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Positioning chart in a worksheet
 chart.TopRow = 5;
 chart.LeftColumn = 5;
@@ -4296,7 +4296,7 @@ chart.BottomRow = 10;
 The following code examples illustrate how to position the chart elements.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Manually positioning plot area
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
@@ -4307,7 +4307,7 @@ chart.Legend.Layout.LeftMode = LayoutModes.edge;
 chart.Legend.Layout.TopMode = LayoutModes.edge;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Manually positioning plot area
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge
@@ -4329,7 +4329,7 @@ chart.Legend.Layout.LeftMode = LayoutModes.edge;
 chart.Legend.Layout.TopMode = LayoutModes.edge;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Manually positioning plot area
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
@@ -4340,7 +4340,7 @@ chart.Legend.Layout.LeftMode = LayoutModes.edge;
 chart.Legend.Layout.TopMode = LayoutModes.edge;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Manually positioning plot area
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
@@ -4358,7 +4358,7 @@ chart.Legend.Layout.TopMode = LayoutModes.edge;
 The following code sample illustrates how to resize a chart in a worksheet.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 IShape chartShape = chart as IShape;
 
 //Set Height of the chart in pixels
@@ -4368,7 +4368,7 @@ chartShape.Height = 300;
 chartShape.Width = 500;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim chartShape As IShape = chart as IShape
 
 'Set Height of the chart
@@ -4388,7 +4388,7 @@ chartShape.Height = 300;
 chartShape.Width = 500;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 IShape chartShape = chart as IShape;
 
 //Set Height of the chart in pixels
@@ -4398,7 +4398,7 @@ chartShape.Height = 300;
 chartShape.Width = 500;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 IShape chartShape = chart as IShape;
 
 //Set Height of the chart in pixels
@@ -4414,7 +4414,7 @@ chartShape.Width = 500;
 The following code examples illustrate how to resize chart elements such as plot area and legend.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Manually resizing chart plot area
 chart.PlotArea.Layout.Left = 50;
 chart.PlotArea.Layout.Top = 75;
@@ -4428,7 +4428,7 @@ chart.Legend.Layout.Width = 150;
 chart.Legend.Layout.Height = 100;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Manually resizing chart plot area
 chart.PlotArea.Layout.Left = 50
 chart.PlotArea.Layout.Top = 75
@@ -4456,7 +4456,7 @@ chart.Legend.Layout.Width = 150;
 chart.Legend.Layout.Height = 100;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Manually resizing chart plot area
 chart.PlotArea.Layout.Left = 50;
 chart.PlotArea.Layout.Top = 75;
@@ -4470,7 +4470,7 @@ chart.Legend.Layout.Width = 150;
 chart.Legend.Layout.Height = 100;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Manually resizing chart plot area
 chart.PlotArea.Layout.Left = 50;
 chart.PlotArea.Layout.Top = 75;
@@ -4490,12 +4490,12 @@ chart.Legend.Layout.Height = 100;
 The following code example explains how to apply transparency to chart area.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Applying transparency to chart area
 chart.ChartArea.Fill.Transparency = 0.9;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 'Applying transparency to chart area
 chart.ChartArea.Fill.Transparency = 0.9
 {% endhighlight %}
@@ -4505,12 +4505,12 @@ chart.ChartArea.Fill.Transparency = 0.9
 chart.ChartArea.Fill.Transparency = 0.9;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Applying transparency to chart area
 chart.ChartArea.Fill.Transparency = 0.9;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 //Applying transparency to chart area
 chart.ChartArea.Fill.Transparency = 0.9;
 {% endhighlight %}
@@ -4519,7 +4519,7 @@ chart.ChartArea.Fill.Transparency = 0.9;
 The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4569,7 +4569,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4688,7 +4688,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4743,7 +4743,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4853,7 +4853,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4919,7 +4919,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4947,7 +4947,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5026,7 +5026,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5096,7 +5096,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5128,7 +5128,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5238,7 +5238,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5341,7 +5341,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5391,7 +5391,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5474,7 +5474,7 @@ XlsIO provides support for creation, modification and removal of Sparklines.
 Following code example illustrates how to create Sparklines by using XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5500,7 +5500,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5569,7 +5569,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5598,7 +5598,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5652,7 +5652,7 @@ A complete working example to create sparklines in C# is present on [this GitHub
 XlsIO provides an option to edit the data of existing Sparklines. The following code snippet shows how to achieve this.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5671,7 +5671,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5728,7 +5728,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5752,7 +5752,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5801,7 +5801,7 @@ A complete working example to edit sparklines in C# is present on [this GitHub p
 XlsIO provides an API to remove sparklines from the sparkline group and also the sparkline group from the worksheet. This is illustrated in the following code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5825,7 +5825,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5891,7 +5891,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5919,7 +5919,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5980,7 +5980,7 @@ Essential XlsIO supports creating and manipulating new and modern chart types su
 Following code example illustrates how to create Funnel chart.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6009,7 +6009,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -6085,7 +6085,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6118,7 +6118,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6184,7 +6184,7 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Box and Whisker chart.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6232,7 +6232,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -6346,7 +6346,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6398,7 +6398,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6483,7 +6483,7 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Waterfall chart.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6519,7 +6519,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -6609,7 +6609,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6649,7 +6649,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6722,7 +6722,7 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Histogram.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6757,7 +6757,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -6845,7 +6845,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6884,7 +6884,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6956,7 +6956,7 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Pareto chart.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6992,7 +6992,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -7083,7 +7083,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7123,7 +7123,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7196,7 +7196,7 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Treemap chart.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7226,7 +7226,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -7304,7 +7304,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7338,7 +7338,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7405,7 +7405,7 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Sunburst chart.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7435,7 +7435,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -7513,7 +7513,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7547,7 +7547,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

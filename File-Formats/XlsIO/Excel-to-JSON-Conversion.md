@@ -22,7 +22,7 @@ The following code illustrates how to convert an Excel workbook to the JSON file
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -45,7 +45,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -133,7 +133,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -155,7 +155,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -197,7 +197,7 @@ The following code illustrates how to convert an Excel workbook to the JSON file
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -213,7 +213,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -293,7 +293,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -310,7 +310,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -352,7 +352,7 @@ The following code illustrates how to convert an Excel worksheet to the JSON fil
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -378,7 +378,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -466,7 +466,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -488,7 +488,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -530,7 +530,7 @@ The following code illustrates how to convert an Excel worksheet to the JSON fil
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -549,7 +549,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -632,7 +632,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -648,7 +648,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -690,7 +690,7 @@ The following code illustrates how to convert an Excel Custom Range to the JSON 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -719,7 +719,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -813,7 +813,7 @@ async void Save(Stream stream, string filename)
 #endregion
 
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -838,7 +838,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -882,7 +882,7 @@ The following code illustrates how to convert an Excel Custom Range to the JSON 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -904,7 +904,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -991,7 +991,7 @@ async void Save(Stream stream, string filename)
 #endregion
 
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1010,7 +1010,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

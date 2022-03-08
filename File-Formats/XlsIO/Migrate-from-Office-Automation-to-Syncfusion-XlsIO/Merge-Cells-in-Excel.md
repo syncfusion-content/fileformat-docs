@@ -15,7 +15,7 @@ The following code shows how to merge cells in Excel with Interop and XlsIO for 
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void MergeCells()
 {
     //Instantiate the application object
@@ -38,7 +38,7 @@ private void MergeCells()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub MergeCells()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -64,7 +64,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void MergeCells()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -85,7 +85,7 @@ private void MergeCells()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub MergeCells()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

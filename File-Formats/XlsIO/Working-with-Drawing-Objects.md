@@ -28,7 +28,7 @@ The **ITextBoxShape** interface represents a text box in a worksheet. Various pr
 The following code example illustrates how to add and manipulate a text box control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -59,7 +59,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -130,7 +130,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -164,7 +164,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -220,7 +220,7 @@ A complete working example to add a text box in C# is present on [this GitHub pa
 **ICheckBoxShape** object represents a check box in a worksheet. The following code example illustrates how to insert and manipulate a check box control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -250,7 +250,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -319,7 +319,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -352,7 +352,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -407,7 +407,7 @@ A complete working example to add a check box in C# is present on [this GitHub p
 **IComboBoxShape** object represents a combo box in a worksheet. The following code example illustrates how to insert and manipulate a combo box control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -448,7 +448,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -539,7 +539,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -583,7 +583,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -651,7 +651,7 @@ A complete working example to add a combo box in C# is present on [this GitHub p
 N> XlsIO provides Option button support only for XLSX format.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -687,7 +687,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -768,7 +768,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -807,7 +807,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -868,7 +868,7 @@ A complete working example to add option button in C# is present on [this GitHub
 **ICommentShape** object represents a [comment](https://support.office.com/en-au/article/Annotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -894,7 +894,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -955,7 +955,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -984,7 +984,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1033,7 +1033,7 @@ A complete working example to add comment in C# is present on [this GitHub page]
 You can also fill the comments with various types of fills by using the **IFill** interface. Following code example illustrates how to fill the comment shape with a TwoColor gradient.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1058,7 +1058,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1117,7 +1117,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1145,7 +1145,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1220,7 +1220,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1279,7 +1279,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1307,7 +1307,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1355,7 +1355,7 @@ A complete working example to show or hide comment in C# is present on [this Git
 Following code snippets illustrates how to remove all the comments in existing worksheet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1370,7 +1370,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Comments.xlsx")
@@ -1418,7 +1418,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1437,7 +1437,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1485,7 +1485,7 @@ To learn more about various AutoShape types supported in XlsIO, refer to the **A
 The following code example illustrates how to insert and format AutoShapes.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1516,7 +1516,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1587,7 +1587,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1621,7 +1621,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1685,7 +1685,7 @@ The following code example illustrates how to create a group shape.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -1713,7 +1713,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -1794,7 +1794,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -1828,7 +1828,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -1891,7 +1891,7 @@ The following code example illustrates how to ungroup the shape.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -1915,7 +1915,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -1988,7 +1988,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -2018,7 +2018,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -2078,7 +2078,7 @@ The following code example illustrates how to ungroup the group shape and its in
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -2102,7 +2102,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -2175,7 +2175,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -2205,7 +2205,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -2276,7 +2276,7 @@ Linked objects remains as a separate files. When the file is opened in another m
 The following sample code illustrates how to link an OLE Object to an Excel document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2292,7 +2292,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2338,7 +2338,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2361,7 +2361,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2407,7 +2407,7 @@ Embedded objects are stored in the document. When the file is opened in another 
 The following sample code illustrates how to embed an OLE Object to an Excel document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2423,7 +2423,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2471,7 +2471,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2496,7 +2496,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2541,7 +2541,7 @@ The following code example illustrates how to insert and manipulate OLEObjects w
 To learn more about OLEObjects, refer to the **IOleObjects** in API section.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2581,7 +2581,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2674,7 +2674,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2720,7 +2720,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

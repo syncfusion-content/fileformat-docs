@@ -15,7 +15,7 @@ The below code snippet illustrates how to load an Excel fie usin file picker in 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -70,7 +70,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = excelEngine.Excel
@@ -133,7 +133,7 @@ The below code snippet illustrates how to load an encrypted Excel file in WinRT.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -192,7 +192,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = ExcelEngine.Excel
@@ -261,7 +261,7 @@ The below code snippet illustrates how to load an XML file in WinRT.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -320,7 +320,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = ExcelEngine.Excel
@@ -389,7 +389,7 @@ The following code snippet illustrates how to save an Excel document in WinRT us
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -426,7 +426,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = ExcelEngine.Excel

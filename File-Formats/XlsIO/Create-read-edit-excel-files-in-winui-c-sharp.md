@@ -32,7 +32,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 5. Add a new button to the **MainWindow.xaml** as shown below.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 <Window
     x:Class="WinUISample.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -52,7 +52,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 6.Include the following namespaces in MainPage.xaml.cs file.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
@@ -65,7 +65,7 @@ using System.IO;
 7.Include the below code snippet in button click event to create an Excel file and download it.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 //Create an instance of ExcelEngine.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {

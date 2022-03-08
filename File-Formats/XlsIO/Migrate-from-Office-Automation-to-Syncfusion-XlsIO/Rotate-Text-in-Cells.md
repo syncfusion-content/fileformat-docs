@@ -15,7 +15,7 @@ The following code shows how to change the formatting of a cell to rotate text i
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void RotateText()
 {
     //Instantiate the application object
@@ -51,7 +51,7 @@ private void RotateText()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub RotateText()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -90,7 +90,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void RotateText()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -125,7 +125,7 @@ private void RotateText()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub RotateText()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

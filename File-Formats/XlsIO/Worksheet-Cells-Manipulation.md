@@ -17,7 +17,7 @@ The following code shows the different ways of accessing a single cell or group 
 N> Here row and column indexes in the range are "one based". 
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -46,7 +46,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -113,7 +113,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -145,7 +145,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -207,7 +207,7 @@ Following code example illustrates how to access the range relatively to the exi
 N> Here row and column indexes in the range are "one-based".
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -236,7 +236,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -301,7 +301,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -333,7 +333,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -389,7 +389,7 @@ You can access discontinuous ranges and add them to the **RangesCollection**.  Y
 Following code snippet illustrates how to access discontinuous range.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -411,7 +411,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -464,7 +464,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -489,7 +489,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -536,7 +536,7 @@ A complete working example to access discontinuous range in an Excel worksheet i
 The **IMigrantRange** interface can also be used to access a single cell or group of cells and manipulate it.  You can prefer IMigrantRange instead of IRange while writing large amount of data which is an optimal way. 
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -560,7 +560,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -617,7 +617,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -644,7 +644,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -695,7 +695,7 @@ The following code snippet shows how to get the range of cells used in a given s
 N> By default, XlsIO considers a cell as used, even if there exists some formatting alone. You can disable this behavior, and make XlsIO consider a cell as used, only when there exists data, by using the UsedRangeIncludesFormatting property.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -714,7 +714,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -770,7 +770,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -793,7 +793,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -848,7 +848,7 @@ Accessing list of precedent and dependent cells can be obtained:
 Following code example illustrates how to get precedent cells from a worksheet and entire workbook.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -866,7 +866,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
@@ -918,7 +918,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -939,7 +939,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -980,7 +980,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Following code example illustrates how to get dependent cells from a worksheet and entire workbook.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -998,7 +998,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
@@ -1050,7 +1050,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1071,7 +1071,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1116,7 +1116,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Following code example illustrates how to get direct precedent cells from a worksheet and entire workbook.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1134,7 +1134,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
@@ -1186,7 +1186,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1207,7 +1207,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1248,7 +1248,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Following code example illustrates how to get direct dependent cells from a worksheet and entire workbook.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1266,7 +1266,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
@@ -1318,7 +1318,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1339,7 +1339,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1384,7 +1384,7 @@ A complete working example to get the precedent and dependent cells in an Excel 
 You can delete everything in the cell, or just remove the formatting, contents, comments. The following code example illustrates how to clear a range along with its formatting.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1399,7 +1399,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -1447,7 +1447,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1467,7 +1467,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1513,7 +1513,7 @@ You can copy a range of cells to another range using CopyTo method. You can also
 Following code example illustrates how to copy a range of cells from the source to destination.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1530,7 +1530,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -1581,7 +1581,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1616,7 +1616,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1661,7 +1661,7 @@ A complete working example to copy range in an Excel worksheet in C# is present 
 N> MoveTo method does not update formulas.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1678,7 +1678,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -1729,7 +1729,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1750,7 +1750,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1797,7 +1797,7 @@ You can copy a range and paste the range as link to another range using a bool p
 Following code example illustrates how to paste a range of cells as link.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1814,7 +1814,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -1865,7 +1865,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1886,7 +1886,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1934,7 +1934,7 @@ The following code illustrates how to skip blank cells while copying.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1953,7 +1953,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -2007,7 +2007,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2030,7 +2030,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2079,7 +2079,7 @@ You can find all the occurrences of a text in worksheet by using [FindAll](https
 The following code illustrates how to find all the occurrences of text in a worksheet with different find options.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2109,7 +2109,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -2187,7 +2187,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2221,7 +2221,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2278,7 +2278,7 @@ To know more about replace overloads, please refer [Replace](https://help.syncfu
 The following code example illustrates how to replace all occurrences of given string with various data.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2309,7 +2309,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -2384,7 +2384,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2415,7 +2415,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2478,7 +2478,7 @@ N> Currently XlsIO don’t support sorting based on cell icon, parsing and seria
 The following code snippet explains how to sort a range of cells by values 
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2505,7 +2505,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -2576,7 +2576,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2607,7 +2607,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2662,7 +2662,7 @@ A complete working example to sort Excel data based on cell values in C# is pres
 The following code snippet explains how to move a range of cells with the specified font color to either top or bottom of the sorting range.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2695,7 +2695,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -2778,7 +2778,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2815,7 +2815,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2876,7 +2876,7 @@ A complete working example to sort Excel data based on font color in C# is prese
 The following code snippet explains how to move a range of cells with the specified cell background color to either top or bottom of the sorting range.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2909,7 +2909,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -2990,7 +2990,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3027,7 +3027,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3099,7 +3099,7 @@ Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-ra
 The following code illustrates how to apply simple auto filters.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3124,7 +3124,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3191,7 +3191,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3220,7 +3220,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3273,7 +3273,7 @@ A complete working example to apply filter on Excel data in C# is present on [th
 Following code snippets illustrates how to apply custom filter, based on first and second condition.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3299,7 +3299,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3368,7 +3368,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3398,7 +3398,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3452,7 +3452,7 @@ A complete working example to apply custom filter on Excel data in C# is present
 This filter contains both Text filter and DateTime filter, it filters the data based on multiple criteria. Following code snippets illustrates how to apply combination filter with multiple of Text filter and DateTime filter.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3477,7 +3477,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3544,7 +3544,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3573,7 +3573,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3626,7 +3626,7 @@ A complete working example to apply combination filter on Excel data in C# is pr
 Dynamic filter is a relative date filter, which filters data based on DynamicFilterType enumeration. Following code snippets illustrates how to apply Dynamic filter.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3647,7 +3647,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3706,7 +3706,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3731,7 +3731,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3780,7 +3780,7 @@ A complete working example to apply dynamic filter on Excel data in C# is presen
 Color Filter can be used to filter data based on the color applied to the cell or the color applied to the text in the cell. The following code snippets show how to apply Color Filter based on Cell Color (fill color applied to the cell).
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3801,7 +3801,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -3860,7 +3860,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3885,7 +3885,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3932,7 +3932,7 @@ A complete working example to apply color filter on Excel data based on cell col
 To filter cells based on Font color of the text inside cells just change the ExcelColorFilterType to Font Color. The following snippets show how to filter the cells based on font color.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3953,7 +3953,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -4012,7 +4012,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4037,7 +4037,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4086,7 +4086,7 @@ A complete working example to apply color filter on Excel data based on font col
 Icon filter can be used to filter data that has conditional formatting with Icon Sets applied. Applying Icon Sets for numeric data adds icons to each cell based on the value present in that cell. Using Icon Filter, we can easily filter the data that has only a specific Icon in it.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4107,7 +4107,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -4166,7 +4166,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4191,7 +4191,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4252,7 +4252,7 @@ Advanced Filter also provides an option to filter the unique records. This will 
 The following code illustrates how to apply Advanced Filter in worksheet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4271,7 +4271,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("InputData.xlsx")
@@ -4326,7 +4326,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4349,7 +4349,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4396,7 +4396,7 @@ A complete working example to apply advanced filter on Excel data in C# is prese
 We can access the filter and its criteria, based on its column index. Following code snippets illustrates how to apply access different types of filters using XlsIO.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4451,7 +4451,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4574,7 +4574,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4633,7 +4633,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4724,7 +4724,7 @@ You can create hyperlink in a workbook to provide quick access to web pages, pla
 The following code example illustrates how to insert various hyperlinks.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4769,7 +4769,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4868,7 +4868,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4916,7 +4916,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4986,7 +4986,7 @@ A complete working example to add hyperlinks in C# is present on [this GitHub pa
 You can modify the properties of existing hyperlink by accessing the Hyperlinks collection of the IRange instance.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5002,7 +5002,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -5051,7 +5051,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5071,7 +5071,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5115,7 +5115,7 @@ A complete working example to modify existing hyperlink in C# is present on [thi
 You can remove a hyperlink from a range by accessing the Hyperlinks collection of the IRange instance.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5130,7 +5130,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
@@ -5177,7 +5177,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5196,7 +5196,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5247,7 +5247,7 @@ Hyperlink can be added to the following shapes.
 The following code example illustrates how to insert hyperlinks to shapes.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5276,7 +5276,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5351,7 +5351,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5382,7 +5382,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5438,7 +5438,7 @@ A complete working example to add hyperlink to shape in C# is present on [this G
 Properties of existing hyperlink can be modified by accessing either the Hyperlinks collection of the IWorksheet instance or Hyperlink property in respective IShape instance.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5458,7 +5458,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5516,7 +5516,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5540,7 +5540,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5589,7 +5589,7 @@ A complete working example to modify shape hyperlink in C# is present on [this G
 Hyperlinks from shapes can be removed by accessing Hyperlinks collection of the worksheet instance.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5604,7 +5604,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5652,7 +5652,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5671,7 +5671,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5744,7 +5744,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5807,7 +5807,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5844,7 +5844,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5902,7 +5902,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -5951,7 +5951,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -5981,7 +5981,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6038,7 +6038,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -6099,7 +6099,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6135,7 +6135,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6190,7 +6190,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -6235,7 +6235,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6263,7 +6263,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6322,7 +6322,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -6387,7 +6387,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6425,7 +6425,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6485,7 +6485,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -6535,7 +6535,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6566,7 +6566,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6622,7 +6622,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -6679,7 +6679,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6713,7 +6713,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6763,7 +6763,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -6802,7 +6802,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6827,7 +6827,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6874,7 +6874,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -6924,7 +6924,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -6955,7 +6955,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7010,7 +7010,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7049,7 +7049,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7074,7 +7074,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7119,7 +7119,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7158,7 +7158,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7183,7 +7183,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7224,7 +7224,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7263,7 +7263,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7288,7 +7288,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7331,7 +7331,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7370,7 +7370,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7395,7 +7395,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7446,7 +7446,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7505,7 +7505,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7540,7 +7540,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7612,7 +7612,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7685,7 +7685,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7727,7 +7727,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7792,7 +7792,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7845,7 +7845,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7877,7 +7877,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -7934,7 +7934,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -7988,7 +7988,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8022,7 +8022,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8086,7 +8086,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -8153,7 +8153,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8192,7 +8192,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8255,7 +8255,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -8310,7 +8310,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8343,7 +8343,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8399,7 +8399,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -8452,7 +8452,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8484,7 +8484,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8540,7 +8540,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -8595,7 +8595,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8628,7 +8628,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8689,7 +8689,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -8752,7 +8752,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8789,7 +8789,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8847,7 +8847,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -8896,7 +8896,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8926,7 +8926,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -8991,7 +8991,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -9068,7 +9068,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -9113,7 +9113,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

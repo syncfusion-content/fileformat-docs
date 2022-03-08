@@ -15,7 +15,7 @@ The following code shows how to activate a worksheet in workbook containing thre
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void ActivateWorksheet()
 {
     //Instantiate the application object
@@ -38,7 +38,7 @@ private void ActivateWorksheet()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub ActivateWorksheet()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -64,7 +64,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 private void ActivateWorksheet()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -88,7 +88,7 @@ private void ActivateWorksheet()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Private Sub ActivateWorksheet()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

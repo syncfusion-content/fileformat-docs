@@ -41,7 +41,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -132,7 +132,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -158,7 +158,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -225,7 +225,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -316,7 +316,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -349,7 +349,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -419,7 +419,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -510,7 +510,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -543,7 +543,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -607,7 +607,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -698,7 +698,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -731,7 +731,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -795,7 +795,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -886,7 +886,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -919,7 +919,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -986,7 +986,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1076,7 +1076,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1109,7 +1109,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1177,7 +1177,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1267,7 +1267,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1300,7 +1300,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1367,7 +1367,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1457,7 +1457,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1490,7 +1490,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1558,7 +1558,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1648,7 +1648,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1681,7 +1681,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1751,7 +1751,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1841,7 +1841,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1874,7 +1874,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1938,7 +1938,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2028,7 +2028,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2061,7 +2061,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2129,7 +2129,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2219,7 +2219,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2252,7 +2252,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2320,7 +2320,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2410,7 +2410,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2443,7 +2443,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2513,7 +2513,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2603,7 +2603,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2636,7 +2636,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2702,7 +2702,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2792,7 +2792,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2825,7 +2825,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2891,7 +2891,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2981,7 +2981,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3014,7 +3014,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3080,7 +3080,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3170,7 +3170,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3203,7 +3203,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3269,7 +3269,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3359,7 +3359,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3392,7 +3392,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3458,7 +3458,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3548,7 +3548,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3581,7 +3581,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3656,7 +3656,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3752,7 +3752,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
    IApplication application = excelEngine.Excel;
@@ -3779,7 +3779,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -3868,7 +3868,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3972,7 +3972,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4011,7 +4011,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4100,7 +4100,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4214,7 +4214,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4259,7 +4259,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4334,7 +4334,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -4416,7 +4416,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4448,7 +4448,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4552,7 +4552,7 @@ namespace CaptureWarnings
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Imports Syncfusion.ExcelToPdfConverter
 Imports Syncfusion.Pdf
 Imports Syncfusion.XlsIO
@@ -4713,7 +4713,7 @@ namespace CaptureWarnings
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 using Syncfusion.XlsIORenderer;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;
@@ -4778,7 +4778,7 @@ namespace CaptureWarnings
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using Syncfusion.XlsIORenderer;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;

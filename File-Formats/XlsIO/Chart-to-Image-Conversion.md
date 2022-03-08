@@ -16,7 +16,7 @@ Refer to the following links for assemblies/nuget packages required based on pla
 The following code snippet shows how to convert an Excel chart to an image using the **ExcelChartToImageConverter** class.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight C# %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -43,7 +43,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight VB.NET %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -114,7 +114,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET Core %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -143,7 +143,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
