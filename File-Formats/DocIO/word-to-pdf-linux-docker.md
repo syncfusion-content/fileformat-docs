@@ -30,7 +30,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 3.Include the following namespaces in the Program.cs file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 using System.IO;
 using Syncfusion.DocIO.DLS;
@@ -44,7 +44,7 @@ using Syncfusion.Pdf;
 4.Add the following code snippet in Program.cs file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Open the file as Stream
 using (FileStream docStream = new FileStream(@"Adventure.docx", FileMode.Open, FileAccess.Read))
 {

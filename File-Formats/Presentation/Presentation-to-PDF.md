@@ -16,7 +16,7 @@ PowerPoint allows you to convert an entire Presentation or a single slide into P
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Namespaces to perform PPTX to PDF conversion
 using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.Presentation;
@@ -43,7 +43,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Namespaces to perform PPTX to PDF conversion
 Imports Syncfusion.OfficeChartToImageConverter
 Imports Syncfusion.Presentation
@@ -70,7 +70,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Namespaces to perform PPTX to PDF conversion
 using Syncfusion.Pdf;
@@ -106,7 +106,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Namespaces to perform PPTX to PDF conversion
 using Syncfusion.Pdf;
@@ -176,7 +176,7 @@ When a font used in a PowerPoint presentation is unavailable in the environment 
 The following code example demonstrates how to set alternate font name for a missing font while converting a PowerPoint presentation to PDF. The provided alternate font should be installed in the production environment.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Load the PowerPoint presentation and convert to PDF
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
@@ -206,7 +206,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
@@ -238,7 +238,7 @@ End If
 End Sub
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation as stream
 using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.Create))
@@ -275,7 +275,7 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 		
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -317,7 +317,7 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 The following code example demonstrates how to upload a font stream for missing font while converting a PowerPoint presentation to PDF. The provided alternate font stream is not mandatory to be installed in the production environment.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Load the PowerPoint presentation and convert to PDF
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
@@ -349,7 +349,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
@@ -385,7 +385,7 @@ End If
 End Sub
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation as stream
 using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.Create))
@@ -424,7 +424,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 		
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -476,7 +476,7 @@ The following code example demonstrates how to initialize a default fallback fon
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -504,7 +504,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -532,7 +532,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -565,7 +565,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -606,7 +606,7 @@ The following code example demonstrates how to customize default fallback font w
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -637,7 +637,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -668,7 +668,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -704,7 +704,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -748,7 +748,7 @@ The following code example demonstrates how to add custom fallback fonts while c
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -788,7 +788,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -827,7 +827,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -872,7 +872,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -930,15 +930,15 @@ The following code example demonstrates how to cancel or continue the PowerPoint
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Essential Presentation library supports Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 //Essential Presentation supports library Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Open the file as Stream
 using (FileStream pptStream = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
@@ -1012,7 +1012,7 @@ public class DocumentWarning : IWarning
 		
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1087,7 +1087,7 @@ The following code sample demonstrates how to convert a PowerPoint presentation 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1111,7 +1111,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
@@ -1146,7 +1146,7 @@ The following code sample demonstrates how to convert a PowerPoint presentation 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1169,7 +1169,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1202,7 +1202,7 @@ The following code sample demonstrates how to include the hidden slides while co
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1225,7 +1225,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
@@ -1264,7 +1264,7 @@ The following code sample demonstrates how to set the PDF conformance level whil
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint document
 IPresentation pptxDoc = Presentation.Open("Sample.pptx"));
@@ -1289,7 +1289,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
@@ -1327,7 +1327,7 @@ The following code sample demonstrates how to set the quality of the charts whil
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1352,7 +1352,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1389,7 +1389,7 @@ The following code sample demonstrates how to optimize the duplicate images whil
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1414,7 +1414,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
@@ -1449,7 +1449,7 @@ The following code sample demonstrates how to optimize the image quality and res
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1477,7 +1477,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1513,7 +1513,7 @@ The Syncfusion PowerPoint library supports converting the PowerPoint document to
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint document
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -1538,7 +1538,7 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint document
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")

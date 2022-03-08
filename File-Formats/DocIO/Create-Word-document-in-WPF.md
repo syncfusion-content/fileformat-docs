@@ -26,7 +26,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO.DLS;
 using System;
@@ -41,7 +41,7 @@ using System.Windows;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 <Button Click="btnCreate_Click" Margin="0,0,10,12" VerticalAlignment="Bottom" Height="30" BorderBrush="LightBlue" HorizontalAlignment="Right" Width="180">
 <Button.Background>
@@ -64,7 +64,7 @@ using System.Windows;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 // Creating a new document.
 WordDocument document = new WordDocument();

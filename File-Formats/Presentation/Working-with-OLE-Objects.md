@@ -16,7 +16,7 @@ The following code example demonstrates how to add an Excel worksheet into a sli
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create new instance of PowerPoint presentation. [Equivalent to launching MS PowerPoint with no slides].
 IPresentation pptxDoc = Presentation.Create();
@@ -47,7 +47,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create new instance of PowerPoint presentation. [Equivalent to launching MS PowerPoint with no slides].
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -78,7 +78,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create new instance of PowerPoint presentation. [Equivalent to launching MS PowerPoint with no slides].
 IPresentation pptxDoc = Presentation.Create();
@@ -116,7 +116,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create new instance of PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Create();
@@ -148,7 +148,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create new instance of PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Create();
@@ -200,7 +200,7 @@ The following code example demonstrates how to add an Microsoft Word document in
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create new instance of PowerPoint presentation. [Equivalent to launching MS PowerPoint with no slides].
 IPresentation pptxDoc = Presentation.Create();
@@ -234,7 +234,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create new instance of PowerPoint presentation. [Equivalent to launching MS PowerPoint with no slides].
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -268,7 +268,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create new instance of PowerPoint presentation. [Equivalent to launching MS PowerPoint with no slides].
 IPresentation pptxDoc = Presentation.Create();
@@ -309,7 +309,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create new instance of PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Create();
@@ -344,7 +344,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create new instance of PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Create();
@@ -399,7 +399,7 @@ The following code example demonstrates how to extract the embedded OLE Object d
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the specified presentation
 IPresentation pptxDoc = Presentation.Open("EmbeddedOleObject.pptx");
@@ -422,7 +422,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the specified presentation
 Dim pptxDoc As IPresentation = Presentation.Open("EmbeddedOleObject.pptx")
@@ -445,7 +445,7 @@ pptxDoc.Close
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -502,7 +502,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("EmbeddedOleObject.pptx", FileMode.Open);
@@ -527,7 +527,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 string resourcePath = "SampleBrowser.Presentation.Samples.Templates.EmbeddedOleObject.pptx";
 Assembly assembly = typeof(GettingStarted).GetTypeInfo().Assembly;
@@ -566,7 +566,7 @@ The following code example demonstrates how to get the file path of a linked OLE
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the specified presentation
 IPresentation pptxDoc = Presentation.Open("EmbeddedOleObject.pptx");
@@ -583,7 +583,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the specified presentation
 Dim pptxDoc As IPresentation = Presentation.Open("EmbeddedOleObject.pptx")
@@ -600,7 +600,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputFileStream = assembly.GetManifestResourceStream("Sample.Data.EmbeddedOleObject.pptx");
@@ -627,7 +627,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("EmbeddedOleObject.pptx", FileMode.Open);
@@ -647,7 +647,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 string resourcePath = "SampleBrowser.Presentation.Samples.Templates.EmbeddedOleObject.pptx";
 Assembly assembly = typeof(GettingStarted).GetTypeInfo().Assembly;
@@ -688,7 +688,7 @@ The following code example demonstrates how to get the OLE image data.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the specified presentation
 IPresentation pptxDoc = Presentation.Open("ImageEmbeddedOleObject.pptx");
@@ -710,7 +710,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the specified presentation
 Dim pptxDoc As IPresentation = Presentation.Open("EmbeddedOleObject.pptx")
@@ -732,7 +732,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -786,7 +786,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("EmbeddedOleObject.pptx", FileMode.Open);
@@ -810,7 +810,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 string resourcePath = "SampleBrowser.Presentation.Samples.Templates.EmbeddedOleObject.pptx";
 Assembly assembly = typeof(GettingStarted).GetTypeInfo().Assembly;

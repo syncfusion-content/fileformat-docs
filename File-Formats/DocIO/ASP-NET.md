@@ -14,7 +14,7 @@ In your ASP.NET application, please add the required assemblies in order to use 
 
 The following code example illustrates how to download the Word document in browser after saving the document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an empty Word document instance
 
@@ -42,7 +42,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an empty Word document instance
 
@@ -76,7 +76,7 @@ The following code example illustrates how to open the HTML file in web browser 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an empty Word document instance
 
@@ -104,7 +104,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an empty Word document instance
 

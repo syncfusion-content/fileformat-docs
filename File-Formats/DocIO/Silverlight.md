@@ -15,7 +15,7 @@ The following code example illustrates how to load the Word document by using UR
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the Word document as url
 
@@ -113,7 +113,7 @@ document.Save(stream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the Word document as url
 
@@ -187,7 +187,7 @@ The following code example illustrates how to load the Word document by using st
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the Word document as stream
 
@@ -283,7 +283,7 @@ document.Save(stream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the Word document as stream
 
@@ -357,7 +357,7 @@ The following code example illustrates how to save the Word document in Silverli
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an empty Word document instance
 
@@ -455,7 +455,7 @@ document.Save(stream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 VB:
 
 'Creates an empty Word document instance

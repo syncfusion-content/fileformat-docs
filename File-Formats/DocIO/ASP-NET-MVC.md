@@ -15,7 +15,7 @@ The following code example illustrates how to save the Word document in ASP.NET 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an empty Word document instance
 
@@ -39,7 +39,7 @@ return document.ExportAsActionResult("Sample.docx", FormatType.Docx, HttpContext
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Creates an empty Word document instance
@@ -70,7 +70,7 @@ Following extension class will help you to download the Word document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 public static class DocIOExtension
 {
@@ -187,7 +187,7 @@ this.Document.Save(FileName, formatType, Response, ContentDisposition);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Public Module Class DocIOExtension

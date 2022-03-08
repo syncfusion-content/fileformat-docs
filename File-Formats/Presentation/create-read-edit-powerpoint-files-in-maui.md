@@ -32,7 +32,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -60,7 +60,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 using System.IO;
@@ -74,7 +74,7 @@ using System.Reflection;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new instance of the PowerPoint Presentation file.
 using IPresentation pptxDoc = Presentation.Create();
@@ -143,7 +143,7 @@ You can edit an existing PowerPoint file using this library. The below code snip
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing PowerPoint presentation.
 Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
 //Opens an existing PowerPoint presentation.

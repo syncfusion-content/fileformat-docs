@@ -46,7 +46,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 5.Create a razor file with name as **DocIO** under **Pages** folder and include the following namespaces in the file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 @page "/DocIO"
 @using System.IO;
 @using ServerSideApplication;
@@ -68,7 +68,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 7.Add the following code in **DocIO.razor** file to create and download the **Word document**.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 @code {
     MemoryStream documentStream;
 
@@ -88,7 +88,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -102,7 +102,7 @@ using System.IO;
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 public MemoryStream CreateWord()
 {
@@ -181,7 +181,7 @@ public MemoryStream CreateWord()
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 public static class FileUtils
 {
@@ -275,7 +275,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 @page "/DocIO"
 @inject Microsoft.JSInterop.IJSRuntime JS
 @using Syncfusion.DocIO
@@ -303,7 +303,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 @functions {
 
@@ -387,7 +387,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 public static class FileUtils
 {

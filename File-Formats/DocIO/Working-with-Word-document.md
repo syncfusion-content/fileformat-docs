@@ -19,7 +19,7 @@ The following code example shows how to iterate throughout the Word document and
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing document from file system through constructor of WordDocument class
 WordDocument document = new WordDocument(@"TestDocument.docx");
 //Processes the body contents for each section in the Word document
@@ -38,7 +38,7 @@ foreach (WSection section in document.Sections)
 document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing document from file system through constructor of WordDocument class
 Dim document As New WordDocument("TestDocument.docx")
 'Processes the body contents for each section in the Word document
@@ -56,7 +56,7 @@ Next
 document.Save("Result.docx")
 document.Close()	
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -83,7 +83,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 	document.Close();
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -108,7 +108,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
     return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Automatic))
@@ -137,7 +137,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endtabs %}  
 The following code example provides supporting methods for the above code.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -173,7 +173,7 @@ private static void IterateTextBody(WTextBody textBody)
     }
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Shared Sub IterateTextBody(textBody As WTextBody)
 'Iterates through the each of the child items of WTextBody
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
@@ -205,7 +205,7 @@ For i As Integer = 0 To textBody.ChildEntities.Count - 1
 Next
 End Sub
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 async void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -241,7 +241,7 @@ async void IterateTextBody(WTextBody textBody)
     }
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -277,7 +277,7 @@ private static void IterateTextBody(WTextBody textBody)
     }
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -318,7 +318,7 @@ private static void IterateTextBody(WTextBody textBody)
 The following code example provides supporting methods for the above code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -334,7 +334,7 @@ private static void IterateTable(WTable table)
     }
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Shared Sub IterateTable(table As WTable)
 'Iterates the row collection in a table
 For Each row As WTableRow In table.Rows
@@ -347,7 +347,7 @@ For Each row As WTableRow In table.Rows
 Next
 End Sub
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 async void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -363,7 +363,7 @@ async void IterateTable(WTable table)
     }
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -379,7 +379,7 @@ private static void IterateTable(WTable table)
     }
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -401,7 +401,7 @@ The following code example shows how to iterate throughout the paragraph and mod
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing document from file system through constructor of WordDocument class
 WordDocument document = new WordDocument(@"TestDocument.docx");
 //Processes the body contents for each section in the Word document
@@ -420,7 +420,7 @@ foreach (WSection section in document.Sections)
 document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("TestDocument.docx")
     'Processes the body contents for each section in the Word document
     For Each section As WSection In document.Sections
@@ -436,7 +436,7 @@ Dim document As New WordDocument("TestDocument.docx")
 document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -463,7 +463,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 	document.Close();
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -489,7 +489,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
 }
 
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Automatic))
@@ -522,7 +522,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -555,7 +555,7 @@ private static void IterateTextBody(WTextBody textBody)
     }
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Shared Sub IterateTextBody(textBody As WTextBody)
 'Iterates through each of the child items of WTextBody
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
@@ -585,7 +585,7 @@ For i As Integer = 0 To textBody.ChildEntities.Count - 1
 Next
 End Sub
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 async void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -618,7 +618,7 @@ async void IterateTextBody(WTextBody textBody)
     }
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -651,7 +651,7 @@ private static void IterateTextBody(WTextBody textBody)
     }
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -689,7 +689,7 @@ private static void IterateTextBody(WTextBody textBody)
 The following code example provides supporting methods for the above code.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -705,7 +705,7 @@ private static void IterateTable(WTable table)
     }
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Shared Sub IterateTable(table As WTable)
 'Iterates the row collection in a table
 For Each row As WTableRow In table.Rows
@@ -718,7 +718,7 @@ For Each row As WTableRow In table.Rows
 Next
 End Sub
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 async void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -734,7 +734,7 @@ async void IterateTable(WTable table)
     }
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -750,7 +750,7 @@ private static void IterateTable(WTable table)
     }
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -771,7 +771,7 @@ private static void IterateTable(WTable table)
 The following code example provides supporting methods for the above code.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
     for (int i = 0; i < paraItems.Count; i++)
@@ -821,7 +821,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
     }
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Shared Sub IterateParagraph(paraItems As ParagraphItemCollection)
 For i As Integer = 0 To paraItems.Count - 1
 	Dim entity As Entity = paraItems(i)
@@ -865,7 +865,7 @@ For i As Integer = 0 To paraItems.Count - 1
 Next
 End Sub
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 async void IterateParagraph(ParagraphItemCollection paraItems)
 {
     for (int i = 0; i < paraItems.Count; i++)
@@ -915,7 +915,7 @@ async void IterateParagraph(ParagraphItemCollection paraItems)
     }
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
     for (int i = 0; i < paraItems.Count; i++)
@@ -965,7 +965,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
     }
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
     for (int i = 0; i < paraItems.Count; i++)
@@ -1023,7 +1023,7 @@ You can create a deep copy of a Word document by using `Clone` method of `WordDo
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing document 
 WordDocument inputTemplateDoc = new WordDocument(fileName);
 //Creates a clone of Input Template 
@@ -1035,7 +1035,7 @@ clonedDocument.Close();
 sourceDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing document 
 Dim inputTemplateDoc As New WordDocument(fileName)
 'Creates a clone of Input Template 
@@ -1047,7 +1047,7 @@ clonedDocument.Close()
 sourceDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -1065,7 +1065,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -1084,7 +1084,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Automatic))
@@ -1108,7 +1108,7 @@ You can also create a deep copy of document elements such as sections, paragraph
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens a source document
 WordDocument sourceDocument = new WordDocument("SourceDocument.docx");
 //Processes the each section in the Word document
@@ -1126,7 +1126,7 @@ for (int i = 0; i < sourceDocument.Sections.Count;i++)
 sourceDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens a source document
 Dim sourceDocument As New WordDocument("SourceDocument.docx")
 'Processes the each section in the Word document
@@ -1143,7 +1143,7 @@ Next
 sourceDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument sourceDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.SourceDocument.docx"), FormatType.Docx);
@@ -1167,7 +1167,7 @@ sourceDocument.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("SourceDocument.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument sourceDocument = new WordDocument(fileStreamPath);
@@ -1189,7 +1189,7 @@ for (int i = 0; i < sourceDocument.Sections.Count;i++)
 sourceDocument.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument sourceDocument = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Assets.SourceDocument.docx"), FormatType.Docx);
@@ -1222,7 +1222,7 @@ You can merge multiple Word documents into single Word document by using DocIOâ€
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the source document 
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 //Opens the destination document 
@@ -1236,7 +1236,7 @@ sourceDocument.Close();
 destinationDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the source document 
 Dim sourceDocument As New WordDocument(sourceFileName)
 'Opens the destination document 
@@ -1250,7 +1250,7 @@ sourceDocument.Close()
 destinationDocument.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -1271,7 +1271,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
@@ -1292,7 +1292,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -1321,7 +1321,7 @@ When your requirement is to append the contents from the same page instead of st
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the source document 
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 //Opens the destination document 
@@ -1337,7 +1337,7 @@ sourceDocument.Close();
 destinationDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the source document 
 Dim sourceDocument As New WordDocument(sourceFileName)
 'Opens the destination document 
@@ -1353,7 +1353,7 @@ sourceDocument.Close()
 destinationDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -1376,7 +1376,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
@@ -1399,7 +1399,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -1430,7 +1430,7 @@ The following code example shows how to maintain information about imported list
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the source document
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 //Opens the destination document  
@@ -1456,7 +1456,7 @@ destinationDocument.Save(outputFileName, FormatType.Docx);
 destinationDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the source document
 Dim sourceDocument As New WordDocument(sourceFileName)
 'Opens the destination document
@@ -1480,7 +1480,7 @@ destinationDocument.Save(outputFileName, FormatType.Docx)
 destinationDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument sourceDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Source.docx"), FormatType.Docx);
@@ -1510,7 +1510,7 @@ destinationDocument.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the source document
 FileStream SourceFileStream = new FileStream("Source.docx", FileMode.Open);
 WordDocument sourceDocument = new WordDocument(SourceFileStream, FormatType.Docx);
@@ -1542,7 +1542,7 @@ outputStream.Position = 0;
 return File(outputStream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the source document
 Stream sourceStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Source.docx");
 WordDocument sourceDocument = new WordDocument(sourceStream, FormatType.Docx);
@@ -1583,7 +1583,7 @@ Initially you have to render the pages as images as shown below
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the Word document
 WordDocument document = new WordDocument((string)this.textBox.Tag);
 //Renders the Word document as image
@@ -1592,7 +1592,7 @@ Image[] images = document.RenderAsImages(ImageType.Metafile);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the Word document
 Dim document As New WordDocument(DirectCast(Me.textBox.Tag, String))
 'Renders the Word document as image
@@ -1601,15 +1601,15 @@ Dim images As Image() = document.RenderAsImages(ImageType.Metafile)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
@@ -1621,7 +1621,7 @@ The following code example demonstrates how to print the Word document pages tha
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 int endPageIndex = images.Length;
 //Creates new PrintDialog instance
 System.Windows.Forms.PrintDialog printDialog = new System.Windows.Forms.PrintDialog();
@@ -1652,7 +1652,7 @@ if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim endPageIndex As Integer = images.Length
 'Creates new PrintDialog instance
 Dim printDialog As New System.Windows.Forms.PrintDialog()
@@ -1681,15 +1681,15 @@ If printDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
 End If
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
@@ -1698,7 +1698,7 @@ End If
 The following code example provides supporting methods for the above code.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void PrintPageMethod(object sender, PrintPageEventArgs e)
 {
     //Gets the print start page width
@@ -1735,7 +1735,7 @@ private void PrintPageMethod(object sender, PrintPageEventArgs e)
         startPageIndex = 0;
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
 'Gets the print start page width
 Dim currentPageWidth As Integer = images(startPageIndex).Width
@@ -1769,15 +1769,15 @@ Else
 End If
 End Sub
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
 {% endhighlight %}
 {% endtabs %}   
@@ -1800,7 +1800,7 @@ This following code example demonstrates how a style can be accessed and style p
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an input Word template
 WordDocument document = new WordDocument(inputFileName);
 //Accesses the styles collection that contains paragraph and character styles in Word document
@@ -1816,7 +1816,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an input Word template
 Dim document As New WordDocument(inputFileName)
 'Accesses the styles collection that contains paragraph and character styles in Word document
@@ -1832,7 +1832,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -1856,7 +1856,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -1879,7 +1879,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -1911,7 +1911,7 @@ You can create a new paragraph style by using `WordDocument.AddParagraphStyle` m
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an input Word template
 WordDocument document = new WordDocument();
 //This method adds a section and a paragraph in the document
@@ -1930,7 +1930,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an input Word template
 Dim document As New WordDocument()
 'This method adds a section and a paragraph in the document
@@ -1949,7 +1949,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -1974,7 +1974,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -1998,7 +1998,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -2031,7 +2031,7 @@ DocIO provides a set of predefined styles. You can apply those predefined styles
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an input Word template
 WordDocument document = new WordDocument();
 //This method adds a section and a paragraph in the document
@@ -2045,7 +2045,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an input Word template
 Dim document As New WordDocument()
 'This method adds a section and a paragraph in the document
@@ -2059,7 +2059,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -2077,7 +2077,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -2094,7 +2094,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -2122,7 +2122,7 @@ The following code example explains how to remove the style from the word docume
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an input Word template.
 WordDocument document = new WordDocument("Template.docx");
 //Accesses the styles collection that contains paragraph and character styles in a Word document.
@@ -2136,7 +2136,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an input Word template.
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Accesses the styles collection that contains paragraph and character styles in a Word document.
@@ -2150,7 +2150,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an input Word template.
@@ -2173,7 +2173,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an input Word template.
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -2191,7 +2191,7 @@ outputStream.Flush();
 outputStream.Dispose();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an input Word template.
@@ -2229,7 +2229,7 @@ The Built-in document properties of a word document is represented by `BuiltinDo
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument(inputFileName);
 //Accesses the built-in document properties
@@ -2242,7 +2242,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As New WordDocument(inputFileName)
 'Accesses the built-in document properties
@@ -2256,7 +2256,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -2278,7 +2278,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -2299,7 +2299,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -2329,7 +2329,7 @@ You can update the count of Paragraphs, words and characters in an existing Word
 
 The following code example shows how to update word count in an existing word document.
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Open an existing document.
 using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
 {
@@ -2345,7 +2345,7 @@ using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
     document.Save("Result.docx");
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Open an existing document.
 Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
     'Update the word count in the document.
@@ -2361,11 +2361,11 @@ Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx
 End Using	
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports updating word count in WPF, Windows Forms, ASP.NET and ASP.NET MVC, platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing document.
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -2387,7 +2387,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open an existing document.
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
@@ -2416,7 +2416,7 @@ You can update page count in an existing Word document or document that created 
 
 The following code example shows how to update page count in an existing word document.
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Open an existing document.
 using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
 {
@@ -2428,7 +2428,7 @@ using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
     document.Save("Result.docx");
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Open an existing document.
 Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
     'Update the page count along with word count in the document.
@@ -2440,11 +2440,11 @@ Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx
 End Using	
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports updating page count in WPF, Windows Forms, ASP.NET and ASP.NET MVC, platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing document.
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -2462,7 +2462,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open an existing document.
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
@@ -2492,7 +2492,7 @@ You add a new custom document properties through `Add` method of `CustomProperti
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an input word template
 WordDocument document = new WordDocument(inputFileName);
 //Adds the custom document properties of various data types
@@ -2505,7 +2505,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing document from file system through constructor of WordDocument class
 Dim document As New WordDocument(inputFileName)
 'Adds the custom document properties of various data types
@@ -2518,7 +2518,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -2539,7 +2539,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -2559,7 +2559,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -2588,7 +2588,7 @@ You can access and modify an existing document property as shown in the followin
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument(inputFileName);
 //Accesses an existing custom document property
 DocumentProperty property = document.CustomDocumentProperties["PropertyA"];
@@ -2598,7 +2598,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument(inputFileName)
 'Accesses an existing custom document property
 Dim [property] As DocumentProperty = document.CustomDocumentProperties("PropertyA")
@@ -2608,7 +2608,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -2628,7 +2628,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -2647,7 +2647,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -2685,7 +2685,7 @@ You can access and modify the value of existing metadata in the Word document (D
 The following code example explains how to access and modify the value of an existing metadata in the Word document.
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Processes the metaproperty collection in the Word document
@@ -2745,7 +2745,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Processes the metaproperty collection in the Word document
@@ -2804,7 +2804,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx"), FormatType.Docx))
@@ -2871,7 +2871,7 @@ document.Close();
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Loads the template document
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
@@ -2937,7 +2937,7 @@ return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads the template document
@@ -3015,7 +3015,7 @@ The following code illustrates how to apply gradient as background to the docume
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3038,7 +3038,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3061,7 +3061,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -3084,7 +3084,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -3107,7 +3107,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -3136,7 +3136,7 @@ The following code illustrates how to apply image as background for the document
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document 
@@ -3154,7 +3154,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds new section to document
@@ -3172,7 +3172,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
@@ -3194,7 +3194,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -3216,7 +3216,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
@@ -3246,7 +3246,7 @@ Updating Alternate chunk in the Word document, imports the content from the embe
 
 The following examples show how to update the alternate chunk in the word document.
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
 {
@@ -3256,7 +3256,7 @@ using (WordDocument document = new WordDocument("Sample.docx", FormatType.Docx))
     document.Save("Result.doc");               
 }
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing document from file system through constructor of WordDocument class
 Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx)
     'Update the alternate chunks in the document
@@ -3265,7 +3265,7 @@ Using document As WordDocument = New WordDocument("Sample.docx", FormatType.Docx
     document.Save("Result.doc")
 End Using	
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.docx"), FormatType.Docx))
@@ -3281,7 +3281,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -3297,7 +3297,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     return File(stream, "application/msword", "Result.doc");
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Sample.docx")), FormatType.Docx))
@@ -3327,7 +3327,7 @@ You can save the resultant document as a Word document (DOCX, WordML, DOC), PDF,
 The following code example illustrates how to split the Word document by sections.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the template document
 using (WordDocument document = new WordDocument(@"Template.docx"))
@@ -3348,7 +3348,7 @@ using (WordDocument document = new WordDocument(@"Template.docx"))
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the template document
 Using document As WordDocument = New WordDocument("Template.docx")
@@ -3368,7 +3368,7 @@ End Using
 
 
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3397,7 +3397,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 }
 
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Load the template document as stream
@@ -3424,7 +3424,7 @@ using(WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 
 
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -3460,7 +3460,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 The following code example illustrates how to split the Word document by using headings.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the template document
 using (WordDocument doc = new WordDocument(@"Template.docx"))
@@ -3549,7 +3549,7 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the template document
 Using doc As WordDocument = New WordDocument("Template.docx")
@@ -3618,7 +3618,7 @@ Private Sub SaveWordDocument(ByVal newDocument As WordDocument, ByVal fileName A
 End Sub
 		
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3712,7 +3712,7 @@ private async void SaveWordDocument(WordDocument newDocument, string fileName)
 
 
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using (FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -3806,7 +3806,7 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
 }
 
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("XamarinAPp.Data.Adventure.docx");
@@ -3908,7 +3908,7 @@ private void SaveWordDocument(WordDocument newDocument, string fileName)
 The following code example illustrates how to split the Word document using bookmarks.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -3935,7 +3935,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Create a bookmark navigator instance to access the bookmark.
@@ -3961,7 +3961,7 @@ Using document As WordDocument = New WordDocument("Template.docx", FormatType.Do
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -3995,7 +3995,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Load an existing Word document.
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -4025,7 +4025,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from the file system through the constructor of WordDocument class.
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Template.docx")), FormatType.Docx))
@@ -4063,7 +4063,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 The following code example illustrates how to split the Word document using the placeholder text.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Load an existing Word document into DocIO instance.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -4093,7 +4093,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load an existing Word document into DocIO instance.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     Dim findPlaceHolderWord As String() = New String() {"[First Content Start]", "[Second Content Start]", "[Third Content Start]"}
@@ -4122,7 +4122,7 @@ Using document As WordDocument = New WordDocument("Template.docx", FormatType.Do
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -4159,7 +4159,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Load an existing Word document.
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -4192,7 +4192,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Template.docx");

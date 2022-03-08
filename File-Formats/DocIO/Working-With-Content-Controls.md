@@ -24,7 +24,7 @@ Content controls can be categorized based on its occurrence in a document as fol
 You can add content control to a text body of the Word document using block content control. You can add text, tables, pictures, or other items into the block content control. Refer to the following code.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -49,7 +49,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds new section to the document
@@ -74,7 +74,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -105,7 +105,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -134,7 +134,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -175,7 +175,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can add content control as a child to a paragraph using the inline content control. You can add text, pictures, fields or other paragraph items into the inline content control. Refer to the following code.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -195,7 +195,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -215,7 +215,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -240,7 +240,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -262,7 +262,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -334,7 +334,7 @@ It restricts to remove or delete the content control.
 The following code sample illustrates the content control properties usage.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -368,7 +368,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -402,7 +402,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -441,7 +441,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -477,7 +477,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -540,7 +540,7 @@ To protect contents inside a content control, you can use properties of the cont
 The following code sample shows how to protect the content control and its contents.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -570,7 +570,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -600,7 +600,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -635,7 +635,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -667,7 +667,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -713,7 +713,7 @@ Another major use case is to create the forms. You can design your own forms for
 Form creation:
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new document
 WordDocument document = new WordDocument();
 //Adding a new section to the document
@@ -987,7 +987,7 @@ document.Save("Form_Template.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new document
 Dim document As WordDocument = New WordDocument()
 'Adding a new section to the document
@@ -1261,7 +1261,7 @@ document.Save("Form_Template.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Create a new document
 WordDocument document = new WordDocument();
 //Adding a new section to the document
@@ -1542,7 +1542,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new document
 WordDocument document = new WordDocument();
 //Adding a new section to the document
@@ -1818,7 +1818,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new document
 WordDocument document = new WordDocument();
 //Adding a new section to the document
@@ -2107,7 +2107,7 @@ You can also fill the forms using the DocIO. Refer to the following code example
 Form filling:
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Open the created form document.
 WordDocument document1 = new WordDocument("Form_Template.docx");
 IWSection sec = document1.LastSection;
@@ -2199,7 +2199,7 @@ document1.Save("Form_Filled.docx");
 document1.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Open the created form document
 Dim document1 As WordDocument = New WordDocument("Form_Template.docx")
 Dim sec As IWSection = document1.LastSection
@@ -2289,7 +2289,7 @@ document1.Save("Form_Filled.docx")
 document1.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Open the created form document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document1 = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Form_Template.docx"), FormatType.Docx);
@@ -2387,7 +2387,7 @@ Save(stream, "Form_Filled.docx");
 document1.Close();
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the created form document
 WordDocument document1 = new WordDocument(outputStream, FormatType.Automatic);
 IWSection sec = document1.LastSection;
@@ -2481,7 +2481,7 @@ document1.Save(saveStream, FormatType.Docx);
 document1.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Open the created form document
 Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Form_Template.docx");
 WordDocument document1 = new WordDocument(inputStream, FormatType.Automatic);
@@ -2588,7 +2588,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Word allows you to store XML data, named *custom XML parts*, in a Word document. You can control the display of this data by binding content controls to elements in a custom XML part. When you open the Word document, the content controls display the values of the XML elements. Any changes that you make to the text in the content controls are saved in the custom XML part (two-way data binding). Refer to the following code sample to map custom XML parts to content control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2620,7 +2620,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds new section to the document
@@ -2652,7 +2652,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2689,7 +2689,7 @@ Save(stream, "Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2723,7 +2723,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2778,7 +2778,7 @@ The following types of content controls can be created by using the Essential Do
 A rich text content control contains text or other items, such as tables, pictures, or other content controls. The following code illustrates how to add new rich text content control. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2804,7 +2804,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2830,7 +2830,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2863,7 +2863,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2893,7 +2893,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2935,7 +2935,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 A plain text content control contains text and cannot contain other items, such as tables, pictures, or other content controls. Refer to the following code to add plain text content control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2955,7 +2955,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2975,7 +2975,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2999,7 +2999,7 @@ document.Close();//Please refer the below link to save Word document in UWP plat
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3021,7 +3021,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3055,7 +3055,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 A check box content control provides a UI that represents a binary state: checked or unchecked. Default state for check box is unchecked. Refer to the following code to add check box content control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3072,7 +3072,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -3089,7 +3089,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3111,7 +3111,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3130,7 +3130,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3161,7 +3161,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 A date picker content control provides a calendar UI for selecting a date. The calendar appears when you click the drop-down arrow in the content control. You can use regional calendars and different date formats. Refer to the following code to add date picker content control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3187,7 +3187,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -3213,7 +3213,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3244,7 +3244,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3272,7 +3272,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3312,7 +3312,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 A drop-down list content control and combo box content control displays a list of items you can select. Unlike a drop-down list, the combo box allows to add your own items. Refer to the following code to add drop-down list and combo box content controls.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3369,7 +3369,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds new section to the document
@@ -3426,7 +3426,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3488,7 +3488,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3551,7 +3551,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3626,7 +3626,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 A picture content control displays an image. Refer to the following code to add new picture content control.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3647,7 +3647,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -3668,7 +3668,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3696,7 +3696,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3721,7 +3721,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3758,7 +3758,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can edit the inline content control text by iterating the child items of inline content control. The following code example shows how to edit content control text in the Word document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads a template document
 WordDocument document = new WordDocument(@"Template.docx");
 ///Processes the body contents for each section in the Word document
@@ -3865,7 +3865,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads a template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 ''' Processes the body contents for each section in the Word document
@@ -3955,7 +3955,7 @@ Private Shared Sub ReplaceTextWithInlineContentControl(ByVal text As String, ByV
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
             
@@ -4071,7 +4071,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Creates an instance of WordDocument class
@@ -4187,7 +4187,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);

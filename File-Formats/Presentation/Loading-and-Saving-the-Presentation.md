@@ -13,21 +13,21 @@ You can open an existing PowerPoint Presentation by using the file name and its 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation from file system 
 IPresentation pptxDoc = Presentation.Open(fileName);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from file system 
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -42,7 +42,7 @@ IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -52,7 +52,7 @@ IPresentation pptxDoc = Presentation.Open(inputStream)
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -71,21 +71,21 @@ You can open an existing PowerPoint Presentation from stream by using the overlo
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation from stream 
 IPresentation pptxDoc = Presentation.Open(presentationStream);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from stream 
 Dim pptxDoc As IPresentation = Presentation.Open(presentationStream)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create new Presentation without slides.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -96,14 +96,14 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create new Presentation without slides.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -122,7 +122,7 @@ You can open an encrypted PowerPoint presentation from either file path or strea
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing encrypted Presentation from stream 
 
@@ -130,7 +130,7 @@ IPresentation pptxDoc = Presentation.Open(presentationStream, password);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing encrypted Presentation from stream 
 
@@ -138,7 +138,7 @@ Dim pptxDoc As IPresentation = Presentation.Open(presentationStream, password)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Opens an existing encrypted Presentation from stream 
 
@@ -146,13 +146,13 @@ IPresentation pptxDoc = Presentation.OpenAsync(presentationStream, password);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms. 
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
@@ -162,7 +162,7 @@ IPresentation pptxDoc = Presentation.OpenAsync(presentationStream, password);
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing encrypted Presentation from file system 
 
@@ -170,7 +170,7 @@ IPresentation pptxDoc = Presentation.Open(fileName, password);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing encrypted Presentation from file system 
 
@@ -178,7 +178,7 @@ Dim pptxDoc As IPresentation = Presentation.Open(fileName, password)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Opens an existing encrypted Presentation from file system 
 
@@ -186,13 +186,13 @@ IPresentation pptxDoc = Presentation.OpenAsync(fileName, password);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
@@ -206,7 +206,7 @@ You can save the created or manipulated PowerPoint Presentation to file system b
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing PowerPoint Presentation 
 
@@ -222,7 +222,7 @@ pptxDoc.Save("Output.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing PowerPoint Presentation
 
@@ -238,7 +238,7 @@ pptxDoc.Save("Output.pptx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -268,7 +268,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(fileName, FileMode.Open);
@@ -281,7 +281,7 @@ pptxDoc.SaveAs(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -320,7 +320,7 @@ You can save the created or manipulated PowerPoint Presentation to stream by usi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing PowerPoint Presentation 
 
@@ -340,7 +340,7 @@ pptxDoc.Save(stream);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing PowerPoint Presentation 
 
@@ -360,7 +360,7 @@ pptxDoc.Save(stream)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -382,7 +382,7 @@ await pptxDoc.SaveAsync(outputStream);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
@@ -395,7 +395,7 @@ pptxDoc.SaveAs(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -420,7 +420,7 @@ You can save and send the Presentation to a client browser from a website or web
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing PowerPoint Presentation 
 
@@ -436,7 +436,7 @@ pptxDoc.Save("Output.pptx", FormatType.Pptx, Response);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing PowerPoint Presentation 
 
@@ -452,13 +452,13 @@ pptxDoc.Save("Output.pptx", FormatType.Pptx, Response)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
@@ -479,7 +479,7 @@ return File(outputStream, ContentType, outputFileName);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
 
@@ -493,7 +493,7 @@ When you are done with the Presentation instance, you should close the instance 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation from file system 
 
@@ -517,7 +517,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from file system 
 
@@ -541,7 +541,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -574,7 +574,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -592,7 +592,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

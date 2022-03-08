@@ -15,7 +15,7 @@ The following code example demonstrates how to encrypt a PowerPoint Presentation
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance for Presentation.
 using (IPresentation presentation = Presentation.Create())
 {
@@ -32,7 +32,7 @@ using (IPresentation presentation = Presentation.Create())
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance for Presentation.
 Using presentationDocument As IPresentation = Presentation.Create()
 	'Adds slide to Presentation.
@@ -48,7 +48,7 @@ Using presentationDocument As IPresentation = Presentation.Create()
 End Using
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (IPresentation presentation = Presentation.Create())
 {
 	//Adds slide to Presentation.
@@ -67,7 +67,7 @@ using (IPresentation presentation = Presentation.Create())
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance for Presentation.
 using (IPresentation presentation = Presentation.Create())
 {
@@ -101,7 +101,7 @@ The following code example demonstrates opening the encrypted PowerPoint Present
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$"))
 {
@@ -110,7 +110,7 @@ using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
 	'Saves the Presentation
@@ -118,7 +118,7 @@ Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "
 End Using
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
 {
@@ -133,7 +133,7 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads or open an existing PowerPoint Presentation
@@ -157,7 +157,7 @@ The following code example demonstrates removing the encryption from a PowerPoin
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$"))
 {
@@ -168,7 +168,7 @@ using (IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
 	'Decrypts the document.
@@ -178,7 +178,7 @@ Using presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "
 End Using
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
  //Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
 {
@@ -196,7 +196,7 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open))
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads or open an existing PowerPoint Presentation
@@ -227,7 +227,7 @@ The following code example shows how to set write protection for a PowerPoint Pr
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -255,7 +255,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create()
@@ -283,7 +283,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -317,7 +317,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -346,7 +346,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -394,7 +394,7 @@ The following code example shows how to remove restriction protection from the w
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open the PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -417,7 +417,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open the PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -440,7 +440,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -477,7 +477,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -502,7 +502,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

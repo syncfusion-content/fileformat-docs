@@ -18,7 +18,7 @@ The following code example illustrates how to load the Word document by using st
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the Word document as stream
 
@@ -108,7 +108,7 @@ outstream.Flush();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the Word document as stream
 
@@ -192,7 +192,7 @@ The following code example illustrates how to load the Word document by using fi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create the file open picker
 
@@ -290,7 +290,7 @@ outstream.Flush();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create the file open picker
 
@@ -384,7 +384,7 @@ The following code example illustrates how to save the Word document in UWP by u
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an empty Word document instance
 
@@ -478,7 +478,7 @@ outstream.Flush();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an empty Word document instance
 

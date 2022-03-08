@@ -17,7 +17,7 @@ The following code example demonstrates how to add a footer to the presentation.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -43,7 +43,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an instance of Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -68,7 +68,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -100,7 +100,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -128,7 +128,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -175,7 +175,7 @@ The following code example demonstrates how to add Date and Time to a slide of t
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -203,7 +203,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an instance of Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -230,7 +230,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -264,7 +264,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -294,7 +294,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -343,7 +343,7 @@ The following code example demonstrates how to add Slide number to a slide of th
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -369,7 +369,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an instance of Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -394,7 +394,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -426,7 +426,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -454,7 +454,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -502,7 +502,7 @@ The following code example demonstrates how to add a Footers to the master and l
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Footer.pptx");
@@ -536,7 +536,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load or open an PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Footer.pptx")
@@ -570,7 +570,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -619,7 +619,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -660,7 +660,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -731,7 +731,7 @@ The following code example demonstrates how to add a Headers and Footers to the 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -761,7 +761,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an instance of Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -791,7 +791,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -828,7 +828,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -863,7 +863,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -920,7 +920,7 @@ The following code example demonstrates how to edit Footer text of an existing s
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Footer.pptx");
@@ -937,7 +937,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load or open an PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Footer.pptx")
@@ -954,7 +954,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -982,7 +982,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -1005,7 +1005,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1052,7 +1052,7 @@ The following code example demonstrates how to edit the Headers for the Notes sl
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
@@ -1067,7 +1067,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open a PowerPoint presentation. 
 Dim pptxDoc As IPresentation = Presentation.Open("Header.pptx")
@@ -1082,7 +1082,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiate the File Picker.
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1116,7 +1116,7 @@ await Windows.System.Launcher.LaunchFileAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
@@ -1132,7 +1132,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Open a PowerPoint presentation. 
 IPresentation pptxDoc = Presentation.Open("Header.pptx"); 
@@ -1171,7 +1171,7 @@ The following code example demonstrates how to modify Date and Time of an existi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Footer.pptx");
@@ -1188,7 +1188,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load or open an PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Footer.pptx")
@@ -1205,7 +1205,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1233,7 +1233,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -1256,7 +1256,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1299,7 +1299,7 @@ The following code example demonstrates how to edit font of the Footer content i
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Footer.pptx");
@@ -1324,7 +1324,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load or open an PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Footer.pptx")
@@ -1348,7 +1348,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1388,7 +1388,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -1420,7 +1420,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1475,7 +1475,7 @@ The following code example demonstrates how to remove Footers from all the Title
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Footer.pptx");
@@ -1501,7 +1501,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load or open an PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Footer.pptx")
@@ -1525,7 +1525,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1565,7 +1565,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -1598,7 +1598,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
