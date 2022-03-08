@@ -32,7 +32,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 4.Add a new button to the **MainWindow.xaml** as shown below.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUISample.MainPage"
@@ -53,7 +53,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 5.Include the following namespaces in the **MainWindow.xaml.cs** file.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.IO;
 using System.Reflection;
@@ -63,7 +63,7 @@ using System.Reflection;
 6.Add a new action method **createExcel_Click** in MainWindow.xaml.cs and include the below code snippet to **create an Excel document**.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -254,7 +254,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Add the following **SaveWindows.cs** file to the **Project-> Platforms-> Windows** directory to save and view the Excel document in the windows machine.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
@@ -333,7 +333,7 @@ class SaveWindows : ISave
 Add the following **SaveAndroid.cs** file to the **Project-> Platforms-> Android** directory folder to save and view the Excel document in the Android Device.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 using System;
 using System.IO;
@@ -418,7 +418,7 @@ class SaveAndroid : ISave
 Add the following **SaveIOS.cs** file to the **Project-> Platforms-> iOS** directory to save the Excel document in the iOS Device.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using System;
 using System.Threading.Tasks;
 using System.IO;
@@ -507,7 +507,7 @@ By executing the program in windows, you will get the **Excel document** as foll
 The below code snippet illustrates how to read and edit an Excel file in .NET MAUI.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {

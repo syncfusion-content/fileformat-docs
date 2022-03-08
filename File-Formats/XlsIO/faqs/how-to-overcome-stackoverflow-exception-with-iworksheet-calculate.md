@@ -13,7 +13,7 @@ StackOverflow exception occurs when the number of <i>IterationMaxCount</i>, <i>M
 The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 worksheet.EnableSheetCalculations(); 
 worksheet.CalcEngine.UseFormulaValues = true; 
 worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
@@ -21,7 +21,7 @@ worksheet.CalcEngine.IterationMaxCount = 10000;
 CalcEngine.MaxStackDepth = 10000; 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 worksheet.EnableSheetCalculations()
 worksheet.CalcEngine.UseFormulaValues = True
 worksheet.CalcEngine.MaximumRecursiveCalls = 10000
@@ -29,7 +29,7 @@ worksheet.CalcEngine.IterationMaxCount = 10000
 CalcEngine.MaxStackDepth = 10000
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 worksheet.EnableSheetCalculations(); 
 worksheet.CalcEngine.UseFormulaValues = true; 
 worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
@@ -37,7 +37,7 @@ worksheet.CalcEngine.IterationMaxCount = 10000;
 CalcEngine.MaxStackDepth = 10000; 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 worksheet.EnableSheetCalculations(); 
 worksheet.CalcEngine.UseFormulaValues = true; 
 worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
@@ -45,7 +45,7 @@ worksheet.CalcEngine.IterationMaxCount = 10000;
 CalcEngine.MaxStackDepth = 10000; 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 worksheet.EnableSheetCalculations(); 
 worksheet.CalcEngine.UseFormulaValues = true; 
 worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 

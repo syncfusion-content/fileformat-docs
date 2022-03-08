@@ -24,11 +24,11 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 3.A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 {% endhighlight %}
 {% endtabs %}  
@@ -53,7 +53,7 @@ Imports Syncfusion.XlsIO
 6.Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -230,7 +230,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -418,7 +418,7 @@ By executing the program, you will get the Excel file as below.
 The below code snippet illustrates how to read and edit an Excel file in ASP.NET MVC.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -442,7 +442,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
 

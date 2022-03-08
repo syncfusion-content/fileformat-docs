@@ -12,7 +12,7 @@ XlsIO does not support files generated prior to 97-2003 version. Hence the excep
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -25,7 +25,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As New ExcelEngine()
 
 Dim application As IApplication = excelEngine.Excel
@@ -38,7 +38,7 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 
@@ -49,7 +49,7 @@ var isSupported = application.IsSupported(stream);
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 
@@ -60,7 +60,7 @@ var isSupported = application.IsSupported(stream);
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 

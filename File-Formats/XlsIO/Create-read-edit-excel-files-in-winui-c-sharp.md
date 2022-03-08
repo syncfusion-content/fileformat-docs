@@ -32,7 +32,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 5. Add a new button to the **MainWindow.xaml** as shown below.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 <Window
     x:Class="WinUISample.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -52,7 +52,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 6.Include the following namespaces in MainPage.xaml.cs file.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
@@ -65,7 +65,7 @@ using System.IO;
 7.Include the below code snippet in button click event to create an Excel file and download it.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -252,7 +252,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 8.Include this below helper Save method in **MainPage.xaml.cs** file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 async void Save(MemoryStream stream, string filename)
 {
 
@@ -301,7 +301,7 @@ By executing the program, you will get the Excel file as below.
 The below code snippet illustrates how to read and edit an Excel file in WinUI.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {

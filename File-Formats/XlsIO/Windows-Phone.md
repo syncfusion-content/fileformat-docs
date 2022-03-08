@@ -15,7 +15,7 @@ The below code snippet illustrates how to load an Excel file in Windows Phone.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel; 
@@ -50,7 +50,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = excelEngine.Excel
@@ -97,7 +97,7 @@ The below code snippet illustrates how to load an Excel file using stream in Win
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine(); 
 
 IApplication application = excelEngine.Excel; 
@@ -136,7 +136,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = excelEngine.Excel
@@ -187,7 +187,7 @@ The below code snippet illustrates how to load an encrypted Excel file in Window
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -228,7 +228,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = ExcelEngine.Excel
@@ -279,7 +279,7 @@ The below code snippet illustrates how to load an XML file in Windows Phone.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine(); 
 
 IApplication application = excelEngine.Excel; 
@@ -320,7 +320,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = ExcelEngine.Excel
@@ -373,7 +373,7 @@ The following code snippet illustrate how to save an Excel document in Windows P
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine(); 
 
 IApplication application = excelEngine.Excel; 
@@ -414,7 +414,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 Dim application As IApplication = ExcelEngine.Excel

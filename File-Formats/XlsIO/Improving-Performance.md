@@ -15,7 +15,7 @@ Get **UsedRange** globally. It is recommended to get the UsedRange in loops as f
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 int lastRow = sheet.UsedRange.LastRow;
 
 for(int i=0;i<lastRow;i++)
@@ -42,7 +42,7 @@ for(int i = 0;i<sheet.UsedRange.LastRow;i++)
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim lastRow As Integer = sheet.UsedRange.LastRow
 
 For i As Integer = 0 To lastRow - 1
@@ -75,7 +75,7 @@ The following code example illustrates how the **IMigrantRange** is accessed.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 IMigrantRange migrantRange = workbook.Worksheets[0].MigrantRange; 
 
 // Writing Data.
@@ -98,7 +98,7 @@ migrantRange.Value = "Syncfusion";
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Writing Data.
 Dim row As Integer
 Dim migrantRange As IMigrantRange = workbook.Worksheets(0).MigrantRange
@@ -125,7 +125,7 @@ Next
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2013;
@@ -180,7 +180,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As New ExcelEngine()
 
 excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2013
@@ -245,7 +245,7 @@ Use Begin and End call while using more than one global style for a worksheet.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Defining body style
 
 IStyle bodyStyle = workbook.Styles.Add("BodyStyle");
@@ -264,7 +264,7 @@ bodyStyle.EndUpdate();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Defining body style
 
 Dim bodyStyle As IStyle = workbook.Styles.Add("BodyStyle")
@@ -291,7 +291,7 @@ Performance can be improved to a greater extent by setting default styles for ro
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Set default styles for rows and columns
 
 IStyle style = workbook.Styles.Add("Style"); 
@@ -325,7 +325,7 @@ worksheet.SetDefaultColumnStyle(2, 12, style);
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Set default styles for rows and columns
 
 Dim style As IStyle = workbook.Styles.Add("Style")
@@ -369,7 +369,7 @@ For improved performance in Excel to PDF conversion, it is recommended to set th
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
@@ -380,7 +380,7 @@ application.SkipAutoFitRow = true;
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 Dim application As IApplication = excelEngine.Excel
@@ -399,7 +399,7 @@ application.SkipAutoFitRow = True
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 DataTable table = Worksheet.ExportDataTable(1, 1, Worksheet.UsedRange.LastRow, Worksheet.UsedRange.LastColumn, ExcelExportDataTableOptions.DetectColumnTypes); 
 
 //Enable ImportOnSave option along with column header.
@@ -414,7 +414,7 @@ workbook.SaveAs("Output.xlsx");
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim table As DataTable = Worksheet.ExportDataTable(1, 1, Worksheet.UsedRange.LastRow, Worksheet.UsedRange.LastColumn, ExcelExportDataTableOptions.DetectColumnTypes)
 
 'Enable ImportOnSave option along with column header.
@@ -446,7 +446,7 @@ Use of BeginUpdate and EndUpdate methods for large blocks of Data Validation gre
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 // List data validation for entire column
 
 IDataValidation validation = sheet.Range["A3"].EntireColumn.DataValidation;
@@ -465,7 +465,7 @@ validation.EndUpdate();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 ' List data validation for entire column
 
 Dim validation As IDataValidation = sheet.Range("A3").EntireColumn.DataValidation
