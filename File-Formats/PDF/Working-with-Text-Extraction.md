@@ -17,7 +17,7 @@ The following code snippet explains how to extract the texts from a page.
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing PDF.
 
@@ -37,7 +37,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing PDF.
 
@@ -57,7 +57,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -91,7 +91,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -115,7 +115,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -149,7 +149,7 @@ The below code illustrates how to extract the text from entire PDF document:
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 // Load an existing PDF document.
 
@@ -177,7 +177,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ' Load an existing PDF document.
 
@@ -203,7 +203,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -246,7 +246,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -278,7 +278,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -320,7 +320,7 @@ Please refer the following code snippet to extract the text with layout.
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing PDF.
 
@@ -340,7 +340,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 //Load an existing PDF.
 
@@ -360,7 +360,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -394,7 +394,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -430,7 +430,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports extract text from the given PDF page based on its layout using ExtractText(bool) overload only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and UWP platforms.
 
@@ -448,7 +448,7 @@ You can get the line and its properties that contains texts by using `TextLine`.
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 // Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
@@ -472,7 +472,7 @@ string text = line.Text;
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ' Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
@@ -496,19 +496,19 @@ Dim text As String = line.Text
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports getting the lines and its properties using TextLine only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PDF supports getting the lines and its properties using TextLine only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the existing PDF document
 PdfLoadedDocument m_loadedDocument = new PdfLoadedDocument(stream);
@@ -551,7 +551,7 @@ You can get the single word and its properties by using `TextWord`. Refer to the
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 // Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
@@ -578,7 +578,7 @@ List<TextWord> textWordCollection = line.WordCollection;
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ' Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(fileName)
@@ -605,19 +605,19 @@ Dim textWordCollection As List(Of TextWord) = line.WordCollection
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports getting the word and its properties using TextWord only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PDF supports getting the word and its properties using TextWord only in WinForms, WPF and Xamarin platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the existing PDF document
 PdfLoadedDocument m_loadedDocument = new PdfLoadedDocument(stream);
@@ -667,31 +667,31 @@ You can get single character and its properties by using [TextGlyph](https://hel
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform. 
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 //PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform.
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the existing PDF document
 PdfLoadedDocument m_loadedDocument = new PdfLoadedDocument(stream);

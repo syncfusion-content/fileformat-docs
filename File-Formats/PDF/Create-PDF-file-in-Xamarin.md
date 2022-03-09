@@ -36,7 +36,7 @@ a.  To add the new XAML page, right-click the project and select Add > New Item 
 
 b.	In App class of portable project (App.cs), replace the existing constructor of App class with the following code snippet, which invokes the MainXamlPage.
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 public App()
 {
@@ -48,7 +48,7 @@ public App()
 
 In the MainXamlPage.xaml, add new button as follows.
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GettingStarted. MainXamlPage">
@@ -62,7 +62,7 @@ In the MainXamlPage.xaml, add new button as follows.
 
 Include the following namespace in the MainXamlPage.xaml.cs file.
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
@@ -73,7 +73,7 @@ using Syncfusion.Pdf.Grid;
 
 Include the following code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PDF file and save it in a stream. 
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 // Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -157,7 +157,7 @@ By executing the program, you will get the PDF document as follows.
 
 The following code example shows how to create a PDF document with an image.
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -187,7 +187,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 The following code example shows how to create a PDF document with a simple table.
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -227,7 +227,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -247,7 +247,7 @@ PdfGraphics graphics = page.Graphics;
 
 The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the image as stream
 Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.AdventureCycle.jpg");
@@ -267,7 +267,7 @@ The ```PdfTextElement``` provides the layout result of the added text by using t
 
 The following code example adds the necessary text such as address, invoice number and date to create a basic invoice application. 
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
 bounds = new RectangleF(0, bounds.Bottom + 90, graphics.ClientSize.Width, 30);
@@ -305,7 +305,7 @@ Essential PDF provides two types of table models. The difference between both th
 
 Since the invoice document requires only simple cell customizations, the given code example explains how to create a simple invoice table by using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the datasource for the table
 DataTable invoiceDetails = GetProductDetailsAsDataTable();
@@ -349,7 +349,7 @@ PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, re
 
 The following code example shows how to save the invoice document to disk and dispose the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object.
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
@@ -381,7 +381,7 @@ The following guide shows how to fill a sample PDF form as shown.
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PDF form.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"JobApplication.pdf");
@@ -421,7 +421,7 @@ Essential PDF supports merging multiple PDF documents from stream using [Merge](
 
 You can merge the PDF document streams by using the following code example.
  
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a PDF document
 PdfDocument finalDoc = new PdfDocument();

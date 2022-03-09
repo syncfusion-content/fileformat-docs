@@ -26,7 +26,7 @@ The following code example shows how to add named destination in a new PDF docum
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -49,7 +49,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 Dim doc As New PdfDocument()
@@ -72,7 +72,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -98,7 +98,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -130,7 +130,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -172,7 +172,7 @@ The following code example shows how to add named destination in an existing PDF
 
 {% tabs %} 
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -194,7 +194,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -215,7 +215,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -246,7 +246,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -276,7 +276,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
@@ -317,7 +317,7 @@ You can remove the named destination using [Remove](https://help.syncfusion.com/
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
 PdfLoadedDocument lDoc = new PdfLoadedDocument("Sample.pdf");
@@ -338,7 +338,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document
 Dim lDoc As New PdfLoadedDocument("Sample.pdf")
@@ -358,7 +358,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -388,7 +388,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("Barcode.pdf", FileMode.Open, FileAccess.Read);
@@ -416,7 +416,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
@@ -457,7 +457,7 @@ The following code example shows how to add named destination to the [Bookmarks]
 
 {% tabs %}   
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -483,7 +483,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 Dim doc As New PdfDocument()
@@ -509,7 +509,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -538,7 +538,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -573,7 +573,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();

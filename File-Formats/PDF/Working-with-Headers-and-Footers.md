@@ -17,7 +17,7 @@ The below code snippet explains how to draw the page numbers in footer using aut
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -86,7 +86,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -155,7 +155,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -231,7 +231,7 @@ Save(ms, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -317,7 +317,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 

@@ -16,7 +16,7 @@ You can merge the multiple PDF document using [Merge](https://help.syncfusion.co
 Refer to the following code example to merge multiple documents from disk.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -44,7 +44,7 @@ finalDoc.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -70,7 +70,7 @@ finalDoc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge specified document using the following code snippet.
 
@@ -118,7 +118,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
@@ -170,7 +170,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
@@ -221,7 +221,7 @@ else
 You can merge the PDF document streams by using the following code example.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a PDF document
 
@@ -259,7 +259,7 @@ stream2.Dispose();
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a PDF document
 
@@ -295,7 +295,7 @@ stream2.Dispose()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms. However, you can merge specified document using the following code snippet.
 
@@ -337,7 +337,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a PDF document
 
@@ -387,7 +387,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Loads the file as stream
 
@@ -438,7 +438,7 @@ else
 Essential PDF provides support for importing the pages from one document to another document using [ImportPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPage_Syncfusion_Pdf_Parsing_PdfLoadedDocument_Syncfusion_Pdf_PdfPageBase_) method. The following code illustrates this. The imported page is added to the end of the original document.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}     
+{% highlight c# tabtitle="C#" %}     
 
 //Loads document
 
@@ -468,7 +468,7 @@ lDoc.Close(true)
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads document
 
@@ -496,7 +496,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -542,7 +542,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -588,7 +588,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -635,7 +635,7 @@ else
 You can import multiple pages from an existing document by using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPageRange_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_Int32_System_Int32_) method. The following code example illustrates this.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}      
+{% highlight c# tabtitle="C#" %}      
 
 //Loads PDF document
 
@@ -665,7 +665,7 @@ lDoc.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads PDF document
 
@@ -693,7 +693,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -739,7 +739,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -785,7 +785,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -832,7 +832,7 @@ else
 You can also import pages from multiple documents and arrange the pages as required. The following code example explains the same.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}      
+{% highlight c# tabtitle="C#" %}      
 
 //Loads document
 
@@ -870,7 +870,7 @@ lDoc2.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a document
 
@@ -904,7 +904,7 @@ lDoc2.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream
 Stream pdfStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.file1.pdf");
@@ -948,7 +948,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1006,7 +1006,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -1069,7 +1069,7 @@ N> Note:  The parent PDF document has all the contents in run time memory. It re
 You can split a large PDF document into multiple documents using [Split](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Split_System_String_) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code snippet explains this.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}      
+{% highlight c# tabtitle="C#" %}      
 
 //Loads the PDF document
 
@@ -1089,7 +1089,7 @@ loadedDocument.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PDF document
 
@@ -1107,19 +1107,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
@@ -1129,7 +1129,7 @@ loadedDocument.Close(True)
 The following code shows how to merge multiple PDF documents.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 
@@ -1157,7 +1157,7 @@ document.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Input documents
 
@@ -1181,7 +1181,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge specified document using the following code snippet.
 
@@ -1229,7 +1229,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
@@ -1281,7 +1281,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
@@ -1336,7 +1336,7 @@ Essential PDF provides support to optimize the PDF resources when merging PDF do
 Refer to the following code example to optimize the PDF resources when merging PDF documents.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %} 
+{% highlight c# tabtitle="C#" %} 
 
 //Creates a new PDF document
 
@@ -1367,7 +1367,7 @@ finalDoc.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -1397,7 +1397,7 @@ finalDoc.Close(true);
  {% endhighlight %}
 
 
- {% highlight c# tabtile="ASP.NET Core" %}
+ {% highlight c# tabtitle="ASP.NET Core" %}
 
  //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from stream using the following code snippet
 
@@ -1454,7 +1454,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from stream using the following code snippet
 
@@ -1515,7 +1515,7 @@ For example, if the PDF document has 100 pages and each page has an image in com
 
 Refer to the following code snippet to reduce the PDF file size while importing pages from multiple documents.
 {% tabs %}
-{% highlight c# tabtile="C#" %}     
+{% highlight c# tabtitle="C#" %}     
 
 //Load the document.
 
@@ -1548,7 +1548,7 @@ lDoc.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the document.
 
@@ -1580,7 +1580,7 @@ lDoc.Close(True)
 {% endhighlight %}
 
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1638,7 +1638,7 @@ The ['Syncfusion PDF library'](https://www.syncfusion.com/pdf-framework/net) pro
  The following code sample illustrates this.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
  
 //Create a new PDF document
@@ -1676,7 +1676,7 @@ finalDoc.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -1707,7 +1707,7 @@ mergeOptions.ExtendMargin=true
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from a stream using the following code snippet
 
 //Create a PDF document

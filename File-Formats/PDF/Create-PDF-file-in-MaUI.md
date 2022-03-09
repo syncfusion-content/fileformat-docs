@@ -37,7 +37,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -64,7 +64,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
@@ -81,7 +81,7 @@ using System.Xml.Linq;
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
             RectangleF TotalPriceCellBounds = RectangleF.Empty;
             RectangleF QuantityCellBounds = RectangleF.Empty;
 
@@ -362,7 +362,7 @@ Add the following **SaveWindows.cs** file to the **Project-> Platforms-> Windows
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 using Microsoft.Maui.Controls;
 using System;
@@ -445,7 +445,7 @@ Add the following **SaveAndroid.cs** file to the **Project-> Platforms-> Android
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 using System;
 using System.IO;
@@ -535,7 +535,7 @@ Add the following **SaveIOS.cs** file to the **Project-> Platforms-> iOS** direc
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 using System;
 using System.Threading.Tasks;

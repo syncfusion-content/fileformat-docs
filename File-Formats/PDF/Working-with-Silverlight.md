@@ -15,7 +15,7 @@ The following code example illustrates how to load the file by using URI in Silv
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the file as url
 
@@ -113,7 +113,7 @@ document.Save(stream);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the file as url
 
@@ -187,7 +187,7 @@ The following code example illustrates how to load the file by using stream in S
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the file as stream
 
@@ -283,7 +283,7 @@ document.Save(stream);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the file as stream
 
@@ -357,7 +357,7 @@ The following code example illustrates how to save the PDF document in Silverlig
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new document
 
@@ -463,7 +463,7 @@ document.Save(stream);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 VB:
 
 'Create a new document.

@@ -15,7 +15,7 @@ Attachments can contain any kind of file with detailed information.
 
 You can add a text file attachment to a PDF document using [PdfAttachment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachment.html) class. The following code example illustrates this.
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 
@@ -49,7 +49,7 @@ document.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 
@@ -81,7 +81,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -121,7 +121,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -169,7 +169,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -221,7 +221,7 @@ Essential PDF also provides support for adding the attachments to existing PDF d
 
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load an existing PDF document
@@ -250,7 +250,7 @@ loadedDocument.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -276,7 +276,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -331,7 +331,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -383,7 +383,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -439,7 +439,7 @@ else
 Essential PDF allows you to remove the attachments from the existing document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachmentCollection.html#Syncfusion_Pdf_Interactive_PdfAttachmentCollection_Remove_Syncfusion_Pdf_Interactive_PdfAttachment_) method, as shown in the following code example.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PDF document
 
@@ -465,7 +465,7 @@ document.Close(true);
 
 
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 
@@ -491,7 +491,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -535,7 +535,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -578,7 +578,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -625,7 +625,7 @@ return File(stream, contentType, fileName);
 Essential PDF provides support for extracting the attachments and saving them to the disk. The following code example explains how to extract and save an attachment.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PDF document
 
@@ -657,7 +657,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PDF document
 
@@ -687,13 +687,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports extracting and saving an attachment to the disk only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -744,7 +744,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports extracting and saving an attachment to the disk only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 

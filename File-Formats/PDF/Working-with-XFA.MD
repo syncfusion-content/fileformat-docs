@@ -22,7 +22,7 @@ The following code sample explains you on how to add a new page in a PDF XFA doc
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -61,7 +61,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -100,7 +100,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -145,7 +145,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -202,7 +202,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -273,7 +273,7 @@ The below sample illustrates how to create a new PDF document with XFA page size
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -320,7 +320,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -367,7 +367,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -419,7 +419,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -484,7 +484,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -555,7 +555,7 @@ You can create a custom page size to the PDF document by using following code sn
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -602,7 +602,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -649,7 +649,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -702,7 +702,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -767,7 +767,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -838,7 +838,7 @@ You can change page orientation from portrait to landscape by using the followin
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -889,7 +889,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -940,7 +940,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -997,7 +997,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -1066,7 +1066,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -1143,7 +1143,7 @@ The below sample illustrates how to create a dynamic XFA forms.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -1190,7 +1190,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -1237,7 +1237,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -1290,7 +1290,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -1355,7 +1355,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -1428,7 +1428,7 @@ The below sample illustrates how to create a static XFA forms.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -1475,7 +1475,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -1522,7 +1522,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -1575,7 +1575,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -1640,7 +1640,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -1715,7 +1715,7 @@ The below code snippet illustrates how to add a textbox field to a new PDF docum
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -1762,7 +1762,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -1809,7 +1809,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -1862,7 +1862,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -1927,7 +1927,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -1998,7 +1998,7 @@ The below code snippet illustrates how to add a textbox field to an existing PDF
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -2037,7 +2037,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -2076,7 +2076,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -2123,7 +2123,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -2182,7 +2182,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -2249,7 +2249,7 @@ The below code snippet illustrates how to add a numeric field to a new PDF docum
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -2292,7 +2292,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -2335,7 +2335,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -2384,7 +2384,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -2445,7 +2445,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -2512,7 +2512,7 @@ The below code snippet illustrates how to add the numeric field to an existing P
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -2547,7 +2547,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -2582,7 +2582,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -2624,7 +2624,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -2679,7 +2679,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -2742,7 +2742,7 @@ The below code snippet illustrates how to add a combo box field to a new PDF doc
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -2793,7 +2793,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 //Create a new PDF XFA document
@@ -2844,7 +2844,7 @@ document.Close();
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -2899,7 +2899,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -2966,7 +2966,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -3039,7 +3039,7 @@ The below code snippet illustrates how to add the combo box field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -3082,7 +3082,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -3125,7 +3125,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -3176,7 +3176,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -3239,7 +3239,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -3310,7 +3310,7 @@ The below code snippet illustrates how to add a list box field to a new PDF docu
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -3365,7 +3365,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -3420,7 +3420,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -3479,7 +3479,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -3550,7 +3550,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -3627,7 +3627,7 @@ The below code snippet illustrates how to add the list box field to an existing 
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -3674,7 +3674,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 
@@ -3722,7 +3722,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -3777,7 +3777,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -3844,7 +3844,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -3919,7 +3919,7 @@ The below code snippet illustrates how to add a check box field to a new PDF doc
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -3964,7 +3964,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -4009,7 +4009,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -4058,7 +4058,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -4119,7 +4119,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -4186,7 +4186,7 @@ The below code snippet illustrates how to add the check box field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -4223,7 +4223,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -4260,7 +4260,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -4305,7 +4305,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -4362,7 +4362,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -4427,7 +4427,7 @@ The below code snippet illustrates how to add a radio button field to a new PDF 
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF XFA document
 
@@ -4485,7 +4485,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -4544,7 +4544,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -4607,7 +4607,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -4682,7 +4682,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -4763,7 +4763,7 @@ The below code snippet illustrates how to add the radio button field to an exist
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -4814,7 +4814,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -4865,7 +4865,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -4924,7 +4924,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -4995,7 +4995,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -5074,7 +5074,7 @@ The below code snippet illustrates how to add a date time field to a new PDF doc
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -5121,7 +5121,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -5168,7 +5168,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -5219,7 +5219,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -5282,7 +5282,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -5351,7 +5351,7 @@ The below code snippet illustrates how to add the date time field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -5390,7 +5390,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -5429,7 +5429,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -5476,7 +5476,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -5535,7 +5535,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -5602,7 +5602,7 @@ The below code snippet illustrates how to add a button field to a new PDF docume
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -5645,7 +5645,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -5688,7 +5688,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -5735,7 +5735,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -5794,7 +5794,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -5859,7 +5859,7 @@ The below code snippet illustrates how to add the button field to an existing PD
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -5894,7 +5894,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -5928,7 +5928,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -5971,7 +5971,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -6026,7 +6026,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -6089,7 +6089,7 @@ The below code snippet illustrates how to add a text element to a new PDF docume
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -6132,7 +6132,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -6175,7 +6175,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -6222,7 +6222,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -6281,7 +6281,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -6346,7 +6346,7 @@ The below code snippet illustrates how to add a text element to an existing PDF 
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -6381,7 +6381,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -6417,7 +6417,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -6460,7 +6460,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -6515,7 +6515,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -6578,7 +6578,7 @@ The below code snippet illustrates how to add the rectangle field to a new PDF d
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -6621,7 +6621,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -6664,7 +6664,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -6711,7 +6711,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -6770,7 +6770,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -6835,7 +6835,7 @@ The below code snippet illustrates how to add the rectangle field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -6870,7 +6870,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -6905,7 +6905,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -6948,7 +6948,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -7003,7 +7003,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -7066,7 +7066,7 @@ The below code snippet illustrates how to add the circle field to a new PDF docu
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -7109,7 +7109,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -7152,7 +7152,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -7199,7 +7199,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -7258,7 +7258,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -7323,7 +7323,7 @@ The below code snippet illustrates how to add the circle field to an existing PD
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -7358,7 +7358,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -7393,7 +7393,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -7436,7 +7436,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -7491,7 +7491,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -7554,7 +7554,7 @@ The below code snippet illustrates how to add a line to a new PDF document using
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -7597,7 +7597,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -7640,7 +7640,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -7687,7 +7687,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -7746,7 +7746,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -7811,7 +7811,7 @@ The below code snippet illustrates how to add a line to an existing PDF document
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -7846,7 +7846,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -7881,7 +7881,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -7924,7 +7924,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -7979,7 +7979,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -8042,7 +8042,7 @@ The below code snippet illustrates how to add an image to a new PDF document usi
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -8081,7 +8081,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -8120,7 +8120,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -8167,7 +8167,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -8226,7 +8226,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -8291,7 +8291,7 @@ The below code snippet illustrates how to add an image to an existing PDF docume
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA document
@@ -8322,7 +8322,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA document
@@ -8353,7 +8353,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -8396,7 +8396,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -8451,7 +8451,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -8521,7 +8521,7 @@ You can set the flow direction to an XFA form while creating, using [PdfXfaFlowD
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -8576,7 +8576,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -8631,7 +8631,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -8690,7 +8690,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -8761,7 +8761,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -8840,7 +8840,7 @@ You can set the flow direction to an XFA form while creating, using [PdfXfaFlowD
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -8895,7 +8895,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -8950,7 +8950,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -9009,7 +9009,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -9080,7 +9080,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -9159,7 +9159,7 @@ You can rotate a form field in XFA document, using [PdfXfaRotateAngle](https://h
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -9210,7 +9210,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -9261,7 +9261,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -9316,7 +9316,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -9383,7 +9383,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -9458,7 +9458,7 @@ You can validate the date time fields of the input text by enabling the [Require
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -9509,7 +9509,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -9560,7 +9560,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -9615,7 +9615,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -9682,7 +9682,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -9759,7 +9759,7 @@ Please refer the below link for numeric pattern format in detail,
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -9806,7 +9806,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -9853,7 +9853,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -9904,7 +9904,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -9967,7 +9967,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -10038,7 +10038,7 @@ You can add the nested sub forms by using the following code snippet.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -10099,7 +10099,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -10160,7 +10160,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -10225,7 +10225,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -10302,7 +10302,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -10393,7 +10393,7 @@ You can add the horizontal alignments in XFA form fields through [HorizontalAlig
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -10440,7 +10440,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -10487,7 +10487,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -10538,7 +10538,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -10601,7 +10601,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -10672,7 +10672,7 @@ You can add the vertical alignments in XFA form fields through [VerticalAlignmen
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -10719,7 +10719,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -10766,7 +10766,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -10817,7 +10817,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -10880,7 +10880,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -10951,7 +10951,7 @@ You can add margin to the XFA form fields by using [Margins](https://help.syncfu
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -11000,7 +11000,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -11049,7 +11049,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -11102,7 +11102,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -11167,7 +11167,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -11240,7 +11240,7 @@ You can add padding to the XFA form fields by using the below code snippet.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -11287,7 +11287,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -11334,7 +11334,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -11385,7 +11385,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -11448,7 +11448,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -11519,7 +11519,7 @@ You can add the fields border by using the below code snippet.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -11568,7 +11568,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -11617,7 +11617,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -11670,7 +11670,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -11735,7 +11735,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -11812,7 +11812,7 @@ Please refer the below sample for filling the XFA text box field using [PdfLoade
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -11843,7 +11843,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -11874,7 +11874,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -11913,7 +11913,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -11964,7 +11964,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -12023,7 +12023,7 @@ You can fill the XFA numeric field by using [PdfLoadedXfaNumericField](https://h
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -12054,7 +12054,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -12085,7 +12085,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -12124,7 +12124,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -12175,7 +12175,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -12234,7 +12234,7 @@ You can fill the XFA combo box field by using [PdfLoadedXfaComboBoxField](https:
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -12265,7 +12265,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -12296,7 +12296,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -12335,7 +12335,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -12386,7 +12386,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -12443,7 +12443,7 @@ You can fill and save hidden items in XFA combo box field by using the following
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -12480,7 +12480,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -12517,7 +12517,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -12562,7 +12562,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -12619,7 +12619,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -12684,7 +12684,7 @@ You can fill the XFA list box field by using [PdfLoadedXfaListBoxField](https://
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -12715,7 +12715,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -12746,7 +12746,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -12785,7 +12785,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -12836,7 +12836,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -12893,7 +12893,7 @@ You can also select the multiple values by using the below code snippet.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -12924,7 +12924,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -12955,7 +12955,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -12994,7 +12994,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -13045,7 +13045,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -13104,7 +13104,7 @@ You can fill the XFA date time field by using [PdfLoadedXfaDateTimeField](https:
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -13135,7 +13135,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -13166,7 +13166,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -13205,7 +13205,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -13256,7 +13256,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -13315,7 +13315,7 @@ You can fill the XFA check box field by using [PdfLoadedXfaCheckBoxField](https:
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -13346,7 +13346,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -13377,7 +13377,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -13416,7 +13416,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -13467,7 +13467,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -13526,7 +13526,7 @@ You can fill the XFA radio button field by using [PdfLoadedXfaRadioButtonField](
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -13561,7 +13561,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -13596,7 +13596,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -13639,7 +13639,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -13694,7 +13694,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -13758,7 +13758,7 @@ The below code snippet illustrates how to set the read only property to a new PD
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF XFA document
@@ -13805,7 +13805,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF XFA document
@@ -13852,7 +13852,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF XFA document
@@ -13903,7 +13903,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF XFA document
@@ -13966,7 +13966,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF XFA document
@@ -14035,7 +14035,7 @@ The below code snippet illustrates how to set the ```ReadOnly``` property to an 
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -14062,7 +14062,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document 
@@ -14089,7 +14089,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -14124,7 +14124,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -14171,7 +14171,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -14228,7 +14228,7 @@ The following code snippet illustrates how to flatten the XFA form field.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing document
@@ -14251,7 +14251,7 @@ ldoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing document
@@ -14274,7 +14274,7 @@ ldoc.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //PDF supports flattening XFA form fields only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
@@ -14292,7 +14292,7 @@ You can remove the dynamic XFA form fields by using [Remove](https://help.syncfu
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -14323,7 +14323,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document 
@@ -14354,7 +14354,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -14393,7 +14393,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -14444,7 +14444,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -14503,7 +14503,7 @@ You can modify the existing dynamic XFA fields by using the below code snippet.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document
@@ -14540,7 +14540,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document 
@@ -14577,7 +14577,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -14622,7 +14622,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -14679,7 +14679,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document
@@ -14745,7 +14745,7 @@ The following sample illustrates how to clear the date time field in an existing
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing XFA PDF document
@@ -14768,7 +14768,7 @@ loadedXfaDocument.Save("output.pdf");
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing XFA PDF document
@@ -14791,7 +14791,7 @@ loadedXfaDocument.Save("output.pdf")
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Load the PDF document as stream
@@ -14826,7 +14826,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -14873,7 +14873,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the PDF document

@@ -15,7 +15,7 @@ You can create a portfolio using [PdfPortfolioInformation](https://help.syncfusi
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 // Create a new instance of PdfDocument class.
@@ -56,7 +56,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 ' Create a new instance of PdfDocument class.
@@ -95,7 +95,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 // Create a new instance of PdfDocument class.
 
@@ -141,7 +141,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Create a new instance of PdfDocument class.
 
@@ -197,7 +197,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 // Create a new instance of PdfDocument class.
 
@@ -261,7 +261,7 @@ Essential PDF also provides support for extracting the files from the PDF Portfo
 
 {% tabs %} 
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document
@@ -294,7 +294,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document
@@ -325,13 +325,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports extracting file from PDF Portfolio only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -382,7 +382,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports extracting file from PDF Portfolio only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -397,7 +397,7 @@ You can also remove the files from PDF Portfolio using following code.
 
 {% tabs %}  
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document
@@ -418,7 +418,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document
@@ -439,7 +439,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -479,7 +479,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -517,7 +517,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 // Load the file as stream
 

@@ -13,7 +13,7 @@ You can add text in the new PDF document by using [DrawString](https://help.sync
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -45,7 +45,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -77,7 +77,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
  //Create a new PDF document.
 
@@ -115,7 +115,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
  //Create a new PDF document.
 
@@ -167,7 +167,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -222,7 +222,7 @@ The following code snippet illustrates how to add text in the existing PDF docum
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load a PDF document.
 PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
@@ -247,7 +247,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load a PDF document.
 Dim doc As New PdfLoadedDocument("input.pdf")
@@ -272,7 +272,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -313,7 +313,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
  //Load the PDF document
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
@@ -354,7 +354,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf ");
@@ -417,7 +417,7 @@ You can add text using the standard PDF fonts, by initializing [PdfFont](https:/
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -449,7 +449,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -481,7 +481,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -519,7 +519,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -571,7 +571,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -626,7 +626,7 @@ You can add text using the TrueType fonts installed in the system, by initializi
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -658,7 +658,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -692,7 +692,7 @@ document.Close(True)
 {% endtabs %}
 You can add text using the font file from local file system by providing the path of the TrueType font location. The following code snippet explains the same.
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -724,7 +724,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -756,7 +756,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -798,7 +798,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -852,7 +852,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -912,7 +912,7 @@ You can add text using CJK fonts, initializing [PdfFont](https://help.syncfusion
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -937,7 +937,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 Dim document As New PdfDocument()
@@ -962,7 +962,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -992,7 +992,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -1032,7 +1032,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
  //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -1081,7 +1081,7 @@ The Essential PDF allows you to measure the size of a string which uses the ```P
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create the new PDF document
 
@@ -1119,7 +1119,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create the new PDF document
 
@@ -1157,7 +1157,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the new PDF document
 
@@ -1201,7 +1201,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create the new PDF document
 
@@ -1259,7 +1259,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create the new PDF document
 
@@ -1322,7 +1322,7 @@ N> To render a Unicode text in the PDF document the chosen font should have the 
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -1362,7 +1362,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -1402,19 +1402,19 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports embedding fonts or displaying a Unicode text in the PDF document by default in UWP platform. 
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports embedding fonts or displaying a Unicode text in the PDF document by default in Xamarin platform. 
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PDF supports embedding fonts or displaying a Unicode text in the PDF document by default in ASP.NET Core platform. 
 
@@ -1428,7 +1428,7 @@ The Essential PDF allows you to draw the right-to-left language text in a PDF do
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -1495,7 +1495,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -1561,7 +1561,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
  //Create a new PDF document
 
@@ -1639,7 +1639,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -1729,7 +1729,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -1841,7 +1841,7 @@ The following code example illustrates how to render the HTML string in a PDF do
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -1897,7 +1897,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -1947,7 +1947,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -2003,7 +2003,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //create a new PDF document
 
@@ -2070,7 +2070,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //create a new PDF document
 
@@ -2133,7 +2133,7 @@ Essential PDF allows you to create multi-column text in PDF document by using [P
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PDF document instance
 
@@ -2167,7 +2167,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PDF document instance
 
@@ -2201,7 +2201,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a PDF document instance
 
@@ -2246,7 +2246,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PDF document instance
 
@@ -2304,7 +2304,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PDF document instance
 
@@ -2365,7 +2365,7 @@ The following code snippet illustrates how to add elements relatively and also a
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PDF document instance
 
@@ -2417,7 +2417,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PDF document instance
 
@@ -2463,7 +2463,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
  //Create a PDF document instance
 
@@ -2521,7 +2521,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
  //Create a PDF document instance
 
@@ -2595,7 +2595,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PDF document instance
 
@@ -2674,7 +2674,7 @@ The following code example illustrates how to insert RTF text in PDF document.
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -2716,7 +2716,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -2758,19 +2758,19 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports Inserting Rich Text Format contents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PDF supports Inserting Rich Text Format contents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports Inserting Rich Text Format contents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -2788,7 +2788,7 @@ Essential PDF allows you to create an ordered list in the document. Ordered List
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -2850,7 +2850,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new instance of PdfDocument class.
 
@@ -2910,7 +2910,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -2979,7 +2979,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3061,7 +3061,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3146,7 +3146,7 @@ Essential PDF also provides support to create an unordered List that is represen
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3214,7 +3214,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new instance of PdfDocument class.
 
@@ -3282,7 +3282,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3359,7 +3359,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3449,7 +3449,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3542,7 +3542,7 @@ Essential PDF allows you to replace the fonts in an existing PDF document by usi
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document.
 
@@ -3558,7 +3558,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document.
 
@@ -3576,19 +3576,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports Replace fonts in an existing document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PDF supports Replace fonts in an existing document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports Replace fonts in an existing document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -3608,7 +3608,7 @@ The following code snippet illustrates how to get the bound of a text from PDF d
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 PdfViewerControl documentViewer = new PdfViewerControl();
 
@@ -3626,7 +3626,7 @@ documentViewer.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Dim documentViewer As New PdfViewerControl()
 
@@ -3652,7 +3652,7 @@ Essential PDF allows you to add complex script language text in the PDF document
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -3694,7 +3694,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document 
 
@@ -3736,7 +3736,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -3786,7 +3786,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -3842,7 +3842,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -3907,7 +3907,7 @@ You can add the complex script language text in an existing PDF document by usin
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Load a PDF document
 
@@ -3949,7 +3949,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load a PDF document
 
@@ -3991,7 +3991,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 Stream inputFileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("input.pdf");
 
@@ -4041,7 +4041,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 FileStream inputFileStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
 
@@ -4099,7 +4099,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 Stream inputFileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
 
@@ -4166,7 +4166,7 @@ Essential PDF supports drawing text on a PDF document with OpenType font using [
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -4206,7 +4206,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -4246,7 +4246,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -4300,7 +4300,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -4362,7 +4362,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -4431,7 +4431,7 @@ The Essential PDF allows you to draw text using a different type of fonts with d
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -4487,7 +4487,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document 
 
@@ -4543,7 +4543,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -4613,7 +4613,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -4689,7 +4689,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -4776,7 +4776,7 @@ The following code sample shows how to add a text encoding using the standard PD
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -4805,7 +4805,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtile="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 Dim document As PdfDocument =  New PdfDocument() 
@@ -4834,7 +4834,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtile="UWP" %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -4866,7 +4866,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight c# tabtile="ASP.NET Core" %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -4909,7 +4909,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtile="Xamarin" %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();

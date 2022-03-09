@@ -41,7 +41,7 @@ Step 5: Create a new cs file named  ``ExportService`` under ``Data`` folder and 
 
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
@@ -52,7 +52,7 @@ using Syncfusion.Drawing;
 Add the following method in the ``ExportService`` class
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 //Export weather data to PDF document.
 public MemoryStream CreatePdf(WeatherForecast[] forecasts)
 {
@@ -118,7 +118,7 @@ public MemoryStream CreatePdf(WeatherForecast[] forecasts)
 
 Register your service in the ``ConfigureServices`` method available in the ``Startup.cs`` class as follows.
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddRazorPages();
@@ -151,7 +151,7 @@ Create a button in the ``FetchData.razor`` using the following code.
 Add the ``ExportToPdf`` method in ``FetchData.razor`` page to call the export service.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 @functions
 {
 
@@ -170,7 +170,7 @@ Step 7: Create a class file with  ``FileUtil`` name and add the following code t
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 public static class FileUtil
 {
@@ -251,7 +251,7 @@ Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syn
 Step 5: Next, include the following namespaces in that  ``FetchData.razor`` file.
 
 {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 @using Syncfusion.Pdf
 @using Syncfusion.Pdf.Grid;
 @using Syncfusion.Drawing;
@@ -273,7 +273,7 @@ Step 6: Create a button in the ``FetchData.razor`` using the following code.
  Next, define ``@ExportToPdf`` click function on ``FetchData.razor``  file.
  
  {% tabs %}
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 @functions {
 void ExportToPdf()
@@ -334,7 +334,7 @@ Step 7: Create a class file with ``FileUtil`` name and add the following code to
 
 {% tabs %}
 
-{% highlight c# tabtile="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 public static class FileUtil
 {
