@@ -126,7 +126,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a PDF document
 
@@ -366,7 +366,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -634,7 +634,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a PDF document
 
@@ -870,7 +870,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create new PDF document
 
@@ -1070,7 +1070,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create PDF document
 
@@ -1252,7 +1252,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a document
 
@@ -1447,7 +1447,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a Pdf document
 
@@ -1645,7 +1645,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a PDF document
 
@@ -1842,7 +1842,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create Pdf document
 
@@ -2024,7 +2024,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create PDF document
 
@@ -2192,7 +2192,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create PDF document
 
@@ -2336,7 +2336,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2500,7 +2500,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -2672,7 +2672,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load an existing PDF
 

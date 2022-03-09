@@ -115,7 +115,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
  //Create a new PDF document.
 
@@ -313,7 +313,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
  //Load the PDF document
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
@@ -519,7 +519,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -798,7 +798,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -992,7 +992,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -1201,7 +1201,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create the new PDF document
 
@@ -1414,7 +1414,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports embedding fonts or displaying a Unicode text in the PDF document by default in ASP.NET Core platform. 
 
@@ -1639,7 +1639,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -2003,7 +2003,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //create a new PDF document
 
@@ -2246,7 +2246,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a PDF document instance
 
@@ -2521,7 +2521,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
  //Create a PDF document instance
 
@@ -2764,7 +2764,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports Inserting Rich Text Format contents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -2979,7 +2979,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3359,7 +3359,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new instance of PdfDocument class.
 
@@ -3582,7 +3582,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports Replace fonts in an existing document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -3786,7 +3786,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -4041,7 +4041,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 FileStream inputFileStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
 
@@ -4300,7 +4300,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -4613,7 +4613,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -4866,7 +4866,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();

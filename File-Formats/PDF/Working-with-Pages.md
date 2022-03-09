@@ -130,7 +130,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -330,7 +330,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -548,7 +548,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -916,7 +916,7 @@ document.Save(stream);
 document.Close(true);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1170,7 +1170,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1334,7 +1334,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1563,7 +1563,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1756,7 +1756,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1955,7 +1955,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2153,7 +2153,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
  //Load the PDF document.
 
@@ -2379,7 +2379,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -2599,7 +2599,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -2780,7 +2780,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -2967,7 +2967,7 @@ Save(stream, "Output" +i +".pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be achieved by using the following code snippet. 
 
@@ -3160,7 +3160,7 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a PDF document instance
 
 PdfDocument document = new PdfDocument();

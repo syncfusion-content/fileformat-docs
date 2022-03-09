@@ -249,7 +249,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -347,7 +347,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -439,7 +439,7 @@ image[0].Dispose(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -535,7 +535,7 @@ image[0].Dispose(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -635,7 +635,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -722,7 +722,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -809,7 +809,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -912,7 +912,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 
@@ -1063,7 +1063,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 
@@ -1240,7 +1240,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 
@@ -1388,7 +1388,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -1489,7 +1489,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 
@@ -1583,7 +1583,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 // Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -1678,7 +1678,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 // Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -1780,7 +1780,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter 
 
@@ -1877,7 +1877,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -1967,7 +1967,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -2066,7 +2066,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -2195,7 +2195,7 @@ document.Close(True)
 
 {% endtabs %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 
@@ -2290,7 +2290,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -2381,7 +2381,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 
@@ -2496,7 +2496,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -2591,7 +2591,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -2688,7 +2688,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 // Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -2800,7 +2800,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);

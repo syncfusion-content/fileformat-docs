@@ -126,7 +126,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -373,7 +373,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -644,7 +644,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -954,7 +954,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1247,7 +1247,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -1554,7 +1554,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1861,7 +1861,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2166,7 +2166,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -2493,7 +2493,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2764,7 +2764,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -3022,7 +3022,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -3268,7 +3268,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -3526,7 +3526,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -3769,7 +3769,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -4020,7 +4020,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4257,7 +4257,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4496,7 +4496,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4748,7 +4748,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4979,7 +4979,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5179,7 +5179,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5378,7 +5378,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5584,7 +5584,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5805,7 +5805,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6048,7 +6048,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6309,7 +6309,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6563,7 +6563,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6792,7 +6792,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7031,7 +7031,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7228,7 +7228,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -7461,7 +7461,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7669,7 +7669,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load an existing PDF.
 
@@ -7922,7 +7922,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -8150,7 +8150,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -8383,7 +8383,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -8783,7 +8783,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -9101,7 +9101,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -9338,7 +9338,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 FileStream inputFileStream = new FileStream("Form.pdf", FileMode.Open, FileAccess.Read);
 
@@ -9615,7 +9615,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -9895,7 +9895,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -10128,7 +10128,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -10355,7 +10355,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 

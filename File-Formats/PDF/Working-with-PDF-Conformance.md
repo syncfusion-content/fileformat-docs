@@ -154,7 +154,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Create a new document with PDF/A-1b standard
@@ -388,7 +388,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new document with PDF/A-2b standard
 
@@ -669,7 +669,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new document with PDF/A-3b standard
 
@@ -942,7 +942,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Create a new document with PDF/A-1a standard
@@ -1179,7 +1179,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new document with PDF/A-2a standard
 
@@ -1459,7 +1459,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new document with PDF/A-3a standard
 
@@ -1724,7 +1724,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new document with PDF/A-2u standard
 
@@ -2004,7 +2004,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new document with PDF/A-3u standard
 
@@ -2289,7 +2289,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load an existing PDF document
 
@@ -2338,7 +2338,7 @@ To convert an existing PDF document to the PDFA document in .NET Core, you need 
 
 {% tabs %} 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 static void LoadedDocument_SubstituteFont(object sender, PdfFontEventArgs args)
 {
@@ -2478,7 +2478,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Load an existing PDF document
@@ -2581,7 +2581,7 @@ MessageBox.Show(String.Format(PDF to PDF/A conversion Process " + arguments. Pro
 {% endhighlight %}
 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load an existing PDF.
 

@@ -91,7 +91,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -246,7 +246,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -394,7 +394,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -502,7 +502,7 @@ Dim text As String = line.Text
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports getting the lines and its properties using TextLine only in WinForms, WPF and Xamarin platforms.
 
@@ -611,7 +611,7 @@ Dim textWordCollection As List(Of TextWord) = line.WordCollection
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports getting the word and its properties using TextWord only in WinForms, WPF and Xamarin platforms.
 
@@ -685,7 +685,7 @@ You can get single character and its properties by using [TextGlyph](https://hel
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform.
 

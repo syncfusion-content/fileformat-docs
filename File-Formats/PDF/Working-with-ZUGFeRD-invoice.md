@@ -61,7 +61,7 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -124,7 +124,7 @@ document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -216,7 +216,7 @@ document.Attachments.Add(attachment);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates an attachment
 
@@ -362,7 +362,7 @@ Save(stream, "Zugferd.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
@@ -579,7 +579,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 

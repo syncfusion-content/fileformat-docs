@@ -44,7 +44,7 @@ Imports Syncfusion.DocIO.DLS
 Imports Syncfusion.DocToPDFConverter
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.DocIO.DLS;
@@ -135,7 +135,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new Word document 
 WordDocument wordDocument = new WordDocument();
@@ -346,7 +346,7 @@ pdfDocument.Close(True)
 document.Close()
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //A new document is created.
 WordDocument document = new WordDocument();
@@ -645,7 +645,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new Word document 
 WordDocument wordDocument = new WordDocument();
@@ -1081,7 +1081,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 

@@ -69,7 +69,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Load an existing PDF
@@ -167,7 +167,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Load an existing PDF

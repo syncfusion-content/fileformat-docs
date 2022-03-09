@@ -305,7 +305,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -406,7 +406,7 @@ document.Close(True)
 {% endhighlight %}
 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -519,7 +519,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -620,7 +620,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -721,7 +721,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -842,7 +842,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter 
 
@@ -1018,7 +1018,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter 
 
@@ -1217,7 +1217,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with WebKit Rendering Engine.
 
@@ -1345,7 +1345,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1462,7 +1462,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter 
 
@@ -1577,7 +1577,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1699,7 +1699,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter
 
@@ -1824,7 +1824,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter 
 
@@ -1939,7 +1939,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -2064,7 +2064,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter 
 
@@ -2241,7 +2241,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter
 
@@ -2383,7 +2383,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter
 
@@ -2654,7 +2654,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -2751,7 +2751,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -2875,7 +2875,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -3058,7 +3058,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML converter 
 
@@ -3192,7 +3192,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -3291,7 +3291,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -3389,7 +3389,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();

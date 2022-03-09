@@ -118,7 +118,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
@@ -337,7 +337,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a PDF document
 
@@ -542,7 +542,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -739,7 +739,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -948,7 +948,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1113,7 +1113,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
@@ -1229,7 +1229,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
@@ -1397,7 +1397,7 @@ finalDoc.Close(true);
  {% endhighlight %}
 
 
- {% highlight ASP.NET Core %}
+ {% highlight c# tabtile="ASP.NET Core" %}
 
  //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from stream using the following code snippet
 
@@ -1580,7 +1580,7 @@ lDoc.Close(True)
 {% endhighlight %}
 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1707,7 +1707,7 @@ mergeOptions.ExtendMargin=true
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from a stream using the following code snippet
 
 //Create a PDF document

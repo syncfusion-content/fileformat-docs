@@ -154,7 +154,7 @@ wordDocument.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 // Open the file as Stream
@@ -378,7 +378,7 @@ wordDocument.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Essential PDF supports customizing the Word document to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC Platforms.
@@ -494,7 +494,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -642,7 +642,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -800,7 +800,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -961,7 +961,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1173,7 +1173,7 @@ rtfDocument.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Open the file as Stream
@@ -1379,7 +1379,7 @@ rtfDocument.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Essential PDF supports customizing the RTF to PDF conversion only Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
@@ -1620,7 +1620,7 @@ Save(memoryStream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Create a new PDF document
@@ -1805,7 +1805,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
@@ -1914,7 +1914,7 @@ Save(memoryStream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize XPS to PDF converter.
@@ -2265,7 +2265,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Uses the Syncfusion.EJ2.PdfViewer assembly
 
@@ -2395,7 +2395,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Uses the Syncfusion.EJ2.PdfViewer assembly
 
@@ -2509,7 +2509,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize HTML to PDF converter 
@@ -2639,7 +2639,7 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -2737,7 +2737,7 @@ image(0).Save("Sample.jpg")
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize HTML converter with WebKit rendering engine
@@ -2863,7 +2863,7 @@ image(0).Save("Sample.jpg")
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize HTML converter with WebKit rendering engine
@@ -3012,7 +3012,7 @@ Hello world
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize HTML converter with WebKit rendering engine
@@ -3123,7 +3123,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the HTML converter with the WebKit rendering engine.
@@ -3265,7 +3265,7 @@ Hello world
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the HTML converter with the WebKit rendering engine

@@ -168,7 +168,7 @@ Save(memoryStream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create PDF document.
 
@@ -459,7 +459,7 @@ Save(memoryStream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -743,7 +743,7 @@ Save(memoryStream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create new PDF document
 
@@ -1034,7 +1034,7 @@ Save(memoryStream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1311,7 +1311,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create the PDF document
 
@@ -1559,7 +1559,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1714,7 +1714,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the existing PDF document
 FileStream inputStream = new FileStream("Layers.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1935,7 +1935,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create the document
 
@@ -2153,7 +2153,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2334,7 +2334,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creating a new PDF document. 
 PdfDocument document = new PdfDocument();
@@ -2483,7 +2483,7 @@ End Sub
 {% endhighlight %}
 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports Removing Layers and its graphical content only in Windows Forms, WPF platform.
 

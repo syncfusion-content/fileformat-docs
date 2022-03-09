@@ -127,7 +127,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -311,7 +311,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -477,7 +477,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -626,7 +626,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -775,7 +775,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -919,7 +919,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1075,7 +1075,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1234,7 +1234,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1391,7 +1391,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1535,7 +1535,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1691,7 +1691,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1850,7 +1850,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2012,7 +2012,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2171,7 +2171,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2315,7 +2315,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2444,7 +2444,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2576,7 +2576,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2705,7 +2705,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load the PDF document as stream
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2900,7 +2900,7 @@ Save(stream, "Shapes.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create Document
 

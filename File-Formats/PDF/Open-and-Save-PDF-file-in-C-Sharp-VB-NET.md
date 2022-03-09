@@ -31,7 +31,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -68,7 +68,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Opens an existing document from stream 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream); 
@@ -107,7 +107,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Open an existing document from byte array 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray); 
@@ -146,7 +146,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf","password")
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -189,7 +189,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Open an existing encrypted document from stream.
@@ -234,7 +234,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Open an existing encrypted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
@@ -272,7 +272,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf", True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -307,7 +307,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Open an existing corrupted document from stream. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
@@ -344,7 +344,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Open an existing corrupted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
@@ -409,7 +409,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -505,7 +505,7 @@ await loadedDocument.SaveAsync(stream);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -578,7 +578,7 @@ await loadedDocument.Save();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
@@ -631,7 +631,7 @@ await loadedDocument.Save();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
@@ -692,7 +692,7 @@ await loadedDocument.SaveAsync(stream);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -788,7 +788,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load a PDF document.
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -893,7 +893,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load a PDF document.
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);

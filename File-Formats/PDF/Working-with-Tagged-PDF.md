@@ -147,7 +147,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -383,7 +383,7 @@ Save(stream, "Image.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -620,7 +620,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -862,7 +862,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -1118,7 +1118,7 @@ Save(stream, "PopupAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -1385,7 +1385,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -1601,7 +1601,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -1970,7 +1970,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -2368,7 +2368,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -2747,7 +2747,7 @@ Save(stream, "HeaderFooter.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -3130,7 +3130,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -3437,7 +3437,7 @@ Save(stream, "AutoTag.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates new PDF document
 PdfDocument document = new PdfDocument();
@@ -3707,7 +3707,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Open the file as Stream
 FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);

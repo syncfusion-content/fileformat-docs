@@ -64,7 +64,7 @@ Imports Syncfusion.Pdf
 Imports Syncfusion.HtmlConverter
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
 {% endhighlight %}
@@ -125,7 +125,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -205,7 +205,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -278,7 +278,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Currently, IE rendering engine does not support conversion in .NET Core platform
 {% endhighlight %}
 
@@ -341,7 +341,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Currently, IE rendering engine does not support conversion in .NET Core platform
 {% endhighlight %}
 

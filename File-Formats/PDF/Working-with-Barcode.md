@@ -124,7 +124,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creating new PDF Document
 
@@ -341,7 +341,7 @@ Save(stream, "EAN13Barcode.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 // Creates a new PdfEan13 Barcode.
 
@@ -555,7 +555,7 @@ Save(stream, "EAN8Barcode.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 // Creates a new PdfEan8 Barcode.
 
@@ -780,7 +780,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Drawing QR Barcode
 
@@ -1018,7 +1018,7 @@ Save(stream, "417Barcode.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 // Creates a new Pdf417 Barcode.
 
@@ -1250,7 +1250,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creating new PDF Document
 
@@ -1461,7 +1461,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creating new PDF Document 
 PdfDocument doc = new PdfDocument();
@@ -1599,7 +1599,7 @@ barcodeImage.Save("Image.png", ImageFormat.Png)
 //PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Initialize a new PdfCode39Barcode instance
  PdfCode39Barcode barcode = new PdfCode39Barcode();
 
@@ -1660,7 +1660,7 @@ barcodeImage.Save("Image.jpg", ImageFormat.Png)
 //PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Initialize a new PdfQRBarcode instance 
 PdfQRBarcode barcode = new PdfQRBarcode();
 

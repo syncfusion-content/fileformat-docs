@@ -52,7 +52,7 @@ N> The above folders can be copied from the build or NuGet to your project folde
 
 {% tabs %}  
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows");
@@ -66,7 +66,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows");
 
 {% tabs %}  
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 processor.PerformOCR(lDoc, "tessdata\");
@@ -94,7 +94,7 @@ You can download the language packages from the following link
 
 {% tabs %}  
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Linux");
@@ -108,7 +108,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Linux");
               
 {% tabs %}  
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 processor.PerformOCR(lDoc, "tessdata\");
@@ -135,7 +135,7 @@ You can download the language packages from the following link
 
 {% tabs %}  
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Mac");
@@ -149,7 +149,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Mac");
 
 {% tabs %}  
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 processor.PerformOCR(lDoc, "tessdata\");
@@ -170,7 +170,7 @@ To perform the OCR in the ASP.NET Core project in Windows, refer to the followin
 
 {% tabs %}   
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the OCR processor with tesseract binaries folder path
@@ -218,7 +218,7 @@ To perform the OCR in the ASP.NET Core project in Linux, refer to the following 
 
 {% tabs %}   
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Initialize the OCR processor with tesseract binaries folder path
 using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Linux"))
@@ -265,7 +265,7 @@ To perform the OCR in the ASP.NET Core project in Mac, refer to the following co
 
 {% tabs %}   
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the OCR processor with tesseract binaries folder path
@@ -315,7 +315,7 @@ You can perform OCR on particular region of the PDF page with help of the [PageR
 
 {% tabs %}   
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 
@@ -379,7 +379,7 @@ You can perform OCR on the rotated page of a PDF document. Refer to the followin
 
 {% tabs %} 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 
@@ -433,7 +433,7 @@ You can perform OCR on Images with Unicode characters. To preserve the Unicode c
 
 {% tabs %} 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the OCR processor by providing the path of tesseract 
@@ -490,7 +490,7 @@ You can get the OCRed text and its bounds from an input PDF document by using th
  
 {% tabs %} 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the OCR processor by providing the path of tesseract 
@@ -548,7 +548,7 @@ You can perform OCR with images. Refer to the following code snippet.
 
 {% tabs %} 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the OCR processor by providing the path of the tesseract binaries
@@ -582,7 +582,7 @@ By default, the system temporary folder will be used for the process. The tempor
 
 {% tabs %} 
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 
 //Initialize the OCR processor by providing the path of the tesseract 

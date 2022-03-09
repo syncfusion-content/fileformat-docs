@@ -93,7 +93,7 @@ doc.Close(true);
 Save(stream, "SolidBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -236,7 +236,7 @@ doc.Close(true);
 Save(stream, "LinearGradientBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -379,7 +379,7 @@ doc.Close(true);
 Save(stream, "RadialGradientBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -531,7 +531,7 @@ doc.Close(true);
 Save(stream, "TilingBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
