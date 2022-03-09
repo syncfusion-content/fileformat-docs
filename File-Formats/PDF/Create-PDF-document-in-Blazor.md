@@ -152,7 +152,7 @@ Add the ``ExportToPdf`` method in ``FetchData.razor`` page to call the export se
 
 {% tabs %}
 {% highlight c# tabtile="C#" %}
-@code
+@functions
 {
 
     protected async Task ExportToPdf()
