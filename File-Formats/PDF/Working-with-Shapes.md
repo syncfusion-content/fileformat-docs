@@ -28,7 +28,7 @@ Essential PDF supports adding shapes with different types of brushes like solid 
 You can draw a polygon in PDF document by using the [DrawPolygon](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawPolygon_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF___) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw a polygon in new PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -59,7 +59,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -90,7 +90,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -164,7 +164,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -211,7 +211,7 @@ else
 The following code snippet explains how to draw a polygon in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -242,7 +242,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -273,7 +273,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -349,7 +349,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -399,7 +399,7 @@ else
 You can draw a line in PDF document by using the [DrawLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawLine_Syncfusion_Pdf_Graphics_PdfPen_System_Drawing_PointF_System_Drawing_PointF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw a line in new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -423,7 +423,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -447,7 +447,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -507,7 +507,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -547,7 +547,7 @@ else
 The following code snippet explains how to draw a line in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -571,7 +571,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -595,7 +595,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -657,7 +657,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -700,7 +700,7 @@ else
 You can draw a curve in PDF document by using the [Draw](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_Draw_Syncfusion_Pdf_PdfPage_System_Drawing_PointF_) method of [PdfBezierCurve](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBezierCurve.html). The following code snippet explains how to draw a curve in new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -723,7 +723,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -746,7 +746,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -804,7 +804,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -843,7 +843,7 @@ else
 The following code snippet explains how to draw a curve in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -866,7 +866,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -889,7 +889,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -949,7 +949,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -991,7 +991,7 @@ else
 You can draw a path in PDF document by using the [DrawPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawPath_Syncfusion_Pdf_Graphics_PdfBrush_Syncfusion_Pdf_Graphics_PdfPath_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw path in a new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1017,7 +1017,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -1043,7 +1043,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1107,7 +1107,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1149,7 +1149,7 @@ else
 The following code snippet explains how to draw path in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -1175,7 +1175,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -1201,7 +1201,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1267,7 +1267,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1316,7 +1316,7 @@ You can draw text in a PDF document by using the [DrawString](https://help.syncf
 You can draw a rectangle in PDF document by using the [DrawRectangle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawRectangle_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_RectangleF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw a rectangle in new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1339,7 +1339,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -1362,7 +1362,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1420,7 +1420,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1459,7 +1459,7 @@ else
 The following code snippet explains how to draw a rectangle in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -1482,7 +1482,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -1505,7 +1505,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1565,7 +1565,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1607,7 +1607,7 @@ else
 You can draw a pie in PDF document by using the [DrawPie](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawPie_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_RectangleF_System_Single_System_Single_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw a pie in new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1633,7 +1633,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -1659,7 +1659,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1723,7 +1723,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1765,7 +1765,7 @@ else
 The following code snippet explains how to draw a pie in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -1791,7 +1791,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -1817,7 +1817,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1883,7 +1883,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1928,7 +1928,7 @@ else
 You can draw an arc in PDF document by using the [DrawArc](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawArc_Syncfusion_Pdf_Graphics_PdfPen_System_Drawing_RectangleF_System_Single_System_Single_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw an arc in new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1954,7 +1954,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -1980,7 +1980,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2044,7 +2044,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2086,7 +2086,7 @@ else
 The following code snippet explains how to draw an arc in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -2112,7 +2112,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -2138,7 +2138,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream(Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2204,7 +2204,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2249,7 +2249,7 @@ else
 You can draw a bezier in PDF document by using the [DrawBezier](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawBezier_Syncfusion_Pdf_Graphics_PdfPen_System_Drawing_PointF_System_Drawing_PointF_System_Drawing_PointF_System_Drawing_PointF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw a bezier in new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2269,7 +2269,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -2289,7 +2289,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2341,7 +2341,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2377,7 +2377,7 @@ else
 The following code snippet explains how to draw a bezier in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -2397,7 +2397,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -2417,7 +2417,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2471,7 +2471,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2510,7 +2510,7 @@ else
 You can draw an ellipse in PDF document by using the [DrawEllipse](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawEllipse_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_RectangleF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw an ellipse in new PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2530,7 +2530,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -2550,7 +2550,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2602,7 +2602,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -2638,7 +2638,7 @@ else
 The following code snippet explains how to draw an ellipse in an existing PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -2658,7 +2658,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -2678,7 +2678,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2732,7 +2732,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -2772,7 +2772,7 @@ You can also allow large shapes to paginate across pages by assigning ```Paginat
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create Document
 
@@ -2812,7 +2812,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create Document
 
@@ -2852,7 +2852,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create Document
 
@@ -2958,7 +2958,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create Document
 

@@ -16,7 +16,7 @@ The following code example illustrates how to load the file by using stream in W
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the file as stream
 
@@ -48,7 +48,7 @@ Save(stream, "Booklet.pdf");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the document as stream
 
@@ -88,7 +88,7 @@ The following code example illustrates how to load the file by using file open p
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //create the file open picker
 
@@ -132,7 +132,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'create the file open picker
 
@@ -180,7 +180,7 @@ The following code example illustrates how to save the PDF document in Windows P
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing document
 
@@ -212,7 +212,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing document
 

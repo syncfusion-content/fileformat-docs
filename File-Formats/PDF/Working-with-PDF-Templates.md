@@ -17,7 +17,7 @@ The below code snippet illustrates how to add contents to the ```PdfTemplate``` 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -60,7 +60,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -102,7 +102,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -204,7 +204,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -266,7 +266,7 @@ The below code snippet illustrates how to render the [PdfTemplate](https://help.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the existing PDF document.
@@ -309,7 +309,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -352,7 +352,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -470,7 +470,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -537,7 +537,7 @@ The below code illustrates how to create the template from an existing page and 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document.
 
@@ -585,7 +585,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -634,7 +634,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -760,7 +760,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -833,7 +833,7 @@ The below code illustrates how to add the page template elements in a PDF docume
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -902,7 +902,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -967,7 +967,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -1129,7 +1129,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -1224,7 +1224,7 @@ Multiple templates can be drawn over a PDF page, to create a document-overlay. T
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the existing documents
@@ -1275,7 +1275,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the existing documents
@@ -1326,7 +1326,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Load the existing documents.
 
@@ -1458,7 +1458,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the existing document
 
@@ -1533,7 +1533,7 @@ The following code sample shows how to add a PdfPageTemplate from an existing PD
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 // Loads an existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -1561,7 +1561,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 ' Loads an existing PDF document.
 Dim loadedDocument As PdfLoadedDocument =  New PdfLoadedDocument("input.pdf") 
@@ -1589,7 +1589,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf"); 
 
@@ -1669,7 +1669,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf"); 
 

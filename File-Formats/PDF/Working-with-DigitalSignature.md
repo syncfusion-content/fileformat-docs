@@ -13,7 +13,7 @@ The Essential PDF allows you to add a [digital signature](https://www.syncfusion
 
 The following code example explains how to add a digital signature to the PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -59,7 +59,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -105,7 +105,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -233,7 +233,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -309,7 +309,7 @@ using stream as follows.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -359,7 +359,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
  
 'Creates a new PDF document
 
@@ -409,7 +409,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -537,7 +537,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -610,7 +610,7 @@ You can add a digital signature to an existing document as follows.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
  
 //Loads the PDF document with signature field
 
@@ -646,7 +646,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the PDF document with signature field
 
@@ -682,7 +682,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -800,7 +800,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -865,7 +865,7 @@ The following code example illustrates how to add digital signature in a PDF doc
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -915,7 +915,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -965,7 +965,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports adding a digital signature using X509Certificate2 only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms. 
 
@@ -1043,7 +1043,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -1124,7 +1124,7 @@ You can load the signature field from the existing PDF document and add certific
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Loads a PDF document
 
@@ -1154,7 +1154,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
  
 'Loads a PDF document
 
@@ -1184,7 +1184,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1286,7 +1286,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -1343,7 +1343,7 @@ You can load the signature field from an existing PDF document and add certifica
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
  
 //Loads a PDF document
 
@@ -1377,7 +1377,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
  
 'Loads a PDF document
 
@@ -1411,7 +1411,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1513,7 +1513,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -1572,7 +1572,7 @@ The following code example shows how to sign the PDF document from external sign
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
  
 //Load existing PDF document
 
@@ -1623,7 +1623,7 @@ arguments.SignedData = signedCms.Encode();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
  
 'Load existing PDF document
 
@@ -1671,7 +1671,7 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Get the stream from the document
 
@@ -1781,7 +1781,7 @@ ars.SignedData = signedCms.Encode();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Get the stream from the document
 
@@ -1867,7 +1867,7 @@ The following code example shows how to create an LTV when signing a PDF documen
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document
 
@@ -1901,7 +1901,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing PDF document
 
@@ -1935,7 +1935,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Get the stream from the document
 
@@ -2035,7 +2035,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Get the stream from the document
 
@@ -2098,7 +2098,7 @@ Refer to the following code sample.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -2146,7 +2146,7 @@ document.Close( true );
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -2196,7 +2196,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -2346,7 +2346,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -2432,7 +2432,7 @@ Essential PDF allows you to add timestamp in the digital signature of the PDF do
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -2482,7 +2482,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -2532,7 +2532,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -2668,7 +2668,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -2747,7 +2747,7 @@ You can add timestamp to the PDF document using the following code snippet.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -2773,7 +2773,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -2799,7 +2799,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new document
 
@@ -2877,7 +2877,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 
@@ -2932,7 +2932,7 @@ You can add timestamp to the existing PDF document using the following code snip
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 
@@ -2960,7 +2960,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the PDF document
 
@@ -2986,7 +2986,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker 
 
@@ -3078,7 +3078,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -3147,7 +3147,7 @@ You can get the above certificate details from an existing signed PDF document b
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing signed PDF
 
@@ -3201,7 +3201,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing signed PDF
 
@@ -3253,7 +3253,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
@@ -3303,7 +3303,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
@@ -3321,7 +3321,7 @@ The following code example explains how to create LTV PDF.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -3375,7 +3375,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -3429,7 +3429,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -3573,7 +3573,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -3669,7 +3669,7 @@ The following code example explains how to add a digital signature with cryptogr
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -3721,7 +3721,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -3773,7 +3773,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -3913,7 +3913,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -4011,7 +4011,7 @@ The following code example explains how to add a digital signature with various 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -4063,7 +4063,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -4115,7 +4115,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -4255,7 +4255,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -4355,7 +4355,7 @@ The following code example explains how to validate the digitally signed PDF doc
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing signed PDF document
 
@@ -4415,7 +4415,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing signed PDF document
 
@@ -4475,7 +4475,7 @@ loadedDocument.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Get the stream from the document
 
@@ -4619,7 +4619,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Get the stream from the document
 
@@ -4703,7 +4703,7 @@ The following code example explains how to validate all the signatures in digita
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing signed PDF document
 
@@ -4733,7 +4733,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing signed PDF document
 
@@ -4763,7 +4763,7 @@ loadedDocument.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Get the stream from the document
 
@@ -4847,7 +4847,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Get the stream from the document
 
@@ -4901,7 +4901,7 @@ Steps for deferred signing:
 3.	Replace the empty signature with a signed hash from the external services. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PDF_Succinctly.pdf");
@@ -5005,7 +5005,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing PDF document.
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
@@ -5108,7 +5108,7 @@ End Class
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Get the stream from the document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
@@ -5334,7 +5334,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Get the stream from the document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
@@ -5464,7 +5464,7 @@ The following code sample shows how to add the estimated size of the signature i
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creating a new PDF Document. 
 PdfDocument document = new PdfDocument();
@@ -5491,7 +5491,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
  
 'Creating a new PDF Document. 
 Dim document As PdfDocument =  New PdfDocument() 
@@ -5518,7 +5518,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Creating a new PDF Document.
 PdfDocument document = new PdfDocument();
@@ -5596,7 +5596,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creating a new PDF Document. 
 PdfDocument document = new PdfDocument();
@@ -5654,7 +5654,7 @@ Steps for deferred signing:
 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PDF_Succinctly.pdf");
@@ -5751,7 +5751,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing PDF document.
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
@@ -5852,7 +5852,7 @@ End Class
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Get the stream from a document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
@@ -6069,7 +6069,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Get the stream from a document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");

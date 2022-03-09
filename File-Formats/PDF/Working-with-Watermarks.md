@@ -19,7 +19,7 @@ The below code illustrates how to draw the text watermark in new PDF document:
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -53,7 +53,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -87,7 +87,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -181,7 +181,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -242,7 +242,7 @@ The below code illustrates how to draw the text watermark in existing PDF docume
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the document.
 
@@ -274,7 +274,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the document.
 
@@ -306,7 +306,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -410,7 +410,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -475,7 +475,7 @@ The below code illustrates how to draw the image watermark in new PDF document:
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -505,7 +505,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -535,7 +535,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -629,7 +629,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -688,7 +688,7 @@ The below code illustrates how to draw the image watermark in existing PDF docum
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the document.
 
@@ -716,7 +716,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the document.
 
@@ -744,7 +744,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -848,7 +848,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 

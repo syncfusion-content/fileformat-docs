@@ -15,7 +15,7 @@ You can choose the standard or custom page size when you add a page to the PDF d
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -51,7 +51,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -87,7 +87,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -185,7 +185,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -242,7 +242,7 @@ You can create a PDF document with custom page size by using the following code 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -278,7 +278,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -314,7 +314,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -412,7 +412,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -469,7 +469,7 @@ You can change page orientation from portrait to landscape, through [PdfPageOrie
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -510,7 +510,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -550,7 +550,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Create a new PDF document.
@@ -660,7 +660,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Create a new PDF document.
@@ -725,7 +725,7 @@ You can also change orientation by setting the rotation angle using [PdfPageRota
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -765,7 +765,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -805,7 +805,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -913,7 +913,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -976,7 +976,7 @@ PDF sections are parts of the PDF document, which may contain one or more pages 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -1012,7 +1012,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -1048,7 +1048,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -1148,7 +1148,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -1214,7 +1214,7 @@ The following code snippet illustrates how to print a PDF document.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 PdfDocumentView viewer = new PdfDocumentView();
 
@@ -1244,7 +1244,7 @@ viewer.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Dim viewer As New PdfDocumentView()
 
@@ -1284,7 +1284,7 @@ The following code snippet illustrates how to set PDF document information.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -1330,7 +1330,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -1376,7 +1376,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -1496,7 +1496,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
  //Create a new PDF document.
 
@@ -1564,7 +1564,7 @@ The following code snippet shows how to read and modify the document properties 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -1592,7 +1592,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -1622,7 +1622,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1726,7 +1726,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -1782,7 +1782,7 @@ The Essential PDF supports incremental update for PDF document. The content of a
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 
@@ -1807,7 +1807,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the PDF document
 
@@ -1832,7 +1832,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1924,7 +1924,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -1976,7 +1976,7 @@ You can hide the menu bar and toolbar by enabling [HideMenubar](https://help.syn
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -2020,7 +2020,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -2064,7 +2064,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -2179,7 +2179,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -2245,7 +2245,7 @@ You can also allow the reader application to initially display the bookmarks, th
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -2281,7 +2281,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -2317,7 +2317,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -2414,7 +2414,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -2478,7 +2478,7 @@ Essential PDF allows you to create or modify PDF documents simultaneously in mul
 The following code sample illustrates how to create a PDF document in multi-threading environment.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 IEnumerable<int> works = Enumerable.Range(0, 100);
 
@@ -2514,7 +2514,7 @@ document.Close(true);
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Dim works As IEnumerable(Of Integer) = Enumerable.Range(0, 100)
 
@@ -2557,7 +2557,7 @@ End Sub
 You can also modify the existing PDF document in multi-threading environment by using the following code snippet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 IEnumerable<int> works = Enumerable.Range(0, 100);
 
@@ -2595,7 +2595,7 @@ doc.Close(true);
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Dim works As IEnumerable(Of Integer) = Enumerable.Range(0, 100)
 
@@ -2641,7 +2641,7 @@ The Essential PDF allows you to create a PDF document with proper uniform resour
 The following code snippet explains how to have uniform resource naming in a PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Disable unique resource naming
 PdfDocument.EnableUniqueResourceNaming = false;
 
@@ -2677,7 +2677,7 @@ doc.Save("Output.pdf");
 doc.Close(true);
 {%endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Disable unique resource naming
 PdfDocument.EnableUniqueResourceNaming = False
 
@@ -2713,7 +2713,7 @@ doc.Save("Output.pdf")
 doc.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Disable unique resource naming
 PdfDocument.EnableUniqueResourceNaming = false;
 
@@ -2803,7 +2803,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Disable unique resource naming
 PdfDocument.EnableUniqueResourceNaming = false;
 
@@ -2862,7 +2862,7 @@ Essential PDF provides support for optimization of memory using [EnableMemoryOpt
 Enabling this property will optimize the memory but difference in time occurs based on the document size. This is illustrated in the following code sample.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("file1.pdf");
 
@@ -2883,7 +2883,7 @@ document.Close(true);
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("file1.pdf")
 
@@ -2904,7 +2904,7 @@ document.Close(True)
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create the file open picker
 var picker = new FileOpenPicker();
 picker.FileTypeFilter.Add(".pdf");
@@ -2972,7 +2972,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
@@ -3012,7 +3012,7 @@ else
 Syncfusion PDF Library provides support to check whether the existing PDF document is corrupted or not with corruption details. The following code snippet explains how to find the corrupted PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new instance for the PDF analyzer
 PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer("Input.pdf");
 
@@ -3038,7 +3038,7 @@ else
 analyzer.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new instance for the PDF analyzer
 Dim analyzer As PdfDocumentAnalyzer = New PdfDocumentAnalyzer("Input.pdf")
 
@@ -3061,7 +3061,7 @@ End If
 analyzer.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Load the PDF document as stream 
 Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");                                                                                                               
              
@@ -3120,7 +3120,7 @@ else
 analyzer.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the PDF document as stream 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 

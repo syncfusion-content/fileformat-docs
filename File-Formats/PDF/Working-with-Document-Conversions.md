@@ -88,7 +88,7 @@ For ASP.NET Core and Xamarin applications
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load an existing Word document
@@ -121,7 +121,7 @@ wordDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load an existing Word document
@@ -207,7 +207,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Load the Word document as stream
@@ -280,7 +280,7 @@ Essential DocIO allows you to customize the Word to PDF conversion with the belo
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Loads an existing Word document
@@ -329,7 +329,7 @@ wordDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Loads an existing Word document
@@ -387,7 +387,7 @@ wordDocument.Close()
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports customizing the Word document to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC Platforms.
@@ -415,7 +415,7 @@ The following code illustrates how to convert a workbook to PDF Document using [
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -438,7 +438,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
@@ -461,7 +461,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -517,7 +517,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -567,7 +567,7 @@ The following code shows how to convert a particular sheet to PDF Document using
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -587,7 +587,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
@@ -608,7 +608,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -666,7 +666,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -720,7 +720,7 @@ The following code snippet shows how to create an individual PDF document for ea
 {% tabs %}
 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -743,7 +743,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
@@ -764,7 +764,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -828,7 +828,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -879,7 +879,7 @@ To preserve the charts during Excel to PDF conversion, you should initialize the
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -904,7 +904,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
@@ -928,7 +928,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -985,7 +985,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1115,7 +1115,7 @@ For ASP.NET Core and Xamarin applications
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load an existing RTF document
@@ -1144,7 +1144,7 @@ rtfDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load an existing Word document
@@ -1226,7 +1226,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Load the Word document as stream
@@ -1296,7 +1296,7 @@ Essential DocIO allows you to customize the RTF to PDF conversion with the below
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 
@@ -1338,7 +1338,7 @@ rtfDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Loads an existing Word document
@@ -1388,7 +1388,7 @@ rtfDocument.Close()
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports customizing the RTF to PDF conversion only Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
@@ -1411,7 +1411,7 @@ The code snippet to illustrate the same is given below.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a PDF document
@@ -1478,7 +1478,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a PDF document
@@ -1543,7 +1543,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Create a PDF document
@@ -1708,7 +1708,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
@@ -1730,7 +1730,7 @@ Refer the below code snippet to draw a single frame monochrome TIFF image with J
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a PDF document
@@ -1763,7 +1763,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a PDF document
@@ -1796,7 +1796,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
@@ -1814,7 +1814,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
@@ -1839,7 +1839,7 @@ The below code illustrates how to convert XPS to PDF.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create converter class
@@ -1860,7 +1860,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create converter class
@@ -1881,7 +1881,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Create converter class
@@ -1960,7 +1960,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting XPS document to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
@@ -2171,7 +2171,7 @@ The following code snippet illustrates how to convert PDF page into image in WPF
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize the PdfViewer Control
 
@@ -2219,7 +2219,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize the PdfViewer Control
 
@@ -2291,7 +2291,7 @@ The following code snippet illustrates how to convert a specific range of pages 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize the PdfViewer Control
 
@@ -2345,7 +2345,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize the PdfViewer Control
 
@@ -2438,7 +2438,7 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Initialize HTML converter with WebKit rendering engine
@@ -2469,7 +2469,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Initialize HTML converter with WebKit rendering engine
@@ -2500,7 +2500,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports converting MHTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms. 
@@ -2558,7 +2558,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting MHTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms. 
@@ -2580,7 +2580,7 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Initialize HTML converter with WebKit rendering engine
@@ -2605,7 +2605,7 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Initialize HTML converter with WebKit rendering engine
@@ -2630,7 +2630,7 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -2648,7 +2648,7 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -2670,7 +2670,7 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Initialize HTML converter with WebKit rendering engine
@@ -2699,7 +2699,7 @@ image[0].Save("Sample.jpg");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Initialize HTML converter with WebKit rendering engine
@@ -2728,7 +2728,7 @@ image(0).Save("Sample.jpg")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -2767,7 +2767,7 @@ File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -2789,7 +2789,7 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 string htmlString = "<html><body>Hello World!!!</body></html>";
 
@@ -2821,7 +2821,7 @@ image[0].Save("Sample.jpg");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 Dim htmlString As String = "<html><body>Hello World!!!</body></html>"
@@ -2854,7 +2854,7 @@ image(0).Save("Sample.jpg")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -2899,7 +2899,7 @@ File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -2921,7 +2921,7 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Initialize HTML converter 
@@ -2952,7 +2952,7 @@ image[0].Save("Output.jpg");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Initialize HTML converter 
@@ -3005,7 +3005,7 @@ Hello world
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
@@ -3042,7 +3042,7 @@ File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
@@ -3064,7 +3064,7 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Initialize HTML converter with WebKit rendering engine
@@ -3089,7 +3089,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Initialize HTML converter with WebKit rendering engine
@@ -3114,7 +3114,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
@@ -3157,7 +3157,7 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
@@ -3180,7 +3180,7 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Initialize HTML converter 
@@ -3207,7 +3207,7 @@ htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Initialize HTML converter 
@@ -3256,7 +3256,7 @@ Hello world
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 
 //Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
@@ -3302,7 +3302,7 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.

@@ -25,7 +25,7 @@ The below code snippet illustrates how to create a simple table from a data sour
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -73,7 +73,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -121,7 +121,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -235,7 +235,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -300,7 +300,7 @@ You can directly add rows and columns instead of a data source, by setting [Data
 The following code illustrates how to add the data directly into the [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html).
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -348,7 +348,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -396,7 +396,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -519,7 +519,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -590,7 +590,7 @@ You can create table using [PdfLightTable](https://help.syncfusion.com/cr/file-f
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document.
 PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
@@ -631,7 +631,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document.
 Dim doc As New PdfLoadedDocument("input.pdf")
@@ -672,7 +672,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -777,7 +777,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
  //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
@@ -842,7 +842,7 @@ The below code snippet illustrates how to create a simple table from a data sour
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -893,7 +893,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -946,7 +946,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -1069,7 +1069,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -1141,7 +1141,7 @@ The below code snippet illustrates how to create the simple table directly using
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -1196,7 +1196,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -1251,7 +1251,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -1381,7 +1381,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -1455,7 +1455,7 @@ You can create table using [PdfGrid](https://help.syncfusion.com/cr/file-formats
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document
@@ -1511,7 +1511,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new PDF document
@@ -1565,7 +1565,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document
 
@@ -1695,7 +1695,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 
@@ -1771,7 +1771,7 @@ You can create a table using [PdfGrid](https://help.syncfusion.com/cr/file-forma
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document.
 PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
@@ -1810,7 +1810,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document.
 Dim doc As New PdfLoadedDocument("input.pdf")
@@ -1849,7 +1849,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1995,7 +1995,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -2076,7 +2076,7 @@ The below code snippet illustrates how to customize the cell properties in ``Pdf
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -2149,7 +2149,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -2222,7 +2222,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -2388,7 +2388,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -2481,7 +2481,7 @@ The following code example illustrates how to draw the graphics elements in part
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -2565,7 +2565,7 @@ args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -2641,7 +2641,7 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -2843,7 +2843,7 @@ private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventAr
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -2956,7 +2956,7 @@ The following code example illustrates you how to customize the cell in [PdfGrid
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -3052,7 +3052,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -3144,7 +3144,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -3370,7 +3370,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -3493,7 +3493,7 @@ else
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -3589,7 +3589,7 @@ args.ColumnSpanMap = spanMap;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -3681,7 +3681,7 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -3901,7 +3901,7 @@ private void pdfLightTable_BeginRowLayout(object sender, BeginRowLayoutEventArgs
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -3980,7 +3980,7 @@ The following code snippet illustrates how to customize the column in [PdfLightT
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -4048,7 +4048,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -4116,7 +4116,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -4278,7 +4278,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -4371,7 +4371,7 @@ The following code snippet illustrates how to customize the row in ``PdfGrid``.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -4439,7 +4439,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -4507,7 +4507,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -4673,7 +4673,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -4768,7 +4768,7 @@ The following code snippet illustrates how to customize the column in ``PdfGrid`
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -4832,7 +4832,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -4896,7 +4896,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -5055,7 +5055,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -5148,7 +5148,7 @@ The following code snippet illustrates how to customize the table using [PdfLigh
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document
 
@@ -5220,7 +5220,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 
@@ -5292,7 +5292,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document
 
@@ -5454,7 +5454,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 
@@ -5547,7 +5547,7 @@ The following code snippet illustrates how to customize the table using [PdfGrid
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document
 
@@ -5615,7 +5615,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 
@@ -5687,7 +5687,7 @@ Process.Start("Output.pdf")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document
 
@@ -5849,7 +5849,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 
@@ -5950,7 +5950,7 @@ The below code example illustrates how to apply built-in table style using [Appl
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -5990,7 +5990,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 Dim doc As New PdfDocument()
@@ -6029,7 +6029,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6139,7 +6139,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6206,7 +6206,7 @@ The below code example illustrates how to apply built-in table style using [Appl
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6247,7 +6247,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 Dim doc As New PdfDocument()
@@ -6287,7 +6287,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6397,7 +6397,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6465,7 +6465,7 @@ The below code example illustrates how to apply built-in table styles with table
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6508,7 +6508,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 Dim doc As New PdfDocument()
@@ -6551,7 +6551,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6668,7 +6668,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -6745,7 +6745,7 @@ The below sample illustrates how to allow the ``PdfLightTable`` to flow across p
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -6801,7 +6801,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -6857,7 +6857,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -6991,7 +6991,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -7070,7 +7070,7 @@ The below sample illustrates how to allow the ``PdfGrid`` to flow across pages.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -7126,7 +7126,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -7182,7 +7182,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -7324,7 +7324,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -7404,7 +7404,7 @@ else
 You can automatically adjust the width of the table by enabling the [AllowHorizontalOverflow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridStyle.html#Syncfusion_Pdf_Grid_PdfGridStyle_AllowHorizontalOverflow) property of [PdfGridStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridStyle.html) instance. The following code snippet illustrates this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -7451,7 +7451,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -7498,7 +7498,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -7602,7 +7602,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -7666,7 +7666,7 @@ else
 The Essential PDF supports maintaining the position of a PDF grid drawn on PDF page using [PdfGridLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridLayoutResult.html). It provides the rendered bounds of previously added grid, which can be used to place successive elements without overlapping. You can add multiple PDF grids using the bottom position of previously rendered PDF grid. The following code snippet illustrates this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -7722,7 +7722,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -7778,7 +7778,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -7902,7 +7902,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -7980,7 +7980,7 @@ Essential PDF supports applying string formatting for whole table, a column in t
 The following code snippet explains how to apply string formatting for whole table in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8026,7 +8026,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -8072,7 +8072,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8178,7 +8178,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8243,7 +8243,7 @@ else
 The following code snippet explains how to add string formatting for whole table in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html).
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8289,7 +8289,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -8335,7 +8335,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8443,7 +8443,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8509,7 +8509,7 @@ else
 The following code snippet explains how to add string formatting to a column in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8552,7 +8552,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -8595,7 +8595,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8695,7 +8695,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8757,7 +8757,7 @@ else
 The following code snippet explains how to add string formatting to a column in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html).
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8800,7 +8800,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -8843,7 +8843,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -8945,7 +8945,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9008,7 +9008,7 @@ else
 The following code snippet illustrates how to add string formatting for a cell in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9051,7 +9051,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -9094,7 +9094,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9194,7 +9194,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9256,7 +9256,7 @@ else
 The following code snippet illustrates how to add string formatting for a row in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9302,7 +9302,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -9348,7 +9348,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9454,7 +9454,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9523,7 +9523,7 @@ Essential PDF supports both row spanning and column spanning in a PDF table.
 You can span a row in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) by using the [RowSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCell.html#Syncfusion_Pdf_Grid_PdfGridCell_RowSpan) property of [PdfGridCell](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCell.html). The following code snippet illustrates this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9565,7 +9565,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -9606,7 +9606,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9702,7 +9702,7 @@ fileStreamResult.FileDownloadName = "Sample.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9762,7 +9762,7 @@ else
 You can span a column in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) by using the [ColumnSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCell.html#Syncfusion_Pdf_Grid_PdfGridCell_ColumnSpan) property of [PdfGridCell](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCell.html). The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9804,7 +9804,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -9845,7 +9845,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -9941,7 +9941,7 @@ fileStreamResult.FileDownloadName = "Sample.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -10003,7 +10003,7 @@ Essential PDF allows you to add different styles like background color using [Ba
 The following code snippet explains how to add different cell styles to a cell in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 PdfPage pdfPage = pdfDocument.Pages.Add();
@@ -10086,7 +10086,7 @@ pdfDocument.Save("Output.pdf");
 pdfDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim pdfDocument As PdfDocument = New PdfDocument
 Dim pdfPage As PdfPage = pdfDocument.Pages.Add
@@ -10169,7 +10169,7 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 PdfPage pdfPage = pdfDocument.Pages.Add();
@@ -10347,7 +10347,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 PdfPage pdfPage = pdfDocument.Pages.Add();
@@ -10448,7 +10448,7 @@ else
 Essential PDF supports applying different styles to a row in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) by using [PdfGridCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCellStyle.html) and [PdfGridRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridRow.html) instances. The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 PdfPage pdfPage = pdfDocument.Pages.Add();
@@ -10518,7 +10518,7 @@ pdfDocument.Save("Output.pdf");
 pdfDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim pdfDocument As PdfDocument = New PdfDocument
 Dim pdfPage As PdfPage = pdfDocument.Pages.Add
@@ -10588,7 +10588,7 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 PdfPage pdfPage = pdfDocument.Pages.Add();
@@ -10740,7 +10740,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 PdfPage pdfPage = pdfDocument.Pages.Add();
