@@ -1,12 +1,12 @@
 ---
-title: Working with Word document with WinRT
+title: Working with Word document with WinRT using Syncfusion Word library
 description: Create a WinRT application , load the Word document and save the Word document with Syncfusion Word library
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Working with WinRT
+# Working with Word document in WinRT
 
 In your WinRT application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
 

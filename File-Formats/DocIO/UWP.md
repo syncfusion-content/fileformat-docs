@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Working with UWP
+# Working with Word document in UWP
 
 In your UWP application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
 

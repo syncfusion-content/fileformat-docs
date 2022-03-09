@@ -1,5 +1,5 @@
 ---
-title: Working with Word document with Windows phone
+title: Working with Word document with Windows phone using Syncfusion Word library
 description: Create a Windows phone application, load the word document and save the word document with Syncfusion Word library
 platform: file-formats
 control: DocIO

@@ -1,5 +1,5 @@
 ---
-title: Working with Word document in ASP.NET MVC
+title: Working with Word document in ASP.NET MVC using Syncfusion Word library
 description: Creating a Word document in ASP.NET MVC application and save the document with Syncfusion Word library
 platform: file-formats
 control: DocIO
