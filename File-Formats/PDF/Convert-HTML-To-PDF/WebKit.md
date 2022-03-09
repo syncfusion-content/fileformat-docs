@@ -259,7 +259,7 @@ N> Ensure that the OPENSSL assemblies are configured properly for converting HTT
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -282,7 +282,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -349,7 +349,7 @@ To convert the HTML string to PDF, please refer the below code snippet.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -377,7 +377,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -467,7 +467,7 @@ WebKit HTML converter provides support for enabling or disabling the JavaScript 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -493,7 +493,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -568,7 +568,7 @@ WebKit HTML converter provides option to set the [AdditionalDelay](https://help.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -594,7 +594,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -669,7 +669,7 @@ WebKit HTML converter provides support for preserving URL links from HTML to PDF
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -695,7 +695,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -774,7 +774,7 @@ Please refer the below code snippet,
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter 
 
@@ -808,7 +808,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter 
 
@@ -950,7 +950,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter 
 
@@ -984,7 +984,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter 
 
@@ -1122,7 +1122,7 @@ The WebKit HTML Converter provides support for customizing the table of contents
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter with WebKit Rendering Engine.
 
@@ -1170,7 +1170,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML to PDF converter with WebKit Rendering Engine.
 
@@ -1293,7 +1293,7 @@ WebKit HTML Converter allows selection of media type while converting HTML to PD
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -1319,7 +1319,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -1394,7 +1394,7 @@ WebKit HTML converter provides support for converting HTML forms to PDF fillable
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter 
 
@@ -1428,7 +1428,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter 
 
@@ -1523,7 +1523,7 @@ The webpage you want to convert may protected with windows authentication. WebKi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -1550,7 +1550,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -1627,7 +1627,7 @@ The WebKit HTML Converter provides support for form authentication by using cook
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter
  
@@ -1663,7 +1663,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter 
 
@@ -1762,7 +1762,7 @@ The WebKit HTML Converter supports token-based authentication by using the HTTP 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter 
 
@@ -1794,7 +1794,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 
@@ -1887,7 +1887,7 @@ Please refer the below code snippet,
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -1913,7 +1913,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -1988,7 +1988,7 @@ The WebKit HTML Converter supports repeating html table header and footer on eve
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter 
 
@@ -2026,7 +2026,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter 
 
@@ -2168,7 +2168,7 @@ Please refer the below code snippet to access a web page using HTTP POST,
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter
 
@@ -2205,7 +2205,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter 
 
@@ -2302,7 +2302,7 @@ Use below code snippet to access a webpage using HTTP GET.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter
 
@@ -2342,7 +2342,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter
 
@@ -2463,7 +2463,7 @@ To convert a web page to PDF using system proxy settings, please refer the below
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2489,7 +2489,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -2524,7 +2524,7 @@ To convert a web page to PDF using manual proxy settings, please refer the below
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2558,7 +2558,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -2602,7 +2602,7 @@ Please refer the below code snippet to adjust WebKit viewport,
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2628,7 +2628,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -2703,7 +2703,7 @@ WebKit rendering engine provides support for converting only the part of the HTM
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2727,7 +2727,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -2825,7 +2825,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2850,7 +2850,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -2923,7 +2923,7 @@ Getting height of the HTML content in PDF document is possible by using the ```P
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2951,7 +2951,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -2990,7 +2990,7 @@ Please refer the below code snippet,
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML converter 
 
@@ -3024,7 +3024,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter
  
@@ -3142,7 +3142,7 @@ The temporary path can be changed by using the [TempPath](https://help.syncfusio
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -3167,7 +3167,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -3241,7 +3241,7 @@ The WebKit HTML converter supports avoiding text split between the PDF pages whe
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -3266,7 +3266,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -3339,7 +3339,7 @@ The WebKit HTML converter supports avoiding image split between the PDF pages wh
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -3364,7 +3364,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Initialize HTML converter with WebKit rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -3460,7 +3460,7 @@ The QtBinaries will be available in the WebKitHTMLConverter installed location <
 <tr>
 <th style="font-size:14px">Mapping QtBinaries in Web Application</th>
 <td>
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //To refer QtBinaries from Project location
 settings.WebKitPath = Server.MapPath("QtBinaries");
@@ -3795,7 +3795,7 @@ Make sure that the previous paths have elevated permission for respective user.
 <br/><br/>(Or)<br/><br/>
 The WebKit HTML converter has support for setting temporary path. Using the TempPath property, you can set any folder path that has read/write/execute permission. Then, the converter uses this path for creating temporary files. Refer below code snippet to set temp folder.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
 settings.TempPath = "D://MyProject//bin";
@@ -3856,7 +3856,7 @@ settings.TempPath = "D://MyProject//bin";
 <br/>
 <ul>
 <li>Set the path of a folder in server as the temporary executables path by setting the TempPath property of WebkitConverterSettings and add that folder’s path in the exception list of group policy/Third Party Softwares.
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Set temporary path to generate temporary files 
 webkitConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
@@ -3864,7 +3864,7 @@ webkitConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
 {% endhighlight %}
 </li>
 <li>Set a name for the executable in the server by setting TempFileName property of WebkitConverterSettings and add that name in the exception list of group policy/Third Party Softwares.
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Set temporary file name to generate temporary files 
 webkitConverterSettings.TempFileName = "Syncfusion";

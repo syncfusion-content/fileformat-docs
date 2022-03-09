@@ -17,7 +17,7 @@ Please refer the below code snippet for navigating to the web page.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -68,7 +68,7 @@ document.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -116,7 +116,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -226,7 +226,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -292,7 +292,7 @@ To add a web hyperlink to an existing document, please refer the below code snip
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the existing PDF document.
@@ -343,7 +343,7 @@ loadedDocument.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document.
 
@@ -391,7 +391,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -517,7 +517,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the PDF document
 
@@ -588,7 +588,7 @@ To allow the users to navigate to any other part of the same document, [PdfDocum
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -654,7 +654,7 @@ document.Close();
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -718,7 +718,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -860,7 +860,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -941,7 +941,7 @@ To add a [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document.
 
@@ -995,7 +995,7 @@ loadedDocument.Close();
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load the existing PDF document.
 
 Dim loadedDocument As New PdfLoadedDocument("fileName.pdf")
@@ -1046,7 +1046,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1180,7 +1180,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -1256,7 +1256,7 @@ Please refer the below code snippet for navigating to external documents:
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create the PDF document
 
@@ -1294,7 +1294,7 @@ document.Close();
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create the PDF document
 
@@ -1330,7 +1330,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -1342,7 +1342,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -1356,7 +1356,7 @@ To open a file in relative path, the [PdfLaunchAction](https://help.syncfusion.c
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -1402,7 +1402,7 @@ document.Close();
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -1446,7 +1446,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -1458,7 +1458,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 

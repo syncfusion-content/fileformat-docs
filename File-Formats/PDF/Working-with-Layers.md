@@ -18,7 +18,7 @@ Essential PDF allows the users to create a layer in a PDF page using [PdfPageLay
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create PDF document.
@@ -67,7 +67,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create PDF document.
@@ -116,7 +116,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create PDF document.
 
@@ -230,7 +230,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create PDF document.
 
@@ -295,7 +295,7 @@ The below code illustrates how to add the multiple layers in an existing PDF doc
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the existing PDF document.
@@ -344,7 +344,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -393,7 +393,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -523,7 +523,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -593,7 +593,7 @@ Essential PDF allows the users to add [Annotation](https://help.syncfusion.com/f
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create new PDF document
@@ -642,7 +642,7 @@ document.Close(true);
 {% endhighlight %}
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create new PDF document
@@ -691,7 +691,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create new PDF document
 
@@ -805,7 +805,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create new PDF document
 
@@ -870,7 +870,7 @@ The following code illustrates how to add annotation to the layers in an existin
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the existing PDF document
@@ -919,7 +919,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -968,7 +968,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1098,7 +1098,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -1167,7 +1167,7 @@ Essential PDF allows users to add nested layers in the PDF document. Refer to th
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create the PDF document
 
@@ -1213,7 +1213,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create the PDF document
 
@@ -1259,7 +1259,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the PDF document
 
@@ -1377,7 +1377,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create the PDF document
 
@@ -1446,7 +1446,7 @@ You can remove the layers from layer collection, represented by the [PdfPageLaye
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the existing PDF document
@@ -1478,7 +1478,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -1510,7 +1510,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -1605,7 +1605,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -1656,7 +1656,7 @@ else
 You can flatten a layer in a PDF document by removing it from the [PdfDocumentLayerCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentLayerCollection.html). The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Layers.pdf");
 
@@ -1673,7 +1673,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Layers.pdf")
 
@@ -1690,7 +1690,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 //Load the existing PDF document
 Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Layers.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1738,7 +1738,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the existing PDF document
 Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Layers.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -1777,7 +1777,7 @@ The below code illustrates how to toggle the visibility of layers in new PDF doc
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create the document
@@ -1830,7 +1830,7 @@ document.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create the document
@@ -1881,7 +1881,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the document
 
@@ -1999,7 +1999,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create the document
 
@@ -2062,7 +2062,7 @@ The following code illustrates how to toggle the visibility of layers in an exis
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the existing PDF document
@@ -2089,7 +2089,7 @@ document.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the existing PDF document
@@ -2115,7 +2115,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Load the PDF document as stream
 
@@ -2195,7 +2195,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -2246,7 +2246,7 @@ The following code sample shows how to add a lock state to the layer in a new PD
  
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creating a new PDF document. 
 PdfDocument document = new PdfDocument();
@@ -2274,7 +2274,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creating a new PDF document. 
 Dim document As PdfDocument =  New PdfDocument() 
@@ -2302,7 +2302,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creating a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -2377,7 +2377,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creating a new PDF document. 
 PdfDocument document = new PdfDocument();
@@ -2432,7 +2432,7 @@ This is illustrated in the following code sample.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Layers.pdf");
@@ -2457,7 +2457,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Private Sub SurroundingSub()
 ‘Load the existing PDF document.

@@ -17,7 +17,7 @@ N> 2.To redact the content from the existing PDF document in .NET Core, you need
 The following sample code snippet demonstrates the redaction of PDF documents from the specified bounds.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -43,7 +43,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document
 
@@ -69,7 +69,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -126,7 +126,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -140,7 +140,7 @@ You can draw overlay text on the redacted area using the [Appearance](https://he
 The following code snippet explains how to add overlay text in the redacted area.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -174,7 +174,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document
 
@@ -208,7 +208,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -275,7 +275,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -289,7 +289,7 @@ You can draw the image on the redacted area using the [Appearance](https://help.
 The following code snippet explains how to redact the information from a page by drawing image on the redacted area using appearance.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -321,7 +321,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document
 
@@ -353,7 +353,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -418,7 +418,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -432,7 +432,7 @@ You can draw the patterns on the redacted area using the [Appearance](https://he
 The following code snippet explains how to redact the information from a page by drawing mosaic pattern on the redacted area using appearance.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -504,7 +504,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document
 
@@ -576,7 +576,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -678,7 +678,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -692,7 +692,7 @@ You can draw the filled rectangle on the redacted bounds using the [FillColor](h
 The following code snippet explains how to redact the information from a page with filled rectangle.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -722,7 +722,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document
 
@@ -752,7 +752,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -814,7 +814,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -828,7 +828,7 @@ You can redact PDF without drawing the filled rectangle or text on the redacted 
 The following code snippet explains how to redact the information from a page without drawing fill color and appearance on the redaction bounds.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -854,7 +854,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load a PDF document
 
@@ -880,7 +880,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -940,7 +940,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -953,7 +953,7 @@ You can get the redaction process using TrackRedactionProgress event.
 
 The code snippet to illustrate the same is given below.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -988,7 +988,7 @@ MessageBox.Show(String.Format("Redaction Process " + arguments.Progress + " % co
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing PDF 
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
@@ -1018,7 +1018,7 @@ MessageBox.Show(String.Format("Redaction Process " + arguments.Progress + " % co
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -1070,7 +1070,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC Platforms.
 
@@ -1084,7 +1084,7 @@ Using PdfRedactionResult, you can get the status of the redaction with other inf
 The code snippet to illustrate the same is given below.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
 //Load the first page
@@ -1117,7 +1117,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing PDF 
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
@@ -1155,7 +1155,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC.
 
@@ -1210,7 +1210,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports redaction only in Windows Forms, WPF, ASP.NET, ASP.NET MVC Platforms.
 

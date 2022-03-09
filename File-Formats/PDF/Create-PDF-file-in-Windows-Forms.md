@@ -25,7 +25,7 @@ Install the [Syncfusion.Pdf.WinForms](https://www.nuget.org/packages/Syncfusion.
 
 Include the following namespaces in the Form1.Designer.cs file.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
@@ -35,7 +35,7 @@ using System.Drawing;
 
 Add a new button in Form1.Designer.cs to create PDF document as follows.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 private Button btnCreate;
 private Label label;
@@ -68,7 +68,7 @@ private void InitializeComponent()
 
 Create the btnCreate_Click event and add the following code in btnCreate_Click to create PDF file with simple text.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
  
 using (PdfDocument document = new PdfDocument())
 {
@@ -99,7 +99,7 @@ By executing the program, you will get the PDF document as follows.
 
 The following code example shows how to create a PDF document with an image.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -122,7 +122,7 @@ doc.Close(true);
 
 The following code example shows how to create a PDF document with a simple table.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -155,7 +155,7 @@ doc.Close(true);
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -175,7 +175,7 @@ PdfGraphics graphics = page.Graphics;
 
 The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Loads the image from disk
 PdfImage image = PdfImage.FromFile("AdventureCycle.jpg");
@@ -194,7 +194,7 @@ The ```PdfTextElement``` provides the layout result of the added text by using t
 
 The following code example adds the necessary text such as address, invoice number and date to create a basic invoice application. 
  
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
 bounds = new RectangleF(0, bounds.Bottom + 90, graphics.ClientSize.Width, 30);
@@ -232,7 +232,7 @@ Essential PDF provides two types of table models. The difference between both th
 
 Since the invoice document requires only simple cell customizations, the given code example explains how to create a simple invoice table by using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
  
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates the datasource for the table
 DataTable invoiceDetails = GetProductDetailsAsDataTable();
@@ -276,7 +276,7 @@ PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, re
 
 The following code example shows how to save the invoice document to disk and dispose the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object.
  
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Saves and closes the document.
 document.Save("Sample.pdf");
@@ -302,7 +302,7 @@ The following guide shows how to fill a sample PDF form as shown.
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Loads the PDF form.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"JobApplication.pdf");
@@ -336,7 +336,7 @@ Essential PDF supports merging multiple PDF documents from disk and stream using
 
 Refer to the following code example to merge multiple documents from disk.
  
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates the new PDF document
 PdfDocument finalDoc = new PdfDocument();
@@ -353,7 +353,7 @@ finalDoc.Close(true);
 
 You can merge the PDF document streams by using the following code example.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates the destination document
 PdfDocument finalDoc = new PdfDocument();

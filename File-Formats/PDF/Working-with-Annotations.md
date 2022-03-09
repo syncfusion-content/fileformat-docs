@@ -16,7 +16,7 @@ You can add, delete and modify the annotation from the PDF documents.
 You can add a popup annotation to the page using [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class. The following code example explains this.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document.
@@ -59,7 +59,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document.
 
@@ -101,7 +101,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document.
 
@@ -149,7 +149,7 @@ Save(stream, "PopupAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document.
 
@@ -207,7 +207,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document.
 
@@ -270,7 +270,7 @@ else
 To add annotations to an existing PDF document, use the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document.
@@ -309,7 +309,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}      
+{% highlight vb.net tabtile="VB.NET" %}      
 
 'Creates a new PDF document.
 
@@ -347,7 +347,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -405,7 +405,7 @@ Save(stream, "PopupAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -461,7 +461,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -523,7 +523,7 @@ Annotations can be flattened by removing the existing annotation and replacing i
 This can be achieved by enabling the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedAnnotationCollection_Flatten) property. Please refer the sample for flattening all the annotations in the PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 //Get all the pages
@@ -538,7 +538,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}      
+{% highlight vb.net tabtile="VB.NET" %}      
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
@@ -553,7 +553,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -596,7 +596,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -637,7 +637,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -679,7 +679,7 @@ else
 To flatten the specific annotation in the PDF document, use the below code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 //Get all the pages
@@ -702,7 +702,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}      
+{% highlight vb.net tabtile="VB.NET" %}      
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
@@ -723,7 +723,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -774,7 +774,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -823,7 +823,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -875,7 +875,7 @@ To flatten pop-up annotation in the PDF document, use the following code example
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PopupAnnotation.pdf");
@@ -900,7 +900,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("PopupAnnotation.pdf")
@@ -923,7 +923,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -958,7 +958,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("PopupAnnotation.pdf", FileMode.Open, FileAccess.Read);
@@ -994,7 +994,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PopupAnnotation.pdf");
@@ -1041,7 +1041,7 @@ else
 
 You can add a 3D annotation in PDF document using [Pdf3DAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.Pdf3DAnnotation.html) class. The following example illustrates this.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document.
@@ -1082,7 +1082,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document.
 
@@ -1120,13 +1120,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document.
 
@@ -1182,7 +1182,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -1243,7 +1243,7 @@ You can add the JavaScript script to the 3D annotation using the [OnInstantiate]
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -1275,7 +1275,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -1307,13 +1307,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -1363,7 +1363,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -1420,7 +1420,7 @@ Links for external files can be added in a PDF document by using the [PdfFileLin
 
 The following code example explains how to add a file link annotation in PDF.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document
@@ -1453,7 +1453,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -1487,19 +1487,19 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
 
@@ -1514,7 +1514,7 @@ Free text annotation enables you to display the text directly on the page. When 
 The following code example explains how to add a free text annotation in the PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new pdf document
@@ -1569,7 +1569,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new pdf document
 
@@ -1625,7 +1625,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new pdf document
 
@@ -1685,7 +1685,7 @@ Save(stream, "FreeTextAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new pdf document
 
@@ -1755,7 +1755,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new pdf document
 
@@ -1830,7 +1830,7 @@ Line annotation displays a single straight line on the page. When you open it, i
 
 [PdfLineAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineAnnotation.html) is used to create and set the properties of the Line annotation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document.
@@ -1901,7 +1901,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document.
 
@@ -1973,7 +1973,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document.
 
@@ -2049,7 +2049,7 @@ Save(stream, "LineAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document.
 
@@ -2135,7 +2135,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document.
 
@@ -2228,7 +2228,7 @@ When opened, it displays a pop-up window containing the text of the associated n
 [PdfRubberStampAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRubberStampAnnotation.html) is used to create rubber stamp annotation.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document.
@@ -2263,7 +2263,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document.
 
@@ -2297,7 +2297,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document.
 
@@ -2337,7 +2337,7 @@ Save(stream, "RubberStamp.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document.
 
@@ -2387,7 +2387,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document.
 
@@ -2445,7 +2445,7 @@ When you open it, it displays a pop-up window containing text of the associated 
 [PdfInkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfInkAnnotation.html) is used to create ink annotation in a PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document.
 
@@ -2479,7 +2479,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document.
 
@@ -2513,7 +2513,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document.
 
@@ -2553,7 +2553,7 @@ Save(stream, "InkAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document.
 
@@ -2603,7 +2603,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document.
 
@@ -2656,7 +2656,7 @@ You can get ink list points from the [PdfLoadedInkAnnotation](https://help.syncf
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Loads the document
 
@@ -2688,7 +2688,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document
 
@@ -2720,7 +2720,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -2772,7 +2772,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2826,7 +2826,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -2886,7 +2886,7 @@ It typically does not appear alone, but is associated with markup annotation, it
 [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) is used to add pop-up annotation in a PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new rectangle
 
@@ -2920,7 +2920,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document.
 
@@ -2962,7 +2962,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create new PDF document
 
@@ -3010,7 +3010,7 @@ Save(stream, "PopupAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create new PDF document
 
@@ -3068,7 +3068,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create new PDF document
 
@@ -3132,7 +3132,7 @@ File attachment annotation contains reference to a file that typically is embedd
 [PdfAttachmentAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachmentAnnotation.html) is used to add a file attachment annotation in a PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF Document.
 
@@ -3168,7 +3168,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF Document.
 
@@ -3204,7 +3204,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF Document.
 
@@ -3250,7 +3250,7 @@ Save(stream, "AttachmentAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF Document.
 
@@ -3306,7 +3306,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF Document.
 
@@ -3367,7 +3367,7 @@ Sound annotation is used to play the sound clip in the PDF Document.
 
 The following code example explains how to add a sound annotation in a PDF document using [PdfSoundAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSoundAnnotation.html).
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document
@@ -3412,7 +3412,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -3456,13 +3456,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports Sound Annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -3524,7 +3524,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -3593,7 +3593,7 @@ URI annotation is used to navigate to a particular web URI
 
 The following code example explains how to add URI annotation in a PDF document using [PdfUriAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfUriAnnotation.html).
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Creates a new PDF document
@@ -3630,7 +3630,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -3666,7 +3666,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -3708,7 +3708,7 @@ Save(stream, "UriAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -3760,7 +3760,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -3817,7 +3817,7 @@ This annotation is used to navigate to a specific destination within the documen
 
 [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) is used to add a document link annotation in PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -3867,7 +3867,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Creates a new PDF document
@@ -3918,7 +3918,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -3974,7 +3974,7 @@ Save(stream, "DocumentLinkAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -4040,7 +4040,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -4110,7 +4110,7 @@ else
 The essential PDF supports removing or redacting the sensitive text and images from the PDF documents. The redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class to remove content. Using the [PdfRedactionAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRedactionAnnotation.html) class, you can mark the content to redact or remove it from the PDF pages. The content will be redacted when performing the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedAnnotationCollection_Flatten) operation.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -4172,7 +4172,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
        
@@ -4234,7 +4234,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -4300,7 +4300,7 @@ Save(stream, "RedactionAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -4378,7 +4378,7 @@ return File(stream, contentType, fileName);
 			
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -4458,7 +4458,7 @@ Cloud border style can be added to the [PdfRectangleAnnotation](https://help.syn
 The following code sample explains how to add cloud border styled rectangle annotation in the PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -4514,7 +4514,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -4569,7 +4569,7 @@ document.Save("Output.pdf")
 document.Close(True) 
 
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -4631,7 +4631,7 @@ Save(stream, "CloudRectangleAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 PdfDocument document = new PdfDocument();
 
@@ -4701,7 +4701,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -4770,7 +4770,7 @@ Cloud border style can be added to the [PdfPolygonAnnotation](https://help.syncf
 The following code sample explains how to add cloud border styled polygon annotation in the PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 
@@ -4830,7 +4830,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a New PDF document.
 
@@ -4890,7 +4890,7 @@ document.Close(True)
 		
 {% endhighlight %}		
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document.
 
@@ -4958,7 +4958,7 @@ Save(stream, "CloudPolygonAnnotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 PdfDocument document = new PdfDocument();
 
@@ -5032,7 +5032,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 PdfDocument document = new PdfDocument();
 
@@ -5112,7 +5112,7 @@ The line measurement annotation is displayed as the straight line in the page. T
 [PdfLineMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineMeasurementAnnotation.html) to add a line measurement annotation to the page.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document.
 
@@ -5170,7 +5170,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 //Creates a new PDF document
 
@@ -5228,7 +5228,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -5288,7 +5288,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -5362,7 +5362,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -5443,7 +5443,7 @@ The square measurement annotation is displayed as square shape in the page. The 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -5489,7 +5489,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -5535,7 +5535,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -5583,7 +5583,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -5645,7 +5645,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -5714,7 +5714,7 @@ The circle measurement annotation is displayed as circle shape in the page. The 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -5764,7 +5764,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -5814,7 +5814,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -5866,7 +5866,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -5932,7 +5932,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -6007,7 +6007,7 @@ The angle measurement annotation calculates the angle between three points and d
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -6042,7 +6042,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -6077,19 +6077,19 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
 
@@ -6101,7 +6101,7 @@ document.Close(True)
 Essential PDF allows you to modify the annotation of existing document. The following code illustrates this.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Loads the document
@@ -6136,7 +6136,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document
 
@@ -6170,7 +6170,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -6224,7 +6224,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6276,7 +6276,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -6333,7 +6333,7 @@ The redaction annotations from the existing document can be modified using the E
 The following code sample explains this.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 
@@ -6398,7 +6398,7 @@ ldoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 
@@ -6459,7 +6459,7 @@ ldoc.Save("output.pdf")
 ldoc.Close()
 		
 {% endhighlight %}		
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker 
 
@@ -6536,7 +6536,7 @@ loadedDocument.Save(stream);
 Save(stream, "output.pdf");
 
 {% endhighlight %}
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document 
 
@@ -6614,7 +6614,7 @@ string fileName = "output.pdf";
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as a stream 
 
@@ -6690,7 +6690,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pd
 You can remove the annotation from the annotation collection, represented by the [PdfLoadedAnnotationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html) of the loaded page. The following code illustrates this.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Loads the document
@@ -6719,7 +6719,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document
 
@@ -6747,7 +6747,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -6795,7 +6795,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6841,7 +6841,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -6892,7 +6892,7 @@ FDF stands for Forms Data Format. FDF is a file format for representing annotati
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Loads the document
@@ -6913,7 +6913,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document
 
@@ -6933,7 +6933,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -6975,7 +6975,7 @@ Save(stream, "Annotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7015,7 +7015,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -7060,7 +7060,7 @@ XFDF stands for XML Forms Data Format. XFDF is the XML version of FDF for repres
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Loads the document
@@ -7081,7 +7081,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document
 
@@ -7101,7 +7101,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -7143,7 +7143,7 @@ Save(stream, "Annotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7183,7 +7183,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -7228,7 +7228,7 @@ JSON stands for JavaScript Object Notation. It is a collection of key or value p
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Loads the document 
 
@@ -7246,7 +7246,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document 
 
@@ -7266,7 +7266,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker 
 
@@ -7308,7 +7308,7 @@ Save(stream, "Annotation.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document 
 
@@ -7348,7 +7348,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as a stream 
 
@@ -7384,7 +7384,7 @@ To export annotation data to the FDF file from PDF document, you can use the [Ex
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Loads the document
@@ -7403,7 +7403,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document
 
@@ -7421,7 +7421,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -7459,7 +7459,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7493,7 +7493,7 @@ return File(fdfStream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -7532,7 +7532,7 @@ To export annotation data to the XFDF file from PDF document, you can use the [E
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Loads the document
@@ -7551,7 +7551,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document
 
@@ -7569,7 +7569,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -7607,7 +7607,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7641,7 +7641,7 @@ return File(xfdfStream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -7680,7 +7680,7 @@ To export annotation data to the JSON file from PDF document, you can use the [E
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Loads the document 
 
@@ -7696,7 +7696,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loads the document 
 
@@ -7712,7 +7712,7 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker 
 
@@ -7750,7 +7750,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document 
 
@@ -7784,7 +7784,7 @@ return File(jsonStream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as a stream
 
@@ -7826,7 +7826,7 @@ The following code example explains how to add comments to the PDF annotation.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document
 
@@ -7888,7 +7888,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 
@@ -7948,7 +7948,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document
 
@@ -8019,7 +8019,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -8097,7 +8097,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 
@@ -8181,7 +8181,7 @@ The following code example explains how to add comments to the existing PDF anno
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 
@@ -8233,7 +8233,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the PDF document
 
@@ -8285,7 +8285,7 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Create the file open picker
@@ -8358,7 +8358,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -8429,7 +8429,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -8506,7 +8506,7 @@ The following code example explains how to add a review status in a newly create
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document
@@ -8570,7 +8570,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 
@@ -8631,7 +8631,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document 
 
@@ -8701,7 +8701,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -8779,7 +8779,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 
@@ -8862,7 +8862,7 @@ The following code example explains how to add the review status to the existing
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 
@@ -8914,7 +8914,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 
@@ -8967,7 +8967,7 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Create the file open picker
@@ -9040,7 +9040,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -9110,7 +9110,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -9191,7 +9191,7 @@ The following code example explains how to remove comments from the existing PDF
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 
@@ -9228,7 +9228,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the PDF document
 
@@ -9265,7 +9265,7 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Create the file open picker
@@ -9323,7 +9323,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -9377,7 +9377,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -9427,7 +9427,7 @@ The following code example explains how to remove review status to the existing 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 
@@ -9461,7 +9461,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loaded the PDF document
 
@@ -9495,7 +9495,7 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Create the file open picker
@@ -9552,7 +9552,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -9606,7 +9606,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -9660,7 +9660,7 @@ The following code example explains how to modify comments in the existing PDF a
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 
@@ -9700,7 +9700,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the PDF document
 
@@ -9740,7 +9740,7 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -9801,7 +9801,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -9857,7 +9857,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Load the file as stream
@@ -9909,7 +9909,7 @@ The following code example explains how to modify review status to the existing 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 
@@ -9949,7 +9949,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Loaded the PDF document
 
@@ -9987,7 +9987,7 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -10047,7 +10047,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -10105,7 +10105,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -10166,7 +10166,7 @@ You can retrieve the annotation review history from the existing PDF document an
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 
@@ -10207,7 +10207,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 
@@ -10247,7 +10247,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -10302,7 +10302,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -10344,7 +10344,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
 
@@ -10392,7 +10392,7 @@ The following code example explains how to retrieve the annotation comments from
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 
@@ -10416,7 +10416,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 
@@ -10440,7 +10440,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -10478,7 +10478,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -10504,7 +10504,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
 
@@ -10538,7 +10538,7 @@ The following code example illustrates how to print annotation in the PDF docume
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 
@@ -10576,7 +10576,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -10616,7 +10616,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 
@@ -10659,7 +10659,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -10713,7 +10713,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -10825,7 +10825,7 @@ The following code snippet explains how to add custom stamp in an existing PDF d
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
@@ -10894,7 +10894,7 @@ public static PdfPath RoundedRect(RectangleF bounds, int radius)
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
@@ -10960,7 +10960,7 @@ Private Function RoundedRect(bounds As RectangleF, radius As Integer) As PdfPath
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 //Load an existing PDF document
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -11036,7 +11036,7 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtile="ASP.NET Core" %}
 //Load an existing PDF document
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
@@ -11112,7 +11112,7 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load an existing PDF document
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);

@@ -24,7 +24,7 @@ You can add XMP metadata in a PDF document using [XmpMetadata](https://help.sync
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a PDF document
 
@@ -72,7 +72,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a PDF document
 
@@ -120,7 +120,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -192,7 +192,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a PDF document
 
@@ -272,7 +272,7 @@ You can add metadata in an existing PDF document using [XmpMetadata](https://hel
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the document
 
@@ -316,7 +316,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the document
 
@@ -360,7 +360,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -430,7 +430,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -532,7 +532,7 @@ Refer the following code sample to create XMP basic schema.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a PDF document
 
@@ -580,7 +580,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a PDF document
 
@@ -628,7 +628,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -700,7 +700,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a PDF document
 
@@ -792,7 +792,7 @@ The Dublin Core schema provides a set of commonly used properties such as,
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create new PDF document
 
@@ -828,7 +828,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create new PDF document
 
@@ -864,7 +864,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -924,7 +924,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create new PDF document
 
@@ -1000,7 +1000,7 @@ This schema includes properties related to rights management. These properties p
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create PDF document
 
@@ -1032,7 +1032,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create PDF document
 
@@ -1064,7 +1064,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF does not support Metadata (XMP) in UWP platform
 
@@ -1120,7 +1120,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create PDF document
 
@@ -1186,7 +1186,7 @@ This schema describes very simple workflow or job information and [BasicJobTicke
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a document
 
@@ -1216,7 +1216,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a document
 
@@ -1246,7 +1246,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -1300,7 +1300,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a document
 
@@ -1369,7 +1369,7 @@ The Paged-Text schema is used for text appearance on page in a document.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a Pdf document
 
@@ -1405,7 +1405,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a Pdf document
 
@@ -1441,7 +1441,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -1501,7 +1501,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a Pdf document
 
@@ -1571,7 +1571,7 @@ This schema specifies properties used with Adobe PDF documents.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a PDF document
 
@@ -1605,7 +1605,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a PDF document
 
@@ -1639,7 +1639,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -1697,7 +1697,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a PDF document
 
@@ -1768,7 +1768,7 @@ Add the following code to define a custom schema.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create Pdf document
 
@@ -1802,7 +1802,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create Pdf document
 
@@ -1836,7 +1836,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -1892,7 +1892,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create Pdf document
 
@@ -1958,7 +1958,7 @@ You can add custom schema using [XmpMetadata](https://help.syncfusion.com/cr/fil
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create PDF document
 
@@ -1988,7 +1988,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create PDF document
 
@@ -2018,7 +2018,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -2072,7 +2072,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create PDF document
 
@@ -2134,7 +2134,7 @@ The custom metadata can be added in PDF document by using the [CustomMetadata](h
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create PDF document
 
@@ -2160,7 +2160,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create PDF document
 
@@ -2186,7 +2186,7 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -2236,7 +2236,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create PDF document
 
@@ -2294,7 +2294,7 @@ You can remove the custom metadata from an existing PDF document as follows.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the document
 
@@ -2312,7 +2312,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the document
 
@@ -2330,7 +2330,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -2374,7 +2374,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 
@@ -2430,7 +2430,7 @@ You can extract the XMP metadata along with an image and add it with an image to
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document
 
@@ -2462,7 +2462,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 
@@ -2494,7 +2494,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Essential PDF supports adding XMP metadata along with an image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
 
@@ -2552,7 +2552,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 
@@ -2618,7 +2618,7 @@ Refer to the following code snippet to extract the image metadata from a PDF ima
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF
 
@@ -2642,7 +2642,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load an existing PDF
 
@@ -2666,7 +2666,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports extracting the image information from PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET Core and ASP.NET MVC platforms
 
@@ -2698,7 +2698,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports extracting the image information from PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET Core and ASP.NET MVC platforms
 

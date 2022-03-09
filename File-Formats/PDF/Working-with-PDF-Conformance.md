@@ -31,7 +31,7 @@ You can create a PDF/A-1b document by specifying the conformance level as ```Pdf
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new document with PDF/A-1b standard.
@@ -70,7 +70,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new document with PDF/A-1b standard.
@@ -109,7 +109,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Create a new document with PDF/A-1b standard
@@ -211,7 +211,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Create a new document with PDF/A-1b standard
@@ -273,7 +273,7 @@ You can create a PDF/A-2b document by specifying the conformance level as ```Pdf
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new document with PDF/A-2b standard
 
@@ -310,7 +310,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new document with PDF/A-2b standard
 
@@ -346,7 +346,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new document with PDF/A-2b standard
 
@@ -442,7 +442,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new document with PDF/A-2b standard
 
@@ -505,7 +505,7 @@ You can create a PDF/A-3b document by specifying the conformance level as Pdf_A3
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new document with PDF/A-3b standard
 
@@ -557,7 +557,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new document with PDF/A-3b standard
 
@@ -609,7 +609,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new document with PDF/A-3b standard
 
@@ -741,7 +741,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new document with PDF/A-3b standard
 
@@ -819,7 +819,7 @@ You can create a PDF/A-1a document by specifying the conformance level as ```Pdf
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new document with PDF/A-1a standard.
@@ -858,7 +858,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new document with PDF/A-1a standard.
@@ -897,7 +897,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Create a new document with PDF/A-1a standard
@@ -999,7 +999,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Create a new document with PDF/A-1a standard
@@ -1064,7 +1064,7 @@ You can create a PDF/A-2a document by specifying the conformance level as ```Pdf
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new document with PDF/A-2a standard
 
@@ -1101,7 +1101,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new document with PDF/A-2a standard
 
@@ -1137,7 +1137,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new document with PDF/A-2a standard
 
@@ -1233,7 +1233,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new document with PDF/A-2a standard
 
@@ -1295,7 +1295,7 @@ You can create a PDF/A-3a document by specifying the conformance level as Pdf_A3
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new document with PDF/A-3a standard
 
@@ -1347,7 +1347,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new document with PDF/A-3a standard
 
@@ -1399,7 +1399,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new document with PDF/A-3a standard
 
@@ -1531,7 +1531,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new document with PDF/A-3a standard
 
@@ -1609,7 +1609,7 @@ You can create a PDF/A-2u document by specifying the conformance level as ```Pdf
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new document with PDF/A-2u standard
 
@@ -1646,7 +1646,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new document with PDF/A-2u standard
 
@@ -1682,7 +1682,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new document with PDF/A-2u standard
 
@@ -1778,7 +1778,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new document with PDF/A-2u standard
 
@@ -1840,7 +1840,7 @@ You can create a PDF/A-3u document by specifying the conformance level as Pdf_A3
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new document with PDF/A-3u standard
 
@@ -1892,7 +1892,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new document with PDF/A-3u standard
 
@@ -1944,7 +1944,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new document with PDF/A-3u standard
 
@@ -2076,7 +2076,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new document with PDF/A-3u standard
 
@@ -2152,7 +2152,7 @@ You can create a PDF/X-1a document by specifying the conformance level as ```Pdf
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new document with PDF/x standard.
@@ -2193,7 +2193,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Create a new document with PDF/x standard.
@@ -2247,7 +2247,7 @@ N> To convert the existing PDF to PDF/A conformance document in .NET Core, you n
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load an existing PDF.
@@ -2268,7 +2268,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load an existing PDF.
@@ -2409,7 +2409,7 @@ You can find the conformance level of the existing PDF document using the [Confo
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load an existing PDF. 
@@ -2427,7 +2427,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load an existing PDF. 
@@ -2445,7 +2445,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Create the file open picker 
@@ -2498,7 +2498,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Load the file as a stream 
@@ -2527,7 +2527,7 @@ You can get conversion progress using PdfAConversionProgress event.
 The following code sample shows the delegate for handling PDF to PDF/A conversion process
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load a PDF document
 
@@ -2556,7 +2556,7 @@ MessageBox.Show(String.Format("PDF to PDF/A conversion Process " + arguments. Pr
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 ' Load a PDF document 
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 

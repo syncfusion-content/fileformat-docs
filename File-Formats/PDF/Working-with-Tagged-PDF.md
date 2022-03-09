@@ -22,7 +22,7 @@ You can add tag to text or paragraphs in PDF document by using the [PdfTag](http
 The following code sample explains you how to add tag for the text element in PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -61,7 +61,7 @@ doc.Save("Output.pdf");
 doc.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
@@ -101,7 +101,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -201,7 +201,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -264,7 +264,7 @@ You can add tag to image in the PDF document by using the [PdfTag](https://help.
 The following code explains how to add tag for image element in PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -299,7 +299,7 @@ doc.Save("Image.pdf");
 doc.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
@@ -335,7 +335,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -441,7 +441,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -505,7 +505,7 @@ You can add tag to shapes such as rectangle, line, circle, polygon, and more by 
 The following code explains how to add tag for shape element in the PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -540,7 +540,7 @@ line.Draw(page.Graphics);
 doc.Save("Output.pdf"); 
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
@@ -576,7 +576,7 @@ doc.Save("Output.pdf")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -677,7 +677,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -740,7 +740,7 @@ You can tag the form fields in the PDF document by using the [PdfTag](https://he
 The following code explains how to add tag for the form fields in PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -777,7 +777,7 @@ doc.Save("Output.pdf");
 doc.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
@@ -815,7 +815,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -919,7 +919,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -982,7 +982,7 @@ You can add tags to annotation in PDF document by using the [PdfTag](https://hel
 The following code explains how to add tag for the annotations in PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -1024,7 +1024,7 @@ doc.Save("PopupAnnotation.pdf");
 doc.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
@@ -1067,7 +1067,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -1179,7 +1179,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
@@ -1246,7 +1246,7 @@ You can tag the hyperlink present in the PDF document by using [PdfTag](https://
 The following code example shows how to add tag for hyperlink in PDF document
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -1289,7 +1289,7 @@ document.Save("Output.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument()
@@ -1333,7 +1333,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -1447,7 +1447,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -1515,7 +1515,7 @@ You can add tags to template in PDF document by using the [PdfTag](https://help.
 The following code sample explains how to add tag support for the template element.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -1555,7 +1555,7 @@ pdfDocument.Save("Output.pdf");
 pdfDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 Dim pdfDocument As PdfDocument = New PdfDocument()
@@ -1596,7 +1596,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 {% endhighlight %}
@@ -1661,7 +1661,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -1731,7 +1731,7 @@ You can tag the table in the PDF document by specifying the tag type as ```Table
 The following code snippet illustrates how to add tag for table element.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -1807,7 +1807,7 @@ pdfDocument.Save("Output.pdf");
 pdfDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PDF document
 Dim pdfDocument As PdfDocument = New PdfDocument()
@@ -1884,7 +1884,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -2066,7 +2066,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -2168,7 +2168,7 @@ You can add the tags to list element in PDF document by specifying the tag type 
 The following code example illustrates how to add tag support for list element.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -2230,7 +2230,7 @@ document.Save("Output.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument()
@@ -2296,7 +2296,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -2450,7 +2450,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -2539,7 +2539,7 @@ You can add artifact tag to PDF element by using the [PdfArtifact](https://help.
 The following code explains how to add tag for header and footers in the PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -2604,7 +2604,7 @@ pdfDocument.Save("HeaderFooter.pdf");
 pdfDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates new PDF document
 Dim pdfDocument As PdfDocument = New PdfDocument()
@@ -2670,7 +2670,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -2834,7 +2834,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates new PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -2927,7 +2927,7 @@ Basically, the element which draws first takes precedence over the tag reading o
 The following code example illustrates how to order the tagged elements in a PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -2991,7 +2991,7 @@ document.Save("Output.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument()
@@ -3056,7 +3056,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -3214,7 +3214,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -3306,7 +3306,7 @@ The following code example explains how to auto-tag the elements in a PDF docume
 N> Enabling the auto-tag feature will never add alternate texts/descriptions for figures, images, and other properties related to tag.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates new PDF document
 PdfDocument document = new PdfDocument();
@@ -3346,7 +3346,7 @@ document.Save("AutoTag.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates new PDF document
 Dim document As PdfDocument = New PdfDocument()
@@ -3387,7 +3387,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -3497,7 +3497,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates new PDF document
 PdfDocument document = new PdfDocument();
@@ -3581,7 +3581,7 @@ To convert HTML to Tagged PDF, you can use the [ConvertToTaggedPDF](https://help
 The following code illustrates how to convert HTML to TaggedPDF.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PdfDocument
 
@@ -3610,7 +3610,7 @@ document.Save("Sample.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PdfDocument
 
@@ -3651,7 +3651,7 @@ This setting allows you to determine whether to preserve document structured tag
 The following code sample shows how to preserve document structured tags in the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //Loads an existing Word document
 
 WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
@@ -3679,7 +3679,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Loads an existing Word document
 
 Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
@@ -3745,7 +3745,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Load the Word document as stream
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");

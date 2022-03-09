@@ -32,13 +32,13 @@ This assembly is required for converting word to PDF<br/></td></tr>
 </table>
 Include the following namespaces in your .cs or .vb file as shown below.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 using Syncfusion.Pdf;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocToPDFConverter;
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 Imports Syncfusion.Pdf
 Imports Syncfusion.DocIO.DLS
 Imports Syncfusion.DocToPDFConverter
@@ -52,7 +52,7 @@ using Syncfusion.DocIORenderer;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.DocIO.DLS;
@@ -67,7 +67,7 @@ using Syncfusion.DocIORenderer;
 You can create a PDF document with multiple paragraph text using flow model with the following code snippet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //Creates a new Word document 
 WordDocument wordDocument = new WordDocument();
 //Adds new section with single paragraph to the document
@@ -101,7 +101,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Creates a new Word document 
 Dim wordDocument As New WordDocument()
 'Adds new section with single paragraph to the document
@@ -181,7 +181,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new Word document 
 WordDocument wordDocument = new WordDocument();
@@ -241,7 +241,7 @@ The following image shows the PDF document with multiple paragraphs created usin
 You can create PDF document with text and image using the following code snippet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //A new document is created.
 WordDocument document = new WordDocument();
 //Adding a new section to the document.
@@ -296,7 +296,7 @@ pdfDocument.Close(true);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'A new document is created.
 Dim document As New WordDocument()
 'Adding a new section to the document.
@@ -416,7 +416,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //A new document is created.
 WordDocument document = new WordDocument();
@@ -498,7 +498,7 @@ The following image shows the PDF document with multiple paragraphs and image cr
 
 You can create PDF document with simple table using the following code snippet.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //Creates a new Word document 
 WordDocument wordDocument = new WordDocument();
 //Adding a new section to the document.
@@ -573,7 +573,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Creates a new Word document 
 Dim wordDocument As New WordDocument()
 'Adding a new section to the document.
@@ -732,7 +732,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creates a new Word document 
 WordDocument wordDocument = new WordDocument();
@@ -835,7 +835,7 @@ Syncfusion Essential PDF supports creating a PDF document with flow model by mai
 The following code snippet explains how to create a PDF document with image, paragraph text, header text, a line below the header text, and a table using flow model.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -916,7 +916,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
 
@@ -994,7 +994,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 
@@ -1168,7 +1168,7 @@ fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
 

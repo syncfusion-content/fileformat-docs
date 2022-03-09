@@ -33,7 +33,7 @@ You can compress all the images of an existing PDF document by enabling the [Com
 The following example code snippet illustrates how to compress the images in existing PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -57,7 +57,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
@@ -134,7 +134,7 @@ You can optimize the embedded fonts in an existing PDF document by enabling the 
 The following example code snippet illustrates how to optimize embedded font in existing PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -155,7 +155,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
@@ -228,7 +228,7 @@ You can compress the page contents in an existing PDF document by enabling the [
 The following example code snippet illustrates how to optimize page contents in existing PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -249,7 +249,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
@@ -320,7 +320,7 @@ You can reduce the PDF file size by removing the PDF document metadata informati
 The following example code snippet illustrates how to optimize page contents in existing PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -336,7 +336,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
@@ -412,7 +412,7 @@ Content compression involves,
 The following code snippet illustrates how to compress the content of the PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -446,7 +446,7 @@ document.Save("Output.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 Dim document As New PdfDocument()
@@ -536,7 +536,7 @@ return File(stream, contentType, fileName);
 You can compress the existing PDF document by using the following code snippet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -553,7 +553,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -578,7 +578,7 @@ loadedDocument.Close(True)
 Essential PDF allows you to compress/change the quality of the image in the PDF document by using the following code snippet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Create a new PDF document.
@@ -604,7 +604,7 @@ document.Save("Output.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new PDF document.
 Dim document As New PdfDocument()
@@ -635,7 +635,7 @@ document.Close(True)
 You can compress the images in the existing PDF document by using the following code snippet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the PDF document which c images
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -669,7 +669,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the PDF document which consist of images
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")

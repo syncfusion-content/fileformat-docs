@@ -30,7 +30,7 @@ Copy the QtBinaries folder from the installed HtmlToPdfConverter package and pas
 
 Include the following namespaces in the Form1.Designer.cs file.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
@@ -39,7 +39,7 @@ using Syncfusion.HtmlConverter;
 
 Add a new button in Form1.Designer.cs to Convert PDF document as follows.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 private Button btnCreate;
 private Label label;
@@ -72,7 +72,7 @@ private void InitializeComponent()
 
 Create the btnCreate_Click event and add the following code in btnCreate_Click to convert simple URL to PDF file using WebKit.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
  
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -112,7 +112,7 @@ Copy the BlinkBinaries folder from the installed HtmlToPdfConverter package and 
 
 Include the following namespaces in the Form1.Designer.cs file.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
@@ -121,7 +121,7 @@ using Syncfusion.HtmlConverter;
 
 Add a new button in Form1.Designer.cs to Convert PDF document as follows.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 private Button btnCreate;
 private Label label;
@@ -154,7 +154,7 @@ private void InitializeComponent()
 
 Create the btnCreate_Click event and add the following code in btnCreate_Click to convert simple URL to PDF file using Blink.
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
  
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);

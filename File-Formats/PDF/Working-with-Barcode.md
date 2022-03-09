@@ -17,7 +17,7 @@ Essential PDF provides support to add barcodes to the PDF document. The followin
 
 The below code snippet shows how to add Code39 barcode using the [PdfCode39Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfCode39Barcode.html) class to a PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 //Creating new PDF Document
 
 PdfDocument doc = new PdfDocument();
@@ -50,7 +50,7 @@ doc.Save("CODE39.pdf");
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creating new PDF Document
 
@@ -84,7 +84,7 @@ doc.Save("CODE39.pdf")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creating new PDF Document
 
@@ -174,7 +174,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creating new PDF Document
 
@@ -227,7 +227,7 @@ else
 
 The below code snippet shows how to add PdfEan13 barcode using the [PdfEan13Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan13Barcode.html) class to a PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PdfEan13 Barcode.
 
@@ -263,7 +263,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PdfEan13 Barcode.
 
@@ -299,7 +299,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 // Creates a new PdfEan13 Barcode.
 
@@ -397,7 +397,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 // Creates a new PdfEan13 Barcode.
 
@@ -441,7 +441,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN13Barcode.pdf", "ap
 
 The below code snippet shows how to add PdfEan8 barcode using the [PdfEan8Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan8Barcode.html) class to a PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new PdfEan8 Barcode.
 
@@ -477,7 +477,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new PdfEan8 Barcode.
 
@@ -513,7 +513,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 // Creates a new PdfEan8 Barcode.
 
@@ -611,7 +611,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 // Creates a new PdfEan8 Barcode.
 
@@ -657,7 +657,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN8Barcode.pdf", "app
 
 The below code snippet shows how to add a QR code using [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html) class to the PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Drawing QR Barcode
@@ -696,7 +696,7 @@ doc.Save("QRBarcode.pdf");
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Drawing QR Barcode
 
@@ -736,7 +736,7 @@ doc.Save("QRBarcode.pdf")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Drawing QR Barcode
 
@@ -835,7 +835,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Drawing QR Barcode
 
@@ -892,7 +892,7 @@ else
 
 The below code snippet shows how to add a Pdf417 barcode code using [Pdf417Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.Pdf417Barcode.html) class to the PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates a new Pdf417 Barcode.
 
@@ -932,7 +932,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates a new Pdf417 Barcode.
 
@@ -972,7 +972,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 // Creates a new Pdf417 Barcode.
 
@@ -1078,7 +1078,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 // Creates a new Pdf417 Barcode.
 
@@ -1129,7 +1129,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("417Barcode.pdf", "appl
 
 The following code snippets show how to set [Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfBarcode.html#Syncfusion_Pdf_Barcode_PdfBarcode_size) and [Location](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfBarcode.html#Syncfusion_Pdf_Barcode_PdfBarcode_Location) for Codabar barcode using [PdfCodabarBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfCodabarBarcode.html) class to a PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creating new PDF Document
 
@@ -1169,7 +1169,7 @@ doc.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creating new PDF Document
 
@@ -1206,7 +1206,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creating new PDF Document
 
@@ -1304,7 +1304,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creating new PDF Document
 
@@ -1364,7 +1364,7 @@ else
 The following code sample shows how to add a barcode to the PDF document without displaying the barcode text.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 
 //Creating a new PDF Document 
 PdfDocument doc = new PdfDocument();
@@ -1395,7 +1395,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creating a new PDF Document 
 Dim doc As PdfDocument = New PdfDocument()
@@ -1426,7 +1426,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Creating a new PDF Document 
 PdfDocument doc = new PdfDocument();
@@ -1507,7 +1507,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Creating a new PDF Document 
 PdfDocument doc = new PdfDocument();
@@ -1565,7 +1565,7 @@ N> To export barcode as image in .NET Core, the following assembly should be ref
 The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Initialize a new PdfCode39Barcode instance
 PdfCode39Barcode barcode = new PdfCode39Barcode();
 
@@ -1580,7 +1580,7 @@ Image barcodeImage = barcode.ToImage(new SizeF(300, 200));
 barcodeImage.Save("Image.png", ImageFormat.Png);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Initialize a new PdfCode39Barcode instance
 Dim barcode As PdfCode39Barcode = New PdfCode39Barcode
 
@@ -1595,7 +1595,7 @@ Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 200))
 barcodeImage.Save("Image.png", ImageFormat.Png)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 //PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 {% endhighlight %}
 
@@ -1618,7 +1618,7 @@ using (MemoryStream stream = new MemoryStream())
  }       
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}
@@ -1626,7 +1626,7 @@ using (MemoryStream stream = new MemoryStream())
 Essential PDF supports converting two-dimensional barcodes such as QR Code and Data Matrix barcode to image. The following code snippet explains how to convert a QR code to image using the [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html#Syncfusion_Pdf_Barcode_PdfQRBarcode_ToImage) method of [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtile="C#" %}
 //Initialize a new PdfQRBarcode instance
 PdfQRBarcode barcode = new PdfQRBarcode();
 
@@ -1641,7 +1641,7 @@ Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
 barcodeImage.Save("Image.png", ImageFormat.Png);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 'Initialize a new PdfQRBarcode instance
 Dim barcode As PdfQRBarcode = New PdfQRBarcode
 
@@ -1656,7 +1656,7 @@ Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 300))
 barcodeImage.Save("Image.jpg", ImageFormat.Png)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 //PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 {% endhighlight %}
 
@@ -1678,7 +1678,7 @@ Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
  } 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 //PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}

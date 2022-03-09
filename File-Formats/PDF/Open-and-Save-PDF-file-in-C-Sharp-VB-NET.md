@@ -11,21 +11,21 @@ documentation: UG
 
 You can open an existing PDF document by using the [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following example shows how to load an existing document from physical path.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Open an existing document from file system 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Open an existing document from file system 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -37,7 +37,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -47,21 +47,21 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 You can open an existing document from stream by using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class as shown below.
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Opens an existing document from stream 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream); 
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Opens an existing document from stream 
 Dim loadedDocument As New PdfLoadedDocument(stream)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Opens an existing document from stream 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream); 
@@ -75,7 +75,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Opens an existing document from stream 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream); 
@@ -86,21 +86,21 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
 
 You can open an existing document from byte array by using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class as shown in the below code snippet.
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Open an existing document from byte array 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray); 
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Opens an existing document from byte array 
 Dim loadedDocument As New PdfLoadedDocument(byteArray)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Open an existing document from byte array 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray); 
@@ -114,7 +114,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Open an existing document from byte array 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray); 
@@ -126,21 +126,21 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray);
 You can open an existing encrypted PDF document from either the file system or the stream or the byte array using the following overloads as shown below
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Open an existing encrypted document from disk.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf", "password");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Open an existing encrypted document from disk. 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf","password")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -152,7 +152,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf","password")
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -160,7 +160,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf","password")
 {% endtabs %}
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Open an existing encrypted document from stream.
@@ -171,14 +171,14 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Open an existing encrypted document from stream.
 Dim loadedDocument As New PdfLoadedDocument(stream,"password")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 
 //Open an existing encrypted document from stream.
@@ -200,7 +200,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 
 //Open an existing encrypted document from stream.
@@ -213,21 +213,21 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
 {% endtabs %}
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Open an existing encrypted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Open an existing encrypted document from byte array. 
 Dim loadedDocument As New PdfLoadedDocument(byteArray,"password")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Open an existing encrypted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
@@ -241,7 +241,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Open an existing encrypted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
@@ -252,21 +252,21 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
 
 You can open a corrupted PDF document from either the file system or the stream or the byte array using the following overloads as shown below
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Open an existing corrupted document from disk. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf", true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Open an existing corrupted document from disk. 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf", True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -278,7 +278,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf", True)
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -286,21 +286,21 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf", True)
 {% endtabs %}
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Open an existing corrupted document from stream. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Open an existing corrupted document from stream. 
 Dim loadedDocument As New PdfLoadedDocument(stream, True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Open an existing corrupted document from stream. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
@@ -314,7 +314,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Open an existing corrupted document from stream. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
@@ -323,21 +323,21 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
 {% endtabs %}
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Open an existing corrupted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Open an existing corrupted document from byte array. 
 Dim loadedDocument As New PdfLoadedDocument(byteArray, True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Open an existing corrupted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
@@ -351,7 +351,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Open an existing corrupted document from byte array. 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
@@ -367,7 +367,7 @@ N> 2.  Using this overload may cause performance delay when compared with other 
 You can save the manipulated PDF document to file system using [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~Save(String).html) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -378,7 +378,7 @@ loadedDocument.Save("Output.pdf");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 ' Load an existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -389,7 +389,7 @@ loadedDocument.Save("Output.pdf")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Load the PDF document as stream
 Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
@@ -432,7 +432,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
@@ -463,7 +463,7 @@ else
 You can also save the manipulated PDF document to stream using overloads of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Save) method.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -476,7 +476,7 @@ loadedDocument.Save(stream) ;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 ' Load an existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -489,7 +489,7 @@ loadedDocument.Save(stream)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Load the PDF document as stream
 Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
@@ -518,7 +518,7 @@ loadedDocument.Save(stream);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
@@ -537,7 +537,7 @@ loadedDocument.Save(stream);
 You can also resave the manipulated PDF document to the same file using overloads of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Save) method.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -549,7 +549,7 @@ loadedDocument.Save() ;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 ' Load an existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -560,7 +560,7 @@ loadedDocument.Save()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -584,7 +584,7 @@ await loadedDocument.Save();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
@@ -592,7 +592,7 @@ await loadedDocument.Save();
 {% endtabs %}
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
@@ -603,7 +603,7 @@ loadedDocument.Save();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 ' Load an existing PDF document
 Dim loadedDocument As New PdfLoadedDocument(stream)
@@ -613,7 +613,7 @@ Dim loadedDocument As New PdfLoadedDocument(stream)
 loadedDocument.Save()
 
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -637,7 +637,7 @@ await loadedDocument.Save();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
@@ -648,7 +648,7 @@ await loadedDocument.Save();
 After the document manipulation and save operation are completed, you should close the instance of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html), in order to release all the memory consumed by PDF DOM. The following code snippet illustrates how to close a ```PdfLoadedDocument``` instance.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -661,7 +661,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 ' Load an existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -674,7 +674,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Load the PDF document as stream
 Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
@@ -707,7 +707,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
@@ -732,7 +732,7 @@ N> Close(true) method will dispose all the memory consumed by PDF DOM as well as
 You can catch the secured document exception by opening an existing encrypted PDF document from either the file system, stream, or byte array using the following code sample as follows,
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 PdfLoadedDocument document = null;
 try
@@ -752,7 +752,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Dim document As PdfLoadedDocument = Nothing
 Try
@@ -768,7 +768,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 PdfLoadedDocument document = null;
 try
@@ -809,7 +809,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
@@ -846,7 +846,7 @@ II.	Please find  some of the possible offset error messages that may be repairab
      2.Trailer Prev offset is located in the same cross table section.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 PdfLoadedDocument document = null;
 try
@@ -868,7 +868,7 @@ catch (Exception message)
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 Dim document As PdfLoadedDocument = Nothing
 Try

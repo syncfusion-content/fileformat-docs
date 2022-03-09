@@ -16,7 +16,7 @@ The following code example illustrates how to load the file by using stream in W
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the file as stream
 
@@ -86,7 +86,7 @@ fileStream.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the file as stream
 
@@ -158,7 +158,7 @@ The following code example illustrates how to load the file by using file picker
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //create the file open picker
 
@@ -236,7 +236,7 @@ fileStream.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'create the file open picker
 
@@ -318,7 +318,7 @@ The following code example illustrates how to save the PDF document in WinRT by 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create a new document
 
@@ -400,7 +400,7 @@ fileStream.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create a new document
 

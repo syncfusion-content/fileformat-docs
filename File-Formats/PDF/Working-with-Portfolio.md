@@ -15,7 +15,7 @@ You can create a portfolio using [PdfPortfolioInformation](https://help.syncfusi
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 // Create a new instance of PdfDocument class.
@@ -56,7 +56,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 ' Create a new instance of PdfDocument class.
@@ -95,7 +95,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 // Create a new instance of PdfDocument class.
 
@@ -197,7 +197,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 // Create a new instance of PdfDocument class.
 
@@ -261,7 +261,7 @@ Essential PDF also provides support for extracting the files from the PDF Portfo
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the PDF document
@@ -294,7 +294,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the PDF document
@@ -325,7 +325,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //PDF supports extracting file from PDF Portfolio only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -382,7 +382,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 //PDF supports extracting file from PDF Portfolio only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -397,7 +397,7 @@ You can also remove the files from PDF Portfolio using following code.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 
 //Load the PDF document
@@ -418,7 +418,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Load the PDF document
@@ -439,7 +439,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtile="UWP" %}
 
 //Create the file open picker
 
@@ -517,7 +517,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtile="Xamarin" %}
 
 // Load the file as stream
 
