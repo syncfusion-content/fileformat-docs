@@ -1,5 +1,5 @@
 ---
-title: Working with Word document with UWP
+title: Working with UWP using Syncfusion Word library
 description: Create a UWP application, load the Word document and save the Word document with Syncfusion Word library
 platform: file-formats
 control: DocIO

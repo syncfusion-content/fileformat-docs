@@ -1,5 +1,5 @@
 ---
-title: Working with Word document in Asp.net Web Forms using Syncfusion Word library
+title: Working with Word document in Asp.net using Syncfusion Word library
 description: Create, read and edit Word document in Asp.net Web Forms and save the document with Syncfusion Word library
 platform: file-formats
 control: DocIO
