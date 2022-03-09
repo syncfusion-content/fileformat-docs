@@ -17,7 +17,7 @@ The following code illustrates how to load and save a macro enabled presentation
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing macro enabled PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.PPTM");
@@ -36,7 +36,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing macro enabled PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.PPTM")
@@ -55,7 +55,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -88,7 +88,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Opens an existing macro enabled PowerPoint presentation
 FileStream inputStream = new FileStream("Sample.PPTM",FileMode.Open);
@@ -109,7 +109,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Opens an existing macro enabled PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -146,7 +146,7 @@ The following code example illustrates how to remove the macros present in the p
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing macro enabled PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.PPTM");
@@ -163,7 +163,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing macro enabled PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.PPTM")
@@ -182,7 +182,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -207,7 +207,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Opens an existing macro enabled PowerPoint presentation
 FileStream inputStream = new FileStream("Sample.PPTM",FileMode.Open);
@@ -226,7 +226,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

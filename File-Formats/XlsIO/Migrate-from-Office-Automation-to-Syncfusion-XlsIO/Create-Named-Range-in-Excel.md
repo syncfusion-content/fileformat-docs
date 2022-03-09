@@ -15,7 +15,7 @@ The following code shows how to create named range in Excel with Interop and Xls
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void CreateNamedRange()
 {
     //Instantiate the application object
@@ -40,7 +40,7 @@ private void CreateNamedRange()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub CreateNamedRange()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -68,7 +68,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void CreateNamedRange()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -93,7 +93,7 @@ private void CreateNamedRange()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub CreateNamedRange()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

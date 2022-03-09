@@ -17,7 +17,7 @@ N> Adding more than 75 rows/columns not supported in the PowerPoint presentation
 Essential Presentation supports creating and editing tables in PowerPoint slides by adding rows. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -56,7 +56,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -94,7 +94,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -135,7 +135,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -176,7 +176,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -233,7 +233,7 @@ else
 The following code example demonstrates how to create a simple table in a PowerPoint slide by adding columns.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -272,7 +272,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -310,7 +310,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -350,7 +350,7 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -389,7 +389,7 @@ pptxDoc.Save(outputStream);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -445,7 +445,7 @@ else
 You can append new rows at the end of an existing PowerPoint table. Refer to the following code sample.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -470,7 +470,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -496,7 +496,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -536,7 +536,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -561,7 +561,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -609,7 +609,7 @@ You can copy an existing row to the end of a table. Refer to the following code 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -627,7 +627,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -646,7 +646,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -679,7 +679,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -697,7 +697,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -737,7 +737,7 @@ else
 You can insert a row at the specified index position of a table. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -755,7 +755,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -774,7 +774,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -807,7 +807,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -828,7 +828,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -868,7 +868,7 @@ else
 You can append new column to a table. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -893,7 +893,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -919,7 +919,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -958,7 +958,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -985,7 +985,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1031,7 +1031,7 @@ else
 You can copy an existing column and append it to the end of table. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -1050,7 +1050,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -1069,7 +1069,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1102,7 +1102,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -1123,7 +1123,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1163,7 +1163,7 @@ else
 You can insert a column at the specified index position of a table. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -1181,7 +1181,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -1200,7 +1200,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1233,7 +1233,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -1254,7 +1254,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1297,7 +1297,7 @@ The following code example demonstrates how to get the actual height of a PowerP
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens existing PowerPoint file
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1321,7 +1321,7 @@ pptxDoc.Save("Table.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint file
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1343,7 +1343,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -1370,7 +1370,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1419,7 +1419,7 @@ You can format a table to change its appearance by customizing the table border,
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1487,7 +1487,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -1555,7 +1555,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1634,7 +1634,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1703,7 +1703,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1789,7 +1789,7 @@ You can format a table by applying pre-defined table styles. The following code 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1847,7 +1847,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates instance of PowerPoint Presentation
 Dim  pptxDoc As IPresentation = Presentation.Create()
@@ -1905,7 +1905,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1970,7 +1970,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -2029,7 +2029,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -2106,7 +2106,7 @@ The following code example demonstrates how to modify the table in existing Powe
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -2134,7 +2134,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -2162,7 +2162,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -2204,7 +2204,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -2234,7 +2234,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -2284,7 +2284,7 @@ The following code example shows how to merge cells in a table.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -2324,7 +2324,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -2364,7 +2364,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -2414,7 +2414,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -2455,7 +2455,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -2513,7 +2513,7 @@ You can remove a table from a slide by its instance or by its index position in 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -2535,7 +2535,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -2557,7 +2557,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -2593,7 +2593,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -2617,7 +2617,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -2661,7 +2661,7 @@ The following code example demonstrates how to edit the content in a table.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
@@ -2697,7 +2697,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -2730,7 +2730,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -2779,7 +2779,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Table.pptx", FileMode.Open);
@@ -2817,7 +2817,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

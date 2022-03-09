@@ -12,7 +12,7 @@ You can compress and decompress the files with our Compression library. The foll
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Compression.Zip;
 
@@ -208,7 +208,7 @@ class Program
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.Compression.Zip
 
 Class Program

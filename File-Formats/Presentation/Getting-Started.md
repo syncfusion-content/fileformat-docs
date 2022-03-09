@@ -58,31 +58,31 @@ Include the following namespace in your .cs or .vb code as shown below
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.Presentation
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 using Syncfusion.Presentation;
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using Syncfusion.Presentation;
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 using Syncfusion.Presentation;
 
@@ -96,7 +96,7 @@ The following code example demonstrates how to create an instance of 'IPresentat
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new instance of PowerPoint presentation
 
@@ -104,7 +104,7 @@ IPresentation pptxDoc = Presentation.Create();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new instance of PowerPoint presentation
 
@@ -112,7 +112,7 @@ Dim pptxDoc As IPresentation = Presentation.Create()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a new instance of PowerPoint presentation
 
@@ -120,7 +120,7 @@ IPresentation pptxDoc = Presentation.Create();
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new instance of PowerPoint presentation
 
@@ -128,7 +128,7 @@ IPresentation pptxDoc = Presentation.Create();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new instance of PowerPoint presentation
 
@@ -144,7 +144,7 @@ The following code example demonstrates how to add a blank slide to a PowerPoint
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Adds a slide to the PowerPoint Presentation
 
@@ -152,7 +152,7 @@ ISlide firstSlide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Adds a slide to the PowerPoint Presentation
 
@@ -160,7 +160,7 @@ Dim firstSlide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Adds a slide to the PowerPoint Presentation
 
@@ -168,7 +168,7 @@ ISlide firstSlide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Adds a slide to the PowerPoint Presentation
 
@@ -176,7 +176,7 @@ ISlide firstSlide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Adds a slide to the PowerPoint Presentation
 
@@ -194,7 +194,7 @@ The following code example demonstrates how to add text into a presentation.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Adds a textbox in a slide by specifying its position and size
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
@@ -214,7 +214,7 @@ textPart.Font.Bold = true;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Adds a textbox in a slide by specifying its position and size
 Dim textShape As IShape  = firstSlide.AddTextBox(100, 75, 756, 200)
@@ -234,7 +234,7 @@ textPart.Font.Bold = True
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Adds a textbox in a slide by specifying its position and size
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
@@ -254,7 +254,7 @@ textPart.Font.Bold = true;
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Adds a textbox in a slide by specifying its position and size
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
@@ -274,7 +274,7 @@ textPart.Font.Bold = true;
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Adds a textbox in a slide by specifying its position and size
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
@@ -299,7 +299,7 @@ Essential Presentation allows you to create simple and multi-level lists that ma
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Adds a new paragraph with text.
 paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
@@ -318,7 +318,7 @@ paragraph.FirstLineIndent = -20;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Adds a new paragraph with text.
 paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
@@ -337,7 +337,7 @@ paragraph.FirstLineIndent = -20
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Adds a new paragraph with text.
 paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
@@ -357,7 +357,7 @@ paragraph.FirstLineIndent = -20;
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Adds a new paragraph with text.
 paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
@@ -376,7 +376,7 @@ paragraph.FirstLineIndent = -20;
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Adds a new paragraph with text.
 paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
@@ -402,7 +402,7 @@ In PowerPoint Presentation, the multilevel lists are used for presenting the con
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Adds a new paragraph  
 paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
@@ -415,7 +415,7 @@ paragraph.IndentLevelNumber = 2;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Adds a new paragraph  
 paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.")
@@ -428,7 +428,7 @@ paragraph.IndentLevelNumber = 2
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Adds a new paragraph  
 paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
@@ -441,7 +441,7 @@ paragraph.IndentLevelNumber = 2;
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Adds a new paragraph  
 paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
@@ -454,7 +454,7 @@ paragraph.IndentLevelNumber = 2;
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Adds a new paragraph  
 paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
@@ -474,7 +474,7 @@ You can add images to the Presentation by adding them in the picture collection 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Gets the image from file path
 Image image = Image.FromFile(@"image.jpg");
@@ -484,7 +484,7 @@ firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Gets the image from file path
 Dim image__1 As Image = Image.FromFile("image.jpg")
@@ -494,7 +494,7 @@ firstSlide.Pictures.AddPicture(New MemoryStream (image__1.ImageData), 300, 270, 
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Gets the image from file path
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -505,7 +505,7 @@ firstSlide.Pictures.AddPicture(imageStream, 300, 270, 410, 250);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Gets the image from file path
 FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.Read);
@@ -515,7 +515,7 @@ firstSlide.Pictures.AddPicture(imageStream, 300, 270, 410, 250);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Gets the image from file path
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -532,7 +532,7 @@ Finally, save the Presentation in file system and close its instance.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Saves the Presentation in the given name 
 pptxDoc.Save("Output.pptx");
@@ -542,7 +542,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Saves the Presentation in the given name
 
@@ -554,7 +554,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -574,7 +574,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Saving the PowerPoint Presentation as stream
 FileStream stream = new FileStream("Sample.pptx", FileMode.Create, FileAccess.ReadWrite);
@@ -588,7 +588,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
@@ -695,7 +695,7 @@ Include the following namespaces in your .cs or .vb code as shown below
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 
@@ -707,7 +707,7 @@ using Syncfusion.PresentationToPdfConverter;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.Presentation
 
@@ -725,7 +725,7 @@ Imports Syncfusion.PresentationToPdfConverter
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Open(fileName);
@@ -747,7 +747,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
@@ -769,13 +769,13 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Essential Presentation Library does not support presentation to Pdf conversion in UWP platform.
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Open the existing PowerPoint presentation.
 string basePath = _hostingEnvironment.WebRootPath;
@@ -805,7 +805,7 @@ return fileStreamResult;
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 string resourcePath = "SampleBrowser.Presentation.Samples.Templates.Template.pptx";
 

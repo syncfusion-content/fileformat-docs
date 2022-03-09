@@ -1,12 +1,12 @@
 ---
-title: Working with UWP
-description: Create a UWP application and load the document
+title: Working with UWP using Syncfusion Word library
+description: Create a UWP application, load the Word document and save the Word document with Syncfusion Word library
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Working with UWP
+# Working with Word document in UWP
 
 In your UWP application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
 
@@ -18,7 +18,7 @@ The following code example illustrates how to load the Word document by using st
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the Word document as stream
 
@@ -108,7 +108,7 @@ outstream.Flush();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the Word document as stream
 
@@ -192,7 +192,7 @@ The following code example illustrates how to load the Word document by using fi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Create the file open picker
 
@@ -290,7 +290,7 @@ outstream.Flush();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Create the file open picker
 
@@ -384,7 +384,7 @@ The following code example illustrates how to save the Word document in UWP by u
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates an empty Word document instance
 
@@ -478,7 +478,7 @@ outstream.Flush();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates an empty Word document instance
 

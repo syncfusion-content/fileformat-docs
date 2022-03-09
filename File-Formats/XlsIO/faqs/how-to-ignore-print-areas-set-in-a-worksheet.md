@@ -11,23 +11,23 @@ documentation: UG
 You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the **PrintArea** property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 worksheet.PageSetup.PrintArea = string.Empty;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 worksheet.PageSetup.PrintArea = string.Empty
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 worksheet.PageSetup.PrintArea = string.Empty;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 worksheet.PageSetup.PrintArea = string.Empty;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 worksheet.PageSetup.PrintArea = string.Empty;
 {% endhighlight %}
 {% endtabs %}

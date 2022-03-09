@@ -13,7 +13,7 @@ An instance of **IOfficeChart** can be used to create or modify the charts in Po
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -82,7 +82,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a Presentation instance
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -151,7 +151,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -226,7 +226,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -296,7 +296,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -383,7 +383,7 @@ You can also create a chart with the data from an existing excel worksheet. The 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -405,7 +405,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a Presentation instance
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -427,7 +427,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -455,7 +455,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -478,7 +478,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -525,7 +525,7 @@ The following code example demonstrates how to create custom charts.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an instance of the IPresentation 
 IPresentation pptxDoc = Presentation.Create();
@@ -591,7 +591,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an instance of the IPresentation 
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -657,7 +657,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates an instance of the IPresentation 
 IPresentation pptxDoc = Presentation.Create();
@@ -730,7 +730,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an instance of the IPresentation 
 IPresentation pptxDoc = Presentation.Create();
@@ -797,7 +797,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an instance of the IPresentation 
 IPresentation pptxDoc = Presentation.Create();
@@ -887,7 +887,7 @@ The following code example demonstrates how to refresh the charts in PowerPoint 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Chart.pptx");
@@ -909,7 +909,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Chart.pptx")
@@ -931,7 +931,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Chart.pptx");
@@ -959,7 +959,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -983,7 +983,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1027,7 +1027,7 @@ You can change the data for an existing chart. The code example demonstrates how
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1060,7 +1060,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1093,7 +1093,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Opens a Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1132,7 +1132,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -1167,7 +1167,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1238,7 +1238,7 @@ The appearance of a chart can be modified according to the convenience and usage
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1325,7 +1325,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1412,7 +1412,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1507,7 +1507,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -1596,7 +1596,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1702,7 +1702,7 @@ The following code example demonstrates how to modify the legend and plot areas 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1808,7 +1808,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1914,7 +1914,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Opens a Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -2026,7 +2026,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -2134,7 +2134,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -2262,7 +2262,7 @@ The following code examples illustrate how to position the different chart eleme
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 IPresentation pptxDoc = Presentation.Create();
 
@@ -2314,7 +2314,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Dim pptxDoc As IPresentation = Presentation.Create()
 
@@ -2366,7 +2366,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 IPresentation pptxDoc = Presentation.Create();
 
@@ -2424,7 +2424,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 IPresentation pptxDoc = Presentation.Create();
 
@@ -2477,7 +2477,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 IPresentation pptxDoc = Presentation.Create();
 
@@ -2547,7 +2547,7 @@ Essential Presentation allows you to modify side wall, back wall, and floor sett
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -2578,7 +2578,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -2609,7 +2609,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -2654,7 +2654,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -2687,7 +2687,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -2742,7 +2742,7 @@ T> You can specify the quality of the converted charts by setting the scaling mo
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -2777,7 +2777,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -2822,7 +2822,7 @@ The following code example demonstrates removing a chart from a slide.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -2844,7 +2844,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -2866,7 +2866,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -2902,7 +2902,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -2926,7 +2926,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -2970,7 +2970,7 @@ The following code example demonstrates creating a Scatter chart.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create an instance for PowerPoint  
 IPresentation pptxDoc = Presentation.Create();
@@ -3018,7 +3018,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance for PowerPoint  
 IPresentation pptxDoc = Presentation.Create()
@@ -3066,7 +3066,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance for PowerPoint  
 IPresentation pptxDoc = Presentation.Create();
@@ -3120,7 +3120,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance for PowerPoint  
 IPresentation pptxDoc = Presentation.Create();
@@ -3169,7 +3169,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create an instance for PowerPoint  
 IPresentation pptxDoc = Presentation.Create();
@@ -3238,7 +3238,7 @@ Essential Presentation supports creating and manipulating new and modern chart t
 [Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process. Refer to the following code example to create a Funnel chart.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (IPresentation pptxDoc = Presentation.Create())
 {
   ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
@@ -3325,7 +3325,7 @@ pptxDoc.Save("FunnelChart.pptx")
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -3379,7 +3379,7 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -3425,7 +3425,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -3495,7 +3495,7 @@ The following screenshot shows the output of previous code.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private static void TestBox_Whisker()
 {
    using(IPresentation pptxDoc = Presentation.Create())
@@ -3764,7 +3764,7 @@ Private Sub SetChartData(chart As IPresentationChart)
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 private static void TestBox_Whisker()
 {
@@ -3909,7 +3909,7 @@ private static void SetChartData(IPresentationChart chart)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static void TestBox_Whisker()
 {
    using(IPresentation pptxDoc = Presentation.Create())
@@ -4044,7 +4044,7 @@ private static void SetChartData(IPresentationChart chart)
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static void TestBox_Whisker()
 {
    using(IPresentation pptxDoc = Presentation.Create())
@@ -4203,7 +4203,7 @@ The following screenshot shows the output of previous code.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(IPresentation pptxDoc = Presentation.Create())
 {
    ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
@@ -4308,7 +4308,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
@@ -4367,7 +4367,7 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -4421,7 +4421,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -4499,7 +4499,7 @@ The following screenshot shows the output of previous code.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(IPresentation pptxDoc = Presentation.Create())
 {
    ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
@@ -4589,7 +4589,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -4643,7 +4643,7 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -4688,7 +4688,7 @@ pptxDoc.Save("Histogram.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -4759,7 +4759,7 @@ The following screenshot shows the output of previous code.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(IPresentation pptxDoc = Presentation.Create())
 {
    ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
@@ -4855,7 +4855,7 @@ pptxDoc.Save("ParetoChart.pptx")
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -4913,7 +4913,7 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -4963,7 +4963,7 @@ pptxDoc.Save("ParetoChart.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 

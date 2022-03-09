@@ -1,6 +1,6 @@
 ---
-title: Working with Asp.net 
-description: Create a Asp.net and save the document
+title: Working with Word document in Asp.net using Syncfusion Word library
+description: Create, read and edit Word document in Asp.net Web Forms and save the document with Syncfusion Word library
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -14,7 +14,7 @@ In your ASP.NET application, please add the required assemblies in order to use 
 
 The following code example illustrates how to download the Word document in browser after saving the document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates an empty Word document instance
 
@@ -42,7 +42,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates an empty Word document instance
 
@@ -76,7 +76,7 @@ The following code example illustrates how to open the HTML file in web browser 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates an empty Word document instance
 
@@ -104,7 +104,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates an empty Word document instance
 

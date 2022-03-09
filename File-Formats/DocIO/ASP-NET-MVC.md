@@ -1,6 +1,6 @@
 ---
-title: Working with Asp.Net MVC
-description: Creating a ASP.NET MVC application and save the document
+title: Working in ASP.NET MVC using Syncfusion Word library
+description: Creating a Word document in ASP.NET MVC application and save the document with Syncfusion Word library
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -15,7 +15,7 @@ The following code example illustrates how to save the Word document in ASP.NET 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates an empty Word document instance
 
@@ -39,7 +39,7 @@ return document.ExportAsActionResult("Sample.docx", FormatType.Docx, HttpContext
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 'Creates an empty Word document instance
@@ -70,7 +70,7 @@ Following extension class will help you to download the Word document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 public static class DocIOExtension
 {
@@ -187,7 +187,7 @@ this.Document.Save(FileName, formatType, Response, ContentDisposition);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 
 Public Module Class DocIOExtension
