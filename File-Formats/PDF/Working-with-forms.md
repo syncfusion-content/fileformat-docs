@@ -21,7 +21,7 @@ The below code snippet illustrates how to add a textbox field to a new PDF docum
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -56,7 +56,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -88,7 +88,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -126,7 +126,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -178,7 +178,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -231,7 +231,7 @@ The below code snippet illustrates how to add the textbox to an existing PDF doc
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document.
@@ -274,7 +274,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -315,7 +315,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -373,7 +373,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -433,7 +433,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -500,7 +500,7 @@ Please refer the below code snippet for adding the combo box in new PDF document
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -547,7 +547,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
      
 
 'Create a new PDF document.
@@ -594,7 +594,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -644,7 +644,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -708,7 +708,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -774,7 +774,7 @@ Please refer the below code snippet for adding the combo box in existing PDF doc
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document.
@@ -827,7 +827,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -884,7 +884,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -954,7 +954,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1026,7 +1026,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -1103,7 +1103,7 @@ Please refer the below code snippet for adding the radio button in new PDF docum
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -1150,7 +1150,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
    
 
 'Create a new PDF document.
@@ -1197,7 +1197,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -1247,7 +1247,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -1311,7 +1311,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -1376,7 +1376,7 @@ The below code snippet illustrates how to add the radio button in existing PDF d
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document.
@@ -1429,7 +1429,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -1484,7 +1484,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -1554,7 +1554,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1626,7 +1626,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -1703,7 +1703,7 @@ The following code example illustrates how to get option values from acroform ra
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load an existing document
@@ -1750,7 +1750,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load an existing document
@@ -1793,7 +1793,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create the file open picker
@@ -1861,7 +1861,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1927,7 +1927,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the file as stream
@@ -2010,7 +2010,7 @@ Please refer the below code snippet for adding the list box field in new PDF doc
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -2061,7 +2061,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
  
 
 'Create a new PDF document.
@@ -2112,7 +2112,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -2166,7 +2166,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -2234,7 +2234,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -2303,7 +2303,7 @@ Please refer the below code snippet for adding the list box field in existing PD
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document.
@@ -2360,7 +2360,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -2419,7 +2419,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -2493,7 +2493,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2569,7 +2569,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -2652,7 +2652,7 @@ Please refer the below code snippet for adding the check box field in new PDF do
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -2689,7 +2689,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
   
 
 'Create a new PDF document.
@@ -2724,7 +2724,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -2764,7 +2764,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -2818,7 +2818,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -2874,7 +2874,7 @@ Please refer the below code snippet for adding the check box field in existing P
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document.
@@ -2917,7 +2917,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -2962,7 +2962,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -3022,7 +3022,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -3084,7 +3084,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -3152,7 +3152,7 @@ Please refer the below code snippet for adding the signature field in new PDF do
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -3189,7 +3189,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -3228,7 +3228,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -3268,7 +3268,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -3322,7 +3322,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -3378,7 +3378,7 @@ Please refer the below code snippet for adding the signature field in existing P
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document.
@@ -3421,7 +3421,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -3466,7 +3466,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -3526,7 +3526,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -3588,7 +3588,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -3655,7 +3655,7 @@ The below code illustrates how to add the button field in new PDF document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -3692,7 +3692,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
     
 
 'Create a new PDF document.
@@ -3729,7 +3729,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -3769,7 +3769,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -3823,7 +3823,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -3878,7 +3878,7 @@ Please refer the below code snippet for adding the button field in existing PDF 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the existing PDF document.
@@ -3919,7 +3919,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -3962,7 +3962,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -4020,7 +4020,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4080,7 +4080,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
  //Load the file as stream
 
@@ -4145,7 +4145,7 @@ The following code snippet explains how to set appearance to the PDF form fields
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document
@@ -4175,7 +4175,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document
@@ -4207,7 +4207,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -4257,7 +4257,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4306,7 +4306,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -4364,7 +4364,7 @@ The following code snippet explains how to modify an existing form field in a PD
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -4403,7 +4403,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -4442,7 +4442,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -4496,7 +4496,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4548,7 +4548,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -4608,7 +4608,7 @@ You can retrieve/modify the fore and background color of existing form fields in
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
 
@@ -4648,7 +4648,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document
 
@@ -4688,7 +4688,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -4748,7 +4748,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -4806,7 +4806,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -4875,7 +4875,7 @@ You can fill a text box field using [Text](https://help.syncfusion.com/cr/file-f
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -4904,7 +4904,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -4933,7 +4933,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -4979,7 +4979,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5023,7 +5023,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -5074,7 +5074,7 @@ You can fill a combo box field using [SelectedValue](https://help.syncfusion.com
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -5103,7 +5103,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -5132,7 +5132,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -5179,7 +5179,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5223,7 +5223,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -5274,7 +5274,7 @@ You can fill a radio button field using [SelectedValue](https://help.syncfusion.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -5303,7 +5303,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -5332,7 +5332,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -5378,7 +5378,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5422,7 +5422,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -5474,7 +5474,7 @@ The below code snippet illustrates how to fill the list box field in an existing
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -5507,7 +5507,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the existing PDF document.
@@ -5536,7 +5536,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -5584,7 +5584,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5630,7 +5630,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -5683,7 +5683,7 @@ You can fill a check box field by enabling [Checked](https://help.syncfusion.com
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -5718,7 +5718,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -5753,7 +5753,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -5805,7 +5805,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -5855,7 +5855,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -5912,7 +5912,7 @@ The below code snippet illustrates how to fill the signature field with certific
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -5951,7 +5951,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -5990,7 +5990,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -6048,7 +6048,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6104,7 +6104,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -6171,7 +6171,7 @@ The following code example illustrates this.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -6212,7 +6212,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -6249,7 +6249,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -6309,7 +6309,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6367,7 +6367,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -6435,7 +6435,7 @@ The below code snippet explains how to get the field from collection using ```Tr
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 // Load the document.
@@ -6472,7 +6472,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 ' Load the document.
@@ -6507,7 +6507,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -6563,7 +6563,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6617,7 +6617,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -6680,7 +6680,7 @@ Please refer the below code snippet to get the field value from collection using
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 // Load the document.
@@ -6711,7 +6711,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 ' Load the document.
@@ -6742,7 +6742,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -6792,7 +6792,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -6840,7 +6840,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -6899,7 +6899,7 @@ The following code snippet illustrates how to fill XFA forms via Acroform API
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the existing XFA PDF document
 
@@ -6937,7 +6937,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the existing XFA PDF document
 
@@ -6976,7 +6976,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -7031,7 +7031,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7104,7 +7104,7 @@ Please refer the sample for flattening the form fields in new PDF document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -7145,7 +7145,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -7184,7 +7184,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -7228,7 +7228,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -7282,7 +7282,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -7341,7 +7341,7 @@ Please refer the sample for flattening the form fields in existing PDF document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -7376,7 +7376,7 @@ loadedDocument.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -7409,7 +7409,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -7461,7 +7461,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -7511,7 +7511,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -7572,7 +7572,7 @@ Please refer the code sample to flatten the form fields before saving the PDF do
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load a PDF document
@@ -7600,7 +7600,7 @@ loadedDocument.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -7624,7 +7624,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -7669,7 +7669,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load an existing PDF.
 
@@ -7715,7 +7715,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream 
 
@@ -7770,7 +7770,7 @@ The below code snippet illustrates how to set the ``ReadOnly`` property to a new
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -7819,7 +7819,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -7870,7 +7870,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -7922,7 +7922,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -7984,7 +7984,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -8052,7 +8052,7 @@ The below code snippet illustrates how to set the ``ReadOnly`` property to an ex
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -8079,7 +8079,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -8106,7 +8106,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -8150,7 +8150,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -8192,7 +8192,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -8245,7 +8245,7 @@ The below code illustrates how to remove the form fields from the existing PDF d
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -8286,7 +8286,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -8327,7 +8327,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -8383,7 +8383,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -8438,7 +8438,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -8501,7 +8501,7 @@ The below code illustrates how to import FDF file to PDF.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load an existing document.  
@@ -8528,7 +8528,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load an existing document.
@@ -8566,7 +8566,7 @@ The below code illustrates how to export FDF file from PDF document.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 // Load an existing document
@@ -8589,7 +8589,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ' Load an existing document
 
@@ -8619,7 +8619,7 @@ You can add a complex script language text in PDF AcroForm fields by using the [
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -8671,7 +8671,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -8723,7 +8723,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -8783,7 +8783,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -8851,7 +8851,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -8937,7 +8937,7 @@ The following code example illustrates how to add complex script support for all
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -8989,7 +8989,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -9041,7 +9041,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -9101,7 +9101,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -9169,7 +9169,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -9246,7 +9246,7 @@ You can also flatten the existing form fields with complex script layout by usin
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the existing PDF document
 
@@ -9274,7 +9274,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the existing PDF document
 
@@ -9302,7 +9302,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 Stream inputFileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Form.pdf");
 
@@ -9338,7 +9338,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 FileStream inputFileStream = new FileStream("Form.pdf", FileMode.Open, FileAccess.Read);
 
@@ -9382,7 +9382,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 Stream inputFileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Form.pdf");
 
@@ -9441,7 +9441,7 @@ By default, the value is set to true. This is illustrated in the following code 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -9497,7 +9497,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -9553,7 +9553,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -9615,7 +9615,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -9691,7 +9691,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -9783,7 +9783,7 @@ The following code illustrates how to set ```AutoResizeText``` in an existing PD
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing document
 
@@ -9813,7 +9813,7 @@ doc.Save("Form.pdf");
  
  {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ‘Load an existing document
 
@@ -9843,7 +9843,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -9895,7 +9895,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -9945,7 +9945,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -10006,7 +10006,7 @@ The below code illustrates how to enable the default appearance in new PDF docum
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document.
@@ -10047,7 +10047,7 @@ document.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF document.
@@ -10086,7 +10086,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -10128,7 +10128,7 @@ Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -10180,7 +10180,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -10237,7 +10237,7 @@ The below code illustrates how to enable the default appearance in existing PDF 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document.
@@ -10272,7 +10272,7 @@ loadedDocument.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document.
@@ -10305,7 +10305,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -10355,7 +10355,7 @@ Save(stream, "sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -10403,7 +10403,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 

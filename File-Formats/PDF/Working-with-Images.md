@@ -30,7 +30,7 @@ The following code snippet shows how to add a file from disk to the PDF document
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a new PDF document
@@ -65,7 +65,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a new PDF document
@@ -100,7 +100,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a new PDF document
@@ -143,7 +143,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF document
@@ -200,7 +200,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create a new PDF document
@@ -260,7 +260,7 @@ You can also add images into an existing PDF document using the below code snipp
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load a PDF document
@@ -295,7 +295,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load a PDF document
@@ -330,7 +330,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create the file open picker
@@ -387,7 +387,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -446,7 +446,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the file as stream
@@ -506,7 +506,7 @@ To add image from stream, use the below code snippet.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load a PDF document
@@ -545,7 +545,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load a PDF document
@@ -584,7 +584,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create the file open picker
@@ -641,7 +641,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load the PDF document
@@ -700,7 +700,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Load the file as stream
@@ -771,7 +771,7 @@ The following code illustrate this,
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a PDF Document
@@ -816,7 +816,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a PDF Document
@@ -861,7 +861,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
@@ -870,7 +870,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
@@ -879,7 +879,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
@@ -898,7 +898,7 @@ The following code illustrate shows how to add a mask to TIFF image.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a PDF document
@@ -939,7 +939,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a PDF document
@@ -980,7 +980,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms
@@ -989,7 +989,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a PDF document
@@ -1054,7 +1054,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms
@@ -1074,7 +1074,7 @@ Essential PDF allows you to replace images in an existing document. The [Replace
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load the PDF document
@@ -1101,7 +1101,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load the PDF document
@@ -1128,7 +1128,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
@@ -1137,7 +1137,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
@@ -1146,7 +1146,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
@@ -1163,7 +1163,7 @@ You can allow a large image to paginate across multiple pages in the PDF documen
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create Document
@@ -1200,7 +1200,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create Document
@@ -1237,7 +1237,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create Document
 
@@ -1285,7 +1285,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create Document
@@ -1346,7 +1346,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create Document
@@ -1410,7 +1410,7 @@ You can add transparency and rotation to the image using [SetTransparency](https
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create Document
@@ -1459,7 +1459,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create Document
@@ -1508,7 +1508,7 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create Document
@@ -1569,7 +1569,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create Document
@@ -1644,7 +1644,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Create Document
@@ -1722,7 +1722,7 @@ The code snippet to illustrate the same is given below.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Create a PDF document
@@ -1767,7 +1767,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Create a PDF document
@@ -1810,7 +1810,7 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Create a PDF document
@@ -1865,7 +1865,7 @@ Save(memoryStream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Create a new PDF document
@@ -1933,7 +1933,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
@@ -1954,7 +1954,7 @@ The code snippet to illustrate the same is given below.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load a PDF document
 
@@ -1982,7 +1982,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load an existing PDF 
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
 
@@ -2006,13 +2006,13 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Essential PDF supports remove image from the existing PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load an existing PDF.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -2051,7 +2051,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Essential PDF supports remove image from the existing PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 

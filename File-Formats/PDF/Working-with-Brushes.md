@@ -1,6 +1,6 @@
 ---
 title: Working with Brushes | Syncfusion
-description: This section explains how to add shapes using different brushes
+description: This section explains how to add shapes using different brushes such as solid brush, gradient brush, tiling brush, and more.
 platform: file-formats
 control: PDF
 documentation: UG
@@ -20,7 +20,7 @@ Brushes are used to draw the content on PDF document with specific color and sty
 The solid brush is used to fill an object with solid color. Essential PDF supports drawing shapes on PDF document with solid brush using the [PdfSolidBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfSolidBrush.html) class. The following code snippet illustrates this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -43,7 +43,7 @@ doc.Save("SolidBrush.pdf");
 doc.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document
 Dim doc As PdfDocument = New PdfDocument
 
@@ -66,7 +66,7 @@ doc.Save("SolidBrush.pdf")
 doc.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -93,7 +93,7 @@ doc.Close(true);
 Save(stream, "SolidBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -122,7 +122,7 @@ fileStreamResult.FileDownloadName = "SolidBrush.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -163,7 +163,7 @@ else
 The gradient brush is used to fill an object with blend of two or more colors. Essential PDF supports drawing shapes on PDF document with linear gradient brush using [PdfLinearGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLinearGradientBrush.html). The following code snippet illustrates this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -186,7 +186,7 @@ doc.Save("LinearGradientBrush.pdf");
 doc.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document
 Dim doc As PdfDocument = New PdfDocument
 
@@ -209,7 +209,7 @@ doc.Save("LinearGradientBrush.pdf")
 doc.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -236,7 +236,7 @@ doc.Close(true);
 Save(stream, "LinearGradientBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -265,7 +265,7 @@ fileStreamResult.FileDownloadName = "LinearGradientBrush.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -306,7 +306,7 @@ else
 The gradient brush is used to fill an object with blend of two or more colors. You can draw any shape on PDF document with radial gradient brush using [PdfRadialGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfRadialGradientBrush.html). The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -329,7 +329,7 @@ doc.Save("RadialGradientBrush.pdf");
 doc.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document
 Dim doc As PdfDocument = New PdfDocument
 
@@ -352,7 +352,7 @@ doc.Save("RadialGradientBrush.pdf")
 doc.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -379,7 +379,7 @@ doc.Close(true);
 Save(stream, "RadialGradientBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -408,7 +408,7 @@ fileStreamResult.FileDownloadName = "RadialGradientBrush.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -449,7 +449,7 @@ else
 The tiling brush is used to draw an object repeatedly. You can draw any shape on PDF page with tiling brush using [PdfTilingBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTilingBrush.html). The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -475,7 +475,7 @@ doc.Save("TilingBrush.pdf");
 doc.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document
 Dim doc As PdfDocument = New PdfDocument
 
@@ -501,7 +501,7 @@ doc.Save("TilingBrush.pdf")
 doc.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -531,7 +531,7 @@ doc.Close(true);
 Save(stream, "TilingBrush.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
@@ -563,7 +563,7 @@ fileStreamResult.FileDownloadName = "TilingBrush.pdf";
 return fileStreamResult;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 
