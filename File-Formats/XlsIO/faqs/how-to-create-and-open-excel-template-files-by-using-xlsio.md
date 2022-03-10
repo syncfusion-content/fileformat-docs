@@ -14,7 +14,7 @@ Excel template files (XLT or XLTX) can be created in XlsIO by saving a file as *
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -34,7 +34,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -53,7 +53,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -82,7 +82,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -106,7 +106,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -139,7 +139,7 @@ In XlsIO, an Excel template file is opened in the same way, as excel workbook (.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -157,7 +157,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As New ExcelEngine()
 
 Dim application As IApplication = excelEngine.Excel
@@ -175,7 +175,7 @@ workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -196,7 +196,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -211,7 +211,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;

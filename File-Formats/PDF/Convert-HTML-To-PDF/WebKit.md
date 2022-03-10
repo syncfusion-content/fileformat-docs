@@ -3684,32 +3684,32 @@ Issue
 <th style="font-size:14px">Solution
 </th>
 <td>To overcome this issue, you have to add the required fonts to docker container’s fonts directory. Kindly follow the below steps to resolve the text preservation issue in HTML to PDF conversion,
-</br>
+<br/>
     1. Add the required TrueType fonts (.ttf files) in your project.<b>You need to add all the required/used fonts to the docker image.</b> Otherwise, the text may not preserve properly.
-	</br>
+	<br/>
 	2. Copy the files from your project directory to docker containers font directory <i>(C:\Windows\Fonts)</i>.
-	</br>
+	<br/>
 	3. Then we need to update the font details in docker image registry.
-	</br>
+	<br/>
 		<ul>
 			<li>Open the PowerShell window of docker container.</li>
 			<li>Go to the fonts directory in your project.</li>
 			<li>Run the below command in PowerShell window to update the font in registry.</li>
-			</br>
+			<br/>
 				<table>
 					<tr>
 						<td>
 						Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" -name "Times New Roman (TrueType)" -value "times.ttf" -type STRING 
-						</br>
+						<br/>
 						Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" -name "Arial (TrueType)" -value "arial.ttf" -type STRING 
-						</br>
+						<br/>
 						</td>
 					</tr>
 				</table>
-			</br>
+			<br/>
 			<li>After updating the fonts in registry, the text will be preserved properly.</li>
 		</ul>
-</br>
+<br/>
 N> If you are using web fonts in HTML file/URL, then there is no need to install the fonts in docker. The HTML converter will automatically get the fonts from the URL and embeds it to the PDF document. So the text with web fonts will preserve without adding the fonts to docker image. 
 
 </td>

@@ -26,7 +26,7 @@ The following code example shows how to use the `MergeField` event during Mail m
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");    
 //Uses the mail merge events to perform the conditional formatting during runtime
@@ -38,7 +38,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Uses the mail merge events to perform the conditional formatting during runtime
@@ -50,11 +50,11 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);  
@@ -72,7 +72,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -98,7 +98,7 @@ The following code example shows how to set text color to the alternate Mail mer
 
 {% tabs %} 
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
 {
 	//Sets text color to the alternate mail merge record
@@ -109,7 +109,7 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ApplyAlternateRecordsTextColor(ByVal sender As Object, ByVal args As MergeFieldEventArgs)
 	'Sets text color to the alternate mail merge record
 	If ((args.RowIndex Mod 2) = 0) Then
@@ -118,11 +118,11 @@ Private Sub ApplyAlternateRecordsTextColor(ByVal sender As Object, ByVal args As
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
 {
 	//Sets text color to the alternate mail merge record
@@ -133,7 +133,7 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
 {
 	//Sets text color to the alternate mail merge record
@@ -150,7 +150,7 @@ The following code example shows GetDataTable method which are is to get data fo
 
 {% tabs %} 
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private static DataTable GetDataTable()
 {
 	DataTable dataTable = new DataTable("Employee");
@@ -167,7 +167,7 @@ private static DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetDataTable() As DataTable
 	Dim dataTable As New DataTable("Employee")
 	dataTable.Columns.Add("EmployeeName")
@@ -182,11 +182,11 @@ Private Function GetDataTable() As DataTable
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static DataTable GetDataTable()
 {
 	DataTable dataTable = new DataTable("Employee");
@@ -203,7 +203,7 @@ private static DataTable GetDataTable()
 }
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static DataTable GetDataTable()
 {
 	DataTable dataTable = new DataTable("Employee");
@@ -230,7 +230,7 @@ The following code example shows how to use the `MergeImageField` event during M
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document
 WordDocument document = new WordDocument("Template.docx");
 //Uses the mail merge events handler for image fields
@@ -245,7 +245,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 'Uses the mail merge events handler for image fields
@@ -260,7 +260,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -285,7 +285,7 @@ Save(stream, "Sample.docx");
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -306,7 +306,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -335,7 +335,7 @@ The following code example shows how to bind the image from file system during M
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 { 
 	//Binds image from file system during mail merge
@@ -353,7 +353,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub MergeField_ProductImage(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs)
 	'Binds image from file system during mail merge
 	If args.FieldName = "Logo" Then
@@ -369,7 +369,7 @@ Private Sub MergeField_ProductImage(ByVal sender As Object, ByVal args As MergeI
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 { 
 	//Binds image from file system during mail merge
@@ -388,7 +388,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 { 
 	//Binds image from file system during mail merge
@@ -407,7 +407,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 { 
 	//Binds image from file system during mail merge
@@ -436,7 +436,7 @@ The following code example shows how to use the `BeforeClearField` event during 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -450,7 +450,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -464,11 +464,11 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath);
@@ -488,7 +488,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -516,7 +516,7 @@ The following code example shows how to bind the data to unmerged fields during 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
 {
 	if (args.HasMappedFieldInDataSource)
@@ -543,7 +543,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub BeforeClearField(ByVal sender As Object, ByVal args As BeforeClearFieldEventArgs)
 	If args.HasMappedFieldInDataSource Then
 		'To check whether the mapped field has null value
@@ -565,11 +565,11 @@ Private Sub BeforeClearField(ByVal sender As Object, ByVal args As BeforeClearFi
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
 {
 	if (args.HasMappedFieldInDataSource)
@@ -596,7 +596,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
 {
 	if (args.HasMappedFieldInDataSource)
@@ -629,7 +629,7 @@ The following code example shows GetDataTable method which is used to get data f
 
 {% tabs %} 
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private DataTable GetDataTable()
 {
 	//Create an instance of DataTable
@@ -655,7 +655,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetDataTable() As DataTable
 	'Create an instance of DataTable
 	Dim dataTable As DataTable = New DataTable("Employee")
@@ -680,11 +680,11 @@ Private Function GetDataTable() As DataTable
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private DataTable GetDataTable()
 {
 	//Create an instance of DataTable
@@ -710,7 +710,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private DataTable GetDataTable()
 {
 	//Create an instance of DataTable
@@ -745,7 +745,7 @@ The following code example shows how to use the `BeforeClearGroupField` event du
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument(@"Sample.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -763,7 +763,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Sample.docx")
 'Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -781,7 +781,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -808,7 +808,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream(@"Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -832,7 +832,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -864,7 +864,7 @@ The following code example shows how to bind the data to unmerged group fields d
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
 {
 	if (!args.HasMappedGroupInDataSource)
@@ -886,7 +886,7 @@ private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventA
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub BeforeClearFields(ByVal sender As Object, ByVal args As BeforeClearGroupFieldEventArgs)
 	If Not args.HasMappedGroupInDataSource Then
 		‘Gets the Current unmerged group name from the event argument
@@ -905,7 +905,7 @@ Private Sub BeforeClearFields(ByVal sender As Object, ByVal args As BeforeClearG
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
 {
 	if (!args.HasMappedGroupInDataSource)
@@ -926,7 +926,7 @@ private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventA
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
 {
 	if (!args.HasMappedGroupInDataSource)
@@ -947,7 +947,7 @@ private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventA
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
 {
 	if (!args.HasMappedGroupInDataSource)
@@ -974,7 +974,7 @@ The following code example shows GetOrders and GetEmployees methods which are us
 
 {% tabs %} 
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Gets order list
 private static List<OrderDetails> GetOrders()
 {
@@ -997,7 +997,7 @@ public static List<Employees> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets orders list
 Private Shared Function GetOrders() As List(Of OrderDetails)
 	Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)()
@@ -1018,7 +1018,7 @@ Public Shared Function GetEmployees() As List(Of Employees)
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets order list
 private static List<OrderDetails> GetOrders()
 {
@@ -1041,7 +1041,7 @@ public static List<Employees> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets order list
 private static List<OrderDetails> GetOrders()
 {
@@ -1064,7 +1064,7 @@ public static List<Employees> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets order list
 private static List<OrderDetails> GetOrders()
 {
@@ -1092,7 +1092,7 @@ public static List<Employees> GetEmployees()
 The following code example shows Employees, CustomerDetails, and OrderDetails classes.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 public class Employees
 {
 	public string FirstName { get; set; }
@@ -1148,7 +1148,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Class Employees
 	Public Property FirstName As String
 	Public Property LastName As String
@@ -1198,7 +1198,7 @@ Public Class OrderDetails
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public class Employees
 {
 	public string FirstName { get; set; }
@@ -1254,7 +1254,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public class Employees
 {
 	public string FirstName { get; set; }
@@ -1312,7 +1312,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 public class Employees

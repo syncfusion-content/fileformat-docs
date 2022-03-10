@@ -11,7 +11,7 @@ You can check whether the Excel document contains macro using **IWorkbook.HasMac
 
 The following code illustrate how to check whether an Excel document contains macro using XlsIO.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     // Instantiate the excel application object.
@@ -30,7 +30,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -47,7 +47,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -92,7 +92,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -118,7 +118,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;

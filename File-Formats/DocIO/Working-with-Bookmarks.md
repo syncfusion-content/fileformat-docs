@@ -17,7 +17,7 @@ The following code example shows how to add a bookmark in Word document.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -42,7 +42,7 @@ document.Save("Bookmarks.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
 'Adds a new section into the Word Document
@@ -67,7 +67,7 @@ document.Save("Bookmarks.docx", FormatType.Docx)
 document.Close() 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -97,7 +97,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -126,7 +126,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Bookmarks.docx"); 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -166,7 +166,7 @@ The following code example shows how to retrieve an instance of bookmark from a 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -177,7 +177,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -188,7 +188,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument("Sample.Assets.Bookmarks.docx", FormatType.Docx);
@@ -207,7 +207,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -225,7 +225,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -254,7 +254,7 @@ The following code example shows how to remove a bookmark from Word document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -265,7 +265,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -276,7 +276,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -295,7 +295,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -313,7 +313,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -349,7 +349,7 @@ The following code example shows how to retrieve the specified bookmark content 
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -365,7 +365,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -382,7 +382,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -407,7 +407,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -431,7 +431,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -464,7 +464,7 @@ The following code example shows how to retrieve the specified bookmark content 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -484,7 +484,7 @@ newDocument.Save("Result.docx", FormatType.Docx);
 newDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
@@ -504,7 +504,7 @@ newDocument.Save("Result.docx", FormatType.Docx)
 newDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -531,7 +531,7 @@ newDocument.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -555,7 +555,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Template.docx"), FormatType.Docx);
@@ -599,7 +599,7 @@ The following code example shows how to retrieve the bookmark content of a speci
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -626,7 +626,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds a section and a paragraph in the document
@@ -654,7 +654,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -689,7 +689,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -721,7 +721,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -761,7 +761,7 @@ The following code example shows how to create table with bookmark.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public IWTable CreateTable(WordDocument document)
 {
 //Adds a new table into Word document
@@ -804,7 +804,7 @@ return table;
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateTable(document As WordDocument) As IWTable
 'Adds a new table into Word document
 Dim table As IWTable = document.LastSection.AddTable
@@ -845,7 +845,7 @@ Return table
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public IWTable CreateTable(WordDocument document)
 {
 //Adds a new table into Word document
@@ -888,7 +888,7 @@ return table;
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public IWTable CreateTable(WordDocument document)
 {
 //Adds a new table into Word document
@@ -931,7 +931,7 @@ return table;
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public IWTable CreateTable(WordDocument document)
 {
 //Adds a new table into Word document
@@ -986,7 +986,7 @@ The following code example shows how to insert a simple text by using BookmarkNa
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -998,7 +998,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -1010,7 +1010,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -1030,7 +1030,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1050,7 +1050,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -1078,7 +1078,7 @@ The following code example shows how to insert a paragraph item by using Bookmar
 
 {% tabs %}    
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -1093,7 +1093,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -1108,7 +1108,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -1132,7 +1132,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1156,7 +1156,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -1188,7 +1188,7 @@ The following code example shows how to insert a paragraph by using BookmarkNavi
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -1202,7 +1202,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -1216,7 +1216,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -1238,7 +1238,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1260,7 +1260,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -1290,7 +1290,7 @@ The following code example shows how to insert a table by using BookmarkNavigato
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -1314,7 +1314,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -1338,7 +1338,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -1370,7 +1370,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1402,7 +1402,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -1442,7 +1442,7 @@ The following code example shows how to insert a TextBodyPart by using BookmarkN
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -1464,7 +1464,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -1486,7 +1486,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -1516,7 +1516,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1546,7 +1546,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -1588,7 +1588,7 @@ The following code example shows how to remove the contents of a specified bookm
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -1601,7 +1601,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
@@ -1614,7 +1614,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -1634,7 +1634,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1654,7 +1654,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -1702,7 +1702,7 @@ The following code example shows how to replace a specified bookmark content by 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -1724,7 +1724,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -1746,7 +1746,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
@@ -1776,7 +1776,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1806,7 +1806,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
@@ -1844,7 +1844,7 @@ The following code example shows how to replace a specified bookmark content by 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 WordDocument templateDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -1869,7 +1869,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 Dim templateDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
@@ -1894,7 +1894,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument templateDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -1926,7 +1926,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1959,7 +1959,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument templateDocument = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Template.docx"), FormatType.Docx);

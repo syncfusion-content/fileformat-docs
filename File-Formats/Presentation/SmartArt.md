@@ -15,7 +15,7 @@ You can add any of the predefined SmartArt diagrams to PowerPoint Prknfjnfesenta
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -34,7 +34,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -53,7 +53,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -78,7 +78,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -98,7 +98,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -135,7 +135,7 @@ You can add a new node to the SmartArt diagram. The following code example demon
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -160,7 +160,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -185,7 +185,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -216,7 +216,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -242,7 +242,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -283,7 +283,7 @@ In SmartArt diagrams, you can also add nodes to several nested levels. The maxim
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -311,7 +311,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -339,7 +339,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -373,7 +373,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -402,7 +402,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -448,7 +448,7 @@ You can modify the SmartArt appearance by modifying the fill type, color, transp
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("SampleDocument.pptx");
@@ -482,7 +482,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("SampleDocument.pptx")
@@ -516,7 +516,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -564,7 +564,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -600,7 +600,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -656,7 +656,7 @@ You can iterate through the child nodes and access the properties of each node i
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("SampleDocument.pptx");
@@ -684,7 +684,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("SampleDocument.pptx")
@@ -715,7 +715,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -757,7 +757,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -787,7 +787,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -837,7 +837,7 @@ You can remove a node from the SmartArt diagram. The following code example demo
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("SampleDocument.pptx");
@@ -859,7 +859,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("SampleDocument.pptx")
@@ -881,7 +881,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -917,7 +917,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -941,7 +941,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -985,7 +985,7 @@ You can check whether a node is an assistant or not. Also you can change a node 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1013,7 +1013,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -1044,7 +1044,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1078,7 +1078,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1107,7 +1107,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();

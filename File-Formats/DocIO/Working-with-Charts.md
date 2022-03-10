@@ -28,7 +28,7 @@ A new chart can be created or an existing chart can be modified by using the WCh
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -84,7 +84,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds section to the document
@@ -140,7 +140,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (WordDocument document = new WordDocument())
 {
     //Adds section to the document
@@ -201,7 +201,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -262,7 +262,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (WordDocument document = new WordDocument())
 {
     //Adds section to the document
@@ -335,7 +335,7 @@ The following code example illustrates the chart data loaded from the excel file
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -365,7 +365,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds section to the document
@@ -395,7 +395,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (WordDocument document = new WordDocument())
 {
     //Adds section to the document
@@ -430,7 +430,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -465,7 +465,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (WordDocument document = new WordDocument())
 {
     //Adds section to the document
@@ -511,7 +511,7 @@ The following code example illustrates how to create custom charts.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -560,7 +560,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds section to the document
@@ -610,7 +610,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (WordDocument document = new WordDocument())
 {
     //Adds section to the document
@@ -664,7 +664,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -718,7 +718,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (WordDocument document = new WordDocument())
 {
     //Adds section to the document
@@ -784,7 +784,7 @@ The following code example illustrates how to refresh the chart.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Gets the last paragraph
@@ -798,7 +798,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the last paragraph
@@ -812,7 +812,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -836,7 +836,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -857,7 +857,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
@@ -890,7 +890,7 @@ The following code example illustrates how to modify an existing chart data.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Gets the last paragraph
@@ -908,7 +908,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the last paragraph
@@ -926,7 +926,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -954,7 +954,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -979,7 +979,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
@@ -1031,7 +1031,7 @@ The following code example illustrates how to modify the appearance of an existi
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Gets the paragraph
@@ -1076,7 +1076,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Gets the paragraph
@@ -1121,7 +1121,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1176,7 +1176,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -1228,7 +1228,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
@@ -1292,7 +1292,7 @@ The following code example illustrates how to modify the plot area and legend of
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 WParagraph paragraph = document.LastParagraph;
@@ -1342,7 +1342,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 Dim paragraph As WParagraph = document.LastParagraph
@@ -1392,7 +1392,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1453,7 +1453,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -1511,7 +1511,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
@@ -1581,7 +1581,7 @@ The following code example illustrates how to specify the position of the chart 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -1625,7 +1625,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new word document
 Dim document As New WordDocument()
 'Adds section to the document
@@ -1669,7 +1669,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -1718,7 +1718,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -1767,7 +1767,7 @@ document.Close();
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -1823,7 +1823,7 @@ The following code example describes the BarChartData class.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public class BarChartData
 {
 	string name;
@@ -1871,7 +1871,7 @@ public class BarChartData
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Class BarChartData
 	Private m_name As String
 	Private m_purchase As Integer
@@ -1908,7 +1908,7 @@ Public Class BarChartData
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public class BarChartData
 {
 	string name;
@@ -1956,7 +1956,7 @@ public class BarChartData
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public class BarChartData
 {
 	string name;
@@ -2004,7 +2004,7 @@ public class BarChartData
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public class BarChartData
 {
 	string name;
@@ -2062,7 +2062,7 @@ Essential DocIO allows to modify the side wall, back wall, floor of the 3D chart
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds section to the document
@@ -2121,7 +2121,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds section to the document
@@ -2190,7 +2190,7 @@ The following code example illustrates how to remove the chart from the document
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Gets the last paragraph
@@ -2209,7 +2209,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the last paragraph
@@ -2226,7 +2226,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads the template document 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -2252,7 +2252,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -2277,7 +2277,7 @@ document.Close();
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads the template document 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Template.docx"), FormatType.Docx);
@@ -2316,7 +2316,7 @@ The following code example shows how to chart in the Word document as image.
 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document.
 WordDocument wordDocument = new WordDocument(@"TemplateWithChart.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to image conversion.
@@ -2340,7 +2340,7 @@ image.Save("ChartToImage.jpeg", ImageFormat.Jpeg);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document.
 Dim wordDocument As New WordDocument("TemplateWithChart.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to image conversion.
@@ -2364,15 +2364,15 @@ image.Save("ChartToImage.jpeg", ImageFormat.Jpeg)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 {% endtabs %}

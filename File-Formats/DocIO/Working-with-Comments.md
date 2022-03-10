@@ -19,7 +19,7 @@ The following code illustrates how to add a new comment to the document:
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -40,7 +40,7 @@ document.Save("Comment.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds a section and a paragraph in the document
@@ -59,7 +59,7 @@ document.Save("Comment.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -86,7 +86,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -112,7 +112,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Comment.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -149,7 +149,7 @@ The following code illustrates how to modify the text of an existing comment in 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Comment.docx");
 //Iterates the comments in the Word document
 foreach (WComment comment in document.Comments)
@@ -162,7 +162,7 @@ document.Save("ModifiedComment.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Comment.docx")
 'Iterates the comments in the Word document
 For Each comment As WComment In document.Comments
@@ -175,7 +175,7 @@ document.Save("ModifiedComment.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Comment.docx"), FormatType.Docx);
 //Iterates the comments in the Word document
@@ -196,7 +196,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates the comments in the Word document
@@ -216,7 +216,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "ModifiedComment.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Comment.docx"), FormatType.Docx);
 //Iterates the comments in the Word document
@@ -249,7 +249,7 @@ The following code illustrates how to remove all the comments in Word document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Comment.docx");
 //Removes all the comments in a Word document
 document.Comments.Clear();
@@ -257,7 +257,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Comment.docx")
 'Removes all the comments in a Word document
 document.Comments.Clear()
@@ -265,7 +265,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Comment.docx"), FormatType.Docx);
 //Removes all the comments in a Word document
@@ -281,7 +281,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Removes all the comments in a Word document
@@ -296,7 +296,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Comment.docx"), FormatType.Docx)
 //Removes all the comments in a Word document
@@ -320,7 +320,7 @@ The following code illustrates how to remove a particular comment from Word docu
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Comment.docx");
 //Removes second comments from a document.
 document.Comments.RemoveAt(1);
@@ -329,7 +329,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("Comment.docx")
 'Removes second comments from a document.
 document.Comments.RemoveAt(1)
@@ -338,7 +338,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Comment.docx"), FormatType.Docx);
 //Removes second comments from a document.
@@ -354,7 +354,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Removes second comments from a document.
@@ -369,7 +369,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Comment.docx"), FormatType.Docx)
 //Removes second comments from a document
@@ -397,7 +397,7 @@ The following code examples show how to access the parent comment of a particula
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Load an existing Word document into DocIO instance.
 WordDocument document = new WordDocument("Comment.docx");
 //Get the Ancestor comment.
@@ -408,7 +408,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load an existing Word document into DocIO instance.
 Dim document As WordDocument = New WordDocument("Comment.docx")
 'Get the Ancestor comment.
@@ -418,7 +418,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets. Comment.docx"), FormatType.Docx);
 //Get the Ancestor comment.
@@ -434,7 +434,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 // Get the Ancestor comment.
@@ -449,7 +449,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Comment.docx"), FormatType.Docx)
 //Get the Ancestor comment.

@@ -17,7 +17,7 @@ This property enables the complex script validation for the text present in Exce
 The following complete code snippet explains how to enable [AutoDetectComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_AutoDetectComplexScript) property while converting an Excel document to PDF.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -41,7 +41,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -64,7 +64,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -132,7 +132,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -158,7 +158,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -201,7 +201,7 @@ This property helps to set the required paper size in inches. The default value 
 
 The following complete code snippet explains how to set [CustomPaperSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_CustomPaperSize) while converting Excel document to PDF.
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -225,7 +225,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -248,7 +248,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -316,7 +316,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -349,7 +349,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -395,7 +395,7 @@ This property helps to set the gridlines display style in Excel to PDF converted
 Gridlines will not be rendered in the output PDF document, when display style is selected as **Auto**. Its default value is Invisible. The following code snippet explains how to select **Auto** display style for gridlines.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -419,7 +419,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -442,7 +442,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -510,7 +510,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -543,7 +543,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -583,7 +583,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Gridlines will not be rendered in the output PDF document, when display style is selected as **Invisible**. The following code snippet explains how to select **Invisible** display style for gridlines.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -607,7 +607,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -630,7 +630,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -698,7 +698,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -731,7 +731,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -771,7 +771,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Gridlines will be rendered in the output PDF document, when display style is selected as **Visible**. The following code snippet explains how to select **Visible** display style for gridlines.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -795,7 +795,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -818,7 +818,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -886,7 +886,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -919,7 +919,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -962,7 +962,7 @@ The Excel content will be rendered improperly when Arial Unicode MS Font is miss
 
 The following code snippet explains how to enable `EmbedFonts` property.
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -986,7 +986,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1009,7 +1009,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1076,7 +1076,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1109,7 +1109,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1153,7 +1153,7 @@ The default value of [ExportBookmarks](https://help.syncfusion.com/cr/file-forma
 The following code snippet explains how to disable `ExportBookmarks` property.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1177,7 +1177,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1200,7 +1200,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1267,7 +1267,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1300,7 +1300,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1343,7 +1343,7 @@ Excel document properties will be exported to PDF document by default, in Excel 
 
 The following complete code snippet explains how to disable ``ExportDocumentProperties``.
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1367,7 +1367,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1390,7 +1390,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1457,7 +1457,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1490,7 +1490,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1534,7 +1534,7 @@ The default value of [ExportQualityImage](https://help.syncfusion.com/cr/file-fo
 The following complete code snippet explains how to enable ``ExportQualityImage`` property.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1558,7 +1558,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1581,7 +1581,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1648,7 +1648,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1681,7 +1681,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1727,7 +1727,7 @@ Two properties available under [HeaderFooterOption](https://help.syncfusion.com/
 Document header will be rendered to PDF document by default. This can be skipped by disabling the [ShowHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.HeaderFooterOption.html#Syncfusion_ExcelToPdfConverter_HeaderFooterOption_ShowHeader) property.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1751,7 +1751,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1774,7 +1774,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1841,7 +1841,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1874,7 +1874,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1914,7 +1914,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Document footer will be rendered to PDF document by default. This can be skipped by disabling the [ShowFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.HeaderFooterOption.html#Syncfusion_ExcelToPdfConverter_HeaderFooterOption_ShowFooter) property.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1938,7 +1938,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1961,7 +1961,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -2028,7 +2028,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2061,7 +2061,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2105,7 +2105,7 @@ Blank pages in Excel document are rendered to PDF document by default, in Excel 
 The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2129,7 +2129,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2152,7 +2152,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -2219,7 +2219,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2252,7 +2252,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2296,7 +2296,7 @@ Blank worksheets in Excel document are rendered to PDF document by default, in E
 The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2320,7 +2320,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2343,7 +2343,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -2410,7 +2410,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2443,7 +2443,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2489,7 +2489,7 @@ This property helps to select the layout option for the Excel document in Excel 
 Selecting **Automatic** under ``LayoutOptions`` prints the worksheets at their actual size. It's default value is **NoScaling**. The following code snippet explains how to select the layout option as **Automatic**.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2513,7 +2513,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2536,7 +2536,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -2603,7 +2603,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2636,7 +2636,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2678,7 +2678,7 @@ A complete working example to convert Excel to PDF with automatic layout in C# i
 Selecting **CustomScaling** under ``LayoutOptions`` prints the worksheets at specified scaling, i.e., zoom value set in under page setup. The following code snippet explains how to use this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2702,7 +2702,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2725,7 +2725,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -2792,7 +2792,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2825,7 +2825,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2867,7 +2867,7 @@ A complete working example to convert Excel to PDF with custom scaling in C# is 
 Selecting **FitAllColumnsOnOnePage** under ``LayoutOptions`` renders all columns in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllColumnsOnOnePage**.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2891,7 +2891,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2914,7 +2914,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -2981,7 +2981,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3014,7 +3014,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3056,7 +3056,7 @@ A complete working example to convert Excel to PDF with fit all columns on one p
 Selecting **FitAllRowsOnOnePage** under ``LayoutOptions`` renders all rows in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllRowsOnOnePage**.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3080,7 +3080,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3103,7 +3103,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -3170,7 +3170,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3203,7 +3203,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3245,7 +3245,7 @@ A complete working example to convert Excel to PDF with fit all rows on one page
 Selecting **FitSheetOnOnePage** under ``LayoutOptions`` renders every single worksheet in Excel workbook into, single PDF page. The following code snippet explains how to select the layout option as **FitSheetOnOnePage**.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3269,7 +3269,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3292,7 +3292,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -3359,7 +3359,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3392,7 +3392,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3434,7 +3434,7 @@ A complete working example to convert Excel to PDF with fit sheet on one page in
 Selecting **NoScaling** under ``LayoutOptions`` prints the worksheets at their actual size. The following code snippet explains how to select the layout option as **NoScaling**.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3458,7 +3458,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3481,7 +3481,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -3548,7 +3548,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3581,7 +3581,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3631,7 +3631,7 @@ The following code illustrates  how to set the [PdfConformanceLevel](https://hel
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3656,7 +3656,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3679,7 +3679,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 
 #region Excel To PDF
@@ -3752,7 +3752,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
    IApplication application = excelEngine.Excel;
@@ -3779,7 +3779,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -3838,7 +3838,7 @@ A complete working example to convert Excel to PDF with PDF conformance in C# is
 The following complete code snippet explains how to convert two Excel documents into a single PDF document using ``TemplateDocument`` property.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3868,7 +3868,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3897,7 +3897,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -3972,7 +3972,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4011,7 +4011,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4059,7 +4059,7 @@ A complete working example to convert multiple workbooks to PDF in C# is present
 By using the ``TemplateDocument`` property, multiple worksheets or selected worksheets can be converted into single PDF document. The following code snippet explains how to convert selected sheets into a single PDF document.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4100,7 +4100,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4140,7 +4140,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4214,7 +4214,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4259,7 +4259,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4310,7 +4310,7 @@ The default value of [ThrowWhenExcelFileIsEmpty](https://help.syncfusion.com/cr/
 The following code snippet explains this.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4334,7 +4334,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -4357,7 +4357,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -4416,7 +4416,7 @@ async void Save(Stream stream, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4448,7 +4448,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4492,7 +4492,7 @@ In addition, a decision to continue the conversion process can be done here by s
 The following code snippet shows how to capture warnings during Excel-to-PDF conversion.
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.ExcelToPdfConverter;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;
@@ -4552,7 +4552,7 @@ namespace CaptureWarnings
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.ExcelToPdfConverter
 Imports Syncfusion.Pdf
 Imports Syncfusion.XlsIO
@@ -4608,7 +4608,7 @@ End Namespace
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 
 using Syncfusion.XlsIORenderer;
@@ -4713,7 +4713,7 @@ namespace CaptureWarnings
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIORenderer;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;
@@ -4778,7 +4778,7 @@ namespace CaptureWarnings
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIORenderer;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;

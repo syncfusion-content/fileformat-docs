@@ -15,7 +15,7 @@ The following code shows how to add hyperlinks in Excel with Interop and XlsIO f
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void AddHyperlinks()
 {
     //Instantiate the application object
@@ -42,7 +42,7 @@ private void AddHyperlinks()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub AddHyperlinks()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -72,7 +72,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void AddHyperlinks()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -99,7 +99,7 @@ private void AddHyperlinks()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub AddHyperlinks()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

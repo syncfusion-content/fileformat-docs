@@ -27,27 +27,27 @@ Pivot tables do not take data directly from the source data, but take from the p
 The data in worksheet is added to the pivot cache as follows.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create Pivot cache with the given data range
 IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create Pivot cache with the given data range
 Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Create Pivot cache with the given data range
 IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create Pivot cache with the given data range
 IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create Pivot cache with the given data range
 IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% endhighlight %}
@@ -56,27 +56,27 @@ IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 **IPivotTable** represents a single pivot table object created from the cache. It has properties that customizes the pivot table. The following code creates a blank pivot table. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create "PivotTable1" with the cache at the specified range
 IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create "PivotTable1" with the cache at the specified range
 Dim pivotTable As IPivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet("A1"), cache)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Create "PivotTable1" with the cache at the specified range
 IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create "PivotTable1" with the cache at the specified range
 IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create "PivotTable1" with the cache at the specified range
 IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
@@ -85,35 +85,35 @@ IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"
 The pivot table should be populated with required fields. The **IPivotField** represents a single field in the pivot table, which includes row, column, and data field axes. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Add Pivot table fields (row and column fields)
 pivotTable.Fields(2).Axis = PivotAxisTypes.Row
 pivotTable.Fields(6).Axis = PivotAxisTypes.Row
 pivotTable.Fields(3).Axis = PivotAxisTypes.Column
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
@@ -124,31 +124,31 @@ pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 The **IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using the **PivotSubtotalTypes** enumeration. To learn more about different subtotal types supported in pivot tables, refer to the **PivotSubtotalTypes** in API section. The following code explains how to configure a pivot field as a data field.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Add data field
 IPivotField field = pivotTable.Fields[5];
 pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Add data field
 Dim field As IPivotField = pivotTable.Fields(5)
 pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Add data field
 IPivotField field = pivotTable.Fields[5];
 pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Add data field
 IPivotField field = pivotTable.Fields[5];
 pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Add data field
 IPivotField field = pivotTable.Fields[5];
 pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
@@ -159,7 +159,7 @@ The following code snippet illustrates how to create a pivot table with existing
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -187,7 +187,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -215,7 +215,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {  	
   IApplication application = excelEngine.Excel;
@@ -260,7 +260,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -292,7 +292,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -361,7 +361,7 @@ XlsIO supports 85 built-in styles of Microsoft Excel used to create a table with
 The following code snippet illustrates how to apply built-in style to pivot table
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -381,7 +381,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -400,7 +400,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -433,7 +433,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -456,7 +456,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -508,7 +508,7 @@ When you apply the cell formatting to pivot table cells, Microsoft Excel maintai
 The following code snippet illustrates how to apply cell formatting to pivot table cells.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
   IApplication application = engine.Excel;
@@ -524,7 +524,7 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
@@ -539,7 +539,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -572,7 +572,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -593,7 +593,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -658,7 +658,7 @@ The following code shows how to dynamically refresh the data in a pivot table. I
 * Dynamically refresh the data in the named range.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -673,7 +673,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -687,7 +687,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -719,7 +719,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -739,7 +739,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -786,7 +786,7 @@ A complete working example to refresh a pivot table dynamically in C# is present
 The following code snippet illustrates how to refresh the pivot table after update the cell value in pivot data source.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -808,7 +808,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -829,7 +829,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -870,7 +870,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -896,7 +896,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -949,7 +949,7 @@ When you create pivot table in XlsIO, the pivot values are not set in the worksh
 The following code snippet illustrates how to layout the pivot table.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -964,7 +964,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
@@ -978,7 +978,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1010,7 +1010,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1030,7 +1030,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1093,7 +1093,7 @@ Tabular layout:
 The [PivotTableRowLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.PivotTableRowLayout.html) enumeration can be used to change the pivot table row layout as Compact or Outline or Tabular as below.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1110,7 +1110,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1126,7 +1126,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1159,7 +1159,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1182,7 +1182,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1230,7 +1230,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 For classic layout, you can set the **ShowGridDropZone** property to true as below.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1253,7 +1253,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1272,7 +1272,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1308,7 +1308,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1334,7 +1334,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1389,7 +1389,7 @@ Essential XlsIO allows you to expand and collapse the **PivotFieldItems** or sim
 Refer the following complete code snippets.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1423,7 +1423,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight VB %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1456,7 +1456,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1509,7 +1509,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1547,7 +1547,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1614,7 +1614,7 @@ The filtered data of a pivot table displays only the subset of data that meets t
 The page field filter or report filter can filter the pivot table based on the page field items. The following code snippet illustrates how to apply multiple filters to the page field items.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Set field axis to page
 pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
@@ -1626,7 +1626,7 @@ pageField.Items[1].Visible = false;
 pageField.Items[2].Visible = false;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Set field axis to page
 pivotTable.Fields(4).Axis = PivotAxisTypes.Page
 
@@ -1638,7 +1638,7 @@ pageField.Items(1).Visible = False
 pageField.Items(2).Visible = False
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Set field axis to page
 pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
@@ -1650,7 +1650,7 @@ pageField.Items[1].Visible = false;
 pageField.Items[2].Visible = false; 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Set field axis to page
 pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
@@ -1662,7 +1662,7 @@ pageField.Items[1].Visible = false;
 pageField.Items[2].Visible = false; 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Set field axis to page
 pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
@@ -1685,7 +1685,7 @@ The row and column field filters can filter the pivot table based on labels, val
 **Label** **Filter** 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Apply row field filter
 IPivotField rowField = pivotTable.Fields[2];
 
@@ -1693,7 +1693,7 @@ IPivotField rowField = pivotTable.Fields[2];
 rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Apply row field filter
 Dim rowField As IPivotField = pivotTable.Fields(2)
 
@@ -1701,7 +1701,7 @@ Dim rowField As IPivotField = pivotTable.Fields(2)
 rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, Nothing, "Central", Nothing)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Apply row field filter
 IPivotField rowField = pivotTable.Fields[2];
 
@@ -1709,7 +1709,7 @@ IPivotField rowField = pivotTable.Fields[2];
 rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Apply row field filter
 IPivotField rowField = pivotTable.Fields[2];
 
@@ -1717,7 +1717,7 @@ IPivotField rowField = pivotTable.Fields[2];
 rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Apply row field filter
 IPivotField rowField = pivotTable.Fields[2];
 
@@ -1731,14 +1731,14 @@ rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 **Value** **Filter** 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 IPivotField field = pivotTable.Fields[2];
 
 //Apply value filter
 field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Apply row field filter
 Dim field As IPivotField = pivotTable.Fields(2)
 
@@ -1746,21 +1746,21 @@ Dim field As IPivotField = pivotTable.Fields(2)
 field.PivotFilters.Add(PivotFilterType. ValueLessThan, field, "1341", Nothing)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 IPivotField field = pivotTable.Fields[2];
 
 //Apply value filter
 field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 IPivotField field = pivotTable.Fields[2];
 
 //Apply value filter
 field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 IPivotField field = pivotTable.Fields[2];
 
 //Apply value filter
@@ -1773,7 +1773,7 @@ field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 **Multiple** **filter**
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1825,7 +1825,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1876,7 +1876,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1941,7 +1941,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1995,7 +1995,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2080,31 +2080,31 @@ Excel provides various options through the PivotTableOptions dialog box to custo
 XlsIO supports these pivot table options using the IPivotTableOptions interface to control various settings for the existing pivot table.  To learn more about various pivot table options, refer to the **IPivotTableOptions** in API section. The following code illustrates how to access the PivotTableOptions object. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
 IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Enable ColumnHeaderCaption
 Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
 Dim options As IPivotTableOptions = pivotTable.Options
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
 IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
 IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
 IPivotTableOptions options = pivotTable.Options;
@@ -2116,27 +2116,27 @@ IPivotTableOptions options = pivotTable.Options;
 To show or hide the pivot table field list pane, use the ShowFieldList property.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Enable ShowFieldList
 options.ShowFieldList = false;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Enable ShowFieldList
 options.ShowFieldList = False
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Enable ShowFieldList
 options.ShowFieldList = false;
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Enable ShowFieldList
 options.ShowFieldList = false;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Enable ShowFieldList
 options.ShowFieldList = false;
 {% endhighlight %}
@@ -2147,31 +2147,31 @@ options.ShowFieldList = false;
 The **RowHeaderCaption** and **ColumnHeaderCaption** properties allows to edit the respective pivot table headers. The header caption can be enabled or disabled using the **DisplayFieldCaption** property.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Enable header captions
 options.RowHeaderCaption = "Payment Dates";
 options.ColumnHeaderCaption = "Payments";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Enable header captions
 options.RowHeaderCaption = "Payment Dates"
 options.ColumnHeaderCaption = "Payments"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Enable header captions
 options.RowHeaderCaption = "Payment Dates";
 options.ColumnHeaderCaption = "Payments"; 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Enable header captions
 options.RowHeaderCaption = "Payment Dates";
 options.ColumnHeaderCaption = "Payments"; 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Enable header captions
 options.RowHeaderCaption = "Payment Dates";
 options.ColumnHeaderCaption = "Payments"; 
@@ -2183,31 +2183,31 @@ options.ColumnHeaderCaption = "Payments";
 XlsIO provides an equivalent API to perform grand totals with the properties as follows.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Enable GrandTotals
 pivotTable.ColumnGrand = False
 pivotTable.RowGrand = False
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
@@ -2219,27 +2219,27 @@ pivotTable.RowGrand = true;
 You can also show or hide the **Collapse** button that appears in the fields of the pivot table, when more than one item exists in a field. The following code example illustrates how to do this.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = True
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
@@ -2251,27 +2251,27 @@ The filter buttons and field names in the pivot table can be shown or hidden, as
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = True
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
@@ -2282,27 +2282,27 @@ pivotTable.DisplayFieldCaptions = true;
 You can set the row label on each page while printing, and the header can be viewed on each page.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = True
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
@@ -2318,27 +2318,27 @@ You can repeat labels for row or column fields when the [pivot table layout](htt
 The following code illustrates how to set the repeat labels option to a specific pivot field.
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 ‘Set repeat labels option to a specific pivot field
 pivotTable.Fields(0).RepeatLabels = True
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
@@ -2350,27 +2350,27 @@ pivotTable.Fields[0].RepeatLabels = true;
 
 The following code illustrates how to set the repeat labels option to all the pivot fields.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 ‘Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
@@ -2389,7 +2389,7 @@ Pivot field AutoSort allows you to sort the pivot row or column fields based on 
 Top to Bottom sorting can sort the pivot table column field values based on the sort type. To apply Top to Bottom sorting in pivot table, you should apply the sorting in pivot row field by AutoSort method. The following code example illustrates how to apply Top to Bottom sorting to a pivot table.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2408,7 +2408,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2426,7 +2426,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2460,7 +2460,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2485,7 +2485,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2536,7 +2536,7 @@ A complete working example for top to bottom sort in pivot table in C# is presen
 Left to Right sorting can sort the pivot table row field values based on the sort type. To apply Left to Right sorting in pivot table, you should apply the sorting in pivot column field by AutoSort method. The following code example illustrates how to apply Left to Right sorting to a pivot table.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2555,7 +2555,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2573,7 +2573,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2607,7 +2607,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2632,7 +2632,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2695,7 +2695,7 @@ You can read and create the calculated fields in the existing pivot table. The f
 The calculated field in XlsIO can be achieved using the following code sample.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2713,7 +2713,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2730,7 +2730,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2763,7 +2763,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2787,7 +2787,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2833,7 +2833,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The formula can also be set to the IPivotField property as follows.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2854,7 +2854,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2873,7 +2873,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2909,7 +2909,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2936,7 +2936,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

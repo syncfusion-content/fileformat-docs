@@ -42,7 +42,7 @@ The following different structures of equation can be created by using the Essen
 You can add an accent mark to the equation. The following code example shows how to add an accent mark to the equation.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -70,7 +70,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -97,7 +97,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -129,7 +129,7 @@ Save(stream, "Sample.docx ");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -161,7 +161,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -202,7 +202,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can add a bar (which adds horizontal line on top or bottom) to the equation. The following code example shows how to add a bar to the equation.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Add a section and a paragraph in the empty document
@@ -226,7 +226,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -248,7 +248,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -276,7 +276,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -302,7 +302,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -338,7 +338,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can add a box to the equation. The following code example shows how to add a box to the equation.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -379,7 +379,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -416,7 +416,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -461,7 +461,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -506,7 +506,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -559,7 +559,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add a box with the borders on four sides and strikethrough on horizontal, vertical, and diagonal directions to the equation. The following code example shows how to add a border box to the equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -598,7 +598,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -634,7 +634,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -677,7 +677,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -720,7 +720,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -771,7 +771,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add a delimiter (parenthesis, square brackets and other characters) to the equation. The following code example shows how to a add delimiter to the equation. 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -803,7 +803,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -831,7 +831,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -867,7 +867,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -903,7 +903,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -947,7 +947,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create a one dimensional array of equations in Word document. The following code example shows how to create an array of equations.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -985,7 +985,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1019,7 +1019,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1061,7 +1061,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1103,7 +1103,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1153,7 +1153,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create a fraction equation with a numerator and denominator in Word document. The following code example shows how to create a fraction equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1183,7 +1183,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1209,7 +1209,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1243,7 +1243,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1277,7 +1277,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1319,7 +1319,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create trigonometric functions in a Word document. The following code example shows how to create a function.  
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1348,7 +1348,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1373,7 +1373,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1406,7 +1406,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1439,7 +1439,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1480,7 +1480,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can group mathematical equations by adding a grouping character at above or below to the corresponding equations. The following code example shows how to create an equation with grouping character.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1510,7 +1510,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1536,7 +1536,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1570,7 +1570,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1604,7 +1604,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1646,7 +1646,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add upper limit or lower limit to the mathematical equation. The following code example shows how to create limit equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1684,7 +1684,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1716,7 +1716,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1758,7 +1758,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1800,7 +1800,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1850,7 +1850,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create a matrix equation in a Word document. The following code example shows how to create a matrix equation. 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 ///Adds one section and one paragraph to the document
@@ -1919,7 +1919,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1988,7 +1988,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 ///Adds one section and one paragraph to the document
@@ -2061,7 +2061,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 ///Adds one section and one paragraph to the document
@@ -2134,7 +2134,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2215,7 +2215,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create an equation with common large operators such as summation, integrals, union, intersection, logical OR, logical AND, products and co-products. The following code example shows how to create a summation with limits.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2255,7 +2255,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2292,7 +2292,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2336,7 +2336,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2380,7 +2380,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2432,7 +2432,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create a radical equation in Word document. The following example shows how to create a radical equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2461,7 +2461,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2488,7 +2488,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2521,7 +2521,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2554,7 +2554,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2596,7 +2596,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can create a phantom equation to add the spacing of the phantom
 without displaying that base and suppressing part of the glyph from spacing considerations. The following code example shows how to create a phantom equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2636,7 +2636,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2671,7 +2671,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2714,7 +2714,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2757,7 +2757,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2808,7 +2808,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add a superscript or subscript equation in a Word document. The following code shows how to create a superscript equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2839,7 +2839,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2868,7 +2868,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2903,7 +2903,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2938,7 +2938,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2981,7 +2981,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add superscript and subscript on the left side of mathematical equation. The following code example shows how to add superscript and subscript on the left side of the equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3014,7 +3014,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -3042,7 +3042,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3079,7 +3079,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3115,7 +3115,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3160,7 +3160,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add superscript and subscript on the right side of mathematical equation. The following code example shows how to add superscript and subscript on the right side of the equation.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3194,7 +3194,7 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -3225,7 +3225,7 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3263,7 +3263,7 @@ Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3301,7 +3301,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -3351,7 +3351,7 @@ You can add or modify the text and formatting of existing mathematical equation 
 
 The following code example shows how to modify an existing mathematical equation in the Word document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Access the paragraph from Word document
@@ -3386,7 +3386,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Access the paragraph from Word document
@@ -3419,7 +3419,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing Word document
 Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -3459,7 +3459,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing Word document
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open, FileAccess.ReadWrite);
 //Loads the template document
@@ -3500,7 +3500,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing Word document
 Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");

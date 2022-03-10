@@ -32,7 +32,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 5.Create a razor file with name as ``Excel`` under ``Pages`` folder and include the following namespaces in the file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 @page "/Excel"
 @using System.IO;
 @using ServerSideApplication;
@@ -54,7 +54,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 7.Add the following code in ``Excel.razor`` file to create and download the Excel document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 @code {
     MemoryStream excelStream;
 
@@ -73,7 +73,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 8.Create a new cs file with name as ``ExcelService`` under ``Data`` folder and include the following namespaces in the file.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 @using Syncfusion.XlsIO;
 @using Syncfusion.Drawing;
 @using System.IO;
@@ -83,7 +83,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 9.Create a new MemoryStream method with name as ``CreateExcel`` and include the following code snippet to create a simple Invoice formatted Excel document in Blazor Server-Side application.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -270,7 +270,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 10.Create a new class file in the project, with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public static class FileUtils
 {
     public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
@@ -285,7 +285,7 @@ public static class FileUtils
 11.Add the following JavaScript function in the ``_Host.cshtml`` file present under ``Pages`` folder.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 <script type="text/javascript">
     function saveAsFile(filename, bytesBase64) {
 
@@ -327,7 +327,7 @@ N> It is recommended to use Blazor Server-Side application to reduce the pay bac
 The below code snippet illustrates how to read and edit an Excel file in Blazor Server-Side application.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -382,7 +382,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 5.Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 @page "/Excel"
 @using Syncfusion.XlsIO;
 @using Syncfusion.Drawing;
@@ -404,7 +404,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 7.Create a new async method with name as ``CreateDocument`` and include the following code snippet to create a simple Invoice formatted Excel document in Blazor Client-Side application.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -588,7 +588,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 8.Create a class file with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public static class FileUtils
 {
     public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
@@ -603,7 +603,7 @@ public static class FileUtils
 9.Add the following JavaScript function in the ``index.html`` file present under ``wwwroot``.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 <script type="text/javascript">
     function saveAsFile(filename, bytesBase64) {
 

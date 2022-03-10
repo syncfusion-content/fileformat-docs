@@ -24,7 +24,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 3.Include the following code snippet in Add a new button in MainWindow.xaml file to add a button for the creation of Excel document.
 
 {% tabs %}
-{% highlight Xaml %}
+{% highlight XAML %}
 <Grid>
     <Button Content="Create Excel" HorizontalAlignment="Left" Margin="309,172,0,0" VerticalAlignment="Top" Width="124" Height="46" Click="Button_Click"/>
 </Grid>
@@ -34,14 +34,14 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 4.Include the following namespaces in MainWindow.xaml.cs file.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.Drawing;
 using System.IO;
 using System.Windows;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Imports System.Drawing
 Imports System.IO
@@ -52,7 +52,7 @@ Imports System.Windows
 5.Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -230,7 +230,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -419,7 +419,7 @@ By executing the program, you will get the Excel file as below.
 The below code snippet illustrates how to read and edit an Excel file in WPF.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -443,7 +443,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
 

@@ -14,31 +14,31 @@ Conditional formatting allows to format the contents of a cell dynamically. This
 The IConditionalFormats represents a collection of conditional formats for a single IRange. One or more conditional formats can be added to the range as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Applying conditional formatting to "A1"
 IConditionalFormats condition = worksheet.Range["A1"].ConditionalFormats;
 IConditionalFormat condition1 = condition.AddCondition();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Applying conditional formatting to "A1"
 Dim condition As IConditionalFormats = worksheet.Range("A1").ConditionalFormats
 Dim condition1 As IConditionalFormat = condition.AddCondition()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Applying conditional formatting to "A1"
 IConditionalFormats condition = worksheet.Range["A1"].ConditionalFormats;
 IConditionalFormat condition1 = condition.AddCondition();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Applying conditional formatting to "A1"
 IConditionalFormats condition = worksheet.Range["A1"].ConditionalFormats;
 IConditionalFormat condition1 = condition.AddCondition();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Applying conditional formatting to "A1"
 IConditionalFormats condition = worksheet.Range["A1"].ConditionalFormats;
 IConditionalFormat condition1 = condition.AddCondition();
@@ -48,7 +48,7 @@ IConditionalFormat condition1 = condition.AddCondition();
 The target range should meet the criteria, which is set using the **IConditionalFormat** interface. The  desired format type is set through the **ExcelCFType** enumerator, which are the supported conditional format types in XlsIO. Refer to the following code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Represents conditional format rule that the value in target range should be between 10 and 20
 condition1.FormatType = ExcelCFType.CellValue;
 condition1.Operator = ExcelComparisonOperator.Between;
@@ -57,7 +57,7 @@ condition1.SecondFormula = "20";
 worksheet.Range["A1"].Text = "Enter a number between 10 and 20";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Represents conditional format rule that the value in target range should be between 10 and 20
 condition1.FormatType = ExcelCFType.CellValue
 condition1.Operator = ExcelComparisonOperator.Between
@@ -66,7 +66,7 @@ condition1.SecondFormula = "20"
 worksheet.Range("A1").Text = "Enter a number between 10 and 20"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Represents conditional format rule that the value in target range should be between 10 and 20
 condition1.FormatType = ExcelCFType.CellValue;
 condition1.Operator = ExcelComparisonOperator.Between;
@@ -75,7 +75,7 @@ condition1.SecondFormula = "20";
 worksheet.Range["A1"].Text = "Enter a number between 10 and 20";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Represents conditional format rule that the value in target range should be between 10 and 20
 condition1.FormatType = ExcelCFType.CellValue;
 condition1.Operator = ExcelComparisonOperator.Between;
@@ -84,7 +84,7 @@ condition1.SecondFormula = "20";
 worksheet.Range["A1"].Text = "Enter a number between 10 and 20";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Represents conditional format rule that the value in target range should be between 10 and 20
 condition1.FormatType = ExcelCFType.CellValue;
 condition1.Operator = ExcelComparisonOperator.Between;
@@ -97,35 +97,35 @@ worksheet.Range["A1"].Text = "Enter a number between 10 and 20";
 When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details about conditional format priority, see [Manage conditional formatting rule precedence](https://support.microsoft.com/en-us/office/video-manage-conditional-formatting-6b69364e-dc79-4fe4-bd94-1883e40848f9).
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Setting format properties to be applied when the above condition is met
 condition1.BackColor = ExcelKnownColors.Light_orange;
 condition1.IsBold = true;
 condition1.IsItalic = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Setting format properties to be applied when the above condition is met
 condition1.BackColor = ExcelKnownColors.Light_orange
 condition1.IsBold = True
 condition1.IsItalic = True
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Setting format properties to be applied when the above condition is met
 condition1.BackColor = ExcelKnownColors.Light_orange;
 condition1.IsBold = true;
 condition1.IsItalic = true;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Setting format properties to be applied when the above condition is met
 condition1.BackColor = ExcelKnownColors.Light_orange;
 condition1.IsBold = true;
 condition1.IsItalic = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Setting format properties to be applied when the above condition is met
 condition1.BackColor = ExcelKnownColors.Light_orange;
 condition1.IsBold = true;
@@ -136,7 +136,7 @@ condition1.IsItalic = true;
 The following code creates and applies various different conditional formats for different ranges in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -191,7 +191,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -245,7 +245,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -310,7 +310,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -368,7 +368,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -457,7 +457,7 @@ When proper criteria is met, the output file looks as follows:
 XlsIO also reads conditional formats from existing excel workbook. The following code example illustrates this.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -474,7 +474,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -490,7 +490,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -526,7 +526,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -548,7 +548,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -594,7 +594,7 @@ A complete working example to read conditional formatting in C# is present on [t
 All the conditional formats for a specified range can be removed using the **Remove** method. This is illustrated as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -609,7 +609,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -623,7 +623,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -657,7 +657,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -677,7 +677,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -721,7 +721,7 @@ A complete working example to remove conditional formatting in C# is present on 
 A particular conditional format at the specified range can be removed by using the *RemoveAt** method as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -736,7 +736,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -750,7 +750,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -784,7 +784,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -804,7 +804,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -848,7 +848,7 @@ A complete working example to remove conditional formatting at specified index i
 The entire conditional formats from the worksheet can be removed as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -863,7 +863,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -877,7 +877,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -911,7 +911,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -931,7 +931,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -975,7 +975,7 @@ A complete working example to remove conditional formatting in entire worksheet 
 XlsIO sets the formula for the conditional format in R1C1-style notation. The following code example illustrates this.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -993,7 +993,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1010,7 +1010,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1038,7 +1038,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1059,7 +1059,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1104,7 +1104,7 @@ Format unique and duplicate values of an Excel range using conditional formattin
 The below code example shows how to format unique and duplicate values using conditional formatting in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1181,7 +1181,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2016
@@ -1255,7 +1255,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1339,7 +1339,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1418,7 +1418,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1534,7 +1534,7 @@ The following screenshot represents the input template of conditional formatting
 The below code example shows how to format top 10 rank values from the given data range using `ITopBottom` `Type` and `Rank` properties in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1564,7 +1564,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
     Dim application As IApplication = excelEngine.Excel
@@ -1595,7 +1595,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1643,7 +1643,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1676,7 +1676,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1737,7 +1737,7 @@ N> `ITopBottom` `Rank` value should be in a range between 1 and 1000.
 The below code example shows how to format top 50 percentage rank values from the given data range using `ITopBottom` `Type`, `Rank` and `Percent` properties in XlsIO
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1770,7 +1770,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
     Dim application As IApplication = excelEngine.Excel
@@ -1804,7 +1804,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1855,7 +1855,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1891,7 +1891,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1966,7 +1966,7 @@ The following screenshot represents the input template of conditional formatting
 The below code example shows how to format a range with values that are below average using `IAboveBelowAverage` `AverageType` property in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1994,7 +1994,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
     Dim application As IApplication = excelEngine.Excel
@@ -2023,7 +2023,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2069,7 +2069,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2100,7 +2100,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2157,7 +2157,7 @@ The following screenshot represents the Excel file generated with `AboveBelowAve
 The below code example shows how to format a range with values above standard deviation, using `IAboveBelowAverage` `AverageType` and `StdDevValue` properties in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2188,7 +2188,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
     Dim application As IApplication = excelEngine.Excel
@@ -2220,7 +2220,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2269,7 +2269,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2303,7 +2303,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2371,7 +2371,7 @@ Here, the values in each of the selected cells are compared, and a data bar is d
 This can be set and manipulated using the IDataBar interface as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create data bars for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["C7:C46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2390,7 +2390,7 @@ dataBar.ShowValue = false;
 dataBar.BarColor = Color.Aqua;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create data bars for the data in specified range
 Dim formats As IConditionalFormats = worksheet.Range("C7:C46").ConditionalFormats
 Dim format As IConditionalFormat = formats.AddCondition()
@@ -2409,7 +2409,7 @@ dataBar.ShowValue = False
 dataBar.BarColor = Color.Aqua
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Create data bars for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["C7:C46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2428,7 +2428,7 @@ dataBar.ShowValue = false;
 dataBar.BarColor = Color.FromArgb(255,0,255,255);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create data bars for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["C7:C46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2447,7 +2447,7 @@ dataBar.ShowValue = false;
 dataBar.BarColor = Color.Aqua;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create data bars for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["C7:C46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2474,7 +2474,7 @@ Color Scales let you create visual effects in your data to see how the value of 
 Creation of color scales and its formatting rules using the **IColorScale** interface in XlsIO is illustrated as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create color scale for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["D7:D46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2499,7 +2499,7 @@ conditionalFormat.FirstFormulaR1C1 = "=R[1]C[0]" ;
 conditionalFormat.SecondFormulaR1C1 = "=R[1]C[1]" ;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create color scale for the data in specified range
 Dim conditionalFormats As IConditionalFormats = worksheet.Range("D7:D46").ConditionalFormats
 Dim conditionalFormat As IConditionalFormat = conditionalFormats.AddCondition()
@@ -2521,7 +2521,7 @@ colorScale.Criteria(2).Type = ConditionValueType.HighestValue
 colorScale.Criteria(2).Value = "0"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Create color scale for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["D7:D46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2546,7 +2546,7 @@ conditionalFormat.FirstFormulaR1C1 = "=R[1]C[0]";
 conditionalFormat.SecondFormulaR1C1 = "=R[1]C[1]";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create color scale for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["D7:D46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2571,7 +2571,7 @@ conditionalFormat.FirstFormulaR1C1 = "=R[1]C[0]";
 conditionalFormat.SecondFormulaR1C1 = "=R[1]C[1]";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create color scale for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["D7:D46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2604,7 +2604,7 @@ Icon sets present data in three to five categories that are distinguished by a t
 Icon sets can be created and customized in XlsIO as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["E7:E46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2620,7 +2620,7 @@ iconSet.IconCriteria[2].Value = "50";
 iconSet.ShowIconOnly = true;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create icon sets for the data in specified range
 Dim conditionalFormats As IConditionalFormats = worksheet.Range("E7:E46").ConditionalFormats
 Dim conditionalFormat As IConditionalFormat = formats.AddCondition()
@@ -2636,7 +2636,7 @@ iconSet.IconCriteria(2).Value = "50"
 iconSet.ShowIconOnly = True
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["E7:E46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2652,7 +2652,7 @@ iconSet.IconCriteria[2].Value = "50";
 iconSet.ShowIconOnly = true;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["E7:E46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2668,7 +2668,7 @@ iconSet.IconCriteria[2].Value = "50";
 iconSet.ShowIconOnly = true;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = worksheet.Range["E7:E46"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2692,7 +2692,7 @@ You can customize the icon set by changing the IconSet and Index properties for 
 Custom Icon sets can be created and customized in XlsIO as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 // Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = sheet.Range["H1:K6"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2723,7 +2723,7 @@ iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim conditionalFormats As IConditionalFormats = sheet.Range("H1:K6").ConditionalFormats
 Dim conditionalFormat As IConditionalFormat = conditionalFormats.AddCondition
 conditionalFormat.FormatType = ExcelCFType.IconSet
@@ -2755,7 +2755,7 @@ iconValue3.Operator = ConditionalFormatOperator.GreaterThan
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 // Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = sheet.Range["H1:K6"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2786,7 +2786,7 @@ iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 // Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = sheet.Range["H1:K6"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2817,7 +2817,7 @@ iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 // Create icon sets for the data in specified range
 IConditionalFormats conditionalFormats = sheet.Range["H1:K6"].ConditionalFormats;
 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
@@ -2852,7 +2852,7 @@ iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 The application of these visualizations to a sample data and its output file is represented in the following code example.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2919,7 +2919,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -2982,7 +2982,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3067,7 +3067,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3138,7 +3138,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

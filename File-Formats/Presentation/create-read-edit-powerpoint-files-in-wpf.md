@@ -34,7 +34,7 @@ You can create or edit a PowerPoint file in WPF with Syncfusion PowerPoint libra
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 <Window x:Class="CreatePowerPointWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -57,7 +57,7 @@ You can create or edit a PowerPoint file in WPF with Syncfusion PowerPoint libra
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 using System.IO;
@@ -72,7 +72,7 @@ using System.IO;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
@@ -85,7 +85,7 @@ IPresentation pptxDoc = Presentation.Create();
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Add a new slide to file and apply background color
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
@@ -98,7 +98,7 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Specify the fill type and fill color for the slide background 
 slide.Background.Fill.FillType = FillType.Solid;
@@ -112,7 +112,7 @@ slide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(232, 241, 229);
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Add title content to the slide by accessing the title placeholder of the TitleOnly layout-slide
 IShape titleShape = slide.Shapes[0] as IShape;
@@ -126,7 +126,7 @@ titleShape.TextBody.AddParagraph("Company History").HorizontalAlignment = Horizo
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Add description content to the slide by adding a new TextBox
 IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
@@ -140,7 +140,7 @@ descriptionShape.TextBody.Text = "IMN Solutions PVT LTD is the software company,
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Add bullet points to the slide
 IShape bulletPointsShape = slide.AddTextBox(53.22, 270, 437.90, 116.32);
@@ -169,7 +169,7 @@ secondPara.FirstLineIndent = -35;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Gets a picture as stream.
 Stream pictureStream = File.Open("Image.png", FileMode.Open);
@@ -187,7 +187,7 @@ You can download the image used in the sample from [here](http://www.syncfusion.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Add an auto-shape to the slide
 IShape stampShape = slide.Shapes.AddShape(AutoShapeType.Explosion1, 48.93, 430.71, 104.13, 80.54);
@@ -204,7 +204,7 @@ stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmen
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Save the PowerPoint Presentation 
 pptxDoc.Save("Sample.pptx");
@@ -228,7 +228,7 @@ You can edit an existing PowerPoint file using this library. The below code snip
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");

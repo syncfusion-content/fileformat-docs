@@ -26,7 +26,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -43,7 +43,7 @@ using System.Drawing;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 @{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
 {
@@ -62,7 +62,7 @@ Html.EndForm();
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 // Creating a new document.
 WordDocument document = new WordDocument();

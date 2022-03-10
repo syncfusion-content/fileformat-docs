@@ -26,7 +26,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 <Page
    x:Class="CreateWordSample.MainPage"
@@ -50,7 +50,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -67,7 +67,7 @@ using System.Reflection;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
@@ -301,7 +301,7 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {

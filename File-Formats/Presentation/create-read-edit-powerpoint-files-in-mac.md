@@ -30,7 +30,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 using System.IO;
@@ -43,7 +43,7 @@ using System.IO;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
@@ -120,7 +120,7 @@ You can edit an existing PowerPoint file on Mac system using this library. The b
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open(new FileStream("Sample.pptx",FileMode.Open));

@@ -15,7 +15,7 @@ The following code example demonstrates how to add a paragraph in a slide.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -43,7 +43,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -71,7 +71,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -105,7 +105,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -134,7 +134,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -180,7 +180,7 @@ Each paragraph in a slide can has its own formatting types such as alignment, in
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -211,7 +211,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -242,7 +242,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -290,7 +290,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -323,7 +323,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -376,7 +376,7 @@ With Essential Presentation, you can add or modify the text in a Presentation. W
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -431,7 +431,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -486,7 +486,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -547,7 +547,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -603,7 +603,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -676,7 +676,7 @@ You can modify a text by accessing the existing paragraphs in a Presentation. Th
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation from file system.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -704,7 +704,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from file system.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -732,7 +732,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -774,7 +774,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -804,7 +804,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -854,7 +854,7 @@ With Essential Presentation, you can modify the language of Presentation TextPar
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a Microsoft PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -885,7 +885,7 @@ pptxDoc.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a Microsoft PowerPoint instance
 Dim pptxDoc As IPresentation = Presentation.Create
@@ -916,7 +916,7 @@ pptxDoc.Dispose
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a Microsoft PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -953,7 +953,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a Microsoft PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -985,7 +985,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a Microsoft PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -1034,7 +1034,7 @@ In a PowerPoint slide, if you add a text more than a shape can hold, the text wi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 // Create a new PowerPoint file.
 using (IPresentation ppDoc = Presentation.Create())
@@ -1058,7 +1058,7 @@ using (IPresentation ppDoc = Presentation.Create())
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PowerPoint file
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -1093,7 +1093,7 @@ The following code example demonstrates how to remove a paragraph from a slide.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation from file system.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1118,7 +1118,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from file system.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1143,7 +1143,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1182,7 +1182,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -1209,7 +1209,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
