@@ -2145,5 +2145,136 @@ else
 
 {% endtabs %}
 
+## Add actions to the existing PDF document
+
+To add actions to an existing PDF document, use the following code example.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load a document from the disk
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Create JavaScript action
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")");
+
+//Add the JavaScript action
+loadedDocument.Actions.AfterOpen = scriptAction;
+           
+// Save and close the document
+loadedDocument.Save("Output.pdf");
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}      
+
+'Creates a new PDF document. 
+Dim document As New PdfLoadedDocument("input.pdf")
+
+'Create JavaScript action 
+Dim scriptAction As New PdfJavaScriptAction("app.alert(""Hello World!!!"")") 
+
+'Add the JavaScript action
+ document.Actions.AfterOpen = scriptAction
+
+'Saves the document to disk.
+ document.Save("PopupAnnotation.pdf") 
+document.Close(True)
+
+{% endhighlight %}
+
+  {% highlight c# tabtitle="UWP" %}
+
+//Create the file open picker
+ var picker = new FileOpenPicker();
+ picker.FileTypeFilter.Add(".pdf"); 
+
+//Browse and chose the file
+ StorageFile file = await picker.PickSingleFileAsync(); 
+
+//Creates an empty PDF loaded document instance 
+PdfLoadedDocument document = new PdfLoadedDocument(); 
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class 
+await document.OpenAsync(file);
+
+//Create JavaScript action
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")"); 
+//Add the JavaScript action
+document.Actions.AfterOpen = scriptAction;
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream(); 
+
+await document.SaveAsync(stream);
+
+ //Close the document 
+document.Close(true); 
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "PopupAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Load the PDF document 
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read); PdfLoadedDocument document = new PdfLoadedDocument(docStream); 
+
+//Create JavaScript action
+ PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")"); 
+
+//Add the JavaScript action
+ document.Actions.AfterOpen = scriptAction;
+
+//Save the document into stream 
+MemoryStream stream = new MemoryStream(); 
+document.Save(stream); stream.Position = 0;
+
+ //Closes the document 
+document.Close(true);
+
+ //Defining the ContentType for pdf file
+ string contentType = "application/pdf"; 
+
+//Define the file name
+ string fileName = "output.pdf"; 
+
+//Creates a FileContentResult object by using the file contents, content type, and file name 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as stream 
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf"); PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Create JavaScript action PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")"); 
+//Add the JavaScript action 
+document.Actions.AfterOpen = scriptAction;
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+ //Close the document.
+ document.Close(true); 
+
+//Save the stream into pdf file 
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+ {
+ Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream); 
+}
+ else 
+{
+ Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream); }
+
+{% endhighlight %}
+
+{% endtabs %}
+
 N> The action assigned to the bookmark works only when destination of bookmark is not set.
 
