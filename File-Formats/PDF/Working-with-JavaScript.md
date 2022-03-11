@@ -709,7 +709,7 @@ loadedDocument.Close(True)
 {% endtabs %}
 
 <table>
-<th style="font-size:14px">Types of Javascript actions
+<th style="font-size:14px">Types of JavaScript actions
 </th>
 
 <tr>
@@ -724,27 +724,27 @@ loadedDocument.Close(True)
 </tr>
 <tr>
 <td>document.Actions.AfterOpen	</td>
-<td>A Javascript action that shall be performed after opening the document</td>
+<td>A JavaScript action that shall be performed after opening the document</td>
 </tr>
 <tr>
 <td>document.Actions.BeforeClose</td>
-<td>A Javascript action that shall be performed before closing the document</td>
+<td>A JavaScript action that shall be performed before closing the document</td>
 </tr>
 <tr>
 <td>document.Actions.AfterSave</td>
-<td>	A Javascript action that shall be performed after saving the document</td>
+<td>	A JavaScript action that shall be performed after saving the document</td>
 </tr>
 <tr>
 <td>document.Actions.BeforeSave</td>
-<td>	A Javascript action that shall be performed before saving the document</td>
+<td>	A JavaScript action that shall be performed before saving the document</td>
 </tr>
 <tr>
 <td>document.Actions.AfterPrint	</td>
-<td>A Javascript action that shall be performed after printing the document</td>
+<td>A JavaScript action that shall be performed after printing the document</td>
 </tr>
 <tr>
 <td>document.Actions.BeforePrint</td>
-<td>	A Javascript action that shall be performed before printing the document</td>
+<td>	A JavaScript action that shall be performed before printing the document</td>
 </tr>
 
 </table>
