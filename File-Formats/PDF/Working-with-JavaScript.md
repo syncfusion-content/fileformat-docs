@@ -714,7 +714,9 @@ loadedDocument.Close(True)
 
 <tr>
 <td>
-
+The pdf will generate trigger with the javascript actions in the following places.
+</td>
+</tr>
 <table>
 <tr>
 <th style="font-size:14px">Action Type 
@@ -724,34 +726,31 @@ loadedDocument.Close(True)
 </tr>
 <tr>
 <td>document.Actions.AfterOpen	</td>
-<td>A JavaScript action that shall be performed after opening the document</td>
+<td>A JavaScript action will be performed after opening the document</td>
 </tr>
 <tr>
 <td>document.Actions.BeforeClose</td>
-<td>A JavaScript action that shall be performed before closing the document</td>
+<td>A JavaScript action will be performed before closing the document</td>
 </tr>
 <tr>
 <td>document.Actions.AfterSave</td>
-<td>	A JavaScript action that shall be performed after saving the document</td>
+<td>	A JavaScript action will be performed after saving the document</td>
 </tr>
 <tr>
 <td>document.Actions.BeforeSave</td>
-<td>	A JavaScript action that shall be performed before saving the document</td>
+<td>	A JavaScript action will be performed before saving the document</td>
 </tr>
 <tr>
 <td>document.Actions.AfterPrint	</td>
-<td>A JavaScript action that shall be performed after printing the document</td>
+<td>A JavaScript action will be performed after printing the document</td>
 </tr>
 <tr>
 <td>document.Actions.BeforePrint</td>
-<td>	A JavaScript action that shall be performed before printing the document</td>
+<td>	A JavaScript action will be performed before printing the document</td>
 </tr>
 
 </table>
 </table>
-
-The following are the places where the pdf will generate trigger with the javascript actions
-to the form fields
 
 <table>
 <th style="font-size:14px">Types of Mouseover actions
@@ -759,6 +758,10 @@ to the form fields
 
 <tr>
 <td>
+The pdf will generate trigger with the javascript actions on the form fields in the places listed below.
+</td>
+</tr>
+
 </br>
 </br>
 
@@ -788,7 +791,7 @@ submitButton.Actions.MouseDown</td>
 </tr>
 <tr>
 <td>submitButton.Actions.GotFocus</td>
-<td>	Gets or sets the action to be performed when the annotation receives the input focus</td>
+<td>	Gets or sets the action to be performed when the annotation receives the input focus.</td>
 </tr>
 <tr>
 <td>submitButton.Actions.LostFocus</td>

@@ -11197,7 +11197,7 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
 
 ## Text Markup Annotation
 
-You can highlight the Markup Text using [PdfTextMarkupAnnotationType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextMarkupAnnotationType.html) enum of the [TextMarkupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextMarkupAnnotation.html) class. The following code example explains this.
+You can highlight the Markup Text using the [PdfTextMarkupAnnotationType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextMarkupAnnotationType.html) enum of the [TextMarkupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextMarkupAnnotation.html) class. This is explained in the following code example.
 
 {% tabs %}
 
@@ -11205,10 +11205,10 @@ You can highlight the Markup Text using [PdfTextMarkupAnnotationType](https://he
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
-//Create a new page .
+//Create a new page.
 PdfPage page = document.Pages.Add();
 
-//Create PDF font and font style .
+//Create a PDF font and font style.
 Font font = new Font("Calibri", 10, FontStyle.Bold);
 PdfFont pdfFont = new PdfTrueTypeFont(font, false);
 
@@ -11222,7 +11222,7 @@ SizeF size = pdfFont.MeasureString(markupText);
 RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
 page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 
-//Create a PDF text markup annotation .
+//Create a PDF text markup annotation.
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
@@ -11232,7 +11232,7 @@ page.Annotations.Add(markupAnnotation);
 
 //Save the document to disk.
 document.Save("Output.pdf");
-//close the document
+//close the document.
 document.Close(true);
 
 {% endhighlight %}
@@ -11241,10 +11241,10 @@ document.Close(true);
 'Create a new PDF document.
 Dim document As New PdfDocument()
 
-'Create a new page .
+'Create a new page.
 Dim page As PdfPage = document.Pages.Add()
 
-'Create pdf font and pdf font style .
+'Create a pdf font and pdf font style.
 Dim font As New Font("Calibri", 10, FontStyle.Bold)
 Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, False)
 
@@ -11258,7 +11258,7 @@ Dim size As SizeF = pdfFont.MeasureString(markupText)
 Dim rectangle As New RectangleF(175, 40, size.Width, size.Height)
 page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle)
 
-'Create a pdf text markup annotation .
+'Create a pdf text markup annotation.
 Dim markupAnnotation As New PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, New PointF(175, 40), pdfFont)
 markupAnnotation.TextMarkupColor = New PdfColor(Color.BlueViolet)
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight
@@ -11269,21 +11269,21 @@ page.Annotations.Add(markupAnnotation)
 'Save the document to disk.
 document.Save("Output.pdf")
 
-'close the document
+'close the document.
 document.Close(True)
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Creates a new PDF document.
+//Create a new PDF document.
 
 PdfDocument document = new PdfDocument();
 
-//Creates a new page 
+//Create a new page. 
 
 PdfPage page = document.Pages.Add();
 
-//Create PDF font and font style .
+//Create a PDF font and font style.
 Font font = new Font("Calibri", 10, FontStyle.Bold);
 PdfFont pdfFont = new PdfTrueTypeFont(font, false);
 
@@ -11297,7 +11297,7 @@ SizeF size = pdfFont.MeasureString(markupText);
 RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
 page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 
-//Create a PDF text markup annotation .
+//Create a PDF text markup annotation.
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
@@ -11305,17 +11305,17 @@ markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highligh
 //Add this annotation to a new page.
 page.Annotations.Add(markupAnnotation);
 
-//Save the PDF document to stream
+//Save the PDF document to stream.
 
 MemoryStream stream = new MemoryStream();
 
 await document.SaveAsync(stream);
 
-//Close the document
+//Close the document.
 
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for respected code samples.
 
 Save(stream, "Output.pdf");
 
@@ -11326,7 +11326,7 @@ Save(stream, "Output.pdf");
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
 
-//Create a new page .
+//Create a new page.
 PdfPage page = document.Pages.Add();
 FileStream fontStream = new FileStream("arial.ttf", FileMode.Open, FileAccess.Read);
 
@@ -11342,7 +11342,7 @@ SizeF size = pdfFont.MeasureString(markupText);
 RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
 page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 
-//Create a PDF text markup annotation .
+//Create a PDF text markup annotation.
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
@@ -11352,21 +11352,22 @@ page.Annotations.Add(markupAnnotation);
 
 //Save the document to disk.
 Save(document, "Output.pdf");
-//close the document
+//close the document.
 document.Close(true);
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Creates a new PDF document.
+//Create a new PDF document.
+
 PdfDocument document = new PdfDocument();
 
-//Creates a new page 
+//Create a new page. 
+
 PdfPage page = document.Pages.Add();
 
-//Create PDF font and font style .
+//Create a PDF font and font style .
 Font font = new Font("Calibri", 10, FontStyle.Bold);
 PdfFont pdfFont = new PdfTrueTypeFont(font, false);
 
@@ -11380,7 +11381,7 @@ SizeF size = pdfFont.MeasureString(markupText);
 RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
 page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 
-//Create a PDF text markup annotation .
+//Create a PDF text markup annotation.
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
@@ -11398,8 +11399,8 @@ document.Save(stream);
 
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into pdf file.
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
@@ -11415,7 +11416,7 @@ else
 ## Troubleshooting
 
 <table>
-<th style="font-size:14px">Annotations are missing in the acrobat and the other Pdf Viewer applications sometimes.
+<th style="font-size:14px">Annotations are sometimes missing in the acrobat and the other Pdf Viewer applications.
 </th>
 
 <tr>
@@ -11426,17 +11427,18 @@ else
 <th style="font-size:14px">Reason
 </th>
 <td style="font-size:14px">
-<b>Annotation may disappear in adobe reader and other pdf viewer sometimes due to the absence of the <b>appearance</b> dictionary. 
+<b>Due to the absence of the appearance dictionary, Annotation may sometimes disappear in adobe reader and other pdf viewer. 
 </td>
 </tr>
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>By enabling the appearance[Graphical representation] for the annotation by using the “SetAppearance” method as below, PDF Annotations will be preserved properly on saving the file.
+<td>By enabling the appearance [Graphical representation] for the annotation by using the “SetAppearance” method as below, PDF Annotations will be preserved properly on saving the file.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Enable the appearance to free text annotation
+
+//Enable the appearance of free text annotation.
 freeText.SetAppearance(true);
 
 {% endhighlight %}
