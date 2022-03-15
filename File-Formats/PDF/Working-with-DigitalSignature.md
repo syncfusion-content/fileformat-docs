@@ -5458,6 +5458,8 @@ return signedBytes;
 
 {% endtabs %}
 
+A complete working sample can be downloaded from [PdfDeferredSigningSample.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Sample-1493484644.zip)
+
 ## Adding the estimated size of the signature
 
 The following code sample shows how to add the estimated size of the signature in the PDF document.
@@ -6348,7 +6350,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -6418,7 +6420,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
