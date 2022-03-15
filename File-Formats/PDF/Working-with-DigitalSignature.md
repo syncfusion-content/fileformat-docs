@@ -5458,8 +5458,6 @@ return signedBytes;
 
 {% endtabs %}
 
-A complete working sample can be downloaded from [PdfDeferredSigningSample.zip](https://www.syncfusion.com/downloads/support/directtrac/345110/ze/Sample694283475)
-
 ## Adding the estimated size of the signature
 
 The following code sample shows how to add the estimated size of the signature in the PDF document.
