@@ -1,5 +1,5 @@
 ---
-title: XlsIO supports in .NET 6.0 platform to create, edit and convert Excel documents. | Syncfusion
+title: Does XlsIO provide support for .NET 6.0 platform. | Syncfusion. | Syncfusion
 description: This page tells whether the Syncfusion XlsIO provide support for .NET 6.0 platform to create, edit and convert Excel documents.
 platform: File-formats
 control: XlsIO
