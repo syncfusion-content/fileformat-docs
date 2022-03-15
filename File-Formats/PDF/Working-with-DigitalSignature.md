@@ -6190,3 +6190,285 @@ return signedBytes;
 {% endhighlight %}
 
 {% endtabs %}
+
+## Drawing text/image in the Signature Appearance
+
+The following code example illustrates how to draw text/image in a digital appearance as follows.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Creates a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+PdfPageBase page = document.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key.
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field.
+PdfBitmap signatureImage = new PdfBitmap(@"signature.png");
+
+//Sets signature information
+signature.Bounds = new RectangleF(0,0,200,100);
+signature.ContactInfo = "johndoe@owned.us";
+signature.LocationInfo = "Honolulu, Hawaii";
+signature.Reason = "I am author of this document.";
+
+//Create appearance for the digital siganture
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+//Save the document
+document.Save("DigitalSignature.pdf");
+
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Adds a new page
+
+Dim page As PdfPageBase = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Creates a certificate instance from PFX file with private key
+
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
+
+'Creates a digital signature
+
+Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
+
+'Sets an image for signature field
+
+Dim signatureImage As New PdfBitmap("signature.jpg")
+
+'Sets signature info
+
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
+
+signature.ContactInfo = "johndoe@owned.us"
+
+signature.LocationInfo = "Honolulu, Hawaii"
+
+signature.Reason = "I am author of this document."
+
+'Create appearance for the digital siganture.
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+'Saves and closes the document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Create appearance for the digital siganture
+
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field
+
+FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
+
+//Sets an image for signature field
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Create appearance for the digital siganture
+
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Create appearance for the digital siganture
+
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
