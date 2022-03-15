@@ -1,6 +1,6 @@
 ---
 title: Read the filtered data |Syncfusion
-description: Code example to read the filtered data from the Excel file using Suncfusion's XlsIO.
+description: This page shows how to read the filtered data from the Excel file using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
 documentation: UG
