@@ -56,3 +56,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to open an Excel document using XlsIO that is already open in MS-Excel?](faqs/how-to-open-an-excel-document-that-is-already-open-in-msexcel)
 * [Reason for Parameter Not Valid exception when converting Excel to PDF with Custom Paper Size](faqs/reason-for-parameter-not-valid-exception-when-converting-exceltopdf-with-custompapersize)
 * [Information about maximum characters count in an Excel cell](faqs/information-about-maximum-characters-count-in-an-excel-cell)
+* [Does XlsIO provide support for .NET 6.0 Platform?](faqs/Does-XlsIO-provide-support-for-.NET6.0-Platform)
