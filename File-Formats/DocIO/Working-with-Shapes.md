@@ -16,7 +16,7 @@ The following code example illustrates how to add pre-defined shape to the docum
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -48,7 +48,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -80,7 +80,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -117,7 +117,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -153,7 +153,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -200,7 +200,7 @@ Shape can have formatting such as line color, fill color, positioning, wrap form
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -232,7 +232,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -264,7 +264,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -302,7 +302,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -339,7 +339,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -387,7 +387,7 @@ You can rotate the shape and also apply flipping (horizontal and vertical) to it
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -410,7 +410,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument()
 'Adds new section to the document
@@ -433,7 +433,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -462,7 +462,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -490,7 +490,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -542,7 +542,7 @@ The following code example illustrates how to create group shape in Word documen
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -607,7 +607,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 ‘Creates a new Word document
 Dim document As WordDocument = New WordDocument()
 ‘Adds new section to the document
@@ -672,7 +672,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates a new Word document 
@@ -745,7 +745,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -815,7 +815,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -895,7 +895,7 @@ The following code example illustrates how to add collection of shapes or images
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1002,7 +1002,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 ‘Creates a new Word document
 Dim document As WordDocument = New WordDocument()
 ‘Adds new section to the document
@@ -1109,7 +1109,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1220,7 +1220,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1331,7 +1331,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1452,7 +1452,7 @@ The following code example illustrates how to group the nested group shapes as a
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1540,7 +1540,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 ‘Creates a new Word document
 Dim document As WordDocument = New WordDocument()
 ‘Adds new section to the document
@@ -1629,7 +1629,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates a new Word document 
@@ -1726,7 +1726,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1819,7 +1819,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates a new Word document 
@@ -1928,7 +1928,7 @@ The following code example illustrates how to ungroup the group shape in Word do
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets the last paragraph
@@ -1950,7 +1950,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Gets the last paragraph
@@ -1969,7 +1969,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
@@ -1999,7 +1999,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
 //Loads the template document
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -2026,7 +2026,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Template.docx");

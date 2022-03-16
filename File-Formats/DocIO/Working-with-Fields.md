@@ -33,7 +33,7 @@ The following code example explains how to add a field to the Word document.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section to the Word Document
@@ -51,7 +51,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
 'Adds a new section to the Word Document
@@ -69,7 +69,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section to the Word Document
@@ -92,7 +92,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section to the Word Document
@@ -114,7 +114,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section to the Word Document
@@ -147,7 +147,7 @@ The following code example explains how to format the field in Word document.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -171,7 +171,7 @@ document.Save("Template.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of a WordDocument
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -195,7 +195,7 @@ document.Save("Template.docx", FormatType.Docx)
 document.Close
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -225,7 +225,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -254,7 +254,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Template.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -317,7 +317,7 @@ The following code example explains how to update the fields present in Word doc
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance 
 WordDocument document = new WordDocument("Input.docx", FormatType.Docx);
 //Updates the fields present in a document
@@ -326,7 +326,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document into DocIO instance 
 Dim document As New WordDocument("Input.docx", FormatType.Docx)
 'Updates the fields present in a document
@@ -335,7 +335,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Input.docx"), FormatType.Docx);
@@ -352,7 +352,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document into DocIO instance 
 FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -368,7 +368,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Loads an existing Word document into DocIO instance 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Input.docx"), FormatType.Docx);
@@ -397,7 +397,7 @@ The following code example explains how to add an If field to a Word document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -421,7 +421,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -445,7 +445,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -478,7 +478,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -510,7 +510,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -553,7 +553,7 @@ The following code example explains how to add a DocVariable field to a Word doc
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -574,7 +574,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -595,7 +595,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -625,7 +625,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -654,7 +654,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -696,7 +696,7 @@ The following code example explains how to append cross reference for bookmark i
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -721,7 +721,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -746,7 +746,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -780,7 +780,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -813,7 +813,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -858,7 +858,7 @@ The following code example shows how to unlink the fields in Word document.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -878,7 +878,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As WordDocument = New WordDocument()
 'Adds a new section into the Word Document
@@ -898,7 +898,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -924,7 +924,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -948,7 +948,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -996,7 +996,7 @@ The following code example shows how to apply the number format for sequence fie
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1018,7 +1018,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new document
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
@@ -1040,7 +1040,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1069,7 +1069,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1096,7 +1096,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1131,7 +1131,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -1156,7 +1156,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
 	'Creates a new word document
 	Dim document As WordDocument = New WordDocument
@@ -1180,7 +1180,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -1205,7 +1205,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -1230,7 +1230,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -1270,7 +1270,7 @@ The following code example shows how to refer the bookmark in sequence field.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an exixting word document
 WordDocument document = new WordDocument("Template.docx");
 //Accesses sequence field in the document
@@ -1290,7 +1290,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an exixting word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Accesses sequence field in the document
@@ -1310,7 +1310,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document 
@@ -1339,7 +1339,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
@@ -1365,7 +1365,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document 
@@ -1407,7 +1407,7 @@ The following code example shows how to reset the numbering for sequence field.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1435,7 +1435,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new document
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
@@ -1463,7 +1463,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1498,7 +1498,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1531,7 +1531,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1572,7 +1572,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new word document
@@ -1662,7 +1662,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
 	'Creates a new word document
 	Dim document As WordDocument = New WordDocument
@@ -1750,7 +1750,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new word document
@@ -1847,7 +1847,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new word document
@@ -1943,7 +1943,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new word document
@@ -2055,7 +2055,7 @@ The following code example shows how to repeat the closest preceding sequence nu
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2069,7 +2069,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a Word document
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
@@ -2083,7 +2083,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2104,7 +2104,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2123,7 +2123,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2150,7 +2150,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -2207,7 +2207,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
 	'Creates a new word document
 	Dim document As WordDocument = New WordDocument
@@ -2263,7 +2263,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -2324,7 +2324,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -2384,7 +2384,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new document
@@ -2459,7 +2459,7 @@ The following code example shows how to hide the field result of sequence field.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2478,7 +2478,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a Word document
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
@@ -2497,7 +2497,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2523,7 +2523,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2547,7 +2547,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -2579,7 +2579,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new Word document
@@ -2630,7 +2630,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
 	'Creates a new Word document
 	Dim document As WordDocument = New WordDocument
@@ -2680,7 +2680,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new Word document
@@ -2731,7 +2731,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new Word document
@@ -2782,7 +2782,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
 	//Creates a new Word document
@@ -2846,7 +2846,7 @@ The following code example shows how to insert the next sequence number for the 
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an exixting word document
 WordDocument document = new WordDocument("Template.docx");
 //Accesses sequence field in the document
@@ -2861,10 +2861,10 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document 
@@ -2888,7 +2888,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
@@ -2909,7 +2909,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document 

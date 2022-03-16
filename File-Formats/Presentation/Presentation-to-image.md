@@ -30,7 +30,7 @@ The following code example demonstrates how to convert a slide to image.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Namespaces to perform PPTX to Image conversion
 using Syncfusion.Presentation;
@@ -61,7 +61,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Namespaces to perform PPTX to Image conversion
 Imports Syncfusion.Presentation
@@ -92,7 +92,7 @@ Presentation_1.Close()
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Namespaces to perform PPTX to Image conversion
 using Syncfusion.Presentation;
@@ -122,7 +122,7 @@ using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Namespaces to perform PPTX to Image conversion
 using Syncfusion.Presentation;
@@ -159,7 +159,7 @@ The following code example demonstrates the conversion of an entire Presentation
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -181,7 +181,7 @@ foreach (Image image in images)
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -210,7 +210,7 @@ The following code snippet demonstrates how to convert a PowerPoint slide to ima
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Output.pptx");
@@ -242,7 +242,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Output.pptx")
@@ -313,7 +313,7 @@ The following code example demonstrates how to convert a slide to image in UWP.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -345,7 +345,7 @@ The following code snippet demonstrates how to convert a PowerPoint slide to ima
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -389,7 +389,7 @@ The following code snippet demonstrates how to convert a PowerPoint slide to ima
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -443,7 +443,7 @@ The following code sample demonstrates how to set a substitute font for a missin
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PowerPoint presentation and convert to image
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
@@ -479,7 +479,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PowerPoint presentation and convert to image
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -530,7 +530,7 @@ The following code example demonstrates how to initialize a default fallback fon
 
 {% tabs %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -562,7 +562,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -602,7 +602,7 @@ The following code example demonstrates how to customize default fallback font w
 
 {% tabs %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -637,7 +637,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -680,7 +680,7 @@ The following code example demonstrates how to add custom fallback fonts while c
 
 {% tabs %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -724,7 +724,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))

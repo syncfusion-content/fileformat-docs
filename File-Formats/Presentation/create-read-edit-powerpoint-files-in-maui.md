@@ -32,7 +32,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -60,7 +60,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 using System.IO;
@@ -74,7 +74,7 @@ using System.Reflection;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new instance of the PowerPoint Presentation file.
 using IPresentation pptxDoc = Presentation.Create();
@@ -125,13 +125,14 @@ using MemoryStream stream = new();
 pptxDoc.Save(stream);
 stream.Position = 0;
 //Saves the memory stream as file.
-DependencyService.Get<ISave>().SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+SaveService saveService = new();
+saveService.SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
 {% endtabs %}
 
-A complete working example of creating a Presentation file in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint-708478965.zip).
+A complete working example of creating a Presentation file in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint-472985326.zip).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
@@ -143,7 +144,7 @@ You can edit an existing PowerPoint file using this library. The below code snip
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing PowerPoint presentation.
 Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
 //Opens an existing PowerPoint presentation.
@@ -163,16 +164,15 @@ using MemoryStream stream = new();
 pptxDoc.Save(stream);
 stream.Position = 0;
 //Saves the memory stream as file.
-DependencyService.Get<ISave>().SaveAndView("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+SaveService saveService = new();
+saveService.SaveAndView("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
 {% endtabs %}
 
-N> Essential Presentation is only supported in .NET MAUI application targeting Windows, Android and iOS.
-
 ## Helper files for .NET MAUI
 
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_Presentation573247547.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_Presentation-1440845842.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -191,9 +191,9 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     .NET MAUI Project
   </td>
   <td>
-    ISave.cs
+    SaveService.cs
   </td>
-  <td>Represent the base interface for save operation.
+  <td>Represent the base class for save operation.
   </td>
   </tr>
   <tr>
@@ -214,6 +214,16 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     SaveAndroid.cs
   </td>
   <td>Save implementation for Android device.
+  </td>
+  </tr>
+  <tr>
+  <td>
+    Mac Catalyst
+  </td>
+  <td>
+    SaveMac.cs
+  </td>
+  <td>Save implementation for Mac Catalyst device.
   </td>
   </tr>
   <tr>

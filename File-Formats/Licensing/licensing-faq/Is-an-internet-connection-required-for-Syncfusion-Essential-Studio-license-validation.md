@@ -7,7 +7,7 @@ control: Essential Studio
 documentation: ug
 ---
 
-# Is the internet required for Essential Studio license validation?
+# Is an internet required for Essential Studio license validation?
 
 * Syncfusion license validation is done offline during application execution and does not require internet access. 
 

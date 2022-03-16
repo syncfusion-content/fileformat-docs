@@ -36,23 +36,23 @@ N> Syncfusion components are available in nuget.org
 Include the following namespaces in your .cs or .vb file as shown as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.XlsIO;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIO;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIO;
 {% endhighlight %}
 {% endtabs %}  
@@ -62,7 +62,7 @@ using Syncfusion.XlsIO;
 The following code example explains how to create a hello world sample.
 
 {% tabs %} 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
@@ -90,7 +90,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 
 'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
@@ -117,7 +117,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.XlsIO;
 
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
@@ -154,7 +154,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIO;
 
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
@@ -186,7 +186,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIO;
 
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
@@ -240,7 +240,7 @@ The output screen-shot of the above code.
 An instance of the [ExcelEngine](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelEngine.html) gives access to create an application instance that is similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
 //Instantiate the spreadsheet creation engine
 ExcelEngine excelEngine = new ExcelEngine();
@@ -249,7 +249,7 @@ ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
 'Instantiate the spreadsheet creation engine
 Dim excelEngine As ExcelEngine = New ExcelEngine
@@ -258,7 +258,7 @@ Dim excelEngine As ExcelEngine = New ExcelEngine
 Dim application As IApplication = excelEngine.Excel
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
 //Instantiate the spreadsheet creation engine
 ExcelEngine excelEngine = new ExcelEngine();
@@ -267,7 +267,7 @@ ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
 //Instantiate the spreadsheet creation engine
 ExcelEngine excelEngine = new ExcelEngine();
@@ -276,7 +276,7 @@ ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
 //Instantiate the spreadsheet creation engine
 ExcelEngine excelEngine = new ExcelEngine();
@@ -289,27 +289,27 @@ IApplication application = excelEngine.Excel;
 By default, the Excel version 97 to 2003 (*.xls) is associated with application object. XlsIO writes the excel files in the respective format depending on this excel version. You can modify the default Excel version to Excel 2013 as shown as follows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Assigns default application version
 application.DefaultVersion = ExcelVersion.Excel2013;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Assigns default application version
 application.DefaultVersion = ExcelVersion.Excel2013
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Assigns default application version
 application.DefaultVersion = ExcelVersion.Excel2013;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Assigns default application version
 application.DefaultVersion = ExcelVersion.Excel2013;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Assigns default application version
 application.DefaultVersion = ExcelVersion.Excel2013;
 {% endhighlight %}
@@ -318,7 +318,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 The workbook contains a collection of worksheets and various workbook-level properties. Each worksheet has cells, which can contain text, numbers, dates, formulas and more. The following code snippet illustrates how to create a workbook and access worksheet instance.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //A new workbook is created equivalent to creating a new workbook in Excel
 //Create a workbook with 1 worksheet
 IWorkbook workbook = application.Workbooks.Create(1);
@@ -327,7 +327,7 @@ IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'A new workbook is created equivalent to creating a new workbook in Excel
 'Create a workbook with 1 worksheet
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
@@ -336,7 +336,7 @@ Dim workbook As IWorkbook = application.Workbooks.Create(1)
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //A new workbook is created equivalent to creating a new workbook in Excel
 //Create a workbook with 1 worksheet
 IWorkbook workbook = application.Workbooks.Create(1);
@@ -345,7 +345,7 @@ IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //A new workbook is created equivalent to creating a new workbook in Excel
 //Create a workbook with 1 worksheet
 IWorkbook workbook = application.Workbooks.Create(1);
@@ -354,7 +354,7 @@ IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //A new workbook is created equivalent to creating a new workbook in Excel
 //Create a workbook with 1 worksheet
 IWorkbook workbook = application.Workbooks.Create(1);
@@ -366,7 +366,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adding text data
 worksheet.Range["A1"].Text = "Month";
 worksheet.Range["B1"].Text = "Sales";
@@ -392,7 +392,7 @@ worksheet.Range["B4"].Number = 72808;
 worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Adding text data
 worksheet.Range("A1").Text = "Month"
 worksheet.Range("B1").Text = "Sales"
@@ -418,7 +418,7 @@ worksheet.Range("B4").Number = 72808
 worksheet.Range("B6").Formula = "SUM(B2:B4)"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adding text data
 worksheet.Range["A1"].Text = "Month";
 worksheet.Range["B1"].Text = "Sales";
@@ -444,7 +444,7 @@ worksheet.Range["B4"].Number = 72808;
 worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adding text data
 worksheet.Range["A1"].Text = "Month";
 worksheet.Range["B1"].Text = "Sales";
@@ -470,7 +470,7 @@ worksheet.Range["B4"].Number = 72808;
 worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adding text data
 worksheet.Range["A1"].Text = "Month";
 worksheet.Range["B1"].Text = "Sales";
@@ -500,17 +500,17 @@ worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 The following code snippet shows how to add an image into the worksheet.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Inserting image
 worksheet.Pictures.AddPicture(10, 2, "image.jpg");
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Inserting image
 worksheet.Pictures.AddPicture(10, 2, "image.jpg")
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Inserting image
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -518,13 +518,13 @@ Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
 worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Inserting image
 FileStream imageStream = new FileStream("image.jpg", FileMode.Open, FileAccess.Read);
 worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Inserting image
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -536,7 +536,7 @@ worksheet.Pictures.AddPicture(10, 2, imageStream);
 Finally, save the document in file system and close/dispose the instance of IWorkbook and ExcelEngine.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Saving the workbook to disk in XLSX format
 workbook.SaveAs("Sample.xlsx");
 
@@ -547,7 +547,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Saving the workbook to disk in XLSX format
 workbook.SaveAs("Sample.xlsx")
 
@@ -578,7 +578,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Save the workbook as stream
 FileStream stream = new FileStream("Sample.xlsx", FileMode.Create, FileAccess.ReadWrite);
 workbook.SaveAs(stream);
@@ -593,7 +593,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Saving the workbook as stream
 MemoryStream stream = new MemoryStream();
 workbook.SaveAs(stream);
@@ -624,7 +624,7 @@ else
 The complete code to create a simple Excel document.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
@@ -684,7 +684,7 @@ namespace ExcelCreation
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Namespace ExcelCreation
   Module Program
@@ -740,7 +740,7 @@ Namespace ExcelCreation
 End Namespace
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
@@ -816,7 +816,7 @@ namespace ExcelCreation
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
@@ -881,7 +881,7 @@ namespace ExcelCreation
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
@@ -979,7 +979,7 @@ The output screen-shot of the above code.
 The following code snippet shows how to import data from objects.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -998,7 +998,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1016,7 +1016,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1044,7 +1044,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1065,7 +1065,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1104,7 +1104,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Gets a list of Employee details
 private static IList<Employee> GetEmployees()
 {
@@ -1141,7 +1141,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list Employee details
 Private Function GetEmployees() As List(Of Employee)
   Dim employees As New List(Of Employee)()
@@ -1238,7 +1238,7 @@ Public Class Employee
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
@@ -1275,7 +1275,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
@@ -1312,7 +1312,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
@@ -1360,7 +1360,7 @@ The following code demonstrates how to export data from a worksheet to a data ta
 
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1377,7 +1377,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("WorkbookWithData.xlsx")
@@ -1393,7 +1393,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports exporting of data from worksheet to data table from .NET Standard 2.0 along with Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 
 //Exporting data from worksheet can be achieved using List as illustrated below.
@@ -1490,7 +1490,7 @@ public class Sales
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports exporting of data from worksheet to data table from .NET Standard 2.0
 
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -1511,7 +1511,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports exporting of data from worksheet to data table from .NET Standard 2.0 along with Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 
 //Exporting data from worksheet can be achieved using List as illustrated below.
@@ -1650,7 +1650,7 @@ For example – let’s consider that you have a template document as shown belo
 The following code snippet shows how to use template markers with objects.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1676,7 +1676,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1701,7 +1701,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1745,7 +1745,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1773,7 +1773,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1820,7 +1820,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
@@ -1853,7 +1853,7 @@ public class Report
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of sales reports
 Private Function GetSalesReports() As List(Of Report)
   Dim reports As New List(Of Report)()
@@ -1928,7 +1928,7 @@ Public Class Report
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
@@ -1971,7 +1971,7 @@ public class Report
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
@@ -2004,7 +2004,7 @@ public class Report
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {

@@ -16,7 +16,7 @@ The following code example illustrates how to enable track changes of the docume
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -37,7 +37,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -58,7 +58,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -84,7 +84,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -110,7 +110,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -149,7 +149,7 @@ The following code example shows how to accept all the tracked changes.
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Accepts all the tracked changes revisions
@@ -160,7 +160,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Accepts all the tracked changes revisions
@@ -173,7 +173,7 @@ document.Close()
 System.Diagnostics.Process.Start("Sample.docx")
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing word document 
@@ -193,7 +193,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing Word document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);           
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -210,7 +210,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing wod document
@@ -246,7 +246,7 @@ The following code example shows how to reject all the tracked changes.
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Rejects all the tracked changes revisions
@@ -257,7 +257,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Rejects all the tracked changes revisions
@@ -269,7 +269,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing word document 
@@ -289,7 +289,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing word document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);           
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -306,7 +306,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing  word document
@@ -342,7 +342,7 @@ The following code example shows how to accept the tracked changes made by the a
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
@@ -360,7 +360,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
@@ -379,7 +379,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing word document 
@@ -406,7 +406,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing word document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);           
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -430,7 +430,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing  word document
@@ -469,7 +469,7 @@ The following code example shows how to reject the tracked changes made by the a
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
@@ -487,7 +487,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
@@ -506,7 +506,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing word document 
@@ -533,7 +533,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing word document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);           
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -557,7 +557,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing  word document
@@ -596,7 +596,7 @@ The following code example shows how to get the details about the revision infor
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Accesses the first revision in the word document
@@ -611,7 +611,7 @@ RevisionType revisionType = revision.RevisionType;
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Accesses the first revision in the word document
@@ -629,7 +629,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing word document 
@@ -649,7 +649,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing word document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);           
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -665,7 +665,7 @@ RevisionType revisionType = revision.RevisionType;
 document.Close();
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing  word document

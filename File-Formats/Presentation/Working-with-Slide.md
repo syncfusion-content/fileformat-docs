@@ -15,7 +15,7 @@ The following code example demonstrates how to add a blank slide to the Presenta
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -28,7 +28,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a PowerPoint instance
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -41,7 +41,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -59,7 +59,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -75,7 +75,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -120,7 +120,7 @@ The following example demonstrates how to access a slide from the predefined bla
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -133,7 +133,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint file
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -146,7 +146,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -164,7 +164,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
@@ -180,7 +180,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
@@ -207,7 +207,7 @@ The following code example demonstrates how to add a slide with all other predef
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -240,7 +240,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint file
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -273,7 +273,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -311,7 +311,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
@@ -347,7 +347,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
@@ -398,7 +398,7 @@ The following code example demonstrates how to create and use a customized slide
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open the template presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -419,7 +419,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open the template presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -440,7 +440,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -472,7 +472,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -497,7 +497,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -535,7 +535,7 @@ The following code example demonstrates how to add a slide with an existing slid
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open the template presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -561,7 +561,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open the template presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -585,7 +585,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -624,7 +624,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -654,7 +654,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -699,7 +699,7 @@ You can create a deep copy of a slide by cloning the slide. The cloned slide is 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation.pptx");
@@ -720,7 +720,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation.pptx")
@@ -741,7 +741,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -773,7 +773,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -798,7 +798,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -838,7 +838,7 @@ The Essential Presentation provides ability to clone slides from one Presentatio
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the source Presentation
 IPresentation sourcePresentation = Presentation.Open("SourcePresentation.pptx");
@@ -857,7 +857,7 @@ destinationPresentation.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the source Presentation
 Dim sourcePresentation_1 As IPresentation = Presentation.Open("SourcePresentation.pptx")
@@ -876,7 +876,7 @@ destinationPresentation.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -907,7 +907,7 @@ await destinationPresentation.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Opens the source Presentation
 IPresentation sourcePresentation = Presentation.Open(SourcePresentationStream);
@@ -928,7 +928,7 @@ sourcePresentation.Close();
 destinationPresentation.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(sourcePresentationPath);
@@ -964,7 +964,7 @@ The Essential Presentation provides the ability to delete a slide by its instanc
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation1.pptx");
@@ -981,7 +981,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation1.pptx")
@@ -998,7 +998,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1026,7 +1026,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -1047,7 +1047,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1083,7 +1083,7 @@ You can convert a presentation slide to image with Essential Presentation. The f
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint presentation file
 IPresentation pptxDoc = Presentation.Open(fileName); 
@@ -1098,7 +1098,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint presentation file
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
@@ -1113,7 +1113,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1136,13 +1136,13 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PowerPoint Presentation to image conversion is not supported for ASP.NET Core platforms.
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PowerPoint Presentation to image conversion is not supported for Xamarin platforms.
 
@@ -1160,7 +1160,7 @@ The following code example demonstrates setting the background for a slide.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation1.pptx");
@@ -1183,7 +1183,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation1.pptx")
@@ -1206,7 +1206,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1240,7 +1240,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -1267,7 +1267,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

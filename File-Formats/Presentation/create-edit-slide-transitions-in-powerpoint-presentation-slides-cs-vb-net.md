@@ -26,7 +26,7 @@ Transition effect contains the following properties. This makes slide transition
 The following code example demonstrates how to set a transition effect to a PowerPoint slide.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -50,7 +50,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -75,7 +75,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -106,7 +106,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -132,7 +132,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -174,7 +174,7 @@ else
 You can edit the transition effects that already applied to the PowerPoint slides. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -196,7 +196,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -218,7 +218,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -254,7 +254,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -278,7 +278,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -321,7 +321,7 @@ else
 You can set the transition duration value up to 59 seconds. This specifies the length of the slide transition to happen. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -346,7 +346,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -371,7 +371,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -402,7 +402,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -428,7 +428,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -470,7 +470,7 @@ else
 You can set the transition delay in seconds. This delays the next transactions to happen for a certain number of seconds.  The following example demonstrates how to apply the time delay.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -497,7 +497,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -525,7 +525,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -559,7 +559,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -588,7 +588,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -638,7 +638,7 @@ The next slide transition can be triggered by the following two ways:
 Syncfusion PowerPoint library allows you to set both the previously given trigger modes while using PowerPoint slide transitions. Refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -662,7 +662,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -687,7 +687,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -718,7 +718,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -744,7 +744,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -791,7 +791,7 @@ The speed is the customized property provided by Syncfusion PowerPoint library t
 4. Medium        - 0.75 seconds
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -812,7 +812,7 @@ slide.SlideTransition.Speed = TransitionSpeed.Medium;
 pptxDoc.Save("Sample.pptx");
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -834,7 +834,7 @@ pptxDoc.Save("Sample.pptx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -865,7 +865,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -888,7 +888,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();

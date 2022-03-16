@@ -16,7 +16,7 @@ Most of the Word processors (including Microsoft Word) uses the XML-based file f
 The Essential DocIO converts the RTF document into Word document and vice versa. The following code shows how to convert RTF document into Word document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Input.rtf", FormatType.Rtf);
 //Saves the Word document as RTF file
@@ -25,7 +25,7 @@ document.Save("RtfToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing document
 Dim document As New WordDocument("Input.rtf", FormatType.Rtf)
 'Saves the Word document as RTF file
@@ -34,7 +34,7 @@ document.Save("RtfToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -52,7 +52,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Input.rtf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
@@ -67,7 +67,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.rtf")),
@@ -89,7 +89,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 The following code example shows how to convert Word document into RTF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Saves the Word document as RTF file
@@ -98,7 +98,7 @@ document.Save("WordToRtf.rtf", FormatType.Rtf);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Saves the Word document as RTF file
@@ -107,7 +107,7 @@ document.Save("WordToRtf.rtf", FormatType.Rtf)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -158,7 +158,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -173,7 +173,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))

@@ -27,7 +27,7 @@ The following code example demonstrates how to access the **MasterSlide** in a P
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint presentation
 
@@ -51,7 +51,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a PowerPoint presentation
 
@@ -85,7 +85,7 @@ The following code example demonstrates how to create new custom layout slide an
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
@@ -107,7 +107,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a PowerPoint instance
 Dim pptxDoc As IPresentation = Presentation.Create()

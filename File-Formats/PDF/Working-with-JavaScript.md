@@ -20,7 +20,7 @@ You can add the JavaScript action to the PDF document by using [PdfJavaScriptAct
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new document
 
@@ -46,7 +46,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new document
 
@@ -72,7 +72,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new document
 
@@ -106,7 +106,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new document
 
@@ -150,7 +150,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new document
 
@@ -203,7 +203,7 @@ The following code snippet illustrate this.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -245,7 +245,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -287,7 +287,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -335,7 +335,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -393,7 +393,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -459,7 +459,7 @@ else
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -501,7 +501,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -543,13 +543,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -609,7 +609,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -666,7 +666,7 @@ you can add or modify the JavaScript action in existing PDF document. The below 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load a PDF document.
 
@@ -686,7 +686,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document.
 
@@ -707,3 +707,96 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+<table>
+<th style="font-size:14px">Types of JavaScript actions
+</th>
+
+<tr>
+<td>
+The pdf will generate trigger with the javascript actions in the following places.
+</td>
+</tr>
+<table>
+<tr>
+<th style="font-size:14px">Action Type 
+</th>
+<th style="font-size:14px">Description
+</th>
+</tr>
+<tr>
+<td>document.Actions.AfterOpen	</td>
+<td>A JavaScript action will be performed after opening the document</td>
+</tr>
+<tr>
+<td>document.Actions.BeforeClose</td>
+<td>A JavaScript action will be performed before closing the document</td>
+</tr>
+<tr>
+<td>document.Actions.AfterSave</td>
+<td>	A JavaScript action will be performed after saving the document</td>
+</tr>
+<tr>
+<td>document.Actions.BeforeSave</td>
+<td>	A JavaScript action will be performed before saving the document</td>
+</tr>
+<tr>
+<td>document.Actions.AfterPrint	</td>
+<td>A JavaScript action will be performed after printing the document</td>
+</tr>
+<tr>
+<td>document.Actions.BeforePrint</td>
+<td>	A JavaScript action will be performed before printing the document</td>
+</tr>
+
+</table>
+</table>
+
+<table>
+<th style="font-size:14px">Types of Mouseover actions
+</th>
+
+<tr>
+<td>
+The pdf will generate trigger with the javascript actions on the form fields in the places listed below.
+</td>
+</tr>
+
+</br>
+</br>
+
+<table>
+<tr>
+<th style="font-size:14px">Action Type 
+</th>
+<th style="font-size:14px">Description
+</th>
+</tr>
+<tr>
+<td>
+submitButton.Actions.MouseDown</td>
+<td>Gets or sets the action to be performed when the mouse button is pressed inside the annotation’s active area.</td>
+</tr>
+<tr>
+<td>submitButton.Actions.MouseUp</td>
+<td>	Gets or sets the action to be performed when the mouse button is released inside the annotation’s active area.</td>
+</tr>
+<tr>
+<td>submitButton.Actions.MouseEnter</td>
+<td>	Gets or sets the action to be performed when the cursor enters the annotation’s active area.</td>
+</tr>
+<tr>
+<td>submitButton.Actions.MouseLeave</td>
+<td>	Gets or sets the action to be performed when the cursor exits the annotation’s active area.</td>
+</tr>
+<tr>
+<td>submitButton.Actions.GotFocus</td>
+<td>	Gets or sets the action to be performed when the annotation receives the input focus.</td>
+</tr>
+<tr>
+<td>submitButton.Actions.LostFocus</td>
+<td>	Gets or sets the action to be performed when the annotation loses the input focus.</td>
+</tr>
+
+</table>
+</table>

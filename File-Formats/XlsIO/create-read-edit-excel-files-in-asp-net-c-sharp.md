@@ -45,12 +45,12 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 5.Include the following namespace in your MainPage.aspx.cs file.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.Drawing;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Imports System.Drawing
 {% endhighlight %}
@@ -59,7 +59,7 @@ Imports System.Drawing
 6.Include the below code snippet in the click event of the button in MainPage.aspx.cs, to create an Excel file and download it
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -235,7 +235,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -423,7 +423,7 @@ By executing the program, you will get the Excel file as below.
 The below code snippet illustrates how to read and edit an Excel file in ASP.NET Web Forms.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -447,7 +447,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
 

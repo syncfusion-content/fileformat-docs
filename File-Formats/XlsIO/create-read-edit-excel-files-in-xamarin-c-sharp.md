@@ -34,7 +34,7 @@ i)	To add the new XAML page, right click on the project and select Add > New Ite
 ii)	In App class of portable project (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the MainXamlPage.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public App()
 {
     // The root page of your application
@@ -43,7 +43,7 @@ public App()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Sub New()
     'The root page of your application
     MainPage = New MainXamlPage()
@@ -68,13 +68,13 @@ End Sub
 6.Include the following namespace in the MainXamlPage.xaml.cs file.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.Reflection;
 using Color = Syncfusion.Drawing.Color;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Imports System.Reflection
 Imports Color = Syncfusion.Drawing.Color
@@ -84,7 +84,7 @@ Imports Color = Syncfusion.Drawing.Color
 7.Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 void OnButtonClicked(object sender, EventArgs args)
 {
 //Create an instance of ExcelEngine.
@@ -274,7 +274,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub OnButtonClicked(ByVal sender As Object, ByVal args As EventArgs)
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
@@ -564,7 +564,7 @@ By executing the program, you will get the Excel file as below.
 The below code illustrates how to read and edit an Excel file in Xamarin.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 void btnCreate_Click(object sender, System.EventArgs e)
 {
 	ExcelEngine excelEngine = new ExcelEngine();
@@ -598,7 +598,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 {% endtabs %}
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using System.IO;
 using System.Threading.Tasks;
 
@@ -615,7 +615,7 @@ N> SaveAndView is helper method to save the stream as a physical file and open t
 ### Windows Phone
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -650,7 +650,7 @@ class SaveWindowsPhone: ISave
 ### Android
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using System;
 using System.IO;
 using Android.Content;
@@ -717,7 +717,7 @@ class SaveAndroid: ISave
 ### iOS
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -767,7 +767,7 @@ class SaveIOS: ISave
 N> Launching a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using System;
 using QuickLook;
 

@@ -21,7 +21,7 @@ Essential PDF provides support for Optical Character Recognition with the help o
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 
@@ -31,7 +31,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Dim processor As New OCRProcessor("TesseractBinaries\")
@@ -46,7 +46,7 @@ Dim processor As New OCRProcessor("TesseractBinaries\")
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 
@@ -58,7 +58,7 @@ processor.PerformOCR(lDoc, @"TessData\");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Dim processor As New OCRProcessor("TesseractBinaries\")
@@ -85,7 +85,7 @@ You can perform OCR on PDF document with the help of [OCRProcessor](https://help
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -120,7 +120,7 @@ lDoc.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 
@@ -169,7 +169,7 @@ The following sample code snippet demonstrates the OCR processor with Tesseract3
  
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.05Binaries \")
@@ -203,7 +203,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Using processor As New OCRProcessor("Tesseract3.05Binaries\")
 
@@ -249,7 +249,7 @@ The following code sample explains the OCR processor with Tesseract4.0 for PDF d
  
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
@@ -282,7 +282,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Using processor As New OCRProcessor("Tesseract4.0Binaries\")
 
@@ -321,7 +321,7 @@ You can perform OCR on particular region or several regions of a PDF page with t
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -372,7 +372,7 @@ lDoc.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -425,7 +425,7 @@ You can perform OCR on an image also. Refer the below code snippets for the same
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -454,7 +454,7 @@ string ocrText= processor.PerformOCR(image, @"TessData\");
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -487,7 +487,7 @@ You can optimize the memory to perform OCR for large PDF documents by enabling t
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -520,7 +520,7 @@ lDoc.Close(true);
 {% endhighlight %}
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -561,7 +561,7 @@ You can perform OCR on the rotated page of a PDF document. Refer to the followin
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -598,7 +598,7 @@ lDoc.Close(true);
 {% endhighlight %}
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
@@ -643,7 +643,7 @@ You can get the OCRed text and its bounds from a scanned PDF document by using t
  
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
@@ -692,7 +692,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
@@ -756,7 +756,7 @@ The following sample code snippet demonstrates the OCR processor with native cal
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.02Binaries\")
@@ -790,7 +790,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Using processor As New OCRProcessor("Tesseract3.02Binaries\")
 
@@ -837,7 +837,7 @@ The following sample code snippet demonstrates the OCR processor with native cal
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries \")
@@ -876,7 +876,7 @@ lDoc.Close(true);
 {% endhighlight %}
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Using processor As New OCRProcessor("Tesseract3.05Binaries\")
@@ -921,7 +921,7 @@ While performing OCR on an existing scanned PDF document, the OCR Processor will
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
@@ -957,7 +957,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
@@ -1001,7 +1001,7 @@ You can perform OCR with various page segmentation mode. The PageSegment propert
  
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
@@ -1039,7 +1039,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 VB
 
@@ -1088,7 +1088,7 @@ This is explained in the following code sample
  
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
@@ -1125,7 +1125,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 VB
 
@@ -1190,7 +1190,7 @@ Refer below code snippet to set the performance of the OCR.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
@@ -1203,7 +1203,7 @@ processor.Settings.Performance = Performance.Fast;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Dim processor As New OCRProcessor("TesseractBinaries\")
@@ -1226,7 +1226,7 @@ processor.Settings.Performance = Performance.Fast
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //'TesseractBinaries – path of the folder containing SyncfusionTesseract.dll and liblept168.dll
@@ -1241,7 +1241,7 @@ processor.PerformOCR(lDoc, @"TessData\");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'TesseractBinaries – path of the folder containing SyncfusionTesseract.dll and liblept168.dll

@@ -15,7 +15,7 @@ The following code illustrates how to modify the built-in style while creating n
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new Word document 
 
@@ -58,7 +58,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Word document 
 
@@ -109,7 +109,7 @@ A document can be opened as stream by using HttpWebResponse. This stream does no
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Gets the document as stream
@@ -152,7 +152,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Gets the document as stream
@@ -199,7 +199,7 @@ The following code illustrates the method used to read the stream and convert th
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 public static byte[] ReadFully(Stream stream, int initialLength)
 
@@ -277,7 +277,7 @@ return ret;
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Public Shared Function ReadFully(stream As Stream, initialLength As Integer) As Byte()
@@ -362,7 +362,7 @@ The following code illustrates how to set ligature types for text.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new Word document 
@@ -413,7 +413,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Word document 
 
@@ -472,7 +472,7 @@ The following code example illustrates how to set contextual alternates.
 {% tabs %} 
 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new Word document 
@@ -509,7 +509,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Word document 
 
@@ -549,7 +549,7 @@ The following code example illustrates how to set number spacing.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new Word document 
@@ -594,7 +594,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Word document 
 
@@ -642,7 +642,7 @@ The following code example illustrates how to set number style.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new Word document 
 
@@ -686,7 +686,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Word document 
 
@@ -734,7 +734,7 @@ The following code example illustrates how to set different styles for the text.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new Word document 
@@ -781,7 +781,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Word document 
 
@@ -834,7 +834,7 @@ The following code illustrates how to set the template for the document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads a source document
@@ -859,7 +859,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a source document
 
@@ -894,7 +894,7 @@ You can create new table in a Word document and copy the contents from data tabl
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates new Word document
 
@@ -972,7 +972,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates new Word document
 
@@ -1048,7 +1048,7 @@ The following code illustrates the method to get data table.
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 private void GetDataTable(DataSet dataset)
@@ -1099,7 +1099,7 @@ dataset.Tables["Products"].Rows.Add(row);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Private Sub GetDataTable(dataset As DataSet)
 
@@ -1151,7 +1151,7 @@ An HTML string can be inserted to the Word document at text body or paragraph. T
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the template document
@@ -1180,7 +1180,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the template document
 
@@ -1215,7 +1215,7 @@ Each cell in the table can have its own width. The following code illustrates ho
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates new word document
@@ -1270,7 +1270,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Creates new word document
@@ -1331,7 +1331,7 @@ You can position a table in a Word document by setting position properties. The 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the template document
@@ -1362,7 +1362,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Loads the template document
@@ -1401,7 +1401,7 @@ The contents of the table cell can be in vertical or horizontal direction. Each 
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the template document
@@ -1444,7 +1444,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the template document
 
@@ -1490,7 +1490,7 @@ The following code illustrates how to extract the images in the document.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the template document
@@ -1551,7 +1551,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the template document
 
@@ -1609,7 +1609,7 @@ The images in the document can be extracted into a specific location when export
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the template document
 
@@ -1633,7 +1633,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the template document
 
@@ -1666,7 +1666,7 @@ The following code illustrates how to remove the header contents from the docume
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the template document
@@ -1717,7 +1717,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the template document
 
@@ -1769,7 +1769,7 @@ The following code illustrates how to remove the footer contents from the docume
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the template document
@@ -1820,7 +1820,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the template document
 
@@ -1902,7 +1902,7 @@ Office Automation performs the Mail merge by executing a SQL query on the Word d
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -1958,7 +1958,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2028,7 +2028,7 @@ The following code example performs Mail merge by using the `Execute` method.
 
 {% tabs %}    
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 string dataBase = "Northwind.mdb";
@@ -2069,7 +2069,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Dim dataBase As String = "Northwind.mdb" 
 
@@ -2123,7 +2123,7 @@ The following code example illustrates how to search for a word in a Word docume
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using word = Microsoft.Office.Interop.Word;
@@ -2210,7 +2210,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2288,7 +2288,7 @@ The following code example illustrates how to perform a simple find and replace 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Opens the Word document.
@@ -2315,7 +2315,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ‘Opens the Word document.
 
@@ -2357,7 +2357,7 @@ The following code example illustrates how to insert a bookmark for a range of t
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -2419,7 +2419,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2485,7 +2485,7 @@ The following code example illustrates how to insert the bookmark by using DocIO
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new Word document.
@@ -2528,7 +2528,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ‘Creates a new Word document.
 
@@ -2582,7 +2582,7 @@ The following code example illustrates how page numbers can be inserted to the f
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using word = Microsoft.Office.Interop.Word;
@@ -2645,7 +2645,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2713,7 +2713,7 @@ The following code example illustrates how page numbers are inserted to the foot
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Opens the Word document.
@@ -2754,7 +2754,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ‘Opens the Word document.
 
@@ -2804,7 +2804,7 @@ The following code example illustrates how to insert a text watermark as a shape
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using word = Microsoft.Office.Interop.Word;
@@ -2873,7 +2873,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2935,7 +2935,7 @@ DocIO enables you to add a text watermark and a picture watermark to a Word docu
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new Word document.
@@ -2968,7 +2968,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ‘Creates a new Word document.
 
@@ -3013,7 +3013,7 @@ The following code example illustrates how to add headers and footers to a Word 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using word = Microsoft.Office.Interop.Word;
@@ -3094,7 +3094,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3170,7 +3170,7 @@ You can set the header and footer by using the HeadersFooters property in the Wo
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Opens a Word document.
@@ -3217,7 +3217,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ‘Opens the Word document.
 
@@ -3272,7 +3272,7 @@ The following code example illustrates how to apply the character formatting to 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using word = Microsoft.Office.Interop.Word
@@ -3331,7 +3331,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3397,7 +3397,7 @@ The following code example illustrates how to insert a table to a Word document,
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using word = Microsoft.Office.Interop.Word;
@@ -3450,7 +3450,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3508,7 +3508,7 @@ The following code example shows how to insert an empty table to a Word document
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new Word document.
@@ -3533,7 +3533,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Word document.
 
@@ -3574,7 +3574,7 @@ The following code example illustrates how to add comments to a Word document. Y
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 using word = Microsoft.Office.Interop.Word;
@@ -3633,7 +3633,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Imports word = Microsoft.Office.Interop.Word
@@ -3694,7 +3694,7 @@ You can insert comments to a paragraph or text in a Word document by using DocIO
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new Word document.
 
@@ -3720,7 +3720,7 @@ doc.Save("Sample.doc", FormatType.Doc);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 ‘Creates a new Word document.
@@ -3761,7 +3761,7 @@ Using Microsoft Office Automation
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Initializes objects.
@@ -3818,7 +3818,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Initializes objects.
@@ -3889,7 +3889,7 @@ DocIO uses ProtectionType property to specify the protection type of the Word do
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the existing Word document by using DocIO instance
 
@@ -3907,7 +3907,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Loads the existing Word document by using DocIO instance
@@ -3947,7 +3947,7 @@ The following code example shows how to insert and update table of contents in a
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Initializes objects.
@@ -4010,7 +4010,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Initializes objects.
@@ -4084,7 +4084,7 @@ The following code example illustrates how to insert and update the table of con
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the existing Word document by using DocIO instance
@@ -4115,7 +4115,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Loads the existing Word document by using DocIO instance
@@ -4259,7 +4259,7 @@ The following code example illustrates how to set title for EPUB when converting
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the existing Word document by using DocIO instance
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
@@ -4271,7 +4271,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the existing Word document by using DocIO instance
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
@@ -4289,7 +4289,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Loads an existing Word document into DocIO instance
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx"), FormatType.Docx))
@@ -4308,13 +4308,13 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
 
@@ -4329,7 +4329,7 @@ The following code example shows how to check whether a Word document contains t
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Gets a flag which denotes whether the Word document has track changes
@@ -4342,7 +4342,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 Dim hasChanges As Boolean = document.HasChanges
@@ -4355,7 +4355,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing word document 
@@ -4377,7 +4377,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing word document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);           
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -4396,7 +4396,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing  word document
@@ -4430,7 +4430,7 @@ The following code example shows how to accept or reject track changes of specif
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
@@ -4450,7 +4450,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
@@ -4470,7 +4470,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing word document 
@@ -4499,7 +4499,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing word document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);           
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -4525,7 +4525,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing  word document
@@ -4564,7 +4564,7 @@ The following code example shows how to enable track changes of the document.
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -4585,7 +4585,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -4606,7 +4606,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -4633,7 +4633,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -4659,7 +4659,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document

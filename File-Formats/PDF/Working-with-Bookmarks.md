@@ -14,7 +14,7 @@ Essential PDF provides support to insert, remove and modify the bookmarks in the
 The [PdfBookmarkBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmarkBase.html) collection represents the bookmarks in a PDF document. You can add a bookmark in a new PDF document using [PdfBookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmark.html) class. Please refer the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new document.
@@ -53,7 +53,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new document.
 
@@ -91,7 +91,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new document.
 
@@ -135,7 +135,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new document.
 
@@ -189,7 +189,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new document.
 
@@ -247,7 +247,7 @@ else
 
 To add bookmarks to an existing PDF document, use the following code example.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Loads the document.
@@ -284,7 +284,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Loads the document.
@@ -319,7 +319,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -373,7 +373,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -425,7 +425,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -482,7 +482,7 @@ else
 You can add a child bookmark by using [Insert](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmarkBase.html#Syncfusion_Pdf_Interactive_PdfBookmarkBase_Insert_System_Int32_System_String_) method. Please refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new document.
 
@@ -532,7 +532,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new document.
 
@@ -580,7 +580,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new document.
 
@@ -634,7 +634,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new document.
 
@@ -698,7 +698,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new document.
 
@@ -769,7 +769,7 @@ When loading an existing document, the Essential PDF loads all bookmarks of the 
 Each loaded bookmark is represented by the [PdfLoadedBookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html) object. The following code example illustrates how to insert new bookmarks in the existing PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a new document.
@@ -798,7 +798,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new document.
 
@@ -824,7 +824,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -870,7 +870,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -914,7 +914,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -963,7 +963,7 @@ else
 You can also remove bookmarks from the existing PDF document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfBookmarkBase.html#Syncfusion_Pdf_Interactive_PdfBookmarkBase_Remove_System_String_) method. Please refer the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PDF document.
 
@@ -991,7 +991,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PDF document.
 
@@ -1019,7 +1019,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -1067,7 +1067,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1113,7 +1113,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -1171,7 +1171,7 @@ Essential PDF allows you to modify the bookmarks in the existing PDF document. T
 The following code example shows how to modify the [Destination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_Destination), [Color](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_Color), [TextStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_TextStyle) and [Title](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedBookmark.html#Syncfusion_Pdf_Interactive_PdfLoadedBookmark_Title) of an existing bookmark collection.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PDF document.
 
@@ -1203,7 +1203,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PDF document.
 
@@ -1237,7 +1237,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -1289,7 +1289,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1339,7 +1339,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -1392,7 +1392,7 @@ else
 ## Bookmark page index in an existing PDF document
 You can get bookmark page index from the existing PDF document as shown in the following code snippet.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document.
 
@@ -1416,7 +1416,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document.
 
@@ -1438,7 +1438,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -1482,7 +1482,7 @@ MemoryStream stream = new MemoryStream();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document.
 
@@ -1526,7 +1526,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream 
 

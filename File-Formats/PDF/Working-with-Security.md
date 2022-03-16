@@ -21,7 +21,7 @@ User password: Prevents people from opening or viewing a PDF document. Once the 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -57,7 +57,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -93,7 +93,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -137,7 +137,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -191,7 +191,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -255,7 +255,7 @@ Owner password: Sets PDF document restrictions, which can include printing, cont
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -297,7 +297,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -339,7 +339,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -389,7 +389,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -450,7 +450,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -517,7 +517,7 @@ You can encrypt PDF document using AES algorithm with 40bit or 128bit or 256bit 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -553,7 +553,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -589,7 +589,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -633,7 +633,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -687,7 +687,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -746,7 +746,7 @@ You can protect the PDF document from printing, editing, copying with the [Owner
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
 
@@ -788,7 +788,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document.
 
@@ -830,7 +830,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 
@@ -880,7 +880,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
 
@@ -940,7 +940,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
 
@@ -1019,7 +1019,7 @@ You can encrypt all the PDF content by using the EncryptAllContents option avail
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -1059,7 +1059,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -1099,7 +1099,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -1147,7 +1147,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -1203,7 +1203,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -1270,7 +1270,7 @@ N> Encrypt all contents except metadata  is only supported in AES algorithms wit
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -1310,7 +1310,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
 
@@ -1350,7 +1350,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
 
@@ -1398,7 +1398,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -1454,7 +1454,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -1523,7 +1523,7 @@ N> [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Sec
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
 
@@ -1577,7 +1577,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
         
@@ -1631,7 +1631,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
            
@@ -1693,7 +1693,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
 
@@ -1763,7 +1763,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -1851,7 +1851,7 @@ The following code example explains how to load an encrypt-only-attachment docum
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document 
 
@@ -1874,7 +1874,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document 
 
@@ -1898,7 +1898,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream 
 
@@ -1925,7 +1925,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document 
              
@@ -1950,7 +1950,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PDF document as stream 
 
@@ -1985,7 +1985,7 @@ The following code example illustrates how to provide the password when accessin
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document 
 
@@ -2017,7 +2017,7 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document 
          
@@ -2054,7 +2054,7 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream 
 
@@ -2091,7 +2091,7 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document 
 
@@ -2123,7 +2123,7 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the PDF document as stream 
 
@@ -2169,7 +2169,7 @@ N> [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Sec
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document 
 
@@ -2203,7 +2203,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document 
              
@@ -2237,7 +2237,7 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream 
 
@@ -2281,7 +2281,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document 
 
@@ -2332,7 +2332,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
  
 //Load the PDF document as stream 
 
@@ -2391,7 +2391,7 @@ You can protect an existing PDF document with both [UserPassword](https://help.s
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
 
@@ -2423,7 +2423,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing document.
 
@@ -2455,7 +2455,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream
 
@@ -2497,7 +2497,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2547,7 +2547,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -2604,7 +2604,7 @@ You can change the [UserPassword](https://help.syncfusion.com/cr/file-formats/Sy
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the password protected PDF document
 
@@ -2622,7 +2622,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the password protected PDF document
 
@@ -2640,7 +2640,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream
 
@@ -2670,7 +2670,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2708,7 +2708,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -2753,7 +2753,7 @@ You can change the permission of the PDF document using the [Permissions](https:
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the password protected PDF document
 
@@ -2771,7 +2771,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the password protected PDF document
 
@@ -2789,7 +2789,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream
 
@@ -2819,7 +2819,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -2857,7 +2857,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -2903,7 +2903,7 @@ You can remove the [UserPassword](https://help.syncfusion.com/cr/file-formats/Sy
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the password protected PDF document
 
@@ -2921,7 +2921,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the password protected PDF document
 
@@ -2939,7 +2939,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Load the PDF document as stream
 
@@ -2969,7 +2969,7 @@ Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -3007,7 +3007,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -3051,7 +3051,7 @@ You can determine whether the existing PDF document is password protected or not
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 try
 {
@@ -3068,7 +3068,7 @@ catch (PdfDocumentException exception)
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Try
 	'Load the password protected PDF document without user password
@@ -3081,7 +3081,7 @@ End Try
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 try
 {
@@ -3102,7 +3102,7 @@ catch (PdfDocumentException exception)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 try
 
@@ -3122,7 +3122,7 @@ catch (PdfDocumentException exception)
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 try
 {
