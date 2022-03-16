@@ -1517,7 +1517,7 @@ Returns the number of areas in a reference<br/><br/></td></tr>
 <tr>
 <td>
 ARRAYTOTEXT<br/><br/></td><td>
-Returns the text representation of an array. Calculating the formula result in XlsIO is not supported.<br/><br/></td></tr>
+Returns the text representation of an array. Calculating this formula result is not supported in XlsIO<br/><br/></td></tr>
 <tr>
 <td>
 ASC<br/><br/></td><td>
@@ -2105,7 +2105,7 @@ Returns the number of characters in a text string<br/><br/></td></tr>
 <tr>
 <td>
 LET<br/><br/></td><td>
-Returns the result of a formula that can use variables. Calculating the formula result in XlsIO is not supported.<br/><br/></td></tr>
+Returns the result of a formula that can use variables. Calculating this formula result is not supported in XlsIO<br/><br/></td></tr>
 <tr>
 <td>
 LN<br/><br/></td><td>
@@ -2593,7 +2593,7 @@ Converts a text argument to a number<br/><br/></td></tr>
 <tr>
 <td>
 VALUETOTEXT<br/><br/></td><td>
-Returns the text from any specified value. Calculating the formula result in XlsIO is not supported.<br/><br/></td></tr>
+Returns the text from any specified value. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
 <tr>
 <td>
 VAR<br/><br/></td><td>
@@ -2641,11 +2641,11 @@ Returns the internal rate of return for a schedule of cash flows that is not nec
 <tr>
 <td>
 XLOOKUP<br/><br/></td><td>
-Returns the value Corresponding to the first match it finds else returns the next approximate match. Calculating the formula result in XlsIO is not supported.<br/><br/></td></tr>
+Returns the value Corresponding to the first match it finds else returns the next approximate match. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
 <tr>
 <td>
 XMATCH<br/><br/></td><td>
-Returns the position of a value in a list, table or cell range. Calculating the formula result in XlsIO is not supported.<br/><br/></td></tr>
+Returns the position of a value in a list, table or cell range. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
 <tr>
 <td>
 YEAR<br/><br/></td><td>
