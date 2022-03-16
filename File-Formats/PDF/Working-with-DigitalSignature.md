@@ -6193,7 +6193,7 @@ return signedBytes;
 
 ## Drawing text/image in the Signature Appearance
 
-The following code example illustrates how to draw text/image in a digital appearance as follows.
+The following code example illustrates how to draw text/images in a digital appearance as follows:
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -6233,29 +6233,29 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Creates a new PDF document
+'Create a new PDF document.
 
 Dim document As New PdfDocument()
 
-'Adds a new page
+'Add a new page.
 
 Dim page As PdfPageBase = document.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-'Creates a certificate instance from PFX file with private key
+'Create a certificate instance from a PFX file with a private key.
 
 Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
-'Creates a digital signature
+'Create a digital signature.
 
 Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
 
-'Sets an image for signature field
+'Set an image for signature field.
 
 Dim signatureImage As New PdfBitmap("signature.jpg")
 
-'Sets signature info
+'Set the signature information.
 
 signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
 
@@ -6265,10 +6265,10 @@ signature.LocationInfo = "Honolulu, Hawaii"
 
 signature.Reason = "I am author of this document."
 
-'Create appearance for the digital siganture.
+'Create appearance for the digital signature.
 signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
 
-'Saves and closes the document
+'Save and close the document.
 
 document.Save("Output.pdf")
 
@@ -6278,33 +6278,33 @@ document.Close(True)
 
 {% highlight c# tabtitle="UWP" %}
 
-//Creates a new PDF document
+//Create a new PDF document.
 
 PdfDocument document = new PdfDocument();
 
-//Adds a new page
+//Add a new page.
 
 PdfPageBase page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Creates a certificate instance from PFX file with private key
+//Create a certificate instance from a PFX file with a private key.
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
-//Creates a digital signature
+//Create a digital signature.
 
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
-//Sets an image for signature field
+//Set an image for signature field.
 
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.signature.jpg");
 
 PdfBitmap signatureImage = new PdfBitmap(imageStream);
 
-//Sets signature information
+//Set the signature information.
 
 signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
 
@@ -6314,21 +6314,21 @@ signature.LocationInfo = "Honolulu, Hawaii";
 
 signature.Reason = "I am author of this document.";
 
-//Create appearance for the digital siganture
+//Create appearance for the digital signature.
 
 signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
 
-//Save the PDF document to stream
+//Save the PDF document to stream.
 
 MemoryStream stream = new MemoryStream();
 
 await document.SaveAsync(stream);
 
-//Close the document
+//Close the document.
 
 document.Close(true);                                                                   
 
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+//Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for the respective code samples.
 
 Save(stream, "Output.pdf");
 
@@ -6336,35 +6336,35 @@ Save(stream, "Output.pdf");
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Creates a new PDF document
+//Create a new PDF document.
 
 PdfDocument document = new PdfDocument();
 
-//Adds a new page
+//Add a new page.
 
 PdfPageBase page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Creates a certificate instance from PFX file with private key
+//Create a certificate instance from a PFX file with a private key.
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
 PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
-//Creates a digital signature
+//Create a digital signature.
 
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
-//Sets an image for signature field
+//Set an image for signature field.
 
 FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
 
-//Sets an image for signature field
+//Set an image for signature field.
 
 PdfBitmap signatureImage = new PdfBitmap(imageStream);
 
-//Sets signature information
+//Set the signature information.
 
 signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
 
@@ -6374,11 +6374,11 @@ signature.LocationInfo = "Honolulu, Hawaii";
 
 signature.Reason = "I am author of this document.";
 
-//Create appearance for the digital siganture
+//Create appearance for the digital signature.
 
 signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
 
-//Save the document into stream
+//Save the document into stream.
 
 MemoryStream stream = new MemoryStream();
 
@@ -6386,19 +6386,19 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents
+//Close the document.
 
 document.Close(true);
 
-//Defining the ContentType for pdf file
+//Define the ContentType for pdf file.
 
 string contentType = "application/pdf";
 
-//Define the file name
+//Define the file name.
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name
+//Create a FileContentResult object by using the file contents, content type, and file name.
 
 return File(stream, contentType, fileName);
 
@@ -6406,33 +6406,33 @@ return File(stream, contentType, fileName);
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Creates a new PDF document
+//Create a new PDF document.
 
 PdfDocument document = new PdfDocument();
 
-//Adds a new page
+//Add a new page.
 
 PdfPageBase page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Creates a certificate instance from PFX file with private key
+//Create a certificate instance from a PFX file with a private key.
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
 PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
-//Creates a digital signature
+//Create a digital signature.
 
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
-//Sets an image for signature field
+//Set an image for signature field.
 
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
 
 PdfBitmap signatureImage = new PdfBitmap(imageStream);
 
-//Sets signature information
+//Set the signature information.
 
 signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
 
@@ -6442,23 +6442,23 @@ signature.LocationInfo = "Honolulu, Hawaii";
 
 signature.Reason = "I am author of this document.";
 
-//Create appearance for the digital siganture
+//Create appearance for the digital signature.
 
 signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
 
-//Save the PDF document to stream
+//Save the PDF document to stream.
 
 MemoryStream stream = new MemoryStream();
 
 document.Save(stream);
 
-//Closes the document
+//Close the document.
 
 document.Close(true);
 
-//Save the stream into PDF file
+//Save the stream into PDF file.
 
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+//The operation of Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
