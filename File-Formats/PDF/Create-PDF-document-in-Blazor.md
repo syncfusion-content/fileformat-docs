@@ -54,7 +54,7 @@ Add the following method in the ``ExportService`` class
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Export weather data to PDF document.
-public MemoryStream CreatePdf(WeatherForecast[] forecasts)
+public static MemoryStream CreatePdf(WeatherForecast[] forecasts)
 {
     if (forecasts == null)
     {
@@ -157,7 +157,7 @@ Add the ``ExportToPdf`` method in ``FetchData.razor`` page to call the export se
 
     protected async Task ExportToPdf()
     {
-        using (MemoryStream excelStream = PDFExportService.CreatePdf(forecasts))
+        using (MemoryStream excelStream = ExportService.CreatePdf(forecasts))
         {
             await JS.SaveAs("Sample.pdf", excelStream.ToArray());
         }
