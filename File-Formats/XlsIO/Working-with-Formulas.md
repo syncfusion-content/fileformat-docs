@@ -2641,7 +2641,7 @@ Returns the internal rate of return for a schedule of cash flows that is not nec
 <tr>
 <td>
 XLOOKUP<br/><br/></td><td>
-Returns the value Corresponding to the first match it finds else returns the next approximate match. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
+Returns the value corresponding to the first match it finds else returns the next approximate match. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
 <tr>
 <td>
 XMATCH<br/><br/></td><td>
