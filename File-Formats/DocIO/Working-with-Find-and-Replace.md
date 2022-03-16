@@ -1,5 +1,5 @@
 ---
-title: Working with Find and Replace in File Formats Word Library| Syncfusion
+title: Find and Replace in Document processing Word Library| Syncfusion
 description: This section illustrates how to find a particular text and replace it with another text or part of the document
 platform: file-formats
 control: DocIO

@@ -1,5 +1,5 @@
 ---
-title: Working with Word document in File Formats Word Library | Syncfusion
+title: Word document in Document processing Word Library | Syncfusion
 description: Learn about combining multiple Word documents as one, printing Word document, applying styles, document properties, & iterating through DOM elements
 platform: file-formats
 control: DocIO
