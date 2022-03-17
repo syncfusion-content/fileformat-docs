@@ -137,4 +137,12 @@ You have enabled controlled folder access settings on your computer.
 
 ### Suggested solution
 
-Select a different location to install or deactivate your machine's controlled folder access settings, and then try installing.
+**Suggestion 1:**
+
+1.	We will ship our demos in the public documents folder by default. 
+2.	You have controlled folder access enabled on your machine, so our demos cannot be installed in the documents folder. If you need to install our demos in the Documents folder, follow the steps in this [link](https://support.microsoft.com/en-us/windows/allow-an-app-to-access-controlled-folders-b5b6627a-b008-2ca2-7931-7e51e912b034) and disable the controlled folder access.
+3.	You can enable this option after the installing our Syncfusion setup.
+
+**Suggestion 2:**
+
+1.	If you do not want to disable controlled folder access, you can install our demos in another directory.
