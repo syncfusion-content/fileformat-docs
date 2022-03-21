@@ -14,6 +14,7 @@ Qt WebKit rendering is accurate, and the result preserves all the graphics, imag
 
 It does not require external dependencies like browsers, printer drivers, or viewers.
 
+N> * Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, include a license key in your projects. Refer to link to learn how to generate and register a Syncfusion license key in your application to use the components without trail message.
 
 ## Prerequisites for Windows
 
