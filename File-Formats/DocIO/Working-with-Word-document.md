@@ -3327,7 +3327,7 @@ You can save the resultant document as a Word document (DOCX, WordML, DOC), PDF,
 The following code example illustrates how to split the Word document by sections.
 
 {% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# %}
 
 //Load the template document
 using (WordDocument document = new WordDocument(@"Template.docx"))
@@ -3348,7 +3348,7 @@ using (WordDocument document = new WordDocument(@"Template.docx"))
 }
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net %}
 
 'Load the template document
 Using document As WordDocument = New WordDocument("Template.docx")
@@ -3368,7 +3368,7 @@ End Using
 
 
 {% endhighlight %}
-{% highlight c# tabtitle="UWP" %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3397,7 +3397,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 }
 
 {% endhighlight %}
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight ASP.NET CORE %}
 
 FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Load the template document as stream
@@ -3424,7 +3424,7 @@ using(WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 
 
 {% endhighlight %}
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight XAMARIN %}
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -3460,7 +3460,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 The following code example illustrates how to split the Word document by using headings.
 
 {% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# %}
 
 //Load the template document
 using (WordDocument doc = new WordDocument(@"Template.docx"))
@@ -3549,7 +3549,7 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
 }
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net %}
 
 'Load the template document
 Using doc As WordDocument = New WordDocument("Template.docx")
@@ -3618,7 +3618,7 @@ Private Sub SaveWordDocument(ByVal newDocument As WordDocument, ByVal fileName A
 End Sub
 		
 {% endhighlight %}
-{% highlight c# tabtitle="UWP" %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3712,7 +3712,7 @@ private async void SaveWordDocument(WordDocument newDocument, string fileName)
 
 
 {% endhighlight %}
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight ASP.NET CORE %}
 
 using (FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -3806,7 +3806,7 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
 }
 
 {% endhighlight %}
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight XAMARIN %}
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("XamarinAPp.Data.Adventure.docx");
@@ -3908,7 +3908,7 @@ private void SaveWordDocument(WordDocument newDocument, string fileName)
 The following code example illustrates how to split the Word document using bookmarks.
 
 {% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -3935,7 +3935,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net %}
 'Load an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Create a bookmark navigator instance to access the bookmark.
@@ -3961,7 +3961,7 @@ Using document As WordDocument = New WordDocument("Template.docx", FormatType.Do
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
+{% highlight UWP %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -3995,7 +3995,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight ASP.NET CORE %}
 //Load an existing Word document.
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -4025,7 +4025,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight XAMARIN %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from the file system through the constructor of WordDocument class.
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Template.docx")), FormatType.Docx))
@@ -4063,7 +4063,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 The following code example illustrates how to split the Word document using the placeholder text.
 
 {% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# %}
 //Load an existing Word document into DocIO instance.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -4093,7 +4093,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net %}
 'Load an existing Word document into DocIO instance.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     Dim findPlaceHolderWord As String() = New String() {"[First Content Start]", "[Second Content Start]", "[Third Content Start]"}
@@ -4122,7 +4122,7 @@ Using document As WordDocument = New WordDocument("Template.docx", FormatType.Do
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
+{% highlight UWP %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -4159,7 +4159,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight ASP.NET CORE %}
 //Load an existing Word document.
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -4192,7 +4192,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight XAMARIN %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp.Assets.Template.docx");
