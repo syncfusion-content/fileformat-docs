@@ -1,12 +1,12 @@
 ---
-title: Working with WinRT
-description: Create a WinRT application and load the document
+title: Working with Word document with WinRT using Syncfusion Word library
+description: Create a WinRT application , load the Word document and save the Word document with Syncfusion Word library
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Working with WinRT
+# Working with Word document in WinRT
 
 In your WinRT application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
 
@@ -18,7 +18,7 @@ The following code example illustrates how to load the Word document by using st
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the Word document as stream
 
@@ -51,7 +51,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the Word document as stream
 
@@ -89,7 +89,7 @@ The following code example illustrates how to load the Word document by using fi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //create the file open picker
 
@@ -130,7 +130,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'create the file open picker
 
@@ -178,7 +178,7 @@ The following code example illustrates how to save the Word document in WinRT by
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates an empty Word document instance
 
@@ -248,7 +248,7 @@ fileStream.Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Creates an empty Word document instance
 

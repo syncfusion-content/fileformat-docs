@@ -12,7 +12,7 @@ You can compress the file using Syncfusion.Compression.Zip namespace. The follow
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.Compression.Zip;
 
 ZipArchive zipArchive = new Syncfusion.Compression.Zip.ZipArchive();
@@ -33,7 +33,7 @@ zipArchive.Close();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.Compression.Zip
 
 Dim zipArchive As ZipArchive = New Syncfusion.Compression.Zip.ZipArchive()
@@ -64,7 +64,7 @@ The following code snippet illustrate how to add the file from the local drive.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 string fileName = @"SampleFile.cs";
 
 ZipArchive zipArchive = new Syncfusion.Compression.Zip.ZipArchive();
@@ -87,7 +87,7 @@ zipArchive.Close();
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim fileName As String = "SampleFile.cs"
 
 Dim zipArchive As ZipArchive = New Syncfusion.Compression.Zip.ZipArchive()

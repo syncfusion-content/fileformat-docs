@@ -81,7 +81,7 @@ To convert the HTTP or HTTPS website to PDF, use the following the code snippet.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter 
 
@@ -99,7 +99,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 
@@ -135,7 +135,7 @@ For example, if the above image is in <i>“C:\Temp\HTMLFiles\syncfusion_logo.gi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter 
 
@@ -159,7 +159,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 
@@ -202,7 +202,7 @@ The webpage you want to convert may protected with windows authentication. IE re
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter 
 
@@ -230,7 +230,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 
@@ -266,7 +266,7 @@ IE HTML to PDF converter provides support for converting the web pages to PDF wi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter
 
@@ -294,7 +294,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter() 

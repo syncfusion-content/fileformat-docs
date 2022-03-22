@@ -22,7 +22,7 @@ The following code illustrates how to convert an Excel workbook to the JSON file
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -45,7 +45,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -66,7 +66,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAsJson(stream1, true)
 End Using
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -133,7 +133,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -155,7 +155,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -189,13 +189,15 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert Excel to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Workbook%20to%20JSON%20with%20Schema). 
+
 ## Workbook to JSON without schema
 
 The following code illustrates how to convert an Excel workbook to the JSON file or JSON file stream without schema.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -211,7 +213,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -225,7 +227,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAsJson(stream, false)
 End Using
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -291,7 +293,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -308,7 +310,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -342,13 +344,15 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert Excel to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Workbook%20to%20JSON%20without%20Schema). 
+
 ## Worksheet to JSON as schema
 
 The following code illustrates how to convert an Excel worksheet to the JSON file or JSON file stream with schema.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -374,7 +378,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -398,7 +402,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAsJson(stream1, worksheet, true)
 End Using
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -462,7 +466,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -484,7 +488,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -518,13 +522,15 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert Excel worksheet to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Worksheet%20to%20JSON%20with%20Schema). 
+
 ## Worksheet to JSON without schema
 
 The following code illustrates how to convert an Excel worksheet to the JSON file or file stream without schema.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -543,7 +549,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -560,7 +566,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAsJson(stream, worksheet, false)
 End Using
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -626,7 +632,7 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -642,7 +648,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -676,13 +682,15 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert Excel worksheet to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Worksheet%20to%20JSON%20without%20Schema). 
+
 ## Range to JSON as schema
 
 The following code illustrates how to convert an Excel Custom Range to the JSON file or file stream as schema.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -711,7 +719,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -738,7 +746,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAsJson(stream1, range, true)
 End Using
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -805,7 +813,7 @@ async void Save(Stream stream, string filename)
 #endregion
 
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -830,7 +838,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -866,13 +874,15 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to convert range to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Range%20to%20JSON%20with%20Schema). 
+
 ## Range to JSON without schema
 
 The following code illustrates how to convert an Excel Custom Range to the JSON file or JSON file stream without schema.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -894,7 +904,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -914,7 +924,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAsJson(stream, range, false)
 End Using
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Gets assembly
@@ -981,7 +991,7 @@ async void Save(Stream stream, string filename)
 #endregion
 
 {% endhighlight %}
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1000,7 +1010,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1035,3 +1045,5 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to convert range to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Range%20to%20JSON%20without%20Schema). 

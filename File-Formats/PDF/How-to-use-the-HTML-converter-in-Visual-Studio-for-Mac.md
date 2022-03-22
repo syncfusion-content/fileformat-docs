@@ -35,7 +35,7 @@ Copy the QtBinariesMac folder from the installed HtmlToPdfConverter package and 
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
@@ -62,7 +62,7 @@ Html.EndForm();
 
 Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //To get content root path of the project
 private readonly IHostingEnvironment _hostingEnvironment;

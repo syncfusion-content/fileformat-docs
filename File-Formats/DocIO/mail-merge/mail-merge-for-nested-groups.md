@@ -30,7 +30,7 @@ The following code example shows how to perform a nested Mail merge.
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets the data from the database
@@ -45,7 +45,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Gets the data from the database
@@ -60,15 +60,15 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //OleDbConnection not supported in UWP platform.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //OleDbConnection supported in ASP.NET Core platform from 3.0 Preview 8 only.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //OleDbConnection not supported in Xamarin platform.
 {% endhighlight %}
 
@@ -77,7 +77,7 @@ document.Close()
 The following code example shows GetCommands method which is used to get data for mail merge.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private ArrayList GetCommands()
 {
 	//ArrayList contains the list of commands
@@ -94,7 +94,7 @@ private ArrayList GetCommands()
 	return commands;
 }
 {% endhighlight %}
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetCommands() As ArrayList
 	'ArrayList contains the list of commands
 	Dim commands As New ArrayList()
@@ -110,15 +110,15 @@ Private Function GetCommands() As ArrayList
 	Return commands
 End Function
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //OleDbConnection not supported in UWP platform.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //OleDbConnection supported in ASP.NET Core platform from 3.0 Preview 8 only.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //OleDbConnection not supported in Xamarin platform.
 {% endhighlight %}
 {% endtabs %}
@@ -135,7 +135,7 @@ The following code snippet shows how to perform the Mail merge with dynamic obje
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates an instance of the MailMergeDataSet
@@ -159,7 +159,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Creates an instance of the MailMergeDataSet
@@ -183,7 +183,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
 document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -215,7 +215,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -245,7 +245,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
 //You can use IDictionary<string, object> collection to generate dynamic objects.
 
@@ -257,7 +257,7 @@ The following code example shows GetCustomers and GetOrders methods which are us
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private List<ExpandoObject> GetCustomers()
 {
 	List<ExpandoObject> customers = new List<ExpandoObject>();
@@ -276,7 +276,7 @@ private List<ExpandoObject> GetOrders()
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetCustomers() As List(Of ExpandoObject)
 	Dim customers As New List(Of ExpandoObject)()
 	customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"))
@@ -294,7 +294,7 @@ End Function
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private List<ExpandoObject> GetCustomers()
 {
 	List<ExpandoObject> customers = new List<ExpandoObject>();
@@ -314,7 +314,7 @@ private List<ExpandoObject> GetOrders()
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private List<ExpandoObject> GetCustomers()
 {
 	List<ExpandoObject> customers = new List<ExpandoObject>();
@@ -334,7 +334,7 @@ private List<ExpandoObject> GetOrders()
 
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
 //You can use IDictionary<string, object> collection to generate dynamic objects.
 {% endhighlight %}
@@ -344,7 +344,7 @@ private List<ExpandoObject> GetOrders()
 The following code example shows GetDynamicCustomer and GetDynamicOrder methods, which are used to generate dynamic objects for mail merge.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
 	dynamic dynamicCustomer = new ExpandoObject();
@@ -363,7 +363,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetDynamicCustomer(customerID As Integer, customerName As String, companyName As String) As Object
 	Dim dynamicCustomer As Object = New ExpandoObject()
 	dynamicCustomer.CustomerID = customerID
@@ -380,7 +380,7 @@ Private Function GetDynamicOrder(orderID As Integer, orderName As String, custom
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
 	dynamic dynamicCustomer = new ExpandoObject();
@@ -399,7 +399,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
 	dynamic dynamicCustomer = new ExpandoObject();
@@ -418,7 +418,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
 //You can use IDictionary<string, object> collection to generate dynamic objects.
 {% endhighlight %}
@@ -445,7 +445,7 @@ In the above template, Organizations is the owner group and it has two child gro
 The following code example shows how to perform nested Mail merge with the implicit relational data objects.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument(@"Template.docx");
 //Gets the organization details as “IEnumerable” collection
@@ -458,7 +458,7 @@ document.MailMerge.ExecuteNestedGroup(dataTable);
 document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Gets the organization details as “IEnumerable” collection
@@ -472,7 +472,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens the template document
 WordDocument document = new WordDocument();
@@ -495,7 +495,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -514,7 +514,7 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -541,7 +541,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 The following code example shows GetOrganizations method which is used to get data for mail merge.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 public static List<Organization> GetOrganizations()
 {
     //Creates Employee details
@@ -562,7 +562,7 @@ public static List<Organization> GetOrganizations()
     return organizations;
 }
 {% endhighlight %}
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Function GetOrganizations() As List(Of Organization)
     'Creates Employee details
     Dim employees As List(Of EmployeeDetails) = New List(Of EmployeeDetails)
@@ -583,7 +583,7 @@ Public Function GetOrganizations() As List(Of Organization)
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public static List<Organization> GetOrganizations()
 {
     //Creates Employee details
@@ -604,7 +604,7 @@ public static List<Organization> GetOrganizations()
     return organizations;
 }
 {% endhighlight %}
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public static List<Organization> GetOrganizations()
 {
     //Creates Employee details
@@ -625,7 +625,7 @@ public static List<Organization> GetOrganizations()
     return organizations;
 }
 {% endhighlight %}
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public static List<Organization> GetOrganizations()
 {
     //Creates Employee details
@@ -651,7 +651,7 @@ public static List<Organization> GetOrganizations()
 The following code example shows Organization, DepartmentDetails, and EmployeeDetails classes.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 public class Organization
 {
     public string BranchName { get; set; }
@@ -698,7 +698,7 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Class Organization
     Public Property BranchName() As String
     Public Property Address() As String
@@ -739,7 +739,7 @@ Public Class EmployeeDetails
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public class Organization
 {
     public string BranchName { get; set; }
@@ -786,7 +786,7 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public class Organization
 {
     public string BranchName { get; set; }
@@ -833,7 +833,7 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public class Organization
 {
     public string BranchName { get; set; }

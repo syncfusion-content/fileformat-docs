@@ -23,7 +23,7 @@ XlsIO provides the ability to import data into a worksheet from the following da
 The following code snippet illustrates on how to import a DataTable into a worksheet using **ImportDataTable** method.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -40,7 +40,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -56,11 +56,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports importing of data from data table to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -80,17 +80,19 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports importing of data from data table to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to import data from DataTable to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataTable%20to%20Worksheet).  
 
 ### Import Data from DataColumn
 
 The following code snippet illustrates how to import DataColumn into a worksheet using **ImportDataColumn** method.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -108,7 +110,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -125,11 +127,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports importing data column to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -150,17 +152,19 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports importing data column to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
+
+A complete working example to import data from DataColumn to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataColumn%20to%20Worksheet).  
 
 ### Import Data from DataView
 
 The following code snippet illustrates how to import DataView into a worksheet using **ImportDataView** method.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -178,7 +182,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -195,11 +199,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports importing data view to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -220,17 +224,19 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports importing data view to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example to import data from DataView to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataView%20to%20Worksheet).   
 
 ### Import Data from Collection Objects
 
 Essential XlsIO allows you to import data directly from Collection Objects as shown below.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -246,7 +252,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -261,7 +267,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -287,7 +293,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -306,7 +312,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -346,7 +352,7 @@ The following code snippet provides supporting class for the above code. Here, t
 * [BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8) - to skip a property while importing.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -377,7 +383,7 @@ public class Customer
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of sales reports
 Public Function GetSalesReports() As List(Of Customer)
   Dim reports As New List(Of Customer)()
@@ -432,7 +438,7 @@ Public Class Customer
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -463,7 +469,7 @@ public class Customer
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -494,7 +500,7 @@ public class Customer
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -526,6 +532,8 @@ public class Customer
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to import data from Collection Objects to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/CollectionObjects%20to%20Worksheet).   
+
 ### Import Data Options
 
 ExcelImportDataOptions is a support class for ImportData() method which contains various properties to import data with formatting. 
@@ -540,7 +548,7 @@ PreserveTypes - Indicates whether XlsIO should preserve column types from Data. 
 The following code snippet illustrates how to import collection objects into a worksheet using ImportData method with ExcelImportDataOptions class.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -563,7 +571,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -585,7 +593,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -618,7 +626,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -644,7 +652,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -688,7 +696,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code snippet provides supporting class for the above code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -717,7 +725,7 @@ public class Customer
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of sales reports
 Public Function GetSalesReports() As List(Of Customer)
   Dim reports As New List(Of Customer)()
@@ -770,7 +778,7 @@ Public Class Customer
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -799,7 +807,7 @@ public class Customer
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -828,7 +836,7 @@ public class Customer
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
@@ -858,6 +866,8 @@ public class Customer
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to import data to Excel worksheet with import data options in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20Data%20Options).
+
 ### Import Data from Nested Collection Objects
 
 Import hierarchical data from nested collections to Excel worksheet helps the user to analyze data in its structure. XlsIO provides more flexible options to analyze such data by importing in different layouts and grouping the imported data.
@@ -884,7 +894,7 @@ This option adds the property value once per object for the corresponding record
 The following code snippet illustrates how to import data directly from nested collection objects with default layout option. The input XML file used in the code can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ExportData831552872.zip).
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1093,7 +1103,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Imports System.Collections.Generic
 Imports System.ComponentModel
@@ -1298,7 +1308,7 @@ End Namespace
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1520,7 +1530,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1733,7 +1743,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1957,6 +1967,8 @@ namespace ImportFromNestedCollection
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to import data to Excel worksheet with layout option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Layout%20Options).
+
 The following screenshot represents the output document with Default layout option.
 
 ![Output document with Default layout option](Working-with-Data_images/Working-with-Data_img1.png)
@@ -1968,23 +1980,23 @@ This option merges the cells in the column for each object while importing.
 The following code snippet helps to import data with merged cells.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 {% endtabs %}
@@ -2000,23 +2012,23 @@ This option repeats the parent records imported in all the rows.
 The following code snippet helps to import data with repeated rows.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 {% endtabs %}
@@ -2041,7 +2053,7 @@ In addition, `CollapseLevel` will group and collapse the mentioned level, upto t
 The following code snippet illustrates how to import data directly from nested collection objects with collapse group option.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -2257,7 +2269,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Imports System.Collections.Generic
 Imports System.ComponentModel
@@ -2470,7 +2482,7 @@ End Namespace
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -2699,7 +2711,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -2919,7 +2931,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -3150,6 +3162,8 @@ namespace ImportFromNestedCollection
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to import data to Excel worksheet with grouping option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Grouping%20Options).
+
 The following screenshot represents the output document of Grouped data imported from nested collection and collapsed at level 2.
 
 ![Grouped data imported from nested collection and collapsed at level 2](Working-with-Data_images/Working-with-Data_img4.png)
@@ -3159,7 +3173,7 @@ The following screenshot represents the output document of Grouped data imported
 Essential XlsIO allows you to import images, data with URLs, and data with mail IDs as hyperlinks from various data sources binded in Collection Objects as shown below
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3175,7 +3189,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3190,7 +3204,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3216,7 +3230,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3235,7 +3249,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3272,7 +3286,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
@@ -3332,7 +3346,7 @@ public class Company
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of company details
 Private Function GetCompanyDetails() As List(Of Company)
     Dim companyList As List(Of Company) = New List(Of Company)()
@@ -3386,7 +3400,7 @@ End Class
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
@@ -3445,7 +3459,7 @@ public class Company
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
@@ -3504,7 +3518,7 @@ public class Company
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
@@ -3564,12 +3578,14 @@ public class Company
 {% endhighlight %}
 {% endtabs %} 
 
+A complete working example to import data from collection objects with hyperlink to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20with%20Hyperlink).
+
 ### Import Data from Array
 
 The following code snippet shows how to import array of data into a worksheet using **ImportArray** method.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3586,7 +3602,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3602,7 +3618,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3629,7 +3645,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3649,7 +3665,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3684,6 +3700,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to import data from array to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Array%20to%20Worksheet).
+
 ## Exporting from Worksheet to Data Table 
 
 XlsIO allows to export the sheet data to a **DataTable** by using the **ExportDataTable****()** method. This method provides various options that allows to export data with specific requirement through ExcelExportDataTableOptions. 
@@ -3691,7 +3709,7 @@ XlsIO allows to export the sheet data to a **DataTable** by using the **ExportDa
 The following code snippet illustrates on how to export data from worksheet to Data grid using **DataTable**.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3711,7 +3729,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -3730,11 +3748,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3755,7 +3773,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 //XlsIO supports binding of exported data table to data grid in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -3792,6 +3810,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example to export data from Excel worksheet to DataTable in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20DataTable).
+
 ### Export to Data Table with an Event
 
 Sometimes there may be a need to control the data export from Excel to a data table. XlsIO provides an event **ExportDataTableEvent** to trigger while exporting data from an Excel worksheet to a data table. This event helps to perform the following actions through the **ExportDataTableActions** enumeration.
@@ -3803,7 +3823,7 @@ Sometimes there may be a need to control the data export from Excel to a data ta
 The following code snippet illustrates how to export data from an Excel worksheet to a data table by triggering an event.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -3824,7 +3844,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2016
@@ -3844,11 +3864,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (NETStandard2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -3872,7 +3892,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 //XlsIO supports binding of exported data table to data grid in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -3915,7 +3935,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code is the event handler for the above code.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
 {
    if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
@@ -3932,7 +3952,7 @@ private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ExportDataTable_EventAction(ByVal e As ExportDataTableEventArgs)
     If e.ExcelValue IsNot Nothing AndAlso e.ExcelValue.ToString() = "Owner" Then 
 	  e.ExportDataTableAction = ExportDataTableActions.SkipRow
@@ -3948,11 +3968,11 @@ Private Sub ExportDataTable_EventAction(ByVal e As ExportDataTableEventArgs)
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (NETStandard2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
 {
    if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
@@ -3969,7 +3989,7 @@ private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
 {
    if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
@@ -3994,7 +4014,7 @@ XlsIO allows to export the sheet data to a **Collection Objects** by using the *
 The following code snippet illustrates on how to export worksheet data into Collection Objects using **ExportData&lt;T&gt;**.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4009,7 +4029,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4023,7 +4043,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4057,7 +4077,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4076,7 +4096,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4119,7 +4139,7 @@ The following code snippet provides supporting class for the above code. Here, t
 * [BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8) - to skip a property while exporting.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
@@ -4135,7 +4155,7 @@ public class Report
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Class Report
   Private m_SalesPerson As String
   Private m_SalesJanJun As String	
@@ -4172,7 +4192,7 @@ Public Class Report
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
@@ -4188,7 +4208,7 @@ public class Report
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
@@ -4204,7 +4224,7 @@ public class Report
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
@@ -4221,6 +4241,8 @@ public class Report
 {% endhighlight %}
 {% endtabs %} 
 
+A complete working example to export data from Excel worksheet to collection objects in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20CollectionObjects).
+
 ## Export data from Excel to Nested Class Objects
 
 XlsIO allows to export worksheet data to nested class objects. A new overload to the existing `ExportData<T>()` method helps to achieve this requirement by mapping column headers with class properties.
@@ -4232,7 +4254,7 @@ Let’s consider the input Excel document has the data as shown in the below scr
 The following code illustrates how to export data from Excel worksheet to nested class objects with column headers mapping collection.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 
@@ -4297,7 +4319,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 Imports System.Collections.Generic
 
@@ -4355,7 +4377,7 @@ End Namespace
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 
@@ -4440,7 +4462,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 
@@ -4510,7 +4532,7 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 
@@ -4590,6 +4612,8 @@ namespace ImportFromNestedCollection
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to export data from Excel worksheet to nested class in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20Nested%20Class).
+
 ## Importing Data from Microsoft Grid Controls to Worksheet
 
 XlsIO provides support to import data from various Microsoft grid controls with its cell formatting. The supported grid controls are: 
@@ -4605,7 +4629,7 @@ Imports data from Microsoft DataGrid control with its header and cell formatting
 N> GetDataTable() method returns DataTable of applicable data to import.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Initialize DataGrid control
 DataGrid dataGrid = new DataGrid();
 dataGrid.DataSource = GetDataTable();
@@ -4624,7 +4648,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Initialize DataGrid control
 Dim dataGrid As DataGrid = New DataGrid()
 dataGrid.DataSource = GetDataTable()
@@ -4643,15 +4667,15 @@ workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports importing of data from data grid to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports importing of data from data grid to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports importing of data from data grid to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 {% endtabs %}
@@ -4661,7 +4685,7 @@ excelEngine.Dispose()
 Imports data from Microsoft GridView control with its header and cell formatting to Excel worksheet. The following code illustrates how to import data from Microsoft GridView control to worksheet.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Initialize GridView control
 GridView gridView = new GridView();
 gridView.DataSource = GetDataTable();
@@ -4681,7 +4705,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Initialize GridView control
 Dim gridView As GridView = New GridView ()
 gridView.DataSource = GetDataTable()
@@ -4701,15 +4725,15 @@ workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports importing of data from data view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports importing of data from data view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports importing of data from data view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 {% endtabs %}
@@ -4719,7 +4743,7 @@ excelEngine.Dispose()
 Imports data from Microsoft DataGridView control with its header and cell formatting to Excel worksheet. In addition, this API imports sorted data applied in the control. The following code illustrates how to import data from Microsoft DataGridView control to worksheet.
  
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Initialize DataGridView control
 DataGridView dataGridView = new DataGridView();
 dataGridView.DataSource = GetDataTable();
@@ -4741,7 +4765,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Initialize DataGridView control
 Dim dataGridView As DataGridView = New DataGridView()
 dataGridView.DataSource = GetDataTable()
@@ -4763,15 +4787,15 @@ workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 {% endtabs %}
@@ -4784,7 +4808,7 @@ Essential XlsIO supports importing HTML tables into Excel worksheets. The **Impo
 
 The following code snippet shows how to import HTML table into Excel worksheet.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 
 namespace ImportHtml
@@ -4813,7 +4837,7 @@ namespace ImportHtml
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 
 Module ImportHtmlTable
@@ -4840,7 +4864,7 @@ Module ImportHtmlTable
 End Module
 
 {% endhighlight %}
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.XlsIO;
 using System;
 using System.Collections.Generic;
@@ -4903,7 +4927,7 @@ namespace ImportHtml
     }
 }
 {% endhighlight %}
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.XlsIO;
 using System.IO;
 
@@ -4936,7 +4960,7 @@ namespace ImportHtml
     }
 }
 {% endhighlight %}
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.XlsIO;
 using System.IO;
 using System.Reflection;
@@ -4988,6 +5012,8 @@ namespace ImportHtml
 
 {% endtabs %}
 
+A complete working example to import data from HTML table to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/HTML%20Table%20to%20Worksheet).
+
 The following screenshot represents the image of the input HTML file with a table.
 
 ![Input document for Import HTML table](Working-with-Data_images/Working-with-Data_img6.png)
@@ -4995,3 +5021,5 @@ The following screenshot represents the image of the input HTML file with a tabl
 The following screenshot represents the image of the Excel output with data imported from HTML table.
 
 ![Output document imported from HTML table](Working-with-Data_images/Working-with-Data_img7.png)
+
+N> Syncfusion XlsIO supports importing HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.

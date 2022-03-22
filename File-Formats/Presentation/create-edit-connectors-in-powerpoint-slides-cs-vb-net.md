@@ -13,7 +13,7 @@ Essential Presentation library supports adding, editing, and removing the connec
 The following code example demonstrates how to add a connector in PowerPoint slide.knfjnfjnf
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PowerPoint file
 
@@ -44,7 +44,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PowerPoint file
 
@@ -74,7 +74,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PowerPoint file
 using (IPresentation pptxDoc = Presentation.Create())
@@ -108,7 +108,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using (IPresentation pptxDoc = Presentation.Create())
 
@@ -134,7 +134,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PowerPoint file
 
@@ -176,7 +176,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 You can also add a connector to a source shape without any destination shapes. The following code example demonstrates how to add a connector with single point connection.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new PowerPoint file
 
@@ -221,7 +221,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PowerPoint file
 
@@ -265,7 +265,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PowerPoint file
 using (IPresentation pptxDoc = Presentation.Create())
@@ -309,7 +309,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PowerPoint file
 
@@ -347,7 +347,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PowerPoint file
 
@@ -394,7 +394,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 The following code example demonstrates how to edit an existing connector in a PowerPoint slide.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint file
 
@@ -445,7 +445,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 ' Open an existing PowerPoint file.
             
@@ -499,7 +499,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -554,7 +554,7 @@ using (IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile))
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads an PowerPoint file in stream
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -598,7 +598,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -652,7 +652,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
 The following code example demonstrates how to update a connector’s position when a source shape position is changed.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint file
 
@@ -689,7 +689,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint file
             
@@ -725,7 +725,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -770,7 +770,7 @@ using (IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile))
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads an PowerPoint file in stream
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -804,7 +804,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -848,7 +848,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
 The following code example demonstrates how to remove a connector from PowerPoint slide.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint file
 
@@ -876,7 +876,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint file
             
@@ -902,7 +902,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -940,7 +940,7 @@ using (IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile))
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads an PowerPoint file in stream
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -967,7 +967,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
