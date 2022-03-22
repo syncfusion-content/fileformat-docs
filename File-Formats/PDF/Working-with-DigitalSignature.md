@@ -6350,7 +6350,7 @@ signature.ContactInfo = "johndoe@owned.us";
 signature.LocationInfo = "Honolulu, Hawaii";
 signature.Reason = "I am author of this document.";
 
-//Create appearance for the digital siganture
+//Create appearance for the digital signature
 signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
 
 //Save the document
