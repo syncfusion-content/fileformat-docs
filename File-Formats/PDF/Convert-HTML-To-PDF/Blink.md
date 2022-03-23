@@ -10,6 +10,9 @@ documentation: UG
 The Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core to convert URLs, HTML string, SVG, MHTML to PDF, and HTML to image.
 
 N>  * Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, include a license key in your projects. Refer to link to learn how to generate and register a Syncfusion license key in your application to use the components without trail message.
+
+N> From version 20.1.0.XX, if you are using the Blink rendering engine from NuGet packages, there is no need to manually copy the BlinkBinaries folder from the NuGet packages folder. There is also no need to set BlinkPath to the converter settings explicitly. It will copy the BlinkBinaries to the application bin folder and use the binaries from the bin folder automatically.
+
 ## Prerequisites for Windows
 
 <b>Minimum product version for .NET Framework:</b> 16.3.0.21
