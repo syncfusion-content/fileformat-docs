@@ -133,7 +133,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## See Also
 
-* [How to find values with the matching case in an Excel worksheet for specific columns?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-find-values-with-matching-case)
 * [How to perform Find and Replace?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#find-and-replace)
 * [How to get entire column of the particular range?](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#entire-column)
 * [How to define discontinuous ranges?](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-define-discontinuous-ranges)
