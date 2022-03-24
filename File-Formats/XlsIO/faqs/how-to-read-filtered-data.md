@@ -8,21 +8,20 @@ documentation: UG
 
 # How to read filtered data?
 
-You can access the filtered rows in the Excel file using the row height property. The hidden rows will have their row height as zero '0'. So based on this, you can loop the filtered rows. The following code snippet illustrates this.
+The row height property is used to access the filtered rows in the Excel file. The hidden rows will have their row height as zero '0'. The following code snippet illustrates this.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
-
     //Open an existing Excel file
-    IWorkbook workbook = excelEngine.Excel.Workbooks.Open("../../Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
     IWorksheet worksheet = workbook.Worksheets[0];
+	
     IRange usedRange = worksheet.UsedRange;
-
     string[] rowValues = new string[usedRange.Columns.Length];
 
     for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
@@ -39,12 +38,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("../../Sample.xlsx")
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
     Dim usedRange As IRange = worksheet.UsedRange
 
@@ -63,12 +62,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    //Set the default application version as Excel 2016.
-    excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2016;
-
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;    
     //Instantiates the File Picker
     FileOpenPicker openPicker = new FileOpenPicker();
     openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -77,15 +75,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     //Creates a storage file from FileOpenPicker
     StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
     //Loads or open an existing workbook
-    IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStorageFile);
-
+    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStorageFile);
     //Access first worksheet from the workbook instance.
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IRange usedRange = worksheet.UsedRange;
-
     string[] rowValues = new string[usedRange.Columns.Length];
 
     for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
@@ -102,17 +97,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
-
     FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
     IWorksheet worksheet = workbook.Worksheets[0];
+	
     IRange usedRange = worksheet.UsedRange;
-
     string[] rowValues = new string[usedRange.Columns.Length];
 
     for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
@@ -129,25 +123,21 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    //Set the default application version as Excel 2013.
-    excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2013;
-
-    string resourcePath = "GettingStarted.Sample.xlsx";
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    string resourcePath = "Sample.xlsx";
     //"App" is the class of Portable project.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
+	
     //Opens the workbook 
-    IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileStream);                          
-
+    IWorkbook workbook = application.Workbooks.Open(fileStream);                        
     //Access first worksheet from the workbook instance.
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IRange usedRange = worksheet.UsedRange;
-
     string[] rowValues = new string[usedRange.Columns.Length];
 
     for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
@@ -161,20 +151,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
                    }
               }
          }
-
-    //Save the workbook to stream in xlsx format. 
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    workbook.Close();
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.xlsx", "application/msexcel", stream);
-
 }
 {% endhighlight %}
 
-  {% endtabs %}  
+{% endtabs %}  
 
 ## See Also
 
