@@ -126,6 +126,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+    IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
     string resourcePath = "Sample.xlsx";
     //"App" is the class of Portable project.
