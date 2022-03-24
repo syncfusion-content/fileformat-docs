@@ -37,7 +37,7 @@ Then, set Copy to output directory to copy all the QtBinariesWindows (All files 
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
@@ -50,7 +50,7 @@ A default action method named Index will be present in HomeController.cs. Right 
 
 Add a new button in the Index.cshtml as shown below.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 @{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
 {
@@ -64,7 +64,7 @@ Html.EndForm();
 
 Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -116,7 +116,7 @@ Then, set Copy to output directory to copy all the BlinkBinariesWindows (All fil
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
@@ -129,7 +129,7 @@ A default action method named Index will be present in HomeController.cs. Right 
 
 Add a new button in the Index.cshtml as shown below.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 @{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
 {
@@ -143,7 +143,7 @@ Html.EndForm();
 
 Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);

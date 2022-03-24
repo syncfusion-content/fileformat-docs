@@ -14,35 +14,35 @@ N> 2. Unlike System.Drawing APIs all the units are measured in point instead of 
 
 Include the following namespaces in your .cs or .vb file as shown below.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.Pdf
 Imports Syncfusion.Pdf.Parsing
 Imports Syncfusion.Pdf.Graphics
 Imports Syncfusion.Pdf.Grid
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Graphics;
@@ -54,7 +54,7 @@ using Syncfusion.Pdf.Grid;
 
 The following code example shows how to create a PDF document with simple text.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
@@ -71,7 +71,7 @@ document.Save("Output.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document.
 Dim document As New PdfDocument()
 'Add a page to the document.
@@ -88,7 +88,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
@@ -108,7 +108,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
@@ -134,7 +134,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
@@ -168,7 +168,7 @@ else
 
 The following code example shows how to create a PDF document with an image.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
 //Add a page to the document.
@@ -185,7 +185,7 @@ doc.Save("Output.pdf");
 doc.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document.
 Dim doc As New PdfDocument()
 'Add a page to the document.
@@ -202,7 +202,7 @@ doc.Save("Output.pdf")
 doc.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
 //Add a page to the document.
@@ -223,7 +223,7 @@ doc.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
 //Add a page to the document.
@@ -250,7 +250,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
 //Add a page to the document.
@@ -285,7 +285,7 @@ else
 
 The following code example shows how to create a PDF document with a simple table.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 //Add a page
@@ -316,7 +316,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document.
 Dim doc As New PdfDocument()
 'Add a page.
@@ -347,7 +347,7 @@ doc.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 ///Create a new PDF document
 PdfDocument doc = new PdfDocument();
 //Add a page
@@ -380,7 +380,7 @@ doc.Close(true);
 Save(stream, "Output.pdf");
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 //Add a page
@@ -419,7 +419,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
 //Add a page
@@ -466,7 +466,7 @@ else
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -477,7 +477,7 @@ document.PageSettings.Margins.All = 50;
 PdfPage page = document.Pages.Add();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -490,7 +490,7 @@ Dim page As PdfPage = document.Pages.Add()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -502,7 +502,7 @@ PdfPage page = document.Pages.Add();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -514,7 +514,7 @@ PdfPage page = document.Pages.Add();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -534,7 +534,7 @@ PdfPage page = document.Pages.Add();
 The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the image from disk
 PdfImage image = PdfImage.FromFile("AdventureCycle.jpg");
@@ -543,7 +543,7 @@ page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the image from disk 
 Dim image As PdfImage = PdfImage.FromFile("AdventureCycle.jpg")
@@ -553,7 +553,7 @@ page.Graphics.DrawImage(image, New RectangleF(176, 0, 390, 130))
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Loads the image as stream
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.AdventureCycle.jpg");
@@ -563,7 +563,7 @@ page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads the image as stream
 FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
@@ -573,7 +573,7 @@ page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Loads the image as stream
 Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.AdventureCycle.jpg");
@@ -595,7 +595,7 @@ The ```PdfTextElement``` provides the layout result of the added text by using t
 The following code example adds the necessary text such as address, invoice number and date to create a basic invoice application. 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
@@ -622,7 +622,7 @@ g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Dim subHeadingFont As PdfFont = New PdfStandardFont(PdfFontFamily.TimesRoman, 14)
 'Draw Rectangle place on location
@@ -648,7 +648,7 @@ g.DrawLine(New PdfPen(New PdfColor(126, 151, 173), 0.7!), New PointF(0, (result.
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
@@ -675,7 +675,7 @@ g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
@@ -702,7 +702,7 @@ g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
@@ -736,7 +736,7 @@ Essential PDF provides two types of table models. The difference between both th
 Since the invoice document requires only simple cell customizations, the given code example explains how to create a simple invoice table by using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates the datasource for the table
@@ -779,7 +779,7 @@ PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, re
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates the datasource for the table
 Dim invoiceDetails As DataTable = GetProductDetails(Integer.Parse(invoiceNumber))
@@ -819,7 +819,7 @@ Dim gridResult As PdfGridLayoutResult = grid.Draw(page, New RectangleF(New Point
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 
 //Creates the datasource for the table
@@ -895,7 +895,7 @@ gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Creates the datasource for the table
@@ -971,7 +971,7 @@ gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 
 //Creates the datasource for the table
@@ -1052,7 +1052,7 @@ gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush
 The following code example shows how to save the invoice document to disk and dispose the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Saves and closes the document.
 document.Save("Sample.pdf");
@@ -1061,7 +1061,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Saves and closes the document.
 document.Save("Sample.pdf")
@@ -1069,7 +1069,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
@@ -1081,7 +1081,7 @@ Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 //Save and close the PDF document 
@@ -1090,7 +1090,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
@@ -1133,7 +1133,7 @@ The following guide shows how to fill a sample PDF form as shown.
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PDF form.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"JobApplication.pdf");
@@ -1158,7 +1158,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PDF form.
 Dim loadedDocument As New PdfLoadedDocument("JobApplication.pdf")
@@ -1183,7 +1183,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -1219,7 +1219,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("JobApplication.pdf", FileMode.Open, FileAccess.Read);
@@ -1255,7 +1255,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.JobApplication.pdf");
@@ -1324,27 +1324,27 @@ Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF c
 The QtBinaries available in the WebKitHTMLConverter installed location __**($System drive\Program Files(x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)**__ should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the [WebKitPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.WebKitConverterSettings.html#Syncfusion_HtmlConverter_WebKitConverterSettings_WebKitPath) property of the [WebKitConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.WebKitConverterSettings.html) class, as shown. By default it will search for WebKit assemblies in bin folder.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create a WebKitConverterSettings instance
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 //Set WebKit path
 webKitSettings.WebKitPath = @"/QtBinaries/";
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a WebKitConverterSettings instance
 Dim webKitSettings As New WebKitConverterSettings()
 'Set WebKit path
 webKitSettings.WebKitPath = "/QtBinaries/"
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a WebKitConverterSettings instance
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
@@ -1353,7 +1353,7 @@ webKitSettings.WebKitPath = @"/QtBinaries/";
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
@@ -1371,7 +1371,7 @@ WebKit conversion also requires VC++ 2010 redistributable to be installed in the
 To convert website URL or local HTML file to PDF by using WebKit rendering engine, refer to the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Create a WebKitConverterSettings instance
@@ -1387,7 +1387,7 @@ document.Save("Sample.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 'Create a WebKitConverterSettings instance
@@ -1403,13 +1403,13 @@ document.Save("Sample.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance of HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1436,7 +1436,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
@@ -1445,7 +1445,7 @@ return File(stream, contentType, fileName);
 
 To convert the HTML string to PDF, use the following code example.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Create a WebKitConverterSettings instance
@@ -1461,7 +1461,7 @@ document.Save("Sample.pdf");
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create an instance of HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 'Create a WebKitConverterSettings instance
@@ -1477,11 +1477,11 @@ document.Save("Sample.pdf")
 document.Close(True)
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 //PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance of HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1518,7 +1518,7 @@ Essential PDF supports merging multiple PDF documents from disk and stream using
 
 Refer to the following code example to merge multiple documents from disk.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the new PDF document
 PdfDocument finalDoc = new PdfDocument();
@@ -1535,7 +1535,7 @@ finalDoc.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates the new PDF document
 Dim finalDoc As New PdfDocument()
@@ -1550,19 +1550,19 @@ finalDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports merging multiple PDF documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //PDF supports merging multiple PDF documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports merging multiple PDF documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -1571,7 +1571,7 @@ finalDoc.Close(True)
 You can merge the [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) streams by using the following code example.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the destination document
 PdfDocument finalDoc = new PdfDocument();
@@ -1590,7 +1590,7 @@ finalDoc.Close(true);
 
 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'creates the destination document
 Dim finalDoc As New PdfDocument()
@@ -1607,13 +1607,13 @@ finalDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports merging multiple PDF documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a PDF document
 PdfDocument finalDoc = new PdfDocument();
@@ -1639,7 +1639,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports merging multiple PDF documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 

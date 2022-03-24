@@ -13,7 +13,7 @@ The Essential PDF allows you to add a [digital signature](https://www.syncfusion
 
 The following code example explains how to add a digital signature to the PDF document.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -27,7 +27,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key
 
-PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 
@@ -59,7 +59,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -73,7 +73,7 @@ Dim graphics As PdfGraphics = page.Graphics
 
 'Creates a certificate instance from PFX file with private key
 
-Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
 'Creates a digital signature
 
@@ -105,7 +105,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -121,7 +121,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -163,7 +163,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -179,7 +179,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -233,7 +233,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -249,7 +249,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -309,7 +309,7 @@ using stream as follows.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -327,7 +327,7 @@ Stream pfxStream = File.OpenRead("PDF.pfx");
 
 //Creates a certificate instance from PFX file stream with private key
 
-PdfCertificate pdfCert = new PdfCertificate(pfxStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(pfxStream, "password123");
 
 //Creates a digital signature
 
@@ -359,7 +359,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
  
 'Creates a new PDF document
 
@@ -377,7 +377,7 @@ Dim pfxStream As Stream = File.OpenRead("PDF.pfx")
 
 'Creates a certificate instance from PFX file stream with private key
 
-Dim pdfCert As New PdfCertificate(pfxStream, "syncfusion")
+Dim pdfCert As New PdfCertificate(pfxStream, "password123")
 
 'Creates a digital signature
 
@@ -409,7 +409,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -425,7 +425,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -467,7 +467,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -483,7 +483,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -537,7 +537,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -553,7 +553,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -610,7 +610,7 @@ You can add a digital signature to an existing document as follows.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
  
 //Loads the PDF document with signature field
 
@@ -630,7 +630,7 @@ signatureField.Signature = new PdfSignature();
 
 //Adds certificate to the signature field
 
-signatureField.Signature.Certificate = new PdfCertificate(@"PDF.pfx", "syncfusion");
+signatureField.Signature.Certificate = new PdfCertificate(@"PDF.pfx", "password123");
 
 signatureField.Signature.Reason = "I am author of this document";
 
@@ -646,7 +646,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PDF document with signature field
 
@@ -666,7 +666,7 @@ signatureField.Signature = New PdfSignature()
 
 'Adds certificate to the signature field
 
-signatureField.Signature.Certificate = New PdfCertificate("PDF.pfx", "syncfusion")
+signatureField.Signature.Certificate = New PdfCertificate("PDF.pfx", "password123")
 
 signatureField.Signature.Reason = "I am author of this document"
 
@@ -682,7 +682,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -718,7 +718,7 @@ signatureField.Signature = new PdfSignature();
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.
 
-signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "syncfusion");
+signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "password123");
 
 signatureField.Signature.Reason = "I am author of this document";
 
@@ -742,7 +742,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -766,7 +766,7 @@ signatureField.Signature = new PdfSignature();
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "syncfusion");
+signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "password123");
 
 signatureField.Signature.Reason = "I am author of this document";
 
@@ -800,7 +800,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -824,7 +824,7 @@ signatureField.Signature = new PdfSignature();
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "syncfusion");
+signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "password123");
 
 signatureField.Signature.Reason = "I am author of this document";
 
@@ -865,7 +865,7 @@ The following code example illustrates how to add digital signature in a PDF doc
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -879,7 +879,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key  
 
-X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "password123");
 
 PdfCertificate pdfCertificate = new PdfCertificate(certificate);
 
@@ -915,7 +915,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -929,7 +929,7 @@ Dim graphics As PdfGraphics = page.Graphics
 
 'Creates a certificate instance from PFX file with private key  
 
-Dim certificate As New X509Certificate2("PDF.pfx", "syncfusion")
+Dim certificate As New X509Certificate2("PDF.pfx", "password123")
 
 Dim pdfCertificate As New PdfCertificate(certificate)
 
@@ -965,13 +965,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Essential PDF supports adding a digital signature using X509Certificate2 only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms. 
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -985,7 +985,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key  
 
-X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "password123");
 
 PdfCertificate pdfCertificate = new PdfCertificate(certificate);
 
@@ -1043,7 +1043,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -1063,7 +1063,7 @@ MemoryStream ms = new MemoryStream();
 
 certificateStream.CopyTo(ms);
 
-X509Certificate2 certificate = new X509Certificate2(ms.ToArray(), "syncfusion");
+X509Certificate2 certificate = new X509Certificate2(ms.ToArray(), "password123");
 
 PdfCertificate pdfCertificate = new PdfCertificate(certificate);
 
@@ -1124,7 +1124,7 @@ You can load the signature field from the existing PDF document and add certific
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PDF document
 
@@ -1140,7 +1140,7 @@ PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignat
 
 //Creates a certificate
 
-PdfCertificate certificate = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate certificate = new PdfCertificate(@"PDF.pfx", "password123");
 
 field.Signature = new PdfSignature(loadedDocument,page,certificate,"Signature",field);
 
@@ -1154,7 +1154,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
  
 'Loads a PDF document
 
@@ -1170,7 +1170,7 @@ Dim field As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), Pd
 
 'Creates a certificate
 
-Dim certificate As New PdfCertificate("PDF.pfx", "syncfusion")
+Dim certificate As New PdfCertificate("PDF.pfx", "password123")
 
 field.Signature = New PdfSignature(loadedDocument, page, certificate, "Signature", field)
 
@@ -1184,7 +1184,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -1216,7 +1216,7 @@ PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignat
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.
 
-PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate certificate = new PdfCertificate(certificateStream, "password123");
 
 field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
 
@@ -1236,7 +1236,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1256,7 +1256,7 @@ PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignat
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate certificate = new PdfCertificate(certificateStream, "password123");
 
 field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
 
@@ -1286,7 +1286,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -1306,7 +1306,7 @@ PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignat
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate certificate = new PdfCertificate(certificateStream, "password123");
 
 field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
 
@@ -1343,7 +1343,7 @@ You can load the signature field from an existing PDF document and add certifica
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
  
 //Loads a PDF document
 
@@ -1363,7 +1363,7 @@ Stream pfxStream = File.OpenRead("PDF.pfx");
 
 //Creates a certificate instance from PFX file stream with private key
 
-PdfCertificate certificate = new PdfCertificate(pfxStream, "syncfusion");
+PdfCertificate certificate = new PdfCertificate(pfxStream, "password123");
 
 field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
 
@@ -1377,7 +1377,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
  
 'Loads a PDF document
 
@@ -1397,7 +1397,7 @@ Dim pfxStream As Stream = File.OpenRead("PDF.pfx")
 
 'Creates a certificate instance from PFX file stream with private key
 
-Dim certificate As New PdfCertificate(pfxStream, "syncfusion")
+Dim certificate As New PdfCertificate(pfxStream, "password123")
 
 field.Signature = New PdfSignature(loadedDocument, page, certificate, "Signature", field)
 
@@ -1411,7 +1411,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -1443,7 +1443,7 @@ PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignat
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate certificate = new PdfCertificate(certificateStream, "password123");
 
 field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
 
@@ -1463,7 +1463,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -1483,7 +1483,7 @@ PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignat
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate certificate = new PdfCertificate(certificateStream, "password123");
 
 field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
 
@@ -1513,7 +1513,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -1533,7 +1533,7 @@ PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignat
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate certificate = new PdfCertificate(certificateStream, "password123");
 
 field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
 
@@ -1572,7 +1572,7 @@ The following code example shows how to sign the PDF document from external sign
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
  
 //Load existing PDF document
 
@@ -1623,7 +1623,7 @@ arguments.SignedData = signedCms.Encode();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
  
 'Load existing PDF document
 
@@ -1671,7 +1671,7 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Get the stream from the document
 
@@ -1731,7 +1731,7 @@ ars.SignedData = signedCms.Encode();
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Get the stream from the document
 
@@ -1781,7 +1781,7 @@ ars.SignedData = signedCms.Encode();
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Get the stream from the document
 
@@ -1867,7 +1867,7 @@ The following code example shows how to create an LTV when signing a PDF documen
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing PDF document
 
@@ -1901,7 +1901,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing PDF document
 
@@ -1935,7 +1935,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Get the stream from the document
 
@@ -1979,7 +1979,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Get the stream from the document
 
@@ -2035,7 +2035,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Get the stream from the document
 
@@ -2092,13 +2092,13 @@ else
 
 ## Adding a signature validation appearance based on the signature 
 
-You can add the dynamic signature validation appearance to the signature field by enabling the “EnableValidationAppearance” property available in the “PdfSignature” class, the appearance will change based on the PDF reader validation. 
+You can add the dynamic signature validation appearance to the signature field by enabling the [EnableValidationAppearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_EnableValidationAppearance) property available in the [PdfSignature](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html) class, the appearance will change based on the PDF reader validation. 
 
 Refer to the following code sample.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -2112,7 +2112,7 @@ PdfGraphics graphics=page.Graphics;
 
 //Creates a certificate instance from the PFX file with private key
             
-PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 
@@ -2146,7 +2146,7 @@ document.Close( true );
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -2160,7 +2160,7 @@ Dim graphics As PdfGraphics = page.Graphics
 
 'Creates a certificate instance from the PFX file with private key
 
-Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
 'Creates a digital signature
 
@@ -2196,7 +2196,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -2212,7 +2212,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -2258,7 +2258,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -2274,7 +2274,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -2346,7 +2346,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -2362,7 +2362,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -2432,7 +2432,7 @@ Essential PDF allows you to add timestamp in the digital signature of the PDF do
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -2446,7 +2446,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key
 
-PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 
@@ -2482,7 +2482,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -2496,7 +2496,7 @@ Dim graphics As PdfGraphics = page.Graphics
 
 'Creates a certificate instance from PFX file with private key
 
-Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
 'Creates a digital signature
 
@@ -2532,7 +2532,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -2548,7 +2548,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -2594,7 +2594,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -2610,7 +2610,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -2668,7 +2668,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -2684,7 +2684,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -2747,7 +2747,7 @@ You can add timestamp to the PDF document using the following code snippet.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -2773,7 +2773,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -2799,7 +2799,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create a new document
 
@@ -2833,7 +2833,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new pdf document
 
@@ -2877,7 +2877,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
 
@@ -2932,7 +2932,7 @@ You can add timestamp to the existing PDF document using the following code snip
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the existing PDF document
 
@@ -2960,7 +2960,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document
 
@@ -2986,7 +2986,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker 
 
@@ -3032,7 +3032,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -3078,7 +3078,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 
@@ -3147,7 +3147,7 @@ You can get the above certificate details from an existing signed PDF document b
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load the existing signed PDF
 
@@ -3201,7 +3201,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the existing signed PDF
 
@@ -3253,13 +3253,13 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -3303,7 +3303,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
@@ -3315,13 +3315,13 @@ loadedDocument.Close(true);
 
 The Essential PDF supports creating long term signature validation when signing the PDF document. The LTV signature allows you to check the validity of a signature long after the document was signed. To achieve long term validation, all the required elements for signature validation must be embedded in the signed PDF.
 
-Note: The resulted PDF document size will be large since all the necessary signature information, Certificate Revocation List (CRL), and Online Certificate Status Protocol (OCSP) are embedded.
+N> The resulted PDF document size will be large since all the necessary signature information, Certificate Revocation List (CRL), and Online Certificate Status Protocol (OCSP) are embedded.
 
 The following code example explains how to create LTV PDF.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -3335,7 +3335,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key
 
-PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 
@@ -3375,7 +3375,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -3389,7 +3389,7 @@ Dim graphics As PdfGraphics = page.Graphics
 
 'Creates a certificate instance from PFX file with private key
 
-Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
 'Creates a digital signature
 
@@ -3429,7 +3429,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -3445,7 +3445,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -3495,7 +3495,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -3511,7 +3511,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -3573,7 +3573,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -3589,7 +3589,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -3669,7 +3669,7 @@ The following code example explains how to add a digital signature with cryptogr
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -3683,7 +3683,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key
 
-PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 
@@ -3721,7 +3721,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -3735,7 +3735,7 @@ Dim graphics As PdfGraphics = page.Graphics
 
 'Creates a certificate instance from PFX file with private key
 
-Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
 'Creates a digital signature
 
@@ -3773,7 +3773,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -3789,7 +3789,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -3837,7 +3837,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -3853,7 +3853,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -3913,7 +3913,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -3929,7 +3929,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -4011,7 +4011,7 @@ The following code example explains how to add a digital signature with various 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
 
@@ -4025,7 +4025,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key
 
-PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 
@@ -4063,7 +4063,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
 
@@ -4077,7 +4077,7 @@ Dim graphics As PdfGraphics = page.Graphics
 
 'Creates a certificate instance from PFX file with private key
 
-Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
 'Creates a digital signature
 
@@ -4115,7 +4115,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 
@@ -4131,7 +4131,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -4179,7 +4179,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
 
@@ -4195,7 +4195,7 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -4255,7 +4255,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
 
@@ -4271,7 +4271,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Creates a digital signature
 
@@ -4355,7 +4355,7 @@ The following code example explains how to validate the digitally signed PDF doc
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing signed PDF document
 
@@ -4371,7 +4371,7 @@ X509CertificateCollection collection = new X509CertificateCollection();
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "password123");
 
 //Add the certificate to the collection
 
@@ -4415,7 +4415,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing signed PDF document
 
@@ -4431,7 +4431,7 @@ Dim collection As X509CertificateCollection = New X509CertificateCollection()
 
 'Create new X509Certificate2 with the root certificate
 
-Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "syncfusion")
+Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "password123")
 
 'Add the certificate to the collection
 
@@ -4475,7 +4475,7 @@ loadedDocument.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Get the stream from the document
 
@@ -4503,7 +4503,7 @@ certificateStream.Read(data, 0, data.Length);
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+X509Certificate2 certificate = new X509Certificate2(data, "password123");
 
 //Add the certificate to the collection
 
@@ -4547,7 +4547,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Get the stream from the document
 
@@ -4575,7 +4575,7 @@ certificateStream.Read(data, 0, data.Length);
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+X509Certificate2 certificate = new X509Certificate2(data, "password123");
 
 //Add the certificate to the collection
 
@@ -4619,7 +4619,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Get the stream from the document
 
@@ -4647,7 +4647,7 @@ certificateStream.Read(data, 0, data.Length);
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+X509Certificate2 certificate = new X509Certificate2(data, "password123");
 
 //Add the certificate to the collection
 
@@ -4697,13 +4697,13 @@ loadedDocument.Close(true);
 
 Added the support to validate all the digital signatures in an existing PDF document. 
 
-You can use the ```ValidateSignatures``` method available in the [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class to validate all the digital signatures. You can get the list of [PdfSignatureValidationResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureValidationResult.html) from the ```ValidateSignatures``` method.
+You can use the [ValidateSignatures](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedFormFieldCollection_ValidateSignatures_Syncfusion_Pdf_Parsing_PdfSignatureValidationOptions_System_Collections_Generic_List_Syncfusion_Pdf_Security_PdfSignatureValidationResult___) method available in the [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class to validate all the digital signatures. You can get the list of [PdfSignatureValidationResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureValidationResult.html) from the [ValidateSignatures](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedFormFieldCollection_ValidateSignatures_Syncfusion_Pdf_Parsing_PdfSignatureValidationOptions_System_Collections_Generic_List_Syncfusion_Pdf_Security_PdfSignatureValidationResult___) method.
 
 The following code example explains how to validate all the signatures in digitally signed PDF document.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing signed PDF document
 
@@ -4715,7 +4715,7 @@ X509CertificateCollection collection = new X509CertificateCollection();
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "password123");
 
 //Add the certificate to the collection
 
@@ -4733,7 +4733,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing signed PDF document
 
@@ -4745,7 +4745,7 @@ Dim collection As X509CertificateCollection = New X509CertificateCollection()
 
 'Create new X509Certificate2 with the root certificate
 
-Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "syncfusion")
+Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "password123")
 
 'Add the certificate to the collection
 
@@ -4763,7 +4763,7 @@ loadedDocument.Close(true)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Get the stream from the document
 
@@ -4787,7 +4787,7 @@ certificateStream.Read(data, 0, data.Length);
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+X509Certificate2 certificate = new X509Certificate2(data, "password123");
 
 //Add the certificate to the collection
 
@@ -4805,7 +4805,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Get the stream from the document
 
@@ -4829,7 +4829,7 @@ certificateStream.Read(data, 0, data.Length);
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+X509Certificate2 certificate = new X509Certificate2(data, "password123");
 
 //Add the certificate to the collection
 
@@ -4847,7 +4847,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Get the stream from the document
 
@@ -4871,7 +4871,7 @@ certificateStream.Read(data, 0, data.Length);
 
 //Create new X509Certificate2 with the root certificate
 
-X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+X509Certificate2 certificate = new X509Certificate2(data, "password123");
 
 //Add the certificate to the collection
 
@@ -4901,7 +4901,7 @@ Steps for deferred signing:
 3.	Replace the empty signature with a signed hash from the external services. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PDF_Succinctly.pdf");
@@ -5005,7 +5005,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing PDF document.
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
@@ -5108,7 +5108,7 @@ End Class
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Get the stream from the document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
@@ -5218,7 +5218,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Get the stream from the document.
 FileStream documentStream = new FileStream("PDF_Succinctly.pdf ", FileMode.Open, FileAccess.Read);
@@ -5334,7 +5334,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Get the stream from the document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
@@ -5458,13 +5458,15 @@ return signedBytes;
 
 {% endtabs %}
 
+A complete working sample can be downloaded from [PdfDeferredSigningSample.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Sample-1493484644.zip)
+
 ## Adding the estimated size of the signature
 
 The following code sample shows how to add the estimated size of the signature in the PDF document.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creating a new PDF Document. 
 PdfDocument document = new PdfDocument();
@@ -5473,7 +5475,7 @@ PdfDocument document = new PdfDocument();
 PdfPageBase page = document.Pages.Add();
 
 //Create a PDF certificate.
-PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Add a new signature to the PDF page.
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
@@ -5491,7 +5493,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
  
 'Creating a new PDF Document. 
 Dim document As PdfDocument =  New PdfDocument() 
@@ -5500,7 +5502,7 @@ Dim document As PdfDocument =  New PdfDocument()
 Dim page As PdfPageBase =  document.Pages.Add() 
  
 'Create a PDF certificate.
-Dim pdfCert As PdfCertificate =  New PdfCertificate("PDF.pfx","syncfusion") 
+Dim pdfCert As PdfCertificate =  New PdfCertificate("PDF.pfx","password123") 
  
 'Add a new signature to the PDF page.
 Dim signature As PdfSignature =  New PdfSignature(document,page,pdfCert,"Signature") 
@@ -5518,7 +5520,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creating a new PDF Document.
 PdfDocument document = new PdfDocument();
@@ -5529,7 +5531,7 @@ PdfPageBase page = document.Pages.Add();
 //Creates a certificate instance from the PFX file with a private key.
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Add a new signature to the PDF page.
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
@@ -5552,7 +5554,7 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creating a new PDF Document. 
 PdfDocument document = new PdfDocument();
@@ -5564,7 +5566,7 @@ PdfPageBase page = document.Pages.Add();
 
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion"); 
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123"); 
 //Add a new signature to the PDF page.
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
@@ -5596,7 +5598,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creating a new PDF Document. 
 PdfDocument document = new PdfDocument();
@@ -5607,7 +5609,7 @@ PdfPageBase page = document.Pages.Add();
 //Creates a certificate instance from the PFX file with a private key.
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
-PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 
 //Add a new signature to the PDF page.
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
@@ -5654,7 +5656,7 @@ Steps for deferred signing:
 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Load an existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PDF_Succinctly.pdf");
@@ -5751,7 +5753,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing PDF document.
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
@@ -5852,7 +5854,7 @@ End Class
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Get the stream from a document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
@@ -5958,7 +5960,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 // Get the stream from a document.
 FileStream documentStream = new FileStream("PDF_Succinctly.pdf ", FileMode.Open, FileAccess.Read);
@@ -6069,7 +6071,7 @@ return signedBytes;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Get the stream from a document.
 Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
@@ -6189,134 +6191,283 @@ return signedBytes;
 
 {% endtabs %}
 
-## Create a PDF digital signature without visual appearance
+## Drawing text/image in the Signature Appearance
 
-Syncfusion PDF library provides support to digitally sign an existing PDF document without including any text, image in the signature field.
-The following code illustrates the same.
+The following code example illustrates how to draw text/images in a digital appearance as follows:
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
-//Load the PDF document with the signature field
+//Creates a new PDF document.
+PdfDocument document = new PdfDocument();
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");         
+//Adds a new page.
+PdfPageBase page = document.Pages.Add();
+PdfGraphics graphics = page.Graphics;
 
-//Get the page
+//Creates a certificate instance from PFX file with private key.
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
-PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
-//Create a signature field
+//Sets an image for signature field.
+PdfBitmap signatureImage = new PdfBitmap(@"signature.png");
 
-PdfSignatureField signatureField = new PdfSignatureField(page, "SignatureField");
+//Sets signature information
+signature.Bounds = new RectangleF(0,0,200,100);
+signature.ContactInfo = "johndoe@owned.us";
+signature.LocationInfo = "Honolulu, Hawaii";
+signature.Reason = "I am author of this document.";
 
-signatureField.Signature = new PdfSignature();
+//Create appearance for the digital siganture
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
 
-//Add certificate to the signature field
+//Save the document
+document.Save("DigitalSignature.pdf");
 
-signatureField.Signature.Certificate = new PdfCertificate(@"PDF.pfx", "syncfusion");
-
-signatureField.Signature.Reason = "I am author of this document";
-
-//Add the field
-
-loadedDocument.Form.Fields.Add(signatureField);
-
-//Save the certified PDF document
-
-loadedDocument.Save(@"Output.pdf");
-
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Load the PDF document with the signature field
-
-Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
-
-'Get the page
-
-Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
-
-'Create a signature field
-
-Dim signatureField As New PdfSignatureField(page, "SignatureField")
-
-signatureField.Signature = New PdfSignature()
-
-'Add certificate to the signature field
-
-signatureField.Signature.Certificate = New PdfCertificate("PDF.pfx", "syncfusion")
-
-signatureField.Signature.Reason = "I am author of this document"
-
-'Add the field
-
-loadedDocument.Form.Fields.Add(signatureField)
-
-'Save the certified PDF document
-
-loadedDocument.Save("Output.pdf")
-
-loadedDocument.Close(True)
+//Close the document
+document.Close(true);
 
 {% endhighlight %}
 
+{% highlight vb.net tabtitle="VB.NET" %}
 
-{% highlight ASP.NET Core %}
+'Create a new PDF document.
 
-//Load the PDF document
+Dim document As New PdfDocument()
 
-FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+'Add a new page.
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+Dim page As PdfPageBase = document.Pages.Add()
 
-//Get the page
+Dim graphics As PdfGraphics = page.Graphics
 
-PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+'Create a certificate instance from a PFX file with a private key.
 
-//Create a signature field
+Dim pdfCert As New PdfCertificate("PDF.pfx", "password123")
 
-PdfSignatureField signatureField = new PdfSignatureField(page, "SignatureField");
+'Create a digital signature.
 
-signatureField.Signature = new PdfSignature();
+Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
 
-//Add certificate to the signature field
+'Set an image for signature field.
 
-FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+Dim signatureImage As New PdfBitmap("signature.jpg")
 
-signatureField.Signature.Certificate = new PdfCertificate(certificateStream, "syncfusion");
+'Set the signature information.
 
-signatureField.Signature.Reason = "I am author of this document";
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
 
-//Add the field
+signature.ContactInfo = "johndoe@owned.us"
 
-loadedDocument.Form.Fields.Add(signatureField);
+signature.LocationInfo = "Honolulu, Hawaii"
 
-//Save the document into stream
+signature.Reason = "I am author of this document."
+
+'Create appearance for the digital signature.
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+'Save and close the document.
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page.
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a certificate instance from a PFX file with a private key.
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
+
+//Create a digital signature.
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Set an image for signature field.
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Set the signature information.
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Create appearance for the digital signature.
+
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+//Save the PDF document to stream.
 
 MemoryStream stream = new MemoryStream();
 
-loadedDocument.Save(stream);
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);                                                                   
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for the respective code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page.
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a certificate instance from a PFX file with a private key.
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
+
+//Create a digital signature.
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Set an image for signature field.
+
+FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
+
+//Set an image for signature field.
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Set the signature information.
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Create appearance for the digital signature.
+
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
 
 stream.Position = 0;
 
-//Close the document
+//Close the document.
 
-loadedDocument.Close(true);
+document.Close(true);
 
-//Define the ContentType for a pdf file
+//Define the ContentType for pdf file.
 
 string contentType = "application/pdf";
 
-//Define the file name
+//Define the file name.
 
 string fileName = "Output.pdf";
 
-//Create a FileContentResult object by using the file contents, content type, and file name
+//Create a FileContentResult object by using the file contents, content type, and file name.
 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page.
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a certificate instance from a PFX file with a private key.
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
+
+//Create a digital signature.
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Set an image for signature field.
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Set the signature information.
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Create appearance for the digital signature.
+
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into PDF file.
+
+//The operation of Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
