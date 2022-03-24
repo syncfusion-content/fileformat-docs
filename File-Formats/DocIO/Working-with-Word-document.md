@@ -2232,7 +2232,7 @@ Please download the helper files from the following link to save the stream as a
 
 {% endtabs %} 
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-particular-style-from-documents).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-particular-style-from-document).
 
 ## Working with Word document properties
 
