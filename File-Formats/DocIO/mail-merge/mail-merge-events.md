@@ -222,6 +222,8 @@ private static DataTable GetDataTable()
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-for-mail-merge-field).
+
 ## MergeImageField Event
 
 You can format the merged image like resizing the image and more during mail merge process using the `MergeImageField` Event. 
@@ -427,6 +429,8 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-for-image-mail-merge-field).
 
 ## BeforeClearField Event
 
@@ -736,6 +740,8 @@ private DataTable GetDataTable()
 }
 {% endhighlight %} 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-to-bind-data-for-unmerged-fields).
 
 ## BeforeClearGroupField Event
 
@@ -1372,3 +1378,5 @@ public class OrderDetails
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-to-bind-data-for-unmerged-group).

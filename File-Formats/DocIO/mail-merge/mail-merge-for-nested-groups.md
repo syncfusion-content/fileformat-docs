@@ -123,6 +123,8 @@ End Function
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-for-nested-group).
+
 The resultant document looks as follows.
 
 ![Nested group mail merged document](../MailMerge_images/Nested_group_mail_merge_output.png)
@@ -423,6 +425,8 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 //You can use IDictionary<string, object> collection to generate dynamic objects.
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-dynamic-objects).
 
 ## Mail merge with implicit relational data
 
@@ -880,6 +884,8 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-implicit-relational-data).
 
 By executing the above code example, it generates the resultant Word document as follows.
  

@@ -119,6 +119,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Convert-HTML-to-Word).
+
 The following code example shows how to convert the Word document into HTML.
 
 {% tabs %}
@@ -199,6 +201,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Convert-Word-to-HTML).
+
 ## Customization settings
 
 The Essential DocIO provides settings while performing HTML to Word conversion and vice versa.
@@ -253,6 +257,8 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Customize-HTML-to-Word-conversion).
 
 N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and Xamarin applications.
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
@@ -411,6 +417,8 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Customize-image-data).
+
 N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
 
 **Frequently Asked Questions**
@@ -474,6 +482,8 @@ export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Customize-Word-to-HTML-conversion).
 
 ## Supported and unsupported items
 

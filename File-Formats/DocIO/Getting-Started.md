@@ -1267,6 +1267,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.d
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-string-arrays).
+
 The resultant Word document look as follows.
 
 ![Performing Mail merge output document](GettingStarted_images/GettingStarted_img3.jpeg)
@@ -1639,6 +1641,8 @@ public class Employee
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
 
 The resultant document looks as follows.
 

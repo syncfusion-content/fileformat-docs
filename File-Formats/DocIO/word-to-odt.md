@@ -114,6 +114,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-ODT-conversion/Convert-Word-to-ODT).
+
 ## Supported Document elements
 <table>
 <thead> 
