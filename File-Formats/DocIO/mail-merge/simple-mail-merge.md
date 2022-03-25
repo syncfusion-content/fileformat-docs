@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Simple Mail merge
+# Simple Mail merge in Word document
 
 You can create a Word document template using Microsoft Word application or by adding merge fields in the Word document programmatically. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge#create-word-document-template).
 

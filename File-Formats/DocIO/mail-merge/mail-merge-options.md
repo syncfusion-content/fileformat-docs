@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Mail merge options
+# Mail merge options in Word Library
 
 The `MailMerge` class allows you to customize the Mail merge process with the following options.
 
