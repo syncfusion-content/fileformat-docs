@@ -118,6 +118,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Create-Docx-format-Word-document).
+
 ### Templates
 
 DOTX is a Word document template. The following code snippet shows how to create the Word document template with few lines of code.
@@ -206,6 +208,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Create-Dotx-format-Word-document).
+
 ### Macros
 
 DOCM is a macro enabled Word document. It is same as DOCX document contains macros and scripts. The DocIO provides only preservation support for macros. The following code illustrates how to load and save a macro enabled document using the DocIO library.
@@ -263,6 +267,8 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Dotm)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Macros/Open-and-save-macro-enabled-document).
 
 ## Word Processing XML (.xml)
 
@@ -347,6 +353,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Convert-Word-to-WordML).
+
 The following code example shows how to convert the Word Processing XML document into Word document.
 
 {% tabs %}
@@ -419,6 +427,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Convert-WordML-to-Word).
 
 ### Unsupported elements in Word to Word Processing XML conversion:
 
@@ -600,6 +610,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Create-Doc-format-Word-document).
+
 ### DOC to DOCX and DOCX to DOC
 The following code shows, how to convert the DOC file into DOCX file format using DocIO
 
@@ -674,6 +686,9 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Convert-Doc-to-Docx).
+
 The following code shows, how to convert the DOCX file into DOC file format using DocIO
 
 {% tabs %}
@@ -781,6 +796,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Convert-Docx-to-Doc).
+
 ### Saving Word document with compatibility
 
 The following code shows, how to save Word document with same word version compatibility
@@ -882,6 +899,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Save-Word-with-compatibility).
 
 ### Open a Word (*.doc) document containing incremental save information
 
@@ -1126,3 +1145,5 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Ole-image-as-normal-image).
