@@ -1017,6 +1017,8 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Iterate-document-elements).
+
 ## Cloning a Word document
 
 You can create a deep copy of a Word document by using `Clone` method of `WordDocument` class. You can read the template document from file system or stream and create multiple document copies by cloning it. This improves the performance of document generation, as there is no need to read the Word document each time.
@@ -1103,7 +1105,9 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 
 {% endtabs %}  
- 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Clone-whole-Word-document).
+
 You can also create a deep copy of document elements such as sections, paragraphs, Tables, Text, Image, OleObject, Shapes, TextBoxes and etc., The following code example illustrates how to clone the section and save each cloned section as a Word document. 
 
 {% tabs %} 
@@ -1215,7 +1219,9 @@ sourceDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}  
-   
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-section).
+
 ## Merging Word documents
 
 You can merge multiple Word documents into single Word document by using DocIO’s capability of importing contents from one document to another. The imported contents are appended at the end of document.  The following code example illustrates how to import the contents from source document into destination document where the contents are appended. 
@@ -1314,6 +1320,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Merge-documents-in-new-page).
 
 In the resultant document, the imported contents start from a new page followed by existing contents in a destination document. This is the default behavior.
 
@@ -1423,6 +1431,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Merge-documents-in-same-page).
 
 ### Maintain Imported List style information
 
@@ -1782,7 +1792,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}   
 
-You can download the complete working samples of the code from [here](https://www.syncfusion.com/downloads/support/directtrac/general/Sample-627835418.zip#).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Print-Word-document).
 
 ## Working with Styles
 
@@ -1905,6 +1915,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Access-styles-in-document).
+
 ### Creating a new Paragraph Style
 
 You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class.
@@ -2025,6 +2037,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
  
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Create-new-paragraph-style).
+
 ### Applying built-in styles
 
 DocIO provides a set of predefined styles. You can apply those predefined styles as shown in the following code example.
@@ -2113,6 +2127,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Apply-built-in-style).
 
 ### Remove Styles
 
@@ -2215,6 +2231,8 @@ Please download the helper files from the following link to save the stream as a
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-particular-style-from-document).
 
 ## Working with Word document properties
 
@@ -2323,6 +2341,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Modify-built-in-document-properties).
+
 ### Updating words count
 
 You can update the count of Paragraphs, words and characters in an existing Word document or document that created from the scratch.
@@ -2410,6 +2430,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Update-words-count).
+
 ### Updating pages count
 
 You can update page count in an existing Word document or document that created from the scratch by passing true for `UpdateWordCount(performLayout)` API.
@@ -2480,6 +2502,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Update-pages-count).
 
 N>  1. The word to PDF layout engine is used for updating the page count in word document. Due to its limitations it may result in an incorrect page count.
 N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application to update page count in a Word document.
@@ -2582,6 +2606,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Add-custom-document-properties).
+
 ### Accessing & Modifying Custom Document Properties
 
 You can access and modify an existing document property as shown in the following code example.
@@ -2668,6 +2694,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Modify-custom-document-properties).
 
 ## Working with Content Type Properties
 
@@ -3006,6 +3034,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Modify-content-type-properties).
   
 ## Setting the Background for a Word document
 
@@ -3132,6 +3162,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Apply-gradient-background-to-document).
+
 The following code illustrates how to apply image as background for the document.
 
 {% tabs %} 
@@ -3240,6 +3272,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Apply-picture-background-to-document).
+
 ## Working with Alternate chunks
 
 Updating Alternate chunk in the Word document, imports the content from the embedded alternate chunk into the main document. When saving the Word document containing alternate chunk as DOCX format document, the alternate chunk content preserved by default. But, when saving as DOC format or other formats, the alternate chunk content will not be preserved. You can use [UpdateAlternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_UpdateAlternateChunks) method to preserve the alternate chunk content by importing into the main document.
@@ -3314,6 +3348,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Update-alternate-chunks).
+
 ## Split Word documents
 
 Syncfusion Word Library allows you to split the large Word document into number of smaller word documents by the sections, headings, bookmarks, and placeholder text in programmatically. 
@@ -3322,7 +3358,7 @@ By using this feature, you can be able to split/extract the necessary parts from
 
 You can save the resultant document as a Word document (DOCX, WordML, DOC), PDF, image, HTML, RTF, and more.
 
-### Split by Section.
+### Split by Section
 
 The following code example illustrates how to split the Word document by sections.
 
@@ -3455,7 +3491,9 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 {% endhighlight %}
 {% endtabs %}
 
-### Split by Headings.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-section).
+
+### Split by Headings
 
 The following code example illustrates how to split the Word document by using headings.
 
@@ -3903,6 +3941,8 @@ private void SaveWordDocument(WordDocument newDocument, string fileName)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-heading).
+
 ### Split by Bookmark
 
 The following code example illustrates how to split the Word document using bookmarks.
@@ -4057,6 +4097,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-bookmark).
 
 ### Split by placeholder text
 
@@ -4228,3 +4270,5 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-placeholder-text).

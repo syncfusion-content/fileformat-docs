@@ -127,6 +127,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-merge-field).
+
 ### Execute mail merge
 
 The following code example shows how to perform mail merge in above Word document template using string arrays as data source.
@@ -214,6 +216,8 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Getting-started-mail-merge).
 
 By executing the previous code example, it generates the resultant Word document as follows.
 

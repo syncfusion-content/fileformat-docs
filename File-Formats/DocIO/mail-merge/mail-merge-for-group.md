@@ -122,6 +122,8 @@ End Function
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-for-group).
+
 The resultant document looks as follows.
 
 ![Group resultant document](../MailMerge_images/Group_mail_merge_output.png)
@@ -517,3 +519,5 @@ public class Employee
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
