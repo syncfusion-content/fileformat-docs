@@ -1,5 +1,5 @@
 ---
-title: How to search for a value in different columns in an Excel worksheet | Syncfusion
+title: How to search for a value in different columns in Excel | Syncfusion
 description: This page shows how to to search for a value in different columns in an Excel worksheet? using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
