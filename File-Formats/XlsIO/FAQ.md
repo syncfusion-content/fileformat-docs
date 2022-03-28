@@ -56,4 +56,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to open an Excel document using XlsIO that is already open in MS-Excel?](faqs/how-to-open-an-excel-document-that-is-already-open-in-msexcel)
 * [Reason for Parameter Not Valid exception when converting Excel to PDF with Custom Paper Size](faqs/reason-for-parameter-not-valid-exception-when-converting-exceltopdf-with-custompapersize)
 * [Information about maximum characters count in an Excel cell](faqs/information-about-maximum-characters-count-in-an-excel-cell)
-* [How to find values with the matching case in an Excel worksheet for specific columns?](faqs/how-to-find-values-with-matching-case)
+* [How to find values with matching case for specific column in an Excel worksheet?](faqs/how-to-find-values-with-matching-case-for-specific-column-in-an-excel-worksheet)

@@ -1,14 +1,13 @@
 ---
-title: Find values with the matching case for specific columns |Syncfusion
-description: This page shows how to find values with the matching case in an Excel worksheet for specific columns using Syncfusion .NET Excel library (XlsIO).
+title: Find values with matching case for specific column in an Excel worksheet |Syncfusion
+description: This page shows how to find values with matching case for specific column in an Excel worksheet using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# How to find values with the matching case in an Excel worksheet for specific columns?
-
-XlsIO allows searching values with matching cases in Excel for specific columns using ExcelFindOption.MatchCase option in FindAll method. The following code illustrates this.
+# How to find values with matching case for specific column in an Excel worksheet?
+XlsIO allows finding values with matching case for specific column in Excel worksheet using **MatchCase** option of **ExcelFindOption** enumeration through Find method of **WorksheetImpl**. The following code illustrates this.
 
 {% tabs %}  
 
@@ -121,7 +120,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
-    string resourcePath = "Sample.xlsx";
+    string resourcePath = "GettingStarted.Sample.xlsx";
     //"App" is the class of Portable project.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
