@@ -1,6 +1,6 @@
 ---
 title: Iterating Word document elements | DocIO | Syncfusion
-description: This section illustrates how to modify an existing Word document by iterating through Word document elements.
+description: This section illustrates how to modify an existing Word document by iterating through Word document elements without using Microsoft Word or Office interop.
 platform: file-formats
 control: DocIO
 documentation: UG

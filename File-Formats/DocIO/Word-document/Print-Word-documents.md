@@ -1,6 +1,6 @@
 ---
 title: Print Word documents | DocIO | Syncfusion
-description: This section illustrates how to print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s class.
+description: This section illustrates how to print a Word document using the Syncfusion Word library and the .NET Framework Class.
 platform: file-formats
 control: DocIO
 documentation: UG

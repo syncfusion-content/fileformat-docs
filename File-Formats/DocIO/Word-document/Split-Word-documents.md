@@ -1,6 +1,6 @@
 ---
 title: Split Word documents | DocIO | Syncfusion
-description: This section illustrates how to split the large Word document into number of smaller word documents by the sections, headings, bookmarks, and placeholder text.
+description: This section illustrates how to split a large Word document into several smaller ones without using Microsoft Word or Office interop.
 platform: file-formats
 control: DocIO
 documentation: UG

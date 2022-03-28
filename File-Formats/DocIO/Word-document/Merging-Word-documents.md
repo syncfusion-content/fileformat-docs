@@ -1,6 +1,6 @@
 ---
 title: Merging Word documents | DocIO | Syncfusion
-description: This section illustrates how to merge multiple Word documents into single Word document by importing contents from one document to another.
+description: This section illustrates how to merge multiple Word documents into one without using Microsoft Word or Office interop.
 platform: file-formats
 control: DocIO
 documentation: UG

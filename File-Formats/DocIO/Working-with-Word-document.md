@@ -1,6 +1,6 @@
 ---
 title: Working with Word document | DocIO | Syncfusion
-description: Learn about combining multiple Word documents as one, printing Word document, applying styles, document properties, & iterating through DOM elements
+description: This section illustrates how to combine multiple Word documents into one, print a Word document, apply styles, and iterate through DOM elements.
 platform: file-formats
 control: DocIO
 documentation: UG
