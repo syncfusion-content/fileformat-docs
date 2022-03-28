@@ -1,14 +1,14 @@
 ---
-title: Read the filtered data |Syncfusion
+title: How to read filtered rows in Excel? |Syncfusion
 description: This page shows how to read the filtered data from the Excel file using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# How to read filtered data?
+# How to read filtered rows in Excel?
 
-The row height property is used to access the filtered rows in the Excel file. The hidden rows will have their row height as zero '0'. The following code snippet illustrates this.
+The filtered rows in an Excel document can be read through RowHeight property. The filtered rows, also called as hidden rows, will have the row height as 0. The following code explains this.
 
 {% tabs %}  
 
@@ -66,7 +66,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;    
+    application.DefaultVersion = ExcelVersion.Excel2016;    
     //Instantiates the File Picker
     FileOpenPicker openPicker = new FileOpenPicker();
     openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -128,7 +128,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
-    string resourcePath = "Sample.xlsx";
+    string resourcePath = "GettingStarted.Sample.xlsx";
     //"App" is the class of Portable project.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
