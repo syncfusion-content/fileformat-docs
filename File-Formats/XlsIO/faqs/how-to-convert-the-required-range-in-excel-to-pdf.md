@@ -1,12 +1,12 @@
 ---
-title: How to convert specific range in Excel worksheet to PDF? | Syncfusion
-description: This page shows how to convert the required range of Excel to PDF using Syncfusion .NET Excel library (XlsIO).
+title: Convert the required range in Excel to PDF | Syncfusion
+description: This page shows how to convert the required range of Excel to PDF using the Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# How to convert the required range of Excel to PDF?
+# How to convert the required range in Excel to PDF?
 
 A specific range in an Excel worksheet can be converted to PDF by applying page breaks to that particular range and copying it to a new worksheet for conversion. The following code snippet explains this
 
@@ -146,6 +146,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
+	application.DefaultVersion = ExcelVersion.Xlsx;
     FileStream excelStream = new FileStream("ExceltoPDF.xlsx", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet sheet = workbook.Worksheets[0];
@@ -181,7 +182,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("ExceltoPDF.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("GettingStarted.ExceltoPDF.xlsx");
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet sheet = workbook.Worksheets[0];
 
@@ -210,7 +211,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExceltoPDF.pdf", "application/pdf", stream);
 }
 {% endhighlight %}
-% endtabs %}  
+{% endtabs %}  
 
 ## See Also
 
