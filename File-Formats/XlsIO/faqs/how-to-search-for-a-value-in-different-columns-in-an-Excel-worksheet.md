@@ -1,14 +1,13 @@
 ---
-title: How to search a value in specific columns of the Excel? | Syncfusion
-description: This page shows how to search a value in specific columns of the Excel worksheet? using Syncfusion .NET Excel library (XlsIO).
+title: How to search for a value in different columns in an Excel worksheet | Syncfusion
+description: This page shows how to to search for a value in different columns in an Excel worksheet? using Syncfusion .NET Excel library (XlsIO).
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# How to search a value in specific columns of the Excel worksheet?
-
-XlsIO allows searching a value in specific columns of the worksheet using the FindAll method and EntireColumn property. The following code snippet illustrates this.
+# How to search for a value in different columns in an Excel worksheet?
+XlsIO allows searching for a value in different columns in an Excel worksheet, through **FindAll** method. The following code illustrates this.
 
 {% tabs %}  
 
@@ -107,7 +106,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
 
-    string resourcePath = "Sample.xlsx";
+    string resourcePath = "GettingStarted.Sample.xlsx";
     //"App" is the class of Portable project.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
