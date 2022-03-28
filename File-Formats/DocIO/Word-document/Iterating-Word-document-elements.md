@@ -1,6 +1,6 @@
 ---
 title: Iterating Word document elements | DocIO | Syncfusion
-description: This section illustrates how to modify a Word document by iterating through DOM elements.
+description: This section illustrates how to modify an existing Word document by iterating through DOM elements.
 platform: file-formats
 control: DocIO
 documentation: UG
