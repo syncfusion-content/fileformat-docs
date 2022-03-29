@@ -8,20 +8,20 @@ documentation: UG
 
 # Worksheet Cells Manipulation
 
-The **IRange** interface represents a single cell or a group of cells in a worksheet. XlsIO has several useful methods for accessing, manipulating and formatting the content in the ranges.
+The [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) interface represents a single cell or a group of cells in a worksheet. XlsIO has several useful methods for accessing, manipulating and formatting the content in the cells.
 
 ## Accessing a Cell or a Range
 
 The following code shows the different ways of accessing a single cell or group of cells
 
-N> Here row and column indexes in the range are "one based". 
+N> Here row and column indexes in the range are "one-based". 
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -49,7 +49,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -78,7 +78,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -117,7 +117,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -149,7 +149,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -194,11 +194,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to access a cell or range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Access%20Cell%20or%20Range).
 
-T> You can use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
+T> You can make use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
 
 ## Accessing Relative Range
 
-By default, accessing a range by index will return the cell or range from worksheet level. To get a relative range for the indexes provided, it is recommended to set the **ExcelRangeIndexerMode** option. Here, the RowIndex and ColumnIndex arguments are relative offsets, where specifying a RowIndex of 1 returns cells in the first row of the range not the first  row of the worksheet.
+By default, accessing a range by index will return the cell or range from worksheet level. To get a relative range for the indexes provided, it is recommended to set the [ExcelRangeIndexerMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelRangeIndexerMode.html) option. Here, the RowIndex and ColumnIndex arguments are relative offsets, where specifying a RowIndex of 1 returns cells in the first row of the range not the first  row of the worksheet.
 
 For example, if a range is mentioned as "B3:D5", then accessing a range with the index [1,1] will return the cell "A1" from worksheet. If the **ExcelRangeIndexerMode** is set to **Relative** then it returns "B3".
 
@@ -211,7 +211,7 @@ N> Here row and column indexes in the range are "one-based".
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Setting range index mode to relative
   application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
@@ -239,7 +239,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
 
   'Setting range index mode to relative
   application.RangeIndexerMode = ExcelRangeIndexerMode.Relative
@@ -266,7 +266,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Setting range index mode to relative
   application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
@@ -305,7 +305,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Setting range index mode to relative
   application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
@@ -337,7 +337,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Setting range index mode to relative
   application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
@@ -384,7 +384,7 @@ A complete working example to access relative range in an Excel worksheet in C# 
 
 ### Accessing Discontinuous Ranges
 
-You can access discontinuous ranges and add them to the **RangesCollection**.  You can modify the contents or applying formatting of discontinuous range through RangeCollection instance. 
+It is possible to modify the contents or apply formatting to discontinuous range by accessing and adding them to the [RangesCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.Collections.RangesCollection.html).
 
 Following code snippet illustrates how to access discontinuous range.
 
@@ -393,7 +393,7 @@ Following code snippet illustrates how to access discontinuous range.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -414,7 +414,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -436,7 +436,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -468,7 +468,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -493,7 +493,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -533,14 +533,14 @@ A complete working example to access discontinuous range in an Excel worksheet i
 
 ### Accessing a Cell or Range using IMigrantRange 
 
-The **IMigrantRange** interface can also be used to access a single cell or group of cells and manipulate it.  You can prefer IMigrantRange instead of IRange while writing large amount of data which is an optimal way. 
+The [IMigrantRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IMigrantRange.html) interface can also be used to access a single cell or group of cells and manipulate it.  It is recommended to prefer **IMigrantRange** instead of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) for writing large amount of data in an optimal way. 
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
   IMigrantRange migrantRange = sheet.MigrantRange;
@@ -563,7 +563,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
   Dim migrantRange As IMigrantRange = sheet.MigrantRange
@@ -587,7 +587,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
   IMigrantRange migrantRange = sheet.MigrantRange;
@@ -621,7 +621,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
   IMigrantRange migrantRange = sheet.MigrantRange;
@@ -648,7 +648,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
   IMigrantRange migrantRange = sheet.MigrantRange;
@@ -690,16 +690,16 @@ A complete working example to access migrant range in an Excel worksheet in C# i
 
 ## Accessing used range of a Worksheet
 
-The following code snippet shows how to get the range of cells used in a given sheet.
+The following code snippet shows how to get the range of used cells in a given Excel worksheet.
 
-N> By default, XlsIO considers a cell as used, even if there exists some formatting alone. You can disable this behavior, and make XlsIO consider a cell as used, only when there exists data, by using the UsedRangeIncludesFormatting property.
+N> By default, XlsIO considers a cell as used, even if there exists some formatting alone. This behavior can be disabled, and make XlsIO consider a cell as used, only when there exists data, through the [UsedRangeIncludesFormatting](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_UsedRangeIncludesFormatting) property.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -717,7 +717,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -736,7 +736,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -774,7 +774,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -797,11 +797,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -852,6 +852,7 @@ Following code example illustrates how to get precedent cells from a worksheet a
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -869,6 +870,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -887,6 +889,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
   openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -922,6 +925,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -945,7 +949,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.FormulaExcel.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -984,6 +988,7 @@ Following code example illustrates how to get dependent cells from a worksheet a
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1001,6 +1006,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -1019,6 +1025,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
   openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1054,6 +1061,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -1075,9 +1083,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.FormulaExcel.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1111,7 +1120,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Get Direct Precedent and Dependent Cells
 
-`GetDirectDependents` and `GetDirectPrecedents` methods are used to get direct dependent/precedent cells for source range excluding inner dependent/precedent cells. 
+[GetDirectDependents](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_GetDirectDependents) and [GetDirectPrecedents](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_GetDirectPrecedents) methods are used to get direct dependent/precedent cells for source range, excluding inner dependent/precedent cells. 
 
 Following code example illustrates how to get direct precedent cells from a worksheet and entire workbook.
 
@@ -1120,6 +1129,7 @@ Following code example illustrates how to get direct precedent cells from a work
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1137,6 +1147,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -1155,6 +1166,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
   openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1190,6 +1202,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -1211,9 +1224,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.FormulaExcel.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1252,6 +1266,7 @@ Following code example illustrates how to get direct dependent cells from a work
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1269,6 +1284,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -1287,6 +1303,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
   openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1322,6 +1339,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -1343,9 +1361,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.FormulaExcel.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1381,7 +1400,7 @@ A complete working example to get the precedent and dependent cells in an Excel 
 
 ## Clearing a Cell Content
 
-You can delete everything in the cell, or just remove the formatting, contents, comments. The following code example illustrates how to clear a range along with its formatting.
+Either entire cell content, or just formatting, contents, or comments can be removed from Excel cell. The following code example illustrates how to clear a range along with its formatting.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1394,7 +1413,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Clearing a Range “A4” and its formatting
   sheet.Range["A4"].Clear(true);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("ClearRange.xlsx");
 }
 {% endhighlight %}
@@ -1408,7 +1427,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Clearing a Range “A4” and its formatting
   sheet.Range("A4").Clear(True)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("ClearRange.xlsx")
 End Using
 {% endhighlight %}
@@ -1417,7 +1436,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -1451,7 +1470,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
@@ -1471,11 +1490,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1508,9 +1527,9 @@ A complete working example to clear cell content in an Excel worksheet in C# is 
 
 ## Copy or Move a Range
 
-You can copy a range of cells to another range using CopyTo method. You can also copy all the formats or only specific formats using **ExcelCopyRangeOptions** options. 
+A single cell or a range of cells can be copied to another range using [CopyTo](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CopyTo_Syncfusion_XlsIO_IRange_) method. It is also possible to copy all the formats or only specific formats using [ExcelCopyRangeOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelCopyRangeOptions.html) options. 
 
-Following code example illustrates how to copy a range of cells from the source to destination.
+Following code example illustrates how to copy a cell from the source to destination.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1525,7 +1544,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IRange destination = sheet.Range["A5"];
   source.CopyTo(destination, ExcelCopyRangeOptions.All);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("CopyRange.xlsx");
 }
 {% endhighlight %}
@@ -1541,7 +1560,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim destination As IRange = sheet.Range("A5")
   source.CopyTo(destination, ExcelCopyRangeOptions.All)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("CopyRange.xlsx")
 End Using
 {% endhighlight %}
@@ -1576,7 +1595,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -1585,15 +1604,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsx");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
-
-  //Opens the workbook
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Copying a Range “A1” to “A5”
@@ -1601,18 +1613,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IRange destination = worksheet.Range["A5"];
   source.CopyTo(destination, ExcelCopyRangeOptions.All);
 
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "CopyRange";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
-  await workbook.SaveAsAsync(storageFile);
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("CopyRange.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Xlsx;
+  workbook.SaveAs(stream);
+  stream.Dispose();
 }
 {% endhighlight %}
 
@@ -1622,7 +1627,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1633,7 +1638,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -1656,9 +1661,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to copy range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Copy%20Range).
 
-**MoveTo** method is used for moving a range of cells to another range as shown below. 
+[MoveTo](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_MoveTo_Syncfusion_XlsIO_IRange_) method is used for moving a range of cells to another range as shown below. 
 
-N> MoveTo method does not update formulas.
+N> **MoveTo** method does not update formulas.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1673,7 +1678,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IRange destination = sheet.Range["A5"];
   source.MoveTo(destination);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("MoveRange.xlsx");
 }
 {% endhighlight %}
@@ -1689,7 +1694,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim destination As IRange = sheet.Range("A5")
   source.MoveTo(destination)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("MoveRange.xlsx")
 End Using
 {% endhighlight %}
@@ -1724,7 +1729,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -1744,7 +1749,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("MoveRange.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -1756,7 +1761,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1767,7 +1772,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -1792,7 +1797,7 @@ A complete working example to move range in an Excel worksheet in C# is present 
 
 ## Copy and Paste As Link
 
-You can copy a range and paste the range as link to another range using a bool parameter in CopyTo method.
+A range can be copied and paste the range as link to another range using a bool parameter in [CopyTo](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CopyTo_Syncfusion_XlsIO_IRange_System_Boolean_) method.
 
 Following code example illustrates how to paste a range of cells as link.
 
@@ -1809,7 +1814,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IRange destination = sheet.Range["D5"];
   source.CopyTo(destination, true);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("PasteLink.xlsx");
 }
 {% endhighlight %}
@@ -1825,7 +1830,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim destination As IRange = sheet.Range("A5")
   source.CopyTo(destination, True)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("PasteLink.xlsx")
 End Using
 {% endhighlight %}
@@ -1860,7 +1865,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -1880,7 +1885,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   
   //Saving the workbook as stream
   FileStream stream = new FileStream("PasteLink.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -1892,7 +1897,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1903,7 +1908,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -1914,11 +1919,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("PasteLink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("PasteLink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1928,7 +1933,7 @@ A complete working example to copy and paste as link in an Excel worksheet in C#
 
 ## Skip Blanks While Copying
 
-Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) to TRUE.
+Blank cells can be skipped while copying from source to destination range by setting the parameter **skipBlanks** to TRUE in [CopyTo](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CopyTo_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelCopyRangeOptions_System_Boolean_) method.
 
 The following code illustrates how to skip blank cells while copying.
 
@@ -1938,6 +1943,7 @@ The following code illustrates how to skip blank cells while copying.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
   
@@ -1956,6 +1962,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx;
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim sheet As IWorkbook = workbook.Worksheets(0)
   
@@ -1975,6 +1982,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Instantiates the File Picker. 
   FileOpenPicker openPicker = new FileOpenPicker();
   openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1996,7 +2004,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initializes FileSavePicker.
   FileSavePicker savePicker = new FileSavePicker();
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "CreateSpreadsheet";
+  savePicker.SuggestedFileName = "SkipBlank";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
   
   //Creates a storage file from FileSavePicker.
@@ -2011,8 +2019,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  string basePath = _hostingEnvironment.WebRootPath + @"\XlsIO\Sample.xlsx";              
-  FileStream sampleFile = new FileStream(basePath, FileMode.Open);
+  FileStream sampleFile = new FileStream("Sample.xlsx", FileMode.Open);
   IWorkbook workbook = application.Workbooks.Open(sampleFile);
   IWorksheet sheet = workbook.Worksheets[0];             
   
@@ -2025,7 +2032,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook to stream in XLSX format
   FileStream stream = new FileStream("SkipBlank.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 }
 {% endhighlight %}
@@ -2034,9 +2041,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
   
@@ -2056,11 +2063,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SkipBlanks.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SkipBlank.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SkipBlanks.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SkipBlank.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2068,14 +2075,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Find and Replace
 
-You can perform [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) text and numbers in workbook or worksheet using XlsIO. Also, XlsIO provides the following options:
+XlsIO provides following options to perform [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) for text and numbers in Excel workbook or worksheet:
 
-*	To search for data in formulas, values or comments.
-*	To search for case-sensitive data and to match entire cell contents of the cell.
+*	Search for data in formulas, values or comments.
+*	Search for case-sensitive data and to match entire cell contents of the cell.
 
 To know more about these options, please refer the [ExcelFindType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
 
-You can find all the occurrences of a text in worksheet by using [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_FindAll_System_Boolean_) method. To know more about Find and Replace, please refer [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) in the API documentation section.
+All the occurrences of a text in Excel worksheet can be found through [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_FindAll_System_Boolean_) method. 
+
 The following code illustrates how to find all the occurrences of text in a worksheet with different find options.
 
 {% tabs %}  
@@ -2104,7 +2112,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Searches for the given string within the text of worksheet and the entire cell content matching to search text
   IRange[] result6 = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Find.xlsx");
 }
 {% endhighlight %}
@@ -2133,7 +2141,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Searches for the given string within the text of worksheet and the entire cell content matching to search text
   Dim result6() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Find.xlsx")
 End Using
 {% endhighlight %}
@@ -2182,7 +2190,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -2215,7 +2223,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Find.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -2227,7 +2235,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -2251,7 +2259,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -2272,7 +2280,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-You can replace a text with another text with the help of Replace method which searches for text you’d like to change. You can replace a string, with the data of various data types and data sources, such as data table, data column and array.
+It is possible to replace a text with another text with the help of [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_Replace_System_String_System_String_) method which searches for text which should be changed. A string can be replaced, with the data of various data types and data sources, such as data table, data column and array.
+
 To know more about replace overloads, please refer [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_Replace_System_String_System_Data_DataColumn_System_Boolean_) in the API documentation section.
 
 The following code example illustrates how to replace all occurrences of given string with various data.
@@ -2304,7 +2313,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   DataTable table = SampleDataTable();
   sheet.Replace("DataTable", table, true);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Replace.xlsx");
 }
 {% endhighlight %}
@@ -2334,7 +2343,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim table As DataTable = SampleDataTable()
   sheet.Replace("DataTable", table, True)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Replace.xlsx")
 End Using
 {% endhighlight %}
@@ -2379,7 +2388,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -2409,7 +2418,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Replace.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -2421,7 +2430,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -2442,7 +2451,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -2465,7 +2474,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Data Sorting
 
-You can sort a range of cells based on data in one or more columns. You can perform sorting based on the following:
+A range of cells in Excel worksheet can be sorted based on data in one or more columns. Following types of sorting is supported in XlsIO:
 
 * Based on Cell Values
 * Based on Font Color
@@ -2500,7 +2509,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Sort based on the sort Field attribute
   sorter.Sort();
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Sort.xlsx");
 }
 {% endhighlight %}
@@ -2526,7 +2535,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Sorts the data with the sort field attribute
   sorter.Sort()
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Sort.xlsx")
 End Using
 {% endhighlight %}
@@ -2571,7 +2580,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -2601,7 +2610,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Sort.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -2613,7 +2622,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -2634,7 +2643,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -2690,7 +2699,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Sort based on the sort Field attribute
   sorter.Sort();
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Sort.xlsx");
 }
 {% endhighlight %}
@@ -2722,7 +2731,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Sorts the data with the sort field attribute
   sorter.Sort()
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Sort.xlsx")
 End Using
 {% endhighlight %}
@@ -2773,7 +2782,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -2809,7 +2818,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Sort.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -2821,7 +2830,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -2848,7 +2857,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -2904,7 +2913,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Sort based on the sort field attribute
   sorter.Sort();
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Sort.xlsx");
 }
 {% endhighlight %}
@@ -2934,7 +2943,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Sorts the data with the sort field attribute
   sorter.Sort()
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Sort.xlsx")
 End Using
 {% endhighlight %}
@@ -2985,7 +2994,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -3021,7 +3030,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Sort.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -3033,7 +3042,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -3060,7 +3069,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -3085,7 +3094,7 @@ A complete working example to sort Excel data based on cell color in C# is prese
 
 ## Data Filtering 
 
-Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e), you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria. The following are the types of filters that can be used in XlsIO.
+Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e), data can be filtered to enable quick and easy way to find and work with a subset of data in a range of cells. When the data is filtered, entire rows are hidden if values in one or more columns does not meet the filtering criteria. The following are the types of filters that can be used in XlsIO.
 
 * Custom Filter (Conditional)
 * Combination Filter (Text and DateTime filter)
@@ -3119,7 +3128,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Setting Top10 filter with number of cell to be filtered from top
   filter.Top10Number = 5;
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Filter.xlsx");
 }
 {% endhighlight %}
@@ -3143,7 +3152,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Setting Top10 filter with number of cell to be filtered from top
   filter.Top10Number = 5
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Filter.xlsx")
 End Using
 {% endhighlight %}
@@ -3186,7 +3195,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -3214,7 +3223,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -3226,7 +3235,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -3245,7 +3254,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -3270,7 +3279,7 @@ A complete working example to apply filter on Excel data in C# is present on [th
 
 ### Custom Filter
 
-Following code snippets illustrates how to apply custom filter, based on first and second condition.
+Following code snippet illustrates how to apply custom filter, based on first and second condition.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3294,7 +3303,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   secondCondition.ConditionOperator = ExcelFilterCondition.Less;
   secondCondition.Double = 200;
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Filter.xlsx");
 }
 {% endhighlight %}
@@ -3319,7 +3328,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   secondCondition.ConditionOperator = ExcelFilterCondition.Less
   secondCondition.Double = 200
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Filter.xlsx")
 End Using
 {% endhighlight %}
@@ -3363,7 +3372,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -3392,7 +3401,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream file = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(file);
   file.Dispose();
 }
@@ -3404,7 +3413,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3424,7 +3433,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -3449,7 +3458,7 @@ A complete working example to apply custom filter on Excel data in C# is present
 
 ### Combination Filter
 
-This filter contains both Text filter and DateTime filter, it filters the data based on multiple criteria. Following code snippets illustrates how to apply combination filter with multiple of Text filter and DateTime filter.
+This filter contains both Text filter and DateTime filter. It filters the data based on multiple criteria. Following code snippet illustrates how to apply combination filter with multiple of Text filter and DateTime filter.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3472,7 +3481,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   filter.AddDateFilter(new DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day);
   filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Filter.xlsx");
 }
 {% endhighlight %}
@@ -3496,7 +3505,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   filter.AddDateFilter(New DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day)
   filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Filter.xlsx")
 End Using
 {% endhighlight %}
@@ -3539,7 +3548,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -3567,7 +3576,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -3579,7 +3588,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -3598,7 +3607,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -3623,7 +3632,7 @@ A complete working example to apply combination filter on Excel data in C# is pr
 
 ### Dynamic Filter
 
-Dynamic filter is a relative date filter, which filters data based on DynamicFilterType enumeration. Following code snippets illustrates how to apply Dynamic filter.
+Dynamic filter is a relative date filter, which filters data based on [DynamicFilterType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.DynamicFilterType.html) enumeration. Following code snippet illustrates how to apply Dynamic filter.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3642,7 +3651,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Applying dynamic filter to filter the date based on DynamicFilterType.
   filter.AddDynamicFilter(DynamicFilterType.NextQuarter);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Filter.xlsx");
 }
 {% endhighlight %}
@@ -3662,7 +3671,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Applying dynamic filter to filter the date based on DynamicFilterType.
   filter.AddDynamicFilter(DynamicFilterType.NextQuarter)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Filter.xlsx")
 End Using
 {% endhighlight %}
@@ -3701,7 +3710,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -3725,7 +3734,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -3737,7 +3746,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -3752,7 +3761,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -3777,7 +3786,7 @@ A complete working example to apply dynamic filter on Excel data in C# is presen
 
 ### Color Filter
 
-Color Filter can be used to filter data based on the color applied to the cell or the color applied to the text in the cell. The following code snippets show how to apply Color Filter based on Cell Color (fill color applied to the cell).
+Color Filter can be used to filter data based on the color applied to the cell or the color applied to the text in the cell. The following code snippet show how to apply Color Filter based on Cell Color (fill color applied to the cell).
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3796,7 +3805,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Applying color filter to filter based on Cell Color.
   filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Filter.xlsx");
 }
 {% endhighlight %}
@@ -3816,7 +3825,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Applying color filter to filter based on Cell Color.
   filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Filter.xlsx")
 End Using
 {% endhighlight %}
@@ -3855,7 +3864,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -3879,7 +3888,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -3891,7 +3900,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -3906,7 +3915,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -3929,7 +3938,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to apply color filter on Excel data based on cell color in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Cell%20Color%20Filter).
 
-To filter cells based on Font color of the text inside cells just change the ExcelColorFilterType to Font Color. The following snippets show how to filter the cells based on font color.
+To filter cells based on Font color of the text inside cells just change the [ExcelColorFilterType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelColorFilterType.html) to Font Color. The following snippet show how to filter the cells based on font color.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3948,7 +3957,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Applying color filter to filter based on Cell Color.
   filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Filter.xlsx");
 }
 {% endhighlight %}
@@ -3968,7 +3977,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Applying color filter to filter based on Cell Color.
   filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Filter.xlsx")
 End Using
 {% endhighlight %}
@@ -4007,7 +4016,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -4031,7 +4040,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -4043,7 +4052,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -4058,7 +4067,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -4083,7 +4092,7 @@ A complete working example to apply color filter on Excel data based on font col
 
 ### Icon Filter
 
-Icon filter can be used to filter data that has conditional formatting with Icon Sets applied. Applying Icon Sets for numeric data adds icons to each cell based on the value present in that cell. Using Icon Filter, we can easily filter the data that has only a specific Icon in it.
+Icon filter can be used to filter data that has conditional formatting with Icon Sets applied. Applying Icon Sets for numeric data adds icons to each cell based on the value present in that cell. Using Icon Filter, the data that has only a specific Icon in it can be filtered easily.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -4102,7 +4111,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Applying Icon filter to filter based on applied icon set.
   filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Filter.xlsx");
 }
 {% endhighlight %}
@@ -4122,7 +4131,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Applying Icon filter to filter based on applied icon set.
   filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Filter.xlsx")
 End Using
 {% endhighlight %}
@@ -4161,7 +4170,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -4185,7 +4194,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -4197,7 +4206,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -4212,7 +4221,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -4237,7 +4246,7 @@ A complete working example to apply icon filter on Excel data in C# is present o
 
 ### Advanced Filter
 
-Advanced Filter can be used to perform more complex filtering other than basic filters. You can filter a data with custom defined criteria range.
+Advanced Filter can be used to perform more complex filtering other than basic filters. Data can be filtered with custom defined criteria range.
 
 Advanced Filter support two types of filter action.
 
@@ -4266,7 +4275,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Apply the Advanced Filter with enable of unique value and copy to another place.
   sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("AdvancedFilter.xlsx");
 }
 {% endhighlight %}
@@ -4284,7 +4293,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Apply the Advanced filter with enable of unique value and copy to another place.
   sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, True)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("AdvancedFilter.xlsx")
 End Using
 {% endhighlight %}
@@ -4321,7 +4330,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -4330,7 +4339,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream fileStream = new FileStream("InputData.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -4343,7 +4352,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("AdvancedFilter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -4355,7 +4364,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.InputData.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -4368,7 +4377,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -4393,14 +4402,14 @@ A complete working example to apply advanced filter on Excel data in C# is prese
 
 ### Accessing Filter
 
-We can access the filter and its criteria, based on its column index. Following code snippets illustrates how to apply access different types of filters using XlsIO.
+A filter and its criteria can be accessed based on its column index. Following code snippet illustrates how to access different types of filters using XlsIO.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -4454,7 +4463,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -4504,7 +4513,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -4578,7 +4587,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -4637,11 +4646,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -4714,7 +4723,7 @@ A complete working example to access filters from Excel worksheet in C# is prese
 
 ## Hyperlinks
 
-You can create hyperlink in a workbook to provide quick access to web pages, places in your document and files. Hyperlink may target to any one of the following
+Hyperlink can be created in a workbook to provide quick access to web pages, places in your document and files. Hyperlink may target to any one of the following
 
 * Worksheet range
 * Web URL
@@ -4728,7 +4737,7 @@ The following code example illustrates how to insert various hyperlinks.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -4772,7 +4781,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -4817,7 +4826,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -4872,7 +4881,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -4920,7 +4929,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -4983,7 +4992,7 @@ A complete working example to add hyperlinks in C# is present on [this GitHub pa
 
 ### Modifying Existing Hyperlink
 
-You can modify the properties of existing hyperlink by accessing the Hyperlinks collection of the IRange instance.
+The properties of existing hyperlink can be modified by accessing it through the [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) instance.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -4997,7 +5006,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IHyperLink hyperlink = sheet.Range["C5"].Hyperlinks[0];
   hyperlink.TextToDisplay = "Syncfusion";
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Hyperlink.xlsx");
 }
 {% endhighlight %}
@@ -5012,7 +5021,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim hyperlink As IHyperLink = sheet.Range("C5").Hyperlinks(0)
   hyperlink.TextToDisplay = "Syncfusion"
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Hyperlink.xlsx")
 End Using
 {% endhighlight %}
@@ -5046,7 +5055,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -5065,7 +5074,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -5077,7 +5086,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5087,7 +5096,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -5112,7 +5121,7 @@ A complete working example to modify existing hyperlink in C# is present on [thi
 
 ### Removing Hyperlink
 
-You can remove a hyperlink from a range by accessing the Hyperlinks collection of the IRange instance.
+Similarly, a hyperlink can also be removed from a range by accessing it through the [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) instance.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -5125,7 +5134,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Removing Hyperlink from Range "C7"
   sheet.Range["C7"].Hyperlinks.RemoveAt(0);
 
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs("Hyperlink.xlsx");
 }
 {% endhighlight %}
@@ -5139,7 +5148,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Removing Hyperlink from Range "C7"
   sheet.Range("C7").Hyperlinks.RemoveAt(0)
 
-  workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Xlsx
   workbook.SaveAs("Hyperlink.xlsx")
 End Using
 {% endhighlight %}
@@ -5172,7 +5181,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -5190,7 +5199,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -5202,7 +5211,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5211,7 +5220,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   workbook.SaveAs(stream);
 
   stream.Position = 0;
@@ -5251,7 +5260,7 @@ The following code example illustrates how to insert hyperlinks to shapes.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
   //Adding hyperlink to TextBox 
@@ -5279,7 +5288,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
   'Text box 
@@ -5308,7 +5317,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -5346,7 +5355,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
@@ -5355,7 +5364,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -5386,11 +5395,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5435,14 +5444,14 @@ A complete working example to add hyperlink to shape in C# is present on [this G
 
 **Modifying** **Hyperlinks** **on** **Shapes**
 
-Properties of existing hyperlink can be modified by accessing either the Hyperlinks collection of the IWorksheet instance or Hyperlink property in respective IShape instance.
+Properties of existing hyperlink can be modified by accessing it through [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) instance or [IShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IShape.html) instance.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -5461,7 +5470,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -5481,7 +5490,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -5520,7 +5529,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -5544,11 +5553,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5586,14 +5595,14 @@ A complete working example to modify shape hyperlink in C# is present on [this G
 
 **Removing** **Hyperlinks** **from** **Shapes**
 
-Hyperlinks from shapes can be removed by accessing Hyperlinks collection of the worksheet instance.
+The following code snippet explins how to remove hyperlink of shape.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -5607,7 +5616,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -5622,7 +5631,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -5656,7 +5665,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -5675,11 +5684,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("CellsManipulation.Sample.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5721,7 +5730,7 @@ The following code snippet explains the usage of [Address](https://help.syncfusi
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5747,7 +5756,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -5774,7 +5783,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5811,7 +5820,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5848,7 +5857,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5886,7 +5895,7 @@ As the name says, [Boolean](https://help.syncfusion.com/cr/file-formats/Syncfusi
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5905,7 +5914,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -5925,7 +5934,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5955,7 +5964,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -5985,7 +5994,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6016,7 +6025,7 @@ The following code snippet explains how to set border styles for a worksheet ran
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6041,7 +6050,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -6067,7 +6076,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6103,7 +6112,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6139,7 +6148,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6176,7 +6185,7 @@ The following code snippet explains how to add [BuiltInStyle](https://help.syncf
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6193,7 +6202,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -6211,7 +6220,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6239,7 +6248,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6267,7 +6276,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6289,16 +6298,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Calculated Value
 
-[CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CalculatedValue) is the evaluated value of the formula. The following code snippet explains how to get the ``CalculatedValue`` of the formula.
+[CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CalculatedValue) is the evaluated value of the formula. The following code snippet explains how to get the **CalculatedValue** of the formula.
 
-N> It is mandatory to enable sheet calculations i.e., ``worksheet.EnableSheetCalculations();`` before accessing the CalculatedValue. Else, CalculatedValue will be null.
+N> It is mandatory to enable sheet calculations i.e., **worksheet.EnableSheetCalculations();** before accessing the **CalculatedValue**. Else, **CalculatedValue** will be returned as null.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6325,7 +6334,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -6353,7 +6362,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6391,7 +6400,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6429,7 +6438,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6461,14 +6470,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Cells
 
-[Cells](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Cells) property maintains the collection of cells in a worksheet range. The following code snippet explains how to access ``Cells`` property.
+[Cells](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Cells) property maintains the collection of cells in a worksheet range. The following code snippet explains how to access this property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6488,7 +6497,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -6508,7 +6517,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6539,7 +6548,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6570,7 +6579,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6602,7 +6611,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6625,7 +6634,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -6649,7 +6658,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6683,7 +6692,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6717,7 +6726,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6752,7 +6761,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6766,7 +6775,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -6781,7 +6790,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6806,7 +6815,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6831,7 +6840,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6857,7 +6866,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6877,7 +6886,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -6897,7 +6906,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6928,7 +6937,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6959,7 +6968,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -6999,7 +7008,7 @@ To know in detail about **Conditional Formats**, please navigate to [https://hel
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7013,7 +7022,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7028,7 +7037,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7053,7 +7062,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7078,7 +7087,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7108,7 +7117,7 @@ To know in detail about **Data Validation**, please navigate to [https://help.sy
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7122,7 +7131,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7137,7 +7146,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7162,7 +7171,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7187,7 +7196,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7213,7 +7222,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7227,7 +7236,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7242,7 +7251,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7267,7 +7276,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7292,7 +7301,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7320,7 +7329,7 @@ N> Using EntireColumn property excessively leads to time consumption and affects
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7334,7 +7343,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7349,7 +7358,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7374,7 +7383,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7399,7 +7408,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7425,7 +7434,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7449,7 +7458,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7474,7 +7483,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7509,7 +7518,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7544,7 +7553,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7584,7 +7593,7 @@ To know in detail about **FormulaArray**, please navigate to [https://help.syncf
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7615,7 +7624,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7647,7 +7656,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7689,7 +7698,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7731,7 +7740,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7774,7 +7783,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7795,7 +7804,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7817,7 +7826,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7849,7 +7858,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7881,7 +7890,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7914,7 +7923,7 @@ The following code snippet explains the behavior of [HasDataValidation](https://
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7937,7 +7946,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -7958,7 +7967,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -7992,7 +8001,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8026,7 +8035,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8061,7 +8070,7 @@ The following code snippet explains the behavior of [HasDateTime](https://help.s
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8089,7 +8098,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -8118,7 +8127,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8157,7 +8166,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8196,7 +8205,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8236,7 +8245,7 @@ The following code snippet explains the behavior of [HasExternalFormula](https:/
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8258,7 +8267,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -8281,7 +8290,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8314,7 +8323,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8347,7 +8356,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8381,7 +8390,7 @@ The following code snippet explains the behavior of [HasFormula](https://help.sy
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8402,7 +8411,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -8424,7 +8433,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8456,7 +8465,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8488,7 +8497,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8521,7 +8530,7 @@ The following code snippet explains the behavior of [HasFormulaArray](https://he
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8543,7 +8552,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -8566,7 +8575,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8599,7 +8608,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8632,7 +8641,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8666,7 +8675,7 @@ The following code snippet explains the behavior of [HasFormulaBoolValue](https:
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8692,7 +8701,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -8719,7 +8728,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8756,7 +8765,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8793,7 +8802,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8831,7 +8840,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8850,7 +8859,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -8870,7 +8879,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8900,7 +8909,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8930,7 +8939,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8961,7 +8970,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -8994,7 +9003,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -9028,7 +9037,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -9072,7 +9081,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -9117,7 +9126,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
