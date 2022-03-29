@@ -252,3 +252,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The resultant document looks as follows.
 
 ![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)
+
+## See Also
+
+* [How to mail merge Word document in Azure functions v1](https://www.syncfusion.com/kb/10671/how-to-mail-merge-word-document-in-azure-functions-v1)

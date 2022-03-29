@@ -1994,3 +1994,7 @@ document.Close();
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Replace-content-with-document-part).
+
+## See Also
+
+* [How to replace the content between two different existing bookmarks in a word document](https://www.syncfusion.com/kb/13010/how-to-replace-the-content-between-two-different-existing-bookmarks-in-a-word-document)
