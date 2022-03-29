@@ -2959,4 +2959,6 @@ document.Close();
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Insert-next-sequence-number).
+## See Also
+
+* [Is it possible to update Include Text field in Word document using Essential DocIO?](https://www.syncfusion.com/kb/3921/is-it-possible-to-update-include-text-field-in-word-document-using-essential-docio)
