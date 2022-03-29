@@ -7,16 +7,6 @@ documentation: UG
 ---
 # Working with Word document
 
-## Iterating through document elements
-
-The following are the important points to be remembered while iterating the document elements
-
-* Document consists of one or more sections.
-* Section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`.
-* `WTextBody` contains three type of elements – either paragraph, table or block content control.
-
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/iterating-word-document-elements).
-
 ## Cloning a Word document
 
 You can create a deep copy of a Word document by using `Clone` method of `WordDocument` class. You can read the template document from file system or stream and create multiple document copies by cloning it. This improves the performance of document generation, as there is no need to read the Word document each time.
@@ -219,38 +209,6 @@ sourceDocument.Close();
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-section).
-
-## Merging Word documents
-
-You can merge multiple Word documents into single Word document by using DocIO’s capability of importing contents from one document to another. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/merging-word-documents). 
-
-### Maintain Imported List style information
-
-You can maintain information about imported list styles in a Word document while cloning and merging multiple Word documents. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/merging-word-documents#maintain-imported-list-style-information).
-
-## Printing a Word document
-
-You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/print-word-documents).
-
-## Working with Styles
-
-A style is a predefined set of table, numbering, paragraph, and character properties that can be applied to regions within a document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-paragraph#working-with-styles).
-
-### Access Styles
-
-Paragraph and character styles present in the existing document are accessible through the `Styles` property of `WordDocument` class. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-paragraph#access-styles).
-
-### Creating a new Paragraph Style
-
-You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-paragraph#creating-a-new-paragraph-style).
-
-### Applying built-in styles
-
-DocIO provides a set of predefined styles. You can apply those predefined styles. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-paragraph#applying-built-in-styles).
-
-### Remove Styles
-
-You can remove the styles present in the existing document using the `Remove` method. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-paragraph#remove-styles).
 
 ## Working with Word document properties
 
@@ -1368,22 +1326,9 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Update-alternate-chunks).
 
-## Split Word documents
+## See Also
 
-Syncfusion Word Library allows you to split the large Word document into number of smaller word documents by the sections, headings, bookmarks, and placeholder text in programmatically. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents).
-
-### Split by Section
-
-You can split the Word document by sections. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents#split-by-section).
-
-### Split by Headings
-
-You can split the Word document by using headings. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents#split-by-headings).
-
-### Split by Bookmark
-
-You can split the Word document using bookmarks. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents#split-by-bookmark).
-
-### Split by placeholder text
-
-You can split the Word document using the placeholder text. For further information, click [here](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents#split-by-placeholder-text).
+* [Iterating Word document elements](https://help.syncfusion.com/file-formats/docio/word-document/iterating-word-document-elements)
+* [Merging Word documents](https://help.syncfusion.com/file-formats/docio/word-document/merging-word-documents)
+* [Print Word documents](https://help.syncfusion.com/file-formats/docio/word-document/print-word-documents)
+* [Split Word documents](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents)
