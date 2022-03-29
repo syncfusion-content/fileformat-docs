@@ -5595,7 +5595,7 @@ A complete working example to modify shape hyperlink in C# is present on [this G
 
 **Removing** **Hyperlinks** **from** **Shapes**
 
-The following code snippet explins how to remove hyperlink of shape.
+The following code snippet explains how to remove hyperlink of shape.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
