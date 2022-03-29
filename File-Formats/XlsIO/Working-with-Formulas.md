@@ -4,6 +4,7 @@ description: Learn how to create, read, edit & calculate formula in an Excel fil
 platform: File-formats
 control: XlsIO
 documentation: UG
+keywords: c#, vb.net, excel, read excel, edit excel, edit excel cell, excel formula, cell formula, add formula, write excel, update excel, syncfusion, xlsio
 ---
 # Working with Formulas
 
@@ -11,7 +12,7 @@ documentation: UG
 
 ## Enable and Disable Calculation
 
-To perform calculation in an Excel workbook, it is recommended to invoke **EnableSheetCalculations** method of __IWorksheet__. Enabling this method will initialize [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects and retrieves calculated values of formulas in a worksheet. 
+To perform calculation in an Excel workbook, it is recommended to invoke [EnableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_EnableSheetCalculations) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). Enabling this method will initialize [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects and retrieves calculated values of formulas in a worksheet. 
 
 The following code sample illustrates on how to enable worksheet formula calculations.
 
@@ -52,7 +53,7 @@ sheet.EnableSheetCalculations();
 {% endhighlight %}
 {% endtabs %}   
 
-On completion of worksheet calculation, it is recommended to invoke **DisableSheetCalculations** method of __IWorksheet__. This will dispose all the [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects.
+On completion of worksheet calculation, it is recommended to invoke [DisableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_DisableSheetCalculations) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). This will dispose all the [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects.
 
 The following code sample illustrates on how to disable worksheet formula calculations.
 
@@ -95,14 +96,14 @@ sheet.DisableSheetCalculations();
 
 ## Writing a Formula
 
-In a worksheet, formulas can be entered by using the **Formula** property of IRange instance. Following code example illustrates on how to write a formula.
+In a worksheet, formulas can be entered by using the [Formula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Formula) property of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) instance. Following code example illustrates on how to write a formula.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -120,7 +121,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -139,7 +140,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -168,7 +169,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -190,7 +191,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -234,7 +235,7 @@ XlsIO supports using formulas across worksheets. The following code shows how to
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create();
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -248,7 +249,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create()
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -263,7 +264,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create();
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -288,7 +289,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create();
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -306,7 +307,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create();
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -339,7 +340,7 @@ A complete working example to insert formula in Excel cell with cross sheet refe
 
 ## Reading a Formula
 
-Formulas are string values which can be accessed using **Formula** property of __IRange__. If a cell has formula, the **Value** property of __IRange__ will also return the formula as string.
+Formulas are string values which can be accessed using [Formula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Formula) property of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html). If a cell has formula, the [Value](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_Value) property of **IRange** will also return the formula as string.
 
 The following code shows how to read a formula.
 
@@ -372,7 +373,7 @@ string formula = sheet["C1"].Formula;
 
 ## Accessing a Calculated value
 
-To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsio/working-with-formulas#enable-and-disable-calculation) in prior. After enabling the sheet calculation, the formula can be evaluated using **CalculatedValue** of __IRange__, which returns a string value.
+To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsio/working-with-formulas#enable-and-disable-calculation) in prior. After enabling the sheet calculation, the formula can be evaluated using [CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CalculatedValue) of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html), which returns a string value.
 
 The following code shows how to access a calculated value.
 
@@ -381,7 +382,7 @@ The following code shows how to access a calculated value.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -399,7 +400,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -418,7 +419,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -456,7 +457,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -479,7 +480,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -518,9 +519,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to access calculated value of a formula in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Calculated%20Value).
 
-Apart from __CalculatedValue__ property, the evaluated values can be accessed as **bool**, **DateTime** and **double** data types. To obtain updated values of these types, **CalculatedValue** property must be called in prior.
+Apart from **CalculatedValue** property, the evaluated values can also be accessed as **bool**, **DateTime** and **double** data types. To obtain the updated values of these types, **CalculatedValue** property must be called in prior.
 
-To know more about evaluated values, please refer **IRange** in API section.
+To know more about evaluated values, please refer [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) in API section.
 
 The following code shows how to access calculated values in different types.
 
@@ -529,7 +530,7 @@ The following code shows how to access calculated values in different types.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -571,7 +572,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -614,7 +615,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -676,7 +677,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -723,7 +724,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -786,11 +787,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to access calculated value of a formula in different forms in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Formulas/Types%20of%20Calculated%20Value).
 
-N> Calculated value for external reference formulas can be evaluated in XlsIO.
+N> Calculated value for external reference formulas can also be evaluated in XlsIO.
 
 ## Applying Argument Separators Based on Cultures
 
-Formula separators vary for different cultures, and exceptions can be thrown in such cases. This can be overcome by setting the separators by using **SetSeparators** method of __IWorkbook__.
+Formula separators vary for different cultures, and exceptions can be thrown in such cases. This can be overcome by setting the separators by using [SetSeparators](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html#Syncfusion_XlsIO_IWorkbook_SetSeparators_System_Char_System_Char_) method of [IWorkbook](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html).
 
 Following code illustrates on how to change the formula separators.
 
@@ -799,7 +800,7 @@ Following code illustrates on how to change the formula separators.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -813,7 +814,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
   'Setting the argument separator
@@ -827,7 +828,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
 
   //Setting the argument separator
@@ -851,7 +852,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
 
   //Setting the argument separator
@@ -868,7 +869,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
 
   //Setting the argument separator
@@ -900,7 +901,7 @@ A complete working example to add argument separator in C# is present on [this G
 
 ## Array of Formula
 
-Array formula is a special type of formula in Excel. It works with an array or series of data values, rather than a single data value which can be done through **FormulaArray** property of __IRange__ instance.
+Array formula is a special type of formula in Excel. It works with an array or series of data values, rather than a single data value which can be done through [FormulaArray](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_FormulaArray) property of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) instance.
 
 Following code shows how an array of values from [Named Range](/file-formats/xlsio/working-with-formulas#defined-names) is used for computation. 
 
@@ -909,7 +910,7 @@ Following code shows how an array of values from [Named Range](/file-formats/xls
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -930,7 +931,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -951,7 +952,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -982,7 +983,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1006,7 +1007,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1045,7 +1046,7 @@ A complete working example to add formula array in C# is present on [this GitHub
 
 ## Incremental Formula
 
-The relative cell references in the formulas are automatically incremented by 1, when you fill formulas down a column or across a row by enabling the EnableIncrementalFormula property of **IApplication** interface.
+The relative cell references in the formulas are automatically incremented by 1, when you fill formulas down a column or across a row by enabling the [EnableIncrementalFormula](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_EnableIncrementalFormula) property of [IApplication](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html) interface.
 
 The below code snippet shows how to increment the cell references by 1 in the formulas.
 
@@ -1054,7 +1055,7 @@ The below code snippet shows how to increment the cell references by 1 in the fo
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Enables the incremental formula to updates the reference in cell
   application.EnableIncrementalFormula = true;
@@ -1072,7 +1073,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
 
   'Enables the incremental formula to updates the reference in cell
   application.EnableIncrementalFormula = True
@@ -1091,7 +1092,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Enables the incremental formula to updates the reference in cell
   application.EnableIncrementalFormula = true;
@@ -1120,7 +1121,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Enables the incremental formula to updates the reference in cell
   application.EnableIncrementalFormula = true;
@@ -1142,7 +1143,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Enables the incremental formula to updates the reference in cell
   application.EnableIncrementalFormula = true;
@@ -1190,7 +1191,7 @@ Following code illustrates the insertion of a formula that refers to cell 'A1' i
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1204,7 +1205,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -1219,7 +1220,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1244,7 +1245,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1262,7 +1263,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1297,7 +1298,7 @@ N> Links are updated automatically in Microsoft Excel to view the result for the
 
 ## Calculated Column
 
-XlsIO supports to create, access and modify [calculated column](https://support.office.com/en-us/article/Create-edit-or-remove-a-calculated-column-in-an-Excel-table-4507b5aa-8859-407c-b3eb-743a2650af3c) in a table. When you enter a formula in a table column, Excel creates a calculated column. This column uses a single formula that’s automatically extended to additional rows in the column and adjusted for each row. You just enter a formula once, and Excel immediately fills it down to create the calculated column.
+XlsIO supports to create, access and modify [calculated column](https://support.office.com/en-us/article/Create-edit-or-remove-a-calculated-column-in-an-Excel-table-4507b5aa-8859-407c-b3eb-743a2650af3c) in a table. When a formulas is entered in a table column, Excel creates a calculated column. This column uses a single formula that’s automatically extended to additional rows in the column and adjusted for each row. Enter a formula once, and Excel immediately fills it down to create the calculated column.
 
 Also, XlsIO supports [structured reference](https://support.office.com/en-us/article/Use-structured-references-in-Excel-table-formulas-75fb07d3-826a-449c-b76f-363057e3d16f) in calculated column in table from Excel 2013.
 
@@ -1308,7 +1309,7 @@ The following code snippet illustrates how to create a calculated column.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1340,7 +1341,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -1373,7 +1374,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1415,7 +1416,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1450,7 +1451,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -2689,7 +2690,7 @@ The following code illustrates on how to include and access Add-ins in XlsIO.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -2722,7 +2723,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -2745,7 +2746,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -2776,7 +2777,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -2800,7 +2801,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -2918,7 +2919,7 @@ Following code example illustrates how to create workbook-level named ranges and
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -2940,7 +2941,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -2963,7 +2964,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -2996,7 +2997,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3022,7 +3023,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3128,9 +3129,7 @@ A complete working example to delete named ranges in C# is present on [this GitH
 
 Microsoft Excel constantly checks in the background for potential errors in your worksheets, when open. If an error is located (or, at the least, what Excel thinks is an error), then the cell is "flagged" with a small green triangle in the upper-left corner of the cell. Auditing a formula helps to identify the error in it. 
 
-In certain cases, these errors can be ignored so that the error will not appear in further error checks. The **IgnoreErrorOptions** property of __IRange__ manages different types of errors checks, for example numbers stored as text, formula calculation errors and validation errors.
-
-To know more about IgnoreErrorOptions, please refer ExcelIgnoreError enumeration in API section.
+In certain cases, these errors can be ignored so that the error will not appear in further error checks. The [IgnoreErrorOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_IgnoreErrorOptions) property of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) manages different types of errors checks, for example numbers stored as text, formula calculation errors and validation errors.
 
 Following code illustrates on how to ignore or set error indicators.
 
@@ -3139,7 +3138,7 @@ Following code illustrates on how to ignore or set error indicators.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3156,7 +3155,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -3174,7 +3173,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -3211,7 +3210,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -3233,7 +3232,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3285,7 +3284,7 @@ Calculate engines provides certain options like calculation modes, Recalculate b
 
 ### Calculation Modes
 
-There are various calculation [modes](https://docs.microsoft.com/en-us/office/troubleshoot/excel/current-mode-of-calculation) that enable users to customize formula calculations according to their needs. They are:
+There are various [calculation modes](https://docs.microsoft.com/en-us/office/troubleshoot/excel/current-mode-of-calculation) that enable users to customize formula calculations according to their needs. They are:
 
 * Automatic
 * Automatic except for Data Tables
@@ -3298,7 +3297,7 @@ Following code illustrates on how to set calculation mode in XlsIO.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3312,7 +3311,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
@@ -3327,7 +3326,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3352,7 +3351,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3370,7 +3369,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3403,7 +3402,7 @@ A complete working example of calculation modes in C# is present on [this GitHub
 
 ### Recalculate Before Save
 
-In Manual mode, this option controls whether Microsoft Excel should recalculate the workbook as a part of Save process. You can set this option by using **RecalcOnSave** property of __ICalculationOptions__ interface.
+In Manual mode, this option controls whether Microsoft Excel should recalculate the workbook as a part of Save process. This option can be set through [RecalcOnSave](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICalculationOptions.html#Syncfusion_XlsIO_ICalculationOptions_RecalcOnSave) property of [ICalculationOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICalculationOptions.html) interface.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -3446,7 +3445,7 @@ calcOptions.RecalcOnSave = false;
 
 Iteration is the repeated recalculation of a worksheet until a specific numeric condition is met. If a formula refers back to one of its own cells, it is must determine how many times the formula should recalculate.
 
-Iteration settings will control the maximum number of iteration and the amount of acceptable change. By default, **IsIterationEnabled** is false, so that Excel does not try to solve accidental circular references. 
+Iteration settings will control the maximum number of iteration and the amount of acceptable change. By default, [IsIterationEnabled](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICalculationOptions.html#Syncfusion_XlsIO_ICalculationOptions_IsIterationEnabled) is false, so that Excel does not try to solve accidental circular references. 
 
 Following code snippet illustrates how to set the Iterations.
 
@@ -3455,7 +3454,7 @@ Following code snippet illustrates how to set the Iterations.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3475,7 +3474,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorkbook = workbook.Worksheets(0)
 
@@ -3496,7 +3495,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3527,7 +3526,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -3551,7 +3550,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
