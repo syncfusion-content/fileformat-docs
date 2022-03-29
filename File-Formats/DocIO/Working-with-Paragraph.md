@@ -798,6 +798,128 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-tab-stop).
 
+### RTL paragraph
+
+You can set RTL (Right-to-left) direction to the paragraph in a Word document. The following code example shows how to set RTL (Right-to-left) for a paragraph in Word document.
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C#" %}
+//Loads the template document
+WordDocument document = new WordDocument("Template.docx");
+//Gets the text body of first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 1
+WParagraph paragraph = textBody.Paragraphs[1];
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
+if(!isRTL)
+    paragraph.ParagraphFormat.Bidi = true;
+//Saves the Word document
+document.Save("Sample.docx", FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Loads the template document
+Dim document As WordDocument = New WordDocument("Template.docx")
+'Gets the text body of first section
+Dim textBody As WTextBody = document.Sections(0).Body
+'Gets the paragraph at index 1
+Dim paragraph As WParagraph = textBody.Paragraphs(1)
+'Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+Dim isRTL As Boolean = paragraph.ParagraphFormat.Bidi
+'Sets RTL direction for a paragraph
+If Not isRTL Then
+    paragraph.ParagraphFormat.Bidi = True
+End If
+'Saves the Word document
+document.Save("Sample.docx", FormatType.Docx)
+'Closes the document
+document.Close()
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads the template document
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the text body of first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 1
+WParagraph paragraph = textBody.Paragraphs[1];
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
+if(!isRTL)
+    paragraph.ParagraphFormat.Bidi = true;
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+//Refer to the following link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Loads or opens an existing Word document through Open method of WordDocument class
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the text body of first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 1
+WParagraph paragraph = textBody.Paragraphs[1];
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
+if(!isRTL)
+    paragraph.ParagraphFormat.Bidi = true;
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %} 
+
+{% highlight c# tabtitle="Xamarin" %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads or opens an existing Word document through Open method of WordDocument class
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the text body of first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 1
+WParagraph paragraph = textBody.Paragraphs[1];
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
+if(!isRTL)
+    paragraph.ParagraphFormat.Bidi = true;
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}   
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/RTL-paragraph).
+
 ## Working with Styles
 
 A style is a predefined set of table, numbering, paragraph, and character properties that can be applied to regions within a document. DocIO provides the following functionalities related with styles.
@@ -1237,128 +1359,6 @@ Please download the helper files from the following link to save the stream as a
 {% endtabs %} 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-particular-style-from-document).
-
-### RTL paragraph
-
-You can set RTL (Right-to-left) direction to the paragraph in a Word document. The following code example shows how to set RTL (Right-to-left) for a paragraph in Word document.
-
-{% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
-//Loads the template document
-WordDocument document = new WordDocument("Template.docx");
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = paragraph.ParagraphFormat.Bidi;
-//Sets RTL direction for a paragraph
-if(!isRTL)
-    paragraph.ParagraphFormat.Bidi = true;
-//Saves the Word document
-document.Save("Sample.docx", FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Loads the template document
-Dim document As WordDocument = New WordDocument("Template.docx")
-'Gets the text body of first section
-Dim textBody As WTextBody = document.Sections(0).Body
-'Gets the paragraph at index 1
-Dim paragraph As WParagraph = textBody.Paragraphs(1)
-'Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-Dim isRTL As Boolean = paragraph.ParagraphFormat.Bidi
-'Sets RTL direction for a paragraph
-If Not isRTL Then
-    paragraph.ParagraphFormat.Bidi = True
-End If
-'Saves the Word document
-document.Save("Sample.docx", FormatType.Docx)
-'Closes the document
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Loads the template document
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = paragraph.ParagraphFormat.Bidi;
-//Sets RTL direction for a paragraph
-if(!isRTL)
-    paragraph.ParagraphFormat.Bidi = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Loads or opens an existing Word document through Open method of WordDocument class
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = paragraph.ParagraphFormat.Bidi;
-//Sets RTL direction for a paragraph
-if(!isRTL)
-    paragraph.ParagraphFormat.Bidi = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Loads or opens an existing Word document through Open method of WordDocument class
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = paragraph.ParagraphFormat.Bidi;
-//Sets RTL direction for a paragraph
-if(!isRTL)
-    paragraph.ParagraphFormat.Bidi = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
-{% endtabs %}   
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/RTL-paragraph).
 
 ## Working with Text 
 

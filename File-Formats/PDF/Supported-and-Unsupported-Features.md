@@ -19,6 +19,7 @@ UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
 <th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th>
 </tr>
 
 </thead>
@@ -26,6 +27,7 @@ Xamarin and .NET Core <br/><br/></th>
 <tr>
 <td>
 Drawing Text<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -38,6 +40,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -46,10 +49,12 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
+No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 Drawing RTL text<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -62,12 +67,14 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Text Extraction<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
+No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
@@ -78,10 +85,12 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Pagination<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -101,7 +110,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core<br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -109,6 +119,7 @@ Xamarin and .NET Core<br/><br/></th>
 Pen and Brush<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
@@ -119,6 +130,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -126,6 +138,7 @@ Transparent Graphics<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
@@ -135,6 +148,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -142,6 +156,7 @@ Image Extraction<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
@@ -151,6 +166,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -158,6 +174,7 @@ Barcode<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 </tbody>
@@ -175,7 +192,9 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -185,13 +204,16 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td
+<td>No<br/><br/></td>
+</tr>
 <tr>
 <td>
 Split Document<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -201,6 +223,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -208,6 +231,7 @@ Import Pages<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -217,6 +241,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -224,6 +249,7 @@ Booklet<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 </tbody>
@@ -240,7 +266,9 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core<br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -250,6 +278,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -257,6 +286,7 @@ Document Properties<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -266,6 +296,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -273,6 +304,7 @@ Page Sizes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -282,6 +314,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -289,6 +322,7 @@ Tagged PDF with section 508 compliant<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 </tbody>
@@ -305,7 +339,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -315,7 +350,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Form Filling<br/><br/></td><td>
@@ -323,7 +360,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Flatten<br/><br/></td><td>
@@ -331,7 +370,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Import Form Data<br/><br/></td><td>
@@ -339,7 +380,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Form Export<br/><br/></td><td>
@@ -347,7 +390,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 </tbody>
 </table>
 
@@ -362,7 +407,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -372,7 +418,8 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes*<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 Form Filling<br/><br/></td><td>
@@ -380,7 +427,8 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes*<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -397,7 +445,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -407,6 +456,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes*<br/><br/></td>
 <td>No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
 <td>
@@ -415,7 +465,8 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes*<br/><br/></td>
 <td>No<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 RTF To PDF<br/><br/></td><td>
@@ -423,7 +474,8 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>No<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 DOC To PDF<br/><br/></td><td>
@@ -431,7 +483,8 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>No<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 Excel To PDF<br/><br/></td><td>
@@ -439,13 +492,15 @@ Yes<br/><br/></td><td>
 Yes*<br/><br/></td><td>
 Yes*<br/><br/></td>
 <td>No<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 PDF OCR<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
@@ -455,6 +510,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
 <td>
@@ -462,6 +518,7 @@ SVG to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
@@ -471,6 +528,7 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
 <td>
@@ -479,7 +537,8 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>No<br/><br/></td></tr>
+<td>No<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -496,7 +555,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -505,6 +565,7 @@ PDF/ A-1b Compliance<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 
@@ -515,6 +576,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -523,7 +585,8 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td></tr>
+Yes<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
 <tr>
 <td>
 PDF/x1a: 2001 Compliance<br/><br/></td><td>
@@ -531,13 +594,15 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>No<br/><br/></td></tr>
+<td>No<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
 <tr>
 <td>
 ZUGFeRD Invoice<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 </tbody>
@@ -554,7 +619,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core<br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUi<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -564,6 +630,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -571,6 +638,7 @@ CJK Fonts<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -580,6 +648,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -587,6 +656,7 @@ Unicode TrueType<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 </tbody>
@@ -603,7 +673,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -613,6 +684,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -620,6 +692,7 @@ Soft Mask<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -630,6 +703,7 @@ No<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td>
+<td>No<br/><br/></td>
 </tr>
 <tr>
 <td>
@@ -637,6 +711,7 @@ Watermarks<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 
@@ -655,7 +730,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -665,6 +741,7 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
+<td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
 <td>
@@ -672,6 +749,7 @@ Cell / Row / Column Formatting<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -681,6 +759,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -689,7 +768,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Borders<br/><br/></td><td>
@@ -697,7 +778,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 RowSpan and ColumnSpan<br/><br/></td><td>
@@ -705,7 +788,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Nested table<br/><br/></td><td>
@@ -713,7 +798,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Cell Padding and Spacing<br/><br/></td><td>
@@ -721,7 +808,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 </tbody>
 </table>
 
@@ -736,7 +825,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -746,6 +836,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -754,6 +845,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -761,6 +853,7 @@ Automatic Fields<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 </tbody>
@@ -777,7 +870,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -787,7 +881,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Measurement Annotations<br/><br/></td><td>
@@ -795,7 +891,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Action<br/><br/></td><td>
@@ -803,7 +901,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Attachment<br/><br/></td><td>
@@ -811,7 +911,8 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td><td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Bookmark<br/><br/></td><td>
@@ -819,7 +920,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Hyperlink<br/><br/></td><td>
@@ -827,7 +930,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Portfolio<br/><br/></td><td>
@@ -835,7 +940,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Import Annotation Data<br/><br/></td><td>
@@ -843,7 +950,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 <tr>
 <td>
 Export Annotation Data<br/><br/></td><td>
@@ -851,7 +960,9 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 </tbody>
 </table>
 
@@ -866,7 +977,8 @@ Features<br/><br/></th><th>
 UWP<br/><br/></th><th>
 Xamarin and .NET Core <br/><br/></th>
 <th>Blazor Client-Side<br/><br/></th>
-<th>Blazor Server-Side & Hosted Application<br/><br/></th></tr>
+<th>Blazor Server-Side & Hosted Application<br/><br/></th>
+<th>WinUI<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -876,6 +988,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -883,6 +996,7 @@ Digital Signature with LTV<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -892,6 +1006,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
@@ -899,6 +1014,7 @@ Encryption and Decryption<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
@@ -908,6 +1024,7 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes*<br/><br/></td>
 <td>No<br/><br/></td>
-<td>No<br/><br/></td></tr>
+<td>No<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
 </tbody>
 </table>
