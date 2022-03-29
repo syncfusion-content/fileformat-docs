@@ -13,6 +13,8 @@ The following are the important points to be remembered while iterating the docu
 * Section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`.
 * `WTextBody` contains three type of elements – either paragraph, table or block content control.
 
+## Remove paragraph with style
+
 The following code example shows how to iterate throughout the Word document and remove the paragraph with a particular style.
 
 {% tabs %} 
@@ -394,6 +396,8 @@ private static void IterateTable(WTable table)
 }
 {% endhighlight %}
 {% endtabs %}  
+
+## Modify Hyperlink Uri
 
 The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink)Uri and specific text (WTextRange)with another.
 

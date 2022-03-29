@@ -7,7 +7,11 @@ documentation: UG
 ---
 # Merging Word documents
 
-You can merge multiple Word documents into single Word document by using DocIO’s capability of importing contents from one document to another. The imported contents are appended at the end of document.  The following code example illustrates how to import the contents from source document into destination document where the contents are appended. 
+You can merge multiple Word documents into single Word document by using DocIO’s capability of importing contents from one document to another. The imported contents are appended at the end of document.
+
+## Merge document in new page
+
+The following code example illustrates how to import the contents from source document into destination document where the contents are appended. 
 
 {% tabs %} 
 
@@ -107,6 +111,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Merge-documents-in-new-page).
 
 In the resultant document, the imported contents start from a new page followed by existing contents in a destination document. This is the default behavior.
+
+## Merge document in same page
 
 When your requirement is to append the contents from the same page instead of starting from a new page, you need to set the break code of first section of Source document as NoBreak. The following code example illustrates the importing contents from the same page.
 
