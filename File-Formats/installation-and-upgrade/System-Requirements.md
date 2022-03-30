@@ -13,7 +13,7 @@ The system requirements for using our Syncfusion FileFormats platform are as fol
 
 ### Operating Systems
 
-Syncfusion File Format libraries are supported in any of the following operating systems:
+Syncfusion File Format libraries are supported on any of the following operating systems:
 
 * Windows 10
 * Windows 8, 8.1
@@ -34,7 +34,7 @@ Syncfusion File Format libraries are supported in any of the following operating
 
 ### Development Environment
 
-In order to develop applications with Syncfusion File Format libraries, you need to have installed anyone of the Visual Studio version.
+In order to develop applications with the Syncfusion File Format libraries, you need to install any of the Visual Studio versions.
 
 * Microsoft Visual Studio 2010
 * Microsoft Visual Studio 2012
@@ -51,5 +51,5 @@ Syncfusion File format libraries supports the following .NET Framework and .NET 
 * .NET Framework 4.6
 * .NET Standard 2.0 (Can be used in .NET Core 2.1/3.1, .NET 5.0, .NET 6.0 application)
 
-You can use our file format libraries in any type of .NET application such as WinForms, WPF, Web services, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin, WinUI and .NET MAUI applications. 
+You can use our file format libraries in any type of .NET application, like WinForms, WPF, Web services, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin, WinUI and .NET MAUI applications. 
 
