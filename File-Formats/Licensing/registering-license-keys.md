@@ -301,7 +301,7 @@ Syncfusion license key should be registered, if your project using Syncfusion EJ
 
 The following code is used to register the license.
 
-### Javascript es5
+### JavaScript es5
 
 Register the license key by using **registerLicense** method after the [Syncfusion JavaScript script](https://ej2.syncfusion.com/javascript/documentation/getting-started/quick-start/#configure-syncfusion-javascript-es5-control-in-the-application-1) file reference as below.
 
