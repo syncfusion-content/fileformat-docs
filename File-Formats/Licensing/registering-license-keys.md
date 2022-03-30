@@ -295,25 +295,109 @@ SyncfusionLicenseProvider.registerLicense("YOUR LICENSE KEY");
 
 N> License key registration is not required for Java before v19.1.
 
-## JavaScript
+## JavaScript (Essential JS 2)
 
-You must have an active Syncfusion Essential JS license to use Syncfusion Essential JS2 or Essential JS1 (.js files). However, if you only use the Syncfusion Essential JavaScript product, you do not need to register the Syncfusion License keys in your scripts (.js files).
+Syncfusion license key should be registered, if your project using Syncfusion EJ2-JavaScript packages reference. The generated license key is a string that needs to be registered after any [Syncfusion JavaScript script reference](https://ej2.syncfusion.com/javascript/documentation/getting-started/quick-start/#configure-syncfusion-javascript-es5-control-in-the-application-1). 
+
+The following code is used to register the license.
+
+### Javascript es5
+
+Register the license key by using **registerLicense** method after the [Syncfusion JavaScript script](https://ej2.syncfusion.com/javascript/documentation/getting-started/quick-start/#configure-syncfusion-javascript-es5-control-in-the-application-1) file reference as below.
+
+{% tabs %}
+{% highlight JS %}
+// Registering Syncfusion license key
+ej.base.registerLicense('License Key');
+{% endhighlight %}
+{% endtabs %}
+
+### JavaScript es6 / TypeScript
+
+Register the license key at the entry point of the project before using the Syncfusion controls.
+
+{% tabs %}
+{% highlight JS %}
+// Registering Syncfusion license key
+import { registerLicense } from '@syncfusion/ej2-base';
+
+ej.base.registerLicense('License key');
+{% endhighlight %}
+{% endtabs %}
+
+### Angular
+
+Register the license key in the **main.ts** file of the Angular project.
+
+{% tabs %}
+{% highlight JS %}
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+import { registerLicense } from '@syncfusion/ej2-base';
+
+// Registering Syncfusion license key
+registerLicense('License Key');
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+{% endhighlight %}
+{% endtabs %}
+
+### ReactJS
+
+Register the license key in the **index.js** file of the React project.
+
+{% tabs %}
+{% highlight JS %}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { registerLicense } from '@syncfusion/ej2-base';
+
+// Registering Syncfusion license key
+registerLicense('License Key');
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+{% endhighlight %}
+{% endtabs %}
+
+### VueJS
+
+Register the license key in the **index.js** file of the Vue project.
+
+{% tabs %}
+{% highlight JS %}
+import { createApp } from 'vue'
+import App from './App.vue'
+import { registerLicense } from '@syncfusion/ej2-base';
+
+// Registering Syncfusion license key
+registerLicense('License Key');
+createApp(App).mount('#app')
+{% endhighlight %}
+{% endtabs %}
+
+## JavaScript (Essential JS 1)
+
+You must have an active Syncfusion Essential JS license to use Syncfusion Essential JS1 (.js files). However, if you only use the Syncfusion Essential JS1 product, you do not need to register the Syncfusion License keys in your scripts (.js files).
 
 For the following platforms, you can use the script files without registering the license keys.
 
-### **JavaScript (Essential JS 2)**
-
-* Angular
-
-* React
-
-* Vue
-
-* JavaScript (ES5)
-
-* TypeScript & JavaScript (ES6)
-
-### **JavaScript (Essential JS 1)**
+### JavaScript (Essential JS 1)
 
 * AngularJS
 
