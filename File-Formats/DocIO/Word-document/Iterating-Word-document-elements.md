@@ -397,6 +397,8 @@ private static void IterateTable(WTable table)
 {% endhighlight %}
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-paragraph-with-style).
+
 ## Modify Hyperlink Uri
 
 The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink)Uri and specific text (WTextRange)with another.
