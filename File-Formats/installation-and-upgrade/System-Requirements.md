@@ -13,7 +13,7 @@ The system requirements for using our Syncfusion FileFormats platform are as fol
 
 ### Operating Systems
 
-Syncfusion File Format libraies are supported in any of the following operating systems:
+Syncfusion File Format libraries are supported in any of the following operating systems:
 
 * Windows 10
 * Windows 8, 8.1
