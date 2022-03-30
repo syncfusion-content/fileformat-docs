@@ -10,6 +10,8 @@ documentation: UG
 
 Essential PDF provides support for Optical Character Recognition with the help of Google’s Tesseract Optical Character Recognition engine.
 
+N>* Starting with v20.1.0.x, if you reference Syncfusion OCRProcessor assemblies from trial setup or from the NuGet feed, include a license key in your projects. Refer to [link](https://help.syncfusion.com/file-formats/licensing/licensing) to learn how to generate and register a Syncfusion license key in your application to use the components without trail message.
+
 ## Prerequisites and setting up the Tesseract Engine
 
 * To use the OCR feature in your application, you need to add reference to the following set of assemblies.
