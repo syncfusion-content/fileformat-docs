@@ -13,7 +13,7 @@ The system requirements for using our Syncfusion FileFormats platform are as fol
 
 ### Operating Systems
 
-Syncfusion File Formats platform can be installed on any of the following operating systems:
+Syncfusion File Format libraies are supported in any of the following operating systems:
 
 * Windows 10
 * Windows 8, 8.1
@@ -29,19 +29,13 @@ Syncfusion File Formats platform can be installed on any of the following operat
 * openSUSE: 15+
 * SUSE Enterprise Linux (SLES): 12 SP2+
 * Mac OS 10.13+ (x64)
-
-### Hardware Environment
-
-* Processor: x86 or x64
-* RAM : 1 GB (minimum), 2 GB (recommended)
-* Hard disc: up to 8.5 GB of available space may be required. However, 750 MB free space is required in boot drive even if you are installing in other drive.
+* Android
+* iOS
 
 ### Development Environment
 
-In order to develop applications with Syncfusion File Formats platform, you need to have installed anyone of the Visual Studio version.
+In order to develop applications with Syncfusion File Format libraries, you need to have installed anyone of the Visual Studio version.
 
-* Microsoft Visual Studio 2005
-* Microsoft Visual Studio 2008
 * Microsoft Visual Studio 2010
 * Microsoft Visual Studio 2012
 * Microsoft Visual Studio 2013
@@ -55,5 +49,7 @@ Syncfusion File format libraries supports the following .NET Framework and .NET 
 * .NET Framework 4.0
 * .NET Framework 4.5
 * .NET Framework 4.6
-* .NET Standard 2.0 (Can be used in .NET Core 2.1/3.1, .NET 5.0 application)
+* .NET Standard 2.0 (Can be used in .NET Core 2.1/3.1, .NET 5.0, .NET 6.0 application)
+
+You can use our file format libraries in any type of .NET application such as WinForms, WPF, Web services, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Blazor, UWP, Xamarin, WinUI and .NET MAUI applications. 
 
