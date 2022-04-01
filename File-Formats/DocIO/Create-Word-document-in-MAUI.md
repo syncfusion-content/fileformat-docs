@@ -303,7 +303,8 @@ using MemoryStream ms = new();
 document.Save(ms, FormatType.Docx);
 ms.Position = 0;
 //Saves the memory stream as file.
-DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", ms);
+SaveService saveService = new();
+saveService.SaveAndView("Sample.docx", "application/msword", ms);
 
 {% endhighlight %}
 
@@ -315,11 +316,9 @@ By executing the program, you will get the **Word document** as follows.
 
 ![MAUI output Word document](MAUI_Images/GettingStartedOutput.jpg)
 
-N> Essential DocIO is only supported in .NET MAUI application targeting Windows, Android and iOS.
-
 ## Helper files for .NET MAUI
 
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO1550372231.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO-2028573617.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -338,9 +337,9 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     .NET MAUI Project
   </td>
   <td>
-    ISave.cs
+    SaveService.cs
   </td>
-  <td>Represent the base interface for save operation
+  <td>Represent the base class for save operation.
   </td>
   </tr>
   <tr>
@@ -361,6 +360,16 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     SaveAndroid.cs
   </td>
   <td>Save implementation for Android device.
+  </td>
+  </tr>
+  <tr>
+  <td>
+    Mac Catalyst
+  </td>
+  <td>
+    SaveMac.cs
+  </td>
+  <td>Save implementation for Mac Catalyst device.
   </td>
   </tr>
   <tr>

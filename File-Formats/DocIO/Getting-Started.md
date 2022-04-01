@@ -1267,6 +1267,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.d
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-string-arrays).
+
 The resultant Word document look as follows.
 
 ![Performing Mail merge output document](GettingStarted_images/GettingStarted_img3.jpeg)
@@ -1640,6 +1642,8 @@ public class Employee
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
+
 The resultant document looks as follows.
 
 ![Simple Mail merge with Group output document](GettingStarted_images/GettingStarted_img5.jpeg)
@@ -1801,6 +1805,25 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "applicat
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
+
 N> 
 When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
 ChartToImageConverter is supported from .NET Framework 4.0 onwards
+
+## See Also
+
+* [Create Word document in ASP.NET Core](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-core)
+* [Create Word document in ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc)
+* [Create Word document in ASP.NET](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net)
+* [Create Word document in Blazor](https://help.syncfusion.com/file-formats/docio/create-word-document-in-blazor)
+* [Create Word document in Xamarin](https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin)
+* [Create Word document in Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms)
+* [Create Word document in WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf)
+* [Create Word document in UWP](https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp)
+* [Create Word document in WinUI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-winui)
+* [Create Word document in .NET MAUI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-maui)
+* [Create Word document in Linux](https://help.syncfusion.com/file-formats/docio/create-word-document-in-linux)
+* [Create Word document in Docker](https://help.syncfusion.com/file-formats/docio/word-to-pdf-linux-docker)
+* [Create Word document in Mac OS](https://help.syncfusion.com/file-formats/docio/create-word-document-in-mac)
+

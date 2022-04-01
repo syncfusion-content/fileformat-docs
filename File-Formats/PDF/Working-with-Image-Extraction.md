@@ -13,7 +13,7 @@ Refer to the following code snippet to extract the images from a PDF page.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load an existing PDF
@@ -38,7 +38,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load an existing PDF
@@ -63,13 +63,13 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports extracting the images from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load an existing PDF
@@ -96,7 +96,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports extracting the images from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
@@ -115,7 +115,7 @@ Refer to the following code snippet to extract the image info from a PDF page.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Load an existing PDF
@@ -138,7 +138,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 'Load an existing PDF
@@ -161,13 +161,13 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //PDF supports extracting the images from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 
 //Load an existing PDF
@@ -192,7 +192,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports extracting the image information from PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 

@@ -119,6 +119,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Convert-HTML-to-Word).
+
 The following code example shows how to convert the Word document into HTML.
 
 {% tabs %}
@@ -199,6 +201,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Convert-Word-to-HTML).
+
 ## Customization settings
 
 The Essential DocIO provides settings while performing HTML to Word conversion and vice versa.
@@ -253,6 +257,8 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-HTML-to-Word-conversion).
 
 N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and Xamarin applications.
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
@@ -411,11 +417,13 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-image-data).
+
 N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
 
 **Frequently Asked Questions**
 
-* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/12373/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
+* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/13053/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
 
 ### Customizing the Word to HTML conversion
 
@@ -474,6 +482,8 @@ export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-Word-to-HTML-conversion).
 
 ## Supported and unsupported items
 

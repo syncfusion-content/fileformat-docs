@@ -31,7 +31,7 @@ Using PDF/A-3b conformance, you can create a ZUGFeRD invoice.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -41,7 +41,7 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create ZUGFeRD invoice PDF
 
@@ -51,7 +51,7 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -61,7 +61,7 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -71,7 +71,7 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -88,7 +88,7 @@ Using PDF/A-3b conformance, you can create a ZUGFeRD invoice with ZugferdVersion
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -100,7 +100,7 @@ document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create ZUGFeRD invoice PDF
 
@@ -112,7 +112,7 @@ document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -124,7 +124,7 @@ document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -136,7 +136,7 @@ document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -156,7 +156,7 @@ The PDF/A-3 conformance supports the external files as attachment to the PDF doc
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an attachment
 
@@ -176,7 +176,7 @@ document.Attachments.Add(attachment);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an attachment
 
@@ -196,7 +196,7 @@ document.Attachments.Add(attachment)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Creates an attachment
 
@@ -216,7 +216,7 @@ document.Attachments.Add(attachment);
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an attachment
 
@@ -236,7 +236,7 @@ document.Attachments.Add(attachment);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an attachment
 
@@ -266,7 +266,7 @@ The complete code snippet is given as follows.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create ZUGFeRD invoice PDF
 
@@ -298,7 +298,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create ZUGFeRD invoice PDF
 
@@ -330,7 +330,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
@@ -362,7 +362,7 @@ Save(stream, "Zugferd.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
@@ -414,7 +414,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
@@ -469,7 +469,7 @@ You can extract the ZUGFeRD invoice using the following code.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads the PDF document
 
@@ -499,7 +499,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the PDF document
 
@@ -527,7 +527,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight UWP %}
+  {% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 
@@ -579,7 +579,7 @@ Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
 
@@ -629,7 +629,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
 

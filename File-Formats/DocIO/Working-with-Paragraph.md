@@ -920,6 +920,446 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/RTL-paragraph).
 
+## Working with Styles
+
+A style is a predefined set of table, numbering, paragraph, and character properties that can be applied to regions within a document. DocIO provides the following functionalities related with styles.
+
+* Access and modify the existing styles in the word document
+* Create new paragraph style. 
+* Apply built-in styles.
+
+### Access Styles
+
+Paragraph and character styles present in the existing document are accessible through the `Styles` property of `WordDocument` class. 
+
+This following code example demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C#" %}
+//Opens an input Word template
+WordDocument document = new WordDocument(inputFileName);
+//Accesses the styles collection that contains paragraph and character styles in Word document
+IStyleCollection styleCollection = document.Styles;
+//Finds the style with the name "Heading 1"
+WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+//Changes the text color of style "Heading 1" as DarkBlue
+heading1ParagraphStyle.CharacterFormat.TextColor = Color.DarkBlue;
+//Changes the first line indent of Paragraph as 36 points
+heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+//Saves and closes the document instance
+document.Save(outputFileName, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Opens an input Word template
+Dim document As New WordDocument(inputFileName)
+'Accesses the styles collection that contains paragraph and character styles in Word document
+Dim styleCollection As IStyleCollection = document.Styles
+'Finds the style with the name "Heading 1"
+Dim heading1ParagraphStyle As WParagraphStyle = TryCast(styleCollection.FindByName("Heading 1"), WParagraphStyle)
+'Changes the text color of style "Heading 1" as DarkBlue
+heading1ParagraphStyle.CharacterFormat.TextColor = Color.DarkBlue
+'Changes the first line indent of paragraph as 36 points
+heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36
+'Saves and closes the document instance
+document.Save(outputFileName, FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
+{
+	//Accesses the styles collection that contains paragraph and character styles in Word document
+	IStyleCollection styleCollection = document.Styles;
+	//Finds the style with the name "Heading 1"
+	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+	//Changes the text color of style "Heading 1" as DarkBlue
+	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
+	//Changes the first line indent of Paragraph as 36 points
+	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+	document.Close();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an source document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+{
+	//Accesses the styles collection that contains paragraph and character styles in Word document
+	IStyleCollection styleCollection = document.Styles;
+	//Finds the style with the name "Heading 1"
+	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+	//Changes the text color of style "Heading 1" as DarkBlue
+	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+	//Changes the first line indent of Paragraph as 36 points
+	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+	MemoryStream stream = new MemoryStream();
+	//Saves and closes the destination document to  MemoryStream
+	document.Save(stream, FormatType.Docx);
+	document.Close();
+	stream.Position = 0;
+	//Download Word document in the browser
+	return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
+{
+	//Accesses the styles collection that contains paragraph and character styles in Word document
+	IStyleCollection styleCollection = document.Styles;
+	//Finds the style with the name "Heading 1"
+	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+	//Changes the text color of style "Heading 1" as DarkBlue
+	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+	//Changes the first line indent of Paragraph as 36 points
+	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+	MemoryStream stream = new MemoryStream();
+	document.Save(stream, FormatType.Docx);   
+	//Save the stream as a file in the device and invoke it for viewing
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+	//Closes the document              
+	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+
+{% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Access-styles-in-document).
+
+### Creating a new Paragraph Style
+
+You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class.
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C#" %}
+//Opens an input Word template
+WordDocument document = new WordDocument();
+//This method adds a section and a paragraph in the document
+document.EnsureMinimal();
+//Adds a new paragraph style named "MyStyle"
+IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+//Sets the formatting of the style
+myStyle.CharacterFormat.FontSize = 16f;
+myStyle.CharacterFormat.TextColor = Color.DarkBlue;
+myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+//Appends the contents into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Applies the style to paragraph
+document.LastParagraph.ApplyStyle("MyStyle");
+document.Save(outputFileName, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Opens an input Word template
+Dim document As New WordDocument()
+'This method adds a section and a paragraph in the document
+document.EnsureMinimal()
+'Adds a new paragraph style named "MyStyle"
+Dim myStyle As IWParagraphStyle = document.AddParagraphStyle("MyStyle")
+'Sets the formatting of the style
+myStyle.CharacterFormat.FontSize = 16.0F
+myStyle.CharacterFormat.TextColor = Color.DarkBlue
+myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
+'Appends the content into the paragraph
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+'Applies the style to paragraph
+document.LastParagraph.ApplyStyle("MyStyle")
+document.Save(outputFileName, FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
+{
+	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+	//Sets the formatting of the style
+	myStyle.CharacterFormat.FontSize = 16f;
+	myStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
+	myStyle.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
+	//Appends the contents into the paragraph
+	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+	//Applies the style to paragraph
+	document.LastParagraph.ApplyStyle("MyStyle");
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+	document.Close();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an source document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+{
+	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+	//Sets the formatting of the style
+	myStyle.CharacterFormat.FontSize = 16f;
+	myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+	myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+	//Appends the contents into the paragraph
+	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+	//Applies the style to paragraph
+	document.LastParagraph.ApplyStyle("MyStyle");
+	MemoryStream stream = new MemoryStream();
+	//Saves and closes the destination document to  MemoryStream
+	document.Save(stream, FormatType.Docx);
+	document.Close();
+	stream.Position = 0;
+	//Download Word document in the browser
+	return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
+{
+	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+	//Sets the formatting of the style
+	myStyle.CharacterFormat.FontSize = 16f;
+	myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+	myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+	//Appends the contents into the paragraph
+	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+	//Applies the style to paragraph
+	document.LastParagraph.ApplyStyle("MyStyle");
+	MemoryStream stream = new MemoryStream();
+	document.Save(stream, FormatType.Docx);
+	//Save the stream as a file in the device and invoke it for viewing
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+	//Closes the document              
+	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+ 
+{% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Create-new-paragraph-style).
+
+### Applying built-in styles
+
+DocIO provides a set of predefined styles. You can apply those predefined styles as shown in the following code example.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="C#" %}
+//Opens an input Word template
+WordDocument document = new WordDocument();
+//This method adds a section and a paragraph in the document
+document.EnsureMinimal();
+IWParagraph paragraph = document.LastParagraph;
+//Appends the content into the paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Applies the style to paragraph
+paragraph.ApplyStyle(BuiltinStyle.Emphasis);
+document.Save(outputFileName, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Opens an input Word template
+Dim document As New WordDocument()
+'This method adds a section and a paragraph in the document
+document.EnsureMinimal()
+Dim paragraph As IWParagraph = document.LastParagraph
+'Appends the content into the paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+'Applies the style to paragraph
+paragraph.ApplyStyle(BuiltinStyle.Emphasis)
+document.Save(outputFileName, FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
+{
+	//Applies the style to paragraph
+	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+	document.Close();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an source document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+{
+	//Applies the style to paragraph
+	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+	MemoryStream stream = new MemoryStream();
+	//Saves and closes the destination document to  MemoryStream
+	document.Save(stream, FormatType.Docx);
+	document.Close();
+	stream.Position = 0;
+	//Download Word document in the browser
+	return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
+{
+	//Applies the style to paragraph
+	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+	MemoryStream stream = new MemoryStream();
+	document.Save(stream, FormatType.Docx);
+	//Save the stream as a file in the device and invoke it for viewing
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+	//Closes the document              
+	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+
+{% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Apply-built-in-style).
+
+### Remove Styles
+
+You can remove the styles present in the existing document using the `Remove` method.
+
+The following code example explains how to remove the style from the word document.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="C#" %}
+//Opens an input Word template.
+WordDocument document = new WordDocument("Template.docx");
+//Accesses the styles collection that contains paragraph and character styles in a Word document.
+IStyleCollection styleCollection = document.Styles;
+//Finds the style with the name "Style1."
+WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
+//Remove the "Style1" style from the Word document.
+style.Remove();
+//Saves and closes the document instance.
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Opens an input Word template.
+Dim document As WordDocument = New WordDocument("Template.docx")
+'Accesses the styles collection that contains paragraph and character styles in a Word document.
+Dim styleCollection As IStyleCollection = document.Styles
+'Finds the style with the name "Style1."
+Dim style As WParagraphStyle = CType(styleCollection.FindByName("Style1"), WParagraphStyle)
+'Remove the "Style1" style from the Word document.
+style.Remove
+'Saves and closes the document instance.
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an input Word template.
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Accesses the styles collection that contains paragraph and character styles in a Word document.
+IStyleCollection styleCollection = document.Styles;
+//Finds the style with the name "Style1."
+WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
+//Remove the "Style1" style from the Word document.
+style.Remove();
+//Saves the Word file to MemoryStream.
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as a Word document file in the local machine.
+Save(stream, "Sample.docx");
+//Closes the document instance.
+document.Close();
+
+//Please refer to the following link to save a Word document in the UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Opens an input Word template.
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+ //Accesses the styles collection that contains paragraph and character styles in a Word document.
+IStyleCollection styleCollection = document.Styles;
+//Finds the style with the name "Style1."
+WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
+//Remove the "Style1" style from the Word document.
+style.Remove();
+//Saves and closes the document.
+FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+document.Save(outputStream, FormatType.Docx);
+document.Close();
+outputStream.Flush();
+outputStream.Dispose();
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an input Word template.
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
+//Accesses the styles collection that contains paragraph and character styles in a Word document.
+IStyleCollection styleCollection = document.Styles;
+//Finds the style with the name "Style1."
+WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
+//Remove the "Style1" style from the Word document.
+style.Remove();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing.
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document instance.
+document.Close();
+
+Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-particular-style-from-document).
+
 ## Working with Text 
 
 Text within a paragraph is represented by one or more instances of the `WTextRange`. Each `WTextRange` instance can have its own font (text) formatting.  
@@ -6745,3 +7185,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Format-and-rotate-text-box).
+
+## See Also
+
+* [How to edit Word document in C#, VB.NET](https://www.syncfusion.com/kb/12993/how-to-edit-word-document-in-c-vb-net)
+* [How to insert different document as OLE object in the Word document](https://www.syncfusion.com/kb/12903/how-to-insert-different-document-as-ole-object-in-the-word-document)
