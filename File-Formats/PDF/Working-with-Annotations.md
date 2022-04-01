@@ -11419,8 +11419,6 @@ else
 <th style="font-size:14px">Annotations are sometimes missing in the acrobat and the other Pdf Viewer applications.
 </th>
 
-<tr>
-<td>
 
 <table>
 <tr>

@@ -205,7 +205,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td
-<td>No<br/><br/></td>
+<td>Yes<br/><br/></td>
 </tr>
 <tr>
 <td>
@@ -538,7 +538,7 @@ No<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>No<br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -567,7 +567,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>No<br/><br/></td></tr>
 
 <tr>
 <td>
@@ -577,7 +577,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 PDF/ A-3b Compliance<br/><br/></td><td>
@@ -586,7 +586,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 PDF/x1a: 2001 Compliance<br/><br/></td><td>
@@ -595,7 +595,7 @@ Yes<br/><br/></td><td>
 No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 ZUGFeRD Invoice<br/><br/></td><td>
@@ -694,7 +694,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 Vector Images<br/><br/></td><td>
@@ -951,7 +951,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
+<td>No<br/><br/></td>
 </tr>
 <tr>
 <td>
@@ -961,7 +961,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
+<td>No<br/><br/></td>
 </tr>
 </tbody>
 </table>
@@ -1025,6 +1025,6 @@ No<br/><br/></td><td>
 Yes*<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>Yes<br/><br/></td></tr>
+<td>No<br/><br/></td></tr>
 </tbody>
 </table>
