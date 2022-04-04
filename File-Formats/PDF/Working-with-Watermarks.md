@@ -382,7 +382,7 @@ graphics.SetTransparency(0.25f);
 
 graphics.RotateTransform(-40);
 
-graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 
+graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 450));
 
 //Save the document into stream.
 
