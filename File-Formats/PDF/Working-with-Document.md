@@ -3149,3 +3149,202 @@ else
 analyzer.Close();
 {% endhighlight %}
 {% endtabs %}
+
+## Embed all the non-embedded fonts in the existing PDF document  
+
+You can embed all the non-embedded fonts in the existing PDF document using the EmbedFonts method. 
+Refer to the following code sample to achieve the same,
+
+{% tabs %}
+{% highlight C# %}
+//Load an existing document.
+PdfLoadedDocument document = new PdfLoadedDocument("input.pdf");
+//Embed all the non-embedded fonts.
+if (loadedDocument.IsAllFontsEmbedded == false)
+{.
+     loadedDocument.EmbedFonts();
+}
+//Save the document.
+document.Save("Output.pdf");
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+//Load an existing document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+// Embed all the non-embedded fonts.
+If loadedDocument.IsAllFontsEmbedded = False Then
+    loadedDocument.EmbedFonts()
+End If
+//Save the document.
+document.Save("Output.pdf")
+//Close the document.
+document.Close(True)
+{% endhighlight %}
+{% endtabs %}
+
+## Add or retrieve BaseUri in a PDF document
+
+The Essential PDF allows you to get or set the BaseUri in the PDF document. This is illustrated in the following code sample.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new instance of the PdfDocument class.
+PdfDocument document = new PdfDocument();
+
+//Set the Base URI.
+document.BaseUri = "https://www.syncfusion.com/";
+
+//Create a new page.
+PdfPage page = document.Pages.Add();
+
+//Save the document.
+document.Save("Output.pdf");
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new instance of the PdfDocument class.
+Dim document As PdfDocument = New PdfDocument()
+
+'Set the Base URI.
+document.BaseUri = "https://www.syncfusion.com/"
+
+'Create a new page.
+Dim page As PdfPage = document.Pages.Add()
+
+'Save the document.
+document.Save("Output.pdf")
+
+'Close the document.
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new instance of the PdfDocument class.
+PdfDocument document = new PdfDocument();
+
+//Set the Base URI.
+document.BaseUri = "https://www.syncfusion.com/";
+
+//Create a new page.
+PdfPage page = document.Pages.Add();
+
+//Save the document as stream.
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream);
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new instance of the PdfDocument class.
+PdfDocument document = new PdfDocument();
+
+//Set the Base URI.
+document.BaseUri = "https://www.syncfusion.com/";
+
+//Create a new page.
+PdfPage page = document.Pages.Add();
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new instance of the PdfDocument class.
+PdfDocument document = new PdfDocument();
+
+//Set the Base URI.
+document.BaseUri = "https://www.syncfusion.com/";
+
+//Create a new page.
+PdfPage page = document.Pages.Add();
+
+//Save the document.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+{% endtabs %}
+
+The following code example illustrates the retrieval of BaseUri from the loaded document.
+
+{% tabs %}
+{% highlight C# %}
+//Load an existing document.
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+//Get the Base URI.
+string baseUri = document.BaseUri;
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Load an existing document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the Base URI.
+Dim baseUri As String = document.BaseUri
+
+'Close the document.
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Load the PDF document as stream.
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Create an empty PDF loaded document instance.
+PdfLoadedDocument document = new PdfLoadedDocument();
+
+//Load or open an existing PDF document through the Open method of the PdfLoadedDocument class
+await document.OpenAsync(pdfStream);
+
+//Get the Base URI.
+string baseUri = document.BaseUri;
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Load the PDF document as file stream.
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load a PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Get the Base URI.
+string baseUri = document.BaseUri;
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Load the file as stream.
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Load the file stream.
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Get the Base URI.
+string baseUri = document.BaseUri;
+
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+{% endtabs %}

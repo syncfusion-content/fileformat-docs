@@ -139,7 +139,6 @@ Install-Package Syncfusion.DocIO.NET
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. You can use the above WPF or Windows Forms platform NuGet packages for .NET Core 3.0 targeting applications and use the same "C# tab" code examples for it.
-N> 4.Essential DocIO is only supported in .NET MAUI application targeting Windows, Android and iOS.
 
 ## Converting Word document to PDF
 
@@ -266,8 +265,7 @@ Install-Package Syncfusion.DocIORenderer.NET
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
-N> 4. From v18.4.0.x, the dependent package SkiaSharp is upgraded from 1.59.3 to 2.80.2 version and it is mandatory to use SkiaSharp.NativeAssets.Linux v2.80.2 package instead of SkiaSharp.Linux v1.59.3 for converting Word documents into PDF in Linux environment.
-N> 5.Essential DocIO is only supported in .NET MAUI application targeting Windows, Android and iOS.
+N> 4. From v20.1.0.x, the dependent package SkiaSharp is upgraded from 2.80.2 to 2.88.0-preview.209 version and it is mandatory to use SkiaSharp.NativeAssets.Linux v2.88.0-preview.209 and HarfBuzzSharp.NativeAssets.Linux 2.8.2-preview.209 packages for converting Word documents into PDF in Linux environment.
 
 ## Converting Charts
 
