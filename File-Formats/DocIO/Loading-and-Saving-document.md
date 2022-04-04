@@ -735,3 +735,8 @@ using (WordDocument document = new WordDocument())
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
+
+## See Also
+
+* [How to open and read Word document in C#, VB.NET](https://www.syncfusion.com/kb/12990/how-to-open-and-read-word-document-in-c-vb-net)
+* [How to read Word document using C#, VB.NET](https://www.syncfusion.com/kb/10992/how-to-read-word-document-using-c-vb-net)

@@ -2192,3 +2192,7 @@ document.Close();
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
+
+## See Also
+
+* [How to replace the particular text with hyperlink in Word document](https://www.syncfusion.com/kb/11774/how-to-replace-the-particular-text-with-hyperlink-in-word-document)

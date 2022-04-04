@@ -3186,3 +3186,7 @@ document.Close();
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Remove-particular-row-from-table).
+
+## See Also
+
+* [How to avoid table splitting across the pages in Word document](https://www.syncfusion.com/kb/12948/how-to-avoid-table-splitting-across-the-pages-in-word-document)
