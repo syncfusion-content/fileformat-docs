@@ -169,6 +169,8 @@ pdfDocument.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
+
 N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, and Universal applications.
 N> 2. Word to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application.
 N> 3. For .NET Framework, creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
@@ -180,9 +182,9 @@ N> 6. "DocIO supports Word to PDF conversion in UWP application using DocIORende
 
 In Linux OS, you can perform the Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Word to PDF conversion capabilities.
 
-From v19.4, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) and [HarfBuzzSharp.NativeAssets.Linux v2.6.1.7](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.6.1.7) NuGets to perform Word to PDF conversion in Linux environment.
+From v20.1, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209) and [HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209) NuGets to perform Word to PDF conversion in Linux environment.
 
-If you are using prior to v19.4 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os) to know about how to perform Word to PDF conversion in Linux.
+If you are using prior to v20.1 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os) to know about how to perform Word to PDF conversion in Linux.
 
 
 **Frequently Asked Questions**
@@ -253,6 +255,8 @@ wordDocument.Close()
 //DocIO supports Word to PDF fast rendering in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Enable-fast-rendering).
 
 ### Embedding fonts
 
@@ -408,6 +412,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Embed-subset-fonts).
+
 #### Embed Complete Fonts
 
 This setting allows you to embed the complete font information (glyphs) from the TrueType fonts used in converted PDF document.
@@ -558,6 +564,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Embed-complete-fonts).
+
 ### Accessible PDF document
 
 This setting allows you to determine whether to preserve document structured tags in the converted **PDF document for accessibility (508 compliance) support**. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for **people with vision or cognitive impairments** who may not able to see or understand the object
@@ -699,6 +707,8 @@ pdfDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-into-accessible-PDF).
 
 ### Word document headings to PDF bookmarks
 
@@ -842,6 +852,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Export-Word-headings-into-PDF).
+
 The following code sample shows how to preserve both Word document headings and Bookmarks as PDF bookmarks in the converted PDF document.
 
 {% tabs %}
@@ -979,6 +991,8 @@ pdfDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Export-Word-bookmarks-into-PDF).
 
 ### Word document form field to PDF form field.
 
@@ -1123,6 +1137,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Create-fillable-PDF-from-Word).
+
 ### Image quality 
 
 This setting allows you to determine the **quality of the charts and JPEG images** in the converted PDF document.
@@ -1187,6 +1203,8 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Adjust-image-quality).
+
 ### Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images present in the Word document during PDF conversion.
@@ -1242,6 +1260,8 @@ wordDocument.Close()
 //DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Recreate-nested-metafile).
 
 ### Identical image optimization 
 
@@ -1396,6 +1416,8 @@ outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Optimize-identical-images).
+
 ### PDF Conformance Level
 
 This setting allows you to set the PDF conformance level.
@@ -1546,6 +1568,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/PDF-conformance-level).
+
 ### Enable Alternate Chunks
 
 In the Word document, another Word documents are embedded in it and referred as AltChunks. This setting allows you to include the alternate chunks while converting Word to PDF conversion. As default, it includes alternate chunks.
@@ -1694,6 +1718,8 @@ pdfDocument.Save(outputStream);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Disable-alternate-chunks).
+
 ### Complex Script Text
 
 This setting allows you to **preserve the complex script text** in the converted PDF document.
@@ -1838,6 +1864,8 @@ pdfDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Preserve-complex-script-text-in-PDF).
 
 ### Hyphenation in Word-to-PDF conversion
 
@@ -1998,6 +2026,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Hyphenation-in-Word-to-PDF).
+
 ### Track changes in Word-to-PDF conversion
 
 The following code sample shows how to **preserve revision marks in a generated PDF** when converting Word documents with tracked changes or revisions.
@@ -2147,6 +2177,8 @@ pdfDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Track-changes-in-Word-to-PDF).
 
 #### Change the Track Changes Color
 
@@ -2338,6 +2370,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Change-track-changes-color).
+
 #### Show or Hide Revisions in Balloons
 
 The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling ShowMarkup property. However, you can hide revisions in balloons by using following code example.
@@ -2497,6 +2531,8 @@ pdfDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Show-or-hide-revisions-in-balloons).
 
 ### Comments in Word-to-PDF conversion
 The following code sample shows how to **preserve comments balloon in a generated PDF** when converting Word documents with comments. Also you can customize how comments balloon color appears in a generated PDF.
@@ -2672,6 +2708,8 @@ using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResource
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Preserve-comments-in-Word-to-PDF).
+
 ### Preserve Ole Equation as bitmap image
 
 This setting allows you to preserve Ole Equation as bitmap image in the converted PDF document.
@@ -2727,6 +2765,8 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Ole-Equation-as-bitmap).
 
 ### Restrict all permission in a PDF document
 
@@ -2899,6 +2939,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Restrict-permission-in-PDF).
 
 ## Font Substitution
 
@@ -3143,6 +3185,8 @@ void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-installed-font).
+
 ###### Event Handler to use alternate font without installing
 
 The following code example shows how to use the alternate fonts instead of "Microsoft Sans Serif" **without installing the fonts** into production machine.
@@ -3204,6 +3248,8 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
 
 N> The above event will be triggered only if the specified font is not installed in production machine.
 

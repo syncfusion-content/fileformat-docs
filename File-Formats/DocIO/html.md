@@ -119,7 +119,7 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Convert-HTML-to-Word).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Convert-HTML-to-Word).
 
 The following code example shows how to convert the Word document into HTML.
 
@@ -201,7 +201,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Convert-Word-to-HTML).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Convert-Word-to-HTML).
 
 ## Customization settings
 
@@ -258,11 +258,11 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Customize-HTML-to-Word-conversion).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-HTML-to-Word-conversion).
 
 N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and Xamarin applications.
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
-N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
+N> 3. XHTMLValidationType.None: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
 ### Customize image data
@@ -417,7 +417,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Customize-image-data).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-image-data).
 
 N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
 
@@ -483,7 +483,7 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversion/Customize-Word-to-HTML-conversion).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-Word-to-HTML-conversion).
 
 ## Supported and unsupported items
 

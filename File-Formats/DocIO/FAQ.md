@@ -102,6 +102,7 @@ document.Close()
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Modify-built-in-style).
 
 ## How to open a document from stream using DocIO?
 
@@ -346,7 +347,7 @@ End Function
 
  {% endtabs %}  
 
- 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-Word-document-from-url).
  
 ## How to set OpenType Font Features?
 
@@ -467,6 +468,8 @@ document.Close()
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Set-ligature-types-tor-text).
+
 The following code example illustrates how to set contextual alternates.
 
 {% tabs %} 
@@ -544,6 +547,8 @@ document.Close()
 {% endhighlight %} 
 
   {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Set-contextual-alternates-for-text).
 
 The following code example illustrates how to set number spacing.
 
@@ -638,6 +643,8 @@ document.Close()
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Set-number-spacing).
+
 The following code example illustrates how to set number style.
 
 {% tabs %} 
@@ -729,6 +736,8 @@ document.Close()
 {% endhighlight %}
 
  {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Set-number-forms).
 
 The following code example illustrates how to set different styles for the text.
 
@@ -827,6 +836,7 @@ document.Close()
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Stylistic-set-for-text).
 
 ## How to attach a Template to a Word document?
 
@@ -885,7 +895,7 @@ document.Close()
 
 {% endtabs %}  
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Attach-template-to-Word-document).
 
 ## How to insert a DataTable in a Word document?
 
@@ -1145,6 +1155,8 @@ End Sub
 
   {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Insert-data-table-in-Word-document).
+
 ## How to insert a table from HTML string in Word document?
 
 An HTML string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the HTML string.
@@ -1208,6 +1220,7 @@ document.Close()
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Insert-table-from-html-string).
  
 ## How to set table cell width?
 
@@ -1325,6 +1338,8 @@ document.Close()
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Set-table-cell-width).
+
 ## How to position a table in a Word document?
 
 You can position a table in a Word document by setting position properties. The following code illustrates how to set position properties for a table.
@@ -1393,7 +1408,7 @@ document.Close()
 
   {% endtabs %}  
 
-  
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Set-position-for-table).
   
 ## How to set the text direction to a table in Word document?
 
@@ -1482,7 +1497,7 @@ document.Close()
 
  {% endtabs %} 
 
- 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Set-text-direction-to-table). 
  
 ## How to extract the images in the document?
 
@@ -1659,6 +1674,7 @@ document.Close()
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Extract-images-from-Word-document).
 
 ## How to remove headers and footers from the document?
 
@@ -1765,6 +1781,8 @@ document.Close()
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Remove-headers-in-Word-document).
+
 The following code illustrates how to remove the footer contents from the document.
 
 {% tabs %}  
@@ -1868,7 +1886,7 @@ document.Close()
 
   {% endtabs %}  
 
-  
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Remove-footers-in-Word-document).
   
 ## Which units does Essential DocIO uses for measurement properties such as size, margins, etc, in a Word document?
 
@@ -2109,6 +2127,8 @@ doc.Close()
 
   {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-using-OleDbConnection).
+
 N> 
 For more information on Mail merge using DocIO, you can refer to online documentation link:
 [MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
@@ -2341,6 +2361,7 @@ document.Close()
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Find-and-replace-text-using-regex).
 
 N>  For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
 [Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
@@ -2570,7 +2591,7 @@ doc.Close()
 
   {% endtabs %}  
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Add-bookmark-in-Word-document).
 
 ### Page Numbers
 
@@ -2792,7 +2813,7 @@ doc.Close()
 
   {% endtabs %} 
 
-  
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Insert-page-numbers-in-footer). 
   
 ### Document Watermarks
 
@@ -2999,6 +3020,8 @@ doc.Close()
 {% endhighlight %} 
 
  {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Watermark/Add-picture-watermark).
 
 N>  For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
 [Applying Watermark](/file-formats/docio/applying-watermark)
@@ -3261,6 +3284,7 @@ doc.Close()
 
  {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Access-header-and-footer).
 
 ### Character Formatting
 
@@ -3559,6 +3583,7 @@ document.Close()
 
    {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Insert-empty-table).
    
 N>  For more information on creating tables using DocIO, refer to online documentation link:
 [Working with Tables](/file-formats/docio/working-with-tables)
@@ -3745,6 +3770,7 @@ doc.Save("Sample.doc", FormatType.Doc)
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
 
 N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
 [Working with Comments](/file-formats/docio/working-with-comments) 
@@ -3930,6 +3956,8 @@ document.Close()
 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Security/Allow-editing-comments-only).
 
 Refer to the online documentation link for more details about the ways to protect the Word documents by using DocIO:
 
@@ -4148,6 +4176,8 @@ document.Close()
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Add-table-of-contents).
+
 Refer to the online documentation link for more information about adding the table of contents to the Word document by using DocIO:
 
 [Working with table of contents](/file-formats/docio/working-with-table-of-contents)
@@ -4169,7 +4199,9 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 {% endhighlight %}
 
  {% endtabs %}  
- 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Copy-fonts-to-linux-containers).
+
 ## How to copy necessary Microsoft compatible fonts to Linux
 
 The fonts present in the location(in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
@@ -4321,6 +4353,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-EPUB-conversion/Set-title-for-EPUB).
+
 ## How to check whether a Word document contains tracked changes or not? 
 
 You can check whether a Word document contains tracked changes by using `HasChanges` property in Essential DocIO.
@@ -4419,6 +4453,8 @@ document.Close();
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-all-changes).
 
 ## How to accept or reject track changes of specific type in the Word document?
 
@@ -4556,6 +4592,8 @@ document.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Accept-or-reject-specific-type).
+
 ## How to enable track changes for Word document?
 
 TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the TrackChanges property of the Word document.
@@ -4689,6 +4727,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Enable-track-changes-of-Word).
 
 ## How to perform Word to PDF in Linux prior to v18.4 release?
 
@@ -4763,6 +4802,15 @@ NuGet packages to install
 </th>
 </tr>
 </thead>
+<tr>
+<td>
+From v20.1.0.x 
+</td>
+<td>
+{{'[SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209)'| markdownify }}<br/>
+{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209)'| markdownify }}
+</td>
+</tr>
 <tr>
 <td>
 From v19.4.0.x
