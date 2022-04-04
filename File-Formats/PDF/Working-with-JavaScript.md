@@ -708,15 +708,10 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
-<table>
-<th style="font-size:14px">Types of JavaScript actions
-</th>
+## Types of JavaScript actions
 
-<tr>
-<td>
 The pdf will generate trigger with the javascript actions in the following places.
-</td>
-</tr>
+
 <table>
 <tr>
 <th style="font-size:14px">Action Type 
@@ -748,23 +743,13 @@ The pdf will generate trigger with the javascript actions in the following place
 <td>document.Actions.BeforePrint</td>
 <td>	A JavaScript action will be performed before printing the document</td>
 </tr>
-
-</table>
 </table>
 
-<table>
-<th style="font-size:14px">Types of Mouseover actions
-</th>
+## Types of Mouseover actions
 
-<tr>
-<td>
 The pdf will generate trigger with the javascript actions on the form fields in the places listed below.
-</td>
-</tr>
-
 </br>
 </br>
-
 <table>
 <tr>
 <th style="font-size:14px">Action Type 
@@ -797,6 +782,4 @@ submitButton.Actions.MouseDown</td>
 <td>submitButton.Actions.LostFocus</td>
 <td>	Gets or sets the action to be performed when the annotation loses the input focus.</td>
 </tr>
-
-</table>
 </table>

@@ -139,6 +139,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Add-field-in-Word-document).
+
 ## Formatting fields
 
 You can format the field instances added to the Word document by iterating the items from field start to end.
@@ -285,7 +287,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 {% endhighlight %}
 
 {% endtabs %}
-   
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Format-fields).
+
 ## Updating fields
 
 Field updating engine calculates the resultant value based on the field code information and updates the field result with a new value. You can update the following fields by using DocIO:
@@ -386,6 +390,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Update-fields-in-document).
 
 ## IF field
 
@@ -544,7 +550,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %} 
-  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/IF-field).
+
 ## Document variables
 
 The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using the `Variables` property of `WordDocument` class.
@@ -685,7 +693,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
-  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Document-variables).
+
 ## Cross reference
 
 A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using the `AppendCrossReference` method of `WParagraph` class.
@@ -849,6 +859,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Cross-reference).
+
 ## Unlink fields
 
 You can replace the field with its most recent result in the Word document by unlinking the field using the `Unlink` API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
@@ -975,6 +987,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Unlink-fields).
 
 N>  XE (Index Entry) fields cannot be unlinked.
 
@@ -1257,6 +1271,8 @@ private WordDocument CreateDocument()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Apply-number-format-for-SEQ-field).
+
 By executing the above code example, it generates output Word document as follows.
 
 ![Output document after applied Number format for SEQ field](WorkingWithFields_images/SEQField_NumberFormat.png)
@@ -1395,6 +1411,8 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Refer-bookmark-in-SEQ-field).
 
 By executing the above code example, it generates output Word document as follows.
 
@@ -2042,6 +2060,8 @@ private WordDocument CreateDocument()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Reset-numbering-for-SEQ-field).
+
 By executing the above code example, it generates output Word document as follows.
 
 ![Output of reset numbering in SEQ field](WorkingWithFields_images/SEQField_ResetNumbering.png)
@@ -2446,6 +2466,8 @@ private WordDocument CreateDocument()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Repeat-nearest-number-of-SEQ-field).
+
 By executing the above code example, it generates output Word document as follows.
 
 ![Output of repeating Nearest number of SEQ field](WorkingWithFields_images/SEQField_RepeatNearestNumber.png)
@@ -2835,6 +2857,8 @@ private WordDocument CreateDocument()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Hide-SEQ-field-result).
+
 By executing the above code example, it generates output Word document as follows.
 
 ![Output after hiding the sequence field](WorkingWithFields_images/SEQField_Hide.png)
@@ -2934,3 +2958,7 @@ document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+## See Also
+
+* [Is it possible to update Include Text field in Word document using Essential DocIO?](https://www.syncfusion.com/kb/3921/is-it-possible-to-update-include-text-field-in-word-document-using-essential-docio)

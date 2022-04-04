@@ -2460,3 +2460,8 @@ The following chart types are supported in DocIO.
 * Surface_Contour
 * Surface_NoColor_3D
 * Surface_NoColor_Contour
+
+## See Also
+
+* [How to set Date format in X axis of chart in Word document](https://www.syncfusion.com/kb/12949/how-to-set-date-format-in-x-axis-of-chart-in-word-document)
+* [How to change scatter chart marker color for each data points in Word document](https://www.syncfusion.com/kb/12958/how-to-change-scatter-chart-marker-color-for-each-data-points-in-word-document)

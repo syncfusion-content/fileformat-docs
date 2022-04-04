@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Text Conversion
+# Text Conversions in Word Library
 
 The Essential DocIO converts the Word document into Text file and vice versa. The following code example shows how to convert the Word document into text file.
 
@@ -114,6 +114,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Text-file-conversion/Convert-Word-to-text-file).
+
 The following code example shows how to convert a Text file into Word document.
 
 {% tabs %}
@@ -186,6 +188,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Text-file-conversion/Convert-text-file-to-Word).
 
 The following code example shows how to retrieve the Word document contents as a plain text.
 
@@ -311,3 +315,5 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Text-file-conversion/Retrieve-Word-document-as-plain-text).

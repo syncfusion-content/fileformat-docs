@@ -584,3 +584,7 @@ document.Close();
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/TOC-with-user-defined-styles).
+
+## See Also
+
+* [How to change the text of TOC Entries in the Table of content in the Word document?](https://www.syncfusion.com/kb/13019/how-to-change-the-text-of-toc-entries-in-the-table-of-content-in-the-word-document)

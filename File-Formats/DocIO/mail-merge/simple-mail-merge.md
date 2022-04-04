@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Simple Mail merge
+# Simple Mail merge in Word document
 
 You can create a Word document template using Microsoft Word application or by adding merge fields in the Word document programmatically. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge#create-word-document-template).
 
@@ -150,6 +150,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-Word-document-template).
+
 The generated template document looks as follows.
 
 ![Word document template](../MailMerge_images/Simple_mail_merge_template.png)
@@ -245,6 +247,12 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-string-arrays).
+
 The resultant document looks as follows.
 
 ![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)
+
+## See Also
+
+* [How to mail merge Word document in Azure functions v1](https://www.syncfusion.com/kb/10671/how-to-mail-merge-word-document-in-azure-functions-v1)
