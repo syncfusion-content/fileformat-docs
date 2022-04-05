@@ -11,7 +11,7 @@ A section contains the contents present in Headers, Footers and main document th
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -25,7 +25,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -39,7 +39,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}  
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -58,7 +58,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -76,7 +76,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -105,7 +105,7 @@ You can also add a new section that starts on a same page by specifying the `Bre
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -128,7 +128,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -151,7 +151,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -179,7 +179,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -206,7 +206,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -246,7 +246,7 @@ The following code example shows how to set the page setup properties
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -267,7 +267,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -288,7 +288,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -315,7 +315,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -341,7 +341,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -380,7 +380,7 @@ The following code example shows how to display contents in multiple columns.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -415,7 +415,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -450,7 +450,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -491,7 +491,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -531,7 +531,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -582,7 +582,7 @@ You can prefer to have more sections in a Word document when you need to have di
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -612,7 +612,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -642,7 +642,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -678,7 +678,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -713,7 +713,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -768,7 +768,7 @@ The following code example illustrates how to add simple header and footer into 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -797,7 +797,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -826,7 +826,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -861,7 +861,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -895,7 +895,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -938,7 +938,7 @@ You can have a specific header and footer contents for the first page in a Word 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -975,7 +975,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -1012,7 +1012,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1055,7 +1055,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1097,7 +1097,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1150,7 +1150,7 @@ The following code example shows how to set different header and footer for the 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1187,7 +1187,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -1224,7 +1224,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1267,7 +1267,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1309,7 +1309,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1362,7 +1362,7 @@ The following code example shows how to link the previous section header and foo
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1401,7 +1401,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -1440,7 +1440,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1485,7 +1485,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1529,7 +1529,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1584,7 +1584,7 @@ You can remove the headers and footers from an existing Word document. The follo
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Open an existing document.
 WordDocument document = new WordDocument("Input.docx", FormatType.Automatic);
 //Iterate to each section in the Word document.
@@ -1608,7 +1608,7 @@ document.Save("Output.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Open an existing document.
 Dim document As WordDocument = New WordDocument("Input.docx", FormatType.Automatic)
 'Iterate to each section in the Word document.
@@ -1631,7 +1631,7 @@ document.Save("Output.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Open an existing document.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Input.docx"), FormatType.Docx);
@@ -1662,7 +1662,7 @@ Save(stream, "Output.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open an existing document.
 FileStream inputStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read);
 WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
@@ -1692,7 +1692,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Output.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Open an existing document.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
@@ -1734,7 +1734,7 @@ You can insert the current page number within the document contents. The followi
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1759,7 +1759,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -1784,7 +1784,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1815,7 +1815,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1845,7 +1845,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1882,7 +1882,7 @@ The following code example illustrates how to add the current page number and to
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1912,7 +1912,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -1942,7 +1942,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1978,7 +1978,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -2013,7 +2013,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -2055,7 +2055,7 @@ The following code example shows how to adjust the height of header and footer.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -2088,7 +2088,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -2121,7 +2121,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -2160,7 +2160,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -2198,7 +2198,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -2247,7 +2247,7 @@ The following code example illustrates how to remove a particular section from t
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an input Word template
 WordDocument document = new WordDocument(inputFileName);
 //Removes the second section from the collection
@@ -2257,7 +2257,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an input Word template
 Dim document As New WordDocument(inputFileName)
 'Removes the second section from the collection
@@ -2267,7 +2267,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputFileStream = assembly.GetManifestResourceStream(inputFileName);
@@ -2286,7 +2286,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream inputFileStream = new FileStream(inputFileName, FileMode.Open, FileAccess.ReadWrite);
 //Opens an input Word template
 WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic);
@@ -2302,7 +2302,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputFileStream = assembly.GetManifestResourceStream(inputFileName);
 //Loads an existing Word document into DocIO instance
@@ -2328,3 +2328,8 @@ N> The Word document is a flow document in which contents will not be preserved 
 N> Word viewer/editor renders the contents of the Word document page by page dynamically when opened for viewing or editing and this page wise rendered information will not be preserved in the document level as per the Word file format specification.
 N> Whereas Essential DocIO is a non-UI component that provides a full-fledged document object model to manipulate the Word document contents. Hence it is not feasible to set different page margins or page settings to each page instead we can do the same for each section.
 N> And also, it is not feasible to get the page-wise details from Word document and split the Word document in page by page. 
+
+## See Also
+
+* [How to copy the HeaderFooter content from one Word document and insert them into first page header footer of another Word document](https://www.syncfusion.com/kb/12923/how-to-copy-the-headerfooter-content-from-one-word-document-and-insert-them-into-first-page)
+* [How to determine the page number of a particular text within a Word document](https://www.syncfusion.com/kb/12931/how-to-determine-the-page-number-of-a-particular-text-within-a-word-document)

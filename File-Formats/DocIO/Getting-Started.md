@@ -42,7 +42,7 @@ Include the following namespaces in your .cs or .vb file
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
 
@@ -50,7 +50,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.DocIO
 
@@ -58,7 +58,7 @@ Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 using Syncfusion.DocIO;
 
@@ -66,7 +66,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using Syncfusion.DocIO;
 
@@ -74,7 +74,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 using Syncfusion.DocIO;
 
@@ -90,7 +90,7 @@ The following code example explains how to create a new Word document with few l
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -102,7 +102,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -114,7 +114,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -131,7 +131,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph to the document
@@ -147,7 +147,7 @@ document.Close();
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -179,7 +179,7 @@ The following code example explains how to add a section into a `WordDocument` i
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word document
@@ -188,7 +188,7 @@ IWSection section = document.AddSection();
 section.PageSetup.Margins.All = 50f;
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Adds a new section into the Word document
@@ -197,7 +197,7 @@ Dim section As IWSection = document.AddSection()
 section.PageSetup.Margins.All = 50.0F
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word document
@@ -206,7 +206,7 @@ IWSection section = document.AddSection();
 section.PageSetup.Margins.All = 50f;
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word document
@@ -215,7 +215,7 @@ IWSection section = document.AddSection();
 section.PageSetup.Margins.All = 50f;
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word document
@@ -232,7 +232,7 @@ The following code example explains how to add a Paragraph into a Word document
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adds a new simple paragraph into the section
 IWParagraph firstParagraph = section.AddParagraph();
 //Sets the paragraph's horizontal alignment as justify
@@ -250,7 +250,7 @@ secondTextRange.CharacterFormat.FontName = "Calibri";
 secondTextRange.CharacterFormat.FontSize = 11;
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Adds a new simple paragraph into the section
 Dim firstParagraph As IWParagraph = section.AddParagraph()
 'Sets the paragraph's horizontal alignment as justify
@@ -268,7 +268,7 @@ secondTextRange.CharacterFormat.FontName = "Calibri"
 secondTextRange.CharacterFormat.FontSize = 11
 {% endhighlight %}  
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adds a new simple paragraph into the section
 IWParagraph firstParagraph = section.AddParagraph();
 //Sets the paragraph's horizontal alignment as justify
@@ -286,7 +286,7 @@ secondTextRange.CharacterFormat.FontName = "Calibri";
 secondTextRange.CharacterFormat.FontSize = 11;
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adds a new simple paragraph into the section
 IWParagraph firstParagraph = section.AddParagraph();
 //Sets the paragraph's horizontal alignment as justify
@@ -304,7 +304,7 @@ secondTextRange.CharacterFormat.FontName = "Calibri";
 secondTextRange.CharacterFormat.FontSize = 11;
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adds a new simple paragraph into the section
 IWParagraph firstParagraph = section.AddParagraph();
 //Sets the paragraph's horizontal alignment as justify
@@ -328,7 +328,7 @@ The following code example shows how to add an image into the Word document.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
@@ -341,7 +341,7 @@ picture.Height = 100;
 picture.Width = 100;
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Adds another paragraph and aligns it as center
 Dim paragraph As IWParagraph = section.AddParagraph()
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
@@ -354,7 +354,7 @@ picture.Height = 100
 picture.Width = 100
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
@@ -370,7 +370,7 @@ picture.Height = 100;
 picture.Width = 100;
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
@@ -384,7 +384,7 @@ picture.Height = 100;
 picture.Width = 100;
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
@@ -406,7 +406,7 @@ Table is another important element in Word that contains a set of paragraphs arr
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adds a table into the Word document
 IWTable table = section.AddTable();
 //Creates the specified number of rows and columns
@@ -439,7 +439,7 @@ paragraph = secondCell.AddParagraph();
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Adds a table into the Word document
 Dim table As IWTable = section.AddTable()
 'Creates the specified number of rows and columns
@@ -472,7 +472,7 @@ paragraph = secondCell.AddParagraph()
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adds a table into the Word document
 IWTable table = section.AddTable();
 //Creates the specified number of rows and columns
@@ -506,7 +506,7 @@ paragraph = secondCell.AddParagraph();
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adds a table into the Word document
 IWTable table = section.AddTable();
 //Creates the specified number of rows and columns
@@ -540,7 +540,7 @@ paragraph = secondCell.AddParagraph();
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adds a table into the Word document
 IWTable table = section.AddTable();
 //Creates the specified number of rows and columns
@@ -580,7 +580,7 @@ Essential DocIO allow you to create simple and multi-level lists. The following 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
 //Sets before spacing for paragraph.
@@ -644,7 +644,7 @@ paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Writes default numbered list. 
 paragraph = section.AddParagraph()
 'Sets before spacing for paragraph.
@@ -708,7 +708,7 @@ paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
 //Sets before spacing for paragraph.
@@ -772,7 +772,7 @@ paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph();
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
 //Sets before spacing for paragraph.
@@ -836,7 +836,7 @@ paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph();
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
 //Sets before spacing for paragraph.
@@ -906,21 +906,21 @@ Finally, save the document in file system and close its instance.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Saves the document in the given name and format
 document.Save(outputFileName, FormatType.Docx);
 //Releases the resources occupied by WordDocument instance
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Saves the document in the given name and format
 document.Save(outputFileName, FormatType.Docx)
 'Releases the resources occupied by WordDocument instance
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 await document.SaveAsync(stream, FormatType.Docx);
@@ -931,7 +931,7 @@ Save(stream, outputFileName);
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
@@ -941,7 +941,7 @@ stream.Position = 0;
 return File(stream, "application/msword", outputFileName);
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 document.Save(stream, FormatType.Docx);
@@ -970,7 +970,7 @@ You can open an existing Word document either by using constructor of `WordDocum
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Giant Panda.docx");
 //Replaces the word "bear" as "panda"
@@ -981,7 +981,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Giant Panda.docx")
 'Replaces the word "bear" as "panda"
@@ -992,7 +992,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Giant Panda.docx");
 //Loads an existing Word document into DocIO instance
@@ -1009,7 +1009,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"Giant Panda.docx",FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -1024,7 +1024,7 @@ document.Close();
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Giant Panda.docx");
 //Loads an existing Word document into DocIO instance
@@ -1043,11 +1043,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-all).
+
 The following code example explains how to search a particular text and highlight it.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(@"..\..\Data\Giant Panda.docx");
 //Finds the occurrence of the Word "panda" in the document
@@ -1063,7 +1065,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("..\..\Data\Giant Panda.docx")
 'Finds the occurrence of the word "panda" in the document
@@ -1077,7 +1079,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
 //Loads an existing Word document into DocIO instance
@@ -1100,7 +1102,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"Test.docx",FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -1121,7 +1123,7 @@ document.Close();
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx");
 //Loads an existing Word document into DocIO instance
@@ -1146,6 +1148,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.d
 {% endhighlight %} 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
 ## Performing Mail merge
 
@@ -1172,7 +1176,7 @@ The following code example shows how to perform simple Mail merge by using strin
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document with required merge fields
 WordDocument document = new WordDocument(@"..\..\data\SimpleMailMergeTemplate.docx");
 //Initializes the string array with field names
@@ -1186,7 +1190,7 @@ document.Save("result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document with required merge fields
 Dim document As New WordDocument("..\..\data\SimpleMailMergeTemplate.docx")
 'Initializes the string array with field names
@@ -1200,7 +1204,7 @@ document.Save("result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
 //Loads an existing Word document into DocIO instance
@@ -1221,7 +1225,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"SimpleMailMergeTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -1240,7 +1244,7 @@ document.Close();
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
 //Loads an existing Word document into DocIO instance
@@ -1262,6 +1266,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.d
 {% endhighlight %} 
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-string-arrays).
 
 The resultant Word document look as follows.
 
@@ -1290,7 +1296,7 @@ The following code example shows how to perform Mail merge with objects.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument(@"..\..\Data\EmployeesTemplate.doc");
 //Gets the employee details as IEnumerable collection
@@ -1304,7 +1310,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 //Loads the template document
 Dim document As New WordDocument("..\..\Data\EmployeesTemplate.doc")
 'Gets the employee details as IEnumerable collection
@@ -1318,7 +1324,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
 //Loads an existing Word document into DocIO instance
@@ -1339,7 +1345,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -1359,7 +1365,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
 //Loads an existing Word document into DocIO instance
@@ -1387,7 +1393,7 @@ The following code example provides supporting methods and class for the above c
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1423,7 +1429,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Function GetEmployees() As List(Of Employee)
 	Dim employees As New List(Of Employee)()
 	employees.Add(New Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
@@ -1521,7 +1527,7 @@ Public Class Employee
 End Class
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1558,7 +1564,7 @@ public class Employee
 }
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1597,7 +1603,7 @@ public class Employee
 }
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1636,6 +1642,8 @@ public class Employee
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
+
 The resultant document looks as follows.
 
 ![Simple Mail merge with Group output document](GettingStarted_images/GettingStarted_img5.jpeg)
@@ -1671,7 +1679,7 @@ The following code example illustrates how to convert a Word document into PDF d
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic );
 //Initializes chart to image converter for converting charts during Word to pdf conversion
@@ -1688,7 +1696,7 @@ pdfDocument.Close();
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document 
 Dim wordDocument As New WordDocument(inputWordDocument, FormatType.Automatic)
 'Initializes chart to image converter for converting charts during Word to pdf conversion
@@ -1705,7 +1713,7 @@ pdfDocument.Close()
 wordDocument.Close()
 {% endhighlight %}  
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputWordDocument = assembly.GetManifestResourceStream("CreateWordSample.Assets.WordToPDF.docx");
 //Loads the template document
@@ -1758,7 +1766,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
@@ -1777,7 +1785,7 @@ outputStream.Position = 0;
 return File(outputStream, "application/pdf", "Result.pdf");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputWordDocument = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.EmployeesTemplate.docx");
 //Loads an existing Word document into DocIO instance
@@ -1797,6 +1805,25 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "applicat
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
+
 N> 
 When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
 ChartToImageConverter is supported from .NET Framework 4.0 onwards
+
+## See Also
+
+* [Create Word document in ASP.NET Core](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-core)
+* [Create Word document in ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc)
+* [Create Word document in ASP.NET](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net)
+* [Create Word document in Blazor](https://help.syncfusion.com/file-formats/docio/create-word-document-in-blazor)
+* [Create Word document in Xamarin](https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin)
+* [Create Word document in Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms)
+* [Create Word document in WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf)
+* [Create Word document in UWP](https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp)
+* [Create Word document in WinUI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-winui)
+* [Create Word document in .NET MAUI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-maui)
+* [Create Word document in Linux](https://help.syncfusion.com/file-formats/docio/create-word-document-in-linux)
+* [Create Word document in Docker](https://help.syncfusion.com/file-formats/docio/word-to-pdf-linux-docker)
+* [Create Word document in Mac OS](https://help.syncfusion.com/file-formats/docio/create-word-document-in-mac)
+

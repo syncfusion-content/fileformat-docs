@@ -20,7 +20,7 @@ You can navigate to any slide of the same PowerPoint document. The following cod
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -48,7 +48,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates the PowerPoint Presentation instance
 Dim pptxDoc As IPresentation = Presentation.Create() 
@@ -76,7 +76,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -110,7 +110,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -139,7 +139,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -186,7 +186,7 @@ You can navigate to the specified URL from a PowerPoint slide. The following cod
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -214,7 +214,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates the PowerPoint Presentation instance
 Dim pptxDoc As IPresentation = Presentation.Create() 
@@ -242,7 +242,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -276,7 +276,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -305,7 +305,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -352,7 +352,7 @@ You can add the email link to the shape or text on a PowerPoint slide. The follo
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -377,7 +377,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates the PowerPoint Presentation instance
 Dim pptxDoc As IPresentation = Presentation.Create() 
@@ -402,7 +402,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -434,7 +434,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -460,7 +460,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -505,7 +505,7 @@ You can open external documents like images, text files, PDF, etc. from the Powe
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -530,7 +530,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates the PowerPoint Presentation instance
 Dim pptxDoc As IPresentation = Presentation.Create() 
@@ -555,7 +555,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -587,7 +587,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -613,7 +613,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates the PowerPoint Presentation instance
 IPresentation pptxDoc = Presentation.Create();
@@ -664,7 +664,7 @@ The following code example demonstrates how to get the details about the hyperli
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -698,7 +698,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
@@ -729,7 +729,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -777,7 +777,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -813,7 +813,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -868,7 +868,7 @@ The following code example demonstrates how to get the details about the hyperli
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -908,7 +908,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -945,7 +945,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -999,7 +999,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -1041,7 +1041,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1106,7 +1106,7 @@ The following code example demonstrates how to remove a hyperlink from the shape
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1128,7 +1128,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1147,7 +1147,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1183,7 +1183,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -1207,7 +1207,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1250,7 +1250,7 @@ The following code example demonstrates how to remove a hyperlink from the text 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1278,7 +1278,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1303,7 +1303,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1345,7 +1345,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
@@ -1375,7 +1375,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

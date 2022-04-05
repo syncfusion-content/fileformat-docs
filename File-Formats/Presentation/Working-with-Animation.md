@@ -24,7 +24,7 @@ Syncfusion Presentation library allows you to animate the text, pictures, shapes
 Animation effects can be added to shapes, images, tables, charts and SmartArt diagrams. The following code example demonstrates how to add an animation effect to an shape.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create an instance for PowerPoint
 
@@ -55,7 +55,7 @@ pptxDoc.Save("Sample.pptx");
 }
 
 {% endhighlight %}
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance for PowerPoint
 
@@ -85,7 +85,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -116,7 +116,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -139,7 +139,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -182,7 +182,7 @@ Animations can be interactive when it depends on another slide element., for exa
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create an instance for PowerPoint
 
@@ -218,7 +218,7 @@ pptxDoc.Save("Sample.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance for PowerPoint
 
@@ -252,7 +252,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -286,7 +286,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -312,7 +312,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -358,7 +358,7 @@ Animation effects can be applied to text. The following code example demonstrate
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing Presentation from file system
 
@@ -390,7 +390,7 @@ pptxDoc.Save("Result.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from file system
 
@@ -420,7 +420,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -459,7 +459,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -483,7 +483,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -530,7 +530,7 @@ When you add common animation effects for both entrance and exit types, animatio
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create an instance for PowerPoint
 
@@ -566,7 +566,7 @@ pptxDoc.Save("Sample.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance for PowerPoint
 
@@ -600,7 +600,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -634,7 +634,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -660,7 +660,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -707,7 +707,7 @@ The Presentation library allows you to edit the animations in existing presentat
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing Presentation from file system
 
@@ -747,7 +747,7 @@ pptxDoc.Save("Animation.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing Presentation from file system
 
@@ -785,7 +785,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -830,7 +830,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -860,7 +860,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -913,7 +913,7 @@ Presentation library allows you to edit the sub type of animations effects in ex
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation from file system
 
@@ -949,7 +949,7 @@ pptxDoc.Save("Result.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from file system
 
@@ -983,7 +983,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1025,7 +1025,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -1052,7 +1052,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1102,7 +1102,7 @@ Presentation library allows you to edit the animation timing in the existing pre
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open an existing Presentation from file system
 
@@ -1138,7 +1138,7 @@ pptxDoc.Save("Result.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open an existing Presentation from file system
 
@@ -1172,7 +1172,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1214,7 +1214,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -1241,7 +1241,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1291,7 +1291,7 @@ Presentation library allows you to reorder the animation effects in existing pre
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open the existing presentation
 
@@ -1335,7 +1335,7 @@ pptxDoc.Save("Output.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open the existing presentation
 
@@ -1377,7 +1377,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1425,7 +1425,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -1458,7 +1458,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1514,7 +1514,7 @@ Presentation library allows you to create and modify the custom animations in pr
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an instance for PowerPoint
 
@@ -1568,7 +1568,7 @@ pptxDoc.Save("Sample.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an instance for PowerPoint
 
@@ -1620,7 +1620,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -1666,7 +1666,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -1704,7 +1704,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
@@ -1762,7 +1762,7 @@ Presentation library allows you to remove the animation effects from a shape. Th
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Open the existing presentation
 
@@ -1803,7 +1803,7 @@ pptxDoc.Save("Result.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Open the existing presentation
 
@@ -1841,7 +1841,7 @@ End Using
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -1888,7 +1888,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -1919,7 +1919,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

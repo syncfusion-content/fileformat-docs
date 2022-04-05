@@ -15,7 +15,7 @@ The following code shows how to unmerge cells in Excel with Interop and XlsIO fo
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void UnmergeCells()
 {
     //Instantiate the application object
@@ -41,7 +41,7 @@ private void UnmergeCells()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub UnmergeCells()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -70,7 +70,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void UnmergeCells()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -91,7 +91,7 @@ private void UnmergeCells()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub UnmergeCells()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

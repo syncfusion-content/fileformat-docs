@@ -13,27 +13,27 @@ The following namespaces of Essential DocIO need to be included in your applicat
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.DocIO
 Imports Syncfusion.DocIO.DLS
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 {% endhighlight %}
@@ -46,30 +46,30 @@ You can open an existing Word document by using either the `Open` method or the 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing document from file system through constructor of WordDocument class
 WordDocument document = new WordDocument(fileName);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing document from file system through constructor of WordDocument class
 Dim document As New WordDocument(fileName)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document through constructor of `WordDocument` class
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),FormatType.Docx);
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing document from stream through constructor of `WordDocument` class
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document through constructor of `WordDocument` class
@@ -80,21 +80,21 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Xam
 
 {% tabs %} 
  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty Word document instance
 WordDocument document = new WordDocument();
 //Loads or opens an existing word document through Open method of WordDocument class
 document.Open(fileName);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty Word document instance
 Dim document As New WordDocument()
 'Loads or opens an existing word document through Open method of WordDocument class
 document.Open(fileName)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -105,7 +105,7 @@ WordDocument document = new WordDocument();
 await document.OpenAsync(inputStorageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing document from stream through constructor of `WordDocument` class
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Creates an empty Word document instance
@@ -114,7 +114,7 @@ WordDocument document = new WordDocument();
 document.Open(fileStreamPath, FormatType.Automatic);
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty Word document instance
@@ -133,17 +133,17 @@ You can open an existing document from stream by using either the overloads of `
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing document from stream through constructor of WordDocument class
 WordDocument document = new WordDocument(wordDocumentStream, FormatType.Automatic);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing document from stream through constructor of WordDocument class
 Dim document As New WordDocument(wordDocumentStream, FormatType.Automatic)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads or opens an existing Word document from stream
@@ -152,14 +152,14 @@ Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing document from stream through constructor of `WordDocument` class
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from stream through constructor of WordDocument class
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads or opens an existing Word document from stream
@@ -172,21 +172,21 @@ WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
 
 {% tabs %}   
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
 //Loads or opens an existing Word document through Open method of WordDocument class
 document.Open(wordDocumentStream, FormatType.Automatic);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty WordDocument instance
 Dim document As New WordDocument()
 'Loads or opens an existing word document through Open method of WordDocument class
 document.Open(wordDocumentStream, FormatType.Automatic)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
@@ -199,7 +199,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
@@ -210,7 +210,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
@@ -233,17 +233,17 @@ You can open an existing encrypted Word document from either the file system or 
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing encrypted document through constructor of WordDocument class
 WordDocument document = new WordDocument(fileName, FormatType.Automatic, "password");
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing encrypted document through constructor of WordDocument class
 Dim document As New WordDocument(fileName, FormatType.Automatic, "password")
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -254,11 +254,11 @@ WordDocument document = new WordDocument();
 await document.OpenAsync(inputStorageFile, FormatType.Docx, "password");
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %} 
 
@@ -266,21 +266,21 @@ await document.OpenAsync(inputStorageFile, FormatType.Docx, "password");
 
 {% tabs %}  
   
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty Word document instance
 WordDocument document = new WordDocument();
 //Loads or opens an existing encrypted Word document through Open method of WordDocument class
 document.Open(wordDocumentStream, FormatType.Automatic, "password");
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty Word document instance
 Dim document As New WordDocument()
 'Loads or opens an existing encrypted Word document through Open method of WordDocument class
 document.Open(wordDocumentStream, FormatType.Automatic, "password")
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
@@ -293,15 +293,17 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from Stream from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Security/Open-encrypted-Word-document).
 
 ## Opening the read only Word document
 
@@ -309,29 +311,29 @@ You can open the ready only documents or read only streams using the OpenReadOnl
 
 {% tabs %}  
   
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
 //Loads or opens an existing word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty WordDocument instance 
 Dim document As WordDocument = New WordDocument
 'Loads or opens an existing word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %} 
 
@@ -341,29 +343,29 @@ You can also open an existing encrypted document in read only mode using the ove
 
 {% tabs %}  
   
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
 //Loads or opens an existing encrypted word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx , "password");
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty WordDocument instance 
 Dim document As WordDocument = New WordDocument
 'Loads or opens an existing encrypted word document using read only stream
 document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx, "password")
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports OpenReadOnly Word documents in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %} 
 
@@ -377,7 +379,7 @@ You can save the created or manipulated Word document to file system using `Save
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
 //opens an existing Word document through Open method of WordDocument class
@@ -388,7 +390,7 @@ document.Open(fileName);
 document.Save(outputFileName, FormatType.Docx);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty WordDocument instance
 Dim document As New WordDocument()
 'opens an existing Word document through Open method of WordDocument class
@@ -399,7 +401,7 @@ document.Open(fileName)
 document.Save(outputFileName, FormatType.Docx)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -421,7 +423,7 @@ StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
 await document.SaveAsAsync(outputStorageFile, FormatType.Docx);
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open an existing WordDocument
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
@@ -435,7 +437,7 @@ outputStream.Flush();
 outputStream.Dispose();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
@@ -464,7 +466,7 @@ You can also save the created or manipulated word document to stream by using ov
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
 //Opens an existing Word document through Open method of WordDocument class
@@ -477,7 +479,7 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty WordDocument instance
 Dim document As New WordDocument()
 'Opens an existing Word document through Open method of WordDocument class
@@ -490,7 +492,7 @@ Dim stream As New MemoryStream()
 document.Save(stream, FormatType.Docx)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -511,7 +513,7 @@ Save(stream, "Result.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
@@ -533,7 +535,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
@@ -568,7 +570,7 @@ You can save and send the document to a client browser from a web site or web ap
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
 //Opens an existing Word document through Open method of WordDocument class
@@ -581,7 +583,7 @@ MemoryStream stream = new MemoryStream();
 document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.Attachment);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an empty WordDocument instance
 Dim document As New WordDocument()     
 'Opens an existing Word document through Open method of WordDocument class
@@ -594,11 +596,11 @@ Dim stream As New MemoryStream()
 document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.Attachment)
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Saving and sending the Word document to a client browser from a web site is suitable for web applications alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -616,7 +618,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Saving and sending the Word document to a client browser from a web site is suitable for web applications alone.
 {% endhighlight %}
 
@@ -630,7 +632,7 @@ Once the document manipulation and save operation are completed, you should clos
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
 WordDocument document = new WordDocument();
 //opens an existing word document through Open method of WordDocument class
@@ -645,7 +647,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'creates an empty WordDocument instance
 Dim document As New WordDocument()
 'opens an existing word document through Open method of WordDocument class
@@ -660,7 +662,7 @@ document.Save(stream, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -683,7 +685,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
@@ -705,7 +707,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
@@ -733,3 +735,8 @@ using (WordDocument document = new WordDocument())
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
+
+## See Also
+
+* [How to open and read Word document in C#, VB.NET](https://www.syncfusion.com/kb/12990/how-to-open-and-read-word-document-in-c-vb-net)
+* [How to read Word document using C#, VB.NET](https://www.syncfusion.com/kb/10992/how-to-read-word-document-using-c-vb-net)

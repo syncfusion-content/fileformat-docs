@@ -21,7 +21,7 @@ The following code illustrates how to convert an Excel workbook to PDF.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -43,7 +43,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -63,7 +63,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 
 #region Excel To PDF
@@ -130,7 +130,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
    IApplication application = excelEngine.Excel;
@@ -151,7 +151,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -193,6 +193,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+A complete working example convert workbook to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Workbook%20to%20PDF).      
+
 To learn more about different conversion settings in Excel To PDF conversion, refer to the ExcelToPdfConverterSettings in API section.
 
 ## Worksheet to PDF
@@ -200,7 +202,7 @@ To learn more about different conversion settings in Excel To PDF conversion, re
 The following code shows how to convert a particular sheet to PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -219,7 +221,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -238,7 +240,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 
 #region Excel To PDF
@@ -306,7 +308,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -330,7 +332,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -374,12 +376,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example convert worksheet to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Worksheet%20to%20PDF). 
+
 **Creating** **individual** **PDF** **document** **for** **each** **worksheet**
 
 The following code snippet shows how to create an individual PDF document for each worksheet in a workbook.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -400,7 +404,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -419,7 +423,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 
 #region Excel To PDF
@@ -488,7 +492,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -515,7 +519,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -558,6 +562,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example convert each worksheet to individual PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Each%20Worksheet%20to%20PDF).
   
 ## Excel with chart to PDF
 
@@ -568,7 +574,7 @@ To preserve the charts during Excel To PDF conversion in .NET Framework, initial
 The following code illustrates how to convert an Excel with chart to PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -592,7 +598,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -614,7 +620,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel To PDF conversion can be performed by referring .NET Standard 2.0 assemblies in UWP platform
 
 #region Excel To PDF
@@ -681,7 +687,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -705,7 +711,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -749,6 +755,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}  
 
+A complete working example convert Excel chart to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Chart%20to%20PDF).
+
 ## Excel with comments (notes) to PDF
 
 XlsIO allows you to convert a workbook or a worksheet with comments (notes) to PDF documents. By default, comments (notes) will not get converted. To convert the comments in worksheets of an Excel workbook, it is a must to set the print options. XlsIO supports to convert Excel documents with comments (notes) to PDF with the options in `ExcelPrintLocation` enumeration. This option helps to convert,
@@ -763,7 +771,7 @@ Comments (notes) will be rendered in the output PDF document as displayed in the
 The following code illustrates how to convert an Excel workbook to PDF with comments (notes) using `PrintInPlace` option.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -788,7 +796,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 	Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -812,7 +820,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -878,7 +886,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -903,7 +911,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -949,6 +957,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+A complete working example convert Excel with comments to PDF and render comments in place in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20in%20Place%20to%20PDF).
+
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
 
@@ -961,7 +971,7 @@ Comments (notes) will be rendered in the output PDF document at the end of the e
 The following code illustrates how to convert an Excel workbook to PDF with comments (notes) using `PrintSheetEnd` option.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -987,7 +997,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 	Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -1011,7 +1021,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1076,7 +1086,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -1101,7 +1111,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1147,6 +1157,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+A complete working example convert Excel with comments to PDF and render comments at the end in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20to%20PDF%20at%20End).
+
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img4.png)
 
@@ -1160,7 +1172,7 @@ Comments (notes) will not be displayed in the output PDF document, if the **Prin
 The following code illustrates how to convert an Excel workbook to PDF without comments (notes) using `PrintNoComments` option.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -1186,7 +1198,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 	Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Excel2013
@@ -1210,7 +1222,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1275,7 +1287,7 @@ async void Save(Stream stream, string filename)
 #endregion
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -1300,7 +1312,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1346,6 +1358,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+A complete working example convert Excel with comments to PDF ignoring the comments in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Comments%20in%20PDF).
+
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
 
@@ -1363,7 +1377,7 @@ By default, XlsIO substitutes unsupported fonts to Microsoft Sans Serif in Excel
 The following code illustrates how to perform Excel-to-PDF conversion by substituting unsupported fonts in the machine.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.ExcelToPdfConverter;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;
@@ -1420,7 +1434,7 @@ namespace FontSubstitution
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.ExcelToPdfConverter
 Imports Syncfusion.Pdf
 Imports Syncfusion.XlsIO
@@ -1467,7 +1481,7 @@ Namespace FontSubstitution
 End Namespace
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Excel-to-PDF conversion can be performed by referring .NET Standard 2.0 assemblies in UWP platform
 
 using System;
@@ -1582,7 +1596,7 @@ namespace FontSubstitution
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 using System;
 using System.IO;
@@ -1643,7 +1657,7 @@ namespace FontSubstitution
 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 
 using System;
 using Xamarin.Forms;
@@ -1787,7 +1801,7 @@ The following printer settings can be applied to print Excel in XlsIO.
 The following code snippet illustrates how to print the Excel document in XlsIO.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1801,7 +1815,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
@@ -1816,15 +1830,15 @@ End Using
 {% endhighlight %}
 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
@@ -1834,7 +1848,7 @@ End Using
 The following code snippet illustrates how to print the Excel document with printer settings in XlsIO.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1859,7 +1873,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
@@ -1883,15 +1897,15 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
@@ -1901,7 +1915,7 @@ End Using
 The following code snippet illustrates how to print the Excel document with Excel To PDF converter settings in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1922,7 +1936,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
@@ -1942,15 +1956,15 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
@@ -1960,7 +1974,7 @@ End Using
 The following code snippet illustrates how to print the Excel document with Excel To PDF converter settings and printer settings in XlsIO.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1992,7 +2006,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
@@ -2022,15 +2036,15 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}

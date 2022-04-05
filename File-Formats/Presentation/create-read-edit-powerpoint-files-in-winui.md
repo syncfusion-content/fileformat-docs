@@ -38,7 +38,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 <Window
 	x:Class="CreatePowerPoint.MainWindow"
@@ -62,7 +62,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 using System.IO;
@@ -75,7 +75,7 @@ using System.IO;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new instance of the PowerPoint Presentation file.
 using (IPresentation pptxDoc = Presentation.Create());
@@ -139,7 +139,7 @@ You can edit an existing PowerPoint file using this library. The below code snip
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens an existing PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Open(new FileStream("Sample.pptx", FileMode.Open)));
 //Get the first slide from the PowerPoint presentation.
@@ -185,7 +185,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 <Page
 	x:Class="CreatePowerPoint.MainPage"
@@ -210,7 +210,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
 using Windows.Storage;
@@ -226,7 +226,7 @@ using System.Reflection;
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create a new instance of the PowerPoint Presentation file.
 using (IPresentation pptxDoc = Presentation.Create())
@@ -294,7 +294,7 @@ You can edit an existing PowerPoint file using this library. The below code snip
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open an existing PowerPoint presentation.
@@ -326,7 +326,7 @@ using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStr
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 async void Save(MemoryStream stream)
 {

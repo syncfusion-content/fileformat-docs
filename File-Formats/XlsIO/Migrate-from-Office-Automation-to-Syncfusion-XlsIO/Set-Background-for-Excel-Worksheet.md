@@ -15,7 +15,7 @@ The following code shows how to set Excel worksheet background image with Intero
 ## Interop
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void SetWorksheetBackground()
 {
     //Instantiate the application object
@@ -38,7 +38,7 @@ private void SetWorksheetBackground()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub SetWorksheetBackground()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
@@ -64,7 +64,7 @@ End Sub
 ## XlsIO
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void SetWorksheetBackground()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
@@ -87,7 +87,7 @@ private void SetWorksheetBackground()
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub SetWorksheetBackground()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object

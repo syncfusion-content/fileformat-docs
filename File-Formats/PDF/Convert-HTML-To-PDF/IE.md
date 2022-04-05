@@ -9,6 +9,8 @@ documentation: UG
 
 Essential PDF makes use of the Microsoft MSHTML library to convert HTML pages to PDF. The output would like how it is viewed in the Internet Explorer browser.
 
+N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+
 ## Prerequisites
 
 To use the IE rendering engine in the application, the following assemblies or NuGet packages needs to be added as reference to the project.
@@ -80,7 +82,7 @@ To convert the HTTP or HTTPS website to PDF, use the following the code snippet.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter 
 
@@ -98,7 +100,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 
@@ -134,7 +136,7 @@ For example, if the above image is in <i>“C:\Temp\HTMLFiles\syncfusion_logo.gi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter 
 
@@ -158,7 +160,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 
@@ -201,7 +203,7 @@ The webpage you want to convert may protected with windows authentication. IE re
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter 
 
@@ -229,7 +231,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter 
 
@@ -265,7 +267,7 @@ IE HTML to PDF converter provides support for converting the web pages to PDF wi
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter
 
@@ -293,7 +295,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter() 

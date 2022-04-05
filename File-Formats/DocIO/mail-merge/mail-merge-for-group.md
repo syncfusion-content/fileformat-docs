@@ -35,7 +35,7 @@ The following code example shows how to perform Mail merge in the specific regio
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("EmployeesTemplate.docx");
 //Gets the data table 
 DataTable table = GetDataTable();
@@ -46,7 +46,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim document As New WordDocument("EmployeesTemplate.docx")
 'Gets the data table
 Dim table As DataTable = GetDataTable()
@@ -57,15 +57,15 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
@@ -75,7 +75,7 @@ The following code example shows GetDataTable method which is used to get data f
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private DataTable GetDataTable()
 {
     DataSet dataset = new DataSet();
@@ -92,7 +92,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetDataTable() As DataTable
 	Dim dataset As DataSet = New DataSet
 	Dim conn As New SqlCeConnection("Data Source = " + datasourceName)
@@ -108,19 +108,21 @@ Private Function GetDataTable() As DataTable
 End Function
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-for-group).
 
 The resultant document looks as follows.
 
@@ -132,7 +134,7 @@ You can perform Mail merge with .NET objects in a template document. The followi
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document
 WordDocument document = new WordDocument(@"Template.docx");
 //Gets the employee details as “IEnumerable” collection
@@ -146,7 +148,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the employee details as “IEnumerable” collection
@@ -160,7 +162,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -197,7 +199,7 @@ private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -217,7 +219,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Template.docx"), FormatType.Docx);
@@ -260,7 +262,7 @@ The following code example shows GetEmployees method which is used to get data f
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -274,7 +276,7 @@ public List<Employee> GetEmployees()
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Function GetEmployees() As List(Of Employee)
 	Dim employees As New List(Of Employee)()
 	employees.Add(New Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"))
@@ -286,7 +288,7 @@ Public Function GetEmployees() As List(Of Employee)
 End Function
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -299,7 +301,7 @@ public List<Employee> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -312,7 +314,7 @@ public List<Employee> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -330,7 +332,7 @@ public List<Employee> GetEmployees()
 The following code example shows the Employee class.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 public class Employee
 {
     public string FirstName { get; set; }
@@ -355,7 +357,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Class Employee
 	Public Property FirstName() As String
 		Get
@@ -442,7 +444,7 @@ Public Class Employee
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -467,7 +469,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public class Employee
 {
     public string FirstName { get; set; }
@@ -492,7 +494,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -517,3 +519,5 @@ public class Employee
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).

@@ -15,7 +15,7 @@ Notes are the contents associated with each slide and are visible only to the pr
 
 The below code example demonstrates how to create a Notes in a PowerPoint Slide.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -33,7 +33,7 @@ notesSlide.NotesTextBody.AddParagraph("Notes content");
 pptxDoc.Save("PresentationWithNotesSlide.pptx");
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a Presentation without slides.
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -52,7 +52,7 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -80,7 +80,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -100,7 +100,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -138,7 +138,7 @@ else
 
 The following code example demonstrates how to add a text in a Notes. 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -170,7 +170,7 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a Presentation without slides.
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -202,7 +202,7 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -244,7 +244,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -277,7 +277,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -328,7 +328,7 @@ else
 
 The following code example demonstrates how to create simple numbered list as Notes.
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -404,7 +404,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a Presentation without slides.
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -480,7 +480,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a Presentation without slides.
 
@@ -565,7 +565,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -642,7 +642,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a Presentation without slides.
 IPresentation pptxDoc = Presentation.Create();
@@ -735,7 +735,7 @@ else
 The below code example demonstrates how to remove a Notes from a PowerPoint Slide.
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -751,7 +751,7 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing PowerPoint presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -767,7 +767,7 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -800,7 +800,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -818,7 +818,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

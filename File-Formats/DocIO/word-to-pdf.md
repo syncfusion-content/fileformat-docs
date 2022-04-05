@@ -36,7 +36,7 @@ The following namespaces are required to compile the code:
 The following code example illustrates how to convert a Word document into PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -52,7 +52,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -68,7 +68,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -126,7 +126,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -147,7 +147,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -169,6 +169,8 @@ pdfDocument.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
+
 N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, and Universal applications.
 N> 2. Word to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application.
 N> 3. For .NET Framework, creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
@@ -180,9 +182,9 @@ N> 6. "DocIO supports Word to PDF conversion in UWP application using DocIORende
 
 In Linux OS, you can perform the Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Word to PDF conversion capabilities.
 
-From v19.4, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) and [HarfBuzzSharp.NativeAssets.Linux v2.6.1.7](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.6.1.7) NuGets to perform Word to PDF conversion in Linux environment.
+From v20.1, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209) and [HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209) NuGets to perform Word to PDF conversion in Linux environment.
 
-If you are using prior to v19.4 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os) to know about how to perform Word to PDF conversion in Linux.
+If you are using prior to v20.1 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os) to know about how to perform Word to PDF conversion in Linux.
 
 
 **Frequently Asked Questions**
@@ -201,7 +203,7 @@ This setting allows you to **convert PDF faster** by using direct PDF rendering 
 The following code sample shows how to convert the Word document to PDF using direct PDF rendering approach. 
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -221,7 +223,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -241,18 +243,20 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports Word to PDF fast rendering in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports Word to PDF fast rendering in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Word to PDF fast rendering in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Enable-fast-rendering).
 
 ### Embedding fonts
 
@@ -265,7 +269,7 @@ This setting allows you to **embed the particular font information** (glyphs) fr
 The following code sample shows how to embed the TrueType fonts into the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -285,7 +289,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -305,7 +309,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -364,7 +368,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -385,7 +389,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -408,6 +412,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Embed-subset-fonts).
+
 #### Embed Complete Fonts
 
 This setting allows you to embed the complete font information (glyphs) from the TrueType fonts used in converted PDF document.
@@ -415,7 +421,7 @@ This setting allows you to embed the complete font information (glyphs) from the
 The following code sample shows how to embed the complete TrueType fonts into the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -435,7 +441,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -455,7 +461,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -514,7 +520,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -535,7 +541,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
@@ -558,6 +564,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Embed-complete-fonts).
+
 ### Accessible PDF document
 
 This setting allows you to determine whether to preserve document structured tags in the converted **PDF document for accessibility (508 compliance) support**. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for **people with vision or cognitive impairments** who may not able to see or understand the object
@@ -565,7 +573,7 @@ This setting allows you to determine whether to preserve document structured tag
 The following code sample shows how to preserve document structured tags in the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -581,7 +589,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -597,7 +605,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -656,7 +664,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -677,7 +685,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -700,6 +708,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-into-accessible-PDF).
+
 ### Word document headings to PDF bookmarks
 
 This setting allows you to determine whether to **preserve Word document headings** (i.e., paragraph with heading style and outline level) as bookmarks in the converted PDF document. As per Microsoft Word behavior, either Word document headings or bookmarks can be exported as PDF bookmarks. By default, DocIO preserves Word documents bookmarks as PDF bookmarks in converted PDF document.
@@ -707,7 +717,7 @@ This setting allows you to determine whether to **preserve Word document heading
 The following code sample shows how to preserve Word document headings as bookmarks in the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -723,7 +733,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -739,7 +749,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -798,7 +808,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -819,7 +829,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -842,10 +852,12 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Export-Word-headings-into-PDF).
+
 The following code sample shows how to preserve both Word document headings and Bookmarks as PDF bookmarks in the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -861,7 +873,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -877,7 +889,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -936,7 +948,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -957,7 +969,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -980,6 +992,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Export-Word-bookmarks-into-PDF).
+
 ### Word document form field to PDF form field.
 
 This setting allows you to determine whether to **preserve Word document form fields** (Text form field, Checkbox form field and Drop-down form field) as PDF form fields in the converted PDF document. This features helps in **creating fillable PDF forms from Word document**.
@@ -987,7 +1001,7 @@ This setting allows you to determine whether to **preserve Word document form fi
 The following code sample shows how to preserve Word document form field as PDF form field in the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -1003,7 +1017,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -1019,7 +1033,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1079,7 +1093,7 @@ async void Save(MemoryStream streams, string filename)
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 // Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -1100,7 +1114,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -1123,6 +1137,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Create-fillable-PDF-from-Word).
+
 ### Image quality 
 
 This setting allows you to determine the **quality of the charts and JPEG images** in the converted PDF document.
@@ -1130,7 +1146,7 @@ This setting allows you to determine the **quality of the charts and JPEG images
 The following code sample shows how to customize the image quality of charts and JPEG images in the converted PDF document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1152,7 +1168,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1174,18 +1190,20 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports Word to PDF Image in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports Word to PDF Image in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Word to PDF Image in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Adjust-image-quality).
 
 ### Recreate Nested Metafile
 
@@ -1196,7 +1214,7 @@ The following code sample shows how to use this property to regenerate the neste
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -1212,7 +1230,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1230,18 +1248,20 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone, and it's also supported in .NET Core 3.0, but it requires DocToPDFConverter assembly instead of DocIORenderer.
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Recreate-nested-metafile).
 
 ### Identical image optimization 
 
@@ -1250,7 +1270,7 @@ This setting **reduces the Main Memory usage** in Word to PDF conversion by reus
 The following code sample shows how to reduce the Main Memory usage while converting Word to PDF by reusing the identical images.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1272,7 +1292,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1292,7 +1312,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1351,7 +1371,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -1372,7 +1392,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
@@ -1396,6 +1416,8 @@ outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Optimize-identical-images).
+
 ### PDF Conformance Level
 
 This setting allows you to set the PDF conformance level.
@@ -1403,7 +1425,7 @@ This setting allows you to set the PDF conformance level.
 The following code sample shows how to set the PdfConformanceLevel while converting Word to PDF.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1423,7 +1445,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1443,7 +1465,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1502,7 +1524,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -1523,7 +1545,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -1546,6 +1568,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/PDF-conformance-level).
+
 ### Enable Alternate Chunks
 
 In the Word document, another Word documents are embedded in it and referred as AltChunks. This setting allows you to include the alternate chunks while converting Word to PDF conversion. As default, it includes alternate chunks.
@@ -1553,7 +1577,7 @@ In the Word document, another Word documents are embedded in it and referred as 
 The following code sample shows how to exclude the alternate chunk parts in Word to PDF conversion.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1573,7 +1597,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1593,7 +1617,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1652,7 +1676,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -1673,7 +1697,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
@@ -1694,6 +1718,8 @@ pdfDocument.Save(outputStream);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Disable-alternate-chunks).
+
 ### Complex Script Text
 
 This setting allows you to **preserve the complex script text** in the converted PDF document.
@@ -1702,7 +1728,7 @@ The following code sample shows how to preserve the complex script text in the c
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -1718,7 +1744,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1736,7 +1762,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1795,7 +1821,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -1816,7 +1842,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 // Loads the stream into Word Document.
@@ -1839,6 +1865,8 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Preserve-complex-script-text-in-PDF).
+
 ### Hyphenation in Word-to-PDF conversion
 
 Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
@@ -1848,7 +1876,7 @@ N> 1. If automatic hyphenation is not enabled in the Word document, you can enab
 The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1868,7 +1896,7 @@ wordDocument.Close();
 pdfDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1888,7 +1916,7 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -1949,7 +1977,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -1972,7 +2000,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word Document.
@@ -1998,13 +2026,15 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Hyphenation-in-Word-to-PDF).
+
 ### Track changes in Word-to-PDF conversion
 
 The following code sample shows how to **preserve revision marks in a generated PDF** when converting Word documents with tracked changes or revisions.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
@@ -2023,7 +2053,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Sets revision types to preserve track changes in when converting to PDF conversion.
@@ -2043,7 +2073,7 @@ pdfDocument.Save("WordtoPDF.pdf")
 pdfDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -2102,7 +2132,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -2123,7 +2153,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream =
 typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -2148,13 +2178,15 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Track-changes-in-Word-to-PDF).
+
 #### Change the Track Changes Color
 
 You can customize how track changes markup appears in a generated PDF when converting Word documents into PDF. The following code sample shows how to customize revision marks colors.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
@@ -2181,7 +2213,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Sets revision types to preserve track changes in when converting to PDF conversion
@@ -2209,7 +2241,7 @@ pdfDocument.Save("WordtoPDF.pdf")
 pdfDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -2276,7 +2308,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -2305,7 +2337,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream =
 typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -2338,13 +2370,15 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Change-track-changes-color).
+
 #### Show or Hide Revisions in Balloons
 
 The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling ShowMarkup property. However, you can hide revisions in balloons by using following code example.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
@@ -2365,7 +2399,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Sets revision types to preserve track changes in when converting to PDF conversion
@@ -2387,7 +2421,7 @@ pdfDocument.Save("WordtoPDF.pdf")
 pdfDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -2448,7 +2482,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -2471,7 +2505,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream =
 typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -2498,12 +2532,14 @@ pdfDocument.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Show-or-hide-revisions-in-balloons).
+
 ### Comments in Word-to-PDF conversion
 The following code sample shows how to **preserve comments balloon in a generated PDF** when converting Word documents with comments. Also you can customize how comments balloon color appears in a generated PDF.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -2528,7 +2564,7 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", FormatType.
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 	'Sets ShowInBalloons to render a document comments in converted PDF document.
@@ -2550,7 +2586,7 @@ Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatTyp
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads an existing Word document.
@@ -2612,7 +2648,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (FileStream fileStream = new FileStream("Template.docx", FileMode.Open))
 {
 	//Loads an existing Word document.
@@ -2639,7 +2675,7 @@ using (FileStream fileStream = new FileStream("Template.docx", FileMode.Open))
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing wod document
@@ -2672,6 +2708,8 @@ using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResource
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Preserve-comments-in-Word-to-PDF).
+
 ### Preserve Ole Equation as bitmap image
 
 This setting allows you to preserve Ole Equation as bitmap image in the converted PDF document.
@@ -2680,7 +2718,7 @@ The following code sample shows how to preserve Ole Equation as bitmap image in 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -2696,7 +2734,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -2714,19 +2752,21 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Ole-Equation-as-bitmap).
 
 ### Restrict all permission in a PDF document
 
@@ -2736,7 +2776,7 @@ The below code example shows how to restrict Copying and Printing permission of 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Creates an instance of the DocToPDFConverter
@@ -2757,7 +2797,7 @@ converter.Dispose();
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Creates an instance of the DocToPDFConverter
@@ -2778,7 +2818,7 @@ converter.Dispose()
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -2842,7 +2882,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -2871,7 +2911,7 @@ pdfDocument.Close();
 outputFile.Dispose();
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
 //Opens an existing document from file system through constructor of WordDocument class
@@ -2900,6 +2940,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Restrict-permission-in-PDF).
+
 ## Font Substitution
 
 When the necessary fonts used in the Word document has not been installed in the production machine, then Essential DocIO uses the ”Microsoft Sans Serif” as default font for rendering the text. This leads to preservation difference in generated PDF as each font has different glyphs for characters. To learn more about the default font substitution, click [here](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production).
@@ -2913,7 +2955,7 @@ You can use any other alternate fonts instead of "Microsoft Sans Serif" to layou
 The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font not installed in the machine. 
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
@@ -2936,7 +2978,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
@@ -2959,7 +3001,7 @@ pdfDocument.Save("WordtoPDF.pdf")
 pdfDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads an existing Word document
 WordDocument document = new WordDocument();
@@ -3019,7 +3061,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -3045,7 +3087,7 @@ outputStream.Position = 0;
 return File(outputStream, "application/pdf", "WordtoPDF.pdf");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the stream into Word document
@@ -3077,7 +3119,7 @@ pdfDocument.Close();
 The following code example shows how to set the **alternate installed font** instead of "Microsoft Sans Serif" during Word to PDF conversion.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3090,7 +3132,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub FontSettings_SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
     'Sets the alternate font when a specified font is not installed in the production environment
     'If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
@@ -3103,7 +3145,7 @@ Private Sub FontSettings_SubstituteFont(ByVal sender As Object, ByVal args As Su
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3116,7 +3158,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3129,7 +3171,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3143,12 +3185,14 @@ void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-installed-font).
+
 ###### Event Handler to use alternate font without installing
 
 The following code example shows how to use the alternate fonts instead of "Microsoft Sans Serif" **without installing the fonts** into production machine.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3159,7 +3203,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
     'Sets the alternate font when a specified font is not installed in the production environment
     If args.OrignalFontName = "Arial Unicode MS" && args.FontStyle == FontStyle.Regular Then
@@ -3170,7 +3214,7 @@ Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontE
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3181,7 +3225,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3192,7 +3236,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -3204,6 +3248,8 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
 
 N> The above event will be triggered only if the specified font is not installed in production machine.
 
@@ -3371,3 +3417,11 @@ Partially supported. At present, the text in a line is scaled uniformly to match
 </td>
 </tr>
 </table>
+
+## See Also
+
+* [How to convert Word document to PDF in UWP](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
+* [How to add signature field in the PDF converted from Word](https://www.syncfusion.com/kb/12956/how-to-add-signature-field-in-the-pdf-converted-from-word)
+* [How to avoid conflicts while using DocIORenderer and other controls in UWP](https://www.syncfusion.com/kb/12938/how-to-avoid-conflicts-while-using-dociorenderer-and-other-controls-in-uwp)
+* [How to deploy .NET Core application with Word to PDF conversion capabilities in Linux OS](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os)
+* [Is it possible to perform Word to PDF conversion in Azure Environment ?](https://www.syncfusion.com/kb/7751/is-it-possible-to-perform-word-to-pdf-conversion-in-azure-environment)

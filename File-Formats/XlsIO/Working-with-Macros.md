@@ -5,7 +5,7 @@ platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Macros
+# Working with Macros in Syncfusion Excel library
 
 Macro is a set of process that can be run repeatedly in Excel document. 
 
@@ -25,31 +25,31 @@ You can add a Vba module through **IVbaModules** interface in XlsIO.
 Document is the default module type which will be added for every worksheet and one for entire workbook while creating VbaProject. 
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adding Document to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Document", VbaModuleType.Document);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 //Adding Document to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("Document ", VbaModuleType. Document)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adding Document to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Document ", VbaModuleType. Document);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adding Document to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Document ", VbaModuleType. Document);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adding Document to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Document", VbaModuleType. Document);
@@ -59,7 +59,7 @@ IVbaModule module = project.Modules.Add("Document", VbaModuleType. Document);
 The following code illustrate how to use Document module in Excel document.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -87,7 +87,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -113,7 +113,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -161,7 +161,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -190,7 +190,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -221,7 +221,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %}
+
+A complete working example to create macro as document in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20Document).    
 
 The Vba project in the output looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image1.png)
@@ -238,31 +240,31 @@ The following code illustrate how to add a StdModule using Add method. Here, the
 * StdModule – Type of the Vba module.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adding StdModule to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 //Adding StdModule to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("Test", VbaModuleType.StdModule)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adding StdModule to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adding StdModule to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adding StdModule to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
@@ -271,7 +273,7 @@ IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
 
 The following code illustrate how to create a macro using StdModule in Excel document.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -299,7 +301,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -325,7 +327,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -373,7 +375,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -402,7 +404,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -434,6 +436,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example to create macro as standard module in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20StdModule).    
 
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image3.png)
@@ -450,40 +454,40 @@ The following code illustrate how to add a class in XlsIO. Here, the parameters 
 * ClassModule – Type of Vba module
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 //Adding class module to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("Test", VbaModuleType.ClassModule)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
+IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% endhighlight %}
 {% endtabs %}   
 
 The following code illustrate how to use class module to run a macro with another module in Excel document.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -515,7 +519,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -541,7 +545,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -592,7 +596,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -625,7 +629,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -663,6 +667,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to create macro as class in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20Class).    
+
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image5.png)
 
@@ -678,31 +684,31 @@ The following code illustrate how to add a class in XlsIO. Here, the parameters 
 * MsForm – Type of Vba module
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 //Adding class module to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("UserForm", VbaModuleType.MsForm)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
@@ -712,7 +718,7 @@ IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
 The following code illustrate how to copy a form from another workbook to new workbook.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -751,7 +757,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -788,7 +794,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -855,7 +861,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -896,7 +902,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -943,6 +949,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to create macro as MS Form in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20MSForm).
+
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image7.png)
 
@@ -951,7 +959,7 @@ XlsIO supports assigning macros to the shape controls in the Excel document thro
 
 The following code illustrate how to assign macros to shapes in Excel document.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -986,7 +994,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -1020,7 +1028,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1075,7 +1083,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1111,7 +1119,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1151,6 +1159,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to assign macro to shape in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Shapes%20with%20Macro).
+
 When the shape is clicked, the output looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image8.png)
 
@@ -1160,7 +1170,7 @@ By default, while saving the Excel workbook into stream, the file type will be b
 The following code illustrate how to save macro-enabled documents into stream.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1189,7 +1199,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -1216,7 +1226,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1246,7 +1256,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1278,7 +1288,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1306,7 +1316,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to save macro enabled document into stream in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Save%20as%20Stream).  
 
 ## Editing a Macro
 XlsIO allows to edit the existing macros in the Excel documents. To edit macros in Excel document, the module containing the macro code needs to be modified. By using the name of the module, it can be accessed and edited in XlsIO.
@@ -1314,7 +1326,7 @@ XlsIO allows to edit the existing macros in the Excel documents. To edit macros 
 The following code illustrate how to edit existing macro in Excel document.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1347,7 +1359,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -1374,7 +1386,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1431,7 +1443,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1467,7 +1479,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1505,6 +1517,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example to edit macro in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Edit%20Macro).  
 
 The Vba project in the output Excel document looks like below.
 ![working with macros](Working-with-Macros_images/Working-with-Macros_image9.png)
@@ -1531,7 +1545,7 @@ Macro process exist in the Vba project’s code modules. To remove a macro, the 
 
 The following code illustrate how to remove a module using Remove method.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1559,7 +1573,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -1582,7 +1596,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1634,7 +1648,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1665,7 +1679,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1697,7 +1711,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to remove macro using name in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Name).    
 
 ### RemoveAt(int index)
 Vba module can be removed using the position from the IVbaModules collection.
@@ -1706,7 +1722,7 @@ Vba module can be removed using the position from the IVbaModules collection.
 
 The following code illustrate how to remove a macro using module index.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1734,7 +1750,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -1757,7 +1773,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1809,7 +1825,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1840,7 +1856,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1873,14 +1889,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to remove macro using index in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Index).      
 
 ### Clear()
 Clear() method removes all the Vba modules at once by clearing the module collection.
 
 The following code illustrate how to remove all macros using clear method.
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -1908,7 +1926,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -1931,7 +1949,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -1983,7 +2001,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -2014,7 +2032,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2048,13 +2066,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example to remove all macros in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Clear%20All%20Macros).      
+
 ### SkipOnSave
 SkipOnSave allows to resave the Excel document into normal XLSX and XLS documents.
 
 The following code illustrate how to save the macro-enabled document into normal Excel document.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -2076,7 +2096,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     'Instantiate the excel application object.
     Dim application As IApplication = excelEngine.Excel
@@ -2094,7 +2114,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2140,7 +2160,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 
@@ -2165,7 +2185,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -2192,4 +2212,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example to skip macro on save in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Skip%20Macro%20and%20Save).      
+  

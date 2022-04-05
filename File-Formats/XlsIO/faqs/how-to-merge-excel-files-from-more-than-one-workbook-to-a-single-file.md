@@ -12,7 +12,7 @@ You can merge several Excel files from more than one workbook to a single file. 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads all the template documents from Data folder
 string[] files = Directory.GetFiles(@"../../Data/");
 
@@ -47,7 +47,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the all template document from data folder
 Dim files As String() = Directory.GetFiles("../../Data/")
 
@@ -80,7 +80,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -123,7 +123,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads all the template documents from Data folder
 string[] files = Directory.GetFiles(@"Data/");
 
@@ -162,7 +162,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Get the path with files to merge
 string path = Path.Combine(Environment.CurrentDirectory);
 string[] files = Directory.GetFiles(path, "Sample*");

@@ -44,7 +44,7 @@ The following XHTML validation types are supported in Essential DocIO while impo
 The following code example shows how to convert the HTML file into Word document.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the HTML document against validation type none
 WordDocument document = new WordDocument("Input.html", FormatType.Html, XHTMLValidationType.None);
 //Saves the Word document
@@ -53,7 +53,7 @@ document.Save("HTMLtoWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 ' Loads the HTML document against validation type none
 Dim document As New WordDocument("Input.html", FormatType.Html, XHTMLValidationType.None)
 'Saves the Word document
@@ -62,7 +62,7 @@ document.Save("HTMLtoWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -79,7 +79,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Input.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
@@ -94,7 +94,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html)
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
@@ -119,10 +119,12 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Convert-HTML-to-Word).
+
 The following code example shows how to convert the Word document into HTML.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Saves the document as Html file
@@ -131,7 +133,7 @@ document.Save("WordToHtml.html", FormatType.Html);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Saves the document as Html file
@@ -140,7 +142,7 @@ document.Save("WordToHtml.html", FormatType.Html)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
@@ -157,7 +159,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -172,7 +174,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
@@ -199,6 +201,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Convert-Word-to-HTML).
+
 ## Customization settings
 
 The Essential DocIO provides settings while performing HTML to Word conversion and vice versa.
@@ -214,7 +218,7 @@ The Essential DocIO provides settings while performing HTML to Word conversion a
 The following code example shows how to customize the HTML to Word conversion.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Html string to be inserted
@@ -234,7 +238,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Html string to be inserted
@@ -254,9 +258,11 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-HTML-to-Word-conversion).
+
 N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and Xamarin applications.
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
-N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
+N> 3. XHTMLValidationType.None: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
 ### Customize image data
@@ -266,7 +272,7 @@ The Essential DocIO provides an `ImageNodeVisited` event, which is used to custo
 The following code example shows how to load image data based on image source path when importing the HTML files.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
 //Hooks the ImageNodeVisited event to open the image from a specific location
@@ -281,7 +287,7 @@ document.Save("HtmlToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new instance of WordDocument
 Dim document As WordDocument = New WordDocument()
 'Hooks the ImageNodeVisited event to open the image from a specific location
@@ -296,7 +302,7 @@ document.Save("HtmlToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates a new instance of WordDocument
@@ -318,7 +324,7 @@ Save(stream, "HtmlToWord.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Input.html", FileMode.Open, FileAccess.Read);
 //Creates a new instance of WordDocument
@@ -339,7 +345,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "HtmlToWord.docx"); 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates a new instance of WordDocument
@@ -365,7 +371,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HtmlToWord.docx", "app
 The following code example shows how to read the image from the specified path when importing the HTML files.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //Read the image from the specified (args.Uri) path
@@ -373,14 +379,14 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
     'Read the image from the specified (args.Uri) path
     args.ImageStream = System.IO.File.OpenRead(args.Uri)
 End Sub
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //"App" is the class of Portable project
@@ -391,7 +397,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //Read the image from the specified (args.Uri) path
@@ -399,7 +405,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //"App" is the class of Portable project
@@ -411,11 +417,13 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-image-data).
+
 N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platforms to preserve the images in HTML conversions.
 
 **Frequently Asked Questions**
 
-* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/12373/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
+* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/13053/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
 
 ### Customizing the Word to HTML conversion
 
@@ -432,7 +440,7 @@ N> While exporting header and footer, DocIO exports the first section header con
 The following code sample shows how to customize Word to HTML conversion.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx");
 HTMLExport export = new HTMLExport();
@@ -453,7 +461,7 @@ export.SaveAsXhtml(document, "WordtoHtml.html");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.docx")
 Dim export As New HTMLExport()
@@ -474,6 +482,8 @@ export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-Word-to-HTML-conversion).
 
 ## Supported and unsupported items
 

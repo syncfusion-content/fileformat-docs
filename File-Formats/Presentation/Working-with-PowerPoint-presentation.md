@@ -13,7 +13,7 @@ Cloning a PowerPoint presentation creates a new copy of the PowerPoint presentat
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint presentation
 IPresentation sourcePresentation = Presentation.Open(fileName);
@@ -38,7 +38,7 @@ clonedPresentation.Save("ClonedPresentation.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint presentation
 Dim sourcePresentation_1 As IPresentation = Presentation.Open(fileName)
@@ -63,7 +63,7 @@ clonedPresentation_1.Save("ClonedPresentation.pptx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
  
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -105,7 +105,7 @@ await clonedPresentation.SaveAsync(storageFile);
  
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -134,7 +134,7 @@ clonedPresentation.SaveAs(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Loads the PowerPoint Presentation as stream.
 Assembly assembly = typeof(GettingStartedPresentation).GetTypeInfo().Assembly;
@@ -184,7 +184,7 @@ The following code example demonstrates how to convert the slides of a PowerPoin
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -197,7 +197,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -216,7 +216,7 @@ The following code example demonstrates how to print the converted images.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initializes the start and page for printing
 int startPageIndex = 1;
@@ -309,7 +309,7 @@ private void PrintPageMethod (object sender, PrintPageEventArgs e)
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 
 Dim endPageIndex As Integer = images.Length
@@ -420,7 +420,7 @@ The following code example demonstrates how to access the existing built in docu
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -434,7 +434,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -454,7 +454,7 @@ The following code example demonstrates how to modify the existing built in docu
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -471,7 +471,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -488,7 +488,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -519,7 +519,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -538,7 +538,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -581,7 +581,7 @@ The following code example demonstrates how to add new custom document property.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 
 //Creates a PowerPoint presentation
@@ -602,7 +602,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -622,7 +622,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -656,7 +656,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -678,7 +678,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -720,7 +720,7 @@ The following code example demonstrates how to access and modify an existing cus
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -739,7 +739,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -758,7 +758,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -792,7 +792,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
@@ -810,7 +810,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -853,7 +853,7 @@ Below code snippet demonstrates how to create a final non – editable presentat
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Create an instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -872,7 +872,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Create an instance for PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -891,7 +891,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -916,7 +916,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create an instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -936,7 +936,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Create an instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();

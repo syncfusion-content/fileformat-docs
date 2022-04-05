@@ -47,7 +47,7 @@ The following code example shows how to create a merge field in the Word documen
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -59,7 +59,7 @@ document.Save("Template.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of a WordDocument 
 Dim document As WordDocument = New WordDocument
 'Adds a section and a paragraph in the document
@@ -71,7 +71,7 @@ document.Save("Template.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -89,7 +89,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -106,7 +106,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Template.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -127,12 +127,14 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-merge-field).
+
 ### Execute mail merge
 
 The following code example shows how to perform mail merge in above Word document template using string arrays as data source.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document
 WordDocument document = new WordDocument("Template.docx");
 string[] fieldNames = new string[] { "FullName" };
@@ -144,7 +146,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 Dim fieldNames As String() = New String() {"FullName"}
@@ -156,7 +158,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -176,7 +178,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -194,7 +196,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -214,6 +216,8 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Getting-started-mail-merge).
 
 By executing the previous code example, it generates the resultant Word document as follows.
 
