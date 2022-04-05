@@ -1534,6 +1534,10 @@ AREAS<br/><br/></td><td>
 Returns the number of areas in a reference<br/><br/></td></tr>
 <tr>
 <td>
+ARRAYTOTEXT<br/><br/></td><td>
+Returns the text representation of an array. Calculating this formula result is not supported in XlsIO<br/><br/></td></tr>
+<tr>
+<td>
 ASC<br/><br/></td><td>
 Changes full-width (double-byte) English letters or katakana within a character string to half-width (single-byte) characters<br/><br/></td></tr>
 <tr>
@@ -2118,6 +2122,10 @@ LEN, LENB<br/><br/></td><td>
 Returns the number of characters in a text string<br/><br/></td></tr>
 <tr>
 <td>
+LET<br/><br/></td><td>
+Returns the result of a formula that can use variables. Calculating this formula result is not supported in XlsIO<br/><br/></td></tr>
+<tr>
+<td>
 LN<br/><br/></td><td>
 Returns the natural logarithm of a number<br/><br/></td></tr>
 <tr>
@@ -2602,6 +2610,10 @@ VALUE<br/><br/></td><td>
 Converts a text argument to a number<br/><br/></td></tr>
 <tr>
 <td>
+VALUETOTEXT<br/><br/></td><td>
+Returns the text from any specified value. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
+<tr>
+<td>
 VAR<br/><br/></td><td>
 Estimates variance based on a sample<br/><br/></td></tr>
 <tr>
@@ -2644,6 +2656,14 @@ Returns the serial number of the date before or after a specified number of work
 <td>
 XIRR<br/><br/></td><td>
 Returns the internal rate of return for a schedule of cash flows that is not necessarily periodic<br/><br/></td></tr>
+<tr>
+<td>
+XLOOKUP<br/><br/></td><td>
+Returns the value corresponding to the first match it finds else returns the next approximate match. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
+<tr>
+<td>
+XMATCH<br/><br/></td><td>
+Returns the position of a value in a list, table or cell range. Calculating this formula result is not supported in XlsIO.<br/><br/></td></tr>
 <tr>
 <td>
 YEAR<br/><br/></td><td>

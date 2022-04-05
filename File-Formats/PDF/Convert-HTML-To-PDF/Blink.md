@@ -9,7 +9,7 @@ documentation: UG
 
 The Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core to convert URLs, HTML string, SVG, MHTML to PDF, and HTML to image.
 
-N> * Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, include a license key in your projects. Refer to [link](https://help.syncfusion.com/file-formats/licensing/licensing) to learn how to generate and register a Syncfusion license key in your application to use the components without trail message.
+N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
 ## Prerequisites for Windows
 
@@ -3117,7 +3117,7 @@ settings.AdditionalDelay = 2000;
 <table>
 <th style="font-size:14px">Issue
 </th>
-<th style="font-size:14px">Blink conversion failed in Azure app service.
+<th style="font-size:14px">Blink conversion failed in Azure app service (Windows).
 <i>“The process was terminated due to an unhandled exception”</i>
 </th>
 
@@ -3142,11 +3142,11 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
 	</tr>
 	<tr>
-		<th style="font-size:14px">Azure App Service</th>
+		<th style="font-size:14px">Azure App Service (Linux)</th>
 		<td>Yes</td>
 	</tr>
 	<tr>
-		<th style="font-size:14px">Azure Functions</th>
+		<th style="font-size:14px">Azure Functions (Linux)</th>
 		<td>Yes</td>
 	</tr>
 	<tr>

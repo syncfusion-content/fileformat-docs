@@ -563,6 +563,8 @@ By executing the program, you will get the Excel file as below.
 
 The below code illustrates how to read and edit an Excel file in Xamarin.
 
+N> Please include the Excel document in the Xamarin project and set the Build Action property of the document as Embedded Resource.
+
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 void btnCreate_Click(object sender, System.EventArgs e)

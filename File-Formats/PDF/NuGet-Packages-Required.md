@@ -261,6 +261,30 @@ ASP.NET MVC5
 {{'[Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+ASP.NET Core (Windows)
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Linux)
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Mac)
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac/)'| markdownify }}
+</td>
+</tr>
 </table>
 
 N> HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
@@ -315,6 +339,14 @@ ASP.NET MVC5
 </td>
 <td>
 {{'[Syncfusion.PDF.OCR.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core/)'| markdownify }}
 </td>
 </tr>
 </table>
