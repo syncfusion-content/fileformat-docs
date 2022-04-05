@@ -57,3 +57,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [Reason for Parameter Not Valid exception when converting Excel to PDF with Custom Paper Size](faqs/reason-for-parameter-not-valid-exception-when-converting-exceltopdf-with-custompapersize)
 * [Information about maximum characters count in an Excel cell](faqs/information-about-maximum-characters-count-in-an-excel-cell)
 * [How to find values with a matching case for specific column in Excel?](faqs/how-to-find-values-with-a-matching-case-for-specific-column-in-Excel)
+* [How to read filtered rows in Excel?](faqs/how-to-read-filtered-rows-in-excel)
