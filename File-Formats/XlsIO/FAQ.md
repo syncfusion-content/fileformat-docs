@@ -57,3 +57,6 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [Reason for Parameter Not Valid exception when converting Excel to PDF with Custom Paper Size](faqs/reason-for-parameter-not-valid-exception-when-converting-exceltopdf-with-custompapersize)
 * [Information about maximum characters count in an Excel cell](faqs/information-about-maximum-characters-count-in-an-excel-cell)
 * [How to find values with a matching case for specific column in Excel?](faqs/how-to-find-values-with-a-matching-case-for-specific-column-in-Excel)
+* [Does XlsIO support working with Excel files in .NET 6.0?](faqs/does-xlsio-support-working-with-excel-files-in-net6)
+* [How to convert the required range in Excel to PDF?](faqs/how-to-convert-the-required-range-in-excel-to-pdf)
+* [How to search a value in only specific columns of an Excel worksheet?](faqs/how-to-search-a-value-in-only-specific-columns-of-an-Excel-worksheet)
