@@ -504,7 +504,29 @@ Dim text As String = line.Text
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//PDF supports getting the lines and its properties using TextLine only in WinForms, WPF and Xamarin platforms.
+//PDF supports getting the lines and its properties using TextLine only in WinForms, WPF and Xamarin platforms. Instead of TextLine, TextLineCollection can be used in ASP.NET Core.
+
+// Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+
+// Get the first page of the loaded PDF document
+PdfPageBase page = loadedDocument.Pages[0];
+
+var lineCollection = new TextLineCollection();
+
+// Extract text from the first page
+string extractedText = page.ExtractText(out lineCollection);
+
+// Gets each line from the collection
+foreach (var line in lineCollection.TextLine)
+{
+    
+    // Gets bounds of the line
+    RectangleF lineBounds = line.Bounds;
+    
+    // Gets text in the line
+    string text = line.Text;
+}
 
 {% endhighlight %}
 
@@ -613,7 +635,32 @@ Dim textWordCollection As List(Of TextWord) = line.WordCollection
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//PDF supports getting the word and its properties using TextWord only in WinForms, WPF and Xamarin platforms.
+//PDF supports getting the word and its properties using TextWord only in WinForms, WPF and Xamarin platforms. Instead of TextLine, TextLineCollection can be used in ASP.NET Core.
+
+// Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+
+// Get the first page of the loaded PDF document
+PdfPageBase page = loadedDocument.Pages[0];
+
+var lineCollection = new TextLineCollection();
+
+// Extract text from the first page
+string extractedText = page.ExtractText(out lineCollection);
+
+// Gets each line from the collection
+foreach (var line in lineCollection.TextLine)
+{
+    
+    // Gets bounds of the line
+    RectangleF lineBounds = line.Bounds;
+
+    // Gets text in the line
+    string text = line.Text;
+
+    // Gets collection of the words in the line
+    List<TextWord> textWordCollection = line.WordCollection;
+}
 
 {% endhighlight %}
 
