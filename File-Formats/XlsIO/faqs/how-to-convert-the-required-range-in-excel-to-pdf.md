@@ -8,7 +8,7 @@ documentation: UG
 
 # How to convert the required range in Excel to PDF?
 
-A specific range in an Excel worksheet can be converted to PDF by applying page breaks to that particular range and copying it to a new worksheet for conversion. The following code snippet explains this
+A specific range of an Excel worksheet can be converted to PDF by applying page breaks to that particular range and copying it to a new worksheet for conversion. The following code snippet explains this.
 
 {% tabs %}  
 
