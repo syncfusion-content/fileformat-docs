@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Simple Mail merge
+# Simple Mail merge in Word document
 
 You can create a Word document template using Microsoft Word application or by adding merge fields in the Word document programmatically. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge#create-word-document-template).
 
@@ -19,7 +19,7 @@ The following code example shows how to create a Word template document with mer
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -41,7 +41,7 @@ document.Save("Template.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 'Adds one section and one paragraph to the document
@@ -63,7 +63,7 @@ document.Save("Template.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -92,7 +92,7 @@ Save(stream, "Template.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -119,7 +119,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Template.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -150,6 +150,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-Word-document-template).
+
 The generated template document looks as follows.
 
 ![Word document template](../MailMerge_images/Simple_mail_merge_template.png)
@@ -160,7 +162,7 @@ The following code example shows how to perform a simple Mail merge in the gener
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document
 WordDocument document = new WordDocument("Template.docx");
 string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
@@ -172,7 +174,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 Dim fieldNames As String() = New String() {"EmployeeId", "Name", "Phone", "City"}
@@ -184,7 +186,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -205,7 +207,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -223,7 +225,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -245,6 +247,12 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-string-arrays).
+
 The resultant document looks as follows.
 
 ![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)
+
+## See Also
+
+* [How to mail merge Word document in Azure functions v1](https://www.syncfusion.com/kb/10671/how-to-mail-merge-word-document-in-azure-functions-v1)

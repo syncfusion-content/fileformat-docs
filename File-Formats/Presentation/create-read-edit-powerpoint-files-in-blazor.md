@@ -46,7 +46,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 5.Create a razor file with name as **Presentation** under **Pages** folder and include the following namespaces in the file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 @page "/Presentation"
 @using System.IO;
 @using ServerSideApplication;
@@ -73,7 +73,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 @code {
     MemoryStream documentStream;
@@ -96,7 +96,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 @using Syncfusion.Presentation;
 @using Syncfusion.OfficeChart;
@@ -110,7 +110,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 public MemoryStream CreatePowerPoint()
 {
@@ -177,7 +177,7 @@ public MemoryStream CreatePowerPoint()
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 public static class FileUtils
 {
@@ -252,7 +252,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 5.Create a razor file with name as ``Presentation`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 @page "/Presentation"
 @using Syncfusion.Presentation
 @using Syncfusion.OfficeChart
@@ -279,7 +279,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 @functions {
 
@@ -350,7 +350,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 public static class FileUtils
 {

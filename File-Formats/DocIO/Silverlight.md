@@ -1,6 +1,6 @@
 ---
-title: Working with Silverlight
-description: Creating a Silverlight application and load the document
+title: Working with Silverlight using Syncfusion Word library
+description: Creating a Silverlight application, load the Word document and save the document with Syncfusion Word library
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -15,7 +15,7 @@ The following code example illustrates how to load the Word document by using UR
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the Word document as url
 
@@ -113,7 +113,7 @@ document.Save(stream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the Word document as url
 
@@ -187,7 +187,7 @@ The following code example illustrates how to load the Word document by using st
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Load the Word document as stream
 
@@ -283,7 +283,7 @@ document.Save(stream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 
 'Load the Word document as stream
 
@@ -357,7 +357,7 @@ The following code example illustrates how to save the Word document in Silverli
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtile="C#" %}
 
 //Creates an empty Word document instance
 
@@ -455,7 +455,7 @@ document.Save(stream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtile="VB.NET" %}
 VB:
 
 'Creates an empty Word document instance

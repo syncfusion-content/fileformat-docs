@@ -17,7 +17,7 @@ documentation: UG
 To migrate from Microsoft's Interop to Syncfusion's XlsIO due to its stunning performance, it is an easy way. If you don't know how to use the features, this section provides some important Excel features, which are listed below. When you click a topic, it navigates to the particular page. Each topic contains:
 
 * Feature description
-* Interop and XlsIO codes(both in C# and VB) for comparison and easy migration.
+* Interop and XlsIO codes(both in C# and VB.NET) for comparison and easy migration.
 
 ## Topic links
 

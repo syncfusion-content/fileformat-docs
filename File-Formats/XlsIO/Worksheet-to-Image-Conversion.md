@@ -22,19 +22,19 @@ N> Worksheet to Image conversion works proper in Blazor server-side alone and no
 The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 // Convert as bitmap
 Image image = sheet.ConvertToImage(1, 1, 10, 20);
 image.Save("Sample.png", ImageFormat.Png);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Convert as bitmap
 Dim image As Image = sheet.ConvertToImage(1, 1, 10, 20)
 image.Save("Sample.png", ImageFormat.Png)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
 
 // Initialize XlsIORenderer
@@ -47,7 +47,7 @@ Stream stream = new MemoryStream();
 worksheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -58,7 +58,7 @@ Stream stream = new MemoryStream();
 worksheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -75,19 +75,19 @@ worksheet.ConvertToImage(1, 1, 10, 20, stream);
 The following code snippet shows how to save a sheet as stream.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 // Converts and save as stream
 MemoryStream stream = new MemoryStream();
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Converts and save as stream
 Dim stream As MemoryStream = New MemoryStream()
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
 
 // Initialize XlsIORenderer
@@ -100,7 +100,7 @@ Stream stream = new MemoryStream();
 worksheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -109,7 +109,7 @@ MemoryStream stream = new MemoryStream();
 sheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -122,7 +122,7 @@ sheet.ConvertToImage(1, 1, 10, 20, stream);
 The complete code snippet of the previous options is shown as follows.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -147,7 +147,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -171,7 +171,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
 
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -209,7 +209,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }  
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -230,7 +230,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -263,7 +263,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
       DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+
+A complete working example to convert Excel worksheet to image in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20to%20Image/Worksheet%20to%20Image). 
 
 N> 1. Instance of XlsIORenderer class is mandatory to convert the worksheet to image using .NET Standard assemblies.
 N> 2. In .NET Standard, the Image format and quality can be specified using the ExportImageOptions class. By default the ImageFormat is set to PNG and ScalingMode is set to Best.

@@ -12,7 +12,7 @@ This error "Excel cannot open the file 'filename.xlsx' because the file format f
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -31,7 +31,7 @@ workbook.SaveAs("Sample.xlsx");
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As New ExcelEngine()
 
 Dim application As IApplication = excelEngine.Excel
@@ -50,7 +50,7 @@ workbook.SaveAs("Sample.xlsx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -78,7 +78,7 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -97,7 +97,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 workbook.SaveAs(stream);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -133,7 +133,7 @@ These are represented in the below code snippet.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 workbook.Version = ExcelVersion.Excel97to2003;
 
 workbook.SaveAs("Sample.xls");
@@ -144,7 +144,7 @@ workbook.SaveAs("Sample.xlsx");
 
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 workbook.Version = ExcelVersion.Excel97to2003
 
 workbook.SaveAs("Sample.xls")
@@ -155,7 +155,7 @@ workbook.SaveAs("Sample.xlsx")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 workbook.Version = ExcelVersion.Excel97to2003;
 
 FileSavePicker savePicker = new FileSavePicker();
@@ -175,7 +175,7 @@ StorageFile storageFile1 = await savePicker1.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile1); 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 workbook.Version = ExcelVersion.Excel97to2003;
 FileStream stream = new FileStream("Sample.xls", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 workbook.SaveAs(stream);
@@ -185,7 +185,7 @@ FileStream stream1 = new FileStream("Sample.xlsx", FileMode.OpenOrCreate, FileAc
 workbook.SaveAs(stream1); 
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 workbook.Version = ExcelVersion.Excel97to2003;
 
 //SaveAndView method is not implemented to save and open .xls files. Hence, saving it as stream.

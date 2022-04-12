@@ -21,7 +21,7 @@ The following code example illustrates how to create a numbered list:
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -99,7 +99,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Presentation instance.
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -177,7 +177,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -259,7 +259,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -336,7 +336,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -430,7 +430,7 @@ The following code example demonstrates how to create a simple bulleted list.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -514,7 +514,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Presentation instance.
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -598,7 +598,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -686,7 +686,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -769,7 +769,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -869,7 +869,7 @@ The following code example demonstrates how to create a simple picture list.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -924,7 +924,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Presentation instance.
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -979,7 +979,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -1044,7 +1044,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -1100,7 +1100,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -1175,7 +1175,7 @@ The following code example demonstrates how to create a multilevel list.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -1255,7 +1255,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new Presentation instance.
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -1335,7 +1335,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -1421,7 +1421,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();
@@ -1502,7 +1502,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new Presentation instance.
 IPresentation pptxDoc = Presentation.Create();

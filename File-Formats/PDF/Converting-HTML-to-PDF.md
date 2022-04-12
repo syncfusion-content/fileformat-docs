@@ -13,7 +13,8 @@ Essential PDF supports converting HTML pages to PDF document. The converter offe
 * Blink rendering
 * IE rendering
 
-N> * Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, include a license key in your projects. Refer to link to learn how to generate and register a Syncfusion license key in your application to use the components without trail message.
+N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+
 ## Steps to download the HTML converter installer
 
 
@@ -55,17 +56,17 @@ Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF c
 Include the following namespaces in your .cs or .vb file as follows.
 
 {% tabs %}
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.Pdf
 Imports Syncfusion.HtmlConverter
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
 {% endhighlight %}
@@ -80,7 +81,7 @@ To convert website URL or local HTML file to PDF using WebKit rendering engine, 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize the HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -103,7 +104,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -126,7 +127,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize the HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -160,7 +161,7 @@ To convert website URL or local HTML file to PDF using Blink rendering engine, r
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -183,7 +184,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
@@ -206,7 +207,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
@@ -240,7 +241,7 @@ To convert website URL or local HTML file to PDF using IE rendering engine, refe
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize the HTML to PDF converter 
  HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.IE);
@@ -260,7 +261,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
 
@@ -279,7 +280,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Currently, IE rendering engine does not support conversion in .NET Core platform
 {% endhighlight %}
 
@@ -295,7 +296,7 @@ Please refer to the below code snippet to use the DisableIEWarning API to remove
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Initialize the HTML to PDF converter 
  HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.IE);
@@ -319,7 +320,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
 
@@ -342,7 +343,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Currently, IE rendering engine does not support conversion in .NET Core platform
 {% endhighlight %}
 

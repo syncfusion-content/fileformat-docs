@@ -22,7 +22,7 @@ The following code example illustrates how to create a simple table with predefi
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class 
 WordDocument document = new WordDocument();
 //Adds a section into Word document
@@ -69,7 +69,7 @@ document.Save("Table.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class 
 Dim document As New WordDocument()
 'Adds a section into Word document
@@ -116,7 +116,7 @@ document.Save("Table.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class 
 WordDocument document = new WordDocument();
 //Adds a section into Word document
@@ -168,7 +168,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class 
 WordDocument document = new WordDocument();
 //Adds a section into Word document
@@ -219,7 +219,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Table.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class 
 WordDocument document = new WordDocument();
 //Adds a section into Word document
@@ -279,7 +279,7 @@ The following code example illustrates how to create a simple table by dynamical
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -352,7 +352,7 @@ document.Save("Table.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -425,7 +425,7 @@ document.Save("Table.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -504,7 +504,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -582,7 +582,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Table.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -671,7 +671,7 @@ You can create a nested table by adding a new table into a cell. The following c
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -713,7 +713,7 @@ document.Save("NestedTable.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -755,7 +755,7 @@ document.Save("NestedTable.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -803,7 +803,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -850,7 +850,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "NestedTable.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -910,7 +910,7 @@ The following code example illustrates how to align text within a table.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 private void AlignCellContent(WTableCell tableCell, VerticalAlignment verticalAlignment, HorizontalAlignment horizontalAlignment)
 {
 	//Sets vertical alignment to the cell.
@@ -977,7 +977,7 @@ N> 4. As in the Microsoft Word, DocIO supports `RowFormat.Borders` in DOC format
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Opens an existing Word document into DocIO instance
@@ -1025,7 +1025,7 @@ document.Save("TableFormatting.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
 'Opens an existing Word document into DocIO instance
@@ -1073,7 +1073,7 @@ document.Save("TableFormatting.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -1128,7 +1128,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument();
@@ -1182,7 +1182,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "TableFormatting.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
@@ -1247,7 +1247,7 @@ The following code example illustrates how to load an existing document and appl
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 document.Open("Table.docx", FormatType.Docx);
@@ -1299,7 +1299,7 @@ document.Save("TableCellFormatting.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 document.Open("Table.docx", FormatType.Docx)
@@ -1351,7 +1351,7 @@ document.Save("TableCellFormatting.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -1409,7 +1409,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -1467,7 +1467,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "TableCellFormatting.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -1541,7 +1541,7 @@ The following code example shows how to resize the table in a Word document.
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class (Empty Word Document)*'| markdownify }}
 WordDocument document = new WordDocument();
 //Opens an existing Word document into DocIO instance
@@ -1565,7 +1565,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As WordDocument = New WordDocument
 'Opens an existing Word document into DocIO instance
@@ -1587,7 +1587,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
@@ -1618,7 +1618,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument();
@@ -1648,7 +1648,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
@@ -1694,7 +1694,7 @@ The following code example illustrates how to apply the built-in table styles to
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 WSection section = document.Sections[0];
@@ -1706,7 +1706,7 @@ document.Save("TableStyle.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 Dim section As WSection = document.Sections(0)
@@ -1718,7 +1718,7 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
@@ -1736,7 +1736,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1754,7 +1754,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "TableStyle.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Table.docx"), FormatType.Docx);
@@ -1785,7 +1785,7 @@ The following code example illustrates how to enable and disable the special tab
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 WSection section = document.Sections[0];
@@ -1809,7 +1809,7 @@ document.Save("TableStyle.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 Dim section As WSection = document.Sections(0)
@@ -1833,7 +1833,7 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
@@ -1864,7 +1864,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1894,7 +1894,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "TableStyle.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Table.docx"), FormatType.Docx);
@@ -1935,7 +1935,7 @@ The following code example illustrates how to apply a custom table style to tabl
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 WSection section = document.Sections[0];
@@ -1967,7 +1967,7 @@ document.Save("TableStyle.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 Dim section As WSection = document.Sections(0)
@@ -1999,7 +1999,7 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
@@ -2038,7 +2038,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -2076,7 +2076,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "TableStyle.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Table.docx"), FormatType.Docx);
@@ -2127,7 +2127,7 @@ The following code example illustrates how to apply horizontal merge to specifie
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2141,7 +2141,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -2155,7 +2155,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2174,7 +2174,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2193,7 +2193,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "HorizontalMerge.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2220,7 +2220,7 @@ The following code example illustrates how to apply vertical merge to specified 
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2234,7 +2234,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -2248,7 +2248,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2267,7 +2267,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2286,7 +2286,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "VerticalMerge.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2313,7 +2313,7 @@ The following code example illustrate how to create a table that contains horizo
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2336,7 +2336,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -2359,7 +2359,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2387,7 +2387,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2415,7 +2415,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "HorizontalMerge.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2451,7 +2451,7 @@ The following code example illustrates how to create a table with vertical merge
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2474,7 +2474,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -2497,7 +2497,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2525,7 +2525,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2553,7 +2553,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "VerticalMerge.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2598,7 +2598,7 @@ The following code example illustrates how to create a table with a single heade
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2622,7 +2622,7 @@ document.Save("TableWithHeaderRow.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -2645,7 +2645,7 @@ document.Save("TableWithHeaderRow.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2674,7 +2674,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2703,7 +2703,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "TableWithHeaderRow.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -2744,7 +2744,7 @@ The following code example illustrates how to disable all the table rows from sp
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 WSection section = document.Sections[0];
@@ -2757,7 +2757,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 Dim section As WSection = document.Sections(0)
@@ -2771,7 +2771,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -2790,7 +2790,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath);
@@ -2809,7 +2809,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Template.docx"), FormatType.Docx);
@@ -2838,7 +2838,7 @@ The following code example illustrates how to iterate through the table and appl
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 WSection section = document.Sections[0];
@@ -2863,7 +2863,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 Dim section As WSection = document.Sections(0)
@@ -2886,7 +2886,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -2917,7 +2917,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath);
@@ -2948,7 +2948,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Assets.Template.docx"), FormatType.Docx);
@@ -2989,7 +2989,7 @@ You can remove a table from a text body by its instance or by its index position
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Accesses the instance of the first section in the Word document
@@ -3004,7 +3004,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 'Accesses the instance of the first section in the Word document
@@ -3019,7 +3019,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -3040,7 +3040,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath);
@@ -3060,7 +3060,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Assets.Template.docx"), FormatType.Docx);
@@ -3091,7 +3091,7 @@ You can remove a particular table row from a table rows collection by its instan
 
 {% tabs %} 
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Accesses the instance of the first section in the Word document
@@ -3106,7 +3106,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 'Accesses the instance of the first section in the Word document
@@ -3121,7 +3121,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -3142,7 +3142,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath);
@@ -3162,7 +3162,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Creates an instance of WordDocument class
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Assets.Template.docx"), FormatType.Docx);
@@ -3186,3 +3186,7 @@ document.Close();
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Remove-particular-row-from-table).
+
+## See Also
+
+* [How to avoid table splitting across the pages in Word document](https://www.syncfusion.com/kb/12948/how-to-avoid-table-splitting-across-the-pages-in-word-document)

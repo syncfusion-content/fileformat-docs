@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Mail merge options
+# Mail merge options in Word Library
 
 The `MailMerge` class allows you to customize the Mail merge process with the following options.
 
@@ -18,7 +18,7 @@ The following code example shows how to add mapping when a merge field name in a
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates data source
@@ -37,7 +37,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Creates data source
@@ -56,7 +56,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -84,7 +84,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document. 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -109,7 +109,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -138,6 +138,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mapping-field-names-with-column-names).
+
 ## Retrieve the merge field names
 
 You can retrieve the merge field names and also merge field group names in the Word document.
@@ -146,27 +148,27 @@ The following code example shows how to retrieve the merge field names in the Wo
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Gets the merge field names from the document
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets the merge field names from the document
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets the merge field names from the document.
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 {% endhighlight %} 
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets the merge field names from the document.
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 {% endhighlight %} 
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets the merge field names from the document.
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 {% endhighlight %} 
@@ -177,27 +179,27 @@ The following code example shows how to retrieve the merge field group names in 
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Gets the merge field group names from the document
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets the merge field group names from the document
 Dim groupNames As String() = document.MailMerge.GetMergeGroupNames()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets the merge field group names from the document.
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets the merge field group names from the document.
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets the merge field group names from the document.
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
@@ -208,32 +210,34 @@ The following code example shows how to retrieve the merge field names for a spe
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Gets the fields from the specified groups 
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Gets the fields from the specified groups 
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames(groupName)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Gets the fields from the specified groups. 
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Gets the fields from the specified groups. 
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Gets the fields from the specified groups. 
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Retrieve-merge-field-names).
 
 ## Remove empty paragraphs
 
@@ -243,7 +247,7 @@ The following code example shows how to remove the empty paragraphs during Mail 
 
 {% tabs %} 
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Removes paragraph that contains only empty fields 
@@ -257,7 +261,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Removes paragraph that contains only empty fields 
@@ -271,7 +275,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -294,7 +298,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -314,7 +318,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -337,6 +341,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Remove-empty-paragraphs).
 
 N>If any white space or line break exists in the merge field's parent paragraph, then it will not be considered as empty paragraph and not removed during mail merge process.
 
@@ -361,7 +367,7 @@ The following code example shows how to keep the unmerged merge fields in the ge
  
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document 
@@ -375,7 +381,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Sets “ClearFields” to true to remove empty mail merge fields from document 
@@ -389,7 +395,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -412,7 +418,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -432,7 +438,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -455,6 +461,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Keep-unmerged-merge-fields).
+
 ## Remove empty group
 
 You can remove the empty merge field groups which contains unmerged merge fields after executing mail merge for a group in a Word document.
@@ -463,7 +471,7 @@ The following code example shows how to remove empty merge field group during ma
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument(@"Template.docx");
 //Gets the employee details as “IEnumerable” collection
@@ -479,7 +487,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document
 Dim document As WordDocument =  New WordDocument("Template.docx")
 'Gets the employee details as “IEnumerable” collection
@@ -495,7 +503,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -520,7 +528,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -542,7 +550,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -572,7 +580,7 @@ The following code example shows GetEmployees method which is used to get data f
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 public static List<Employees> GetEmployees()
 {
 	List<OrderDetails> orders = new List<OrderDetails>();
@@ -642,7 +650,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Function GetEmployees() As List(Of Employees)
 	Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)
 	orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
@@ -705,7 +713,7 @@ Public Class OrderDetails
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public static List<Employees> GetEmployees()
 {
 	List<OrderDetails> orders = new List<OrderDetails>();
@@ -775,7 +783,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public static List<Employees> GetEmployees()
 {
 	List<OrderDetails> orders = new List<OrderDetails>();
@@ -845,7 +853,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public static List<Employees> GetEmployees()
 {
 	List<OrderDetails> orders = new List<OrderDetails>();
@@ -916,7 +924,7 @@ public class OrderDetails
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
    
 public static List<Employees> GetEmployees()
 {
@@ -988,7 +996,7 @@ public class OrderDetails
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
   
 public static List<Employees> GetEmployees()
 {
@@ -1061,6 +1069,8 @@ public class OrderDetails
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Remove-empty-merge-field-groups).
+
 ## Restart numbering in lists
 
 You can restart the list numbering for each records while performing mail merge for a group in Word document.
@@ -1069,7 +1079,7 @@ The following code example shows how to restart the list numbering in a Word doc
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Sets ImportOptions to restart the list numbering
@@ -1089,7 +1099,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Sets ImportOptions to restart the list numbering
@@ -1109,7 +1119,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -1137,7 +1147,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Loads an existing Word document
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 WordDocument document = new WordDocument(fileStream, FormatType.Docx);
@@ -1162,7 +1172,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Load the Word document as stream 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
 // Loads the stream into Word Document
@@ -1194,7 +1204,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 The following code example shows Employee class.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 public class Employee
 {
     public string EmployeeID { get; set; }
@@ -1212,7 +1222,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Public Class Employee
     Public Property EmployeeID() As String
         Get
@@ -1253,7 +1263,7 @@ Public Class Employee
 End Class
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 public class Employee
 {
     public string EmployeeID { get; set; }
@@ -1271,7 +1281,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 public class Employee
 {
     public string EmployeeID { get; set; }
@@ -1289,7 +1299,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 public class Employee
 {
 	public string EmployeeID { get; set; }	
@@ -1308,6 +1318,8 @@ public class Employee
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Restart-list-numbering-in-mail-merge).
+
 ## Insert as new row
 
 You can add each record as new row inside table when the row group contains only one cell, which means, the merge fields denoting **group start and end present inside the same cell.**
@@ -1316,7 +1328,7 @@ The following code example shows how to insert each record as new row in single 
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument(@"Data/Template.docx");
 //Creates a data table
@@ -1347,7 +1359,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Data/Template.docx")
 'Creates a data table
@@ -1378,11 +1390,11 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1419,7 +1431,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -1460,6 +1472,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Insert-as-new-row).
+
 ## Skip to merge image
 
 You can skip to merge particular image while performing mail merge in Word document.
@@ -1468,7 +1482,7 @@ The following code example shows how to skip merging particular image during mai
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens the template document 
 WordDocument document = new WordDocument(@"Template.docx");
@@ -1485,7 +1499,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens the template document  
 Dim document As WordDocument =  New WordDocument("Template.docx")  
@@ -1502,7 +1516,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
@@ -1525,7 +1539,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1546,7 +1560,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -1575,7 +1589,7 @@ The following code example shows how to skip merging particular image during mai
 
 {% tabs %}  
 
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
@@ -1588,7 +1602,7 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 Private Sub MergeEmployeePhoto(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs) 
 	'Skip to merge particular image 
@@ -1602,7 +1616,7 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
@@ -1615,7 +1629,7 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
@@ -1633,7 +1647,7 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
@@ -1653,6 +1667,8 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Skip-to-merge-image).
+
 ## Remove mail merge settings
 
 To **restore a Word mail merge main document to a normal Word document** using Microsoft Word application, you have to process the steps suggested in this [article](https://support.microsoft.com/en-in/help/275995/how-to-restore-a-mail-merge-main-document-to-a-normal-word-document-in) manually. You can achieve this programmatically in just 2 lines of code using Syncfusion Word library.
@@ -1664,7 +1680,7 @@ For example, consider that you have a template Word document linked with the dat
 The following code example shows how to remove the mail merge settings from the Word document.
 
 {% tabs %}  
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Check and removes the mail merge settings
@@ -1675,7 +1691,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document Word document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Check and removes the mail merge settings
@@ -1687,7 +1703,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
@@ -1707,7 +1723,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1724,7 +1740,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens the template Word document
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -1744,6 +1760,8 @@ Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "a
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Remove-mail-merge-settings).
+
 ## Change mail merge data source path 
 
 You can change the linked **data source file path from a Word mail merge main document**, which is used for mail merge process by Microsoft Word application.
@@ -1752,7 +1770,7 @@ The following code example shows how to change the data source file path in the 
 
 {% tabs %}
   
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Opens the template document Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Change the data source file path
@@ -1762,7 +1780,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight VB.NET %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Opens the template document Word document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Change the data source file path
@@ -1772,7 +1790,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
@@ -1791,7 +1809,7 @@ Save(stream, "Sample.docx");
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1807,7 +1825,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens the template Word document
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -1825,3 +1843,5 @@ Xamarin.Forms.DependencyService.Get&lt;ISave&gt;().SaveAndView("Sample.docx", "a
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Change-mail-merge-data-source-path).

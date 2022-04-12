@@ -13,7 +13,7 @@ Essential Presentation library facilitates adding or modifying the images in a P
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -38,7 +38,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a instance of Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -63,7 +63,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -92,7 +92,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -118,7 +118,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -161,7 +161,7 @@ The following code example demonstrates how to replace an existing image in a sl
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -192,7 +192,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -223,7 +223,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -271,7 +271,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -304,7 +304,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -359,7 +359,7 @@ The following code example demonstrates how to add a new SVG image into a slide.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -390,7 +390,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates an instance of Presentation
 Dim pptxDoc As IPresentation = Presentation.Create() 
@@ -421,7 +421,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -453,7 +453,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -485,7 +485,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates an instance of Presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -537,7 +537,7 @@ The following code example demonstrates how to replace an existing SVG image in 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -569,7 +569,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -601,7 +601,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -650,7 +650,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -684,7 +684,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -738,7 +738,7 @@ The following code example demonstrates how to remove an existing image in a Pow
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Opens an existing Presentation from file system.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -767,7 +767,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Opens an existing Presentation from file system.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -793,7 +793,7 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -838,7 +838,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
@@ -869,7 +869,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

@@ -18,7 +18,7 @@ The following code example demonstrates how to add a blank slide to a section.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Creates a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -40,7 +40,7 @@ pptxDoc.Save("Section.pptx");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
@@ -62,7 +62,7 @@ pptxDoc.Save("Section.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -93,7 +93,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -116,7 +116,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //Creates a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
@@ -159,7 +159,7 @@ The following code example demonstrates how to add an existing slide to a sectio
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("PPTXWithoutSection.PPTX");
@@ -175,7 +175,7 @@ pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithoutSection.PPTX")
@@ -191,7 +191,7 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -224,7 +224,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
@@ -242,7 +242,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -283,7 +283,7 @@ The following code example demonstrates how to insert a section in a template Po
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
@@ -302,7 +302,7 @@ pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
@@ -321,7 +321,7 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -357,7 +357,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
@@ -378,7 +378,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -422,7 +422,7 @@ You can move the sections within a PowerPoint presentation. The following code e
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
@@ -435,7 +435,7 @@ pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
@@ -448,7 +448,7 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -478,7 +478,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
@@ -493,7 +493,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -531,7 +531,7 @@ The following code example demonstrates how to move a slide from one section to 
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
@@ -547,7 +547,7 @@ pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
@@ -563,7 +563,7 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -596,7 +596,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
@@ -614,7 +614,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -655,7 +655,7 @@ The following code example demonstrates how to clone the slide collection of a s
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
@@ -676,7 +676,7 @@ pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
@@ -699,7 +699,7 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -736,7 +736,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
@@ -759,7 +759,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -805,7 +805,7 @@ The following code example demonstrates how to create remove a particular sectio
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
@@ -818,7 +818,7 @@ pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
@@ -831,7 +831,7 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -861,7 +861,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
@@ -876,7 +876,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -914,7 +914,7 @@ The following code example demonstrates how to remove section collection from an
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 
 //Loads a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
@@ -927,7 +927,7 @@ pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
@@ -940,7 +940,7 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
@@ -970,7 +970,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
@@ -985,7 +985,7 @@ pptxDoc.Save(outputStream);
 
 {% endhighlight %}
 
-{% highlight XAMARIN %}
+{% highlight c# tabtitle="Xamarin" %}
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;

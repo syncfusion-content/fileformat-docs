@@ -21,7 +21,7 @@ Data Validation is a list of rules to the data that can be entered in a cell. Th
 The following code snippet illustrates how to set text length validation.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Data validation for text length
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.TextLength;
@@ -32,7 +32,7 @@ validation.FirstFormula = "0";
 validation.SecondFormula = "5";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Data validation for text length
 Dim validation As IDataValidation = sheet.Range("A3").DataValidation
 validation.AllowType = ExcelDataType.TextLength
@@ -43,7 +43,7 @@ validation.FirstFormula = "0"
 validation.SecondFormula = "5"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Data validation for text length
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.TextLength;
@@ -54,7 +54,7 @@ validation.FirstFormula = "0";
 validation.SecondFormula = "5";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Data validation for text length
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.TextLength;
@@ -65,7 +65,7 @@ validation.FirstFormula = "0";
 validation.SecondFormula = "5";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Data validation for text length
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.TextLength;
@@ -77,12 +77,14 @@ validation.SecondFormula = "5";
 {% endhighlight %}
 {% endtabs %}  
 
+A complete working example for text length data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Text%20Length%20Validation).
+
 ## Time Validation
 
 The following code snippet illustrates how to set time validation.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Data validation for time
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Time;
@@ -93,7 +95,7 @@ validation.FirstFormula = "10.00";
 validation.SecondFormula = "12.00";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Data validation for time
 Dim validation As IDataValidation = sheet.Range("A3").DataValidation
 validation.AllowType = ExcelDataType.Time
@@ -104,7 +106,7 @@ validation.FirstFormula = "10.00"
 validation.SecondFormula = "12.00"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Data validation for time
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Time;
@@ -115,7 +117,7 @@ validation.FirstFormula = "10.00";
 validation.SecondFormula = "12.00";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Data validation for time
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Time;
@@ -126,7 +128,7 @@ validation.FirstFormula = "10.00";
 validation.SecondFormula = "12.00";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Data validation for time
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Time;
@@ -136,43 +138,47 @@ validation.CompareOperator = ExcelDataValidationComparisonOperator.Between;
 validation.FirstFormula = "10.00";
 validation.SecondFormula = "12.00";
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example for time data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Time%20Validation).  
 
 ## List Validation
 
 The following code snippet illustrates how to set list validation.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Data validation for list
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.ListOfValues = new string[] { "ListItem1", "ListItem2", "ListItem3" };
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Data validation for list
 Dim validation As IDataValidation = sheet.Range("A3").DataValidation
 validation.ListOfValues = New String() {"ListItem1", "ListItem2", "ListItem3"}
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Data validation for list
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.ListOfValues = new string[] { "ListItem1", "ListItem2", "ListItem3" };
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Data validation for list
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.ListOfValues = new string[] { "ListItem1", "ListItem2", "ListItem3" };
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Data validation for list
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.ListOfValues = new string[] { "ListItem1", "ListItem2", "ListItem3" };
 {% endhighlight %}
 {% endtabs %}   
+
+A complete working example for list data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/List%20Validation). 
 
 N> The ListOfValues property should be used when the values in the Data Validation list are entered manually whose limit is only 255 characters including separators.
 
@@ -181,7 +187,7 @@ N> The ListOfValues property should be used when the values in the Data Validati
 The following code snippet illustrates  how to set number validation.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Data validation for number
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Integer;
@@ -192,7 +198,7 @@ validation.FirstFormula = "0";
 validation.SecondFormula = "10";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Data validation for number
 Dim validation As IDataValidation = sheet.Range("A3").DataValidation
 validation.AllowType = ExcelDataType.Integer
@@ -203,7 +209,7 @@ validation.FirstFormula = "0"
 validation.SecondFormula = "10"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Data validation for number
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Integer;
@@ -214,7 +220,7 @@ validation.FirstFormula = "0";
 validation.SecondFormula = "10";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Data validation for number
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Integer;
@@ -225,7 +231,7 @@ validation.FirstFormula = "0";
 validation.SecondFormula = "10";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Data validation for number
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Integer;
@@ -237,12 +243,14 @@ validation.SecondFormula = "10";
 {% endhighlight %}
 {% endtabs %}   
 
+A complete working example for number data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Number%20Validation). 
+
 ## Date Validation
 
 The following code snippet illustrates how to set date validation.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Data validation for date
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Date;
@@ -253,7 +261,7 @@ validation.FirstDateTime = new DateTime(2003, 5, 10);
 validation.SecondDateTime = new DateTime(2004, 5, 10);
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Data validation for date
 Dim validation As IDataValidation = sheet.Range("A3").DataValidation
 validation.AllowType = ExcelDataType.Date
@@ -264,7 +272,7 @@ validation.FirstDateTime = New DateTime(2003, 5, 10)
 validation.SecondDateTime = New DateTime(2004, 5, 10)
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Data validation for date
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Date;
@@ -275,7 +283,7 @@ validation.FirstDateTime = new DateTime(2003, 5, 10);
 validation.SecondDateTime = new DateTime(2004, 5, 10);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Data validation for date
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Date;
@@ -286,7 +294,7 @@ validation.FirstDateTime = new DateTime(2003, 5, 10);
 validation.SecondDateTime = new DateTime(2004, 5, 10);
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Data validation for date
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.Date;
@@ -296,42 +304,44 @@ validation.CompareOperator = ExcelDataValidationComparisonOperator.Between;
 validation.FirstDateTime = new DateTime(2003, 5, 10);
 validation.SecondDateTime = new DateTime(2004, 5, 10);
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+
+A complete working example for number data validation in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Data%20Validation/Number%20Validation).   
 
 ## Custom Validation
 
 Custom validation can be set to a cell with its __AllowType__ as __User__. The following code snippet illustrates how to set custom validation.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 //Data validation for custom data
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.User;
 validation.FirstFormula = "=A1>10";
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 'Data validation for custom data
 Dim validation As IDataValidation = sheet.Range("A3").DataValidation
 validation.AllowType = ExcelDataType.User
 validation.FirstFormula = "=A1>10"
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 //Data validation for custom data
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.User;
 validation.FirstFormula = "=A1>10";
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Data validation for custom data
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.User;
 validation.FirstFormula = "=A1>10";
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 //Data validation for custom data
 IDataValidation validation = sheet.Range["A3"].DataValidation;
 validation.AllowType = ExcelDataType.User;
@@ -342,7 +352,7 @@ validation.FirstFormula = "=A1>10";
 The following code snippet shows all the data validation supports discussed previously.
 
 {% tabs %}  
-{% highlight c# %}
+{% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -442,7 +452,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb %}
+{% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -541,7 +551,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 
-{% highlight UWP %}
+{% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -651,7 +661,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -753,7 +763,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
