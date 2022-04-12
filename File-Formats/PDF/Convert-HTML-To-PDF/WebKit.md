@@ -16,6 +16,8 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
 N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
+N> From version 20.1.0.XX, if you are using the WebKit rendering engine from NuGet packages, there is no need to manually copy the QtBinaries folder from the NuGet packages folder. There is also no need to set WebKitPath to the converter settings explicitly. It will copy the QtBinaries to the application bin folder and use the binaries from the bin folder automatically
+
 ## Prerequisites for Windows
 
 * Latest WebKit HTML converter can be download from the below link,
