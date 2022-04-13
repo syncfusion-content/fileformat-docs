@@ -119,14 +119,14 @@ sheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 {% endtabs %}  
 
-The complete code snippet of the previous options is shown as follows.
+The complete code snippet of the previous options is given below.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -150,7 +150,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -177,7 +177,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -213,7 +213,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open(File.OpenRead("Sample.xlsx"), ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -234,7 +234,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
