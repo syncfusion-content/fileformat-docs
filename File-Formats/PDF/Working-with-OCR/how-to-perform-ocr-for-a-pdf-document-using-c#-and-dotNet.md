@@ -1,12 +1,12 @@
 ---
-title: How to perform OCR for a PDF document using c# and VB.NET | Syncfusion
-description: This section explains how to perform OCR for a PDF document using c# and VB.NET.
+title: How to perform OCR for a PDF document using C# and VB.NET | Syncfusion
+description: This section explains how to perform OCR for a PDF document using syncfusion PDF library in C# and VB.NET.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# How to perform OCR for a PDF document using c# and VB.NET
+# How to perform OCR for a PDF document using C# and VB.NET
 
 Syncfusion Essential PDF is a [.NET PDF library](https://www.syncfusion.com/pdf-framework/net/pdf-library) that supports OCR by using the Tesseract open-source engine. With a few lines of code, you can perform OCR on a particular region or several regions of a PDF document.
 
@@ -18,8 +18,8 @@ Syncfusion assemblies
 •	Syncfusion.OcrProcessor.Base.dll
 
 Tesseract assemblies
-•	SyncfusionTessaract.dll (Tesseract Engine Version 4.0)
-•	liblept168.dll ([Leptonica](http://www.leptonica.com/) image processing library used by Tesseract engine) 
+•	Syncfusion.Tesseract.dll (Tesseract Engine Version 4.0)
+•	liblept168.dll (Leptonica image processing library used by Tesseract engine) 
 
 ## Steps to perform OCR on particular region of a PDF programmatically: 
 

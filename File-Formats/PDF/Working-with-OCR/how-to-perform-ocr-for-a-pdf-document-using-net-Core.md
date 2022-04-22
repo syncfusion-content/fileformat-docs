@@ -1,6 +1,6 @@
 ---
 title: How to perform OCR for a PDF document using Net Core  | Syncfusion
-description: This section explains how to perform OCR for a PDF document using Net Core.
+description: This section explains how to perform OCR for a PDF document using syncfusion PDF library in dot net core.
 platform: file-formats
 control: PDF
 documentation: UG
@@ -23,7 +23,7 @@ The [Syncfusion Essential PDF](https://www.syncfusion.com/pdf-framework/net) sup
 
 3.	The Syncfusion OCR processor internally uses Tesseract libraries to perform OCR, so you must copy the necessary tessdata and TesseractBinaries folders from the NuGet package folder to the project folder to use the OCR feature. The tessdata folder contains OCR language data, and the Tesseractbinaries contain the wrapper assemblies for Tesseract OCR. Please use the following link to download OCR language data for other languages.
 [https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata)
-![tessdata screenshot](OCR_images/tessdata_copy.png)
+![tessdata location](OCR_images/tessdata_copy.png)
 
 4.	Set Copy to Output Directory to Copy if newer for the Data, tessdata, and Tesseractbinaries folder. 
 ![copying binaries](OCR_images/tessdata_in_project.png)
@@ -87,7 +87,7 @@ Imports System.Drawing
 
 {% endtabs %}  
 
-8.	Use the following code sample to perform OCR in the ASP.NET Core applicatio
+8.	Use the following code sample to perform OCR in the ASP.NET Core application.
 {% tabs %}  
 
 {% highlight c# tabtitle="C#" %}
