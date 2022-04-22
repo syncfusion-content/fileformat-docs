@@ -26,7 +26,7 @@ Tesseract assemblies
 1.	Create a new C# Windows Forms application project. 
 ![create-project.png](OCR_images/create_framework_project.png)
 
-2.  Install [Syncfusion.Pdf.OCR.WinForms]](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/) NuGet packages as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org/). 
+2.  Install [Syncfusion.Pdf.OCR.WinForms](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/) NuGet packages as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org/). 
 ![NuGet project](OCR_images/install_NuGet_framework.png)
 
 3.	Include the following namespaces in the Form.cs file.
