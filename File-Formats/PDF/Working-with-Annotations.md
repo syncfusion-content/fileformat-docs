@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Annotations
 
-Essential PDF provides support for interactive [annotations](https://www.syncfusion.com/pdf-framework/net/pdf-library/pdf-annotation).
+Essential PDF provides support for interactive [annotations](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation).
 
 You can add, delete and modify the annotation from the PDF documents.
 
