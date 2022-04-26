@@ -235,3 +235,5 @@ A complete working example of creating a PDF document in the WinUI Desktop app c
 By executing the program, you will get the **PDF document** as follows.
 
 ![WinUI Desktop output PDF document](WinUI_Images/GettingStartedOutput.png)
+
+N> You can also explore our [WinUI PDF library demo](https://www.syncfusion.com/demos/fileformats/pdf-library) that shows how to create and modify PDF files from C# with just five lines of code.
