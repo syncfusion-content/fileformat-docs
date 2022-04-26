@@ -4,7 +4,7 @@ description: In this section, you can learn about various Excel worksheet operat
 platform: File-formats
 control: XlsIO
 documentation: UG
-keywords: c#, vb.net, excel, read excel, extract data, data from excel, syncfusion, xlsio, excel worksheet, data from sheet 
+keywords: c#, vb.net, excel, syncfusion, xlsio, read excel, extract data, data from excel, excel worksheet, data from sheet, new worksheet, add worksheet, insert new worksheet, create new worksheet, insert worksheet, create worksheet, insert worksheet, create excel sheet, delete worksheet, delete sheet in excel, remove worksheet, remove sheet in excel, move sheet from one workbook to another, copy sheet from one worksheet to another, moving between sheets in excel, moving sheet, copying between sheets in excel, copying sheets 
 ---
 
 # Working with Excel Worksheet 
