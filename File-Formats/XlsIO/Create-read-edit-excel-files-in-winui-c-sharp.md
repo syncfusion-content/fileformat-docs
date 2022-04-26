@@ -291,7 +291,7 @@ async void Save(MemoryStream stream, string filename)
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in WinUI can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinUISample1272534914.zip).
+A complete working example of how to create an Excel file in WinUI in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WinUI/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](WinUI_images/WinUI_images_img5.png)
@@ -321,11 +321,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Set Text in cell A3.
     worksheet.Range["A3"].Text = "Hello World";
 
+    //Access a cell value from Excel
+    var value = worksheet.Range["A1"].Value;
+
     MemoryStream stream = new MemoryStream();
     workbook.SaveAs(stream);
     Save(stream, "Output");
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to read and edit an Excel file in WinUI in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WinUI/Edit%20Excel).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [WinUI Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.

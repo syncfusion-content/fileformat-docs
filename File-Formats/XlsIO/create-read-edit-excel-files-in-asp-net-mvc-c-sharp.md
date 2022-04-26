@@ -408,7 +408,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example of how to create an Excel file in ASP.NET MVC can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-MVC-128503978.zip).
+A complete working example of how to create an Excel file in ASP.NET MVC in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET-MVC_images/ASP-NET-MVC_images_img3.png)
@@ -437,6 +437,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Assign some text in a cell
     worksheet.Range["A3"].Text = "Hello World";
 
+    //Access a cell value from Excel
+    var value = worksheet.Range["A1"].Value;
+
     //Save the Excel document
     workbook.SaveAs("Output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.Open);
 }
@@ -461,10 +464,15 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     'Assign some text in a cell
     worksheet.Range("A3").Text = "Hello World"
 
+    'Access a cell value from Excel
+    Dim value As var = worksheet.Range("A1").Value
+
     'Save the Excel document
     workbook.SaveAs("Output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.Open)
 End Using
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to read and edit an Excel file in ASP.NET MVC in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Edit%20Excel).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET MVC Excel library demo](https://ej2.syncfusion.com/aspnetmvc/XlsIO/Default#/material) that shows how to create and modify Excel files from C# with just five lines of code.
