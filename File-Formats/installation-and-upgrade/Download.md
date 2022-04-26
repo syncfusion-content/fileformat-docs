@@ -10,7 +10,7 @@ documentation: ug
 
 # Download FileFormats Installer
 
-[DocIO](https://www.syncfusion.com/word-framework/net),[PDF](https://www.syncfusion.com/pdf-framework/net),[Presentation](https://www.syncfusion.com/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/excel-framework/net) controls will be included in the Syncfusion FileFormats installer.
+[DocIO](https://www.syncfusion.com/word-framework/net),[PDF](https://www.syncfusion.com/document-processing/pdf-framework/net),[Presentation](https://www.syncfusion.com/document-processing/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/document-processing/excel-framework/net) controls will be included in the Syncfusion FileFormats installer.
 
 ## Download using trial login
 

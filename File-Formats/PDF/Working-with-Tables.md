@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with .NET PDF Tables 
 
-Essential PDF provides support for two types of [PDF table](https://www.syncfusion.com/pdf-framework/net/pdf-library/pdf-tables) models, both having a different levels of customization, which is explained below. The two types of table models are
+Essential PDF provides support for two types of [PDF table](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-tables) models, both having a different levels of customization, which is explained below. The two types of table models are
 
 1. [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html)
 2. [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html)
