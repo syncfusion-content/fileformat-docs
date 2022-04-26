@@ -315,7 +315,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in Blazor Server-Side Application can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ServerSideApplication-1829684710.zip).
+A complete working example of how to create an Excel file in Blazor Server-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Server%20Side/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Server_Output.png)
@@ -347,6 +347,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Assign some text in a cell
     worksheet.Range["A3"].Text = "Hello World";
 
+    //Access a cell value from Excel
+    var value = worksheet.Range["A1"].Value;
+
     //Save the document as a stream and retrun the stream.
     using (MemoryStream stream = new MemoryStream())
     {
@@ -358,6 +361,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to read and edit an Excel file in Blazor Server-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Server%20Side/Edit%20Excel).
 
 ## Create a simple Excel report in Blazor Client-Side application
 
@@ -633,7 +638,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in Blazor Client-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication1352688647.zip).
+A complete working example of how to create an Excel file in Blazor Client-Side Application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Client_Output.png)
