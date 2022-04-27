@@ -8,7 +8,7 @@ documentation: UG
 
 # Excel to JSON Conversion
 
-Essential XlsIO supports to convert Excel data as JSON files by simply saving the workbook using the `SaveAsJson` method. This support includes the features:
+Essential XlsIO supports to convert Excel data as JSON files by simply saving the workbook using the [SaveAsJson](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html#Syncfusion_XlsIO_IWorkbook_SaveAsJson_System_String_) method. This support includes the features:
 
 * Save as a simple JSON file or a JSON file as schema
 * Save a workbook to JSON
@@ -26,7 +26,7 @@ The following code illustrates how to convert an Excel workbook to the JSON file
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   
   //Saves the workbook to a JSON file, as schema by default
@@ -48,7 +48,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+    application.DefaultVersion = ExcelVersion.Xlsx
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 	
 	'Saves the workbook to a JSON file, as schema by default
@@ -92,7 +92,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves the workbook to a JSON filestream, as schema by default
   MemoryStream stream = new MemoryStream();
-
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsJsonAsync(stream);
   Save(stream, "Excel-Workbook-To-JSON-filestream-as-schema-default.json");
 
@@ -137,7 +137,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
   IWorkbook workbook = application.Workbooks.Open(fileStream);
@@ -159,7 +159,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
              
@@ -201,7 +201,7 @@ The following code illustrates how to convert an Excel workbook to the JSON file
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   //Saves the workbook to a JSON file without schema
@@ -216,7 +216,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+    application.DefaultVersion = ExcelVersion.Xlsx
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
 	'Saves the workbook to a JSON file without schema
@@ -253,7 +253,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves the workbook to a JSON filestream without schema
   MemoryStream stream = new MemoryStream();
-
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsJsonAsync(stream, false);
   Save(stream, "Excel-Workbook-To-JSON-filestream-without-schema.json");
 
@@ -297,7 +297,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
   IWorkbook workbook = application.Workbooks.Open(fileStream);
@@ -314,7 +314,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
              
@@ -356,7 +356,7 @@ The following code illustrates how to convert an Excel worksheet to the JSON fil
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   //Active worksheet
@@ -381,7 +381,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+    application.DefaultVersion = ExcelVersion.Xlsx
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
 	'Active worksheet
@@ -428,7 +428,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves the worksheet to a JSON filestream, as schema by default
   MemoryStream stream = new MemoryStream();
-
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsJsonAsync(stream, worksheet);
   Save(stream, "Excel-Worksheet-To-JSON-filestream-as-schema-default.json");
 }
@@ -470,7 +470,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
   IWorkbook workbook = application.Workbooks.Open(fileStream);
@@ -492,7 +492,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
              
@@ -534,7 +534,7 @@ The following code illustrates how to convert an Excel worksheet to the JSON fil
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   //Active worksheet
@@ -552,7 +552,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+    application.DefaultVersion = ExcelVersion.Xlsx
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
 	'Active worksheet
@@ -592,7 +592,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves the worsheet to a JSON filestream without schema
   MemoryStream stream = new MemoryStream();
-
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsJsonAsync(stream, worksheet, false);
   Save(stream, "Excel-Worksheet-To-JSON-filestream-without-schema.json");
 
@@ -636,7 +636,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion =ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
   IWorkbook workbook = application.Workbooks.Open(fileStream);
@@ -652,7 +652,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
              
@@ -694,7 +694,7 @@ The following code illustrates how to convert an Excel Custom Range to the JSON 
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   //Active worksheet
@@ -722,7 +722,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+    application.DefaultVersion = ExcelVersion.Xlsx
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 	
 	'Active worksheet
@@ -774,7 +774,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves the Range to a JSON filestream, as schema by default
   MemoryStream stream = new MemoryStream();
-
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsJsonAsync(stream, range);
   Save(stream, "Excel-Range-To-JSON-filestream-as-schema-default.json");
 }
@@ -817,7 +817,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
   IWorkbook workbook = application.Workbooks.Open(fileStream);
@@ -842,7 +842,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
              
@@ -886,7 +886,7 @@ The following code illustrates how to convert an Excel Custom Range to the JSON 
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   //Active worksheet
@@ -907,7 +907,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+    application.DefaultVersion = ExcelVersion.Xlsx
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 	
 	'Active worksheet
@@ -952,7 +952,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves the Range to a JSON filestream without schema
   MemoryStream stream = new MemoryStream();
-
+  workbook.Version = ExcelVersion.Xlsx;
   await workbook.SaveAsJsonAsync(stream, range, false);
   Save(stream, "Excel-Range-To-JSON-filestream-without-schema.json");
 }
@@ -995,7 +995,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
   IWorkbook workbook = application.Workbooks.Open(fileStream);
@@ -1014,7 +1014,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
              
