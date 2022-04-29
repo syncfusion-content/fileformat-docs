@@ -305,14 +305,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     image[2] = "Picture3.png";
 
     //Insert images
-    int i = 0;
+    int count = 0;
     foreach (IRange cell in range)
     {
-        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
         IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
         (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
         (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        i++;
+        count++;
         imageStream.Dispose();
     }
 
@@ -334,13 +334,13 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     image(0) = "Picture1.png"
     image(1) = "Picture2.png"
     image(2) = "Picture3.png"
-    Dim i As Integer = 0
+    Dim count As Integer = 0
     For Each cell As IRange In range
-        Dim imageStream As FileStream = New FileStream(image(i), FileMode.Open, FileAccess.Read)
+        Dim imageStream As FileStream = New FileStream(image(count), FileMode.Open, FileAccess.Read)
         Dim shape As IPictureShape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream)
         CType(shape, ShapeImpl).BottomRow = cell.MergeArea.LastRow
         CType(shape, ShapeImpl).RightColumn = cell.MergeArea.LastColumn
-        i = (i + 1)
+        count = (count + 1)
         imageStream.Dispose
     Next
     workbook.SaveAs("Output.xlsx")
@@ -375,14 +375,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     image[2] = "Picture3.png";
 
     //Insert images
-    int i = 0;
+    int count = 0;
     foreach (IRange cell in range)
     {
-        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
         IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
         (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
         (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        i++;
+        count++;
         imageStream.Dispose();
     }
 
@@ -422,14 +422,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     image[2] = "Picture3.png";
 
     //Insert images
-    int i = 0;
+    int count = 0;
     foreach (IRange cell in range)
     {
-        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
         IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
         (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
         (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        i++;
+        count++;
         imageStream.Dispose();
     }
 
@@ -464,14 +464,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     image[2] = "Picture3.png";
 
     //Insert images
-    int i = 0;
+    int count = 0;
     foreach (IRange cell in range)
     {
-        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
         IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
         (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
         (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        i++;
+        count++;
         imageStream.Dispose();
     }
 
