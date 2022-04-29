@@ -10,9 +10,13 @@ documentation: ug
 
 # Download FileFormats Installer
 
-[DocIO](https://www.syncfusion.com/word-framework/net),[PDF](https://www.syncfusion.com/document-processing/pdf-framework/net),[Presentation](https://www.syncfusion.com/document-processing/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/document-processing/excel-framework/net) controls will be included in the Syncfusion FileFormats installer.
+[DocIO](https://www.syncfusion.com/word-framework/net),[PDF](https://www.syncfusion.com/pdf-framework/net),[Presentation](https://www.syncfusion.com/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/excel-framework/net) controls will be included in the Syncfusion FileFormats installer. You can either download the licensed installer or try our trial installer depending on your license. 
 
-## Download using trial login
+   -	Trial Installer
+   -	Licensed Installer
+
+
+## Download the Trial Version
 
 Our 30-day trial can be downloaded in two ways.
 
@@ -22,18 +26,18 @@ Our 30-day trial can be downloaded in two ways.
 ### Download Free Trial Setup
 
 1. You can evaluate our 30-day free trial by visiting the [Download Free Trial](https://www.syncfusion.com/downloads) page and select the FileFormats platform.
-2. After completing the required form or logging in with your registered Syncfusion account, you can download the FileFormats installer from the confirmation page. (as shown in below screenshot.) 
+2. After completing the required form or logging in with your registered Syncfusion account, you can download the FileFormats trial installer from the confirmation page. (as shown in below screenshot.) 
    
    ![Trial and downloads of Syncfusion Essential Studio](download-images/trial-confirmation.png)
    
-3. With a trial license, only the latest version’s installer can be downloaded.
-4. After downloading, the Syncfusion FileFormats installer can be unlocked using either the trial unlock key or the Syncfusion registered login credential. More information on generating an unlock key can be found in [this](https://www.syncfusion.com/kb/8069/how-to-generate-unlock-key-for-essentials-studio-products) article.
-5. Before the trial expires, you can download the installer at any time from your registered account’s [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page (as shown in below screenshot.)
+3. With a trial license, only the latest version’s trial installer can be downloaded.
+4. After downloading, the Syncfusion FileFormats trial installer can be unlocked using either the trial unlock key or the Syncfusion registered login credential. More information on generating an unlock key can be found in [this](https://www.syncfusion.com/kb/8069/how-to-generate-unlock-key-for-essentials-studio-products) article.
+5. Before the trial expires, you can download the trial installer at any time from your registered account’s [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page (as shown in below screenshot.)
 6. Click the Download (element 1 in the screenshot below) button to get the Syncfusion Essential Studio FileFormats web installer.
  
    ![Trial and downloads of Syncfusion Essential Studio](download-images/trial-download.png)
 
-7. Click the More Download Options (element 2 in the above screenshot) button to get the Essential Studio FileFormats Offline installer which is available in EXE and ZIP format.
+7. Click the More Download Options (element 2 in the above screenshot) button to get the Essential Studio FileFormats Offline trial installer which is available in EXE and ZIP format.
 
    ![License and downloads of Syncfusion Essential Studio](download-images/start-trial-download-offline-installer.png)
    
@@ -50,14 +54,14 @@ You should initiate an evaluation if you have already obtained our components th
 
    N> If you've already used the trial products and they haven't expired, you won't be able to start the trial for the same product again.
 
-4. After you've started the trial, go to the [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page to get the latest version installer. You can generate the [unlock](https://www.syncfusion.com/kb/8069/how-to-generate-unlock-key-for-essentials-studio-products) key here at any time before the trial period expires. (as shown in below screenshot.)
+4. After you've started the trial, go to the [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page to get the latest version trial installer. You can generate the [unlock](https://www.syncfusion.com/kb/8069/how-to-generate-unlock-key-for-essentials-studio-products) key here at any time before the trial period expires. (as shown in below screenshot.)
 
    ![License and downloads of Syncfusion Essential Studio](download-images/start-trial-download-installer.png)
 
 5. You can find your current active trial products on the [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page.
    
 
-## Download using licensed login
+## Download the License Version
 
 1. Syncfusion licensed products will be available in the [License & Downloads](https://www.syncfusion.com/account/downloads) page under your registered Syncfusion account.
 2. You can view all the licenses (both active and expired) associated with your account.
@@ -69,7 +73,5 @@ You should initiate an evaluation if you have already obtained our components th
 
    ![License and downloads of Syncfusion Essential Studio](download-images/license-download.png)
 	
-   N> Starting with 2022 Volume 1 v20.1.0.47, all Syncfusion customers (evaluators and paid customers) who use Syncfusion installers or nuget packages from [nuget.org](https://www.nuget.org/packages?q=Syncfusion) must generate and register the corresponding platform and version license key in your projects.<br>
-   For more information, please see [this](https://help.syncfusion.com/file-formats/licensing/licensing) help topic.
-   
+
 You can also refer to the [**Online installer**](https://help.syncfusion.com/file-formats/installation-and-upgrade/install-using-the-web-installer) and [**Offline installer**](https://help.syncfusion.com/file-formats/installation-and-upgrade/install-using-the-offline-installer) links for step-by-step installation guidelines.	
