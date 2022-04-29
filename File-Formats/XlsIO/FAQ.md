@@ -60,3 +60,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [Does XlsIO support working with Excel files in .NET 6.0?](faqs/does-xlsio-support-working-with-excel-files-in-net6)
 * [How to convert the required range in Excel to PDF?](faqs/how-to-convert-the-required-range-in-excel-to-pdf)
 * [How to search a value in only specific columns of an Excel worksheet?](faqs/how-to-search-a-value-in-only-specific-columns-of-an-Excel-worksheet)
+* [How to resolve LibSkiaSharp not found exception?](faqs/how-to-resolve-libskiasharp-not-found-exception)
