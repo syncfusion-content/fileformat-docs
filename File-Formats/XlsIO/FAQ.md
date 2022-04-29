@@ -58,3 +58,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [Information about maximum characters count in an Excel cell](faqs/information-about-maximum-characters-count-in-an-excel-cell)
 * [How to find values with a matching case for specific column in Excel?](faqs/how-to-find-values-with-a-matching-case-for-specific-column-in-Excel)
 * [How to read filtered rows in Excel?](faqs/how-to-read-filtered-rows-in-excel)
+* [How to resolve LibSkiaSharp not found exception?](faqs/how-to-resolve-libskiasharp-not-found-exception)
