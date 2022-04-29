@@ -279,6 +279,225 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to position and resize picture in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pictures%20in%20Excel/Position%20and%20Resize%20Picture).   
 
+## Image into Merged Region
+
+The following code snippet explains how to add images into merged regions.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    IWorkbook workbook = application.Workbooks.Open(InputTemplate.xlsx);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Get the merged cells
+    IRange[] range = new IRange[3];
+    range[0] = worksheet.MergedCells[0];
+    range[1] = worksheet.MergedCells[1];
+    range[2] = worksheet.MergedCells[2];
+
+    //Get the images
+    string[] image = new string[3];
+    image[0] = "Picture1.png";
+    image[1] = "Picture2.png";
+    image[2] = "Picture3.png";
+
+    //Insert images
+    int i = 0;
+    foreach (IRange cell in range)
+    {
+        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+        i++;
+        imageStream.Dispose();
+    }
+
+    workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+    Dim range() As IRange = New IRange((3) - 1) {}
+    range(0) = worksheet.MergedCells(0)
+    range(1) = worksheet.MergedCells(1)
+    range(2) = worksheet.MergedCells(2)
+    Dim image() As String = New String((3) - 1) {}
+    image(0) = "Picture1.png"
+    image(1) = "Picture2.png"
+    image(2) = "Picture3.png"
+    Dim i As Integer = 0
+    For Each cell As IRange In range
+        Dim imageStream As FileStream = New FileStream(image(i), FileMode.Open, FileAccess.Read)
+        Dim shape As IPictureShape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream)
+        CType(shape, ShapeImpl).BottomRow = cell.MergeArea.LastRow
+        CType(shape, ShapeImpl).RightColumn = cell.MergeArea.LastColumn
+        i = (i + 1)
+        imageStream.Dispose
+    Next
+    workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+
+	//Instantiates the File Picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile file = await openPicker.PickSingleFileAsync();
+    IWorkbook workbook = application.Workbooks.Open(file);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Get the merged cells
+    IRange[] range = new IRange[3];
+    range[0] = worksheet.MergedCells[0];
+    range[1] = worksheet.MergedCells[1];
+    range[2] = worksheet.MergedCells[2];
+
+    //Get the images
+    string[] image = new string[3];
+    image[0] = "Picture1.png";
+    image[1] = "Picture2.png";
+    image[2] = "Picture3.png";
+
+    //Insert images
+    int i = 0;
+    foreach (IRange cell in range)
+    {
+        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+        i++;
+        imageStream.Dispose();
+    }
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "Output";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+	FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Get the merged cells
+    IRange[] range = new IRange[3];
+    range[0] = worksheet.MergedCells[0];
+    range[1] = worksheet.MergedCells[1];
+    range[2] = worksheet.MergedCells[2];
+
+    //Get the images
+    string[] image = new string[3];
+    image[0] = "Picture1.png";
+    image[1] = "Picture2.png";
+    image[2] = "Picture3.png";
+
+    //Insert images
+    int i = 0;
+    foreach (IRange cell in range)
+    {
+        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+        i++;
+        imageStream.Dispose();
+    }
+
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+	//"App" is the class of Portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("Pictures.InputTemplate.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Get the merged cells
+    IRange[] range = new IRange[3];
+    range[0] = worksheet.MergedCells[0];
+    range[1] = worksheet.MergedCells[1];
+    range[2] = worksheet.MergedCells[2];
+
+    //Get the images
+    string[] image = new string[3];
+    image[0] = "Picture1.png";
+    image[1] = "Picture2.png";
+    image[2] = "Picture3.png";
+
+    //Insert images
+    int i = 0;
+    foreach (IRange cell in range)
+    {
+        FileStream imageStream = new FileStream(image[i], FileMode.Open, FileAccess.Read);
+        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+        i++;
+        imageStream.Dispose();
+    }
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+	
+    stream.Position = 0;
+
+    //Save the document as file and view the saved document
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+	    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+	    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example to add picture into merged region in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pictures%20in%20Excel/ImageInMergedRegion).   
+
 ## Adding Images from External Link
 
 An image can be added to a worksheet as an external link without downloading the original image. The picture will be downloaded every time the spreadsheet is opened in Microsoft Excel. The image is not physically embedded into the Excel document, but points to a web resource. Refer to the following code snippet.
