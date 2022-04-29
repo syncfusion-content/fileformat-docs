@@ -363,3 +363,5 @@ async void Save(MemoryStream stream)
 {% endhighlight %}
 
 {% endtabs %}
+
+N> You can also explore our [WinUI PowerPoint library demo](https://github.com/syncfusion/winui-demos/tree/master/presentation) that shows how to create and modify WinUI PowerPoint files with just few lines of code.
