@@ -1169,7 +1169,7 @@ N> The OCR Engine Mode is supported only in the Tesseract version 4.0 and above.
 
 ## White List
 
-A whitelist specifies a list of characters that the OCR engine is only allowed to recognize — if a character is not on the whitelist, it cannot be included in the output OCR results.
+A white list specifies a list of characters that the OCR engine is only allowed to recognize — if a character is not on the whitelist, it cannot be included in the output OCR results.
 
 This is explained in the following code sample,
 
