@@ -1167,6 +1167,170 @@ End Using
 
 N> The OCR Engine Mode is supported only in the Tesseract version 4.0 and above.
 
+## White List
+
+A whitelist specifies a list of characters that the OCR engine is only allowed to recognize — if a character is not on the whitelist, it cannot be included in the output OCR results.
+
+This is explained in the following code sample,
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Set tesseract OCR Engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
+
+//Set OCR engine mode to process
+processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly;
+
+//Set WhiteList Property
+Processor.Settings.WhiteList = true;
+
+//Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, @"TessData\", true);
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set tesseract OCR engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0
+
+'Set OCR engine mode to process
+
+processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly
+
+'Set WhiteList Property
+
+Processor.Settings.WhiteList = true
+
+'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, "TessData\", True)
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(True)
+
+End Using
+
+{% endhighlight %}
+{% endtabs %} 
+
+## Black List
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Set tesseract OCR Engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
+
+//Set OCR engine mode to process
+processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly;
+
+//Set BlackList Property
+Processor.Settings. BlackList = true;
+
+//Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, @"TessData\", true);
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set tesseract OCR engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0
+
+'Set OCR engine mode to process
+
+processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly
+
+'Set BlackList Property
+
+Processor.Settings.BlackList = true
+
+'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, "TessData\", True)
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(True)
+
+End Using
+
+{% endhighlight %}
+
+{% endtabs %} 
 
 ## Best Practices
 
