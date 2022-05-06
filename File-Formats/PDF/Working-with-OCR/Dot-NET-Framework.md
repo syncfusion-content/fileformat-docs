@@ -1197,7 +1197,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
 processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly;
 
 //Set WhiteList Property
-Processor.Settings.WhiteList = true;
+Processor.Settings.WhiteList = "PDF";
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
@@ -1235,7 +1235,7 @@ processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly
 
 'Set WhiteList Property
 
-Processor.Settings.WhiteList = true
+Processor.Settings.WhiteList = "PDF"
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
@@ -1277,7 +1277,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
 processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly;
 
 //Set BlackList Property
-Processor.Settings. BlackList = true;
+Processor.Settings. BlackList = "PDF";
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
@@ -1314,7 +1314,7 @@ processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly
 
 'Set BlackList Property
 
-Processor.Settings.BlackList = true
+Processor.Settings.BlackList = "PDF"
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
@@ -1331,6 +1331,11 @@ End Using
 {% endhighlight %}
 
 {% endtabs %} 
+
+## Advantages of Native Call over Normal API
+
+Enabling this property will process OCR with native calls (PInvoke) instead of surrogate process.
+For surrogate process, it requires permission for creating and executing a process and native calls (PInvoke) does not required. And also performance will be better in PInvoke instead of surrogate process.
 
 ## Best Practices
 
