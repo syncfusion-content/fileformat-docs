@@ -8,7 +8,7 @@ documentation: UG
 
 # Create PDF file in WinUI
 
-Syncfusion Essential PDF is a [.NET PDF library](https://www.syncfusion.com/pdf-framework/winui/pdf-library) used to create, read, and edit **PDF** documents. Using this library, you can **create a PDF document in WinUI**.
+The Syncfusion [WinUI PDF library](https://www.syncfusion.com/document-processing/pdf-framework/winui/pdf-library) is used to create, read, and edit **PDF** documents. This library also includes functions for merging, splitting, stamping, forms, and securing PDF files and more. Using this library, you can create a PDF document in WinUI with just a few lines of code.
 
 **Prerequisites:**
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment).
@@ -235,3 +235,5 @@ A complete working example of creating a PDF document in the WinUI Desktop app c
 By executing the program, you will get the **PDF document** as follows.
 
 ![WinUI Desktop output PDF document](WinUI_Images/GettingStartedOutput.png)
+
+N> You can also explore our [WinUI PDF library demo](https://www.syncfusion.com/demos/fileformats/pdf-library) that shows how to create and modify PDF files from C# with just five lines of code.

@@ -13,14 +13,14 @@ Refer to the following links for assemblies/nuget packages required based on pla
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-chart-to-image) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-charts-in-xlsio)
 
-The following code snippet shows how to convert an Excel chart to an image using the **ExcelChartToImageConverter** class.
+The following code snippet shows how to convert an Excel chart to an image using the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelChartToImageConverter.ChartToImageConverter.html) class.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   application.ChartToImageConverter = new ChartToImageConverter();
   application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
@@ -46,7 +46,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
 
   Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
 
@@ -77,7 +77,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   
   //Initializing XlsIORenderer
   application.XlsIORenderer = new XlsIORenderer();
@@ -118,7 +118,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   // Initialize XlsIORenderer
   application.XlsIORenderer = new XlsIORenderer();
@@ -147,7 +147,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
+  application.DefaultVersion = ExcelVersion.Xlsx;
   //Initializing XlsIORenderer
   application.XlsIORenderer = new XlsIORenderer();
 

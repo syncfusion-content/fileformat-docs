@@ -3074,7 +3074,7 @@ else
 ## Span a text element to multiple pages and draw the next element
 
 The ['PdfLayoutFormat'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class helps to allow the text to flow across pages. The ['PdfLayoutResult'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutResult.html) class provides the rendered bounds of the previously added text, which can be used to place successive elements without overlapping. 
-The ['Syncfusion PDF library'](https://www.syncfusion.com/pdf-framework/net) provides ['PageAddedEventArgs'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PageAddedEventArgs.html) to get the current Page details, and we can draw the next new text element from where the last text element ends.
+The ['Syncfusion PDF library'](https://www.syncfusion.com/document-processing/pdf-framework/net) provides ['PageAddedEventArgs'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PageAddedEventArgs.html) to get the current Page details, and we can draw the next new text element from where the last text element ends.
 The following code example illustrates the same.
 
 {% tabs %}  
