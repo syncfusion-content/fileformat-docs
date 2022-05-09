@@ -440,7 +440,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example of how to create an Excel file in ASP.NET Core can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted_Core-2065839032.zip).
+A complete working example of how to create an Excel file in ASP.NET Core in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET-Core_images/ASP-NET-Core_images_img4.png)
@@ -474,6 +474,9 @@ IWorksheet worksheet = workbook.Worksheets[0];
 //Set Text in cell A3.
 worksheet.Range["A3"].Text ="Hello World";
 
+//Access a cell value from Excel
+var value = worksheet.Range["A1"].Value;
+
 //Defining the ContentType for excel file.
 string ContentType = "Application/msexcel";
 
@@ -499,6 +502,8 @@ excelEngine.Dispose();
 return File(stream, ContentType, fileName);
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to read and edit an Excel file in ASP.NET Core in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Edit%20Excel).
 
 N> _hostingEnvironment is the base path for input files of type IHostingEnvironment.
 

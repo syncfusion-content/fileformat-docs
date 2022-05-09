@@ -8,7 +8,7 @@ documentation: UG
 
 # Create PDF file in .NET MAUI
 
-Syncfusion Essential PDF is a [.NET PDF library](https://www.syncfusion.com/pdf-framework/maui/pdf-library) that allows you to create, read, and edit **PDF** documents. This library also includes functions for merging, splitting, stamping, forms, and securing PDF files and more. Using this library, you can **create a PDF document in the .NET MAUI application.**
+The Syncfusion [.NET MAUI PDF library](https://www.syncfusion.com/document-processing/pdf-framework/maui/pdf-library) is used to create, read, and edit **PDF** documents. This library also includes functions for merging, splitting, stamping, forms, and securing PDF files and more. Using this library, you can **create a PDF document in the .NET MAUI application.**
 
 **Prerequisites:**
 
@@ -632,3 +632,5 @@ By executing the program in android, you will get the **PDF document** as follow
 By executing the program in iOS, you will get the **PDF document** as follows,
 
 ![MaUI iOS output PDF document](MaUI_Images/invoice_ios.png)
+
+N> You can also explore our [MAUI PDF library demo](https://www.syncfusion.com/demos/fileformats/pdf-library) that shows how to create and modify PDF files from C# with just five lines of code.

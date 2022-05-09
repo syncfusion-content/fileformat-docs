@@ -409,7 +409,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example to create an Excel file in WPF can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreateExcelFile-2038092778.zip).
+A complete working example to create an Excel file in WPF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WPF/Create%20Excel). 
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Wpf_images/Wpf_images_img3.png)
@@ -438,6 +438,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Assign some text in a cell
     worksheet.Range["A3"].Text = "Hello World";
 
+    //Access a cell value from Excel
+    var value = worksheet.Range["A1"].Value;
+
     //Save the Excel document
     workbook.SaveAs("Output.xlsx");
 }
@@ -462,10 +465,15 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     'Assign some text in a cell
     worksheet.Range("A3").Text = "Hello World"
 
+    'Access a cell value from Excel
+    Dim value As var = worksheet.Range("A1").Value
+
     'Save the Excel document
     workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to read and edit an Excel file in WPF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WPF/Edit%20Excel).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [WPF Excel library demo](https://github.com/syncfusion/file-formats-wpf-demos/tree/master/xlsio) that shows how to create and modify Excel files from C# with just five lines of code.

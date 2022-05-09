@@ -8,7 +8,7 @@ documentation: UG
 
 # Excel to PDF Conversion
 
-[XlsIO](https://www.syncfusion.com/excel-framework/net/excel-to-pdf-conversion) allows you to convert an entire workbook or a single worksheet into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
+[XlsIO](https://www.syncfusion.com/excel-framework/net/excel-to-pdf-conversion) supports converting an entire workbook or a single worksheet into PDF document. Refer the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-document-to-pdf) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf)
@@ -17,7 +17,7 @@ N> Excel to PDF conversion works proper in Blazor server-side alone and not in c
 
 ## Workbook to PDF
 
-The following code illustrates how to convert an Excel workbook to PDF.
+The following code illustrates how to convert an entire Excel workbook to PDF.
 
 {% tabs %}  
 
@@ -25,7 +25,7 @@ The following code illustrates how to convert an Excel workbook to PDF.
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   //Open the Excel document to Convert
@@ -46,7 +46,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
   'Open the Excel document to convert
@@ -70,12 +70,12 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-    
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 	
     IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 
@@ -108,7 +108,7 @@ async void Save(Stream stream, string filename)
     {
         FileSavePicker savePicker = new FileSavePicker();
         savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
+        savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
         stFile = await savePicker.PickSaveFileAsync();
     }
@@ -134,7 +134,8 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
    IApplication application = excelEngine.Excel;
-   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   application.DefaultVersion = ExcelVersion.Xlsx;
+   FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
    IWorkbook workbook = application.Workbooks.Open(excelStream);
 
    //Initialize XlsIO renderer.
@@ -155,12 +156,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-   
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
     IWorkbook workbook = application.Workbooks.Open(excelStream);
 
@@ -193,20 +194,20 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-A complete working example convert workbook to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Workbook%20to%20PDF).      
+A complete working example for converting entire Excel workbook to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Workbook%20to%20PDF).      
 
-To learn more about different conversion settings in Excel To PDF conversion, refer to the ExcelToPdfConverterSettings in API section.
+To learn more about different conversion settings in Excel To PDF conversion, refer the [Excel to PDF conversion settings](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-converter-settings). 
 
 ## Worksheet to PDF
 
-The following code shows how to convert a particular sheet to PDF document.
+The following code shows how to convert a particular worksheet to PDF document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
@@ -224,7 +225,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
 
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
@@ -247,12 +248,12 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-    
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 	
     IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 	IWorksheet worksheet = workbook.Worksheets[0];
@@ -286,7 +287,7 @@ async void Save(Stream stream, string filename)
     {
         FileSavePicker savePicker = new FileSavePicker();
         savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
+        savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
         stFile = await savePicker.PickSaveFileAsync();
     }
@@ -313,7 +314,8 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
    IApplication application = excelEngine.Excel;
-   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   application.DefaultVersion = ExcelVersion.Xlsx;
+   FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
    IWorkbook workbook = application.Workbooks.Open(excelStream);
    IWorksheet worksheet = workbook.Worksheets[0];
    
@@ -337,12 +339,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-   
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet worksheet = workbook.Worksheets[0];
@@ -376,9 +378,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example convert worksheet to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Worksheet%20to%20PDF). 
+A complete working example for converting particular worksheet to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Worksheet%20to%20PDF). 
 
-**Creating** **individual** **PDF** **document** **for** **each** **worksheet**
+### Creating individual PDF document for each worksheet
 
 The following code snippet shows how to create an individual PDF document for each worksheet in a workbook.
 
@@ -387,7 +389,7 @@ The following code snippet shows how to create an individual PDF document for ea
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   PdfDocument pdfDocument = new PdfDocument();     
@@ -407,7 +409,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
   Dim pdfDocument As New PdfDocument()
@@ -430,12 +432,12 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-    
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 	
     IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 	
@@ -470,7 +472,7 @@ async void Save(Stream stream, string filename)
     {
         FileSavePicker savePicker = new FileSavePicker();
         savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
+        savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
         stFile = await savePicker.PickSaveFileAsync();
     }
@@ -497,7 +499,8 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
    IApplication application = excelEngine.Excel;
-   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   applicatin.DefaultVersion = ExcelVersion.Xlsx;
+   FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
    IWorkbook workbook = application.Workbooks.Open(excelStream);
    
    //Initialize XlsIO renderer.
@@ -524,12 +527,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-   
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
     IWorkbook workbook = application.Workbooks.Open(excelStream);
 
@@ -563,13 +566,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example convert each worksheet to individual PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Each%20Worksheet%20to%20PDF).
+A complete working example to convert each worksheet into individual PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Each%20Worksheet%20to%20PDF).
   
 ## Excel with chart to PDF
 
-XlsIO allows you to convert a workbook/worksheet with charts or a single chart into PDF document.
+XlsIO supports to convert a workbook/worksheet with charts or a single chart into PDF document.
 
-To preserve the charts during Excel To PDF conversion in .NET Framework, initialize the ChartToImageConverter of **IApplication** interface otherwise the charts present in worksheet gets skipped.
+To preserve the charts during Excel To PDF conversion in .NET Framework, initialize the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_ChartToImageConverter) of [IApplication](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html) interface. Otherwise the charts present in worksheet gets skipped.
 
 The following code illustrates how to convert an Excel with chart to PDF document.
 
@@ -578,7 +581,7 @@ The following code illustrates how to convert an Excel with chart to PDF documen
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
   application.ChartToImageConverter = new ChartToImageConverter();
@@ -601,7 +604,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
 
   'Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
   application.ChartToImageConverter = New ChartToImageConverter()
@@ -627,7 +630,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-    
+    application.DefaultVersion = ExcelVersion.Xlsx;
 	//Initializing XlsIORenderer
 	XlsIORenderer renderer = new XlsIORenderer();
 	
@@ -665,7 +668,7 @@ async void Save(Stream stream, string filename)
     {
         FileSavePicker savePicker = new FileSavePicker();
         savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
+        savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
         stFile = await savePicker.PickSaveFileAsync();
     }
@@ -692,7 +695,7 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
    IApplication application = excelEngine.Excel;
-   
+   application.DefaultVersion = ExcelVersion.Xlsx;
    //Initialize XlsIO renderer.
    XlsIORenderer renderer = new XlsIORenderer();
    
@@ -716,7 +719,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-
+    application.DefaultVersion = ExcelVersion.Xlsx;
 	//Initialize XlsIO renderer.
     XlsIORenderer renderer = new XlsIORenderer();
 	
@@ -755,29 +758,27 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}  
 
-A complete working example convert Excel chart to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Chart%20to%20PDF).
+A complete working example to convert Excel chart to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Chart%20to%20PDF).
 
 ## Excel with comments (notes) to PDF
 
-XlsIO allows you to convert a workbook or a worksheet with comments (notes) to PDF documents. By default, comments (notes) will not get converted. To convert the comments in worksheets of an Excel workbook, it is a must to set the print options. XlsIO supports to convert Excel documents with comments (notes) to PDF with the options in `ExcelPrintLocation` enumeration. This option helps to convert,
+XlsIO supports to convert a workbook or a worksheet with comments (notes) to PDF documents. By default, comments (notes) will not get converted. To convert the comments in worksheets of an Excel workbook, it is a must to set the print options through [ExcelPrintLocation](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelPrintLocation.html) enumeration. This option helps to convert,
 
 * comments as displayed in place,
 * comments at the end of the sheet, and
 * without comments.
 
 ### Convert comments as displayed in place
-Comments (notes) will be rendered in the output PDF document as displayed in the Excel file, if the **PrintInPlace** option is selected.
-
-The following code illustrates how to convert an Excel workbook to PDF with comments (notes) using `PrintInPlace` option.
+Comments (notes) will be rendered in the output PDF document as displayed in the Excel file, if the **PrintInPlace** option is selected. The following code illustrates this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
-    IWorkbook workbook = application.Workbooks.Open("Sample1.xlsx");
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
     IWorksheet worksheet = workbook.Worksheets[0];
     
     //Set print location to comments
@@ -791,16 +792,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     pdfDocument = converter.Convert();
 
     //Save the PDF file
-    pdfDocument.Save("ExcelToPDF1.pdf");
-    System.Diagnostics.Process.Start("ExcelToPDF1.pdf");
+    pdfDocument.Save("ExcelToPDF.pdf");
+    System.Diagnostics.Process.Start("ExcelToPDF.pdf");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 	Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample1.xlsx", ExcelOpenType.Automatic)
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     'Set print location to comments
@@ -816,7 +817,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     pdfDocument = converter.Convert()
 
     'Save the PDF file
-    pdfDocument.Save("ExcelToPDF1.pdf")
+    pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
 
@@ -825,13 +826,13 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Get assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Get input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample1.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet worksheet = workbook.Worksheets[0];
     
@@ -847,7 +848,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the PDF document
     MemoryStream stream = new MemoryStream();
     document.Save(stream);
-    Save(stream, "ExcelToPDF1.pdf");
+    Save(stream, "ExcelToPDF.pdf");
 
     excelStream.Dispose();
 }
@@ -863,7 +864,7 @@ async void Save(Stream stream, string filename)
     {
 		FileSavePicker savePicker = new FileSavePicker();
         savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
+        savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
         stFile = await savePicker.PickSaveFileAsync();
     }
@@ -890,7 +891,8 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    FileStream excelStream = new FileStream("Sample1.xlsx", FileMode.Open, FileAccess.Read);
+	application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet worksheet = workbook.Worksheets[0];
     
@@ -903,7 +905,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Convert Excel document into PDF document 
     PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
-    Stream stream = new FileStream("ExcelToPDF1.pdf", FileMode.Create, FileAccess.ReadWrite);
+    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
     pdfDocument.Save(stream);
 
     excelStream.Dispose();
@@ -915,12 +917,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-   
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample1.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
     IWorkbook workbook = application.Workbooks.Open(excelStream);
 	IWorksheet worksheet = workbook.Worksheets[0];
@@ -943,11 +945,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the stream into pdf file
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF1.pdf", "application/pdf", stream);
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
     }
     else
     {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF1.pdf", "application/pdf", stream);
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
     }
 
     excelStream.Dispose();
@@ -957,27 +959,25 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-A complete working example convert Excel with comments to PDF and render comments in place in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20in%20Place%20to%20PDF).
+A complete working example to convert Excel with comments to PDF and render comments in place in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20in%20Place%20to%20PDF).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
 
-The following screenshot represents the output pdf file generated by the XlsIO using PrintInPlace option
+The following screenshot represents the output pdf file generated by the XlsIO using **PrintInPlace** option
 ![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img3.png)
 
 ### Convert comments at the end of the sheet
-Comments (notes) will be rendered in the output PDF document at the end of the each sheet which contains the comments (notes), when the **PrintSheetEnd** option is selected.
-
-The following code illustrates how to convert an Excel workbook to PDF with comments (notes) using `PrintSheetEnd` option.
+Comments (notes) will be rendered in the output PDF document at the end of the each sheet which contains the comments (notes), when the **PrintSheetEnd** option is selected. The following code illustrates this. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
-    IWorkbook workbook = application.Workbooks.Open("Sample2.xlsx");
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
     IWorksheet worksheet = workbook.Worksheets[0];
     
     //Set print location to comments
@@ -992,16 +992,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     pdfDocument = converter.Convert();
 
     //Save the PDF file
-    pdfDocument.Save("ExcelToPDF2.pdf");
-    System.Diagnostics.Process.Start("ExcelToPDF2.pdf");
+    pdfDocument.Save("ExcelToPDF.pdf");
+    System.Diagnostics.Process.Start("ExcelToPDF.pdf");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 	Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample2.xlsx", ExcelOpenType.Automatic)
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     'Set print location to comments
@@ -1017,7 +1017,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     pdfDocument = converter.Convert()
 
     'Save the PDF file
-    pdfDocument.Save("ExcelToPDF2.pdf")
+    pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
 
@@ -1026,13 +1026,13 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Get assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Get input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample2.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet worksheet = workbook.Worksheets[0];
     
@@ -1048,7 +1048,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the PDF document
     MemoryStream stream = new MemoryStream();
     document.Save(stream);
-    Save(stream, "ExcelToPDF2.pdf");
+    Save(stream, "ExcelToPDF.pdf");
 
     excelStream.Dispose();
 }
@@ -1063,7 +1063,7 @@ async void Save(Stream stream, string filename)
     {
 		FileSavePicker savePicker = new FileSavePicker();
         savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
+        savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
         stFile = await savePicker.PickSaveFileAsync();
     }
@@ -1090,7 +1090,8 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    FileStream excelStream = new FileStream("Sample2.xlsx", FileMode.Open, FileAccess.Read);
+	application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet worksheet = workbook.Worksheets[0];
     
@@ -1103,7 +1104,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Convert Excel document into PDF document 
     PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
-    Stream stream = new FileStream("ExcelToPDF2.pdf", FileMode.Create, FileAccess.ReadWrite);
+    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
     pdfDocument.Save(stream);
 
     excelStream.Dispose();
@@ -1115,12 +1116,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-   
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample2.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
     IWorkbook workbook = application.Workbooks.Open(excelStream);
 	IWorksheet worksheet = workbook.Worksheets[0];
@@ -1143,11 +1144,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the stream into pdf file
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF2.pdf", "application/pdf", stream);
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
     }
     else
     {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF2.pdf", "application/pdf", stream);
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
     }
 
     excelStream.Dispose();
@@ -1157,28 +1158,26 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-A complete working example convert Excel with comments to PDF and render comments at the end in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20to%20PDF%20at%20End).
+A complete working example to convert Excel with comments to PDF and render comments at the end in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20to%20PDF%20at%20End).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img4.png)
 
-The following screenshot represents the output pdf file generated by the XlsIO using PrintSheetEnd option
+The following screenshot represents the output pdf file generated by the XlsIO using **PrintSheetEnd** option
 ![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img5.png)
 ![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img6.png)
 
 ### Convert without comments
-Comments (notes) will not be displayed in the output PDF document, if the **PrintNoComments** option is selected.
-
-The following code illustrates how to convert an Excel workbook to PDF without comments (notes) using `PrintNoComments` option.
+Comments (notes) will not be displayed in the output PDF document, if the **PrintNoComments** option is selected. The following code illustrates this. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
-    IWorkbook workbook = application.Workbooks.Open("Sample1.xlsx");
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
     IWorksheet worksheet = workbook.Worksheets[0];
     
     //Set print location to comments
@@ -1193,16 +1192,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     pdfDocument = converter.Convert();
 
     //Save the PDF file
-    pdfDocument.Save("ExcelToPDF3.pdf");
-    System.Diagnostics.Process.Start("ExcelToPDF3.pdf");
+    pdfDocument.Save("ExcelToPDF.pdf");
+    System.Diagnostics.Process.Start("ExcelToPDF.pdf");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
 	Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample1.xlsx", ExcelOpenType.Automatic)
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     'Set print location to comments
@@ -1218,7 +1217,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     pdfDocument = converter.Convert()
 
     'Save the PDF file
-    pdfDocument.Save("ExcelToPDF3.pdf")
+    pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
 
@@ -1227,13 +1226,13 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Get assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Get input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample1.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet worksheet = workbook.Worksheets[0];
     
@@ -1249,7 +1248,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the PDF document
     MemoryStream stream = new MemoryStream();
     document.Save(stream);
-    Save(stream, "ExcelToPDF3.pdf");
+    Save(stream, "ExcelToPDF.pdf");
 
     excelStream.Dispose();
 }
@@ -1264,7 +1263,7 @@ async void Save(Stream stream, string filename)
     {
 		FileSavePicker savePicker = new FileSavePicker();
         savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
+        savePicker.SuggestedFileName = filename;
         savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
         stFile = await savePicker.PickSaveFileAsync();
     }
@@ -1291,7 +1290,8 @@ async void Save(Stream stream, string filename)
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
-    FileStream excelStream = new FileStream("Sample1.xlsx", FileMode.Open, FileAccess.Read);
+	application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(excelStream);
     IWorksheet worksheet = workbook.Worksheets[0];
     
@@ -1304,7 +1304,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Convert Excel document into PDF document 
     PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
-    Stream stream = new FileStream("ExcelToPDF3.pdf", FileMode.Create, FileAccess.ReadWrite);
+    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
     pdfDocument.Save(stream);
 
     excelStream.Dispose();
@@ -1316,12 +1316,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-   
+    application.DefaultVersion = ExcelVersion.Xlsx;
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample1.xlsx");
+    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
     IWorkbook workbook = application.Workbooks.Open(excelStream);
 	IWorksheet worksheet = workbook.Worksheets[0];
@@ -1344,11 +1344,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the stream into pdf file
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF3.pdf", "application/pdf", stream);
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
     }
     else
     {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF3.pdf", "application/pdf", stream);
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
     }
 
     excelStream.Dispose();
@@ -1358,21 +1358,21 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-A complete working example convert Excel with comments to PDF ignoring the comments in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Comments%20in%20PDF).
+A complete working example to convert Excel with comments to PDF ignoring the comments in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Comments%20in%20PDF).
 
 The following screenshot represents the input Excel file with notes
 ![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
 
-The following screenshot represents the output pdf file generated by the XlsIO using PrintNoComments option
+The following screenshot represents the output pdf file generated by the XlsIO using **PrintNoComments** option
 ![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img7.png)
 
 
 ## Substitute Font in Excel-to-PDF Conversion
 
-By default, XlsIO substitutes unsupported fonts to Microsoft Sans Serif in Excel-to-PDF conversion. However, you may require substituting a different font or the same font for the unsupported font during the conversion. XlsIO supports substituting unsupported or missing fonts from the event `SubstituteFont`. The event has the below arguments:
+By default, XlsIO substitutes unsupported fonts to **Microsoft Sans Serif** in Excel-to-PDF conversion. However, there might be a requirement for substituting a different font or the same font for the unsupported font during the conversion. XlsIO supports substituting unsupported or missing fonts through the event [SubstituteFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_SubstituteFont). The event has the below arguments:
 
-**AlternateFontName** – Substitutes an available font in the machine for the `OriginalFontName`.
-**AlternateFontStream** – Substitutes a font from stream that is added as embedded resource for the `OriginalFontName`.	
+**AlternateFontName** – Substitutes an available font in the machine for the [OriginalFontName](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.SubstituteFontEventArgs.html#Syncfusion_XlsIO_Implementation_SubstituteFontEventArgs_OriginalFontName).
+**AlternateFontStream** – Substitutes a font from stream that is added as embedded resource for the [OriginalFontName](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.SubstituteFontEventArgs.html#Syncfusion_XlsIO_Implementation_SubstituteFontEventArgs_OriginalFontName).	
 
 The following code illustrates how to perform Excel-to-PDF conversion by substituting unsupported fonts in the machine.
 
@@ -1512,7 +1512,7 @@ namespace FontSubstitution
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-
+                application.DefaultVersion = ExcelVersion.Xlsx;
                 //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
                 application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
@@ -1572,7 +1572,7 @@ namespace FontSubstitution
             {
                 FileSavePicker savePicker = new FileSavePicker();
                 savePicker.DefaultFileExtension = ".pdf";
-                savePicker.SuggestedFileName = "Sample";
+                savePicker.SuggestedFileName = filename;
                 savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
                 stFile = await savePicker.PickSaveFileAsync();
             }
@@ -1614,7 +1614,7 @@ namespace FontSubstitution
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-
+                application.DefaultVersion = ExcelVersion.Xlsx;
                 //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
                 application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
@@ -1682,7 +1682,7 @@ namespace FontSubstitution
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-
+                application.DefaultVersion = ExcelVersion.Xlsx;
                 //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
                 application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
@@ -1745,9 +1745,9 @@ namespace FontSubstitution
 
 ## Excel to PDF conversion in Linux OS
 
-In Linux OS, you can perform the Excel to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Excel to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Excel to PDF conversion capabilities.
+In Linux OS, the Excel to PDF conversion can be performed using .NET Core (Targeting .netcoreapp) application. Please refer [Excel to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Excel to PDF conversion capabilities.
 
-In addition to the previous NuGet packages, SkiaSharp.Linux helper NuGet package is required that can be generated by the following steps: 
+In addition to the previous NuGet packages, SkiaSharp.Linux helper NuGet package is required, that can be generated by the following steps: 
 
 1. Download libSkiaSharp.so [here](https://github.com/mono/SkiaSharp/releases/tag/v1.59.3#).
 2. Create a folder and name it as SkiaSharp.Linux and place the downloaded file in the folder structure "SkiaSharp.Linux\runtimes\linux-x64\native"
@@ -1786,7 +1786,7 @@ nuget pack SkiaSharp.Linux\SkiaSharp.Linux.nuspec -outputdirectory "C:\NuGet"
 
 The output directory can be customized as per your need.
 
-Now, SkiaSharp.Linux NuGet will be generated in the mentioned output directory and add the generated NuGet as additional reference. You can also find the SkiaSharp.Linux NuGet package created by us from [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
+Now, SkiaSharp.Linux NuGet will be generated in the mentioned output directory and add the generated NuGet as additional reference. SkiaSharp.Linux NuGet package can also be downloaded from [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
 
 ## Print Excel document
 
@@ -1805,6 +1805,7 @@ The following code snippet illustrates how to print the Excel document in XlsIO.
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
 
   // Convert the workbook
@@ -1819,6 +1820,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
 
   'Convert the workbook
@@ -1852,6 +1854,7 @@ The following code snippet illustrates how to print the Excel document with prin
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
 
   //Convert the workbook
@@ -1876,6 +1879,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
 
   'Convert the workbook
@@ -1919,6 +1923,7 @@ The following code snippet illustrates how to print the Excel document with Exce
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Excel.xlsx");
 
   //Convert the workbook
@@ -1939,6 +1944,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
 
   'Convert the workbook
@@ -1978,6 +1984,7 @@ The following code snippet illustrates how to print the Excel document with Exce
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
 
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
@@ -2009,6 +2016,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
   Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
@@ -2050,7 +2058,7 @@ End Using
 {% endtabs %}
 
   
-N> Printing support is applicable only in Windows Forms and WPF platforms.
+N> Printing is supported only in Windows Forms and WPF platforms.
 
 ## Supported elements
 
@@ -2105,4 +2113,4 @@ The following list contains unsupported elements that presently not preserved in
 * OLE objects
 
 
-N> You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.
+N> Explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

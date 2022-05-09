@@ -1,12 +1,13 @@
 ---
 title: Create Excel file in C#, VB.NET | Getting started | Syncfusion
-description: Learn how to create an excel file from data source or scratch; export & import Excel data; create formatted excel report by filling data like Mail merge.
+description: Learn how to create an Excel file from data source or scratch; export & import Excel data; create formatted excel report by filling data like Mail merge.
 platform: File-formats
 control: XlsIO
 documentation: UG
+keywords: c#, vb.net, excel, create excel, new excel , open excel, read excel, edit excel, write excel, update excel, syncfusion, xlsio
 ---
 
-# Getting Started - Create Excel File in C# and VB.NET
+# Create Excel File in C# and VB.NET
 
 This section explains how to create a simple Excel file in C# and VB.NET using XlsIO. The following assemblies must be referred in your application to create and manipulate the Excel document.
 
@@ -26,6 +27,10 @@ This assembly contains the core features for creating, reading, and manipulating
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
 This assembly is used to package the Workbook contents.<br/><br/></td></tr>
+<tr>
+<td>
+Syncfusion.Licensing<br/><br/></td><td>
+Syncfusion licensing is a .NET library for validating the registered Syncfusion license in an application at runtime.<br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -73,7 +78,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
 
   //Assigns default application version
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //A new workbook is created equivalent to creating a new workbook in Excel
   //Create a workbook with 1 worksheet
@@ -100,7 +105,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
 
   'Assigns default application version
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
 
   'A new workbook is created equivalent to creating a new workbook in Excel
   'Create a workbook with 1 worksheet
@@ -128,7 +133,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
 
   //Assigns default application version
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //A new workbook is created equivalent to creating a new workbook in Excel
   //Create a workbook with 1 worksheet
@@ -165,7 +170,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
 
   //Assigns default application version
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //A new workbook is created equivalent to creating a new workbook in Excel
   //Create a workbook with 1 worksheet
@@ -197,7 +202,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
 
   //Assigns default application version
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //A new workbook is created equivalent to creating a new workbook in Excel
   //Create a workbook with 1 worksheet
@@ -233,7 +238,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The output screen-shot of the above code.
 
-![Hello World output](Getting-Started_images/Getting-Started_HelloWorld.jpeg)
+![Create Excel](Getting-Started_images/Getting-Started_HelloWorld.jpeg)
 
 ## Create a Simple Excel File
 
@@ -286,32 +291,32 @@ IApplication application = excelEngine.Excel;
 {% endhighlight %}
 {% endtabs %}  
 
-By default, the Excel version 97 to 2003 (*.xls) is associated with application object. XlsIO writes the excel files in the respective format depending on this excel version. You can modify the default Excel version to Excel 2013 as shown as follows.
+By default, the Excel version 97 to 2003 (*.xls) is associated with application object. XlsIO writes the excel files in the respective format depending on this excel version. You can modify the default Excel version to Xlsx as shown as follows.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 //Assigns default application version
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Xlsx;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Assigns default application version
-application.DefaultVersion = ExcelVersion.Excel2013
+application.DefaultVersion = ExcelVersion.Xlsx
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Assigns default application version
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Xlsx;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Assigns default application version
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Xlsx;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 //Assigns default application version
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Xlsx;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -363,7 +368,6 @@ IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 {% endhighlight %}
 {% endtabs %}
-
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -528,12 +532,12 @@ worksheet.Pictures.AddPicture(10, 2, imageStream);
 //Inserting image
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.image.jpg");
+Stream imageStream = assembly.GetManifestResourceStream("CreateExcel.image.jpg");
 worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 {% endtabs %}  
 
-Finally, save the document in file system and close/dispose the instance of IWorkbook and ExcelEngine.
+Finally, save the document in file system and close/dispose the instance of [IWorkbook](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html) and [ExcelEngine](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelEngine.html).
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -621,7 +625,7 @@ else
 {% endhighlight %}
 {% endtabs %}  
 
-The complete code to create a simple Excel document.
+The complete code to create a simple Excel document is given below.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -640,7 +644,7 @@ namespace ExcelCreation
 		IApplication application = excelEngine.Excel;
 
 		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Excel2013;
+		application.DefaultVersion = ExcelVersion.Xlsx;
 
 		//A new workbook is created equivalent to creating a new workbook in Excel
 		//Create a workbook with 1 worksheet
@@ -696,7 +700,7 @@ Namespace ExcelCreation
 		Dim application As IApplication = excelEngine.Excel
 
 		'Assigns default application version
-		application.DefaultVersion = ExcelVersion.Excel2013
+		application.DefaultVersion = ExcelVersion.Xlsx
 
 		'A new workbook is created equivalent to creating a new workbook in Excel
 		'Create a workbook with 1 worksheet
@@ -760,7 +764,7 @@ namespace ExcelCreation
 		IApplication application = excelEngine.Excel;
 
 		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Excel2013;
+		application.DefaultVersion = ExcelVersion.Xlsx;
 
 		//A new workbook is created equivalent to creating a new workbook in Excel
 		//Create a workbook with 1 worksheet
@@ -832,7 +836,7 @@ namespace ExcelCreation
 		IApplication application = excelEngine.Excel;
 
 		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Excel2013;
+		application.DefaultVersion = ExcelVersion.Xlsx;
 
 		//A new workbook is created equivalent to creating a new workbook in Excel
 		//Create a workbook with 1 worksheet
@@ -897,7 +901,7 @@ namespace ExcelCreation
 		IApplication application = excelEngine.Excel;
 
 		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Excel2013;
+		application.DefaultVersion = ExcelVersion.Xlsx;
 
 		//A new workbook is created equivalent to creating a new workbook in Excel
 		//Create a workbook with 1 worksheet
@@ -961,14 +965,13 @@ namespace ExcelCreation
 {% endhighlight %}
 {% endtabs %}  
 
-The output screen-shot of the above code.
+The screen-shot of the output for above code is given below.
 
-![Getting-Started output](Getting-Started_images/Getting-Started_img1.jpeg)
+![Create Excel](Getting-Started_images/Getting-Started_img1.jpeg)
 
+## Export Data to Excel Worksheets
 
-## Import Data to Excel Worksheets
-
-[XlsIO](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.html) helps to import data from various data sources into a worksheet. The following data sources can be imported using XlsIO:
+[XlsIO](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.html) helps to export data from various data sources into an Excel worksheet. The data from following data sources can be exported to Excel using XlsIO:
 
 * Collection Objects
 * Data Table
@@ -976,14 +979,14 @@ The output screen-shot of the above code.
 * Data View
 * Array
 
-The following code snippet shows how to import data from objects.
+The following code snippet shows how to export data from objects.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -994,14 +997,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.ImportData(employees, 2, 1, false);
 
   //Saving the workbook
-  workbook.SaveAs("Spreadsheet.xlsx");
+  workbook.SaveAs("Sample.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -1012,7 +1015,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.ImportData(employees, 2, 1, False)
 
   'Saving the workbook
-  workbook.SaveAs("Spreadsheet.xlsx")
+  workbook.SaveAs("Sample.xlsx")
 End Using
 {% endhighlight %}
 
@@ -1020,7 +1023,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1033,7 +1036,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Spreadsheet";
+  savePicker.SuggestedFileName = "Sample";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
   //Creates a storage file from FileSavePicker
@@ -1048,7 +1051,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1059,7 +1062,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.ImportData(employees, 2, 1, false);
 
   //Saving the workbook as stream
-  FileStream file = new FileStream("Spreadsheet.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  FileStream file = new FileStream("Sample.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(file);
   file.Dispose();
 }
@@ -1069,7 +1072,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1091,11 +1094,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Spreadsheet.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Spreadsheet.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1350,14 +1353,13 @@ public class Employee
 {% endhighlight %}
 {% endtabs %}  
 
-You can refer various importing options in the “Importing Data to Worksheet” section.
+You can refer various exporting options in the [Working with Data](https://help.syncfusion.com/file-formats/xlsio/working-with-data) section.
 
 ## Export Data from Excel Worksheets 
 
-The worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data through ExcelExportDataTableOptions. 
+The worksheet data can be exported to a data table using the [ExportDataTable()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ExportDataTable_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelExportDataTableOptions_) method. This method provides various options that allows to export data through ExcelExportDataTableOptions. 
 
-The following code demonstrates how to export data from a worksheet to a data table with the __ColumnNames__ and __DetectColumnTypes__ options.
-
+The following code demonstrates how to export data from a worksheet to a data table with the **ColumnNames** and **DetectColumnTypes** options.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1366,7 +1368,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   IWorkbook workbook = application.Workbooks.Open("WorkbookWithData.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Export data from worksheet used range to a DataTable
   DataTable customersTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames | ExcelExportDataTableOptions.DetectColumnTypes);
@@ -1382,7 +1384,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("WorkbookWithData.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
 
   'Export data from worksheet used range to a DataTable
   Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames Or ExcelExportDataTableOptions.DetectColumnTypes)
@@ -1403,7 +1405,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -1422,7 +1424,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "CreateSpreadsheet";
+  savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
   //Creates a storage file from FileSavePicker
@@ -1496,7 +1498,7 @@ public class Sales
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("WorkbookWithData.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -1521,9 +1523,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream fileStream = assembly.GetManifestResourceStream("ExportSales.xlsx");
+  Stream fileStream = assembly.GetManifestResourceStream("ExportData.WorkbookWithData.xlsx");
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -1540,11 +1542,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CreateSheet.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CreateSheet.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 
@@ -1609,10 +1611,9 @@ public class Sales
 
 The following screenshot shows the DataTable of previous code.
 
-![DataTable output](Getting-Started_images/Getting-Started_img2.jpeg)
+![Excel to Data Table](Getting-Started_images/Getting-Started_img2.jpeg)
 
-
-You can refer various exporting options in the “Exporting from Worksheet to Data Table” section.
+You can refer various exporting options in the [Working with Data](https://help.syncfusion.com/file-formats/xlsio/working-with-data) section.
 
 ## Template based data filling using Template Markers
 
@@ -1624,7 +1625,7 @@ This functionality supports the following data sources.
 * DataTable
 * Array
 
-Each marker starts with a prefix "%", which is followed by a __MarkerVariable__ and its __property__. The arguments are delimited by semicolon (;). The following syntax shows the usage of marker in input template document. 
+Each marker starts with a prefix "%", which is followed by a **MarkerVariable** and its **property**. The arguments are delimited by semicolon (;). The following syntax shows the usage of marker in input template document. 
 
 <table>
 <tr>
@@ -1643,7 +1644,7 @@ Find more details in [Template marker section for arguments](https://help.syncfu
 
 For example – let’s consider that you have a template document as shown below.
 
-![Template document output](Getting-Started_images/Getting-Started_img3.jpeg)
+![Template Marker](Getting-Started_images/Getting-Started_img3.jpeg)
 
 [Download input template](http://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
@@ -1654,7 +1655,7 @@ The following code snippet shows how to use template markers with objects.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1679,7 +1680,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+  application.DefaultVersion = ExcelVersion.Xlsx
   Dim workbook As IWorkbook = application.Workbooks.Open("TemplateMarker.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
@@ -1705,7 +1706,7 @@ End Using
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -1749,7 +1750,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
 
@@ -1777,9 +1778,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.TemplateMarker.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("FillData.TemplateMarker.xlsx");
   IWorkbook workbook = application.Workbooks.Open(inputStream);
 
   //Create template marker processor for the workbook
@@ -1962,7 +1963,7 @@ public class Report
   private byte[] GetImage(string imagePath)
   {
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream imageStream = assembly.GetManifestResourceStream("UWP.Data." + imagePath);
+	Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
 	using (BinaryReader br = new BinaryReader(imageStream))
 	{
 	  return br.ReadBytes((int)imageStream.Length);
@@ -2038,7 +2039,7 @@ public class Report
   private byte[] GetImage(string imagePath)
   {
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template." + imagePath);
+	Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
 	using (BinaryReader reader = new BinaryReader(imageStream))
 	{
 	  return reader.ReadBytes((int)imageStream.Length);
@@ -2048,8 +2049,8 @@ public class Report
 {% endhighlight %}
 {% endtabs %}  
 
-The resultant document looks as follows:
+The resultant document looks as follows.
 
-![Output document using Template data filling](Getting-Started_images/Getting-Started_img4.jpeg)
+![Template Marker](Getting-Started_images/Getting-Started_img4.jpeg)
 
 N> You can refer to our [.Net Excel Framework](https://www.syncfusion.com/excel-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.
