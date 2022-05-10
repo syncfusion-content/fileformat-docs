@@ -246,3 +246,5 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </td>
   </tr>
 </table>
+
+N> You can also explore our [MAUI PowerPoint library demo](https://github.com/syncfusion/maui-demos) that shows how to create and modify MAUI PowerPoint files with just few lines of code.
