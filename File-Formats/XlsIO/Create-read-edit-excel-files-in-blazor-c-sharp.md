@@ -88,7 +88,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Create a workbook
     IWorkbook workbook = application.Workbooks.Create(1);
@@ -335,7 +335,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Set the default application version
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Load the existing Excel workbook into IWorkbook
     FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open);
@@ -414,7 +414,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Create a workbook
     IWorkbook workbook = application.Workbooks.Create(1);

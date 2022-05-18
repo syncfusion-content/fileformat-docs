@@ -92,7 +92,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
 
-	application.DefaultVersion = ExcelVersion.Excel2016;
+	application.DefaultVersion = ExcelVersion.Xlsx;
 
 	//Create a workbook with a worksheet
 	IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
@@ -104,7 +104,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	Stream inputStream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png");
 
 	//Add a picture
-	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream);
+	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
 
 	//Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = false;
@@ -281,7 +281,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
 	Dim application As IApplication = excelEngine.Excel
 
-	application.DefaultVersion = ExcelVersion.Excel2016
+	application.DefaultVersion = ExcelVersion.Xlsx
 
 	'Create a workbook
 	Dim workbook As IWorkbook = application.Workbooks.Create(1)
@@ -290,7 +290,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 	'Adding a picture
 	Dim executingAssembly As Assembly = GetType(MainPage).GetTypeInfo().Assembly
 	Dim inputStream As Stream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png")
-	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream)
+	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20)
 
 	'Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = False
@@ -571,7 +571,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 {
 	ExcelEngine excelEngine = new ExcelEngine();
 	IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Excel2013;
+	application.DefaultVersion = ExcelVersion.Xlsx;
 
 	string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
 	//"App" is the class of Portable project.
