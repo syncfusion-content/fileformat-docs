@@ -7,7 +7,7 @@ control: Installation and Deployment
 documentation: ug
 ---
 
-# Installation using Web Installer
+# Installing Syncfusion FileFormats web installer
 
 
 ## Overview
@@ -121,13 +121,7 @@ Follow either one of the option below to uninstall Syncfusion Essential Studio F
 
 Syncfusion provides the option to uninstall products of the same version directly from the Web Installer application. Select the products to be uninstalled from the list, and Web Installer will uninstall them one by one.
 
-Open the Syncfusion Essential Studio FileFormats Online Installer file from downloaded location by double-clicking it. The Installer Wizard automatically opens and extracts the package
-
-![Installer Extraction Wizard uninstall](images/Step-by-Step-Installation_img1.png)
-	
-The Syncfusion FileFormats Web Installer's welcome wizard will be displayed. Click the Next button
-	
-![Welcome wizard uninstall](images/Step-by-Step-Installation_img2.png)
+![Platform Selection wizard Installed](images/Step-by-Step-Installation_img4.png)
 	
 	
 **Option 2: Uninstall the FileFormats from Windows Control Panel**  
@@ -138,7 +132,11 @@ You can uninstall all the installed products by selecting the **Syncfusion Essen
 	
 N> If the **Syncfusion Essential Studio for FileFormats {version}** entry is selected from the Windows control panel, the Syncfusion Essential Studio FileFormats alone will be removed and the below default MSI uninstallation window will be displayed.	
 
-1.  The Platform Selection Wizard will appear. From the **Installed** tab, select the products to be uninstalled. To select all products, check the **Uninstall All** checkbox. Click the Next button.
+1.  The Syncfusion FileFormats Web Installer's welcome wizard will be displayed. Click the Next button
+	
+    ![Welcome wizard uninstall](images/Step-by-Step-Installation_img2.png)
+	
+2.  The Platform Selection Wizard will appear. From the **Installed** tab, select the products to be uninstalled. To select all products, check the **Uninstall All** checkbox. Click the Next button.
     
 	<em>**Installed**</em>
 	
@@ -150,37 +148,37 @@ N> If the **Syncfusion Essential Studio for FileFormats {version}** entry is sel
 	
 	![Platform Selection wizard Available](images/Step-by-Step-Installation_img25.png)
 	
-2.  If any other products selected for installation, Uninstall previous version wizard will be displayed with previous version(s) installed for the selected products. Here you can view the list of installed previous versions for the selected products. Select **Uninstall All** checkbox to select all the versions. Click Next.
+3.  If any other products selected for installation, Uninstall previous version wizard will be displayed with previous version(s) installed for the selected products. Here you can view the list of installed previous versions for the selected products. Select **Uninstall All** checkbox to select all the versions. Click Next.
 
 	![Existing Version for install](images/Step-by-Step-Installation_img26.png)
 	
-3.	Pop up screen will be displayed to get the confirmation to uninstall selected previous versions.
+4.	Pop up screen will be displayed to get the confirmation to uninstall selected previous versions.
 
 	![Existing Version for install](images/Step-by-Step-Installation_img21.png)	
 	
-4.  The Confirmation Wizard will appear with the list of products to be installed/uninstalled. Here you can view and modify the list of products that will be installed/uninstalled.
+5.  The Confirmation Wizard will appear with the list of products to be installed/uninstalled. Here you can view and modify the list of products that will be installed/uninstalled.
 
     ![Confirmation for install/uninstall](images/Step-by-Step-Installation_img15.png)
 	
 	N> By clicking the **Download Size and Installation** Size links, you can determine the approximate size of the download and installation
 	
-5.	The Configuration Wizard will appear. You can change the Download, Install, and Demos locations from here. You can also change the Additional settings on a product-by-product basis. Click Next to install with the default settings.
+6.	The Configuration Wizard will appear. You can change the Download, Install, and Demos locations from here. You can also change the Additional settings on a product-by-product basis. Click Next to install with the default settings.
 
     ![Install and samples location install/uninstall](images/Step-by-Step-Installation_img23.png)
 	
-6.	After reading the License Terms and Conditions, check the **I agree to the License Terms and Privacy Policy** check box. Click the Next button.
+7.	After reading the License Terms and Conditions, check the **I agree to the License Terms and Privacy Policy** check box. Click the Next button.
 
-7.	The login wizard will appear. You must enter your Syncfusion email address and password. If you do not already have a Syncfusion account, you can create one by clicking on **Create an Account**. If you have forgotten your password, click **Forgot Password** to create a new one. Click the Install button.
+8.	The login wizard will appear. You must enter your Syncfusion email address and password. If you do not already have a Syncfusion account, you can create one by clicking on **Create an Account**. If you have forgotten your password, click **Forgot Password** to create a new one. Click the Install button.
 
     ![Login wizard install/uninstall](images/Step-by-Step-Installation_img9.png)
 	
 	I> The products you have chosen will be installed based on your Syncfusion License (Trial or Licensed).
 
-8.	The download, installation, and uninstallation progresses will be shown.
+9.	The download, installation, and uninstallation progresses will be shown.
 
     ![Download and Installation progress install/uninstall](images/Step-by-Step-Installation_img17.png)
 
-9.	When the installation is finished, the **Summary** wizard will appear. Here you can see the list of products that have been successfully and unsuccessfully installed/uninstalled. To close the Summary wizard, click Finish.
+10.	When the installation is finished, the **Summary** wizard will appear. Here you can see the list of products that have been successfully and unsuccessfully installed/uninstalled. To close the Summary wizard, click Finish.
 
     ![Summary install/uninstall](images/Step-by-Step-Installation_img18.png)
 	
