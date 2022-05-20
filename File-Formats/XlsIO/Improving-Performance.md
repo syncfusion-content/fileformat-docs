@@ -78,6 +78,9 @@ The following code example illustrates how the **IMigrantRange** is accessed.
 {% highlight c# tabtitle="C#" %}
 IMigrantRange migrantRange = workbook.Worksheets[0].MigrantRange; 
 
+int rowCount = 10;
+int colCount = 10; 
+
 // Writing Data.
 for (int row = 1; row <= rowCount; row++)
 {
@@ -99,6 +102,9 @@ migrantRange.Value = "Syncfusion";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
+Dim rowCount As Integer = 10
+Dim colCount As Integer = 10
+
 'Writing Data.
 Dim row As Integer
 Dim migrantRange As IMigrantRange = workbook.Worksheets(0).MigrantRange

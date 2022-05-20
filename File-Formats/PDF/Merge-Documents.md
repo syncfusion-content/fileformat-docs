@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Merge PDF Documents using .NET PDF Library
 
-Essential PDF supports [merging multiple PDF](https://www.syncfusion.com/pdf-framework/net/pdf-library/split-merge-pdf) documents from disk and stream.
+Essential PDF supports [merging multiple PDF](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/merge-pdf) documents from disk and stream.
 
 ## Merging multiple documents from disk and stream
 
@@ -1634,7 +1634,7 @@ return File(stream, contentType, fileName);
 
 ## Extend the margin of the PDF pages while merging PDF document
 
-The ['Syncfusion PDF library'](https://www.syncfusion.com/pdf-framework/net) provides support for extending the margins of the pdf pages by using the ['ExtendMargin'](https://help.syncfusion.com/cr/aspnet/Syncfusion.Pdf.PdfMergeOptions.html#Syncfusion_Pdf_PdfMergeOptions_ExtendMargin) property available from the ['PdfMergeOptions'](https://help.syncfusion.com/cr/aspnet/Syncfusion.Pdf.PdfMergeOptions.html) class. When ExtendMargin is set to true, then a specified margin is considered while merging the existing documents. 
+The ['Syncfusion PDF library'](https://www.syncfusion.com/document-processing/pdf-framework/net) provides support for extending the margins of the pdf pages by using the ['ExtendMargin'](https://help.syncfusion.com/cr/aspnet/Syncfusion.Pdf.PdfMergeOptions.html#Syncfusion_Pdf_PdfMergeOptions_ExtendMargin) property available from the ['PdfMergeOptions'](https://help.syncfusion.com/cr/aspnet/Syncfusion.Pdf.PdfMergeOptions.html) class. When ExtendMargin is set to true, then a specified margin is considered while merging the existing documents. 
  The following code sample illustrates this.
 
 {% tabs %}

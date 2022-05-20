@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Security
 
-Essential PDF allows you to [protect the PDF document](https://www.syncfusion.com/pdf-framework/net/pdf-library/protect-pdf) using encryption and set permission to the PDF document operations like printing, editing, copy content etc. using user password and owner password.  Two types of encryption algorithms are available
+Essential PDF allows you to [protect the PDF document](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/protect-pdf) using encryption and set permission to the PDF document operations like printing, editing, copy content etc. using user password and owner password.  Two types of encryption algorithms are available
 
 1. Rivest Cipher 4 (RC4)
 2. Advanced Encryption Standard (AES)

@@ -554,7 +554,7 @@ Save implementation for WinRT device.
 9.Compile and execute the application. Now this application creates a simple Excel document.
 
 
-A complete working example of how to create an Excel file in Xamarin can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-1863474945.zip).
+A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
 
 By executing the program, you will get the Excel file as below.
 ![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
@@ -587,6 +587,9 @@ void btnCreate_Click(object sender, System.EventArgs e)
 	//Set Text in cell A3.
 	worksheet.Range["A3"].Text ="Hello World";
 
+    //Access a cell value from Excel
+    var value = worksheet.Range["A1"].Value;
+
 	MemoryStream stream = new MemoryStream();
 	workbook.SaveAs(stream);
 
@@ -611,6 +614,8 @@ private interface ISave
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to read and edit an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Edit%20Excel).
 
 N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
 
