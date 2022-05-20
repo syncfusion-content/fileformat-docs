@@ -64,7 +64,7 @@ The steps below show how to install Essential Studio FileFormats Web Installer.
 	
 6. 	The Confirmation Wizard will appear with the list of products to be installed/uninstalled. You can view and modify the list of products that will be installed and uninstalled from this page.
 
-    ![Downaload and Installation size install/uninstall](images/Step-by-Step-Installation_img16.png)
+    ![Confirmation for install/uninstall](images/Step-by-Step-Installation_img15.png)
 	
 	N> By clicking the **Download Size and Installation** Size links, you can determine the approximate size of the download and installation
 	
