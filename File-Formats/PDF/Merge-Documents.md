@@ -1650,6 +1650,9 @@ PdfMargins margin = new PdfMargins();
 
 margin.All = 40;
 
+//Set margin.
+finalDoc.PageSettings.Margins = margin;
+
 //Create a string array of source files to be merged
 
 string[] source = { "file1.pdf", "file2.pdf" };
@@ -1685,6 +1688,9 @@ finalDoc.Close(true);
 Dim margin As PdfMargins = New PdfMargins()
 margin.All = 40
 
+'Set margin.
+finalDoc.PageSettings.Margins = margin;
+
 'Create a string array of source files to be merged
 Dim source As String() = {"file1.pdf", "file2.pdf"}
 
@@ -1692,6 +1698,7 @@ Dim mergeOptions As New PdfMergeOptions()
 
 'Enable the Extend Margin Property
 mergeOptions.ExtendMargin=true
+
 
  'Merge PDFDocument
 
@@ -1717,6 +1724,9 @@ PdfDocument finalDoc = new PdfDocument();
 //Create new instance for the document margin.
 PdfMargins margin= new PdfMargins();
 margin.All=40;
+
+//Set margin.
+finalDoc.PageSettings.Margins = margin;
 
 FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
 
