@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in .NET MAUI
 
-Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/word-framework/maui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
+Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
 
 **Prerequisites:**
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
@@ -393,4 +393,4 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
 </table>
 
-
+N> You can also explore our [.NET MAUI Word library demo](https://github.com/syncfusion/maui-demos/tree/master/SampleBrowser.Maui/Samples/DocIO) that shows how to create and modify .NET MAUI Word files with just few lines of code.
