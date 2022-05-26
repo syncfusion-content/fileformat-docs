@@ -330,7 +330,7 @@ The following guide shows how to fill a sample PDF form as shown.
 ![Form Filling](GettingStarted_images/GettingStarted_img2.jpeg)
 
 
-Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
+.NET Core PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
 {% highlight c# tabtitle="C#" %}
 
