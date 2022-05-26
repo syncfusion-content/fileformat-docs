@@ -4,32 +4,27 @@ description: Learn how to create or generate a PDF file in ASP.NET Core with eas
 platform: file-formats
 control: PDF
 documentation: UG
-keywords: Assemblies
+keywords: .net core create pdf, edit pdf, merge, pdf form, fill form, digital sign, table, c#, dotnet core pdf, asp generate pdf, aspx generate pdf
 ---
 
 # Create or Generate PDF file in ASP.NET Core
 
 The Syncfusion [.NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
-In your ASP.NET Core application, add the following assemblies to use Essential PDF:
-
-* Syncfusion.Compression.Portable.dll
-* Syncfusion.Pdf.Portable.dll  
-
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
+To include the .NET Core PDF library into your ASP.NET Core application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## Steps to create PDF document in ASP.NET Core
 
 Create a new C# ASP.NET Core Web Application project.
-![Creation1](Asp.Net.Core_images/Creation1.jpg)
+![Generate ASP.NET Core project using Visual Studio](Asp.Net.Core_images/Creation1.jpg)
 
 Select Web Application pattern (Model-View-Controller) for the project.
-![Creation2](Asp.Net.Core_images/Creation2.jpg)
+![.NET Core PDF generator](Asp.Net.Core_images/Creation2.jpg)
 
-Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
-![Creation3](Asp.Net.Core_images/Creation3.jpg)
+Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your ASP.NET Core applications from [NuGet.org](https://www.nuget.org/).
+![Include dotnet core PDF generator NuGet](Asp.Net.Core_images/Creation3.jpg)
 
-A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
+A default controller with name HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -46,17 +41,17 @@ Add a new button in the Index.cshtml as shown below.
 
 {% highlight c# tabtitle="C#" %}
 
-@{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
+@{Html.BeginForm("CreatePDFDocument", "Home", FormMethod.Get);
 {
 <div>
-    <input type="submit" value="Create Document" style="width:150px;height:27px" />
+    <input type="submit" value="Generate PDF Document" style="width:150px;height:27px" />
 </div>
 }
 Html.EndForm();
 }
 {% endhighlight %}
 
-Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an PDF file and download it.
+Add a new action method CreatePDFDocument in HomeController.cs and include the below code snippet to generate a PDF file and download it from a ASP.NET Core application.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -96,7 +91,7 @@ A complete work sample can be downloaded from [Create-PDF-file.zip](http://www.s
 
 
 By executing the program, you will get the PDF document as follows.
-![output](GettingStarted_images/Hello World.jpg)
+![Generate PDF using .NET Core](GettingStarted_images/Hello_World.jpg)
 
 N> The WinForms and WPF controls support in .NET Core 3.0 have been provided. To run this application, please install the [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common) NuGet package as a dependent package. 
 
@@ -139,7 +134,7 @@ The following code example shows how to create a PDF document with a simple tabl
 
 {% highlight c# tabtitle="C#" %}
 
-//Create a new PDF document.
+//Generate a new PDF document.
 PdfDocument doc = new PdfDocument();
 //Add a page.
 PdfPage page = doc.Pages.Add();
@@ -163,7 +158,7 @@ IEnumerable<object> dataTable = data;
 pdfGrid.DataSource = dataTable;
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
-//Save the PDF document to stream
+//Write the PDF document to stream
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
@@ -180,7 +175,7 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 ## Creating a simple PDF document with basic elements
-The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
+The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
 
 {% highlight c# tabtitle="C#" %}
 
@@ -325,7 +320,7 @@ The following screenshot shows the invoice PDF document created by using Essenti
 
 An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
-Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+.NET Core PDF library allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
 
 1. Syncfusion.Pdf
 2. Syncfusion.Pdf.Parsing
@@ -357,7 +352,7 @@ radioButtonCollection[0].Checked = true;
 (form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
 //Checks the 'retiree' checkbox field
 (form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
-//Save the PDF document to stream
+//Write the PDF document to stream
 MemoryStream stream = new MemoryStream();
 loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
@@ -379,13 +374,13 @@ The filled form is shown in adobe reader application as follows.
 
 ## Merge PDF Documents
 
-Essential PDF supports merging multiple PDF documents from stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method.
+.NET Core PDF library supports merging multiple PDF documents from stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method.
 
 You can merge the PDF document streams by using the following code example.
 
 {% highlight c# tabtitle="C#" %}
 
-//Creates a PDF document
+//Generate a PDF document
 PdfDocument finalDoc = new PdfDocument();
 FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
 FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
