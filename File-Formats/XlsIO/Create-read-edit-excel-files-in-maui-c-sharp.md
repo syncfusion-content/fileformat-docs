@@ -252,7 +252,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Save Service class in portable project
 
-Add the new class file with name as **SaveService** to the **Project** and add below code in it.
+Add the new class file with name as **SaveService** to the **Project** and add below code in it. This is the helper class used to save and view the Exce file in windows, android, iOS and MAC devices.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
