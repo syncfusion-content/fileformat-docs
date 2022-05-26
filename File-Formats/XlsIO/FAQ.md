@@ -1,7 +1,7 @@
 ---
 title: FAQ Section| XlsIO | Syncfusion
 description: In this section, you can know about the various questions asked about manipulation of Excel document using XlsIO.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

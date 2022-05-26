@@ -1,7 +1,7 @@
 ---
 title: How to set print titles | XlsIO | Syncfusion
 description: This page demonstrates with an example to set print titles using Syncfusion .NET Excel library (XlsIO).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

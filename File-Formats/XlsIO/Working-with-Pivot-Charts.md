@@ -1,7 +1,7 @@
 ---
 title: Working with Pivot Charts | Syncfusion
 description: Learn here all about working with the Pivot Charts in the Syncfusion Excel (XlsIO) Library and more.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG 
 ---
