@@ -1,7 +1,7 @@
 ---
 title: Supported Features by File Formats | Syncfusion
 description: Learn here all about supported and non-supported features of Syncfusion File formats library, and more.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
