@@ -1,7 +1,7 @@
 ---
 title: Improving Performance | Syncfusion
 description: This section illustrates about improving the performance in Syncfusion Excel library (Essential XlsIO).
-platform: File-Formats
+platform: file-Formats
 control: XlsIO
 documentation: UG
 ---

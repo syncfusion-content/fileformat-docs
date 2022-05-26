@@ -1,7 +1,7 @@
 ---
 title: Security in Excel (XlsIO) Library | Syncfusion
 description: This section explains all about the security feature of the Syncfusion Excel (XlsIO) Library and more.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
