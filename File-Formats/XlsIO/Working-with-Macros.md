@@ -1,7 +1,7 @@
 ---
 title: Macros | Excel library | Syncfusion
 description: In this section, you can learn how to create, edit and remove macros and perform different macro operations in Excel using XlsIO
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

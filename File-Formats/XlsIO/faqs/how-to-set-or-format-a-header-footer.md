@@ -1,7 +1,7 @@
 ---
 title: How to set or format a Header/Footer | XlsIO | Syncfusion
 description: This page explains with an example to set or format a Header/Footer using Syncfusion .NET Excel library (XlsIO).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

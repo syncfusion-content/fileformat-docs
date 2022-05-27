@@ -1,7 +1,7 @@
 ---
 title: Excel cannot open the file in File Formats XlsIO | Syncfusion
 description: This page shows how to resolve "Excel cannot open the file because the file format is not valid..." using XlsIO.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
