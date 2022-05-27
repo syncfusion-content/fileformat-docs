@@ -4,6 +4,7 @@ description: Learn how to create or generate a PDF file in C# and VB.NET with el
 platform: file-formats
 control: PDF
 documentation: UG
+keywords: create pdf, edit pdf, write pdf, merge, pdf form, fill form, digital sign, table, c#, dotnet pdf
 ---
 # Create or Generate PDF file in C# and VB.NET
 
@@ -166,7 +167,7 @@ else
 
 ## Creating a PDF document with image
 
-The following code example shows how to create a PDF document with an image.
+The following code example shows how to generate a PDF document with an image.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
@@ -283,7 +284,7 @@ else
 
 ## Creating a PDF document with table
 
-The following code example shows how to create a PDF document with a simple table.
+The following code example shows how to generate a PDF document with a simple table.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document
@@ -463,7 +464,7 @@ else
 {% endtabs %}
 
 ## Creating a simple PDF document with basic elements
-The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
+The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1113,21 +1114,21 @@ else
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
-![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
+![invoice PDF](GettingStarted_images/GettingStarted_img1.jpeg)
 
 
 ## Filling forms
 
 An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
-Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+Essential PDF is a PDF generator which allows you to create/write and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
 
 1. Syncfusion.Pdf
 2. Syncfusion.Pdf.Parsing
 
-The following guide shows how to fill a sample PDF form as shown.
+The following guide shows how to fill a sample PDF form programmatically.
 
-![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
+![Sample PDF Form](GettingStarted_images/GettingStarted_img2.jpeg)
 
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
@@ -1296,7 +1297,7 @@ else
 
 The filled form is shown in adobe reader application as follows.
 
-![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
+![Filled the Form using .NET](GettingStarted_images/GettingStarted_img3.jpeg)
 
 ## Converting HTML contents to PDF
 
