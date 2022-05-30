@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Upgrading Syncfusion FileFormats installer to a latest version - Syncfusion
+title: Upgrading Syncfusion FileFormats installer to latest version
 description: Learn here about the how upgrade Syncfusion FileFormats installer to a latest version from website and control panel.
 platform: file-formats
 control: Essential Studio
