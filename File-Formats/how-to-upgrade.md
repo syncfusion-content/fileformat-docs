@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Major Version to Service Pack Version| FileFormats | Syncfusion
-description: this section provides the information about upgrading the FileFormats projects from major version to service pack version
+title: Upgrading Syncfusion FileFormats installer to a latest version - Syncfusion
+description: Learn here about the how upgrade Syncfusion FileFormats installer to a latest version from website and control panel.
 platform: file-formats
 control: Essential Studio
 documentation: ug
 ---
 
-# Upgrading Syncfusion FileFormats
+# Upgrading Syncfusion FileFormats installer to a latest version
 
 Syncfusion releases new volumes once every three months, with exciting new features. There will be one Service Pack release for these volume releases. Service Pack releases are provided to address major bug fixes in the volume releases.
 
