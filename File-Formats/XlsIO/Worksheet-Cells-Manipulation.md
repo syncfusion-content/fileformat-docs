@@ -1,7 +1,7 @@
 ---
 title: Worksheet Cells Manipulation | Syncfusion
 description: This section illustrates about cells manipulation in Excel worksheet using Syncfusion XlsIO (a .NET Excel library).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 keywords: c#, vb.net, excel, read excel, edit excel, edit excel cell, write excel cell, fill excel, write excel, update excel, syncfusion, xlsio

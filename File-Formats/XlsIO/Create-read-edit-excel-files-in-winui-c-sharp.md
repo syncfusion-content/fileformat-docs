@@ -1,7 +1,7 @@
 ---
 title: Create, read, and edit Excel files in WinUI | Syncfusion
 description: Explains how to create, read, and edit Excel documents in WinUI applications using Syncfusion Excel Library.
-platform: winui
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

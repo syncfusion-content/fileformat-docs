@@ -1,7 +1,7 @@
 ---
 title: Chart to Image Conversion | Syncfusion
 description: This section explains about Chart to Image conversion supported in XlsIO. Use XlsIORenderer class ChartRenderingOptions for specify Image format & quality.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

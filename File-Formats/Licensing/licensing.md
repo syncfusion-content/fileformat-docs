@@ -38,3 +38,8 @@ Trial message will be displayed as watermark in the generated documents, if File
 **Example**
 
 ![IO Licensing Message](licensing-images/io-licensing-message.png)
+
+## See Also
+
+* [How to Generate Syncfusion FileFormats License Key?](https://help.syncfusion.com/file-formats/licensing/generating-license-keys)
+* [How to Register Syncfusion License Key in the Application?](https://help.syncfusion.com/file-formats/licensing/registering-license-keys)

@@ -1,7 +1,7 @@
 ---
 title: Loading and saving workbook |Syncfusion|
 description: Explains the various types of the load and save operations in present in the Syncfusion XlsIO control
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
