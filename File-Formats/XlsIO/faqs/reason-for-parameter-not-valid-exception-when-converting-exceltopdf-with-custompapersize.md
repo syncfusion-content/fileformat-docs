@@ -1,7 +1,7 @@
 ---
 title: How to overcome Parameter Not valid exception | XlsIO | Syncfusion
 description: This page tells the reason for parameter not valid exception in Excel to PDF with Custom Papar Size in Syncfusion .NET Excel library (XlsIO).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

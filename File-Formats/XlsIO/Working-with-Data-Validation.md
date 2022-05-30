@@ -1,7 +1,7 @@
 ---
 title: Working with Data Validation | Syncfusion
 description: This section explains about how to create data validation rules. Data Validation is a list of rules to the data that can be entered in a cell.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
