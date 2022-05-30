@@ -1,7 +1,7 @@
 ---
 title: Working with Formulas | Syncfusion
 description: Learn how to create, read, edit & calculate formula in an Excel file. It provides support for all types of formula that Microsoft Excel supports.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 keywords: c#, vb.net, excel, read excel, edit excel, edit excel cell, excel formula, cell formula, add formula, write excel, update excel, syncfusion, xlsio

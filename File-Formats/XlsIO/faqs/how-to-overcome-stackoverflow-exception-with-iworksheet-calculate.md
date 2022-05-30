@@ -1,7 +1,7 @@
 ---
 title: Avoid StackOverflow exception with IWorksheet Calculate() |Syncfusion
 description: This page shows how to overcome StackOverflow exception while calling Calculate method of IWorksheet using XlsIO.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

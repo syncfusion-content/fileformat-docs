@@ -1,7 +1,7 @@
 ---
 title: Excel to ODS Conversion in Syncfusion .NET Excel Library
 description: In this section, you can learn how to convert Excel docuemnts to ODS docuemnts using Syncfusion .NET Excel library
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

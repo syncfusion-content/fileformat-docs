@@ -1,7 +1,7 @@
 ---
 title: How to sort two or more columns in a pivot table | Syncfusion
 description: Code example to sort two or more columns in a pivot table using Syncfusion .NET Excel library (XlsIO).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
