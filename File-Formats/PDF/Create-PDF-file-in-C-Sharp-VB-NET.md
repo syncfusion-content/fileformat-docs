@@ -4,6 +4,7 @@ description: Learn how to create or generate a PDF file in C# and VB.NET with el
 platform: file-formats
 control: PDF
 documentation: UG
+keywords: create pdf, edit pdf, write pdf, merge, pdf form, fill form, digital sign, table, c#, vb.net, dotnet pdf
 ---
 # Create or Generate PDF file in C# and VB.NET
 
@@ -166,7 +167,7 @@ else
 
 ## Creating a PDF document with image
 
-The following code example shows how to create a PDF document with an image.
+The following code example shows how to generate a PDF document with an image.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
@@ -283,7 +284,7 @@ else
 
 ## Creating a PDF document with table
 
-The following code example shows how to create a PDF document with a simple table.
+The following code example shows how to generate a PDF document with a simple table.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document
@@ -371,7 +372,7 @@ dataTable.Rows.Add(new object[] { "SO-B909-M", "Mozzarella di Giovanni", "15", "
 pdfGrid.DataSource = dataTable;
 //Draw grid to the page of PDF document
 pdfGrid.Draw(page, new PointF(10, 10));
-//Save the PDF document to stream.
+//Write the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
 //Close the document.
@@ -463,7 +464,7 @@ else
 {% endtabs %}
 
 ## Creating a simple PDF document with basic elements
-The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
+The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1092,7 +1093,7 @@ document.Close(true);
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Save the PDF document to stream.
+//Write the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
 //Close the document.
@@ -1111,7 +1112,7 @@ else
 {% endhighlight %}
 {% endtabs %}
 
-The following screenshot shows the invoice PDF document created by using Essential PDF.
+The following screenshot shows the invoice PDF document created by using .NET PDF library.
 
 ![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
 
@@ -1120,17 +1121,17 @@ The following screenshot shows the invoice PDF document created by using Essenti
 
 An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
-Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+.NET PDF library allows you to create/write and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
 
 1. Syncfusion.Pdf
 2. Syncfusion.Pdf.Parsing
 
-The following guide shows how to fill a sample PDF form as shown.
+The following guide shows how to fill a sample PDF form programmatically.
 
-![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
+![Sample PDF Form](GettingStarted_images/GettingStarted_img2.jpeg)
 
 
-Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
+.NET PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1296,7 +1297,7 @@ else
 
 The filled form is shown in adobe reader application as follows.
 
-![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
+![Form Fill using .NET](GettingStarted_images/GettingStarted_img3.jpeg)
 
 ## Converting HTML contents to PDF
 
@@ -1520,7 +1521,7 @@ Refer to the following code example to merge multiple documents from disk.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Creates the new PDF document
+//Generate the new PDF document
 PdfDocument finalDoc = new PdfDocument();
 // Creates a string array of source files to be merged.
 string[] source = { "file1.pdf, file2.pdf" };
@@ -1537,7 +1538,7 @@ finalDoc.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Creates the new PDF document
+'Generate the new PDF document
 Dim finalDoc As New PdfDocument()
 ' Creates a string array of source files to be merged.
 Dim source As String() = {"file1.pdf, file2.pdf"}
@@ -1615,7 +1616,7 @@ finalDoc.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Creates a PDF document
+//Generate the PDF document
 PdfDocument finalDoc = new PdfDocument();
 FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
 FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
