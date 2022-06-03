@@ -7,7 +7,7 @@ control: System Requirements
 documentation: ug
 
 ---
-# System requirements for FileFormats Components
+# System Requirements for FileFormats Components
 
 The system requirements for using our Syncfusion FileFormats platform are as follows
 
