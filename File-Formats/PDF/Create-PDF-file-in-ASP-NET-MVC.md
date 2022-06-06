@@ -4,23 +4,21 @@ description: Learn how to create or generate a PDF file in ASP.NET MVC with easy
 platform: file-formats
 control: PDF
 documentation: UG
+keywords: mvc create pdf, mvc generate pdf, edit pdf, merge, pdf form, fill form, digital sign, table, c#, mvc generate pdf
 ---
 # Create or Generate PDF file in ASP.NET MVC
 
-In your ASP.NET MVC application, add the following assemblies to use Essential PDF:
+The Syncfusion [.NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms and secure PDF files. 
 
-* Syncfusion.Pdf.Base
-* Syncfusion.Compression.Base
-
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
+To include the .NET PDF library into your ASP.NET MVC application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation. 
 
 ## Steps to create PDF document in ASP.NET MVC
 
 Create a new ASP.NET MVC application project.
-![Creation1](MVC_images/Creation1.jpg)
+![Generate ASP.NET MVC project using Visual Studio](MVC_images/Creation1.jpg)
 
-Install the [Syncfusion.Pdf.AspNet.Mvc](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
-![Creation2](MVC_images/Creation2.jpg)
+Install the [Syncfusion.Pdf.AspNet.Mvc](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your ASP.NET MVC applications from [NuGet.org](https://www.nuget.org/).
+![Include asp.net mvc PDF generator NuGet](MVC_images/Creation2.jpg)
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
  
@@ -38,10 +36,10 @@ Add a new button in the Index.cshtml as follows.
 
 {% highlight c# tabtitle="C#" %}
 
-@{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
+@{Html.BeginForm("CreatePDFDocument", "Home", FormMethod.Get);
 {
 <div>
-    <input type="submit" value="Create Document" style="width:150px;height:27px" />
+    <input type="submit" value="Generate PDF Document" style="width:150px;height:27px" />
 </div>
 }
 Html.EndForm();
@@ -49,7 +47,7 @@ Html.EndForm();
 
 {% endhighlight %}
 
-Add a new action method named CreateDocument in HomeController.cs and include the following code snippet to create an PDF file and download it.
+Add a new action method named CreatePDFDocument in HomeController.cs and include the following code snippet to generate a PDF file and download it from ASP.NET MVC application.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -74,14 +72,14 @@ document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadTy
 
 {% endhighlight %} 
 
-A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1076048215.zip )
+A complete working sample for generate PDF file in ASP.NET MVC can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1076048215.zip )
 
 By executing the program, you will get the PDF file as follows.
-![Hell world](GettingStarted_images/Hello World.jpg)
+![create pdf in mvc](GettingStarted_images/Hello_World.jpg)
 
 ## Creating a PDF document with image
 
-The following code example shows how to create a PDF document with an image.
+The following code example shows how to generate a PDF document with an image.
  
 {% highlight c# tabtitle="C#" %}
 
@@ -104,7 +102,7 @@ doc.Close(true);
 
 ## Creating a PDF document with table
 
-The following code example shows how to create a PDF document with a simple table.
+The following code example shows how to generate a PDF document with a simple table.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -137,11 +135,11 @@ doc.Close(true);
 {% endhighlight %}
 
 ## Creating a simple PDF document with basic elements
-The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
+The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
  
 {% highlight c# tabtitle="C#" %}
 
-//Creates a new PDF document
+//Generate a new PDF document
 PdfDocument document = new PdfDocument();
 //Adds page settings
 document.PageSettings.Orientation = PdfPageOrientation.Landscape;
