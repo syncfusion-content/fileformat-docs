@@ -14,6 +14,9 @@ N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblie
 
 N> From version 20.1.0.XX, if you are using the Blink rendering engine from NuGet packages, there is no need to manually copy the BlinkBinaries folder from the NuGet packages folder. There is also no need to set BlinkPath to the converter settings explicitly. It will copy the BlinkBinaries to the application bin folder and use the binaries from the bin folder automatically.
 
+
+N> From version 20.1.0.55, if you are using the Blink rendering engine in Linux for HTML to PDF conversion, then it is required to install 'libgbm1' as additional dependency package.
+
 ## Prerequisites for Windows
 
 <b>Minimum product version for .NET Framework:</b> 16.3.0.21
@@ -175,7 +178,7 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 
 * To convert HTML to PDF in Linux using the Blink rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 		
-	2. $ sudo apt-get install libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 libnss3
+	2. $ sudo apt-get install libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 libnss3 libgbm1
 
 ## Prerequisites for Mac
 
