@@ -1,7 +1,7 @@
 ---
 title: Working with Template Markers | Syncfusion
 description: This section illustrate how to create template markers in an Excel template that appends multiple records from a data source into a worksheet.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
