@@ -1,13 +1,13 @@
 ---
 layout: post
-title: System Requirements | file-formats | Syncfusion
-description: this section provides the information about the system requirements for file formats platform with supported browsers
+title: System Requirements in FileFormats - Syncfusion
+description: Checkout and learn here all about the system requirements needed to use Syncfusion FileFormats Components.
 platform: file-formats
 control: System Requirements
 documentation: ug
 
 ---
-# System Requirements For FileFormats
+# System Requirements for FileFormats Components
 
 The system requirements for using our Syncfusion FileFormats platform are as follows
 
