@@ -15,7 +15,7 @@ N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblie
 N> From version 20.1.0.XX, if you are using the Blink rendering engine from NuGet packages, there is no need to manually copy the BlinkBinaries folder from the NuGet packages folder. There is also no need to set BlinkPath to the converter settings explicitly. It will copy the BlinkBinaries to the application bin folder and use the binaries from the bin folder automatically.
 
 
-N > From version 20.1.0.55, if you are using the Blink rendering engine in Linux for HTML to PDF conversion, then it is required to install 'libgbm1' as additional dependency package.
+N> From version 20.1.0.55, if you are using the Blink rendering engine in Linux for HTML to PDF conversion, then it is required to install 'libgbm1' as additional dependency package.
 
 ## Prerequisites for Windows
 
