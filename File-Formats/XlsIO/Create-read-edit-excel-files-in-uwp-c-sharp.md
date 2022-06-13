@@ -69,7 +69,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
 
-	application.DefaultVersion = ExcelVersion.Excel2016;
+	application.DefaultVersion = ExcelVersion.Xlsx;
 
 	//Create a workbook with a worksheet
 	IWorkbook workbook = application.Workbooks.Create(1);
@@ -81,7 +81,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	Stream inputStream = executingAssembly.GetManifestResourceStream("GettingStarted_UWP.AdventureCycles-Logo.png");
 
 	//Add a picture
-	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream);
+	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
 
 	//Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = false;
@@ -271,7 +271,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
 	Dim application As IApplication = excelEngine.Excel
 
-	application.DefaultVersion = ExcelVersion.Excel2016
+	application.DefaultVersion = ExcelVersion.Xlsx
 
 	'Create a workbook
 	Dim workbook As IWorkbook = application.Workbooks.Create(1)
@@ -280,7 +280,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 	'Adding a picture
 	Dim executingAssembly As Assembly = GetType(MainPage).GetTypeInfo().Assembly
 	Dim inputStream As Stream = executingAssembly.GetManifestResourceStream("GettingStarted_UWP.AdventureCycles-Logo.png")
-	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream)
+	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20)
 
 	'Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = False
@@ -500,7 +500,7 @@ worksheet.Range["A3"].Text ="Hello World";
 var value = worksheet.Range["A1"].Value;
 
 //Sets workbook version.
-workbook.Version = ExcelVersion.Excel2013;
+workbook.Version = ExcelVersion.Xlsx;
 
 //Initializes FileSavePicker.
 FileSavePicker savePicker = new FileSavePicker();
@@ -545,7 +545,7 @@ worksheet.Range("A3").Text ="Hello World"
 Dim value As var = worksheet.Range("A1").Value
 
 'Sets workbook version.
-workbook.Version = ExcelVersion.Excel2013
+workbook.Version = ExcelVersion.Xlsx
 
 'Initializes FileSavePicker.
 Dim savePicker As New FileSavePicker()

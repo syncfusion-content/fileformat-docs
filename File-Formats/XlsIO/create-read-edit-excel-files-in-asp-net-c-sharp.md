@@ -64,14 +64,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
 
-	application.DefaultVersion = ExcelVersion.Excel2016;
+	application.DefaultVersion = ExcelVersion.Xlsx;
 
 	//Create a workbook
 	IWorkbook workbook = application.Workbooks.Create(1);
 	IWorksheet worksheet = workbook.Worksheets[0];
 
 	//Add a picture
-	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, @"D:\AdventureCycles-Logo.png");
+	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, @"D:\AdventureCycles-Logo.png", 20, 20);
 
 	//Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = false;
@@ -241,14 +241,14 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
 	Dim application As IApplication = excelEngine.Excel
 
-	application.DefaultVersion = ExcelVersion.Excel2016
+	application.DefaultVersion = ExcelVersion.Xlsx
 
 	'Create a workbook
 	Dim workbook As IWorkbook = application.Workbooks.Create(1)
 	Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 	'Adding a picture
-	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, Server.MapPath("App_Data/AdventureCycles-Logo.png"))
+	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, Server.MapPath("App_Data/AdventureCycles-Logo.png"), 20, 20)
 
 	'Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = False
@@ -431,7 +431,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Set the default application version
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Load the existing Excel workbook into IWorkbook
     IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
@@ -458,7 +458,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
 
     'Set the default application version
-    application.DefaultVersion = ExcelVersion.Excel2016
+    application.DefaultVersion = ExcelVersion.Xlsx
 
     'Load the existing Excel workbook into IWorkbook
     Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")

@@ -67,7 +67,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
 
-	application.DefaultVersion = ExcelVersion.Excel2016;
+	application.DefaultVersion = ExcelVersion.Xlsx;
 
 	//Create a workbook
 	IWorkbook workbook = application.Workbooks.Create(1);
@@ -75,7 +75,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 	//Adding a picture
 	FileStream imageStream = new FileStream("AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read);
-	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, imageStream);
+	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, imageStream, 20, 20);
 
 	//Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = false;
@@ -258,7 +258,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
 	Dim application As IApplication = excelEngine.Excel
 
-	application.DefaultVersion = ExcelVersion.Excel2016
+	application.DefaultVersion = ExcelVersion.Xlsx
 
 	'Create a workbook
 	Dim workbook As IWorkbook = application.Workbooks.Create(1)
@@ -266,7 +266,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
 	'Adding a picture
 	Dim imageStream As FileStream = New FileStream("AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read)
-	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, imageStream)
+	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, imageStream, 20, 20)
 
 	'Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = False
@@ -460,7 +460,7 @@ ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 
 //Assigns default application version
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Xlsx;
 
 //A existing workbook is opened.              
 string basePath = _hostingEnvironment.WebRootPath + @"\XlsIO\Sample.xlsx";              
