@@ -92,7 +92,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
 
-	application.DefaultVersion = ExcelVersion.Excel2016;
+	application.DefaultVersion = ExcelVersion.Xlsx;
 
 	//Create a workbook with a worksheet
 	IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
@@ -104,7 +104,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	Stream inputStream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png");
 
 	//Add a picture
-	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream);
+	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
 
 	//Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = false;
@@ -281,7 +281,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
 	Dim application As IApplication = excelEngine.Excel
 
-	application.DefaultVersion = ExcelVersion.Excel2016
+	application.DefaultVersion = ExcelVersion.Xlsx
 
 	'Create a workbook
 	Dim workbook As IWorkbook = application.Workbooks.Create(1)
@@ -290,7 +290,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 	'Adding a picture
 	Dim executingAssembly As Assembly = GetType(MainPage).GetTypeInfo().Assembly
 	Dim inputStream As Stream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png")
-	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream)
+	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20)
 
 	'Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = False
@@ -461,7 +461,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-8.Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~2-289729089.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8.Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~1-1423062113.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
 <tr>
@@ -571,7 +571,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 {
 	ExcelEngine excelEngine = new ExcelEngine();
 	IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Excel2013;
+	application.DefaultVersion = ExcelVersion.Xlsx;
 
 	string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
 	//"App" is the class of Portable project.
@@ -664,10 +664,10 @@ using Android.Content;
 using Java.IO;
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using Android.Support.V4.Content;
 using Android;
 using Android.Content.PM;
-using Android.Support.V4.App;
+using AndroidX.Core.Content;
+using AndroidX.Core.App;
 
 [assembly: Dependency(typeof(SaveAndroid))]
 
@@ -718,6 +718,39 @@ class SaveAndroid: ISave
 	}
   }
 }
+{% endhighlight %}
+{% endtabs %}
+
+N> Introduced a new runtime permission model for the Android SDK version 23 and above. So, include the following code for enabling the Android file provider to save and view the generated PDF document.
+
+Create a new XML file with the name of **provider_path.xml** under the **Resources** folder of **Android project** and add the following code in it. Eg: Resources/xml/provider_path.xml
+
+{% tabs %}
+{% highlight XAML %}
+<?xml version="1.0" encoding="UTF-8" ?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+   <external-path name="external_files" path="."/>
+</paths>
+{% endhighlight %}
+{% endtabs %}
+
+Add the following code to the **AndroidManifest.xml** file located under Properties/AndroidManifest.xml.
+
+{% tabs %}
+{% highlight XAML %}
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.CreateXlsIOSample">
+   <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
+   <application android:label="CreateXlsIOSample.Android">
+      <provider android:name="androidx.core.content.FileProvider"
+         android:authorities="${applicationId}.provider"
+         android:exported="false"
+         android:grantUriPermissions="true">
+         <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+      </provider>
+   </application>
+</manifest>
 {% endhighlight %}
 {% endtabs %}
 
