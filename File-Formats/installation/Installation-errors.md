@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Installation for Syncfusion Essential Studio File Formats products
-description: Learn how to install Syncfusion FileFormats and deploy the Syncfusion File Formats installer components
+title: Installation Errors in FileFormats - Syncfusion
+description: Learn here about the common installation errors and solution to those errors in Syncfusion FileFormats Components installation.
 platform: file-formats
 control: Installation and Deployment
 documentation: ug
