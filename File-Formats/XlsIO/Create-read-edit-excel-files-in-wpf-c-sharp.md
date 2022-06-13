@@ -58,7 +58,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
 
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Create a workbook
     IWorkbook workbook = application.Workbooks.Create(1);
@@ -236,7 +236,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
     Dim application As IApplication = excelEngine.Excel
 
-    application.DefaultVersion = ExcelVersion.Excel2016
+    application.DefaultVersion = ExcelVersion.Xlsx
 
     'Create a workbook
     Dim workbook As IWorkbook = application.Workbooks.Create(1)
@@ -427,7 +427,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Set the default application version
-    application.DefaultVersion = ExcelVersion.Excel2016;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Load the existing Excel workbook into IWorkbook
     IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
