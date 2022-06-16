@@ -1,7 +1,7 @@
 ---
 layout: post
-title: About Essential Studio FileFormats Licensing | Syncfusion
-description: Learn here about Syncfusion Essential Studio FileFormats license key, how to generate the license key, how to register the license key, and more details.
+title: Overview of Syncfusion license and unlock keys - Syncfusion
+description: Learn here about the Syncfusion license and unlock keys and difference between license and unlock keys.
 platform: file-formats
 control: Essential Studio
 documentation: ug
@@ -16,7 +16,7 @@ margin-top: 1.5em;     margin-bottom: 1.5em;
 }
 </style>
 
-# Syncfusion Licensing in FileFormats
+# Syncfusion Licensing Overview
 
 We have introduced a new licensing system starting with version 16.2.0.x release of Essential Studio. These modifications apply to all evaluators and only to paid customers who use NuGet packages from [nuget.org](https://www.nuget.org/). Starting with v16.2.0.x, if you use the evaluation installer or the NuGet feed to reference Syncfusion assemblies, you must also include the corresponding platform and version license key in your projects.
 
@@ -42,4 +42,4 @@ Trial message will be displayed as watermark in the generated documents, if File
 ## See Also
 
 * [How to Generate Syncfusion FileFormats License Key?](https://help.syncfusion.com/file-formats/licensing/generating-license-keys)
-* [How to Register Syncfusion License Key in the Application?](https://help.syncfusion.com/file-formats/licensing/registering-license-keys)
+* [How to Register Syncfusion License Key in FileFormats Application?](https://help.syncfusion.com/file-formats/licensing/registering-license-keys)

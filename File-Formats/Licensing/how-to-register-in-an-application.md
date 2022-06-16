@@ -1,13 +1,13 @@
 ---
 layout: post
-title: About Essential Studio FileFormats Licensing | Syncfusion
-description: Learn here about Syncfusion Essential Studio FileFormats license key, how to generate the license key, how to register the license key, and more details.
+title: Overview of Syncfusion license registration - Syncfusion
+description: Learn here about how to register Syncfusion FileFormats license key for FileFormats application for license validation.
 platform: file-formats
 control: Essential Studio
 documentation: ug
 ---
 
-# License Key Registration
+# Register Syncfusion License key in FileFormats application
 
 The generated license key is just a string that needs to be registered before any Syncfusion control is initiated. The following code is used to register the license.
 
