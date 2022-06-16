@@ -1,16 +1,15 @@
 ---
 layout: post
-title: File Formats Offline Installer | file-formats | Syncfusion
-description: this section provides information regarding the Syncfusion File Formats Offline installer and steps for installing it
+title: Installing Syncfusion FileFormats offline installer-Syncfusion
+description: Learn here about how to install Syncfusion FileFormats offline installer after downloading from our Syncfusion website.
 platform: file-formats
 control: Installation and Deployment
 documentation: ug
 
 ---
 
-# Installation using Offline Installer
+# Installing Syncfusion FileFormats offline installer
 
-You can refer to the [**Download**](https://help.syncfusion.com/file-formats/installation-and-upgrade/download) section to learn how to get the FileFormats trial or licensed installer.
 
 ## Installing with UI   
 
@@ -18,7 +17,7 @@ The steps below show how to install the Essential Studio FileFormats installer.
 
 1.	Open the Syncfusion FileFormats offline installer file from downloaded location by double-clicking it. The Installer Wizard automatically opens and extracts the package.
 
-    ![Installer extraction wizard](Platform_images/Step-by-Step-Installation_img1.png)
+    ![Installer extraction wizard](images/Step-by-Step-Installation_img1.png)
 
     N> The Installer wizard extracts the syncfusionessentialfileformats_(version).exe dialog, which displays the package's unzip operation.
 
@@ -35,7 +34,7 @@ The steps below show how to install the Essential Studio FileFormats installer.
    
     You must enter your Syncfusion email address and password. If you don't already have a Syncfusion account, you can sign up for one by clicking **"Create an account"**. If you have forgotten your password, click on **"Forgot Password"** to create a new one. Once you've entered your Syncfusion email and password, click Next.
 
-    ![Login credentials](Platform_images/Step-by-Step-Installation_img2.png)   
+    ![Login credentials](images/Step-by-Step-Installation_img2.png)   
 
 
     **Use Unlock Key**
@@ -46,7 +45,7 @@ The steps below show how to install the Essential Studio FileFormats installer.
    
     To learn how to generate an unlock key for both trial and licensed products, see [this](https://www.syncfusion.com/kb/2326) Knowledge Base article.
 
-    ![Product key](Platform_images/Step-by-Step-Installation_img3.png)   
+    ![Product key](images/Step-by-Step-Installation_img3.png)   
 
 
 3.	After reading the License Terms and Privacy Policy, check the **“I agree to the License Terms and Privacy Policy”** check box. Click the Next button.
@@ -55,7 +54,7 @@ The steps below show how to install the Essential Studio FileFormats installer.
 4.	Change the install and sample locations here. You can also change the Additional settings. Click Next\Install to install with the default settings.
 
 
-    ![Advanced options](Platform_images/Step-by-Step-Installation_img4.png)
+    ![Advanced options](images/Step-by-Step-Installation_img4.png)
 
     **Additional Settings**
     
@@ -72,7 +71,7 @@ The steps below show how to install the Essential Studio FileFormats installer.
 5.	If any previous versions of the current product is installed, the Uninstall Previous Version(s) wizard will be opened. Select **Uninstall** checkbox to uninstall the previous versions and then click the Proceed button.
 
 
-    ![Advanced options](Platform_images/Step-by-Step-Installation_img7.png)
+    ![Advanced options](images/Step-by-Step-Installation_img7.png)
 	
 	
 	N> From the 2021 Volume 1 release, Syncfusion has added the option to uninstall previous versions from 18.1 while installing the new version.
@@ -82,19 +81,19 @@ The steps below show how to install the Essential Studio FileFormats installer.
 	
 	**Confirmation Alert**
 	
-	![Confirmation wizard](Platform_images/Step-by-Step-Installation_img8.png)
+	![Confirmation wizard](images/Step-by-Step-Installation_img8.png)
 	
 	**Uninstall Progress:**
 	
-	![Uninstalling wizard](Platform_images/Step-by-Step-Installation_img9.png)
+	![Uninstalling wizard](images/Step-by-Step-Installation_img9.png)
 	
 	**Install Progress**
 	
-	![Installing wizard](Platform_images/Step-by-Step-Installation_img5.png)
+	![Installing wizard](images/Step-by-Step-Installation_img5.png)
 
     N> The Completed screen is displayed once the FileFormats product is installed. If any version is selected to uninstall, The completed screen will display both install and uninstall status.
 	
-	![Completed wizard](Platform_images/Step-by-Step-Installation_img10.png)
+	![Completed wizard](images/Step-by-Step-Installation_img10.png)
 	
 7.  After installing, click the **Launch Control Panel** link to open the Syncfusion Control Panel.
 
