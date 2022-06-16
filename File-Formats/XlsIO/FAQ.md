@@ -61,3 +61,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to convert the required range in Excel to PDF?](faqs/how-to-convert-the-required-range-in-excel-to-pdf)
 * [How to search a value in only specific columns of an Excel worksheet?](faqs/how-to-search-a-value-in-only-specific-columns-of-an-Excel-worksheet)
 * [How to read filtered rows in Excel?](faqs/how-to-read-filtered-rows-in-excel)
+* [What are the deprecated APIs in XlsIO?](faqs/what-are-the-deprecated-apis-in-xlsio)
