@@ -2524,3 +2524,4 @@ The following screenshot represents generated Excel file in which the hyperlink 
 
 ![Template marker with Hyperlink Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg)
 
+N> Explore our [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net) Feature Tour page and [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.
