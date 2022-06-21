@@ -1332,6 +1332,80 @@ End Using
 
 {% endtabs %} 
 
+## Performing OCR with Image OCR to Pdf Document
+
+On providing this support, we can save the Image OCR to PDF document (different conformance, different document settings) based on their requirement. We have provided the support for all the bitmap image formats in Image OCR to searchable PDF. 
+
+This is explained in the following code snippet.
+{% tabs %} 
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize the OCR processor by providing the path of the tesseract binaries
+using (OCRProcessor processor = new OCRProcessor())
+{     
+//loading the input image
+Bitmap image = new Bitmap(@"Input.jpeg ");
+
+//Set OCR language to process
+processor.Settings.Language = Languages.English;
+
+//Set tesseract OCR Engine
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
+
+processor.TesseractPath = @"Tesseractbinaries\ ";
+processor.TessDataPath = @"tessdata";
+
+// Set the PDF conformance level               
+processor.Settings.Conformance = PdfConformanceLevel.Pdf_A1B;
+
+//Process OCR by providing the bitmap image 
+PdfDocument document = processor.PerformOCR(image);
+
+// Save the Document
+document.Save("output.pdf");
+
+//Close the Document
+document.Close(true);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Initialize the OCR processor by providing the path of the tesseract binaries
+Using processor As New OCRProcessor()
+
+'loading the input image
+Dim image As New Bitmap("input.png")
+
+'Set OCR language to process
+processor.Settings.Language = Languages.English
+
+'Set tesseract OCR engine
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0
+
+processor.TesseractPath = "Tesseractbinaries\ "
+processor.TessDataPath = "tessdata"
+
+'Set the PDF conformance level               
+processor.Settings.Conformance = PdfConformanceLevel.Pdf_A1B
+
+'Process OCR by providing the bitmap image 
+Dim document As PdfDocument = processor.PerformOCR(image)
+
+'Save the OCR processed PDF document in the disk
+
+document.Save("Sample.pdf")
+
+document.Close(True)
+
+End Using
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> This PDF conformance option is only applicable for Image OCR to PDF document.
+
 ## Advantages of Native Call over Normal API
 
 Enabling this property will process OCR with native calls (PInvoke) instead of surrogate process.

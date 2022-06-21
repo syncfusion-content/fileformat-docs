@@ -575,6 +575,56 @@ string ocrText= processor.PerformOCR(image, @"tessdata\");
 
 {% endtabs %}
 
+## Performing OCR with Image OCR to Pdf Document
+
+On providing this support, we can save the Image OCR to PDF document (different conformance, different document settings) based on their requirement. We have provided the support for all the bitmap image formats in Image OCR to searchable PDF. 
+
+This is explained in the following code snippet.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+
+//Initialize the OCR processor by providing the path of the tesseract binaries
+
+using (OCRProcessor processor = new OCRProcessor())
+{
+//loading the input image
+FileStream stream = new FileStream(@"Input.jpeg ", FileMode.Open);
+
+Bitmap image = new Bitmap(stream);
+
+//Set OCR language to process
+processor.Settings.Language = Languages.English;
+
+// Sets Unicode font to preserve the Unicode characters in a PDF document
+FileStream fontStream = new FileStream(@"ARIALUNI.ttf", FileMode.Open);
+
+processor.UnicodeFont = new PdfTrueTypeFont(fontStream, true, PdfFontStyle.Regular, 10);
+
+processor.TesseractPath = @"Tesseractbinaries\Windows";
+processor.TessDataPath = @"tessdata";
+
+// Set the PDF conformance level                
+processor.Settings.Conformance = PdfConformanceLevel.Pdf_A1B;
+
+//Process OCR by providing the bitmap image  
+PdfDocument document = processor.PerformOCR(image);
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+document.Save(stream);
+document.Close(true);
+
+}
+			
+{% endhighlight %}
+
+{% endtabs %}
+
+N> This PDF conformance option is only applicable for Image OCR to PDF document.
 
 ## Temporary folder
 
