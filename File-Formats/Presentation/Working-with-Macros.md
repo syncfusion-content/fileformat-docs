@@ -1,11 +1,11 @@
 ---
-title: Create and edit macros in PowerPoint files |Syncfusion|
-description: Working with macros in PowerPoint Presentation
+title: Create and edit macros in PowerPoint files | Syncfusion
+description: Learn here all about working with macros in Syncfusion Essential PowerPoint Presentation Library and more.
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with Macros
+# Working with Macros in PowerPoint Presentation Library
 
 A macro is a series of commands that can be grouped together as a single command to automate a frequently used tasks. Macros can be created for Microsoft PowerPoint using Visual Basic for Applications (VBA). Please refer [Create Macros in PowerPoint](https://support.office.com/en-us/article/Create-a-macro-in-PowerPoint-5b07aff6-4dc9-462f-8fc9-66b4c5344e7e?ui=en-US&rs=en-US&ad=US) for more details
 
