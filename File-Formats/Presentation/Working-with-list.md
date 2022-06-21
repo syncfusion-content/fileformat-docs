@@ -1,11 +1,11 @@
 ---
-title: Working with lists in PowerPoint Presentation
-description: Working with lists in PowerPoint Presentation
+title: Working with lists in PowerPoint Presentation | Syncfusion
+description: Learn here all about working with lists of Syncfusion Essential PowerPoint Presentation Library and more.
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with lists
+# Working with lists in PowerPoint Library
 
 ## Creating a simple list
 
