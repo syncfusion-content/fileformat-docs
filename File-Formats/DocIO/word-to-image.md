@@ -8,57 +8,12 @@ documentation: UG
 
 # Rendering / Converting Word document to Image in Word Library
 
-The Essential DocIO converts the Word document to images using the `RenderAsImages` method. The following assemblies are referred for converting Word to image:
+The Essential DocIO converts the Word document to images using the `RenderAsImages` method.
 
-<table>
-<thead> 
-<tr>
-<th>Assembly Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tr>
-<td>
-Syncfusion.DocIO.Base<br/><br/></td>
-<td>
-This assembly has the core features for creating and manipulating Word documents.<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.Compression.Base<br/><br/></td>
-<td>
-This assembly is used to package the Word documents.<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.OfficeChart.Base<br/><br/></td>
-<td>
-This assembly has features to work with chart in Word document.<br/><br/></td>
-</tr>
-</table>
+Refer to the following links for assemblies and NuGet packages required based on platforms to convert the Word document to image.
 
-The following assemblies are referred additionally for converting charts during Word to image conversion:
-
-<table>
-<thead> 
-<tr>
-<th>Assembly Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tr>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td>
-<td>
-This assembly is used to convert the chart to image.<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.SfChart.WPF<br/><br/></td>
-<td>
-This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td>
-</tr>
-</table>
+* [Word to image conversion assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-image) 
+* [Word to image conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-image)
 
 The following namespaces are required to compile the code in this topic:
 
