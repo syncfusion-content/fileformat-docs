@@ -267,6 +267,128 @@ N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 N> 4. From v20.1.0.x, the dependent package SkiaSharp is upgraded from 2.80.2 to 2.88.0-preview.209 version and it is mandatory to use SkiaSharp.NativeAssets.Linux v2.88.0-preview.209 and HarfBuzzSharp.NativeAssets.Linux 2.8.2-preview.209 packages for converting Word documents into PDF in Linux environment.
 
+## Converting Word document to image
+
+For converting Word document into image, the following NuGet packages need to be installed in your application.
+
+<table>
+<thead>
+<tr>
+<th width="20%">
+Platform(s)
+</th>
+<th width="40%">
+Package name
+</th>
+<th width="40%">
+Package manager console command
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+Windows Forms, Console Application (Targeting .NET Framework)
+</td>
+<td>
+Syncfusion.DocIO.WinForms.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.WinForms
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+Syncfusion.DocIO.Wpf.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.Wpf
+</td>
+</tr>
+<tr>
+<td>
+.NET Framework 3.5 or 4.0 Client Profile
+</td>
+<td>
+Syncfusion.DocIO.ClientProfile.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.ClientProfile
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET
+</td>
+<td>
+Syncfusion.DocIO.AspNet.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.AspNet
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+Syncfusion.DocIO.AspNet.Mvc4.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.AspNet.Mvc4
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+Syncfusion.DocIO.AspNet.Mvc5.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.AspNet.Mvc5
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
+</td>
+<td>
+Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
+<br/>
+<i>Note:</i><br/>
+<i>Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os)'| markdownify }} to know about the NuGet packages that need to be installed to perform Word to PDF conversion in Linux OS.</i><br/>
+</td>
+<td>
+Install-Package Syncfusion.DocIORenderer.Net.Core
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+Syncfusion.Xamarin.DocIORenderer.nupkg
+</td>
+<td>
+Install-Package Syncfusion.Xamarin.DocIORenderer
+</td>
+</tr>
+<tr>
+<td>
+Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)
+</td>
+<td>
+Syncfusion.DocIORenderer.NET
+</td>
+<td>
+Install-Package Syncfusion.DocIORenderer.NET
+</td>
+</tr>
+</table>
+
 ## Converting Charts
 
 The following NuGet package need to be installed additionally to preserve chart as image in Word to PDF, and Image conversions.

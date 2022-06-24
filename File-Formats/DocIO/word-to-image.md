@@ -8,67 +8,27 @@ documentation: UG
 
 # Rendering / Converting Word document to Image in Word Library
 
-The Essential DocIO converts the Word document to images using the `RenderAsImages` method. The following assemblies are referred for converting Word to image:
+The Essential DocIO converts the Word document to images using the `RenderAsImages` method.
 
-<table>
-<thead> 
-<tr>
-<th>Assembly Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tr>
-<td>
-Syncfusion.DocIO.Base<br/><br/></td>
-<td>
-This assembly has the core features for creating and manipulating Word documents.<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.Compression.Base<br/><br/></td>
-<td>
-This assembly is used to package the Word documents.<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.OfficeChart.Base<br/><br/></td>
-<td>
-This assembly has features to work with chart in Word document.<br/><br/></td>
-</tr>
-</table>
+Refer to the following links for assemblies and NuGet packages required based on platforms to convert the Word document to image.
 
-The following assemblies are referred additionally for converting charts during Word to image conversion:
-
-<table>
-<thead> 
-<tr>
-<th>Assembly Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tr>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td>
-<td>
-This assembly is used to convert the chart to image.<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.SfChart.WPF<br/><br/></td>
-<td>
-This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td>
-</tr>
-</table>
+* [Word to image conversion assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-image) 
+* [Word to image conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-image)
 
 The following namespaces are required to compile the code in this topic:
 
+**For WPF, Windows Forms, ASP.NET and ASP.NET MVC applications**
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.OfficeChart
 * using Syncfusion.OfficeChartToImageConverter
 
+**For ASP.NET Core, Blazor, Xamarin, WinUI and .NET MAUI applications**
+* using Syncfusion.DocIO
+* using Syncfusion.DocIO.DLS
+* using Syncfusion.DocIORenderer
 
-T> 1. You can get the good quality converted images by specifying the image type as Metafile.
+T> 1. You can get the good quality converted images by specifying the image type as Metafile in the platforms targeting .NET Framework.
 T> 2. You can specify the quality of the converted charts by setting the scaling mode.
 
 The following code illustrates how to convert the Word document to image.
@@ -119,11 +79,45 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+//Opens the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
+    {
+        //Creates a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Converts the first page of word document to image.
+            MemoryStream imageStream = (MemoryStream)wordDocument.RenderAsImages(0, Syncfusion.DocIO.ExportImageFormat.Jpeg);
+            imageStream.Position = 0;
+            //Closes the instance.
+            wordDocument.Close();
+            render.Dispose();
+        }
+    }
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+//Opens the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
+    {
+        //Creates a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Converts the first page of word document to image.
+            MemoryStream imageStream = (MemoryStream)wordDocument.RenderAsImages(0, Syncfusion.DocIO.ExportImageFormat.Jpeg);
+            imageStream.Position = 0;
+            //Closes the instance.
+            wordDocument.Close();
+            render.Dispose();
+        }
+    }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -215,3 +209,5 @@ N> 3. Creating an instance of the ChartToImageConverter class is mandatory to 
 N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 N> 5. Total number of images may vary based on unsupported elements in the input Word document.
 N> 6. Word to Image conversion has the same limitations and unsupported elements of Word to PDF conversion.
+N> 7. Different styles of underlines and borders are known limitations in Word to Image conversion in ASP.NET Core, Xamarin, Blazor, WinUI and .NET MAUI platforms.
+N> 8. In ASP.NET Core, Blazor, Xamarin, WinUI and .NET MAUI platforms, to convert Word document to images we recommend you to use Word to image [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-image) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-image) as a reference in your application.
