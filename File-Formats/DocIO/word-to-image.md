@@ -103,9 +103,6 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
                 }
                 i++;
             }
-            //Closes the instance.
-            wordDocument.Close();
-            render.Dispose();
         }
     }
 }
@@ -123,8 +120,15 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         {
             //Converts Word document to images.
             Stream[] imageStreams = wordDocument.RenderAsImages();
-            //Saves the first page image stream as a file in the device and invoke it for viewing.
-            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage_0.jpeg", "image/jpeg", imageStreams[0] as MemoryStream);
+            int i = 0;
+            foreach (Stream stream in imageStreams)
+            {
+                //Resets the stream position.
+                stream.Position = 0;
+                //Saves the stream as a file in the device and invoke it for viewing.
+                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage_" + i + ".jpeg", "image/jpeg", stream as MemoryStream);
+                i++;
+            }
         }
     }
 }
