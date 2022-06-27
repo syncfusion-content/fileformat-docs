@@ -88,9 +88,21 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
         //Creates a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Converts the first page of word document to image.
-            MemoryStream imageStream = (MemoryStream)wordDocument.RenderAsImages(0, Syncfusion.DocIO.ExportImageFormat.Jpeg);
-            imageStream.Position = 0;
+            //Converts Word document to images.
+            Stream[] imageStreams = wordDocument.RenderAsImages(); 
+            int i = 0;
+            foreach (Stream stream in imageStreams)
+            {
+                //Resets the stream position.
+                stream.Position = 0;
+                //Creates the output image file stream.
+                using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
+                {
+                    //Copies the converted image stream into created output stream.
+                    stream.CopyTo(fileStreamOutput);
+                }
+                i++;
+            }
             //Closes the instance.
             wordDocument.Close();
             render.Dispose();
@@ -109,12 +121,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Creates a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Converts the first page of word document to image.
-            MemoryStream imageStream = (MemoryStream)wordDocument.RenderAsImages(0, Syncfusion.DocIO.ExportImageFormat.Jpeg);
-            imageStream.Position = 0;
-            //Closes the instance.
-            wordDocument.Close();
-            render.Dispose();
+            //Converts Word document to images.
+            Stream[] imageStreams = wordDocument.RenderAsImages();
+            //Saves the first page image stream as a file in the device and invoke it for viewing.
+            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage_0.jpeg", "image/jpeg", imageStreams[0] as MemoryStream);
         }
     }
 }
