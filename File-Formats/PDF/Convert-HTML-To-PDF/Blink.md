@@ -215,35 +215,6 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 <b>NuGet</b>
     <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
 	
-To convert an HTML to PDF using the Aws Blink rendering engine, please refer to the following code sample.
-
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
-
-//Initialize an HTML to the PDF converter with the Blink rendering engine.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Assign the Blink converter settings to the HTML converter.
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert an URL to PDF.
-PdfDocument document = htmlConverter.Convert("https://www.google.com/");
-
-//Save the document into a stream.
-MemoryStream memoryStream = new MemoryStream();
-
-//Save and close the PDFDocument.
-document.Save(memoryStream);
-document.Close(true);
-
-return Convert.ToBase64String(memoryStream.ToArray());
-
-{% endhighlight %}
-
-{% endtabs %}
 
 ## URL to PDF
 
