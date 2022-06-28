@@ -53,7 +53,7 @@ Skiasharp package (v2.88.0-preview.232 or above)
 <tr>
 <th>
 [Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core)<br/><br/></th><th>
-[Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET)<br/><br/></th>
+Syncfusion.PDF.OCR.NET<br/><br/></th>
 </tr>
 
 </thead>
