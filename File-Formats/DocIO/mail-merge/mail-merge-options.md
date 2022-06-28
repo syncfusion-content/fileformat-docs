@@ -1671,9 +1671,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Start At New Page
 
-You can start a new page for each group of records while performing mail merge in Word document by enabling `StartAtNewPage` property.
+You can start a new page for each group of records while performing a mail merge in Word documents by enabling the `StartAtNewPage` property.
 
-The following code example illustrates how to start a new page for each group of records during mail merge process.
+The following code example illustrates how to start a new page for each group of records during the mail merge process.
 
 {% tabs %}
 
@@ -1799,7 +1799,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}
 
-The following code example shows GetInvoice method which is used to get data for mail merge.
+The following code example shows GetInvoice method, which is used to get data for mail merge.
 
 {% tabs %}  
 
@@ -3304,7 +3304,6 @@ public class Orders
         get { return m_shipName; }
         set { m_shipName = value; }
     }
-
     public string ShipAddress
     {
         get { return m_shipAddress; }
@@ -3517,7 +3516,7 @@ By executing the above code example, it generates the resultant Word document as
 ![Output Word document of start at new page](../MailMerge_images/StartAtNewPage_output.png)
 
 N> 
-This `StartAtNewPage` property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This `StartAtNewPage` property is not valid when the group start, and group end are present in the table, headers and footers.
+This `StartAtNewPage` property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This `StartAtNewPage` property is not valid when the group start and group end are present in the table, headers, and footers.
 
 ## Remove mail merge settings
 
