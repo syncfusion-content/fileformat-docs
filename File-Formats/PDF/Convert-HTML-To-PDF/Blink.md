@@ -206,15 +206,15 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 
 ## Prerequisites for AWS
 
-<b>Minimum product version:</b> 20.2.0.36
+* Minimum product version: 20.2.0.36
 
 * Supports conversion from .NET Core 2.1.
 
-* The BlinkBinaries folder is available in the package installed location. No need to set the path of the BlinkBinaries folder. This automatically sets the BlinkPath property with the BlinkBinaries folder.
+* The BlinkBinariesAws folder is available in the NuGet package. There is no need to set the path of the BlinkBinaries folder. The converter will automatically sets the BlinkPath property with the BlinkBinariesAws folder.
 
 <b>NuGet</b>
     <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
-	
+    
 
 ## URL to PDF
 
