@@ -14,39 +14,61 @@ N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies
 
 ## Prerequisites
 
-To use the OCR feature in the .NET core application, the following assemblies or NuGet packages should be added as a reference to the project.
+To use the OCR feature in the .NET core and .NET application, the following assemblies or NuGet packages should be added as a reference to the project:
 
 ### Assemblies
 
-   *	Syncfusion.Compression.Portable.dll
-   *	Syncfusion.Pdf.Portable.dll
-   *	Syncfusion.PdfImaging.Portable.dll
-   *    Syncfusion.OCRProcessor.Portable.dll
-   *	[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/4.5.0) package (v 4.5.0 or above)
-   
+<table>
+<thead>
+<tr>
+<th>
+.NET Standard 2.0<br/><br/></th><th>
+.NET Standard 2.0 / .NET 5/.NET 6<br/><br/></th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td>
+Syncfusion.Compression.Portable.dll<br>
+Syncfusion.Pdf.Portable.dll<br>
+Syncfusion.PdfImaging.Portable.dll<br>
+Syncfusion.OCRProcessor.Portable.dll<br>
+[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/4.5.0) package (v 4.5.0 or above)
+<br/><br/></td><td>
+Syncfusion.Compression.NET.dll<br>
+Syncfusion.Pdf.NET.dll<br>
+Syncfusion.PdfImaging.NET.dll<br>
+Syncfusion.OCRProcessor.NET.dll<br>
+Skiasharp package (v2.88.0-preview.232 or above)
+<br/><br/></td>
+</tr>
+</tbody>
+</table>
+
 ### NuGet
 
-   *	[Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core)
+<table>
+<thead>
+<tr>
+<th>
+[Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core)<br/><br/></th><th>
+Syncfusion.PDF.OCR.NET<br/><br/></th>
+</tr>
 
+</thead>
+<tbody>
+<tr>
+<td>
+.NET Standard 2.0/.NET Standard 2.1/.NET Core 2.0/.NET Core 2.1/.NET Core 3.1
+<br/><br/></td><td>
+.NET Standard 2.0/.NET Standard 2.1/.NET Core 2.0/.NET Core 2.1/.NET Core 3.1/.NET 5.0/.NET 6.0
+<br/><br/></td>
+</tr>
+</tbody>
+</table>
 
-You can get the TesseractBinaries and tessdata from the OCR Processor download or from the Syncfusion.PDF.OCR.Net.Core NuGet package installed location. Please refer to the following example folder path.
-
-
-<b>TesseractBinaries</b>
-
-<span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\Tesseractbinaries_core</i></span> (or)
-
-<span style="color:gray;font-size:14px"><i>C:\Users\username\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\TesseractBinaries</i></span>
-
-
-<b>tessdata</b>
-
-<span style="color:gray;font-size:14px"><i>syncfusionocrprocessor\tessdata</i></span> (or)
-
-<span style="color:gray;font-size:14px"><i>C:\Users\username\.nuget\packages\Syncfusion.PDF.OCR.Net.Core\XX.X.X.XX\lib\tessdata</i></span>
-
-
-N> The above folders can be copied from the build or NuGet to your project folder and it can be referred from the project folder. 
+N> TesseractBinaries and tessdata folders can be copied automatically from the NuGet packages. There is no need to copy these folders and set the path. 
 
 ## Prerequisites for Windows 
 
@@ -546,7 +568,11 @@ document.Close(true);
 
 ## Performing OCR with image
 
-You can perform OCR with images. Refer to the following code snippet.
+You can perform OCR with images.
+
+N> To perform OCR on images, we need to provide the image stream as input if you are using Syncfusion.PDF.OCR.NET package.
+
+Refer to the following code snippet for Syncfusion.PDF.OCR.Net.Core package:
 
 {% tabs %} 
 
@@ -569,7 +595,34 @@ processor.Settings.Language = Languages.English;
 string ocrText= processor.PerformOCR(image, @"tessdata\");
 
 }
+			
+{% endhighlight %}
 
+{% endtabs %}
+
+Refer to the following code snippet for Syncfusion.PDF.OCR.NET package:
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize the OCR processor by providing the path of the tesseract binaries
+using (OCRProcessor processor = new OCRProcessor("TesseractBinaries\"))
+{
+
+FileStream stream = new FileStream("Helloworld.jpg", FileMode.Open);
+
+//Set OCR language to process
+processor.Settings.Language = Languages.English;
+
+// Sets Unicode font to preserve the Unicode characters in a PDF document.
+FileStream fontStream = new FileStream(@"ARIALUNI.ttf", FileMode.Open);
+
+processor.UnicodeFont = new PdfTrueTypeFont(fontStream, 8);
+
+//Perform the OCR process for an image steam.
+string ocrText = processor.PerformOCR(stream, @"tessdata/");
+}
 			
 {% endhighlight %}
 
