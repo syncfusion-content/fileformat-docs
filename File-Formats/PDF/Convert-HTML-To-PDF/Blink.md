@@ -204,6 +204,47 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 
 * The <b>BlinkBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. In that folder, you have to extract the compressed folder <i>chromium.app.zip</i> properly without missing any files or folders in that same location. The physical path of BlinkBinariesMac folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesMac folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
 
+## Prerequisites for AWS
+
+<b>Minimum product version:</b> 20.2.0.36
+
+* Supports conversion from .NET Core 2.1.
+
+* The BlinkBinaries folder is available in the package installed location. No need to set the path of the BlinkBinaries folder. This automatically sets the BlinkPath property with the BlinkBinaries folder.
+
+<b>NuGet</b>
+    <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
+	
+To convert an HTML to PDF using the Aws Blink rendering engine, please refer to the following code sample.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize an HTML to the PDF converter with the Blink rendering engine.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Assign the Blink converter settings to the HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert an URL to PDF.
+PdfDocument document = htmlConverter.Convert("https://www.google.com/");
+
+//Save the document into a stream.
+MemoryStream memoryStream = new MemoryStream();
+
+//Save and close the PDFDocument.
+document.Save(memoryStream);
+document.Close(true);
+
+return Convert.ToBase64String(memoryStream.ToArray());
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## URL to PDF
 
 To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet.
