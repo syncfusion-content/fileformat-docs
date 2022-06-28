@@ -1332,6 +1332,80 @@ End Using
 
 {% endtabs %} 
 
+## OCR an Image to PDF
+
+You can perform OCR on an image and convert it to a searchable PDF document. It is also possible to set PdfConformanceLevel to the output PDF document using OCRSettings. 
+
+N> This PDF conformance option only applies for image OCR to PDF documents.
+
+The following code sample illustrates how to OCR an image to a PDF document:
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize the OCR processor by providing the path of the tesseract binaries
+using (OCRProcessor processor = new OCRProcessor())
+{     
+//loading the input image
+Bitmap image = new Bitmap(@"Input.png ");
+
+//Set OCR language to process
+processor.Settings.Language = Languages.English;
+
+//Set tesseract OCR Engine.
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
+
+// Set the PDF conformance level               
+processor.Settings.Conformance = PdfConformanceLevel.Pdf_A1B;
+
+//Process OCR by providing the bitmap image 
+PdfDocument document = processor.PerformOCR(image);
+
+// Save the Document
+document.Save("output.pdf");
+
+//Close the Document
+document.Close(true);
+}
+
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Initialize the OCR processor by providing the path of the tesseract binaries
+
+Using processor As New OCRProcessor()
+
+'loading the input image
+
+Dim image As New Bitmap("input.png")
+
+'Set OCR language to process
+processor.Settings.Language = Languages.English
+
+'Set tesseract OCR engine
+processor.Settings.TesseractVersion = TesseractVersion.Version4_0
+
+'Set the PDF conformance level               
+processor.Settings.Conformance = PdfConformanceLevel.Pdf_A1B
+
+'Process OCR by providing the bitmap image 
+Dim document As PdfDocument = processor.PerformOCR(image)
+
+'Save the OCR processed PDF document on the disk
+
+document.Save("Sample.pdf")
+
+document.Close(True)
+
+End Using
+
+
+{% endhighlight %}
+{% endtabs %} 
+
 ## Advantages of Native Call over Normal API
 
 Enabling this property will process OCR with native calls (PInvoke) instead of surrogate process.
