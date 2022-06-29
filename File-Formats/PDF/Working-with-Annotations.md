@@ -1066,7 +1066,7 @@ loadedDocument.Close(true);
 
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
 
-' Flatten all the annotations without popups in the document
+'Flatten all the annotations without popups in the document
 
 loadedDocument.FlattenAnnotations()
 
@@ -1201,7 +1201,7 @@ To flatten the annotation with pop-ups in the PDF document, use the code example
 
 //Load the existing PDF document
 
- PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 
 //Flatten all the annotations with popups in the document
 
@@ -1221,7 +1221,7 @@ loadedDocument.Close(true);
 
 Dim loadedDocument As New PdfLoadedDocument(“input.pdf”)
 
-' Flatten all the annotations without popups in the document 
+'Flatten all the annotations without popups in the document 
 
 loadedDocument.FlattenAnnotations(true)
 
@@ -1347,7 +1347,6 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
 }
-
 
 {% endhighlight %}
 
