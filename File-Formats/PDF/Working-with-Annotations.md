@@ -5100,9 +5100,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("polygonAnnotation.pdf"
 
 ### Watermark Annotation
 
-A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page., PdfWatermarkAnnotation can be used.
-
-[PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) is used to create watermark annotation.
+A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page., [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) can be used.
 
 The following code example explains how to add a watermark annotation in the PDF document
 
