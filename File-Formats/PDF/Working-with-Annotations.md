@@ -1033,6 +1033,325 @@ else
 
 {% endtabs %}
 
+## Flattening annotations without calling save method 
+
+Annotations can be flattened by removing the existing annotation and replacing it with graphic objects that would resemble the annotation and cannot be edited.
+
+This can be achieved by enabling the FlattenAnnotation method. Please refer to the sample for flattening all the annotations in the PDF document without calling the save method
+
+To flatten the annotation without pop-ups in the PDF document, use the code example below:
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf");
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}      
+
+'Load the existing PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+
+' Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations()
+
+Next
+
+'Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf")
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+  {% highlight c# tabtitle="UWP" %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+To flatten the annotation with pop-ups in the PDF document, use the code example below:
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document
+
+ PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Flatten all the annotations with popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf");
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}      
+
+'Load the existing PDF document
+
+Dim loadedDocument As New PdfLoadedDocument(“input.pdf”)
+
+' Flatten all the annotations without popups in the document 
+
+loadedDocument.FlattenAnnotations(true)
+
+'Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf")
+
+loadedDocument.Close(true)
+
+{% endhighlight %}
+
+  {% highlight c# tabtitle="UWP" %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+
+{% endhighlight %}
+
+{% endtabs %}
 ## Supported annotation types
 
 ### 3D Annotation
