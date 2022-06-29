@@ -2384,11 +2384,13 @@ N> 2. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 
 ## Word 2016 Charts
 
-Essential DocIO supports creating and manipulating new and modern chart types such as waterfall, which are introduced in Microsoft Word 2016.
+Essential DocIO supports creating and manipulating new and modern chart types such as waterfall, which is introduced in Microsoft Word 2016.
 
 ### Waterfall
 
-[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart. Refer to the following code to create a Waterfall chart.
+[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart.
+
+The following code example illustrates how to create a Waterfall chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
