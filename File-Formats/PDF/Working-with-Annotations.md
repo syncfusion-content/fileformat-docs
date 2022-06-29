@@ -5315,7 +5315,8 @@ Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WatermarkAnnotati
  else {
  Xamarin.Forms.DependencyService.Get<ISave>().Save("WatermarkAnnotation.pdf", "application/pdf", stream);
  }
-
+{% endhighlight %}
+{% endtabs %}
 
 ## Measurement Annotations
 
