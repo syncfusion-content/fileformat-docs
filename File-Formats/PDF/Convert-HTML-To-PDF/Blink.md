@@ -204,6 +204,18 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 
 * The <b>BlinkBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. In that folder, you have to extract the compressed folder <i>chromium.app.zip</i> properly without missing any files or folders in that same location. The physical path of BlinkBinariesMac folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesMac folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
 
+## Prerequisites for AWS
+
+* Minimum product version: 20.2.0.36
+
+* Supports conversion from .NET Core 2.1.
+
+* The BlinkBinariesAws folder is available in the NuGet package. There is no need to set the path of the BlinkBinaries folder. The converter will automatically sets the BlinkPath property with the BlinkBinariesAws folder.
+
+<b>NuGet</b>
+    <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
+    
+
 ## URL to PDF
 
 To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet.

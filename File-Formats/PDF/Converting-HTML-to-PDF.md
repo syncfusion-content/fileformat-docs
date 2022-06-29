@@ -651,4 +651,11 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
+<tr>
+<td>AWS Lambda</td>
+<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
+<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+</tr>
+
 </table>

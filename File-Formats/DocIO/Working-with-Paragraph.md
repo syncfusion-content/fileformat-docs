@@ -5793,11 +5793,12 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Appending breaks
 
-Breaks allows the document contents to split into multiple parts to customize the appearance of the contents. The following are the types of breaks supported in the DocIO:
+Breaks allow the document contents to split into multiple parts to customize the appearance of the contents. The following are the types of breaks supported in the DocIO:
 
-* Page break: Starts the content in the next page.
-* Line break: Starts the content in new line.
+* Page break: Starts the content on the next page.
+* Line break: Starts the content in a new line.
 * Column break: Starts the content in the next column.
+* Text wrapping break: Starts the content below to the picture, table, or other items.
 
 The following code example explains how various types of breaks can be appended to the paragraphs.
 
@@ -5973,6 +5974,119 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Append-breaks).
+
+### Text wrapping break
+
+When including images or other objects in a Word document, the text is wrapped around the objects as per wrapping behavior. If you wish to move the text below to the picture (as like caption), instead of adding an extra line break or empty paragraphs, you can add the text wrapping break to achieve it.
+
+The following code example illustrates how to insert a text wrapping break to move the text below to the picture.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Opens an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Access paragraph from section.
+    WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
+    //Create text wrapping break.
+    Break textWrappingBreak = new Break(document, BreakType.TextWrappingBreak);
+    //Insert text wrapping break in specific index.
+    paragraph.ChildEntities.Insert(1, textWrappingBreak);
+    //Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Opens an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Access paragraph from section.
+    Dim paragraph As WParagraph = TryCast(document.LastSection.Body.ChildEntities(2), WParagraph)
+    'Create text wrapping break.
+    Dim textWrappingBreak As Break = New Break(document, BreakType.TextWrappingBreak)
+    'Insert text wrapping break in specific index.
+    paragraph.ChildEntities.Insert(1, textWrappingBreak)
+    'Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Opens the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access paragraph from section.
+        WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
+        //Create text wrapping break.
+        Break textWrappingBreak = new Break(document, BreakType.TextWrappingBreak);
+        //Insert text wrapping break in specific index.
+        paragraph.ChildEntities.Insert(1, textWrappingBreak);
+        //Saves the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Saves the stream as Word document file in local machine.
+        Save(stream, "Sample.docx");
+        //Please refer the below link to save Word document in UWP platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Opens the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access paragraph from section.
+        WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
+        //Create text wrapping break.
+        Break textWrappingBreak = new Break(document, BreakType.TextWrappingBreak);
+        //Insert text wrapping break in specific index.
+        paragraph.ChildEntities.Insert(1, textWrappingBreak);
+        //Saves the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        wordDocument.Save(outputStream, FormatType.Docx);
+        stream.Position = 0;
+        //Downloads Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Opens the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access paragraph from section.
+        WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
+        //Create text wrapping break.
+        Break textWrappingBreak = new Break(document, BreakType.TextWrappingBreak);
+        //Insert text wrapping break in specific index.
+        paragraph.ChildEntities.Insert(1, textWrappingBreak);
+        //Saves the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        wordDocument.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+By executing the code example above, it generates the resultant Word document as follows.
+
+![Output of Word document with Text wrapping break](WorkingWithParagraphs_images/Text_wrapping_break_output.png)
 
 ## Working with OLE objects
 

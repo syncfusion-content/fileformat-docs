@@ -1669,6 +1669,1855 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Skip-to-merge-image).
 
+## Start At New Page
+
+You can start a new page for each group of records while performing a mail merge in Word documents by enabling the `StartAtNewPage` property.
+
+The following code example illustrates how to start a new page for each group of records during the mail merge process.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Opens the template Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Gets the invoice details as “IEnumerable” collection.
+    List<Invoice> invoice = GetInvoice();
+    //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+    MailMergeDataTable dataTable = new MailMergeDataTable("Invoice", invoice);
+    //Enables the flag to start each record in new page.
+    document.MailMerge.StartAtNewPage = true;
+    //Performs Mail merge.
+    document.MailMerge.ExecuteNestedGroup(dataTable);
+    //Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Opens the template Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Gets the invoice details as “IEnumerable” collection.
+    Dim invoice As List(Of Invoice) = GetInvoice()
+    'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+    Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Invoice", invoice)
+    'Enables the flag to start each record in new page.
+    document.MailMerge.StartAtNewPage = True
+    'Performs Mail merge.
+    document.MailMerge.ExecuteNestedGroup(dataTable)
+    'Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Opens the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Gets the invoice details as “IEnumerable” collection.
+        List<Invoice> invoice = GetInvoice();
+        //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+        MailMergeDataTable dataTable = new MailMergeDataTable("Invoice", invoice);
+        //Enables the flag to start each record in new page.
+        document.MailMerge.StartAtNewPage = true;
+        //Performs Mail merge.
+        document.MailMerge.ExecuteNestedGroup(dataTable);
+        //Saves the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Saves the stream as Word document file in local machine.
+        Save(stream, "Sample.docx");
+        //Please refer the below link to save Word document in UWP platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Opens the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Gets the invoice details as “IEnumerable” collection.
+        List<Invoice> invoice = GetInvoice();
+        //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+        MailMergeDataTable dataTable = new MailMergeDataTable("Invoice", invoice);
+        //Enables the flag to start each record in new page.
+        document.MailMerge.StartAtNewPage = true;
+        //Performs Mail merge.
+        document.MailMerge.ExecuteNestedGroup(dataTable);
+        //Saves the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        wordDocument.Save(outputStream, FormatType.Docx);
+        stream.Position = 0;
+        //Downloads Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Opens the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Loads file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Gets the invoice details as “IEnumerable” collection.
+        List<Invoice> invoice = GetInvoice();
+        //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+        MailMergeDataTable dataTable = new MailMergeDataTable("Invoice", invoice);
+        //Enables the flag to start each record in new page.
+        document.MailMerge.StartAtNewPage = true;
+        //Performs Mail merge.
+        document.MailMerge.ExecuteNestedGroup(dataTable);
+        //Saves the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        wordDocument.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example shows GetInvoice method, which is used to get data for mail merge.
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C#" %}
+
+public static List<Invoice> GetInvoice()
+{
+    //Creates invoice details.
+    List<Invoice> invoices = new List<Invoice>();
+
+    List<Orders> orders = new List<Orders>();
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
+                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+
+    List<Order> order = new List<Order>();
+    order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
+    order.Add(new Order("2", "Boston Crab Meat", "14.7", "40", "0.2", "470.4"));
+
+    List<OrderTotals> orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("440", "32.8", "472.38"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
+                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
+                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+
+    order = new List<Order>();
+    order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
+    order.Add(new Order("4", "Alice Mutton", "39", "100", "0", "3900"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1863.4", "11.61", "1875.01"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
+                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+
+    order = new List<Order>();
+    order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
+    order.Add(new Order("51", "Manjimup Dried Apples", "42.4", "35", "0.15", "1261.4"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1552.6", "65.83", "1618.43"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    return invoices;
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+Public Function GetInvoice() As List(Of Invoice)
+    'Creates invoice details.
+    Dim invoices As List(Of Invoice) = New List(Of Invoice)()
+
+    Dim orders As List(Of Orders) = New List(Of Orders)()
+    orders.Add(New Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
+                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"))
+
+    Dim order As List(Of Order) = New List(Of Order)()
+    order.Add(New Order("1", "Chai", "14.4", "45", "0.2", "518.4"))
+    order.Add(New Order("2", "Boston Crab Meat", "14.7", "40", "0.2", "470.4"))
+
+    Dim orderTotals As List(Of OrderTotals) = New List(Of OrderTotals)()
+    orderTotals.Add(New OrderTotals("440", "32.8", "472.38"))
+
+    invoices.Add(New Invoice(orders, order, orderTotals))
+
+    orders = New List(Of Orders)()
+    orders.Add(New Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany", "TOMSP",
+                "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten", "1996-07-04T00:00:00-04:00",
+                "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"))
+
+    order = New List(Of Order)()
+    order.Add(New Order("1", "Chai", "18", "45", "0.2", "618.4"))
+    order.Add(New Order("4", "Alice Mutton", "39", "100", "0", "3900"))
+
+    orderTotals = New List(Of OrderTotals)()
+    orderTotals.Add(New OrderTotals("1863.4", "11.61", "1875.01"))
+
+    invoices.Add(New Invoice(orders, order, orderTotals))
+
+    orders = New List(Of Orders)()
+    orders.Add(New Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
+                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"))
+
+    order = New List(Of Order)()
+    order.Add(New Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"))
+    order.Add(New Order("51", "Manjimup Dried Apples", "42.4", "35", "0.15", "1261.4"))
+
+    orderTotals = New List(Of OrderTotals)()
+    orderTotals.Add(New OrderTotals("1552.6", "65.83", "1618.43"))
+
+    invoices.Add(New Invoice(orders, order, orderTotals))
+
+    Return invoices
+End Function
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+public List<Invoice> GetInvoice()
+{
+    //Creates invoice details.
+    List<Invoice> invoices = new List<Invoice>();
+
+    List<Orders> orders = new List<Orders>();
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
+                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+
+    List<Order> order = new List<Order>();
+    order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
+    order.Add(new Order("2", "Boston Crab Meat", "14.7", "40", "0.2", "470.4"));
+
+    List<OrderTotals> orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("440", "32.8", "472.38"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
+                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
+                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+
+    order = new List<Order>();
+    order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
+    order.Add(new Order("4", "Alice Mutton", "39", "100", "0", "3900"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1863.4", "11.61", "1875.01"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
+                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+
+    order = new List<Order>();
+    order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
+    order.Add(new Order("51", "Manjimup Dried Apples", "42.4", "35", "0.15", "1261.4"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1552.6", "65.83", "1618.43"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    return invoices;
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+public List<Invoice> GetInvoice()
+{
+    //Creates invoice details.
+    List<Invoice> invoices = new List<Invoice>();
+
+    List<Orders> orders = new List<Orders>();
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
+                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+
+    List<Order> order = new List<Order>();
+    order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
+    order.Add(new Order("2", "Boston Crab Meat", "14.7", "40", "0.2", "470.4"));
+
+    List<OrderTotals> orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("440", "32.8", "472.38"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
+                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
+                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+
+    order = new List<Order>();
+    order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
+    order.Add(new Order("4", "Alice Mutton", "39", "100", "0", "3900"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1863.4", "11.61", "1875.01"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
+                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+
+    order = new List<Order>();
+    order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
+    order.Add(new Order("51", "Manjimup Dried Apples", "42.4", "35", "0.15", "1261.4"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1552.6", "65.83", "1618.43"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    return invoices;
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+public List<Invoice> GetInvoice()
+{
+    //Creates invoice details.
+    List<Invoice> invoices = new List<Invoice>();
+
+    List<Orders> orders = new List<Orders>();
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
+                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+
+    List<Order> order = new List<Order>();
+    order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
+    order.Add(new Order("2", "Boston Crab Meat", "14.7", "40", "0.2", "470.4"));
+
+    List<OrderTotals> orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("440", "32.8", "472.38"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
+                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
+                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+
+    order = new List<Order>();
+    order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
+    order.Add(new Order("4", "Alice Mutton", "39", "100", "0", "3900"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1863.4", "11.61", "1875.01"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    orders = new List<Orders>();
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
+                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
+                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+
+    order = new List<Order>();
+    order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
+    order.Add(new Order("51", "Manjimup Dried Apples", "42.4", "35", "0.15", "1261.4"));
+
+    orderTotals = new List<OrderTotals>();
+    orderTotals.Add(new OrderTotals("1552.6", "65.83", "1618.43"));
+
+    invoices.Add(new Invoice(orders, order, orderTotals));
+
+    return invoices;
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example shows Invoice, Orders, Order and OrderTotals classes.
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C#" %}
+
+public class Invoice
+{
+    #region Fields
+    private List<Orders> m_orders;
+    private List<Order> m_order;
+    private List<OrderTotals> m_orderTotal;
+    #endregion
+
+    #region Properties
+    public List<Orders> Orders
+    {
+        get { return m_orders; }
+        set { m_orders = value; }
+    }
+    public List<Order> Order
+    {
+        get { return m_order; }
+        set { m_order = value; }
+    }
+    public List<OrderTotals> OrderTotals
+    {
+        get { return m_orderTotal; }
+        set { m_orderTotal = value; }
+    }
+    #endregion
+    
+    #region Constructor
+    public Invoice(List<Orders> orders, List<Order> order, List<OrderTotals> orderTotals)
+    {
+        Orders = orders;
+        Order = order;
+        OrderTotals = orderTotals;
+    }
+    #endregion
+}
+
+public class Orders
+{
+    #region Fields
+    private string m_orderID;
+    private string m_shipName;
+    private string m_shipAddress;
+    private string m_shipCity;
+    private string m_shipPostalCode;
+    private string m_shipCountry;
+    private string m_customerID;
+    private string m_address;
+    private string m_postalCode;
+    private string m_city;
+    private string m_country;
+    private string m_salesPerson;
+    private string m_customersCompanyName;
+    private string m_orderDate;
+    private string m_requiredDate;
+    private string m_shippedDate;
+    private string m_shippersCompanyName;
+    #endregion
+
+    #region Properties
+    public string ShipName
+    {
+        get { return m_shipName; }
+        set { m_shipName = value; }
+    }
+    public string ShipAddress
+    {
+        get { return m_shipAddress; }
+        set { m_shipAddress = value; }
+    }
+    public string ShipCity
+    {
+        get { return m_shipCity; }
+        set { m_shipCity = value; }
+    }
+    public string ShipPostalCode
+    {
+        get { return m_shipPostalCode; }
+        set { m_shipPostalCode = value; }
+    }
+    public string PostalCode
+    {
+        get { return m_postalCode; }
+        set { m_postalCode = value; }
+    }
+    public string ShipCountry
+    {
+        get { return m_shipCountry; }
+        set { m_shipCountry = value; }
+    }
+    public string CustomerID
+    {
+        get { return m_customerID; }
+        set { m_customerID = value; }
+    }
+    public string Customers_CompanyName
+    {
+        get { return m_customersCompanyName; }
+        set { m_customersCompanyName = value; }
+    }
+    public string Address
+    {
+        get { return m_address; }
+        set { m_address = value; }
+    }
+    public string City
+    {
+        get { return m_city; }
+        set { m_city = value; }
+    }
+    public string Country
+    {
+        get { return m_country; }
+        set { m_country = value; }
+    }
+    public string Salesperson
+    {
+        get { return m_salesPerson; }
+        set { m_salesPerson = value; }
+    }
+    public string OrderID
+    {
+        get { return m_orderID; }
+        set { m_orderID = value; }
+    }
+    public string OrderDate
+    {
+        get { return m_orderDate; }
+        set { m_orderDate = value; }
+    }
+    public string RequiredDate
+    {
+        get { return m_requiredDate; }
+        set { m_requiredDate = value; }
+    }
+    public string ShippedDate
+    {
+        get { return m_shippedDate; }
+        set { m_shippedDate = value; }
+    }
+    public string Shippers_CompanyName
+    {
+        get { return m_shippersCompanyName; }
+        set { m_shippersCompanyName = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public Orders(string orderID, string shipName, string shipAddress, string shipCity,
+     string shipPostalCode, string shipCountry, string customerID, string address,
+     string postalCode, string city, string country, string salesPerson, string customersCompanyName,
+     string orderDate, string requiredDate, string shippedDate, string shippersCompanyName)
+    {
+        OrderID = orderID;
+        ShipName = shipName;
+        ShipAddress = shipAddress;
+        ShipCity = shipCity;
+        ShipPostalCode = shipPostalCode;
+        ShipCountry = shipCountry;
+        CustomerID = customerID;
+        Address = address;
+        PostalCode = postalCode;
+        City = city;
+        Country = country;
+        Salesperson = salesPerson;
+        Customers_CompanyName = customersCompanyName;
+        OrderDate = orderDate;
+        RequiredDate = requiredDate;
+        ShippedDate = shippedDate;
+        Shippers_CompanyName = shippersCompanyName;
+    }
+    #endregion
+}
+
+public class Order
+{
+    #region Fields
+    private string m_productID;
+    private string m_productName;
+    private string m_unitPrice;
+    private string m_quantity;
+    private string m_discount;
+    private string m_extendedPrice;
+    #endregion
+
+    #region Properties
+    public string ProductID
+    {
+        get { return m_productID; }
+        set { m_productID = value; }
+    }
+    public string ProductName
+    {
+        get { return m_productName; }
+        set { m_productName = value; }
+    }
+    public string UnitPrice
+    {
+        get { return m_unitPrice; }
+        set { m_unitPrice = value; }
+    }
+    public string Quantity
+    {
+        get { return m_quantity; }
+        set { m_quantity = value; }
+    }
+    public string Discount
+    {
+        get { return m_discount; }
+        set { m_discount = value; }
+    }
+    public string ExtendedPrice
+    {
+        get { return m_extendedPrice; }
+        set { m_extendedPrice = value; }
+    }
+    #endregion
+
+    #region Constructor       
+    public Order(string productID, string productName, string unitPrice, string quantity,
+     string discount, string extendedPrice)
+    {
+        ProductID = productID;
+        ProductName = productName;
+        UnitPrice = unitPrice;
+        Quantity = quantity;
+        Discount = discount;
+        ExtendedPrice = extendedPrice;
+    }
+    #endregion
+}
+
+public class OrderTotals
+{
+    #region Fields
+    private string m_subTotal;
+    private string m_freight;
+    private string m_total;
+    #endregion
+
+    #region Properties
+    public string Subtotal
+    {
+        get { return m_subTotal; }
+        set { m_subTotal = value; }
+    }
+    public string Freight
+    {
+        get { return m_freight; }
+        set { m_freight = value; }
+    }
+    public string Total
+    {
+        get { return m_total; }
+        set { m_total = value; }
+    }
+    #endregion
+	
+    #region Constructor       
+    public OrderTotals(string subTotal, string freight, string total)
+    {
+        Subtotal = subTotal;
+        Freight = freight;
+        Total = total;
+    }
+    #endregion
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+Public Class Invoice
+    #Region "Fields"
+    Private m_orders As List(Of Orders)
+    Private m_order As List(Of Order)
+    Private m_orderTotal As List(Of OrderTotals)
+    #End Region
+
+    #Region "Properties"
+    Public Property Orders As List(Of Orders)
+        Get
+            Return m_orders
+        End Get
+        Set(ByVal value As List(Of Orders))
+            m_orders = value
+        End Set
+    End Property
+    Public Property Order As List(Of Order)
+        Get
+            Return m_order
+        End Get
+        Set(ByVal value As List(Of Order))
+            m_order = value
+        End Set
+    End Property
+    Public Property OrderTotals As List(Of OrderTotals)
+        Get
+            Return m_orderTotal
+        End Get
+        Set(ByVal value As List(Of OrderTotals))
+            m_orderTotal = value
+        End Set
+    End Property
+    #End Region
+    
+    #Region "Constructor"
+    Public Sub New(ByVal orders As List(Of Orders), ByVal order As List(Of Order), ByVal orderTotals As List(Of OrderTotals))
+        Me.Orders = orders
+        Me.Order = order
+        Me.OrderTotals = orderTotals
+    End Sub
+    #End Region
+End Class
+
+Public Class Orders
+    #Region "Fields"
+    Private m_orderID As String
+    Private m_shipName As String
+    Private m_shipAddress As String
+    Private m_shipCity As String
+    Private m_shipPostalCode As String
+    Private m_shipCountry As String
+    Private m_customerID As String
+    Private m_address As String
+    Private m_postalCode As String
+    Private m_city As String
+    Private m_country As String
+    Private m_salesPerson As String
+    Private m_customersCompanyName As String
+    Private m_orderDate As String
+    Private m_requiredDate As String
+    Private m_shippedDate As String
+    Private m_shippersCompanyName As String
+    #End Region
+
+    #Region "Properties"
+    Public Property ShipName As String
+        Get
+            Return m_shipName
+        End Get
+        Set(ByVal value As String)
+            m_shipName = value
+        End Set
+    End Property
+    Public Property ShipAddress As String
+        Get
+            Return m_shipAddress
+        End Get
+        Set(ByVal value As String)
+            m_shipAddress = value
+        End Set
+    End Property
+    Public Property ShipCity As String
+        Get
+            Return m_shipCity
+        End Get
+        Set(ByVal value As String)
+            m_shipCity = value
+        End Set
+    End Property
+    Public Property ShipPostalCode As String
+        Get
+            Return m_shipPostalCode
+        End Get
+        Set(ByVal value As String)
+            m_shipPostalCode = value
+        End Set
+    End Property
+    Public Property PostalCode As String
+        Get
+            Return m_postalCode
+        End Get
+        Set(ByVal value As String)
+            m_postalCode = value
+        End Set
+    End Property
+    Public Property ShipCountry As String
+        Get
+            Return m_shipCountry
+        End Get
+        Set(ByVal value As String)
+            m_shipCountry = value
+        End Set
+    End Property
+    Public Property CustomerID As String
+        Get
+            Return m_customerID
+        End Get
+        Set(ByVal value As String)
+            m_customerID = value
+        End Set
+    End Property
+    Public Property Customers_CompanyName As String
+        Get
+            Return m_customersCompanyName
+        End Get
+        Set(ByVal value As String)
+            m_customersCompanyName = value
+        End Set
+    End Property
+    Public Property Address As String
+        Get
+            Return m_address
+        End Get
+        Set(ByVal value As String)
+            m_address = value
+        End Set
+    End Property
+    Public Property City As String
+        Get
+            Return m_city
+        End Get
+        Set(ByVal value As String)
+            m_city = value
+        End Set
+    End Property
+
+    Public Property Country As String
+        Get
+            Return m_country
+        End Get
+        Set(ByVal value As String)
+            m_country = value
+        End Set
+    End Property
+    Public Property Salesperson As String
+        Get
+            Return m_salesPerson
+        End Get
+        Set(ByVal value As String)
+            m_salesPerson = value
+        End Set
+    End Property
+    Public Property OrderID As String
+        Get
+            Return m_orderID
+        End Get
+        Set(ByVal value As String)
+            m_orderID = value
+        End Set
+    End Property
+    Public Property OrderDate As String
+        Get
+            Return m_orderDate
+        End Get
+        Set(ByVal value As String)
+            m_orderDate = value
+        End Set
+    End Property
+    Public Property RequiredDate As String
+        Get
+            Return m_requiredDate
+        End Get
+        Set(ByVal value As String)
+            m_requiredDate = value
+        End Set
+    End Property
+    Public Property ShippedDate As String
+        Get
+            Return m_shippedDate
+        End Get
+        Set(ByVal value As String)
+            m_shippedDate = value
+        End Set
+    End Property
+    Public Property Shippers_CompanyName As String
+        Get
+            Return m_shippersCompanyName
+        End Get
+        Set(ByVal value As String)
+            m_shippersCompanyName = value
+        End Set
+    End Property
+    #End Region
+
+    #Region "Constructor"
+    Public Sub New(ByVal orderID As String, ByVal shipName As String, ByVal shipAddress As String, ByVal shipCity As String, ByVal shipPostalCode As String, ByVal shipCountry As String, ByVal customerID As String, ByVal address As String, ByVal postalCode As String, ByVal city As String, ByVal country As String, ByVal salesPerson As String, ByVal customersCompanyName As String, ByVal orderDate As String, ByVal requiredDate As String, ByVal shippedDate As String, ByVal shippersCompanyName As String)
+        Me.OrderID = orderID
+        Me.ShipName = shipName
+        Me.ShipAddress = shipAddress
+        Me.ShipCity = shipCity
+        Me.ShipPostalCode = shipPostalCode
+        Me.ShipCountry = shipCountry
+        Me.CustomerID = customerID
+        Me.Address = address
+        Me.PostalCode = postalCode
+        Me.City = city
+        Me.Country = country
+        Me.Salesperson = salesPerson
+        Customers_CompanyName = customersCompanyName
+        Me.OrderDate = orderDate
+        Me.RequiredDate = requiredDate
+        Me.ShippedDate = shippedDate
+        Shippers_CompanyName = shippersCompanyName
+    End Sub
+    #End Region
+End Class
+
+Public Class Order
+    #Region "Fields"
+    Private m_productID As String
+    Private m_productName As String
+    Private m_unitPrice As String
+    Private m_quantity As String
+    Private m_discount As String
+    Private m_extendedPrice As String
+    #End Region
+
+    #Region "Properties"
+    Public Property ProductID As String
+        Get
+            Return m_productID
+        End Get
+        Set(ByVal value As String)
+            m_productID = value
+        End Set
+    End Property
+    Public Property ProductName As String
+        Get
+            Return m_productName
+        End Get
+        Set(ByVal value As String)
+            m_productName = value
+        End Set
+    End Property
+    Public Property UnitPrice As String
+        Get
+            Return m_unitPrice
+        End Get
+        Set(ByVal value As String)
+            m_unitPrice = value
+        End Set
+    End Property
+    Public Property Quantity As String
+        Get
+            Return m_quantity
+        End Get
+        Set(ByVal value As String)
+            m_quantity = value
+        End Set
+    End Property
+    Public Property Discount As String
+        Get
+        Return m_discount
+        End Get
+        Set(ByVal value As String)
+        m_discount = value
+        End Set
+    End Property
+    Public Property ExtendedPrice As String
+        Get
+        Return m_extendedPrice
+        End Get
+        Set(ByVal value As String)
+        m_extendedPrice = value
+        End Set
+    End Property
+    #End Region
+
+    #Region "Constructor"
+    Public Sub New(ByVal productID As String, ByVal productName As String, ByVal unitPrice As String, ByVal quantity As String, ByVal discount As String, ByVal extendedPrice As String)
+        Me.ProductID = productID
+        Me.ProductName = productName
+        Me.UnitPrice = unitPrice
+        Me.Quantity = quantity
+        Me.Discount = discount
+        Me.ExtendedPrice = extendedPrice
+    End Sub
+    #End Region
+End Class
+
+    Public Class OrderTotals
+    #Region "Fields"
+    Private m_subTotal As String
+    Private m_freight As String
+    Private m_total As String
+    #End Region
+
+    #Region "Properties"
+    Public Property Subtotal As String
+        Get
+            Return m_subTotal
+        End Get
+        Set(ByVal value As String)
+            m_subTotal = value
+        End Set
+    End Property
+    Public Property Freight As String
+        Get
+            Return m_freight
+        End Get
+        Set(ByVal value As String)
+            m_freight = value
+        End Set
+    End Property
+    Public Property Total As String
+        Get
+            Return m_total
+        End Get
+        Set(ByVal value As String)
+            m_total = value
+        End Set
+    End Property
+    #End Region
+
+    #Region "Constructor"
+    Public Sub New(ByVal subTotal As String, ByVal freight As String, ByVal total As String)
+        Me.Subtotal = subTotal
+        Me.Freight = freight
+        Me.Total = total
+    End Sub
+    #End Region
+End Class
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+public class Invoice
+{
+    #region Fields
+    private List<Orders> m_orders;
+    private List<Order> m_order;
+    private List<OrderTotals> m_orderTotal;
+    #endregion
+
+    #region Properties
+    public List<Orders> Orders
+    {
+        get { return m_orders; }
+        set { m_orders = value; }
+    }
+    public List<Order> Order
+    {
+        get { return m_order; }
+        set { m_order = value; }
+    }
+    public List<OrderTotals> OrderTotals
+    {
+        get { return m_orderTotal; }
+        set { m_orderTotal = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public Invoice(List<Orders> orders, List<Order> order, List<OrderTotals> orderTotals)
+    {
+        Orders = orders;
+        Order = order;
+        OrderTotals = orderTotals;
+    }
+    #endregion
+}
+
+public class Orders
+{
+    #region Fields
+    private string m_orderID;
+    private string m_shipName;
+    private string m_shipAddress;
+    private string m_shipCity;
+    private string m_shipPostalCode;
+    private string m_shipCountry;
+    private string m_customerID;
+    private string m_address;
+    private string m_postalCode;
+    private string m_city;
+    private string m_country;
+    private string m_salesPerson;
+    private string m_customersCompanyName;
+    private string m_orderDate;
+    private string m_requiredDate;
+    private string m_shippedDate;
+    private string m_shippersCompanyName;
+    #endregion
+
+    #region Properties
+    public string ShipName
+    {
+        get { return m_shipName; }
+        set { m_shipName = value; }
+    }
+    public string ShipAddress
+    {
+        get { return m_shipAddress; }
+        set { m_shipAddress = value; }
+    }
+    public string ShipCity
+    {
+        get { return m_shipCity; }
+        set { m_shipCity = value; }
+    }
+    public string ShipPostalCode
+    {
+        get { return m_shipPostalCode; }
+        set { m_shipPostalCode = value; }
+    }
+    public string PostalCode
+    {
+        get { return m_postalCode; }
+        set { m_postalCode = value; }
+    }
+    public string ShipCountry
+    {
+        get { return m_shipCountry; }
+        set { m_shipCountry = value; }
+    }
+    public string CustomerID
+    {
+        get { return m_customerID; }
+        set { m_customerID = value; }
+    }
+    public string Customers_CompanyName
+    {
+        get { return m_customersCompanyName; }
+        set { m_customersCompanyName = value; }
+    }
+    public string Address
+    {
+        get { return m_address; }
+        set { m_address = value; }
+    }
+    public string City
+    {
+        get { return m_city; }
+        set { m_city = value; }
+    }
+    public string Country
+    {
+        get { return m_country; }
+        set { m_country = value; }
+    }
+    public string Salesperson
+    {
+        get { return m_salesPerson; }
+        set { m_salesPerson = value; }
+    }
+    public string OrderID
+    {
+        get { return m_orderID; }
+        set { m_orderID = value; }
+    }
+    public string OrderDate
+    {
+        get { return m_orderDate; }
+        set { m_orderDate = value; }
+    }
+    public string RequiredDate
+    {
+        get { return m_requiredDate; }
+        set { m_requiredDate = value; }
+    }
+    public string ShippedDate
+    {
+        get { return m_shippedDate; }
+        set { m_shippedDate = value; }
+    }
+    public string Shippers_CompanyName
+    {
+        get { return m_shippersCompanyName; }
+        set { m_shippersCompanyName = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public Orders(string orderID, string shipName, string shipAddress, string shipCity,
+     string shipPostalCode, string shipCountry, string customerID, string address,
+     string postalCode, string city, string country, string salesPerson, string customersCompanyName,
+     string orderDate, string requiredDate, string shippedDate, string shippersCompanyName)
+    {
+        OrderID = orderID;
+        ShipName = shipName;
+        ShipAddress = shipAddress;
+        ShipCity = shipCity;
+        ShipPostalCode = shipPostalCode;
+        ShipCountry = shipCountry;
+        CustomerID = customerID;
+        Address = address;
+        PostalCode = postalCode;
+        City = city;
+        Country = country;
+        Salesperson = salesPerson;
+        Customers_CompanyName = customersCompanyName;
+        OrderDate = orderDate;
+        RequiredDate = requiredDate;
+        ShippedDate = shippedDate;
+        Shippers_CompanyName = shippersCompanyName;
+    }
+    #endregion
+}
+
+public class Order
+{
+    #region Fields
+    private string m_productID;
+    private string m_productName;
+    private string m_unitPrice;
+    private string m_quantity;
+    private string m_discount;
+    private string m_extendedPrice;
+    #endregion
+
+    #region Properties
+    public string ProductID
+    {
+        get { return m_productID; }
+        set { m_productID = value; }
+    }
+    public string ProductName
+    {
+        get { return m_productName; }
+        set { m_productName = value; }
+    }
+    public string UnitPrice
+    {
+        get { return m_unitPrice; }
+        set { m_unitPrice = value; }
+    }
+    public string Quantity
+    {
+        get { return m_quantity; }
+        set { m_quantity = value; }
+    }
+    public string Discount
+    {
+        get { return m_discount; }
+        set { m_discount = value; }
+    }
+    public string ExtendedPrice
+    {
+        get { return m_extendedPrice; }
+        set { m_extendedPrice = value; }
+    }
+    #endregion
+
+    #region Constructor       
+    public Order(string productID, string productName, string unitPrice, string quantity,
+     string discount, string extendedPrice)
+    {
+        ProductID = productID;
+        ProductName = productName;
+        UnitPrice = unitPrice;
+        Quantity = quantity;
+        Discount = discount;
+        ExtendedPrice = extendedPrice;
+    }
+    #endregion
+}
+
+public class OrderTotals
+{
+    #region Fields
+    private string m_subTotal;
+    private string m_freight;
+    private string m_total;
+    #endregion
+
+    #region Properties
+    public string Subtotal
+    {
+        get { return m_subTotal; }
+        set { m_subTotal = value; }
+    }
+    public string Freight
+    {
+        get { return m_freight; }
+        set { m_freight = value; }
+    }
+    public string Total
+    {
+        get { return m_total; }
+        set { m_total = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public OrderTotals(string subTotal, string freight, string total)
+    {
+        Subtotal = subTotal;
+        Freight = freight;
+        Total = total;
+    }
+    #endregion
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+public class Invoice
+{
+    #region Fields
+    private List<Orders> m_orders;
+    private List<Order> m_order;
+    private List<OrderTotals> m_orderTotal;
+    #endregion
+
+    #region Properties
+    public List<Orders> Orders
+    {
+        get { return m_orders; }
+        set { m_orders = value; }
+    }
+    public List<Order> Order
+    {
+        get { return m_order; }
+        set { m_order = value; }
+    }
+    public List<OrderTotals> OrderTotals
+    {
+        get { return m_orderTotal; }
+        set { m_orderTotal = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public Invoice(List<Orders> orders, List<Order> order, List<OrderTotals> orderTotals)
+    {
+        Orders = orders;
+        Order = order;
+        OrderTotals = orderTotals;
+    }
+    #endregion
+}
+
+public class Orders
+{
+    #region Fields
+    private string m_orderID;
+    private string m_shipName;
+    private string m_shipAddress;
+    private string m_shipCity;
+    private string m_shipPostalCode;
+    private string m_shipCountry;
+    private string m_customerID;
+    private string m_address;
+    private string m_postalCode;
+    private string m_city;
+    private string m_country;
+    private string m_salesPerson;
+    private string m_customersCompanyName;
+    private string m_orderDate;
+    private string m_requiredDate;
+    private string m_shippedDate;
+    private string m_shippersCompanyName;
+    #endregion
+
+    #region Properties
+    public string ShipName
+    {
+        get { return m_shipName; }
+        set { m_shipName = value; }
+    }
+    public string ShipAddress
+    {
+        get { return m_shipAddress; }
+        set { m_shipAddress = value; }
+    }
+    public string ShipCity
+    {
+        get { return m_shipCity; }
+        set { m_shipCity = value; }
+    }
+    public string ShipPostalCode
+    {
+        get { return m_shipPostalCode; }
+        set { m_shipPostalCode = value; }
+    }
+    public string PostalCode
+    {
+        get { return m_postalCode; }
+        set { m_postalCode = value; }
+    }
+    public string ShipCountry
+    {
+        get { return m_shipCountry; }
+        set { m_shipCountry = value; }
+    }
+    public string CustomerID
+    {
+        get { return m_customerID; }
+        set { m_customerID = value; }
+    }
+    public string Customers_CompanyName
+    {
+        get { return m_customersCompanyName; }
+        set { m_customersCompanyName = value; }
+    }
+    public string Address
+    {
+        get { return m_address; }
+        set { m_address = value; }
+    }
+    public string City
+    {
+        get { return m_city; }
+        set { m_city = value; }
+    }
+    public string Country
+    {
+        get { return m_country; }
+        set { m_country = value; }
+    }
+    public string Salesperson
+    {
+        get { return m_salesPerson; }
+        set { m_salesPerson = value; }
+    }
+    public string OrderID
+    {
+        get { return m_orderID; }
+        set { m_orderID = value; }
+    }
+    public string OrderDate
+    {
+        get { return m_orderDate; }
+        set { m_orderDate = value; }
+    }
+    public string RequiredDate
+    {
+        get { return m_requiredDate; }
+        set { m_requiredDate = value; }
+    }
+    public string ShippedDate
+    {
+        get { return m_shippedDate; }
+        set { m_shippedDate = value; }
+    }
+    public string Shippers_CompanyName
+    {
+        get { return m_shippersCompanyName; }
+        set { m_shippersCompanyName = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public Orders(string orderID, string shipName, string shipAddress, string shipCity,
+     string shipPostalCode, string shipCountry, string customerID, string address,
+     string postalCode, string city, string country, string salesPerson, string customersCompanyName,
+     string orderDate, string requiredDate, string shippedDate, string shippersCompanyName)
+    {
+        OrderID = orderID;
+        ShipName = shipName;
+        ShipAddress = shipAddress;
+        ShipCity = shipCity;
+        ShipPostalCode = shipPostalCode;
+        ShipCountry = shipCountry;
+        CustomerID = customerID;
+        Address = address;
+        PostalCode = postalCode;
+        City = city;
+        Country = country;
+        Salesperson = salesPerson;
+        Customers_CompanyName = customersCompanyName;
+        OrderDate = orderDate;
+        RequiredDate = requiredDate;
+        ShippedDate = shippedDate;
+        Shippers_CompanyName = shippersCompanyName;
+    }
+    #endregion
+}
+
+public class Order
+{
+    #region Fields
+    private string m_productID;
+    private string m_productName;
+    private string m_unitPrice;
+    private string m_quantity;
+    private string m_discount;
+    private string m_extendedPrice;
+    #endregion
+
+    #region Properties
+    public string ProductID
+    {
+        get { return m_productID; }
+        set { m_productID = value; }
+    }
+    public string ProductName
+    {
+        get { return m_productName; }
+        set { m_productName = value; }
+    }
+    public string UnitPrice
+    {
+        get { return m_unitPrice; }
+        set { m_unitPrice = value; }
+    }
+    public string Quantity
+    {
+        get { return m_quantity; }
+        set { m_quantity = value; }
+    }
+    public string Discount
+    {
+        get { return m_discount; }
+        set { m_discount = value; }
+    }
+    public string ExtendedPrice
+    {
+        get { return m_extendedPrice; }
+        set { m_extendedPrice = value; }
+    }
+    #endregion
+
+    #region Constructor       
+    public Order(string productID, string productName, string unitPrice, string quantity,
+     string discount, string extendedPrice)
+    {
+        ProductID = productID;
+        ProductName = productName;
+        UnitPrice = unitPrice;
+        Quantity = quantity;
+        Discount = discount;
+        ExtendedPrice = extendedPrice;
+    }
+    #endregion
+}
+
+public class OrderTotals
+{
+    #region Fields
+    private string m_subTotal;
+    private string m_freight;
+    private string m_total;
+    #endregion
+
+    #region Properties
+    public string Subtotal
+    {
+        get { return m_subTotal; }
+        set { m_subTotal = value; }
+    }
+    public string Freight
+    {
+        get { return m_freight; }
+        set { m_freight = value; }
+    }
+    public string Total
+    {
+        get { return m_total; }
+        set { m_total = value; }
+    }
+    #endregion
+	
+    #region Constructor       
+    public OrderTotals(string subTotal, string freight, string total)
+    {
+        Subtotal = subTotal;
+        Freight = freight;
+        Total = total;
+    }
+    #endregion
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+public class Invoice
+{
+    #region Fields
+    private List<Orders> m_orders;
+    private List<Order> m_order;
+    private List<OrderTotals> m_orderTotal;
+    #endregion
+
+    #region Properties
+    public List<Orders> Orders
+    {
+        get { return m_orders; }
+        set { m_orders = value; }
+    }
+    public List<Order> Order
+    {
+        get { return m_order; }
+        set { m_order = value; }
+    }
+    public List<OrderTotals> OrderTotals
+    {
+        get { return m_orderTotal; }
+        set { m_orderTotal = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public Invoice(List<Orders> orders, List<Order> order, List<OrderTotals> orderTotals)
+    {
+        Orders = orders;
+        Order = order;
+        OrderTotals = orderTotals;
+    }
+    #endregion
+}
+
+public class Orders
+{
+    #region Fields
+    private string m_orderID;
+    private string m_shipName;
+    private string m_shipAddress;
+    private string m_shipCity;
+    private string m_shipPostalCode;
+    private string m_shipCountry;
+    private string m_customerID;
+    private string m_address;
+    private string m_postalCode;
+    private string m_city;
+    private string m_country;
+    private string m_salesPerson;
+    private string m_customersCompanyName;
+    private string m_orderDate;
+    private string m_requiredDate;
+    private string m_shippedDate;
+    private string m_shippersCompanyName;
+    #endregion
+
+    #region Properties
+    public string ShipName
+    {
+        get { return m_shipName; }
+        set { m_shipName = value; }
+    }
+    public string ShipAddress
+    {
+        get { return m_shipAddress; }
+        set { m_shipAddress = value; }
+    }
+    public string ShipCity
+    {
+        get { return m_shipCity; }
+        set { m_shipCity = value; }
+    }
+    public string ShipPostalCode
+    {
+        get { return m_shipPostalCode; }
+        set { m_shipPostalCode = value; }
+    }
+    public string PostalCode
+    {
+        get { return m_postalCode; }
+        set { m_postalCode = value; }
+    }
+    public string ShipCountry
+    {
+        get { return m_shipCountry; }
+        set { m_shipCountry = value; }
+    }
+    public string CustomerID
+    {
+        get { return m_customerID; }
+        set { m_customerID = value; }
+    }
+    public string Customers_CompanyName
+    {
+        get { return m_customersCompanyName; }
+        set { m_customersCompanyName = value; }
+    }
+    public string Address
+    {
+        get { return m_address; }
+        set { m_address = value; }
+    }
+    public string City
+    {
+        get { return m_city; }
+        set { m_city = value; }
+    }
+    public string Country
+    {
+        get { return m_country; }
+        set { m_country = value; }
+    }
+    public string Salesperson
+    {
+        get { return m_salesPerson; }
+        set { m_salesPerson = value; }
+    }
+    public string OrderID
+    {
+        get { return m_orderID; }
+        set { m_orderID = value; }
+    }
+    public string OrderDate
+    {
+        get { return m_orderDate; }
+        set { m_orderDate = value; }
+    }
+    public string RequiredDate
+    {
+        get { return m_requiredDate; }
+        set { m_requiredDate = value; }
+    }
+    public string ShippedDate
+    {
+        get { return m_shippedDate; }
+        set { m_shippedDate = value; }
+    }
+    public string Shippers_CompanyName
+    {
+        get { return m_shippersCompanyName; }
+        set { m_shippersCompanyName = value; }
+    }
+    #endregion
+
+    #region Constructor
+    public Orders(string orderID, string shipName, string shipAddress, string shipCity,
+     string shipPostalCode, string shipCountry, string customerID, string address,
+     string postalCode, string city, string country, string salesPerson, string customersCompanyName,
+     string orderDate, string requiredDate, string shippedDate, string shippersCompanyName)
+    {
+        OrderID = orderID;
+        ShipName = shipName;
+        ShipAddress = shipAddress;
+        ShipCity = shipCity;
+        ShipPostalCode = shipPostalCode;
+        ShipCountry = shipCountry;
+        CustomerID = customerID;
+        Address = address;
+        PostalCode = postalCode;
+        City = city;
+        Country = country;
+        Salesperson = salesPerson;
+        Customers_CompanyName = customersCompanyName;
+        OrderDate = orderDate;
+        RequiredDate = requiredDate;
+        ShippedDate = shippedDate;
+        Shippers_CompanyName = shippersCompanyName;
+    }
+    #endregion
+}
+
+public class Order
+{
+    #region Fields
+    private string m_productID;
+    private string m_productName;
+    private string m_unitPrice;
+    private string m_quantity;
+    private string m_discount;
+    private string m_extendedPrice;
+    #endregion
+
+    #region Properties
+    public string ProductID
+    {
+        get { return m_productID; }
+        set { m_productID = value; }
+    }
+    public string ProductName
+    {
+        get { return m_productName; }
+        set { m_productName = value; }
+    }
+    public string UnitPrice
+    {
+        get { return m_unitPrice; }
+        set { m_unitPrice = value; }
+    }
+    public string Quantity
+    {
+        get { return m_quantity; }
+        set { m_quantity = value; }
+    }
+    public string Discount
+    {
+        get { return m_discount; }
+        set { m_discount = value; }
+    }
+    public string ExtendedPrice
+    {
+        get { return m_extendedPrice; }
+        set { m_extendedPrice = value; }
+    }
+    #endregion
+
+    #region Constructor       
+    public Order(string productID, string productName, string unitPrice, string quantity,
+     string discount, string extendedPrice)
+    {
+        ProductID = productID;
+        ProductName = productName;
+        UnitPrice = unitPrice;
+        Quantity = quantity;
+        Discount = discount;
+        ExtendedPrice = extendedPrice;
+    }
+    #endregion
+}
+
+public class OrderTotals
+{
+    #region Fields
+    private string m_subTotal;
+    private string m_freight;
+    private string m_total;
+    #endregion
+
+    #region Properties
+    public string Subtotal
+    {
+        get { return m_subTotal; }
+        set { m_subTotal = value; }
+    }
+    public string Freight
+    {
+        get { return m_freight; }
+        set { m_freight = value; }
+    }
+    public string Total
+    {
+        get { return m_total; }
+        set { m_total = value; }
+    }
+    #endregion
+	
+    #region Constructor       
+    public OrderTotals(string subTotal, string freight, string total)
+    {
+        Subtotal = subTotal;
+        Freight = freight;
+        Total = total;
+    }
+    #endregion
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+By executing the above code example, it generates the resultant Word document as follows.
+
+![Output Word document of start at new page](../MailMerge_images/StartAtNewPage_output.png)
+
+N> 
+This `StartAtNewPage` property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This `StartAtNewPage` property is not valid when the group start and group end are present in the table, headers, and footers.
+
 ## Remove mail merge settings
 
 To **restore a Word mail merge main document to a normal Word document** using Microsoft Word application, you have to process the steps suggested in this [article](https://support.microsoft.com/en-in/help/275995/how-to-restore-a-mail-merge-main-document-to-a-normal-word-document-in) manually. You can achieve this programmatically in just 2 lines of code using Syncfusion Word library.
