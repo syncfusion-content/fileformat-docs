@@ -5142,7 +5142,7 @@ loadedDocument.Close(true);
 
 'Load the existing PDF document
 
- Dim loadedDocument As New PdfLoadedDocument("input.pdf");
+ Dim loadedDocument As New PdfLoadedDocument("input.pdf")
  
 'Get the page 
 Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
@@ -5171,9 +5171,23 @@ loadedDocument.Close(True)
 
 {% highlight c# tabtitle="UWP" %}
 
-//Load the existing PDF document
+//Create the file open picker
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
 
 //Get the page 
  
@@ -5213,9 +5227,11 @@ Save(stream, "WatermarkAnnotation.pdf");
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the existing PDF document
+//Load the PDF document
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
 //Get the page 
  
@@ -5264,9 +5280,11 @@ return File(stream, contentType, fileName);
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the existing PDF document
+//Load the file as stream
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
 //Get the page 
  
