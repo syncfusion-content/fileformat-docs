@@ -5146,9 +5146,6 @@ loadedDocument.Save("WatermarkAnnotation.pdf");
 
 loadedDocument.Close(true);
 
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -5180,12 +5177,9 @@ loadedDocument.Save("WatermarkAnnotation.pdf")
  
 loadedDocument.Close(True)
 
-
-
-
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Load the existing PDF document
 
@@ -5224,7 +5218,6 @@ loadedDocument.Close(true);
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples 
 
 Save(stream, "WatermarkAnnotation.pdf");
-
 
 {% endhighlight %}
 
@@ -5276,7 +5269,6 @@ loadedDocument.Close(true);
 //Creates a FileContentResult object by using the file contents, content type, and file name
  
 return File(stream, contentType, fileName);
-
 
 {% endhighlight %}
 
