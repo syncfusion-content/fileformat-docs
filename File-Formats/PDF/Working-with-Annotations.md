@@ -5155,7 +5155,7 @@ Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
 
 'Creates PDF watermark annotation
 
-Dim watermark As New PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50)) 
+Dim watermark As New PdfWatermarkAnnotation(New RectangleF(50, 100, 100, 50)) 
 
 watermark.Opacity = 0.5f; 
 
