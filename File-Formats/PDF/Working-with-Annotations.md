@@ -1037,7 +1037,7 @@ else
 
 Annotations can be flattened by removing the existing annotation and replacing it with graphic objects that would resemble the annotation and cannot be edited.
 
-This can be achieved by enabling the FlattenAnnotation method. Please refer to the sample for flattening all the annotations in the PDF document without calling the save method
+This can be achieved by calling the FlattenAnnotation method. Please refer to the sample for flattening all the annotations in the PDF document without calling the save method
 
 To flatten the annotation without pop-ups in the PDF document, use the code example below:
 
