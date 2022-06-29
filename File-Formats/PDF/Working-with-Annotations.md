@@ -5104,6 +5104,14 @@ A watermark annotation is used to represent graphics that are expected to be pri
 
 [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) is used to create watermark annotation.
 
+The following code example explains how to add a watermark annotation in the PDF document
+
+* C#
+* VB.NET
+* UWP
+* ASP.NET Core
+* Xamarin
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
