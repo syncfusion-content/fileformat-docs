@@ -5102,15 +5102,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("polygonAnnotation.pdf"
 
 A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page., [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) can be used.
 The following code example explains how to add a watermark annotation in the PDF document
-*C#
-*VB.NET
-*UWP
-*ASP.NET Core
-*Xamarin
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 
 //Load the existing PDF document
 
@@ -5130,7 +5124,7 @@ watermark.Opacity = 0.5f;
 
 //Create the appearance of watermark 
 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text",new PdfStandardFont(PdfFontFamily.Helvetica,20),PdfBrushes.Red,new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle));
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Adds the annotation to page 
 
@@ -5161,7 +5155,7 @@ watermark.Opacity = 0.5f;
 
 'Creates the appearance of watermark
 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text",new PdfStandardFont(PdfFontFamily.Helvetica,20),PdfBrushes.Red,new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle))
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", New PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, New RectangleF(0, 0, 200, 50), New PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle))
 
 'Adds annotation to the page 
 
@@ -5195,7 +5189,7 @@ watermark.Opacity = 0.5f;
 
 //Create the appearance of watermark 
 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text",new PdfStandardFont(PdfFontFamily.Helvetica,20),PdfBrushes.Red,new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle));
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Adds the annotation to page 
 
@@ -5237,7 +5231,7 @@ watermark.Opacity = 0.5f;
 
 //Create the appearance of watermark 
 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text",new PdfStandardFont(PdfFontFamily.Helvetica,20),PdfBrushes.Red,new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle));
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Adds the annotation to page 
 
@@ -5288,7 +5282,7 @@ watermark.Opacity = 0.5f;
 
 //Create the appearance of watermark 
 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text",new PdfStandardFont(PdfFontFamily.Helvetica,20),PdfBrushes.Red,new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle));
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Adds the annotation to page
  
