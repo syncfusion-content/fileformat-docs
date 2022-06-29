@@ -111,9 +111,37 @@ N> 4. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 
 N> 5. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
 N> 6. Starting with v17.1.0.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.SkiaSharpHelper" assembly reference in your projects to perform Word to PDF conversion.
 
+## Converting Word document to image
+
+For converting a Word document to image, the following assemblies need to be referenced in your application.
+<table>
+<thead>
+<tr>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
+<tr>
+<td>
+WPF, Windows Forms, ASP. NET, ASP.NET MVC<br/></td><td>
+Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
+<tr>
+<td>
+Windows Forms and WPF (Client Profile)<br/></td><td>
+Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
+<tr>
+<td>
+ASP.NET Core, Xamarin and Blazor<br/></td><td>
+Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp.HarfBuzz<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
+<tr>
+<td>
+Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)<br/>
+</td><td>
+Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
+</table>
+
 ## Converting Charts
 
-The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
+The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF and image.
 <table>
 <thead>
 <tr>

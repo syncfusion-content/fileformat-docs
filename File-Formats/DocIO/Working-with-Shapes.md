@@ -227,6 +227,14 @@ rectangle.VerticalOrigin = VerticalOrigin.Page;
 //Sets line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Color.DarkGray;
+//Sets the left internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Left = 30;
+//Sets the right internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Right = 24;
+//Sets the bottom internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Bottom = 18;
+//Sets the top internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Top = 6;
 //Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -259,6 +267,14 @@ rectangle.VerticalOrigin = VerticalOrigin.Page
 'Sets line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot
 rectangle.LineFormat.Color = Color.DarkGray
+'Sets the left internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Left = 30
+'Sets the right internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Right = 24
+'Sets the bottom internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Bottom = 18
+'Sets the top internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Top = 6
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
@@ -291,6 +307,14 @@ rectangle.VerticalOrigin = VerticalOrigin.Page;
 //Sets line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Color.DarkGray;
+//Sets the left internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Left = 30;
+//Sets the right internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Right = 24;
+//Sets the bottom internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Bottom = 18;
+//Sets the top internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Top = 6;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -329,6 +353,14 @@ rectangle.VerticalOrigin = VerticalOrigin.Page;
 //Sets line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Color.DarkGray;
+//Sets the left internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Left = 30;
+//Sets the right internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Right = 24;
+//Sets the bottom internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Bottom = 18;
+//Sets the top internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Top = 6;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -366,6 +398,14 @@ rectangle.VerticalOrigin = VerticalOrigin.Page;
 //Sets line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Syncfusion.Drawing.Color.DarkGray;
+//Sets the left internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Left = 30;
+//Sets the right internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Right = 24;
+//Sets the bottom internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Bottom = 18;
+//Sets the top internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Top = 6;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
