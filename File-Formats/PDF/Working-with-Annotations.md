@@ -1548,7 +1548,7 @@ richMediaAnnotation.Content = content;
 
 //Create the appearance of the rich media.
 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...",new PdfStandardFont(PdfFontFamily.Helvetica,15),PdfBrushes.Blue,new RectangleF(0,0,200,100),new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle));
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Add the annotation to the page.
 
@@ -1574,7 +1574,7 @@ Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
 
 'Create the PDF richmedia annotation.
 
-Dim richMediaAnnotation As New PdfRichMediaAnnotation (new RectangleF(0,0,200,100)) 
+Dim richMediaAnnotation As New PdfRichMediaAnnotation (New RectangleF(0,0,200,100)) 
 
 richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click
 
@@ -1586,7 +1586,7 @@ richMediaAnnotation.Content = content
 
 'Create the appearance of the richmedia.
 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...",new PdfStandardFont(PdfFontFamily.Helvetica,15),PdfBrushes.Blue,new RectangleF(0,0,200,100),new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle))
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", New PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, New RectangleF(0, 0, 200, 100), New PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle))
 
 'Add the annotation to the page. 
 
@@ -1601,9 +1601,12 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
   {% highlight c# tabtitle="UWP" %}
-//Load the existing PDF document.
+  
+//Load the file as stream
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
 
 //Get the page.
 
@@ -1621,13 +1624,15 @@ richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
 
 //Set the richmedia content.
 
-PdfRichMediaContent content = new PdfRichMediaContent(@"video.mp4");
+Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
+
+PdfRichMediaContent content = new PdfRichMediaContent(fileStream);
 
 richMediaAnnotation.Content = content;
 
 //Create the appearance of the richmedia. 
 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...",new PdfStandardFont(PdfFontFamily.Helvetica,15),PdfBrushes.Blue,new RectangleF(0,0,200,100),new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle)); 
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Add the annotation to the page. 
 
@@ -1651,9 +1656,11 @@ Save(stream, "RichMediaAnnotation.pdf");
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the existing PDF document.
+//Load the PDF document.
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+FileStream inputStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
 
 //Get the page. 
 
@@ -1677,7 +1684,7 @@ richMediaAnnotation.Content = content;
 
 //Create the appearance of the richmedia. 
 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...",new PdfStandardFont(PdfFontFamily.Helvetica,15),PdfBrushes.Blue,new RectangleF(0,0,200,100),new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle));
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Add the annotation to the page. 
 
@@ -1711,9 +1718,11 @@ return File(stream, contentType, fileName);
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the existing PDF document.
+//Load the file as stream
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Document.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
 
 //Get the page. 
 
@@ -1737,7 +1746,7 @@ richMediaAnnotation.Content = content;
 
 //Create the appearance of the richmedia. 
 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...",new PdfStandardFont(PdfFontFamily.Helvetica,15),PdfBrushes.Blue,new RectangleF(0,0,200,100),new PdfStringFormat(PdfTextAlignment.Center,PdfVerticalAlignment.Middle));
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
 
 //Add the annotation to the page. 
 
