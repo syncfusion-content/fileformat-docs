@@ -1552,7 +1552,7 @@ richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play vi
 
 //Add the annotation to the page.
 
-lPage.Annotations.Add(richMediaAnnotation);
+lpage.Annotations.Add(richMediaAnnotation);
 
 //Save the document to the disk.
 
@@ -1626,7 +1626,7 @@ richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
 
 Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
 
-PdfRichMediaContent content = new PdfRichMediaContent(fileStream);
+PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
 
 richMediaAnnotation.Content = content;
 
@@ -1680,7 +1680,7 @@ richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
 
 FileStream fileStream = new FileStream("video.mp4", FileMode.Open, FileAccess.Read);
 
-PdfRichMediaContent content = new PdfRichMediaContent(fileStream);
+PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
 
 richMediaAnnotation.Content = content;
 
@@ -1744,7 +1744,7 @@ richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
 
 Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
 
-PdfRichMediaContent content = new PdfRichMediaContent(fileStream);
+PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
 
 richMediaAnnotation.Content = content;
 
