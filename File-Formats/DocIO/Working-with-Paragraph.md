@@ -6017,7 +6017,7 @@ End Using
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
     //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Access paragraph from section.
         WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
@@ -6041,7 +6041,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Access paragraph from section.
         WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
@@ -6051,7 +6051,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
         paragraph.ChildEntities.Insert(1, textWrappingBreak);
         //Saves the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
-        wordDocument.Save(outputStream, FormatType.Docx);
+        document.Save(outputStream, FormatType.Docx);
         stream.Position = 0;
         //Downloads Word document in the browser.
         return File(outputStream, "application/msword", "Sample.docx");
@@ -6064,7 +6064,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
     //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Access paragraph from section.
         WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
@@ -6074,7 +6074,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         paragraph.ChildEntities.Insert(1, textWrappingBreak);
         //Saves the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
-        wordDocument.Save(outputStream, FormatType.Docx);
+        document.Save(outputStream, FormatType.Docx);
         //Save the stream as a file in the device and invoke it for viewing.
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
         //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
