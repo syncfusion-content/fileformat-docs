@@ -1532,7 +1532,7 @@ PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create the rich media annotation.
 
-PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0,0,200,100));
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
 
 //Sets properties to the annotation. 
 
@@ -1574,7 +1574,7 @@ Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
 
 'Create the PDF richmedia annotation.
 
-Dim richMediaAnnotation As New PdfRichMediaAnnotation (New RectangleF(0,0,200,100)) 
+Dim richMediaAnnotation As New PdfRichMediaAnnotation (New RectangleF(0, 0, 200, 100)) 
 
 richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click
 
@@ -1614,7 +1614,7 @@ PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create the PDF richmedia annotation.
 
-PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0,0,200,100));
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
 
 //Set properties to the annotation.
 
@@ -1668,7 +1668,7 @@ PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create the PDF richmedia annotation. 
 
-PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0,0,200,100));
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
 
 //Set properties to the annotation. 
 
@@ -1678,7 +1678,9 @@ richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
 
 //Set the richmedia content.
 
-PdfRichMediaContent content = new PdfRichMediaContent(@"video.mp4");
+FileStream fileStream = new FileStream("video.mp4", FileMode.Open, FileAccess.Read);
+
+PdfRichMediaContent content = new PdfRichMediaContent(fileStream);
 
 richMediaAnnotation.Content = content;
 
@@ -1730,7 +1732,7 @@ PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create the PDF richmedia annotation. 
 
-PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0,0,200,100));
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
 
 //Set properties to the annotation. 
 
