@@ -5098,6 +5098,237 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("polygonAnnotation.pdf"
 
 {% endtabs %}
 
+### Watermark Annotation
+
+A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page., [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) can be used.
+The following code example explains how to add a watermark annotation in the PDF document
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+ //Get the page 
+ 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates PDF watermark annotation 
+
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+
+ //Sets properties to the annotation 
+ 
+watermark.Opacity = 0.5f; 
+
+//Create the appearance of watermark 
+
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Adds the annotation to page 
+
+lpage.Annotations.Add(watermark); 
+
+//Saves the document to disk. 
+
+loadedDocument.Save("WatermarkAnnotation.pdf"); 
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load the existing PDF document
+
+ Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+ 
+'Get the page 
+Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
+
+'Creates PDF watermark annotation
+
+Dim watermark As New PdfWatermarkAnnotation(New RectangleF(50, 100, 100, 50)) 
+
+watermark.Opacity = 0.5f; 
+
+'Creates the appearance of watermark
+
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", New PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, New RectangleF(0, 0, 200, 50), New PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle))
+
+'Adds annotation to the page 
+
+lpage.Annotations.Add(watermark)
+
+'Saves the document to disk. 
+ 
+loadedDocument.Save("WatermarkAnnotation.pdf")
+ 
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the page 
+ 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates PDF watermark annotation 
+
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+
+//Sets properties to the annotation 
+ 
+watermark.Opacity = 0.5f; 
+
+//Create the appearance of watermark 
+
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Adds the annotation to page 
+
+lpage.Annotations.Add(watermark);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream(); 
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples 
+
+Save(stream, "WatermarkAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the page 
+ 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates PDF watermark annotation 
+
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+
+//Sets properties to the annotation 
+ 
+watermark.Opacity = 0.5f; 
+
+//Create the appearance of watermark 
+
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Adds the annotation to page 
+
+lpage.Annotations.Add(watermark);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document 
+loadedDocument.Close(true); 
+
+//Defining the ContentType for pdf file
+
+ string contentType = "application/pdf"; 
+ 
+//Define the file name
+
+ string fileName = "WatermarkAnnotation.pdf";
+ 
+//Creates a FileContentResult object by using the file contents, content type, and file name
+ 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the page 
+ 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates PDF watermark annotation 
+
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+
+//Sets properties to the annotation 
+ 
+watermark.Opacity = 0.5f; 
+
+//Create the appearance of watermark 
+
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Adds the annotation to page
+ 
+lpage.Annotations.Add(watermark);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows) { 
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WatermarkAnnotation.pdf", "application/pdf", stream);
+ }
+ else {
+ Xamarin.Forms.DependencyService.Get<ISave>().Save("WatermarkAnnotation.pdf", "application/pdf", stream);
+ }
+{% endhighlight %}
+{% endtabs %}
 
 ## Measurement Annotations
 
