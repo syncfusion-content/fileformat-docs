@@ -34,7 +34,7 @@ Syncfusion.Compression.Portable.dll<br>
 Syncfusion.Pdf.Portable.dll<br>
 Syncfusion.PdfImaging.Portable.dll<br>
 Syncfusion.OCRProcessor.Portable.dll<br>
-[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/4.5.0) package (v 4.5.0 or above)
+System.Drawing.Common package (v 4.5.0 or above)
 <br/><br/></td><td>
 Syncfusion.Compression.NET.dll<br>
 Syncfusion.Pdf.NET.dll<br>
@@ -52,7 +52,7 @@ Skiasharp package (v2.88.0-preview.232 or above)
 <thead>
 <tr>
 <th>
-[Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core)<br/><br/></th><th>
+Syncfusion.PDF.OCR.Net.Core<br/><br/></th><th>
 Syncfusion.PDF.OCR.NET<br/><br/></th>
 </tr>
 
@@ -622,6 +622,7 @@ processor.UnicodeFont = new PdfTrueTypeFont(fontStream, 8);
 
 //Perform the OCR process for an image steam.
 string ocrText = processor.PerformOCR(stream, @"tessdata/");
+
 }
 			
 {% endhighlight %}
