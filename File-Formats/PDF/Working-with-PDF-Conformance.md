@@ -3003,7 +3003,7 @@ document.Close(True)
 
 ## PDF to PDF/A conversion
 
-An existing PDF document can be converted to PDF/A conformance document, by setting the [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance) value in the [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) to ```Pdf_A1B```,```Pdf_A2B```, and ```Pdf_A3B``` of  [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html). Refer to the following code sample to achieve the same.
+An existing PDF document can be converted to PDF/A conformance document, by setting the [Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance) value in the [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) to ```Pdf_A1B```,```Pdf_A2B```,```Pdf_A3B```, and ```Pdf_A``` of  [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html). Refer to the following code sample to achieve the same.
 
 N> To convert the existing PDF to PDF/A conformance document in .NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project.
 
