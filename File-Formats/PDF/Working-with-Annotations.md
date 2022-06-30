@@ -1033,6 +1033,324 @@ else
 
 {% endtabs %}
 
+## Flattening annotations without calling save method 
+
+Annotations can be flattened by removing the existing annotation and replacing it with graphic objects that would resemble the annotation and cannot be edited.
+
+This can be achieved by calling the FlattenAnnotation method. Please refer to the sample for flattening all the annotations in the PDF document without calling the save method
+
+To flatten the annotation without pop-ups in the PDF document, use the code example below:
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf");
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}      
+
+'Load the existing PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+
+'Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations()
+
+Next
+
+'Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf")
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+  {% highlight c# tabtitle="UWP" %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations();
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+To flatten the annotation with pop-ups in the PDF document, use the code example below:
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Flatten all the annotations with popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf");
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}      
+
+'Load the existing PDF document
+
+Dim loadedDocument As New PdfLoadedDocument(“input.pdf”)
+
+'Flatten all the annotations without popups in the document 
+
+loadedDocument.FlattenAnnotations(true)
+
+'Save and close the PDF document instance
+
+loadedDocument.Save("output.pdf")
+
+loadedDocument.Close(true)
+
+{% endhighlight %}
+
+  {% highlight c# tabtitle="UWP" %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+
+loadedDocument.FlattenAnnotations(true);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
 ## Supported annotation types
 
 ### 3D Annotation
@@ -1502,6 +1820,282 @@ document.Close(True)
 {% highlight c# tabtitle="Xamarin" %}
 
 //PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Rich Media Annotation
+
+A rich media annotation is used to play the media clip in a PDF Document.
+
+The following rich media types are supported:
+
+1. Video
+
+2. Sound
+
+The following code examples explain how to add a rich media annotation in a PDF document using the PdfRichMediaAnnotation.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Get the page.
+
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create the rich media annotation.
+
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
+
+//Sets properties to the annotation. 
+
+richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
+
+richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
+
+//Set the rich media content.
+
+PdfRichMediaContent content = new PdfRichMediaContent(@"video.mp4");
+
+richMediaAnnotation.Content = content;
+
+//Create the appearance of the rich media.
+
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Add the annotation to the page.
+
+lpage.Annotations.Add(richMediaAnnotation);
+
+//Save the document to the disk.
+
+loadedDocument.Save(@"RichMediaAnnotation.pdf");
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load the existing PDF document.
+
+ Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+
+'Get the page. 
+
+Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
+
+'Create the PDF richmedia annotation.
+
+Dim richMediaAnnotation As New PdfRichMediaAnnotation (New RectangleF(0, 0, 200, 100)) 
+
+richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click
+
+richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed
+
+Dim content As New PdfRichMediaContent (@"video.mp4")
+
+richMediaAnnotation.Content = content
+
+'Create the appearance of the richmedia.
+
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", New PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, New RectangleF(0, 0, 200, 100), New PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle))
+
+'Add the annotation to the page. 
+
+lpage.Annotations.Add(richMediaAnnotation)
+
+'Save the document to the disk. 
+
+loadedDocument.Save("RichMediaAnnotation.pdf") 
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+  {% highlight c# tabtitle="UWP" %}
+  
+//Load the file as stream
+
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the page.
+
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create the PDF richmedia annotation.
+
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
+
+//Set properties to the annotation.
+
+richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
+
+richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
+
+//Set the richmedia content.
+
+Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
+
+PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
+
+richMediaAnnotation.Content = content;
+
+//Create the appearance of the richmedia. 
+
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Add the annotation to the page. 
+
+lpage.Annotations.Add(richMediaAnnotation);
+
+//Save a PDF document to the stream.
+
+MemoryStream stream = new MemoryStream(); 
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document. 
+
+loadedDocument.Close(true);
+
+//Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for the respective code samples. 
+
+Save(stream, "RichMediaAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PDF document.
+
+FileStream inputStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the page. 
+
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create the PDF richmedia annotation. 
+
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
+
+//Set properties to the annotation. 
+
+richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
+
+richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
+
+//Set the richmedia content.
+
+FileStream fileStream = new FileStream("video.mp4", FileMode.Open, FileAccess.Read);
+
+PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
+
+richMediaAnnotation.Content = content;
+
+//Create the appearance of the richmedia. 
+
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Add the annotation to the page. 
+
+lpage.Annotations.Add(richMediaAnnotation);
+
+//Save the document into the stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document. 
+
+loadedDocument.Close(true); 
+
+//Defining the ContentType for a pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "RichMediaAnnotation.pdf";
+
+//Create the FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as stream
+
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Document.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the page. 
+
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create the PDF richmedia annotation. 
+
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
+
+//Set properties to the annotation. 
+
+richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
+
+richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
+
+//Set the richmedia content.
+
+Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
+
+PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
+
+richMediaAnnotation.Content = content;
+
+//Create the appearance of the richmedia. 
+
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+
+//Add the annotation to the page. 
+
+lpage.Annotations.Add(richMediaAnnotation);
+
+//Save the document into the stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document. 
+
+loadedDocument.Close(true);
+
+//Save the stream into a pdf file.
+//The operation in Save under the Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{ 
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RichMediaAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("RichMediaAnnotation.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
