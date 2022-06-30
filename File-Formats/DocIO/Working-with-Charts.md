@@ -2382,6 +2382,272 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 N> 1. To convert chart in Word document as image, it is need to refer chart conversion related [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-charts) or [NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-charts).
 N> 2. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 
+## Word 2016 Charts
+
+Essential DocIO supports creating and manipulating new and modern chart types such as waterfall, which is introduced in Microsoft Word 2016.
+
+### Waterfall
+
+[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart.
+
+The following code example illustrates how to create a Waterfall chart.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+//Creates a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Adds section to the document.
+    IWSection sec = document.AddSection();
+    //Adds paragraph to the section.
+    IWParagraph paragraph = sec.AddParagraph();
+    //Creates and Appends chart to the paragraph.
+    WChart chart = paragraph.AppendChart(446, 270);
+    //Sets chart type.
+    chart.ChartType = OfficeChartType.WaterFall;
+    //Sets data range.
+    chart.DataRange = chart.ChartData[1, 1, 8, 2];
+    chart.IsSeriesInRows = false;
+    chart.ChartData.SetValue(2, 1, "Start");
+    chart.ChartData.SetValue(2, 2, 120000);
+    chart.ChartData.SetValue(3, 1, "Product Revenue");
+    chart.ChartData.SetValue(3, 2, 570000);
+    chart.ChartData.SetValue(4, 1, "Service Revenue");
+    chart.ChartData.SetValue(4, 2, 230000);
+    chart.ChartData.SetValue(5, 1, "Positive Balance");
+    chart.ChartData.SetValue(5, 2, 920000);
+    chart.ChartData.SetValue(6, 1, "Fixed Costs");
+    chart.ChartData.SetValue(6, 2, -345000);
+    chart.ChartData.SetValue(7, 1, "Variable Costs");
+    chart.ChartData.SetValue(7, 2, -230000);
+    chart.ChartData.SetValue(8, 1, "Total");
+    chart.ChartData.SetValue(8, 2, 345000);
+    //Data point settings as total in chart.
+    IOfficeChartSerie series = chart.Series[0];
+    chart.Series[0].DataPoints[3].SetAsTotal = true;
+    chart.Series[0].DataPoints[6].SetAsTotal = true;
+    //Showing the connector lines between data points.
+    chart.Series[0].SerieFormat.ShowConnectorLines = true;
+    //Set the chart title.
+    chart.ChartTitle = "Company Profit (in USD)";
+    //Formatting data label and legend option.
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+    chart.Legend.Position = OfficeLegendPosition.Right;
+    chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+    //Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Creates a new Word document.
+Using document As WordDocument = New WordDocument()
+    'Adds section to the document.
+    Dim sec As IWSection = document.AddSection()
+    'Adds paragraph to the section.
+    Dim paragraph As IWParagraph = sec.AddParagraph()
+    'Creates and Appends chart to the paragraph.
+    Dim chart As WChart = paragraph.AppendChart(446, 270)
+    'Sets chart type.
+    chart.ChartType = OfficeChartType.WaterFall
+    'Sets data range.
+    chart.DataRange = chart.ChartData(1, 1, 8, 2)
+    chart.IsSeriesInRows = False
+    chart.ChartData.SetValue(2, 1, "Start")
+    chart.ChartData.SetValue(2, 2, 120000)
+    chart.ChartData.SetValue(3, 1, "Product Revenue")
+    chart.ChartData.SetValue(3, 2, 570000)
+    chart.ChartData.SetValue(4, 1, "Service Revenue")
+    chart.ChartData.SetValue(4, 2, 230000)
+    chart.ChartData.SetValue(5, 1, "Positive Balance")
+    chart.ChartData.SetValue(5, 2, 920000)
+    chart.ChartData.SetValue(6, 1, "Fixed Costs")
+    chart.ChartData.SetValue(6, 2, -345000)
+    chart.ChartData.SetValue(7, 1, "Variable Costs")
+    chart.ChartData.SetValue(7, 2, -230000)
+    chart.ChartData.SetValue(8, 1, "Total")
+    chart.ChartData.SetValue(8, 2, 345000)
+    'Data point settings as total in chart.
+    Dim series As IOfficeChartSerie = chart.Series(0)
+    chart.Series(0).DataPoints(3).SetAsTotal = True
+    chart.Series(0).DataPoints(6).SetAsTotal = True
+    'Showing the connector lines between data points.
+    chart.Series(0).SerieFormat.ShowConnectorLines = True
+    'Set the chart title.
+    chart.ChartTitle = "Company Profit (in USD)"
+    'Formatting data label and legend option.
+    chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+    chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+    chart.Legend.Position = OfficeLegendPosition.Right
+    chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None
+    'Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Creates a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Adds section to the document.
+    IWSection sec = document.AddSection();
+    //Adds paragraph to the section.
+    IWParagraph paragraph = sec.AddParagraph();
+    //Creates and Appends chart to the paragraph.
+    WChart chart = paragraph.AppendChart(446, 270);
+    //Sets chart type.
+    chart.ChartType = OfficeChartType.WaterFall;
+    //Sets data range.
+    chart.DataRange = chart.ChartData[1, 1, 8, 2];
+    chart.IsSeriesInRows = false;
+    chart.ChartData.SetValue(2, 1, "Start");
+    chart.ChartData.SetValue(2, 2, 120000);
+    chart.ChartData.SetValue(3, 1, "Product Revenue");
+    chart.ChartData.SetValue(3, 2, 570000);
+    chart.ChartData.SetValue(4, 1, "Service Revenue");
+    chart.ChartData.SetValue(4, 2, 230000);
+    chart.ChartData.SetValue(5, 1, "Positive Balance");
+    chart.ChartData.SetValue(5, 2, 920000);
+    chart.ChartData.SetValue(6, 1, "Fixed Costs");
+    chart.ChartData.SetValue(6, 2, -345000);
+    chart.ChartData.SetValue(7, 1, "Variable Costs");
+    chart.ChartData.SetValue(7, 2, -230000);
+    chart.ChartData.SetValue(8, 1, "Total");
+    chart.ChartData.SetValue(8, 2, 345000);
+    //Data point settings as total in chart.
+    IOfficeChartSerie series = chart.Series[0];
+    chart.Series[0].DataPoints[3].SetAsTotal = true;
+    chart.Series[0].DataPoints[6].SetAsTotal = true;
+    //Showing the connector lines between data points.
+    chart.Series[0].SerieFormat.ShowConnectorLines = true;
+    //Set the chart title.
+    chart.ChartTitle = "Company Profit (in USD)";
+    //Formatting data label and legend option.
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+    chart.Legend.Position = OfficeLegendPosition.Right;
+    chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;  
+    //Saves the Word document to MemoryStream.
+    MemoryStream stream = new MemoryStream();
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word document file in local machine.
+    Save(stream, "Sample.docx");
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Creates a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Adds section to the document.
+    IWSection sec = document.AddSection();
+    //Adds paragraph to the section.
+    IWParagraph paragraph = sec.AddParagraph();
+    //Creates and Appends chart to the paragraph.
+    WChart chart = paragraph.AppendChart(446, 270);
+    //Sets chart type.
+    chart.ChartType = OfficeChartType.WaterFall;
+    //Sets data range.
+    chart.DataRange = chart.ChartData[1, 1, 8, 2];
+    chart.IsSeriesInRows = false;
+    chart.ChartData.SetValue(2, 1, "Start");
+    chart.ChartData.SetValue(2, 2, 120000);
+    chart.ChartData.SetValue(3, 1, "Product Revenue");
+    chart.ChartData.SetValue(3, 2, 570000);
+    chart.ChartData.SetValue(4, 1, "Service Revenue");
+    chart.ChartData.SetValue(4, 2, 230000);
+    chart.ChartData.SetValue(5, 1, "Positive Balance");
+    chart.ChartData.SetValue(5, 2, 920000);
+    chart.ChartData.SetValue(6, 1, "Fixed Costs");
+    chart.ChartData.SetValue(6, 2, -345000);
+    chart.ChartData.SetValue(7, 1, "Variable Costs");
+    chart.ChartData.SetValue(7, 2, -230000);
+    chart.ChartData.SetValue(8, 1, "Total");
+    chart.ChartData.SetValue(8, 2, 345000);
+    //Data point settings as total in chart.
+    IOfficeChartSerie series = chart.Series[0];
+    chart.Series[0].DataPoints[3].SetAsTotal = true;
+    chart.Series[0].DataPoints[6].SetAsTotal = true;
+    //Showing the connector lines between data points.
+    chart.Series[0].SerieFormat.ShowConnectorLines = true;
+    //Set the chart title.
+    chart.ChartTitle = "Company Profit (in USD)";
+    //Formatting data label and legend option.
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+    chart.Legend.Position = OfficeLegendPosition.Right;
+    chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;    
+    //Saves the Word document to MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+    stream.Position = 0;
+    //Downloads Word document in the browser.
+    return File(outputStream, "application/msword", "Sample.docx");
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Creates a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Adds section to the document.
+    IWSection sec = document.AddSection();
+    //Adds paragraph to the section.
+    IWParagraph paragraph = sec.AddParagraph();
+    //Creates and Appends chart to the paragraph.
+    WChart chart = paragraph.AppendChart(446, 270);
+    //Sets chart type.
+    chart.ChartType = OfficeChartType.WaterFall;
+    //Sets data range.
+    chart.DataRange = chart.ChartData[1, 1, 8, 2];
+    chart.IsSeriesInRows = false;
+    chart.ChartData.SetValue(2, 1, "Start");
+    chart.ChartData.SetValue(2, 2, 120000);
+    chart.ChartData.SetValue(3, 1, "Product Revenue");
+    chart.ChartData.SetValue(3, 2, 570000);
+    chart.ChartData.SetValue(4, 1, "Service Revenue");
+    chart.ChartData.SetValue(4, 2, 230000);
+    chart.ChartData.SetValue(5, 1, "Positive Balance");
+    chart.ChartData.SetValue(5, 2, 920000);
+    chart.ChartData.SetValue(6, 1, "Fixed Costs");
+    chart.ChartData.SetValue(6, 2, -345000);
+    chart.ChartData.SetValue(7, 1, "Variable Costs");
+    chart.ChartData.SetValue(7, 2, -230000);
+    chart.ChartData.SetValue(8, 1, "Total");
+    chart.ChartData.SetValue(8, 2, 345000);
+    //Data point settings as total in chart.
+    IOfficeChartSerie series = chart.Series[0];
+    chart.Series[0].DataPoints[3].SetAsTotal = true;
+    chart.Series[0].DataPoints[6].SetAsTotal = true;
+    //Showing the connector lines between data points.
+    chart.Series[0].SerieFormat.ShowConnectorLines = true;
+    //Set the chart title.
+    chart.ChartTitle = "Company Profit (in USD)";
+    //Formatting data label and legend option.
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+    chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+    chart.Legend.Position = OfficeLegendPosition.Right;
+    chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;   
+    //Saves the Word document to MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing.
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+}
+{% endhighlight %}
+{% endtabs %}
+
+By executing the code example above, it generates the resultant Word document as follows.
+
+![Word WaterFall Chart](WorkingwithChartsimages/WaterFall.png)
+
+N>These charts are supported only in Word 2016 and are not supported in the previous versions.
+
 ## Supported Chart Types 
 
 The following chart types are supported in DocIO.
@@ -2460,6 +2726,7 @@ The following chart types are supported in DocIO.
 * Surface_Contour
 * Surface_NoColor_3D
 * Surface_NoColor_Contour
+* WaterFall
 
 ## See Also
 

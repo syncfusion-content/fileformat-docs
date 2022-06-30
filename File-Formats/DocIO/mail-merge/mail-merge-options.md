@@ -1720,7 +1720,7 @@ End Using
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
     //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Gets the invoice details as “IEnumerable” collection.
         List<Invoice> invoice = GetInvoice();
@@ -1748,7 +1748,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Gets the invoice details as “IEnumerable” collection.
         List<Invoice> invoice = GetInvoice();
@@ -1760,7 +1760,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
         document.MailMerge.ExecuteNestedGroup(dataTable);
         //Saves the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
-        wordDocument.Save(outputStream, FormatType.Docx);
+        document.Save(outputStream, FormatType.Docx);
         stream.Position = 0;
         //Downloads Word document in the browser.
         return File(outputStream, "application/msword", "Sample.docx");
@@ -1775,7 +1775,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
     //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Gets the invoice details as “IEnumerable” collection.
         List<Invoice> invoice = GetInvoice();
@@ -1787,7 +1787,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         document.MailMerge.ExecuteNestedGroup(dataTable);
         //Saves the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
-        wordDocument.Save(outputStream, FormatType.Docx);
+        document.Save(outputStream, FormatType.Docx);
         //Save the stream as a file in the device and invoke it for viewing.
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
         //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -1811,9 +1811,7 @@ public static List<Invoice> GetInvoice()
     List<Invoice> invoices = new List<Invoice>();
 
     List<Orders> orders = new List<Orders>();
-    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
-                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France", "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
 
     List<Order> order = new List<Order>();
     order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
@@ -1825,9 +1823,7 @@ public static List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
-                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
-                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany", "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
 
     order = new List<Order>();
     order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
@@ -1839,9 +1835,7 @@ public static List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
-                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil", "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes","1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
 
     order = new List<Order>();
     order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
@@ -1864,9 +1858,7 @@ Public Function GetInvoice() As List(Of Invoice)
     Dim invoices As List(Of Invoice) = New List(Of Invoice)()
 
     Dim orders As List(Of Orders) = New List(Of Orders)()
-    orders.Add(New Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
-                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"))
+    orders.Add(New Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France", "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"))
 
     Dim order As List(Of Order) = New List(Of Order)()
     order.Add(New Order("1", "Chai", "14.4", "45", "0.2", "518.4"))
@@ -1878,9 +1870,7 @@ Public Function GetInvoice() As List(Of Invoice)
     invoices.Add(New Invoice(orders, order, orderTotals))
 
     orders = New List(Of Orders)()
-    orders.Add(New Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany", "TOMSP",
-                "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten", "1996-07-04T00:00:00-04:00",
-                "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"))
+    orders.Add(New Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany", "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"))
 
     order = New List(Of Order)()
     order.Add(New Order("1", "Chai", "18", "45", "0.2", "618.4"))
@@ -1892,9 +1882,7 @@ Public Function GetInvoice() As List(Of Invoice)
     invoices.Add(New Invoice(orders, order, orderTotals))
 
     orders = New List(Of Orders)()
-    orders.Add(New Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
-                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"))
+    orders.Add(New Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil", "VINET", "Rua do Paço, "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"))
 
     order = New List(Of Order)()
     order.Add(New Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"))
@@ -1918,9 +1906,7 @@ public List<Invoice> GetInvoice()
     List<Invoice> invoices = new List<Invoice>();
 
     List<Orders> orders = new List<Orders>();
-    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
-                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France", "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
 
     List<Order> order = new List<Order>();
     order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
@@ -1932,9 +1918,7 @@ public List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
-                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
-                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany", "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
 
     order = new List<Order>();
     order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
@@ -1946,9 +1930,7 @@ public List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
-                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil", "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
 
     order = new List<Order>();
     order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
@@ -1972,9 +1954,7 @@ public List<Invoice> GetInvoice()
     List<Invoice> invoices = new List<Invoice>();
 
     List<Orders> orders = new List<Orders>();
-    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
-                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France", "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
 
     List<Order> order = new List<Order>();
     order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
@@ -1986,9 +1966,7 @@ public List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
-                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
-                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany", "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
 
     order = new List<Order>();
     order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
@@ -2000,9 +1978,7 @@ public List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
-                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil", "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
 
     order = new List<Order>();
     order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
@@ -2026,9 +2002,7 @@ public List<Invoice> GetInvoice()
     List<Invoice> invoices = new List<Invoice>();
 
     List<Orders> orders = new List<Orders>();
-    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France",
-                "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
+    orders.Add(new Orders("10248", "Vins et alcools Chevalier", "59 rue de l'Abbaye", "Reims", "51100", "France", "VINET", "59 rue de l'Abbaye", "51100", "Reims", "France", "Steven Buchanan", "Vins et alcools Chevalier", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Federal Shipping"));
 
     List<Order> order = new List<Order>();
     order.Add(new Order("1", "Chai", "14.4", "45", "0.2", "518.4"));
@@ -2040,9 +2014,7 @@ public List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany",
-                 "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten",
-                 "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
+    orders.Add(new Orders("10249", "Toms Spezialitäten", "Luisenstr. 48", "Münster", "51100", "Germany", "TOMSP", "Luisenstr. 48", "51100", "Münster", "Germany", "Michael Suyama", "Toms Spezialitäten", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "Speedy Express"));
 
     order = new List<Order>();
     order.Add(new Order("1", "Chai", "18", "45", "0.2", "618.4"));
@@ -2054,9 +2026,7 @@ public List<Invoice> GetInvoice()
     invoices.Add(new Invoice(orders, order, orderTotals));
 
     orders = new List<Orders>();
-    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil",
-                "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes",
-                "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
+    orders.Add(new Orders("10250", "Hanari Carnes", "Rua do Paço, 67", "Rio de Janeiro", "05454-876", "Brazil", "VINET", "Rua do Paço, 67", "51100", "Rio de Janeiro", "Brazil", "Margaret Peacock", "Hanari Carnes", "1996-07-04T00:00:00-04:00", "1996-08-01T00:00:00-04:00", "1996-07-16T00:00:00-04:00", "United Package"));
 
     order = new List<Order>();
     order.Add(new Order("65", "Louisiana Fiery Hot Pepper Sauce", "16.8", "15", "0.15", "214.2"));
