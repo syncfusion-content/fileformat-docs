@@ -1742,7 +1742,9 @@ richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
 
 //Set the richmedia content.
 
-PdfRichMediaContent content = new PdfRichMediaContent(@"video.mp4");
+Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
+
+PdfRichMediaContent content = new PdfRichMediaContent(fileStream);
 
 richMediaAnnotation.Content = content;
 
