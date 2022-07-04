@@ -28,7 +28,7 @@ Following licensing error will be shown if the license key is not registered in 
 
 <div id="license">
 
-This application was built using a trial version of Syncfusion Essential Studio. Please include a valid license to permanently remove this license validation message. You can also obtain a free 30 day evaluation license to temporarily remove this message during the evaluation period. Please refer to this <a href="/common/essential-studio/licensing/license-key">help topic</a> for more information 
+This application was built using a trial version of Syncfusion Essential Studio. Please include a valid license to permanently remove this license validation message. You can also obtain a free 30 day evaluation license to temporarily remove this message during the evaluation period. Please refer to this <a href="/file-formats/licensing/overview">help topic</a> for more information 
 
 </div>
 
@@ -41,5 +41,5 @@ Trial message will be displayed as watermark in the generated documents, if File
 
 ## See Also
 
-* [How to Generate Syncfusion FileFormats License Key?](https://help.syncfusion.com/file-formats/licensing/generating-license-keys)
-* [How to Register Syncfusion License Key in FileFormats Application?](https://help.syncfusion.com/file-formats/licensing/registering-license-keys)
+* [How to Generate Syncfusion FileFormats License Key?](https://help.syncfusion.com/file-formats/licensing/how-to-generate)
+* [How to Register Syncfusion License Key in FileFormats Application?](https://help.syncfusion.com/file-formats/licensing/how-to-register-in-an-application)
