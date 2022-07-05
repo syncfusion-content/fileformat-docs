@@ -210,9 +210,9 @@ public App()
 {% endtabs %}
 
 N> If you are developing an application using Gorilla Player SDK, it is must to register the Syncfusion license key in Xamarin.Forms.Android, Xamarin.Forms.iOS, and Xamarin.Forms.UWP.
-   Refer [this link](https://help.syncfusion.com/common/essential-studio/licensing/license-key#xamarinandroid) to register Syncfusion license key in Xamarin.Forms.Android
-   Refer [this link](https://help.syncfusion.com/common/essential-studio/licensing/license-key#xamarinios) to register Syncfusion license key in Xamarin.Forms.iOS
-   Refer [this link](https://help.syncfusion.com/common/essential-studio/licensing/license-key#uwp) to register Syncfusion license key in Xamarin.Forms.UWP
+   Refer [this link](https://help.syncfusion.com/xamarin/licensing/how-to-register-in-an-application#xamarinformsandroid) to register Syncfusion license key in Xamarin.Forms.Android
+   Refer [this link](https://help.syncfusion.com/xamarin/licensing/how-to-register-in-an-application#xamarinformsios) to register Syncfusion license key in Xamarin.Forms.iOS
+   Refer [this link](https://help.syncfusion.com/xamarin/licensing/how-to-register-in-an-application#xamarinformsuwp) to register Syncfusion license key in Xamarin.Forms.UWP
 
 
 
