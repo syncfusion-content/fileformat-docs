@@ -86,14 +86,6 @@ To convert website URL or local HTML file to PDF using WebKit rendering engine, 
 //Initialize the HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
-WebKitConverterSettings settings = new WebKitConverterSettings();
-            
-//Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
-            
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
@@ -109,14 +101,6 @@ document.Close(true);
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
-Dim settings As New WebKitConverterSettings()
-
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
-
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings
-
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 
@@ -131,14 +115,6 @@ document.Close(True)
 
 //Initialize the HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
-
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
@@ -166,14 +142,6 @@ To convert website URL or local HTML file to PDF using Blink rendering engine, r
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
@@ -189,14 +157,6 @@ document.Close(true);
 'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
-Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings
-
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 
@@ -211,14 +171,6 @@ document.Close(True)
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
