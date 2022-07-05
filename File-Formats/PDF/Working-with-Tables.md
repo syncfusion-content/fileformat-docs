@@ -4427,7 +4427,7 @@ pdfGrid.Rows[0].Style = pdfGridRowStyle;
 
 //Draw the PdfGrid.
 
-PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, PointF.Empty);
+pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 
