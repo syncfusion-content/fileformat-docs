@@ -2608,7 +2608,7 @@ else
 
 {% endtabs %}  
 
-## PDF/A-4e conformance
+## PDF/A-4f conformance
 
 The requirements of the PDF/A-3 have also been partially incorporated into PDF/A-4. Thus, the PDF/A-4f allows the embedding of arbitrary files.
 

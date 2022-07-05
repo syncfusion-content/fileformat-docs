@@ -216,6 +216,7 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
     <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
 * Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
     
+* Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
 
 ## URL to PDF
 
