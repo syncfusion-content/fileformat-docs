@@ -3157,6 +3157,34 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 </table>
 
 <table>
+<th style="font-size:14px">Issue
+</th>
+<th style="font-size:14px">Unable to convert unsecured https URL to PDF using Blink
+</th>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td> The issue is happen due to invalid ssl certificate errors in unsecured sites.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>You can able to bypass the invalid SSL certificate errors using the command line arguments property of Blink converter settings.
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+settings.CommandLineArguments.Add("--ignore-certificate-errors");
+
+{% endhighlight %}
+</td>
+</tr>
+</table>
+
+<table>
 	<tr>
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
 	</tr>
