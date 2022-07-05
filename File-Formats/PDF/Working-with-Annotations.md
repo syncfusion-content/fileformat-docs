@@ -1825,7 +1825,7 @@ document.Close(True)
 
 {% endtabs %}
 
-## Rich Media Annotation
+### Rich Media Annotation
 
 A rich media annotation is used to play the media clip in a PDF Document.
 
@@ -1835,7 +1835,7 @@ The following rich media types are supported:
 
 2. Sound
 
-The following code examples explain how to add a rich media annotation in a PDF document using the PdfRichMediaAnnotation.
+The following code examples explain how to add a rich media annotation in a PDF document using the [PdfRichMediaAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRichMediaAnnotation.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
