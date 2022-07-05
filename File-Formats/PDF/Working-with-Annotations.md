@@ -1825,7 +1825,7 @@ document.Close(True)
 
 {% endtabs %}
 
-## Rich Media Annotation
+### Rich Media Annotation
 
 A rich media annotation is used to play the media clip in a PDF Document.
 
