@@ -215,6 +215,7 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 <b>NuGet</b>
     <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
     
+* Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
 
 ## URL to PDF
 
@@ -226,14 +227,6 @@ To convert website URL or local HTML file to PDF using Blink rendering engine, r
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
@@ -251,14 +244,6 @@ document.Close(true);
 'Initialize HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
-Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings
-
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 
@@ -273,14 +258,6 @@ document.Close(True)
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
@@ -316,18 +293,10 @@ To convert the HTML string to PDF, refer to the following code snippet.
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
 //HTML string and Base URL 
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
 string baseUrl = @"C:/Temp/HTMLFiles/";
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
@@ -344,18 +313,10 @@ document.Close(true);
 'Initialize HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
-Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
 'HTML string and Base URL 
 Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
 
 Dim baseUrl As String = "C:/Temp/HTMLFiles/"
-
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings
 
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert(htmlText, baseUrl)
@@ -372,18 +333,10 @@ document.Close(True)
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
 //HTML string and Base URL 
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
 string baseUrl = @"C:/Temp/HTMLFiles/";
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert HTML string to PDF
 PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
@@ -419,14 +372,6 @@ To convert website URL or local HTML file to Image using Blink rendering engine,
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
 //Convert URL to Image
 Image[] image = htmlConverter.ConvertToImage("https://www.google.com");
 
@@ -440,14 +385,6 @@ image[0].Dispose();
 
 'Initialize HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
-
-Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings
 
 'Convert URL to Image
 Dim image As Image[] = htmlConverter.ConvertToImage("https://www.google.com")
@@ -463,14 +400,6 @@ image[0].Dispose(True)
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to Image
 Image image = htmlConverter.ConvertToImage("https://www.google.com");
@@ -506,18 +435,10 @@ To convert the HTML string to Image, refer to the following code snippet.
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
 //HTML string and Base URL
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
 string baseUrl = @"C:/Temp/HTMLFiles/";
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert HTML string to Image
 Image[] image = htmlConverter.ConvertToImage(htmlText, baseUrl);
@@ -533,18 +454,10 @@ image[0].Dispose();
 'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
-Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
 'HTML string and Base URL
 Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
 
 Dim baseUrl As String = "C:/Temp/HTMLFiles/"
-
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings
 
 'Convert HTML string to Image
 Dim image As Image[] = htmlConverter.Convert(htmlText, baseUrl)
@@ -560,18 +473,10 @@ image[0].Dispose(True)
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
 //HTML string and Base URL
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
 string baseUrl = @"C:/Temp/HTMLFiles/";
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert HTML string to Image
 Image image = htmlConverter.ConvertToImage(htmlText, baseUrl);
@@ -610,9 +515,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 //Disable JavaScript; By default, true
 blinkConverterSettings.EnableJavaScript = false;
 
@@ -636,9 +538,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Disable JavaScript; By default True
 blinkConverterSettings.EnableJavaScript = False
 
@@ -661,9 +560,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Disable JavaScript; By default, true
 blinkConverterSettings.EnableJavaScript = false;
@@ -697,9 +593,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 // Set additional delay; units in milliseconds
 blinkConverterSettings.AdditionalDelay = 3000;
 
@@ -723,9 +616,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Set additional delay; units in milliseconds
 blinkConverterSettings.AdditionalDelay = 3000
 
@@ -748,9 +638,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 // Set additional delay; units in milliseconds
 blinkConverterSettings.AdditionalDelay = 3000;
@@ -784,9 +671,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 //Enable hyperlinks; By default - true
 blinkConverterSettings.EnableHyperLink = false;
 
@@ -810,9 +694,6 @@ Dim htmlConverter As HtmlToPdfConverter = NewHtmlToPdfConverter(HtmlRenderingEng
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Enable hyperlinks; By default - True
 blinkConverterSettings.EnableHyperLink = False
 
@@ -835,9 +716,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Enable hyperlinks; By default - true
 blinkConverterSettings.EnableHyperLink = false;
@@ -876,10 +754,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Set enable bookmarks
 
 settings.EnableBookmarks = true;
@@ -908,10 +782,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-
-settings.BlinkPath = "/BlinkBinaries/"
-
 'Set enable bookmarks
 
 settings.EnableBookmarks = True
@@ -939,10 +809,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Set enable bookmarks
 
@@ -1027,10 +893,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Set enable table of contents
 
 settings.EnableToc = true;
@@ -1059,10 +921,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-
-settings.BlinkPath = "/BlinkBinaries/"
-
 'Set enable table of contents
 
 settings.EnableToc = True
@@ -1090,10 +948,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Set enable table of contents
 
@@ -1176,10 +1030,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Set enable table of contents
 
 settings.EnableToc = true;
@@ -1222,10 +1072,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-
-settings.BlinkPath = "/BlinkBinaries/"
-
 'Set enable table of contents
 
 settings.EnableToc = True
@@ -1267,10 +1113,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Set enable table of contents
 
@@ -1364,9 +1206,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 //Set print media type
 blinkConverterSettings.MediaType = MediaType.Print;
 
@@ -1390,8 +1229,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
 'Set print media type
 blinkConverterSettings.MediaType = MediaType.Print
 
@@ -1414,9 +1251,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Set print media type
 blinkConverterSettings.MediaType = MediaType.Print;
@@ -1453,10 +1287,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Set enable form
 
 settings.EnableForm = true;
@@ -1485,10 +1315,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-
-settings.BlinkPath = "/BlinkBinaries/"
-
 'Set enable form
 
 settings.EnableForm = True
@@ -1516,10 +1342,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Set enable form
 
@@ -1556,9 +1378,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 blinkConverterSettings.Username = "username";
 
 blinkConverterSettings.Password = "password";
@@ -1583,9 +1402,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 blinkConverterSettings.Username = "username"
 
 blinkConverterSettings.Password = "password"
@@ -1609,9 +1425,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 blinkConverterSettings.Username = "username";
 
@@ -1646,9 +1459,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 // Add cookies as name and value pair
 
 blinkConverterSettings.Cookies.Add("CookieName1", " CookieValue1");
@@ -1676,9 +1486,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Add cookies
 
 blinkConverterSettings.Cookies.Add("Name1", "Value1")
@@ -1704,9 +1511,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 // Add cookies as name and value pair
 
@@ -1746,10 +1550,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set BlinkBinaries path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Add a bearer token to login a webpage
 
 settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
@@ -1778,10 +1578,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings
 
-'Set BlinkBinaries path
-
-settings.BlinkPath = "/BlinkBinaries/"
-
 'Add a bearer token to login a webpage
 
 settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
@@ -1807,10 +1603,6 @@ document.Close(true)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set BlinkBinaries path
-
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Add a bearer token to login a webpage
 
@@ -1852,9 +1644,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 //Enable offline mode
 blinkConverterSettings.EnableOfflineMode = true;
 
@@ -1878,9 +1667,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Enable offline mode
 blinkConverterSettings.EnableOfflineMode = True
 
@@ -1903,9 +1689,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Enable offline mode
 blinkConverterSettings.EnableOfflineMode = true;
@@ -1940,9 +1723,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Add HTTP post parameters to HttpPostFields
 settings.HttpPostFields.Add("firstName", "Andrew");
 settings.HttpPostFields.Add("lastName", "Fuller");
@@ -1967,9 +1747,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-settings.BlinkPath = "/BlinkBinaries/"
-
 'Add HTTP Post parameters to HttpPostFields 
 settings.HttpPostFields.Add("firstName", "Andrew")
 settings.HttpPostFields.Add("lastName", "Fuller")
@@ -1993,9 +1770,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Add HTTP post parameters to HttpPostFields
 settings.HttpPostFields.Add("firstName", "Andrew");
@@ -2026,11 +1800,6 @@ Use the following code snippet to access a webpage using HTTP GET.
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
-
 string url = "https://www.example.com";
 
 Uri getMethodUri = new Uri(url);
@@ -2039,9 +1808,6 @@ string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("
 httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
 
 string urlToConvert = url + httpGetData;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert(urlToConvert);
@@ -2058,11 +1824,6 @@ document.Close(true);
 'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
-Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-settings.BlinkPath = "/BlinkBinaries/"
-
 Dim url As String = "https://www.example.com"
 
 Dim getMethodUri As New Uri(url)
@@ -2072,9 +1833,6 @@ Dim httpGetData As String = If(getMethodUri.Query.Length > 0, "&", "?" + [String
 httpGetData += [String].Format("&{0}={1}", "lastName", "Fuller")
 
 Dim urlToConvert As String = url & httpGetData
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings
 
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert(urlToConvert)
@@ -2091,11 +1849,6 @@ document.Close(True)
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
-
 string url = "https://www.example.com";
 
 Uri getMethodUri = new Uri(url);
@@ -2104,9 +1857,6 @@ string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("
 httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
 
 string urlToConvert = url + httpGetData;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert(urlToConvert);
@@ -2149,10 +1899,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Set manual proxy settings
 
 settings.ProxySettings.HostName = "127.0.0.1";
@@ -2184,10 +1930,6 @@ document.Close(true);
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-
-settings.BlinkPath = "/BlinkBinaries/"
 
 'Set manual proxy settings
 
@@ -2222,10 +1964,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Set manual proxy settings
 
@@ -2265,9 +2003,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 //Set Blink viewport size
 blinkConverterSettings.ViewPortSize = new Size(800, 0);
 
@@ -2291,9 +2026,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Set Blink viewport size
 blinkConverterSettings.ViewPortSize = New Size(800, 0)
 
@@ -2316,9 +2048,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Set Blink viewport size
 blinkConverterSettings.ViewPortSize = new Size(800, 0);
@@ -2351,16 +2080,6 @@ The Blink rendering engine provides support for converting only the part of an H
 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
-
 //Convert Partial webpage to PDF
 
 PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
@@ -2379,16 +2098,6 @@ document.Close(true);
 
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
-Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-
-settings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings
-
 'Convert Partial webpage to PDF
 
 Dim document As PdfDocument = htmlConverter. ConvertPartialHtml("input.html", "pic")
@@ -2406,16 +2115,6 @@ document.Close(True)
 //Initialize the HTML to PDF converter with Blink rendering engine
 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-
-settings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
 
 //Convert Partial webpage to PDF
 
@@ -2471,9 +2170,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
-
 //Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth;
 
@@ -2497,9 +2193,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-settings.BlinkPath = "/BlinkBinaries/"
-
 'Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth
 
@@ -2522,9 +2215,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
 
 //Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth;
@@ -2556,14 +2246,6 @@ Getting height of the HTML content in PDF document is possible by using the ```P
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-
 PdfLayoutResult layoutResult = null;
 
 //Convert URL to PDF
@@ -2586,14 +2268,6 @@ document.Close(true);
 'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
-Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-settings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings
-
 Dim layoutResult As PdfLayoutResult = Nothing
 
 'Convert URL to PDF
@@ -2615,14 +2289,6 @@ document.Close(True)
 
 //Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-settings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings;
 
 PdfLayoutResult layoutResult = null;
 
@@ -2663,9 +2329,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 //Set windows status
 blinkConverterSettings.WindowStatus = "completed";
 
@@ -2689,9 +2352,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Set windows status.
 blinkConverterSettings.WindowStatus = "completed"
 
@@ -2714,9 +2374,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 // Set windows status.
 blinkConverterSettings.WindowStatus = "completed";
@@ -2775,9 +2432,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
 //Set Temporary Path to generate temporary files
 blinkConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
 
@@ -2801,9 +2455,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
 'Set Temporary Path to generate temporary files
 blinkConverterSettings.TempPath = "C:/HtmlConversion/Temp/"
 
@@ -2826,9 +2477,6 @@ document.Close(True)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Set Temporary Path to generate temporary files
 blinkConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
