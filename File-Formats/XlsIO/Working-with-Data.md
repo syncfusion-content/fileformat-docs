@@ -5025,3 +5025,5 @@ The following screenshot represents the image of the Excel output with data impo
 N> Syncfusion XlsIO supports importing HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.
 
 N> Syncfusion XlsIO depends on the XMLDocument object to load HTML string in which the "<" and "&" symbols are invalid. These symbols needs to be changed as "&lt;" and "&amp;" respectively, to overcome the xml exception.
+
+N> Data formatting can be applied to the Excel cells only after importing the HTML table to Excel.
