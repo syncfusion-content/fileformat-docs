@@ -60,31 +60,6 @@ Assemblies
 </td></tr>
 </table>
 
-<table>
-<tr>
-<thead>
-<th>
-Platforms</th>
-<th>
-QtBinaries
-</th>
-</thead>
-</tr>
-<tr>
-<td> .NET Framework </td>
-<td>
-The QtBinaries folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
-
-This is mandatory to set the <i>WebKitPath</i> property with QtBinaries folder. If the <i>WebKitPath</i> is not mentioned, place the QtBinaries folder in bin folder of the project, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-</td></tr>
-<tr>
-<td> .NET Core </td>
-<td>
-The QtBinariesDotNetCore folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
-
-This is mandatory to set <i>WebKitPath</i> property with QtBinariesDotNetCore folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-</td></tr>
-</table>
 
 <b>NuGet</b>
 
@@ -147,35 +122,6 @@ ASP.NET Core
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-<table>
-<tr>
-<thead>
-<th>
-Platforms</th>
-<th>
-QtBinaries
-</th>
-</thead>
-</tr>
-<tr>
-<td> .NET Framework </td>
-<td>
-The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. 
-
-This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-<br/>
-<img src="htmlconversion_images/WebKit_BinariesImage.png" alt="WebKit .NET Framework QtBinaries location">
-</td></tr>
-<tr>
-<td> .NET Core </td>
-<td>
-The QtBinariesWindows folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. 
-
-This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-<br/>
-<img src="htmlconversion_images/WebKitCore_BinariesImage.png" alt="WebKit .Net Core QtBinaries location">
-</td></tr>
-</table>
 
 ### VC++ Redistributable
 
@@ -215,14 +161,9 @@ This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, othe
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. QtBinaries
-		
-* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
-
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -244,15 +185,11 @@ This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, othe
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. QtBinaries
-		
-* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebkitConverterSettings.
-		
+				
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesMac folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-	
+
 ## WebKitPath
 
 ### Windows
