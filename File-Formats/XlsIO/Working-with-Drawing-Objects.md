@@ -215,6 +215,182 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to add a text box in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Text%20Box). 
 
+**Text Box in Chart**
+
+Syncfusion XlsIO supports creating and reading text box within Excel chart. The following code example illustrates this.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Read the text 
+  for (int i = 0; i < worksheet.Charts.Count; i++)
+  {
+    for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
+    {
+      String text = worksheet.Charts[i].TextBoxes[j].Text;
+    }
+  }
+
+  //Creates a new text box in the chart 
+  ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
+  textbox.Text = "Text Box in the chart";
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("../../Data/WF_62496_Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim i As Integer
+  Dim j As Integer
+
+  For i = 0 To worksheet.Charts.Count - 1 Step i + 1
+    For j = 0 To worksheet.Charts(i).TextBoxes.Count - 1 Step j + 1
+      Dim text As String = worksheet.Charts(i).TextBoxes(j).Text
+    Next
+  Next
+
+  Dim textbox As ITextBox = worksheet.Charts(0).TextBoxes.AddTextBox(2, 2, 80, 300)
+  textbox.Text = "Text Box in the chart"
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+
+  //Creates a storage file from FileOpenPicker
+  StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+  //Loads or open an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStorageFile);
+
+  //Access first worksheet from the workbook instance.
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  for (int i = 0; i < worksheet.Charts.Count; i++)
+  {                    
+    if (worksheet.Rows[i].RowHeight != 0)
+    {
+      for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
+      {
+        String text = worksheet.Charts[i].TextBoxes[j].Text;
+      }
+    }
+  }
+  
+  //Creates a new text box in the chart 
+  ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
+  textbox.Text = "Text Box in the chart";
+  
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  
+  //Creates a storage file from FileSavePicker
+  StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+  
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(outputStorageFile);
+
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Read the text 
+  for (int i = 0; i < worksheet.Charts.Count; i++)
+  {
+    for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
+    {
+      String text = worksheet.Charts[i].TextBoxes[j].Text;
+    }
+  }
+
+  //Creates a new text box in the chart 
+  ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
+  textbox.Text = "Text Box in the chart";
+
+  //Saving the workbook as stream
+  FileStream outputStream = new FileStream(Output.xlsx, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(outputStream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Set the default application version
+  plication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  string resourcePath = "XamarinSample.Sample.xlsx";
+  //"App" is the class of Portable project.
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+
+  //Opens the workbook 
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+  //Access first worksheet from the workbook instance.
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  for (int i = 0; i < worksheet.Charts.Count; i++)
+  {                 
+    for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
+    {
+      String text = worksheet.Charts[i].TextBoxes[j].Text;
+    }          
+  }
+
+  //Creates a new text box in the chart 
+  ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
+  textbox.Text = "Text Box in the chart";
+
+  //Save the workbook to stream in xlsx format. 
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  workbook.Close();
+
+  //Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
 ### Check Box
 
 **ICheckBoxShape** object represents a check box in a worksheet. The following code example illustrates how to insert and manipulate a check box control.
