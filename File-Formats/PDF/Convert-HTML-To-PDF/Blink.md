@@ -217,6 +217,117 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
     
 * Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
 
+## BlinkPath
+
+### Windows
+
+* The BlinkBinaries folder is required to convert HTML to PDF with Blink rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to BlinkPath property in the BlinkConverterSettings.  
+
+* If you are using the HTML to PDF converter from installer or assemblies, then you must set the BlinkBinaries folder path to BlinkPath property of BlinkConverterSettings.  
+
+* You can get the BlinkBinaries folder from HTML converter installed location <span style="color:gray;font-size:14px"><i> (ex,$SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\BlinkBinaries)</i></span>. You can include this folder in your project and set the physical path of the folder to the BlinkPath property.  
+
+Please refer below code snippet to set BlinkPath to the BlinkConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Linux
+
+* The BlinkBinariesLinux folder is required to convert HTML to PDF with Blink rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to BlinkPath property in the BlinkConverterSettings. 
+
+* The BlinkBinariesLinux folder is available in the HTML converter Linux build, you can get the folder and set the physical path of the folder to the BlinkPath property of BlinkConverterSettings.
+
+Please refer below code snippet to set BlinkPath to the BlinkConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinariesLinux/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Mac
+
+* The BlinkBinariesMac folder is required to convert HTML to PDF with Blink rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to BlinkPath property in the BlinkConverterSettings. 
+
+* The BlinkBinariesMac folder is available in the HTML converter Mac build, you can get the folder and set the physical path of the folder to the BlinkPath property of BlinkConverterSettings.
+
+Please refer below code snippet to set BlinkPath to the BlinkConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinariesMac/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## URL to PDF
 
 To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet.

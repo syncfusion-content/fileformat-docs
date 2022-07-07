@@ -253,6 +253,120 @@ This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, othe
 
 * The <b>QtBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesMac folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
+## WebKitPath
+
+### Windows
+
+* The QtBinaries folder is required to convert HTML to PDF with WebKit rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to WebKitPath property in the WebKitConverterSettings. 
+
+* If you are using the HTML to PDF converter from installer or assemblies, then you must set the QtBinaries folder path to WebKitPath property of WebKitConverterSettings. 
+
+* You can get the QtBinaries folder from HTML converter installed location. You can include this folder in your project and set the physical path of the folder to the BlinkPath property. 
+
+<b>Example path:</b>
+   .NET Framework – ($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\QtBinaries). 
+   .NET Core - ($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\QtBinariesDotNetCore).
+   
+Please refer below code snippet to set WebKit to the WebKitConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+            
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+            
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Linux
+
+* The QtBinariesLinux folder is required to convert HTML to PDF with WebKit rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to WebKitPath property in the WebKitConverterSettings. 
+
+* The QtBinariesLinux folder is available in the HTML converter Linux build, you can get the folder and set the physical path of the folder to the WebKitPath property of WebKitConverterSettings.
+
+Please refer below code snippet to set WebKit to the WebKitConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+            
+//Set WebKit path
+settings.WebKitPath = @"/QtBinariesLinux/";
+            
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Mac
+
+* The QtBinariesMac folder is required to convert HTML to PDF with WebKit rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to WebKitPath property in the WebKitConverterSettings. 
+
+* The QtBinariesMac folder is available in the HTML converter Mac build, you can get the folder and set the physical path of the folder to the WebKitPath property of WebKitConverterSettings.
+
+Please refer below code snippet to set WebKit to the WebKitConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+            
+//Set WebKit path
+settings.WebKitPath = @"/QtBinariesMac/";
+            
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 	
 ## URL to PDF
 
