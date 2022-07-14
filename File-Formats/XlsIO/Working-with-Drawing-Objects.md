@@ -230,11 +230,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Read the text 
-  for (int i = 0; i < worksheet.Charts.Count; i++)
+  for (int chartIndex = 0; chartIndex < worksheet.Charts.Count; chartIndex++)
   {
-    for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
+    for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
     {
-      String text = worksheet.Charts[i].TextBoxes[j].Text;
+      String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
     }
   }
 
@@ -251,15 +251,15 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
 
-  Dim workbook As IWorkbook = application.Workbooks.Open("../../Data/WF_62496_Sample.xlsx")
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  Dim i As Integer
-  Dim j As Integer
+  Dim chartIndex As Integer
+  Dim textBoxIndex As Integer
 
-  For i = 0 To worksheet.Charts.Count - 1 Step i + 1
-    For j = 0 To worksheet.Charts(i).TextBoxes.Count - 1 Step j + 1
-      Dim text As String = worksheet.Charts(i).TextBoxes(j).Text
+  For chartIndex = 0 To worksheet.Charts.Count - 1 Step chartIndex + 1
+    For textBoxIndex = 0 To worksheet.Charts(chartIndex).TextBoxes.Count - 1 Step textBoxIndex + 1
+      Dim text As String = worksheet.Charts(chartIndex).TextBoxes(textBoxIndex).Text
     Next
   Next
 
@@ -291,14 +291,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Access first worksheet from the workbook instance.
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  for (int i = 0; i < worksheet.Charts.Count; i++)
+  for (int chartIndex = 0; chartIndex < worksheet.Charts.Count; chartIndex++)
   {                    
-    if (worksheet.Rows[i].RowHeight != 0)
+    for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
     {
-      for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
-      {
-        String text = worksheet.Charts[i].TextBoxes[j].Text;
-      }
+        String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
     }
   }
   
@@ -331,11 +328,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Read the text 
-  for (int i = 0; i < worksheet.Charts.Count; i++)
+  for (int chartIndex = 0; chartIndex < worksheet.Charts.Count; chartIndex++)
   {
-    for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
+    for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
     {
-      String text = worksheet.Charts[i].TextBoxes[j].Text;
+      String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
     }
   }
 
@@ -368,11 +365,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Access first worksheet from the workbook instance.
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  for (int i = 0; i < worksheet.Charts.Count; i++)
+  for (int chartIndex = 0; chartIndex < worksheet.Charts.Count; chartIndex++)
   {                 
-    for (int j = 0; j < worksheet.Charts[i].TextBoxes.Count; j++)
+    for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
     {
-      String text = worksheet.Charts[i].TextBoxes[j].Text;
+      String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
     }          
   }
 
