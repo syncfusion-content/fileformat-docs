@@ -24,9 +24,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet mergedCells = workbook.Worksheets.Create("MergedCells");
 
   //Get the list of merged cells
-  for (int i = 0; i < worksheet.MergedCells.Length; i++)
+  for (int pos = 0; pos < worksheet.MergedCells.Length; pos++)
   {
-    mergedCells.Range["A" + (i+1).ToString()].Text = (i+1).ToString()+"th Merged region = "+ worksheet.MergedCells[i].Address;
+    mergedCells.Range["A" + (pos+1).ToString()].Text = (pos+1).ToString()+"th Merged region = "+ worksheet.MergedCells[pos].Address;
   }
 
   //Autofit the used range
@@ -47,8 +47,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim mergedCells As IWorksheet = workbook.Worksheets.Create("MergedCells")
 
   'Get the list of merged cells
-  For i As Integer = 0 To worksheet.MergedCells.Length - 1 Step 1
-    mergedCells.Range("A" + (i + 1).ToString()).Text = (i + 1).ToString() + "th Merged region = " + worksheet.MergedCells(i).Address
+  For pos As Integer = 0 To worksheet.MergedCells.Length - 1 Step 1
+    mergedCells.Range("A" + (pos + 1).ToString()).Text = (pos + 1).ToString() + "th Merged region = " + worksheet.MergedCells(pos).Address
   Next
 
   'Autofit the used range
@@ -80,9 +80,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet mergedCells = workbook.Worksheets.Create("MergedCells");
 
   //Get the list of merged cells
-  for (int i = 0; i < worksheet.MergedCells.Length; i++)
+  for (int pos = 0; pos < worksheet.MergedCells.Length; pos++)
   {
-    mergedCells.Range["A" + (i + 1).ToString()].Text = (i + 1).ToString() + "th Merged region = " + worksheet.MergedCells[i].Address;
+    mergedCells.Range["A" + (pos + 1).ToString()].Text = (pos + 1).ToString() + "th Merged region = " + worksheet.MergedCells[pos].Address;
   }
 
   //Autofit the used range
@@ -116,9 +116,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet mergedCells = workbook.Worksheets.Create("MergedCells");
 
   //Get the list of merged cells
-  for (int i = 0; i < worksheet.MergedCells.Length; i++)
+  for (int pos = 0; pos < worksheet.MergedCells.Length; pos++)
   {
-    mergedCells.Range["A" + (i + 1).ToString()].Text = (i + 1).ToString() + "th Merged region = " + worksheet.MergedCells[i].Address;
+    mergedCells.Range["A" + (pos + 1).ToString()].Text = (pos + 1).ToString() + "th Merged region = " + worksheet.MergedCells[pos].Address;
   }
 
   //Autofit the used range
@@ -148,9 +148,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet mergedCells = workbook.Worksheets.Create("MergedCells");
 
   //Get the list of merged cells
-  for (int i = 0; i < worksheet.MergedCells.Length; i++)
+  for (int pos = 0; pos < worksheet.MergedCells.Length; pos++)
   {
-    mergedCells.Range["A" + (i + 1).ToString()].Text = (i + 1).ToString() + "th Merged region = " + worksheet.MergedCells[i].Address;
+    mergedCells.Range["A" + (pos + 1).ToString()].Text = (pos + 1).ToString() + "th Merged region = " + worksheet.MergedCells[pos].Address;
   }
 
   //Autofit the used range
