@@ -208,27 +208,27 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Perform OCR with input document and tessdata (Language packs)
- processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata\");
 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the document. 
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
-return File(stream, contentType, fileName);
+return File(outputStream, contentType, fileName);
 }
 
 
@@ -255,27 +255,27 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Perform OCR with input document and tessdata (Language packs)
- processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata\");
 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the document. 
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
-return File(stream, contentType, fileName);
+return File(outputStream, contentType, fileName);
 }
 
 
@@ -303,27 +303,27 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Perform OCR with input document and tessdata (Language packs)
- processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata\");
 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the document. 
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
-return File(stream, contentType, fileName);
+return File(outputStream, contentType, fileName);
 }
 
 
@@ -371,24 +371,25 @@ processor.Settings.Regions = pageRegions;
 processor.PerformOCR(document, @"tessdata\");
 
 //Creating the stream object 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the documents. 
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
-//Creates a FileContentResult object by using the file contents, content type, and file name. return File(stream, contentType, fileName);}
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+return File(outputStream, contentType, fileName);}
 
 
 
@@ -425,24 +426,25 @@ processor.Settings.PageSegment = PageSegMode.AutoOsd;
 processor.PerformOCR(document, @"tessdata\");
 
 //Creating the stream object 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the documents. 
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
-//Creates a FileContentResult object by using the file contents, content type, and file name. return File(stream, contentType, fileName);
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(outputStream, contentType, fileName);
  }
 
 
@@ -477,28 +479,28 @@ processor.UnicodeFont = new PdfTrueTypeFont(fontStream, 8);
 processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the PDF document, data dictionary, and language
- processor.PerformOCR(document, @"tessdata\");
-
+processor.PerformOCR(document, @"tessdata\");
 
 //Creating the stream object 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the documents. 
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
-//Creates a FileContentResult object by using the file contents, content type, and file name. return File(stream, contentType, fileName);
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(outputStream, contentType, fileName);
 }
 
 
@@ -540,13 +542,13 @@ OCRLineCollection lines = result.Pages[0].Lines;
  }
  
 //Creating the stream object 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the documents. 
 document.Close(true); 
@@ -557,7 +559,8 @@ document.Close(true);
 //Define the file name.
  string fileName = "Output.pdf"; 
 
-//Creates a FileContentResult object by using the file contents, content type, and file name. return File(stream, contentType, fileName);
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(outputStream, contentType, fileName);
 }
 
 
@@ -703,24 +706,25 @@ processor.Settings.TempFolder = "D:/Temp/";
 processor.PerformOCR(document, @"tessdata\");
 
 //Creating the stream object 
-MemoryStream stream = new MemoryStream();
+MemoryStream outputStream = new MemoryStream();
 
- //Save the document into stream.
- document.Save(stream); 
+//Save the document into stream.
+document.Save(outputStream); 
 
 //If the position is not set to '0' then the PDF will be empty. 
-stream.Position = 0;
+outputStream.Position = 0;
  
 //Close the documents. 
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
-//Creates a FileContentResult object by using the file contents, content type, and file name. return File(stream, contentType, fileName);
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(outputStream, contentType, fileName);
 }
 
 
