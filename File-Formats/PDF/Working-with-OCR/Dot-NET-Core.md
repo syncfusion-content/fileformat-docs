@@ -389,7 +389,8 @@ string contentType = "application/pdf";
 string fileName = "Output.pdf"; 
 
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
-return File(outputStream, contentType, fileName);}
+return File(outputStream, contentType, fileName);
+}
 
 
 
@@ -445,7 +446,7 @@ string fileName = "Output.pdf";
 
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(outputStream, contentType, fileName);
- }
+}
 
 
 
@@ -535,11 +536,11 @@ processor.PerformOCR(document, @"TessData\", out result);
 //Get OCRed line collection from first page 
 OCRLineCollection lines = result.Pages[0].Lines;
 //Get each OCRed line and its bounds 
- foreach(Line line in lines)
- { 
-    string text = line.Text;
-    RectangleF bounds = line.Rectangle;
- }
+foreach(Line line in lines)
+{ 
+   string text = line.Text;
+   RectangleF bounds = line.Rectangle;
+}
  
 //Creating the stream object 
 MemoryStream outputStream = new MemoryStream();
