@@ -531,7 +531,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the PDF document, data dictionary, and language
-processor.PerformOCR(lDoc, @"TessData\", out result); 
+processor.PerformOCR(document, @"TessData\", out result); 
 //Get OCRed line collection from first page 
 OCRLineCollection lines = result.Pages[0].Lines;
 //Get each OCRed line and its bounds 
@@ -554,10 +554,10 @@ outputStream.Position = 0;
 document.Close(true); 
 
 //Defining the ContentType for pdf file.
- string contentType = "application/pdf"; 
+string contentType = "application/pdf"; 
 
 //Define the file name.
- string fileName = "Output.pdf"; 
+string fileName = "Output.pdf"; 
 
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(outputStream, contentType, fileName);
@@ -610,7 +610,7 @@ Refer to the following code snippet for Syncfusion.PDF.OCR.NET package:
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize the OCR processor by providing the path of the tesseract binaries
-using (OCRProcessor processor = new OCRProcessor("TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
 {
 
 FileStream stream = new FileStream("Helloworld.jpg", FileMode.Open);
