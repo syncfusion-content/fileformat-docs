@@ -28,13 +28,6 @@ Select Web Application pattern (Model-View-Controller) for the project.
 Install the [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Convert_WebKit3](Asp.Net.Core_images/Convert_WebKit3.png)
 
-Copy the QtBinariesWindows folder from the installed HtmlToPdfConverter package and paste it into the folder which contains the HTMLtoPDF.csproj file.
-![WebKitCore_BinariesImage](Convert-HTML-To-PDF/htmlconversion_images/WebKitCore_BinariesImage.png)
-![Convert_WebKit4](Asp.Net.Core_images/Convert_WebKit4.png)
-
-Then, set Copy to output directory to copy all the QtBinariesWindows (All files including inner folders and files) assemblies.
-![Convert_WebKit5](Asp.Net.Core_images/Convert_WebKit5.png)
-
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
@@ -106,13 +99,6 @@ Select Web Application pattern (Model-View-Controller) for the project.
 
 Install the [Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Convert_Blink1](Asp.Net.Core_images/Convert_Blink1.png)
-
-Copy the BlinkBinariesWindows folder from the installed [HtmlToPdfConverter](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter) package and paste it into the folder which contains the HTMLtoPDF.csproj file.
-![BlinkCore_BinariesImage](Convert-HTML-To-PDF/htmlconversion_images/BlinkCore_BinariesImage.png)
-![Convert_Blink2](Asp.Net.Core_images/Convert_Blink2.png)
-
-Then, set Copy to output directory to copy all the BlinkBinariesWindows (All files including inner folders and files) assemblies.
-![Convert_Blink3](Asp.Net.Core_images/Convert_Blink3.png)
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
