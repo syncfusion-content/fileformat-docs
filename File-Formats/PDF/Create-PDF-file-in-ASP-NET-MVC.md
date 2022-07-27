@@ -270,7 +270,7 @@ document.Close(true);
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
-![InvoiceSample](GettingStarted_images/GettingStarted_img1.jpeg)
+![PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -283,7 +283,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Form Filling](GettingStarted_images/GettingStarted_img2.jpeg)
+![Filling PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -314,7 +314,7 @@ loadedDocument.Close(true);
 
 The filled form is shown in adobe reader application as follows.
 
-![JobApplication](GettingStarted_images/GettingStarted_img3.jpeg)
+![Filled Form in PDF](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 

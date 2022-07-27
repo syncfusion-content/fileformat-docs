@@ -1114,7 +1114,7 @@ else
 
 The following screenshot shows the invoice PDF document created by using .NET PDF library.
 
-![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
+![PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 
 ## Filling forms
@@ -1297,7 +1297,7 @@ else
 
 The filled form is shown in adobe reader application as follows.
 
-![Form Fill using .NET](GettingStarted_images/GettingStarted_img3.jpeg)
+![Filled Form in PDF](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Converting HTML contents to PDF
 
