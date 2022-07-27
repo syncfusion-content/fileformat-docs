@@ -75,7 +75,7 @@ document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadTy
 A complete working sample for generate PDF file in ASP.NET MVC can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1076048215.zip )
 
 By executing the program, you will get the PDF file as follows.
-![create pdf in mvc](GettingStarted_images/Hello_World.jpg)
+![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 ## Creating a PDF document with image
 
