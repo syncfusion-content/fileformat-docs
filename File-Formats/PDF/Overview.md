@@ -19,7 +19,7 @@ The following list shows the key features available in the Essential PDF.
 * Open, modify and save existing PDF files.
 * Support to [compress](https://help.syncfusion.com/file-formats/pdf/working-with-compression) existing PDF files.
 * Ability to [merge](https://help.syncfusion.com/file-formats/pdf/merge-documents) and split PDF files.
-* Support for [Optical Character Recognition](https://help.syncfusion.com/file-formats/pdf/working-with-ocr) by using Tesseract engine. 
+* Support for [Optical Character Recognition](https://help.syncfusion.com/file-formats/pdf/working-with-ocr/dot-net-framework) by using Tesseract engine. 
 * Ability to convert [HTML](https://help.syncfusion.com/file-formats/pdf/working-with-document-conversions#mhtml-to-pdf), [RTF](https://help.syncfusion.com/file-formats/pdf/working-with-document-conversions#converting-rtf-documents-to-pdf), [Word](https://help.syncfusion.com/file-formats/pdf/working-with-document-conversions#converting-word-documents-to-pdf), [Excel](https://help.syncfusion.com/file-formats/pdf/working-with-document-conversions#converting-excel-documents-to-pdf), [PowerPoint](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) and [XPS](https://help.syncfusion.com/file-formats/pdf/working-with-document-conversions#converting-xps-document-to-pdf) to PDF.
 * Ability to [encrypt and decrypt PDF](https://help.syncfusion.com/file-formats/pdf/working-with-security) files with advanced standards.
 * Support to add, modify and remove interactive elements such as [bookmarks](https://help.syncfusion.com/file-formats/pdf/working-with-bookmarks), [annotations](https://help.syncfusion.com/file-formats/pdf/working-with-annotations) and [attachments](https://help.syncfusion.com/file-formats/pdf/working-with-attachments).
@@ -35,4 +35,4 @@ The following list shows the key features available in the Essential PDF.
 * PDF library is supported in Blazor, Xamarin and Flutter platforms.
 * PDF library is compatible with .NET 5.0 applications.
 
-N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter or OCR processor assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter or OCR processor assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
