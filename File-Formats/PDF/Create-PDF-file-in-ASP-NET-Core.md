@@ -314,7 +314,7 @@ document.Close(true);
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
-![Getting Started](GettingStarted_images/GettingStarted_img1.jpeg)
+![Getting Started](GettingStarted_images/PDF-Invoices.jpeg)
 
 ## Filling forms
 
@@ -327,7 +327,7 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Form Filling](GettingStarted_images/GettingStarted_img2.jpeg)
+![PDF Form Filling](GettingStarted_images/net-fill-pdf-forms.jpeg)
 
 
 .NET Core PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
