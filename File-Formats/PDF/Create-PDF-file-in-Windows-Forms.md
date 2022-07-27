@@ -93,7 +93,7 @@ using (PdfDocument document = new PdfDocument())
 A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-123272332 )
 
 By executing the program, you will get the PDF document as follows.
-![output](GettingStarted_images/Hello World.jpg)
+![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 ## Creating a PDF document with image
 

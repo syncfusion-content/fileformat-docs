@@ -151,7 +151,7 @@ Compile and execute the application. This creates a simple PDF document.
 Download the complete work sample from [Create-PDF-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1091535413)
 
 By executing the program, you will get the PDF document as follows.
-![HellWorld](GettingStarted_images/Hello World.jpg)
+![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
  
 ## Creating a PDF document with image
 
