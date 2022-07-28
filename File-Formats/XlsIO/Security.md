@@ -159,7 +159,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-Now, the encrypted workbook can be saved. Refer [Save Excel file](/file-formats/xlsio/loading-and-saving-workbook#saving-a-excel-workbook-to-file-system). 
+Now, the encrypted workbook can be saved. Refer [Save Excel file](https://help.syncfusion.com/file-formats/xlsio/loading-and-saving-workbook#saving-a-excel-workbook-to-file-system). 
 
 **Opening** **an** **encrypted** **workbook**
 
