@@ -730,7 +730,7 @@ Generated output
 ![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
 
 
-You can also refer to the [Template based data filling using Template Markers](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [Getting Started](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
+You can also refer to the [Template based data filling using Template Markers](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet#template-based-data-filling-using-template-markers) section in [Getting Started](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet) for the sample regarding template marker with images.
 
 ## Bind from Nested Collection Objects with import data and group options
 
