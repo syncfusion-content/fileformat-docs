@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with charts using various operations
 
-Essential XlsIO has support for creating and modifying Excel charts inside a workbook or as a [chart worksheet](https://support.office.com/en-us/article/Create-a-chart-0baf399e-dd61-4e18-8a73-b3fd5d5680c2). 
+Essential XlsIO has support for creating and modifying Excel charts inside a workbook or as a [chart worksheet](https://support.microsoft.com/en-us/office/create-a-chart-from-start-to-finish-0baf399e-dd61-4e18-8a73-b3fd5d5680c2?ui=en-us&rs=en-us&ad=us). 
 
 ## Creating a Chart 
 
@@ -5460,7 +5460,7 @@ A complete working example to add data table in chart in C# is present on [this 
 
 ## Sparkline 
 
-[Sparkline](https://support.office.com/en-us/article/use-sparklines-to-show-data-trends-1474e169-008c-4783-926b-5c60e620f5ca) is a small chart in a worksheet cell that provides a visual representation of data.
+[Sparkline](https://support.microsoft.com/en-us/office/use-sparklines-to-show-data-trends-1474e169-008c-4783-926b-5c60e620f5ca?ui=en-us&rs=en-us&ad=us) is a small chart in a worksheet cell that provides a visual representation of data.
 
 ### Sparkline Creation Using XlsIO
 
@@ -5975,7 +5975,7 @@ Essential XlsIO supports creating and manipulating new and modern chart types su
 
 ### Funnel
 
-[Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process.
+[Funnel](https://support.microsoft.com/en-us/office/create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e?ui=en-us&rs=en-us&ad=us) charts show values across multiple stages in a process.
 
 Following code example illustrates how to create Funnel chart.
 
@@ -6179,7 +6179,7 @@ The following screen shot shows the output of above code.
 
 ### Box and Whisker
 
-[Box and Whisker](https://support.office.com/en-us/article/Create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d#) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis.
+[Box and Whisker](https://support.microsoft.com/en-us/office/create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d?ui=en-us&rs=en-us&ad=us) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis.
 
 Following code example illustrates how to create Box and Whisker chart.
 
@@ -6478,7 +6478,7 @@ The following screen shot shows the output of above code.
 
 ### Waterfall
 
-[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps to quickly understand the finances of business owners by viewing profit and loss statements. With a Waterfall chart, you can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line.
+[Waterfall](https://support.microsoft.com/en-us/office/create-a-waterfall-chart-8de1ece4-ff21-4d37-acd7-546f5527f185?ui=en-us&rs=en-us&ad=us) chart helps to quickly understand the finances of business owners by viewing profit and loss statements. With a Waterfall chart, you can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line.
 
 Following code example illustrates how to create Waterfall chart.
 
@@ -6717,7 +6717,7 @@ The following screen shot shows the output of above code.
 
 ### Histogram
 
-[Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data.
+[Histogram](https://support.microsoft.com/en-us/office/create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8?ui=en-us&rs=en-us&ad=us) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data.
 
 Following code example illustrates how to create Histogram.
 
@@ -6951,7 +6951,7 @@ The following screen shot shows the output of above code.
 
 ### Pareto
 
-[Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram where columns sorted in descending order and a line representing the cumulative total percentage.
+[Pareto](https://support.microsoft.com/en-us/office/create-a-pareto-chart-a1512496-6dba-4743-9ab1-df5012972856?ui=en-us&rs=en-us&ad=us) is a sorted histogram where columns sorted in descending order and a line representing the cumulative total percentage.
 
 Following code example illustrates how to create Pareto chart.
 
@@ -7191,7 +7191,7 @@ The following screen shot shows the output of above code.
 
 ### Treemap
 
-[Treemap](https://support.office.com/en-us/article/Create-a-treemap-chart-in-Office-2016-dfe86d28-a610-4ef5-9b30-362d5c624b68#) provides a hierarchical view of data as clustered rectangle with a specific weighted attribute determining the size of the rectangle. 
+[Treemap](https://support.microsoft.com/en-us/office/create-a-treemap-chart-in-office-dfe86d28-a610-4ef5-9b30-362d5c624b68?ui=en-us&rs=en-us&ad=us) provides a hierarchical view of data as clustered rectangle with a specific weighted attribute determining the size of the rectangle. 
 
 Following code example illustrates how to create Treemap chart.
 
@@ -7400,7 +7400,7 @@ The following screen shot shows the output of above code.
 
 ### Sunburst
 
-[Sunburst](https://support.office.com/en-us/article/Create-a-sunburst-chart-in-Office-2016-4a127977-62cd-4c11-b8c7-65b84a358e0c#) provides a hierarchical view of data where each level of the hierarchy is represented by one ring or circle with the innermost circle as the top of the hierarchy.
+[Sunburst](https://support.microsoft.com/en-us/office/create-a-sunburst-chart-in-office-4a127977-62cd-4c11-b8c7-65b84a358e0c?ui=en-us&rs=en-us&ad=us) provides a hierarchical view of data where each level of the hierarchy is represented by one ring or circle with the innermost circle as the top of the hierarchy.
 
 Following code example illustrates how to create Sunburst chart.
 
@@ -7614,84 +7614,84 @@ N>These Charts are supported only in Excel 2016 and are not visible in the earli
 
 The following chart types are supported in XlsIO.
 
-* [Area](https://www.syncfusion.com/kb/8380)
-* [Area_3D](https://www.syncfusion.com/kb/8356) 
-* [Area_Stacked](https://www.syncfusion.com/kb/8360)
-* [Area_Stacked_100](https://www.syncfusion.com/kb/8357)
-* [Area_Stacked_100_3D](https://www.syncfusion.com/kb/8361)
-* [Area_Stacked_3D](https://www.syncfusion.com/kb/8362) 
-* [Bar_Clustered](https://www.syncfusion.com/kb/8335)
-* [Bar_Clustered_3D](https://www.syncfusion.com/kb/8368)
-* [Bar_Stacked](https://www.syncfusion.com/kb/8371)
-* [Bar_Stacked_100](https://www.syncfusion.com/kb/8365)
-* [Bar_Stacked_100_3D](https://www.syncfusion.com/kb/8374)
-* [Bar_Stacked_3D](https://www.syncfusion.com/kb/8366)
-* [Bubble](https://www.syncfusion.com/kb/8407)
-* [Bubble_3D](https://www.syncfusion.com/kb/8403)
-* [Column_3D](https://www.syncfusion.com/kb/8369)
-* [Column_Clustered](https://www.syncfusion.com/kb/8280)
-* [Column_Clustered_3D](https://www.syncfusion.com/kb/8402)  
-* [Column_Stacked](https://www.syncfusion.com/kb/8344)
-* [Column_Stacked_100](https://www.syncfusion.com/kb/8445)
-* [Column_Stacked_100_3D](https://www.syncfusion.com/kb/8375)
-* [Column_Stacked_3D](https://www.syncfusion.com/kb/8373)
-* [Combination_Chart](https://www.syncfusion.com/kb/8411)       
-* [Cone_Bar_Clustered](https://www.syncfusion.com/kb/8558)
-* [Cone_Bar_Stacked](https://www.syncfusion.com/kb/8528)
-* [Cone_Bar_Stacked_100](https://www.syncfusion.com/kb/8524)
-* [Cone_Clustered](https://www.syncfusion.com/kb/8541)
-* [Cone_Clustered_3D](https://www.syncfusion.com/kb/8520)
-* [Cone_Stacked](https://www.syncfusion.com/kb/8530)
-* [Cone_Stacked_100](https://www.syncfusion.com/kb/8533)
-* [Cylinder_Bar_Clustered](https://www.syncfusion.com/kb/8529)
-* [Cylinder_Bar_Stacked](https://www.syncfusion.com/kb/8531)
-* [Cylinder_Bar_Stacked_100](https://www.syncfusion.com/kb/8540)
-* [Cylinder_Clustered](https://www.syncfusion.com/kb/8526)
-* [Cylinder_Clustered_3D](https://www.syncfusion.com/kb/8545)
-* [Cylinder_Stacked](https://www.syncfusion.com/kb/8519)
-* [Cylinder_Stacked_100](https://www.syncfusion.com/kb/8543)
-* [Doughnut](https://www.syncfusion.com/kb/8398)
-* [Doughnut_Exploded](https://www.syncfusion.com/kb/8518)
-* [Line](https://www.syncfusion.com/kb/8358)
-* [Line_3D](https://www.syncfusion.com/kb/8416)
-* [Line_Markers](https://www.syncfusion.com/kb/8359) 
-* [Line_Markers_Stacked](https://www.syncfusion.com/kb/8379)
-* [Line_Markers_Stacked_100](https://www.syncfusion.com/kb/8376)
-* [Line_Stacked](https://www.syncfusion.com/kb/8372)
-* [Line_Stacked_100](https://www.syncfusion.com/kb/8370)
-* [Pie](https://www.syncfusion.com/kb/8423)
-* [Pie_3D](https://www.syncfusion.com/kb/8426)
-* [Pie_Bar](https://www.syncfusion.com/kb/8404)
-* [Pie_Exploded](https://www.syncfusion.com/kb/8539)
-* [Pie_Exploded_3D](https://www.syncfusion.com/kb/8559)
-* [PieOfPie](https://www.syncfusion.com/kb/8406)
-* [Pyramid_Bar_Clustered](https://www.syncfusion.com/kb/8521)
-* [Pyramid_Bar_Stacked](https://www.syncfusion.com/kb/8547)
-* [Pyramid_Bar_Stacked_100](https://www.syncfusion.com/kb/8544)
-* [Pyramid_Clustered](https://www.syncfusion.com/kb/8525)
-* [Pyramid_Clustered_3D](https://www.syncfusion.com/kb/8527)
-* [Pyramid_Stacked](https://www.syncfusion.com/kb/8536)
-* [Pyramid_Stacked_100](https://www.syncfusion.com/kb/8534)
-* [Radar](https://www.syncfusion.com/kb/8408)
-* [Radar_Filled](https://www.syncfusion.com/kb/8414)
-* [Radar_Markers](https://www.syncfusion.com/kb/8409)
-* [Scatter_Line](https://www.syncfusion.com/kb/8405)
-* [Scatter_Line_Markers](https://www.syncfusion.com/kb/8400)
-* [Scatter_Markers](https://www.syncfusion.com/kb/8418)
-* [Scatter_SmoothedLine](https://www.syncfusion.com/kb/8401)
-* [Scatter_SmoothedLine_Markers](https://www.syncfusion.com/kb/8415)
-* [Stock_HighLowClose](https://www.syncfusion.com/kb/8397)
-* [Stock_OpenHighLowClose](https://www.syncfusion.com/kb/8417)
-* [Stock_VolumeHighLowClose](https://www.syncfusion.com/kb/8424)
-* [Stock_VolumeOpenHighLowClose](https://www.syncfusion.com/kb/8425)  
-* [Surface_3D](https://www.syncfusion.com/kb/8419)
-* [Surface_Contour](https://www.syncfusion.com/kb/8410)
-* [Surface_NoColor_3D](https://www.syncfusion.com/kb/8421)
-* [Surface_NoColor_Contour](https://www.syncfusion.com/kb/8413)
-* [Funnel](https://www.syncfusion.com/kb/8422)
-* [Box and Whisker](https://www.syncfusion.com/kb/8428)
-* [Waterfall](https://www.syncfusion.com/kb/8420)
-* [Histogram](https://www.syncfusion.com/kb/8431)
-* [Pareto](https://www.syncfusion.com/kb/8430)
-* [Treemap](https://www.syncfusion.com/kb/8427)
-* [Sunburst](https://www.syncfusion.com/kb/8429)
+* [Area](https://www.syncfusion.com/kb/8380/how-to-create-excel-area-chart-in-c-vb-net)
+* [Area_3D](https://www.syncfusion.com/kb/8356/how-to-create-excel-3d-area-chart-in-c-vb-net) 
+* [Area_Stacked](https://www.syncfusion.com/kb/8360/how-to-create-excel-stacked-area-chart-in-c-vb-net)
+* [Area_Stacked_100](https://www.syncfusion.com/kb/8357/how-to-create-excel-100-stacked-area-chart-in-c-vb-net)
+* [Area_Stacked_100_3D](https://www.syncfusion.com/kb/8361/how-to-create-excel-3d-100-stacked-area-chart-in-c-vb-net)
+* [Area_Stacked_3D](https://www.syncfusion.com/kb/8362/how-to-create-excel-3d-stacked-area-chart-in-c-vb-net) 
+* [Bar_Clustered](https://www.syncfusion.com/kb/8335/how-to-create-excel-clustered-bar-chart-in-c-vb-net)
+* [Bar_Clustered_3D](https://www.syncfusion.com/kb/8368/how-to-create-excel-3d-clustered-bar-chart-in-c-vb-net)
+* [Bar_Stacked](https://www.syncfusion.com/kb/8371/how-to-create-excel-stacked-bar-chart-in-c-vb-net)
+* [Bar_Stacked_100](https://www.syncfusion.com/kb/8365/how-to-create-excel-100-stacked-bar-chart-in-c-vb-net)
+* [Bar_Stacked_100_3D](https://www.syncfusion.com/kb/8374/how-to-create-excel-3d-100-stacked-bar-chart-in-c-vb-net)
+* [Bar_Stacked_3D](https://www.syncfusion.com/kb/8366/how-to-create-excel-3d-stacked-bar-chart-in-c-vb-net)
+* [Bubble](https://www.syncfusion.com/kb/8407/how-to-create-excel-bubble-chart-in-c-vb-net)
+* [Bubble_3D](https://www.syncfusion.com/kb/8403/how-to-create-excel-3d-bubble-chart-in-c-vb-net)
+* [Column_3D](https://www.syncfusion.com/kb/8369/how-to-create-excel-3d-clustered-column-chart-in-c-vb-net)
+* [Column_Clustered](https://www.syncfusion.com/kb/8280/how-to-create-excel-clustered-column-chart-in-c-vb-net)
+* [Column_Clustered_3D](https://www.syncfusion.com/kb/8402/how-to-create-excel-3d-column-chart-in-c-vb-net)  
+* [Column_Stacked](https://www.syncfusion.com/kb/8344/how-to-create-excel-stacked-column-chart-in-c-vb-net)
+* [Column_Stacked_100](https://www.syncfusion.com/kb/8445/how-to-create-excel-100-stacked-column-chart-in-c-vb-net)
+* [Column_Stacked_100_3D](https://www.syncfusion.com/kb/8375/how-to-create-excel-3d-100-stacked-column-chart-in-c-vb-net)
+* [Column_Stacked_3D](https://www.syncfusion.com/kb/8373/how-to-create-excel-3d-stacked-column-chart-in-c-vb-net)
+* [Combination_Chart](https://www.syncfusion.com/kb/8411/how-to-create-excel-combination-chart-in-c-vb-net)       
+* [Cone_Bar_Clustered](https://www.syncfusion.com/kb/8558/how-to-create-excel-clustered-bar-cone-chart-in-c-vb-net)
+* [Cone_Bar_Stacked](https://www.syncfusion.com/kb/8528/how-to-create-excel-stacked-bar-cone-chart-in-c-vb-net)
+* [Cone_Bar_Stacked_100](https://www.syncfusion.com/kb/8524/how-to-create-excel-100-stacked-bar-cone-chart-in-c-vb-net)
+* [Cone_Clustered](https://www.syncfusion.com/kb/8541/how-to-create-excel-clustered-cone-chart-in-c-vb-net)
+* [Cone_Clustered_3D](https://www.syncfusion.com/kb/8520/how-to-create-excel-3d-clustered-cone-chart-in-c-vb-net)
+* [Cone_Stacked](https://www.syncfusion.com/kb/8530/how-to-create-excel-stacked-cone-chart-in-c-vb-net)
+* [Cone_Stacked_100](https://www.syncfusion.com/kb/8533/how-to-create-excel-100-stacked-cone-chart-in-c-vb-net)
+* [Cylinder_Bar_Clustered](https://www.syncfusion.com/kb/8529/how-to-create-excel-clustered-bar-cylinder-chart-in-c-vb-net)
+* [Cylinder_Bar_Stacked](https://www.syncfusion.com/kb/8531/how-to-create-excel-stacked-bar-cylinder-chart-in-c-vb-net)
+* [Cylinder_Bar_Stacked_100](https://www.syncfusion.com/kb/8540/how-to-create-excel-100-stacked-bar-cylinder-chart-in-c-vb-net)
+* [Cylinder_Clustered](https://www.syncfusion.com/kb/8526/how-to-create-excel-clustered-cylinder-chart-in-c-vb-net)
+* [Cylinder_Clustered_3D](https://www.syncfusion.com/kb/8545/how-to-create-excel-3d-clustered-cylinder-chart-in-c-vb-net)
+* [Cylinder_Stacked](https://www.syncfusion.com/kb/8519/how-to-create-excel-stacked-cylinder-chart-in-c-vb-net)
+* [Cylinder_Stacked_100](https://www.syncfusion.com/kb/8543/how-to-create-excel-100-stacked-cylinder-chart-in-c-vb-net)
+* [Doughnut](https://www.syncfusion.com/kb/8398/how-to-create-excel-doughnut-chart-in-c-vb-net)
+* [Doughnut_Exploded](https://www.syncfusion.com/kb/8518/how-to-create-excel-exploded-doughnut-chart-in-c-vb-net)
+* [Line](https://www.syncfusion.com/kb/8358/how-to-create-excel-line-chart-in-c-vb-net)
+* [Line_3D](https://www.syncfusion.com/kb/8416/how-to-create-excel-3d-line-chart-in-c-vb-net)
+* [Line_Markers](https://www.syncfusion.com/kb/8359/how-to-create-excel-line-with-markers-chart-in-c-vb-net) 
+* [Line_Markers_Stacked](https://www.syncfusion.com/kb/8379/how-to-create-excel-stacked-line-with-markers-chart-in-c-vb-net)
+* [Line_Markers_Stacked_100](https://www.syncfusion.com/kb/8376/how-to-create-excel-100-stacked-line-with-markers-chart-in-c-vb-net)
+* [Line_Stacked](https://www.syncfusion.com/kb/8372/how-to-create-excel-stacked-line-chart-in-c-vb-net)
+* [Line_Stacked_100](https://www.syncfusion.com/kb/8370/how-to-create-excel-100-stacked-line-chart-in-c-vb-net)
+* [Pie](https://www.syncfusion.com/kb/8423/how-to-create-excel-pie-chart-in-c-vb-net)
+* [Pie_3D](https://www.syncfusion.com/kb/8426/how-to-create-excel-3d-pie-chart-in-c-vb-net)
+* [Pie_Bar](https://www.syncfusion.com/kb/8404/how-to-create-excel-bar-of-pie-chart-in-c-vb-net)
+* [Pie_Exploded](https://www.syncfusion.com/kb/8539/how-to-create-excel-exploded-pie-chart-in-c-vb-net)
+* [Pie_Exploded_3D](https://www.syncfusion.com/kb/8559/how-to-create-excel-3d-exploded-pie-chart-in-c-vb-net)
+* [PieOfPie](https://www.syncfusion.com/kb/8406/how-to-create-excel-pie-of-pie-chart-in-c-vb-net)
+* [Pyramid_Bar_Clustered](https://www.syncfusion.com/kb/8521/how-to-create-excel-clustered-bar-pyramid-chart-in-c-vb-net)
+* [Pyramid_Bar_Stacked](https://www.syncfusion.com/kb/8547/how-to-create-excel-stacked-bar-pyramid-chart-in-c-vb-net)
+* [Pyramid_Bar_Stacked_100](https://www.syncfusion.com/kb/8544/how-to-create-excel-100-stacked-bar-pyramid-chart-in-c-vb-net)
+* [Pyramid_Clustered](https://www.syncfusion.com/kb/8525/how-to-create-excel-clustered-pyramid-chart-in-c-vb-net)
+* [Pyramid_Clustered_3D](https://www.syncfusion.com/kb/8527/how-to-create-excel-3d-clustered-pyramid-chart-in-c-vb-net)
+* [Pyramid_Stacked](https://www.syncfusion.com/kb/8536/how-to-create-excel-stacked-pyramid-chart-in-c-vb-net)
+* [Pyramid_Stacked_100](https://www.syncfusion.com/kb/8534/how-to-create-excel-100-stacked-pyramid-chart-in-c-vb-net)
+* [Radar](https://www.syncfusion.com/kb/8408/how-to-create-excel-radar-chart-in-c-vb-net)
+* [Radar_Filled](https://www.syncfusion.com/kb/8414/how-to-create-excel-filled-radar-chart-in-c-vb-net)
+* [Radar_Markers](https://www.syncfusion.com/kb/8409/how-to-create-excel-radar-with-markers-chart-in-c-vb-net)
+* [Scatter_Line](https://www.syncfusion.com/kb/8405/how-to-create-excel-scatter-with-straight-lines-chart-in-c-vb-net)
+* [Scatter_Line_Markers](https://www.syncfusion.com/kb/8400/how-to-create-excel-scatter-with-straight-lines-and-markers-chart-in-c-vb-net)
+* [Scatter_Markers](https://www.syncfusion.com/kb/8418/how-to-create-excel-scatter-chart-in-c-vb-net)
+* [Scatter_SmoothedLine](https://www.syncfusion.com/kb/8401/how-to-create-excel-scatter-with-smooth-lines-chart-in-c-vb-net)
+* [Scatter_SmoothedLine_Markers](https://www.syncfusion.com/kb/8415/how-to-create-excel-scatter-with-smooth-lines-and-markers-chart-in-c-vb-net)
+* [Stock_HighLowClose](https://www.syncfusion.com/kb/8397/how-to-create-excel-high-low-close-chart-in-c-vb-net)
+* [Stock_OpenHighLowClose](https://www.syncfusion.com/kb/8417/how-to-create-excel-open-high-low-close-chart-in-c-vb-net)
+* [Stock_VolumeHighLowClose](https://www.syncfusion.com/kb/8424/how-to-create-excel-volume-high-low-close-chart-in-c-vb-net)
+* [Stock_VolumeOpenHighLowClose](https://www.syncfusion.com/kb/8425/how-to-create-excel-volume-open-high-low-close-chart-in-c-vb-net)  
+* [Surface_3D](https://www.syncfusion.com/kb/8419/how-to-create-excel-3d-surface-chart-in-c-vb-net)
+* [Surface_Contour](https://www.syncfusion.com/kb/8410/how-to-create-excel-contour-chart-in-c-vb-net)
+* [Surface_NoColor_3D](https://www.syncfusion.com/kb/8421/how-to-create-excel-wireframe-3d-surface-chart-in-c-vb-net)
+* [Surface_NoColor_Contour](https://www.syncfusion.com/kb/8413/how-to-create-excel-wireframe-contour-chart-in-c-vb-net)
+* [Funnel](https://www.syncfusion.com/kb/8422/how-to-create-excel-funnel-chart-in-c-vb-net)
+* [Box and Whisker](https://www.syncfusion.com/kb/8428/how-to-create-excel-box-and-whisker-chart-in-c-vb-net)
+* [Waterfall](https://www.syncfusion.com/kb/8420/how-to-create-excel-waterfall-chart-in-c-vb-net)
+* [Histogram](https://www.syncfusion.com/kb/8431/how-to-create-excel-histogram-chart-in-c-vb-net)
+* [Pareto](https://www.syncfusion.com/kb/8430/how-to-create-excel-pareto-chart-in-c-vb-net)
+* [Treemap](https://www.syncfusion.com/kb/8427/how-to-create-excel-treemap-chart-in-c-vb-net)
+* [Sunburst](https://www.syncfusion.com/kb/8429/how-to-create-excel-sunburst-chart-in-c-vb-net)

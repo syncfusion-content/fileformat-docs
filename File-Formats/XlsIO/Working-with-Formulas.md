@@ -8,11 +8,11 @@ keywords: c#, vb.net, excel, read excel, edit excel, edit excel cell, excel form
 ---
 # Working with Formulas
 
-[Formulas](https://support.office.com/en-ca/article/Overview-of-formulas-7abfda78-eff3-4cc6-b4a7-6350d512d2dc) are entries in Excel that have equations, by which values are calculated. A typical formula might contain cell references, constants, and even functions. 
+[Formulas](https://support.microsoft.com/en-gb/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173?redirectsourcepath=%252fen-us%252farticle%252foverview-of-formulas-7abfda78-eff3-4cc6-b4a7-6350d512d2dc) are entries in Excel that have equations, by which values are calculated. A typical formula might contain cell references, constants, and even functions. 
 
 ## Enable and Disable Calculation
 
-To perform calculation in an Excel workbook, it is recommended to invoke [EnableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_EnableSheetCalculations) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). Enabling this method will initialize [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects and retrieves calculated values of formulas in a worksheet. 
+To perform calculation in an Excel workbook, it is recommended to invoke [EnableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_EnableSheetCalculations) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). Enabling this method will initialize [CalcEngine](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#calculation-engine) objects and retrieves calculated values of formulas in a worksheet. 
 
 The following code sample illustrates on how to enable worksheet formula calculations.
 
@@ -53,7 +53,7 @@ sheet.EnableSheetCalculations();
 {% endhighlight %}
 {% endtabs %}   
 
-On completion of worksheet calculation, it is recommended to invoke [DisableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_DisableSheetCalculations) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). This will dispose all the [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects.
+On completion of worksheet calculation, it is recommended to invoke [DisableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_DisableSheetCalculations) method of [https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). This will dispose all the [CalcEngine](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#calculation-engine) objects.
 
 The following code sample illustrates on how to disable worksheet formula calculations.
 
@@ -373,7 +373,7 @@ string formula = sheet["C1"].Formula;
 
 ## Accessing a Calculated value
 
-To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsio/working-with-formulas#enable-and-disable-calculation) in prior. After enabling the sheet calculation, the formula can be evaluated using [CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CalculatedValue) of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html), which returns a string value.
+To evaluate formula, it is must to [enable sheet calculation](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#enable-and-disable-calculation) in prior. After enabling the sheet calculation, the formula can be evaluated using [CalculatedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CalculatedValue) of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html), which returns a string value.
 
 The following code shows how to access a calculated value.
 
@@ -903,7 +903,7 @@ A complete working example to add argument separator in C# is present on [this G
 
 Array formula is a special type of formula in Excel. It works with an array or series of data values, rather than a single data value which can be done through [FormulaArray](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_FormulaArray) property of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) instance.
 
-Following code shows how an array of values from [Named Range](/file-formats/xlsio/working-with-formulas#defined-names) is used for computation. 
+Following code shows how an array of values from [Named Range](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#defined-names) is used for computation. 
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1298,9 +1298,9 @@ N> Links are updated automatically in Microsoft Excel to view the result for the
 
 ## Calculated Column
 
-XlsIO supports to create, access and modify [calculated column](https://support.office.com/en-us/article/Create-edit-or-remove-a-calculated-column-in-an-Excel-table-4507b5aa-8859-407c-b3eb-743a2650af3c) in a table. When a formulas is entered in a table column, Excel creates a calculated column. This column uses a single formula that’s automatically extended to additional rows in the column and adjusted for each row. Enter a formula once, and Excel immediately fills it down to create the calculated column.
+XlsIO supports to create, access and modify [calculated column](https://support.microsoft.com/en-gb/office/use-calculated-columns-in-an-excel-table-873fbac6-7110-4300-8f6f-aafa2ea11ce8?redirectsourcepath=%252fen-us%252farticle%252fcreate-edit-or-remove-a-calculated-column-in-an-excel-table-4507b5aa-8859-407c-b3eb-743a2650af3c) in a table. When a formulas is entered in a table column, Excel creates a calculated column. This column uses a single formula that’s automatically extended to additional rows in the column and adjusted for each row. Enter a formula once, and Excel immediately fills it down to create the calculated column.
 
-Also, XlsIO supports [structured reference](https://support.office.com/en-us/article/Use-structured-references-in-Excel-table-formulas-75fb07d3-826a-449c-b76f-363057e3d16f) in calculated column in table from Excel 2013.
+Also, XlsIO supports [structured reference](https://support.microsoft.com/en-gb/office/using-structured-references-with-excel-tables-f5ed2452-2337-4f71-bed3-c8ae6d2b276e?redirectsourcepath=%252fen-us%252farticle%252fuse-structured-references-in-excel-table-formulas-75fb07d3-826a-449c-b76f-363057e3d16f) in calculated column in table from Excel 2013.
 
 The following code snippet illustrates how to create a calculated column.
 
@@ -2690,7 +2690,7 @@ Returns the logical value TRUE<br/><br/></td></tr>
 
 ## Add-in Functions
 
-Add-ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove Add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1)
+Add-ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove Add-ins](https://support.microsoft.com/en-gb/office/add-or-remove-add-ins-in-excel-0af570c4-5cf3-4fa9-9b88-403625a0b460?redirectsourcepath=%252fen-us%252farticle%252fadd-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1)
 
 The following code illustrates on how to include and access Add-ins in XlsIO.
 
@@ -2860,7 +2860,7 @@ N> If you move the file to another computer, or distribute it, the workbook will
 
 ## Defined Names
 
-Cell ranges can be [defined by names](https://support.office.com/en-ZA/article/define-and-use-names-in-formulas-b2bacf14-945d-41d4-b3aa-267b18a23f6e) to perform formula calculation. This section explains about creating named ranges and accessing them from workbook or worksheet levels.
+Cell ranges can be [defined by names](https://support.microsoft.com/en-gb/office/define-and-use-names-in-formulas-4d0f13ac-53b7-422e-afd2-abd7ff379c64?redirectsourcepath=%252fen-us%252farticle%252fdefine-and-use-names-in-formulas-b2bacf14-945d-41d4-b3aa-267b18a23f6e) to perform formula calculation. This section explains about creating named ranges and accessing them from workbook or worksheet levels.
 
 The following code shows how to define a named range from workbook level.
 

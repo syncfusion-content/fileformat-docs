@@ -302,7 +302,7 @@ T> To apply styles for whole column instead of applying in each cell, use defaul
 
 The XlsIO adds styles globally that can be applied to one or more cells in a workbook. This is a recommended approach to apply single style in different rows and columns, which improves memory and performance considerably.
 
-To learn more about performance, refer to the [Improving Performing section for better performance in XlsIO](/file-formats/xlsio/improving-performance).
+To learn more about performance, refer to the [Improving Performing section for better performance in XlsIO](https://help.syncfusion.com/file-formats/xlsio/improving-performance).
 
 The following code snippet illustrates how to set header style and body style to the cells.
 
