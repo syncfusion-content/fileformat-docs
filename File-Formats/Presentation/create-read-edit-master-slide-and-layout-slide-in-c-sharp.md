@@ -77,6 +77,136 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+## Changing MasterSlide background
+
+The following code example demonstrates how to set the background for a master slide.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Creates a PowerPoint presentation.
+using(IPresentation pptxDoc = Presentation.Create())
+{
+    //Accesses the first master slide in PowerPoint file.
+    IMasterSlide masterSlide = pptxDoc.Masters[0];
+    //Retrieves the background instance.
+    IBackground background = masterSlide.Background;
+    //Sets the fill type for background as Solid fill.
+    background.Fill.FillType = FillType.Solid;
+    //Creates instance for solid Fill.
+    ISolidFill solidFill = background.Fill.SolidFill;
+    //Sets the color for solid fill object.
+    solidFill.Color = ColorObject.Green;
+    //Saves the PowerPoint file.
+    pptxDoc.Save("Sample.pptx");
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Creates a PowerPoint presentation.
+Using pptxDoc As IPresentation = Presentation.Create()
+    'Accesses the first master slide in PowerPoint file.
+    Dim masterSlide As IMasterSlide = pptxDoc.Masters(0)
+    'Retrieves the background instance.
+    Dim background As IBackground = masterSlide.Background
+    'Sets the fill type for background as Solid fill.
+    background.Fill.FillType = FillType.Solid
+    'Creates instance for solid Fill.
+    Dim solidFill As ISolidFill = background.Fill.SolidFill
+    'Sets the color for solid fill object.
+    solidFill.Color = ColorObject.Green
+    'Saves the PowerPoint file.
+    pptxDoc.Save("Sample.pptx")
+End Using
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Creates a PowerPoint presentation.
+using(IPresentation pptxDoc = Presentation.Create())
+{
+    //Accesses the first master slide in PowerPoint file.
+    IMasterSlide masterSlide = pptxDoc.Masters[0];
+    //Retrieves the background instance.
+    IBackground background = masterSlide.Background;
+    //Sets the fill type for background as Solid fill.
+    background.Fill.FillType = FillType.Solid;
+    //Creates instance for solid Fill.
+    ISolidFill solidFill = background.Fill.SolidFill;
+    //Sets the color for solid fill object.
+    solidFill.Color = ColorObject.Green;
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "Sample";
+    savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+    //Saves changes to the specified storage file
+    await pptxDoc.SaveAsync(storageFile);
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Creates a PowerPoint presentation.
+using(IPresentation pptxDoc = Presentation.Create())
+{
+    //Accesses the first master slide in PowerPoint file.
+    IMasterSlide masterSlide = pptxDoc.Masters[0];
+    //Retrieves the background instance.
+    IBackground background = masterSlide.Background;
+    //Sets the fill type for background as Solid fill.
+    background.Fill.FillType = FillType.Solid;
+    //Creates instance for solid Fill.
+    ISolidFill solidFill = background.Fill.SolidFill;
+    //Sets the color for solid fill object.
+    solidFill.Color = ColorObject.Green;
+	//Saves the PowerPoint Presentation to MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    pptxDoc.Save(outputStream);
+    outputStream.Position = 0;
+    //Downloads PowerPoint Presentation in the browser.
+    return File(outputStream, "application/vnd.openxmlformats-officedocument.presentationml.presentation", "Sample.pptx");
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Creates a PowerPoint presentation.
+using(IPresentation pptxDoc = Presentation.Create())
+{
+    //Accesses the first master slide in PowerPoint file.
+    IMasterSlide masterSlide = pptxDoc.Masters[0];
+    //Retrieves the background instance.
+    IBackground background = masterSlide.Background;
+    //Sets the fill type for background as Solid fill.
+    background.Fill.FillType = FillType.Solid;
+    //Creates instance for solid Fill.
+    ISolidFill solidFill = background.Fill.SolidFill;
+    //Sets the color for solid fill object.
+    solidFill.Color = ColorObject.Green;
+    //Saves the PowerPoint Presentation to MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    pptxDoc.Save(outputStream);
+    outputStream.Position = 0;
+    //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", outputStream);
+    else
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", outputStream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Create a custom LayoutSlide
 
 The real-world scenarios always require more predefined templates. The Syncfusion PowerPoint library lets you build your own custom layout designs and use them to create individual slides.
