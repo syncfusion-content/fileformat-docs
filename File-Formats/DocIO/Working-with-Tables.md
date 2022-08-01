@@ -1097,6 +1097,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Insert-image-in-cell).
+
 ## Apply formatting to Table, Row and Cell
 
 The following code example illustrates how to load an existing document and apply table formatting options such as Borders, LeftIndent, Paddings, IsAutoResize, etc.
