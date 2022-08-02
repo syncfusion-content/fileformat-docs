@@ -497,7 +497,7 @@ By default, DataTable values will be filled in the worksheet as a string format.
 
  The following screenshot represents the input template which has a template marker.
 
-![Bind from DataTable Example](Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg)ss
+![Bind from DataTable Example](Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg)
 
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
