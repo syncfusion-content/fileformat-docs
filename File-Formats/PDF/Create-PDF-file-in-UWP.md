@@ -133,7 +133,7 @@ if (stFile != null)
 A complete working sample can be downloaded from [Create PDF file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/UWP_Sample1746484692 )
 
 By executing the program, you will get the PDF document as follows.
-![output](GettingStarted_images/Hello World.jpg)
+![UWP PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 ## Creating a PDF document with image
 
@@ -332,7 +332,7 @@ Save(stream, "Sample.pdf");
 {% endhighlight %}
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
+![UWP PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -345,7 +345,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
+![Filling UWP PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -387,7 +387,7 @@ Save(stream, "output.pdf");
 
 The filled form is shown in adobe reader application as follows.
 
-![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
+![Filled UWP PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 
 

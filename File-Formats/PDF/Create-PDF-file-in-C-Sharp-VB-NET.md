@@ -1114,7 +1114,7 @@ else
 
 The following screenshot shows the invoice PDF document created by using .NET PDF library.
 
-![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
+![ASP.NET PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 
 ## Filling forms
@@ -1128,7 +1128,7 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 
 The following guide shows how to fill a sample PDF form programmatically.
 
-![Sample PDF Form](GettingStarted_images/GettingStarted_img2.jpeg)
+![Filling .NET PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 
 .NET PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
@@ -1297,7 +1297,7 @@ else
 
 The filled form is shown in adobe reader application as follows.
 
-![Form Fill using .NET](GettingStarted_images/GettingStarted_img3.jpeg)
+![Filled .NET PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Converting HTML contents to PDF
 
