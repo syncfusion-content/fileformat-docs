@@ -51,7 +51,6 @@ Assemblies
 <li>Syncfusion.Pdf.Base.dll</li>
 <li>Syncfusion.HtmlConverter.Base.dll</li>
 <li>Newtonsoft.Json package (v6.0.8 or above)</li>
-<li>BlinkBinaries</li>
 </ul>
 </td></tr>
 <tr>
@@ -62,12 +61,9 @@ Assemblies
 <li>Syncfusion.Pdf.Portable.dll</li>
 <li>Syncfusion.HtmlConverter.Portable.dll</li>
 <li>Newtonsoft.Json package (v10.0.1 or above)</li>
-<li>BlinkBinaries</li>
 </ul>
 </td></tr>
 </table>
-
-The BlinkBinaries folder is available in the HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\BlinkBinaries)</i></span>. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
 
 <b>NuGet</b>
 
@@ -122,35 +118,6 @@ ASP.NET Core Windows
 
 N> The previously mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-<table>
-<tr>
-<thead>
-<th>
-Platforms</th>
-<th>
-BlinkBinaries
-</th>
-</thead>
-</tr>
-<tr>
-<td> .NET Framework </td>
-<td>
-The BlinkBinaries folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
-
-This is mandatory to set the <i>BlinkPath</i> property with BlinkBinaries folder. If the <i>BlinkPath</i> is not mentioned, place the BlinkBinaries folder in bin folder of the project, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
-<br/>
-<img src="htmlconversion_images/Blink_BinariesImage.png" alt="Blink .NET Framework BlinkBinaries location">
-</td></tr>
-<tr>
-<td> .NET Core </td>
-<td>
-The BlinkBinariesWindows folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
-
-This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
-<br/>
-<img src="htmlconversion_images/BlinkCore_BinariesImage.png" alt="Blink .Net Core BlinkBinaries location">
-</td></tr>
-</table>
 
 ## Prerequisites for Linux
 
@@ -167,14 +134,9 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
 		4. Newtonsoft.Json package (v10.0.1 or above)
-		5. BlinkBinaries
-		
-* The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
 		
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux</a>
-
-* The <b>BlinkBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesLinux folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the Blink rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 		
@@ -194,15 +156,10 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. Newtonsoft.Json package (v10.0.1 or above)
-		5. BlinkBinaries
-		
-* The BlinkBinaries folder is available in the HTML converter installed location. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
+		4. Newtonsoft.Json package (v10.0.1 or above)		
 		
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac</a>
-
-* The <b>BlinkBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. In that folder, you have to extract the compressed folder <i>chromium.app.zip</i> properly without missing any files or folders in that same location. The physical path of BlinkBinariesMac folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings. This is mandatory to set the <i>BlinkPath</i> property with BlinkBinariesMac folder, otherwise the converter will throw <b>Blink assemblies are missing</b> exception.
 
 ## Prerequisites for AWS
 
@@ -217,6 +174,109 @@ This is mandatory to set <i>BlinkPath</i> property with BlinkBinaries folder, ot
 * Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
     
 * Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
+
+## BlinkPath
+
+### Windows
+
+* The BlinkBinaries folder is required to convert HTML to PDF with Blink rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to BlinkPath property in the BlinkConverterSettings.  
+
+* If you are using the HTML to PDF converter from installer or assemblies, then you must set the BlinkBinaries folder path to BlinkPath property of BlinkConverterSettings.  
+
+* You can get the BlinkBinaries folder from HTML converter installed location <span style="color:gray;font-size:14px"><i> (ex,$SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\BlinkBinaries)</i></span>. You can include this folder in your project and set the physical path of the folder to the BlinkPath property.  
+
+Please refer below code snippet to set BlinkPath to the BlinkConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Linux
+
+* The BlinkBinariesLinux folder is required to convert HTML to PDF with Blink rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to BlinkPath property in the BlinkConverterSettings. 
+
+* The BlinkBinariesLinux folder is available in the HTML converter Linux build, you can get the folder and set the physical path of the folder to the BlinkPath property of BlinkConverterSettings.
+
+Please refer below code snippet to set BlinkPath to the BlinkConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinariesLinux/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Mac
+
+* The BlinkBinariesMac folder is required to convert HTML to PDF with Blink rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to BlinkPath property in the BlinkConverterSettings. 
+
+* The BlinkBinariesMac folder is available in the HTML converter Mac build, you can get the folder and set the physical path of the folder to the BlinkPath property of BlinkConverterSettings.
+
+Please refer below code snippet to set BlinkPath to the BlinkConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinariesMac/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
 
 ## URL to PDF
 

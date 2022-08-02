@@ -93,7 +93,7 @@ using (PdfDocument document = new PdfDocument())
 A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-123272332 )
 
 By executing the program, you will get the PDF document as follows.
-![output](GettingStarted_images/Hello World.jpg)
+![WinForms PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 ## Creating a PDF document with image
 
@@ -285,7 +285,7 @@ document.Close(true);
 {% endhighlight %}
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
+![WinForms PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -298,7 +298,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
+![Filling WinForms PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -328,7 +328,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 The filled form is shown in adobe reader application as follows.
-![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
+![Filled WinForms PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 
