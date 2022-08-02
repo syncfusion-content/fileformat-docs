@@ -93,7 +93,7 @@ using (PdfDocument document = new PdfDocument())
 A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-123272332 )
 
 By executing the program, you will get the PDF document as follows.
-![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+![WinForms PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 ## Creating a PDF document with image
 
@@ -285,7 +285,7 @@ document.Close(true);
 {% endhighlight %}
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-![PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
+![WinForms PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -328,7 +328,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 The filled form is shown in adobe reader application as follows.
-![Filled Form in PDF](GettingStarted_images/filled-form-in-pdf.jpeg)
+![Filled WinForms PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 

@@ -133,7 +133,7 @@ if (stFile != null)
 A complete working sample can be downloaded from [Create PDF file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/UWP_Sample1746484692 )
 
 By executing the program, you will get the PDF document as follows.
-![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+![UWP PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 ## Creating a PDF document with image
 
@@ -332,7 +332,7 @@ Save(stream, "Sample.pdf");
 {% endhighlight %}
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-![PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
+![UWP PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -387,7 +387,7 @@ Save(stream, "output.pdf");
 
 The filled form is shown in adobe reader application as follows.
 
-![Filled Form in PDF](GettingStarted_images/filled-form-in-pdf.jpeg)
+![Filled UWP PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 
 

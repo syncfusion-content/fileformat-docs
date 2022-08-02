@@ -91,7 +91,7 @@ A complete work sample can be downloaded from [Create-PDF-file.zip](http://www.s
 
 
 By executing the program, you will get the PDF document as follows.
-![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+![ASP.NET Core PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 N> The WinForms and WPF controls support in .NET Core 3.0 have been provided. To run this application, please install the [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common) NuGet package as a dependent package. 
 
@@ -314,7 +314,7 @@ document.Close(true);
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
-![PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
+![ASP.NET Core PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -327,7 +327,7 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Filling PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
+![Filling ASP.NET Core PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 
 .NET Core PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
@@ -370,7 +370,7 @@ return File(stream, contentType, fileName);
 
 The filled form is shown in adobe reader application as follows.
 
-![Filled Form in PDF](GettingStarted_images/filled-form-in-pdf.jpeg)
+![Filled ASP.NET Core PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 

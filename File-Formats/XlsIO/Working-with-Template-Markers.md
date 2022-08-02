@@ -267,7 +267,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following screenshot represents generated Excel file in which the array of data is bounded.
 
-![Bind from Array Example](Working-with-Template-Markers_images/Bind_Array_of_data_to_Marker_in_Excel_Spreadsheet_Templates.jpeg)
+![Bind from Array Example](Working-with-Template-Markers_images/Bind_data_from_Array_to_Excel_Spreadsheet_Template.jpeg)
 
 
 You can also add or insert template markers using XlsIO APIs as follows.
@@ -497,7 +497,7 @@ By default, DataTable values will be filled in the worksheet as a string format.
 
  The following screenshot represents the input template which has a template marker.
 
-![Bind from DataTable Example](Working-with-Template-Markers_images/Bind_datatable_to_Marker_in_Excel_Spreadsheet_Templates.jpeg)
+![Bind from DataTable Example](Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg)ss
 
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.

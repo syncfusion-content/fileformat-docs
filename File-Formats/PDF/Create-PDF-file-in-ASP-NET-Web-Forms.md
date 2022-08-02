@@ -80,7 +80,7 @@ document.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
 A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1393143578.zip )
 
 By executing the program, you will get the PDF document as follows.
-![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+![ASP.NET WebForms PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
 
 ## Creating a PDF document with image
 
@@ -272,7 +272,7 @@ document.Close(true);
 {% endhighlight %}
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-![PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
+![ASP.NET WebForms PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -285,7 +285,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Filling PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
+![Filling ASP.NET WebForms PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -315,7 +315,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 The filled form is shown in adobe reader application as follows.
-![Filled Form in PDF](GettingStarted_images/filled-form-in-pdf.jpeg)
+![Filled ASP.NET WebForms PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 

@@ -151,7 +151,7 @@ Compile and execute the application. This creates a simple PDF document.
 Download the complete work sample from [Create-PDF-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1091535413)
 
 By executing the program, you will get the PDF document as follows.
-![PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+![Xamarin PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
  
 ## Creating a PDF document with image
 
@@ -364,7 +364,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
-![PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
+![Xamarin PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
 ## Filling forms
 
@@ -377,7 +377,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Filling PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
+![Filling Xamarin PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
  
@@ -413,7 +413,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 The filled form is shown in adobe reader application as follows.
 
-![Filled Form in PDF](GettingStarted_images/filled-form-in-pdf.jpeg)
+![Filled Xamarin PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 
