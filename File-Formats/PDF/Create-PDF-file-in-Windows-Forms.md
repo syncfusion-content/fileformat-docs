@@ -298,7 +298,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![Filling PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
+![Filling WinForms PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
