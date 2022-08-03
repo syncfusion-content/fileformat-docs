@@ -14,7 +14,7 @@ You can add and manipulate the text Box, option button, check box, and combo box
 
 N> Support for Active X Form controls is not yet available.
 
-This section explains the usage of the following [Form Controls](https://support.office.com/en-us/article/Overview-of-forms-Form-controls-and-ActiveX-controls-on-a-worksheet-15BA7E28-8D7F-42AB-9470-FFB9AB94E7C2#bmcontrols_on_the_forms_toolbar).
+This section explains the usage of the following [Form Controls](https://support.microsoft.com/en-us/office/overview-of-forms-form-controls-and-activex-controls-on-a-worksheet-15ba7e28-8d7f-42ab-9470-ffb9ab94e7c2?ui=en-us&rs=en-us&ad=us#bmcontrols_on_the_forms_toolbar).
 
 * Text Box
 * Check Box
@@ -1038,7 +1038,7 @@ A complete working example to add option button in C# is present on [this GitHub
 
 ## Comments
 
-**ICommentShape** object represents a [comment](https://support.office.com/en-au/article/Annotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
+**ICommentShape** object represents a [comment](https://support.microsoft.com/en-gb/office/insert-comments-and-notes-in-excel-bdcc9f5d-38e2-45b4-9a92-0b2b5c7bf6f8?redirectsourcepath=%252fen-us%252farticle%252fannotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1651,7 +1651,7 @@ A complete working example to remove comment in C# is present on [this GitHub pa
 
 ## AutoShapes
 
-The **IShape** interface represents an [AutoShape](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05) in an Excel workbook. 
+The **IShape** interface represents an [AutoShape](https://support.microsoft.com/en-gb/office/add-shapes-0e492bb4-3f91-43b5-803f-dd0998e0eb89?redirectsourcepath=%252fen-us%252farticle%252fadd-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05) in an Excel workbook. 
 
 To learn more about various AutoShape types supported in XlsIO, refer to the **AutoShapeType** enumeration in API section.
 
@@ -2431,7 +2431,7 @@ A complete working example to ungroup all shapes in C# is present on [this GitHu
 
 ## OLE Objects 
 
-**IOleObject** object represents an [OLE Object](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4) in a worksheet. 
+**IOleObject** object represents an [OLE Object](https://support.microsoft.com/en-gb/office/assign-an-action-to-a-picture-or-an-ole-object-4051f10f-5d82-4180-90e7-a91d54d86738?redirectsourcepath=%252fen-us%252farticle%252fcreate-change-or-delete-an-ole-object-f767f0f1-4170-4850-9b96-0b6c07ec6ea4) in a worksheet. 
 
 N> XlsIO supports OLE Objects for XLSX format in Windows, ASP.NET, and WPF platforms only.
 

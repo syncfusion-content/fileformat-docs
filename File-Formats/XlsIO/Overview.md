@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Overview of Syncfusion Excel (XlsIO) library
 
-[**Essential XlsIO**](https://www.syncfusion.com/excel-framework/net) is a native **.****NET** class library that can be used to create and modify **Microsoft** **Excel** files by using C#, VB.NET and managed C++ code. It is a non-UI component that provides a full-fledged object model that facilitates accessing & manipulating the spreadsheets without any dependency of Microsoft Office COM libraries & Microsoft Office.
+[**Essential XlsIO**](https://www.syncfusion.com/document-processing/excel-framework/net) is a native **.****NET** class library that can be used to create and modify **Microsoft** **Excel** files by using C#, VB.NET and managed C++ code. It is a non-UI component that provides a full-fledged object model that facilitates accessing & manipulating the spreadsheets without any dependency of Microsoft Office COM libraries & Microsoft Office.
 
 The library can be used in Windows Forms, WPF, UWP, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Xamarin and Blazor applications.
 
@@ -33,7 +33,7 @@ The library can be used in Windows Forms, WPF, UWP, ASP.NET Web Forms, ASP.NET M
 * Converts Excel [worksheet to HTML](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-html).
 * Support to open and create [CSV](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-csv) files.
 * Support to open and create SpreadsheetML files.
-* Access the [Custom document properties](https://www.syncfusion.com/kb/8441/how-to-add-custom-properties-into-excel-document-using-xlsio) of Excel file.
+* Access the [Custom document properties](https://www.syncfusion.com/kb/8441/add-custom-properties-to-excel-document-using-xlsio) of Excel file.
 * Access the Built-in document properties.
 
 **Compatible Microsoft Excel Versions**

@@ -9,7 +9,7 @@ documentation: UG
 
 ## Creating a simple PowerPoint Presentation with basic elements from scratch
 
-In this page, you can learn how to create a simple [.NET PowerPoint Presentation](https://www.syncfusion.com/powerpoint-framework/net) by using Essential Presentation API.
+In this page, you can learn how to create a simple [.NET PowerPoint Presentation](https://www.syncfusion.com/document-processing/powerpoint-framework/net) by using Essential Presentation API.
 
 For creating and manipulating a PowerPoint Presentation, include the following assemblies in the application.
 
@@ -52,7 +52,7 @@ For creating and manipulating a PowerPoint Presentation, include the following a
     </tbody>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
 Include the following namespace in your .cs or .vb code as shown below
 
@@ -842,7 +842,7 @@ else
 N> * Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts in the PowerPoint presentation to PDF/Image format. Otherwise, the charts are not exported to the converted PDF/Image.
 N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
-**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF/Image. For more information about this, see [Conversion](/file-formats/presentation/getting-started).
+**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF/Image. For more information about this, see [Conversion](https://help.syncfusion.com/file-formats/presentation/getting-started).
 
-N> You can refer to our [.NET PowerPoint framework](https://www.syncfusion.com/powerpoint-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.NET PowerPoint framework demo](https://www.syncfusion.com/demos/fileformats/powerpoint-library) that shows how to create and modify PowerPoint files from C# with just five lines of code on different platforms.
+N> You can refer to our [.NET PowerPoint framework](https://www.syncfusion.com/document-processing/powerpoint-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.NET PowerPoint framework demo](https://www.syncfusion.com/demos/fileformats/powerpoint-library) that shows how to create and modify PowerPoint files from C# with just five lines of code on different platforms.
 
