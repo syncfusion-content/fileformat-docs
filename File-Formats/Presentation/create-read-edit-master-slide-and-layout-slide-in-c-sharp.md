@@ -77,9 +77,9 @@ pptxDoc.Close()
 
 {% endtabs %}
 
-## Changing MasterSlide background
+## Change background of Master slide
 
-The following code example demonstrates how to set the background for a master slide.
+You can change the background of the master slide, all slides in the presentation would receive the same background settings. The following code example demonstrates how to set the background for a master slide.
 
 {% tabs %}
 
@@ -94,7 +94,7 @@ using(IPresentation pptxDoc = Presentation.Create())
     IBackground background = masterSlide.Background;
     //Sets the fill type for background as Solid fill.
     background.Fill.FillType = FillType.Solid;
-    //Creates instance for solid Fill.
+    //Gets the instance for solid Fill.
     ISolidFill solidFill = background.Fill.SolidFill;
     //Sets the color for solid fill object.
     solidFill.Color = ColorObject.Green;
@@ -114,7 +114,7 @@ Using pptxDoc As IPresentation = Presentation.Create()
     Dim background As IBackground = masterSlide.Background
     'Sets the fill type for background as Solid fill.
     background.Fill.FillType = FillType.Solid
-    'Creates instance for solid Fill.
+    'Gets the instance for solid Fill.
     Dim solidFill As ISolidFill = background.Fill.SolidFill
     'Sets the color for solid fill object.
     solidFill.Color = ColorObject.Green
@@ -135,7 +135,7 @@ using(IPresentation pptxDoc = Presentation.Create())
     IBackground background = masterSlide.Background;
     //Sets the fill type for background as Solid fill.
     background.Fill.FillType = FillType.Solid;
-    //Creates instance for solid Fill.
+    //Gets the instance for solid Fill.
     ISolidFill solidFill = background.Fill.SolidFill;
     //Sets the color for solid fill object.
     solidFill.Color = ColorObject.Green;
@@ -163,7 +163,7 @@ using(IPresentation pptxDoc = Presentation.Create())
     IBackground background = masterSlide.Background;
     //Sets the fill type for background as Solid fill.
     background.Fill.FillType = FillType.Solid;
-    //Creates instance for solid Fill.
+    //Gets the instance for solid Fill.
     ISolidFill solidFill = background.Fill.SolidFill;
     //Sets the color for solid fill object.
     solidFill.Color = ColorObject.Green;
@@ -188,7 +188,7 @@ using(IPresentation pptxDoc = Presentation.Create())
     IBackground background = masterSlide.Background;
     //Sets the fill type for background as Solid fill.
     background.Fill.FillType = FillType.Solid;
-    //Creates instance for solid Fill.
+    //Gets the instance for solid Fill.
     ISolidFill solidFill = background.Fill.SolidFill;
     //Sets the color for solid fill object.
     solidFill.Color = ColorObject.Green;
