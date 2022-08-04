@@ -4834,7 +4834,7 @@ Before v18.4.0.x
 </td>
 <td>
 Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from {{'[here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.<br/>
-For more information, Please refer [here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v184-release).
+For more information, Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v184-release)'| markdownify }}.
 </td>
 </tr>
 </table>
