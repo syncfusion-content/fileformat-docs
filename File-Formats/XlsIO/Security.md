@@ -1,12 +1,12 @@
 ---
-title: Security in Excel (XlsIO) Library | Syncfusion
-description: This section explains all about the security feature of the Syncfusion Excel (XlsIO) Library and more.
+title: Security in Excel (XlsIO) Library | Excel Protected View | Syncfusion
+description: This section explains all about the security feature(Excel Protected View) of the Syncfusion Excel (XlsIO) Library and more.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Security in Excel (XlsIO) Library
+# Security in Excel (XlsIO) Library (Excel Protected View)
 
 You can protect an anonymous user from viewing, moving, editing or deleting important data from a worksheet or workbook by [protecting a worksheet or workbook](https://support.office.com/en-ca/article/Password-protect-worksheet-or-workbook-elements-dbf706e0-ba22-4a08-84d8-552db16eef11#bmprotectelements), with or without a password.
 
@@ -159,7 +159,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-Now, the encrypted workbook can be saved. Refer [Save Excel file](/file-formats/xlsio/loading-and-saving-workbook#saving-a-excel-workbook-to-file-system). 
+Now, the encrypted workbook can be saved. Refer [Save Excel file](https://help.syncfusion.com/file-formats/xlsio/loading-and-saving-workbook#saving-a-excel-workbook-to-file-system). 
 
 **Opening** **an** **encrypted** **workbook**
 
