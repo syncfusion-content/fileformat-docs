@@ -171,6 +171,7 @@ N> The previously mentioned NuGet packages are available in [nuget.org](https://
 
 <b>NuGet</b>
     <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
+* Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
     
 * Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
 
@@ -192,14 +193,6 @@ Please refer below code snippet to set BlinkPath to the BlinkConverterSettings,
 
 //Initialize HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
 
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
