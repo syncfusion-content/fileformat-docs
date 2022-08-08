@@ -968,7 +968,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Insert Image to Table Cell
 
-You can insert an image into table cell by accessing the paragraph in that cell. The following code example illustrates how to insert an image into table cell.
+You can insert an image into the table cell by accessing the paragraph in that cell. The following code example illustrates how to insert an image into a table cell.
 
 {% tabs %} 
 
@@ -977,14 +977,14 @@ You can insert an image into table cell by accessing the paragraph in that cell.
 using (WordDocument document = new WordDocument())
 {
     IWSection section = document.AddSection();
-    //Adds a new table into Word document.
+    //Adds a new table into the Word document.
     IWTable table = section.AddTable();
     //Specifies the total number of rows & columns.
     table.ResetCells(2, 2);
     table[0, 0].AddParagraph().AppendText("Product Name");
     table[0, 1].AddParagraph().AppendText("Product Image");
     table[1, 0].AddParagraph().AppendText("Apple Juice");
-    //Adds the image into cell.
+    //Adds the image into the cell.
     IWPicture picture = table[1, 1].AddParagraph().AppendPicture(Image.FromFile("Image.png"));
     picture.Height = 75;
     picture.Width = 60;
@@ -994,17 +994,17 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Creates an instance of WordDocument class.
+'Creates an instance of the WordDocument class.
 Using document As New WordDocument()
     Dim section As IWSection = document.AddSection()
-    'Adds a new table into Word document.
+    'Adds a new table into the Word document.
     Dim table As IWTable = section.AddTable()
     'Specifies the total number of rows and columns.
     table.ResetCells(2, 2)
     table(0, 0).AddParagraph().AppendText("Product Name")
     table(0, 1).AddParagraph().AppendText("Product Image")
     table(1, 0).AddParagraph().AppendText("Apple Juice")
-    'Adds image to  the cell.
+    'Adds an image to the cell.
     Dim picture As IWPicture = table(1, 1).AddParagraph().AppendPicture(Image.FromFile("Image.png"))
     picture.Height = 75
     picture.Width = 60
@@ -1014,18 +1014,18 @@ End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
- //Creates an instance of WordDocument class.
+ //Creates an instance of the WordDocument class.
 using (WordDocument document = new WordDocument())
 {
     IWSection section = document.AddSection();
-    //Adds a new table into Word document.
+    //Adds a new table into the Word document.
     IWTable table = section.AddTable();
     //Specifies the total number of rows & columns.
     table.ResetCells(2, 2);
     table[0, 0].AddParagraph().AppendText("Product Name");
     table[0, 1].AddParagraph().AppendText("Product Image");
     table[1, 0].AddParagraph().AppendText("Apple Juice");
-    //Adds the image into cell.
+    //Adds the image into the cell.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
     IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
@@ -1034,26 +1034,26 @@ using (WordDocument document = new WordDocument())
     //Saves the Word file to MemoryStream
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Docx);
-    //Saves the stream as Word file in local machine
+    //Saves the stream as a Word file in a local machine
     Save(stream, "Result.docx");
-    //Refer to the following link to save Word document in UWP platform
+    //Refer to the following link to save the Word document in the UWP platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Creates an instance of WordDocument class.
+//Creates an instance of the WordDocument class.
 using (WordDocument document = new WordDocument())
 {
     IWSection section = document.AddSection();
-    //Adds a new table into Word document.
+    //Adds a new table into the Word document.
     IWTable table = section.AddTable();
     //Specifies the total number of rows & columns.
     table.ResetCells(2, 2);
     table[0, 0].AddParagraph().AppendText("Product Name");
     table[0, 1].AddParagraph().AppendText("Product Image");
     table[1, 0].AddParagraph().AppendText("Apple Juice");
-    //Adds the image into cell.
+    //Adds the image into the cell.
     FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
     IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
     picture.Height = 75;
@@ -1062,24 +1062,24 @@ using (WordDocument document = new WordDocument())
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     stream.Position = 0;
-    //Download Word document in the browser.
+    //Download the Word document in the browser.
     return File(stream, "application/msword", "Sample.docx");
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//Creates an instance of WordDocument class.
+//Creates an instance of the WordDocument class.
 using (WordDocument document = new WordDocument())
 {
     IWSection section = document.AddSection();
-    //Adds a new table into Word document.
+    //Adds a new table into the Word document.
     IWTable table = section.AddTable();
     //Specifies the total number of rows & columns.
     table.ResetCells(2, 2);
     table[0, 0].AddParagraph().AppendText("Product Name");
     table[0, 1].AddParagraph().AppendText("Product Image");
     table[1, 0].AddParagraph().AppendText("Apple Juice");
-    //Adds the image into cell.
+    //Adds the image into the cell.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream imageStream = assembly.GetManifestResourceStream("GettingStarted.Assets.Image.png");
     IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
@@ -1088,9 +1088,9 @@ using (WordDocument document = new WordDocument())
     //Saves the Word document to MemoryStream
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
-    //Save the stream as a file in the device and invoke it for viewing
+    //Save the stream as a file in the device and invokes it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-    //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+    //Download the helper files from the following link to save the stream as a file and open the file for viewing on the Xamarin platform:
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
