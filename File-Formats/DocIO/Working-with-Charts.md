@@ -2583,7 +2583,7 @@ using (WordDocument document = new WordDocument())
     //Saves the Word document to MemoryStream.
     MemoryStream outputStream = new MemoryStream();
     document.Save(outputStream, FormatType.Docx);
-    stream.Position = 0;
+    outputStream.Position = 0;
     //Downloads Word document in the browser.
     return File(outputStream, "application/msword", "Sample.docx");
 }
@@ -2641,6 +2641,8 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Create-waterfall-chart).
 
 By executing the code example above, it generates the resultant Word document as follows.
 
