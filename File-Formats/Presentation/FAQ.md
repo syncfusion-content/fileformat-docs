@@ -48,9 +48,9 @@ documentation: UG
 
 10. ## What are the NuGet packages to be installed to perform PowerPoint Presentation to PDF conversion in Linux OS?
 
-In Linux OS, you can perform PowerPoint Presentation to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [PowerPoint Presentation to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) applications with PowerPoint Presentation to PDF conversion capabilities.
+In Linux OS, perform PowerPoint Presentation to PDF conversion using the .NET Core (Targeting .netcoreapp) application. Refer to [PowerPoint Presentation to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf) to know about the packages required to deploy the .NET Core (Targeting .netcoreapp) applications with PowerPoint Presentation to PDF conversion capabilities.
 
-In addition to the previous NuGet packages, the following NuGet packages need to be installed in your application.
+In addition to the previous NuGet packages, your application needs to install the following NuGet packages.
 
 <table>
 <thead>
@@ -94,8 +94,8 @@ From v18.4.0.x to 19.4.0.x
 Before v18.4.0.x
 </td>
 <td>
-Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from {{'[here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.<br/>
-For more information, Please refer [here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v184-release).
+Install the SkiaSharp.Linux NuGet package for the .NET Core application in Linux OS. Find the SkiaSharp.Linux NuGet package created by us from {{'[here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.<br/>
+
 </td>
 </tr>
 </table>
