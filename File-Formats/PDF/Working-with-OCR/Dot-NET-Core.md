@@ -34,13 +34,13 @@ Syncfusion.Compression.Portable.dll<br>
 Syncfusion.Pdf.Portable.dll<br>
 Syncfusion.PdfImaging.Portable.dll<br>
 Syncfusion.OCRProcessor.Portable.dll<br>
-[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/4.5.0) package (v 4.5.0 or above)
+{{'[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/4.5.0)'| markdownify }} package (v 4.5.0 or above)
 <br/><br/></td><td>
 Syncfusion.Compression.NET.dll<br>
 Syncfusion.Pdf.NET.dll<br>
 Syncfusion.PdfImaging.NET.dll<br>
 Syncfusion.OCRProcessor.NET.dll<br>
-Skiasharp package (v2.88.0-preview.232 or above)
+{{'[SkiaSharp](https://www.nuget.org/packages/SkiaSharp/2.88.0-preview.232)'| markdownify }} package
 <br/><br/></td>
 </tr>
 </tbody>
@@ -49,23 +49,28 @@ Skiasharp package (v2.88.0-preview.232 or above)
 ### NuGet
 
 <table>
-<thead>
 <tr>
-<th>
-[Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core)<br/><br/></th><th>
-Syncfusion.PDF.OCR.NET<br/><br/></th>
-</tr>
-
+<thead>
+<th><b>.NET  Version</b></th>
+<th><b>NuGet Package</b></th>
 </thead>
-<tbody>
+</tr>
 <tr>
 <td>
 .NET Standard 2.0/.NET Standard 2.1/.NET Core 2.0/.NET Core 2.1/.NET Core 3.1
-<br/><br/></td><td>
-.NET Standard 2.0/.NET Standard 2.1/.NET Core 2.0/.NET Core 2.1/.NET Core 3.1/.NET 5.0/.NET 6.0
-<br/><br/></td>
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core/)'| markdownify }}
+</td>
 </tr>
-</tbody>
+<tr>
+<td>
+.NET Standard 2.0/.NET Standard 2.1/.NET Core 2.0/.NET Core 2.1/.NET Core 3.1/.NET 5.0/.NET 6.0
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET/)'| markdownify }}
+</td>
+</tr>
 </table>
 
 N> TesseractBinaries and tessdata folders can be copied automatically from the NuGet packages. There is no need to copy these folders and set the path. 
@@ -626,6 +631,7 @@ processor.UnicodeFont = new PdfTrueTypeFont(fontStream, 8);
 
 //Perform the OCR process for an image steam.
 string ocrText = processor.PerformOCR(stream, @"tessdata/");
+
 }
 			
 {% endhighlight %}
