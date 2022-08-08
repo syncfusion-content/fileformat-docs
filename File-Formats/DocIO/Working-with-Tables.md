@@ -996,7 +996,7 @@ using (WordDocument document = new WordDocument())
 {% highlight vb.net tabtitle="VB.NET" %}
 'Creates an instance of the WordDocument class.
 Using document As New WordDocument()
-Dim section As IWSection = document.AddSection()
+    Dim section As IWSection = document.AddSection()
     'Adds a new table into the Word document.
     Dim table As IWTable = section.AddTable()
     'Specifies the total number of rows and columns.
