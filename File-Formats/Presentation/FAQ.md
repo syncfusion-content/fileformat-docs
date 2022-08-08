@@ -95,7 +95,6 @@ Before v18.4.0.x
 </td>
 <td>
 Install the SkiaSharp.Linux NuGet package for the .NET Core application in Linux OS. Find the SkiaSharp.Linux NuGet package created by us from {{'[here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.<br/>
-
 </td>
 </tr>
 </table>
