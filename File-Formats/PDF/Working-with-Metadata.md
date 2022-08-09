@@ -122,7 +122,56 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Get XMP object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Basic Schema
+
+BasicSchema basic = metaData.BasicSchema;
+
+//Set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -362,7 +411,67 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+// Get XMP object
+
+XmpMetadata metaData = loadedDocument.DocumentInformation.XmpMetadata;
+
+// XMP Basic Schema
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -630,7 +739,57 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Get XMP object
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Basic Schema
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -866,7 +1025,47 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Dublin core Schema
+
+DublinCoreSchema dublin = metaData.DublinCoreSchema;
+
+//Set the Dublin Core Schema details of the document
+
+dublin.Creator.Add("Syncfusion");
+
+dublin.Description.Add("Title", "Essential PDF creator");
+
+dublin.Title.Add("Resource name", "Documentation");
+
+dublin.Type.Add("PDF");
+
+dublin.Publisher.Add("Essential PDF");
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -1066,7 +1265,43 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF does not support Metadata (XMP) in UWP platform
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Rights Management Schema
+
+RightsManagementSchema rights = metaData.RightsManagementSchema;
+
+//Set the Rights Management Schema details of the document
+
+rights.Certificate = new Uri("http://syncfusion.com");
+
+rights.Owner.Add("Syncfusion");
+
+rights.Marked = true;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -1248,7 +1483,39 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Rights Management Schema
+
+BasicJobTicketSchema basicJob = metaData.BasicJobTicketSchema;
+
+//Set the Rights Management Schema details of the document
+
+basicJob.JobRef.Add("PDF document creation");
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -1443,7 +1710,45 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Page text Schema
+
+PagedTextSchema pagedText = metaData.PagedTextSchema;
+
+//Sets the Page text Schema details of the document
+
+pagedText.MaxPageSize.Width = 500;
+
+pagedText.MaxPageSize.Height = 750;
+
+pagedText.NPages = 1;
+
+pagedText.PlateNames.Add("Sample page");
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -1641,7 +1946,43 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP PDF Schema
+
+PDFSchema pdfSchema = metaData.PDFSchema;
+
+//Set the PDF Schema details of the document
+
+pdfSchema.Producer = "Syncfusion";
+
+pdfSchema.PDFVersion = "1.5";
+
+pdfSchema.Keywords = "Essential PDF";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -1838,7 +2179,45 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//Create custom schema field
+
+CustomSchema customSchema = new CustomSchema(metaData, "custom1", "http://www.syncfusion.com");
+
+customSchema["Author"] = "Syncfusion";
+
+customSchema["creationDate"] = DateTime.Now.ToString();
+
+customSchema["DOCID"] = "SYNCSAM001";
+
+customSchema["Encryption"] = "Standard";
+
+customSchema["Project"] = "Data processing";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -2020,7 +2399,41 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Create XML Document container
+
+XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
+
+//Create custom schema
+
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
+
+customSchema["Author"] = "Syncfusion";
+
+customSchema["creationDate"] = DateTime.Now.ToString();
+
+customSchema["DOCID"] = "SYNCSAM001";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentInformation.pdf");
 
 {% endhighlight %}
 
@@ -2188,7 +2601,35 @@ pdfDoc.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add new PDF page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Add Custom MetaData
+
+pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
+
+pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
+
+pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDoc.SaveAsync(stream);
+
+//Close the document
+
+pdfDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "AddCustomField.pdf");
 
 {% endhighlight %}
 
@@ -2332,7 +2773,41 @@ loadedDocument.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Metadata (XMP) only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Remove custom metadata using key name
+
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
 
 {% endhighlight %}
 
