@@ -167,6 +167,12 @@ Essential Presentation library provides you the ability to customize the Present
 * Skip or include hidden slides
 * Set the quality of images in the PowerPoint slides to reduce the converted PDF document size.
 
+## PowerPoint Presentation to PDF conversion in Linux OS
+
+In Linux OS, you can perform the PowerPoint presentation to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [PowerPoint presentation to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with PowerPoint presentation to PDF conversion capabilities.
+
+From v20.1, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209) and [HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209) NuGets to perform PowerPoint presentation to PDF conversion in Linux environment.
+
 ## Font substitution for unavailable fonts
 
 When a font used in a PowerPoint presentation is unavailable in the environment where it is converted to PDF, then the library substitutes the ‘Microsoft Sans Serif’ as a default font for text rendering. This leads to a difference in text layouts of PowerPoint presentation and the converted PDF document.  To avoid this, the Essential Presentation library allows you to set an alternate font for the missing font used in the PowerPoint presentation.
