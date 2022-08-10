@@ -58,7 +58,7 @@ documentation: UG
     <th width="20%">
     Version
     </th>
-    <th width="40%">
+    <th width="30%">
     NuGet packages to install
     </th>
     </tr>
