@@ -46,56 +46,56 @@ documentation: UG
    
    You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
    
-10. ## What are the NuGet packages to be installed to perform PowerPoint Presentation to PDF conversion in Linux OS?
+10. **What are the NuGet packages to be installed to perform PowerPoint Presentation to PDF conversion in Linux OS?**
 
-In Linux OS, perform PowerPoint presentation to PDF conversion using the .NET Core (Targeting .netcoreapp) application. Refer to [PowerPoint presentation to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf) to know about the packages required to deploy the .NET Core (Targeting .netcoreapp) applications with PowerPoint presentation to PDF conversion capabilities.
+    In Linux OS, perform PowerPoint presentation to PDF conversion using the .NET Core (Targeting .netcoreapp) application. Refer to [PowerPoint presentation to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf) to know about the packages required to deploy the .NET Core (Targeting .netcoreapp) applications with PowerPoint presentation to PDF conversion capabilities.
 
-In addition to the previous NuGet packages, your application needs to install the following NuGet packages.
+    In addition to the previous NuGet packages, your application needs to install the following NuGet packages.
 
-<table>
-<thead>
-<tr>
-<th width="20%">
-Version
-</th>
-<th width="40%">
-NuGet packages to install
-</th>
-</tr>
-</thead>
-<tr>
-<td>
-From v20.1.0.x 
-</td>
-<td>
-{{'[SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209)'| markdownify }}<br/>
-{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-From v19.4.0.x
-</td>
-<td>
-{{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
-{{'[HarfBuzzSharp.NativeAssets.Linux v2.6.1.7 NuGet](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.6.1.7)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-From v18.4.0.x to 19.4.0.x
-</td>
-<td>
-{{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
-</td>
-</tr>
-<tr>
-<td>
-Before v18.4.0.x
-</td>
-<td>
-Install the SkiaSharp.Linux NuGet package for the .NET Core application in Linux OS. Find the SkiaSharp.Linux NuGet package created by us from {{'[here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.<br/>
-</td>
-</tr>
-</table>
+    <table>
+    <thead>
+    <tr>
+    <th width="20%">
+    Version
+    </th>
+    <th width="40%">
+    NuGet packages to install
+    </th>
+    </tr>
+    </thead>
+    <tr>
+    <td>
+    From v20.1.0.x 
+    </td>
+    <td>
+    {{'[SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209)'| markdownify }}<br/>
+    {{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209)'| markdownify }}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    From v19.4.0.x
+    </td>
+    <td>
+    {{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
+    {{'[HarfBuzzSharp.NativeAssets.Linux v2.6.1.7 NuGet](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.6.1.7)'| markdownify }}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    From v18.4.0.x to 19.4.0.x
+    </td>
+    <td>
+    {{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Before v18.4.0.x
+    </td>
+    <td>
+    Install the SkiaSharp.Linux NuGet package for the .NET Core application in Linux OS. Find the SkiaSharp.Linux NuGet package created by us from {{'[here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.<br/>
+    </td>
+    </tr>
+    </table>
 
