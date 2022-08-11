@@ -373,3 +373,8 @@ destinationDocument.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+## See Also
+
+* [How to merge multiple Word documents in C#, VB.NET](https://www.syncfusion.com/kb/12998/how-to-merge-multiple-word-documents-in-c-vb-net)
+* [How to remove Section Break when merging documents using ImportContent API](https://www.syncfusion.com/kb/12952/how-to-remove-section-break-when-merging-documents-using-importcontent-api)
