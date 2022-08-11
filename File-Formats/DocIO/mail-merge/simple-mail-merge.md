@@ -257,3 +257,4 @@ The resultant document looks as follows.
 
 * [How to mail merge Word document in Azure functions v1](https://www.syncfusion.com/kb/10671/how-to-mail-merge-word-document-in-azure-functions-v1)
 * [How to display mail merge result using format switch in the Word document](https://www.syncfusion.com/kb/12849/how-to-display-mail-merge-result-using-format-switch-in-the-word-document)
+* [Is this possible to Mail Merge using csv data source](https://www.syncfusion.com/kb/293/is-this-possible-to-mail-merge-using-csv-data-source)

@@ -1998,3 +1998,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## See Also
 
 * [How to replace the content between two different existing bookmarks in a word document](https://www.syncfusion.com/kb/13010/how-to-replace-the-content-between-two-different-existing-bookmarks-in-a-word-document)
+* [How do I insert hidden bookmarks to the document](https://www.syncfusion.com/kb/253/how-do-i-insert-hidden-bookmarks-to-the-document)
+* [How do I insert nested bookmarks to the document](https://www.syncfusion.com/kb/254/how-do-i-insert-nested-bookmarks-to-the-document)
+* [How do I get the bookmarks present in the document](https://www.syncfusion.com/kb/255/how-do-i-get-the-bookmarks-present-in-the-document)
+* [How to add a table in a bookmark location](https://www.syncfusion.com/kb/279/how-to-add-a-table-in-a-bookmark-location)
