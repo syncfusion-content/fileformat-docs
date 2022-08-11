@@ -588,3 +588,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## See Also
 
 * [How to change the text of TOC Entries in the Table of content in the Word document?](https://www.syncfusion.com/kb/13019/how-to-change-the-text-of-toc-entries-in-the-table-of-content-in-the-word-document)
+* [How to change tab leader of Table Of Contents in Word document](https://www.syncfusion.com/kb/12659/how-to-change-tab-leader-of-table-of-contents-in-word-document)

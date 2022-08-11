@@ -7306,3 +7306,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 * [How to edit Word document in C#, VB.NET](https://www.syncfusion.com/kb/12993/how-to-edit-word-document-in-c-vb-net)
 * [How to insert different document as OLE object in the Word document](https://www.syncfusion.com/kb/12903/how-to-insert-different-document-as-ole-object-in-the-word-document)
+* [How to extract Images from Word document in C# and VB](https://www.syncfusion.com/kb/13205/how-to-extract-images-from-word-document-in-c-and-vb)
+* [How to extract text from Word document in C# and VB](https://www.syncfusion.com/kb/13204/how-to-extract-text-from-word-document-in-c-and-vb)
+* [How to find list of used fonts in the Word document](https://www.syncfusion.com/kb/12902/how-to-find-list-of-used-fonts-in-the-word-document)
+* [How to remove hyperlink from a Word document using C#, VB.NET](https://www.syncfusion.com/kb/10991/how-to-remove-hyperlink-from-a-word-document-using-c-vb-net)
