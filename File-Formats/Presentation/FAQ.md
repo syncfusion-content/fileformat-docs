@@ -7,46 +7,48 @@ documentation: UG
 ---
 # FAQ’s for PowerPoint Presentations
 
-1. **Why I get an exception when trying to load a PPT file?**
+The frequently asked questions in Essential PowerPoint Presentations are listed below.
 
-   The current version of Presentation library supports only .PPTX format - Microsoft Office 2007 and later version.
+## Why I get an exception when trying to load a PPT file?
 
-2. **Is it possible to print the Presentation slides?**
+The current version of Presentation library supports only .PPTX format - Microsoft Office 2007 and later version.
 
-   Yes, you can print the PowerPoint presentations by using its ability to convert the slides as images and by using the [PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx# "") class. For more details, refer to [Printing](http://www.google.com/# "")
+## Is it possible to print the Presentation slides?
 
-3. **Does adding audio and video to a Presentation is supported?**
+Yes, you can print the PowerPoint presentations by using its ability to convert the slides as images and by using the [PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx# "") class. For more details, refer to [Printing](http://www.google.com/# "")
 
-   At present, there is no support to add audio and video to Presentation by using Essential Presentation library.
+## Does adding audio and video to a Presentation is supported?
 
-4. **What measure does Essential Presentation use to add slide elements such as textbox, shape, picture and charts?**
+At present, there is no support to add audio and video to Presentation by using Essential Presentation library.
 
-   We use Points to add any slide elements in a Presentation.
+## What measure does Essential Presentation use to add slide elements such as textbox, shape, picture and charts?
 
-5. **Does Essential Presentation supports cloning a slide in the Presentation?**
+We use Points to add any slide elements in a Presentation.
 
-   Yes, Essential Presentation library supports cloning as follows:
+## Does Essential Presentation supports cloning a slide in the Presentation?
+
+Yes, Essential Presentation library supports cloning as follows:
 
    * Slide in the Presentation can be cloned from one Presentation to another or within a same Presentation.
    * An entire Presentation can also be cloned as an independent copy of the original.
-   
-6. **Could not find Syncfusion.OfficeChartToImageConverter assembly in .NET 3.5 Framework, does it mean there is no support for chart conversion in this framework?**
 
-   Yes, OfficeChartToImageConverter assembly is not supported in .NET 3.5 Framework and it is available from .NET 4.0 Framework.
+## Could not find Syncfusion.OfficeChartToImageConverter assembly in .NET 3.5 Framework, does it mean there is no support for chart conversion in this framework?
 
-7. **Can chart data be refreshed?**
+Yes, OfficeChartToImageConverter assembly is not supported in .NET 3.5 Framework and it is available from .NET 4.0 Framework.
 
-   Yes, Essential Presentation supports refreshing the chart data. For more details, refer to [Working with charts](/file-formats/presentation/working-with-charts)
+## Can chart data be refreshed?
 
-8. **Is it possible to convert 3D charts to PDF or image?**
+Yes, Essential Presentation supports refreshing the chart data. For more details, refer to [Working with charts](/file-formats/presentation/working-with-charts)
 
-   Current version of the Essential Presentation library does not provide support for converting 3D charts to PDF or image format.
+## Is it possible to convert 3D charts to PDF or image?
 
-9. **How to improve the image quality while converting the Presentation slides to image?**
-   
-   You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
-   
-10. ## What are the NuGet packages to be installed to perform PowerPoint Presentation to PDF conversion in Linux OS?
+Current version of the Essential Presentation library does not provide support for converting 3D charts to PDF or image format.
+
+## How to improve the image quality while converting the Presentation slides to image?
+
+You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
+
+## What are the NuGet packages to be installed to perform PowerPoint Presentation to PDF conversion in Linux OS?
 
 In Linux OS, perform PowerPoint presentation to PDF conversion using the .NET Core (Targeting .netcoreapp) application. Refer to [PowerPoint presentation to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf) to know about the packages required to deploy the .NET Core (Targeting .netcoreapp) applications with PowerPoint presentation to PDF conversion capabilities.
 
@@ -98,4 +100,3 @@ Install the SkiaSharp.Linux NuGet package for the .NET Core application in Linux
 </td>
 </tr>
 </table>
-
