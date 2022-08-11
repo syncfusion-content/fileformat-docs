@@ -740,3 +740,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 * [How to open and read Word document in C#, VB.NET](https://www.syncfusion.com/kb/12990/how-to-open-and-read-word-document-in-c-vb-net)
 * [How to read Word document using C#, VB.NET](https://www.syncfusion.com/kb/10992/how-to-read-word-document-using-c-vb-net)
+* [How to send a word document in an email using C#, VB.NET](https://www.syncfusion.com/kb/10963/how-to-send-a-word-document-in-an-email-using-c-vb-net)

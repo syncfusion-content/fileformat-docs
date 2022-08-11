@@ -3428,3 +3428,4 @@ Partially supported. At present, the text in a line is scaled uniformly to match
 * [How to convert Word document to PDF in AWS Lambda](https://www.syncfusion.com/kb/11905/how-to-convert-word-document-to-pdf-in-aws-lambda)
 * [How to convert Word document to PDF in Azure App service on Linux](https://www.syncfusion.com/kb/11888/how-to-convert-word-document-to-pdf-in-azure-app-service-on-linux)
 * [How to mail merge Word documents and convert to PDF in Azure Functions v2](https://www.syncfusion.com/kb/11197/how-to-mail-merge-word-documents-and-convert-to-pdf-in-azure-functions-v2)
+* [How to perform Word to PDF conversion in Azure Functions v1](https://www.syncfusion.com/kb/10056/how-to-perform-word-to-pdf-conversion-in-azure-functions-v1)

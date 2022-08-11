@@ -2333,3 +2333,4 @@ N> And also, it is not feasible to get the page-wise details from Word document 
 
 * [How to copy the HeaderFooter content from one Word document and insert them into first page header footer of another Word document](https://www.syncfusion.com/kb/12923/how-to-copy-the-headerfooter-content-from-one-word-document-and-insert-them-into-first-page)
 * [How to determine the page number of a particular text within a Word document](https://www.syncfusion.com/kb/12931/how-to-determine-the-page-number-of-a-particular-text-within-a-word-document)
+* [How to remove empty page at end of Word document](https://www.syncfusion.com/kb/10724/how-to-remove-empty-page-at-end-of-word-document)
