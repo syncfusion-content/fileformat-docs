@@ -742,4 +742,3 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to read Word document using C#, VB.NET](https://www.syncfusion.com/kb/10992/how-to-read-word-document-using-c-vb-net)
 * [How to send a word document in an email using C#, VB.NET](https://www.syncfusion.com/kb/10963/how-to-send-a-word-document-in-an-email-using-c-vb-net)
 * [How to store the document with the name having the value taken by Database](https://www.syncfusion.com/kb/280/how-to-store-the-document-with-the-name-having-the-value-taken-by-database)
-* [How to edit Word document in C#, VB.NET](https://www.syncfusion.com/kb/12993/how-to-edit-word-document-in-c-vb-net)
