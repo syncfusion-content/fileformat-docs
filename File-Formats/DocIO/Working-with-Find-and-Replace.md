@@ -2196,3 +2196,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## See Also
 
 * [How to replace the particular text with hyperlink in Word document](https://www.syncfusion.com/kb/11774/how-to-replace-the-particular-text-with-hyperlink-in-word-document)
+* [How to find the empty paragraphs in the Word document using Essential DocIO](https://www.syncfusion.com/kb/3956/how-to-find-the-empty-paragraphs-in-the-word-document-using-essential-docio)
