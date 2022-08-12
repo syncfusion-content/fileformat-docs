@@ -317,7 +317,3 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Text-file-conversion/Retrieve-Word-document-as-plain-text).
-
-## See Also
-
-* [How can I convert an existing Text document to an MS Word document](https://www.syncfusion.com/kb/278/how-can-i-convert-an-existing-text-document-to-an-ms-word-document)

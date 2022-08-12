@@ -1210,3 +1210,7 @@ Underline types and colors are ignored.
 </td>
 </tr>
 </table>
+
+## See Also
+
+* [How to get image from URL while opening HTML in ASP.NET Core](https://www.syncfusion.com/kb/13054/how-to-get-image-from-url-while-opening-html-in-asp-net-core)

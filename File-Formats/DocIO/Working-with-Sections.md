@@ -2334,6 +2334,6 @@ N> And also, it is not feasible to get the page-wise details from Word document 
 * [How to copy the HeaderFooter content from one Word document and insert them into first page header footer of another Word document](https://www.syncfusion.com/kb/12923/how-to-copy-the-headerfooter-content-from-one-word-document-and-insert-them-into-first-page)
 * [How to determine the page number of a particular text within a Word document](https://www.syncfusion.com/kb/12931/how-to-determine-the-page-number-of-a-particular-text-within-a-word-document)
 * [How to remove empty page at end of Word document](https://www.syncfusion.com/kb/10724/how-to-remove-empty-page-at-end-of-word-document)
-* [How do I merge the sections in an already existing document to a new document](https://www.syncfusion.com/kb/274/how-do-i-merge-the-sections-in-an-already-existing-document-to-a-new-document)
-* [How do I insert headers and footers in a document](https://www.syncfusion.com/kb/275/how-do-i-insert-headers-and-footers-in-a-document)
+* [How to merge the sections in an already existing document to a new document](https://www.syncfusion.com/kb/274/how-do-i-merge-the-sections-in-an-already-existing-document-to-a-new-document)
+* [How to insert headers and footers in a document](https://www.syncfusion.com/kb/275/how-do-i-insert-headers-and-footers-in-a-document)
 * [Is it possible to create different Header and footer in a word document](https://www.syncfusion.com/kb/291/is-it-possible-to-create-different-header-and-footer-in-a-word-document)

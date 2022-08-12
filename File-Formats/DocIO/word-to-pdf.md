@@ -3420,15 +3420,16 @@ Partially supported. At present, the text in a line is scaled uniformly to match
 
 ## See Also
 
-* [How to convert Word document to PDF in UWP](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
-* [How to add signature field in the PDF converted from Word](https://www.syncfusion.com/kb/12956/how-to-add-signature-field-in-the-pdf-converted-from-word)
-* [How to avoid conflicts while using DocIORenderer and other controls in UWP](https://www.syncfusion.com/kb/12938/how-to-avoid-conflicts-while-using-dociorenderer-and-other-controls-in-uwp)
-* [How to deploy .NET Core application with Word to PDF conversion capabilities in Linux OS](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os)
-* [Is it possible to perform Word to PDF conversion in Azure Environment ?](https://www.syncfusion.com/kb/7751/is-it-possible-to-perform-word-to-pdf-conversion-in-azure-environment)
-* [How to convert Word document to PDF in AWS Lambda](https://www.syncfusion.com/kb/11905/how-to-convert-word-document-to-pdf-in-aws-lambda)
-* [How to convert Word document to PDF in Azure App service on Linux](https://www.syncfusion.com/kb/11888/how-to-convert-word-document-to-pdf-in-azure-app-service-on-linux)
-* [How to mail merge Word documents and convert to PDF in Azure Functions v2](https://www.syncfusion.com/kb/11197/how-to-mail-merge-word-documents-and-convert-to-pdf-in-azure-functions-v2)
-* [How to perform Word to PDF conversion in Azure Functions v1](https://www.syncfusion.com/kb/10056/how-to-perform-word-to-pdf-conversion-in-azure-functions-v1)
+* [How to perform font substitution in Word to PDF conversion](https://www.syncfusion.com/kb/8484/how-to-perform-font-substitution-in-word-to-pdf-conversion)
 * [What happens when the Word document used fonts for a text is not installed in production machine during Word to PDF or Image conversion](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production)
 * [How to convert and replace EMF image in word document to PNG with same size](https://www.syncfusion.com/kb/12847/how-to-convert-and-replace-emf-image-in-word-document-to-png-with-same-size)
-* [How to perform font substitution in Word to PDF conversion](https://www.syncfusion.com/kb/8484/how-to-perform-font-substitution-in-word-to-pdf-conversion)
+* [How to convert Word document to PDF in UWP](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
+* [How to avoid conflicts while using DocIORenderer and other controls in UWP](https://www.syncfusion.com/kb/12938/how-to-avoid-conflicts-while-using-dociorenderer-and-other-controls-in-uwp)
+* [How to deploy .NET Core application with Word to PDF conversion capabilities in Linux OS](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os)
+* [How to convert Word document to PDF in Azure App service on Linux](https://www.syncfusion.com/kb/11888/how-to-convert-word-document-to-pdf-in-azure-app-service-on-linux)
+* [Is it possible to perform Word to PDF conversion in Azure Environment ?](https://www.syncfusion.com/kb/7751/is-it-possible-to-perform-word-to-pdf-conversion-in-azure-environment)
+* [How to perform Word to PDF conversion in Azure Functions v1](https://www.syncfusion.com/kb/10056/how-to-perform-word-to-pdf-conversion-in-azure-functions-v1)
+* [How to mail merge Word documents and convert to PDF in Azure Functions v2](https://www.syncfusion.com/kb/11197/how-to-mail-merge-word-documents-and-convert-to-pdf-in-azure-functions-v2)
+* [How to convert Word document to PDF in AWS Lambda](https://www.syncfusion.com/kb/11905/how-to-convert-word-document-to-pdf-in-aws-lambda)
+* [How to add signature field in the PDF converted from Word](https://www.syncfusion.com/kb/12956/how-to-add-signature-field-in-the-pdf-converted-from-word)
+
