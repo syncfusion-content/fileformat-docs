@@ -7310,3 +7310,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to extract text from Word document in C# and VB](https://www.syncfusion.com/kb/13204/how-to-extract-text-from-word-document-in-c-and-vb)
 * [How to find list of used fonts in the Word document](https://www.syncfusion.com/kb/12902/how-to-find-list-of-used-fonts-in-the-word-document)
 * [How to remove hyperlink from a Word document using C#, VB.NET](https://www.syncfusion.com/kb/10991/how-to-remove-hyperlink-from-a-word-document-using-c-vb-net)
+* [Is it possible to insert image on each page of Word document](https://www.syncfusion.com/kb/7541/is-it-possible-to-insert-image-on-each-page-of-word-document)
+* [Is it possible to apply "No Paragraph Space" option to a Word document](https://www.syncfusion.com/kb/4969/is-it-possible-to-apply-no-paragraph-space-option-to-a-word-document)
+* [How to create the deep level numbering( 1.1-1.2.1-1.2.2 etc.) using DocIO](https://www.syncfusion.com/kb/289/how-to-create-the-deep-level-numbering-1-1-1-2-1-1-2-2-etc-using-docio)
+* [How to replace URL of image hyperlink in Word document](https://www.syncfusion.com/kb/12861/how-to-replace-url-of-image-hyperlink-in-word-document)
+* [How to fit image within a text box in the Word document](https://www.syncfusion.com/kb/11787/how-to-fit-image-within-a-text-box-in-the-word-document)

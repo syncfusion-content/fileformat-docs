@@ -3323,3 +3323,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## See Also
 
 * [How to avoid table splitting across the pages in Word document](https://www.syncfusion.com/kb/12948/how-to-avoid-table-splitting-across-the-pages-in-word-document)
+* [How to create a simple table in a paragraph](https://www.syncfusion.com/kb/276/how-do-i-create-a-simple-table-in-a-paragraph)
+* [Is it possible to add/remove column from the table](https://www.syncfusion.com/kb/286/is-it-possible-to-add-remove-column-from-the-table)
