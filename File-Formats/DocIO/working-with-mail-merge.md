@@ -298,3 +298,12 @@ You can remove or keep the unmerged merge fields in the output document based on
 ### Restart numbering in lists
 
 You can restart the list numbering in a Word document during Mail merge. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#restart-numbering-in-lists).
+
+## See Also
+
+* [How to mail merge Word document in Azure functions v1](https://www.syncfusion.com/kb/10671/how-to-mail-merge-word-document-in-azure-functions-v1)
+* [How to display mail merge result using format switch in the Word document](https://www.syncfusion.com/kb/12849/how-to-display-mail-merge-result-using-format-switch-in-the-word-document)
+* [Is this possible to Mail Merge using csv data source](https://www.syncfusion.com/kb/293/is-this-possible-to-mail-merge-using-csv-data-source)
+* [How to mail merge Word document in Linux (Mono)](https://www.syncfusion.com/kb/10666/how-to-mail-merge-word-document-in-linux-mono)
+* [How to replace merge field with HTML string using Mail merge](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge)
+* [How to mail merge Word document in Docker](https://www.syncfusion.com/kb/10769/how-to-mail-merge-word-document-in-docker)

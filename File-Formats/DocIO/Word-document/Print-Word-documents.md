@@ -213,3 +213,7 @@ End Sub
 {% endtabs %}   
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Print-Word-document).
+
+## See Also
+
+* [How to do silent printing to print the Word document by rendering document pages as Image using Essential DocIO](https://www.syncfusion.com/kb/4887/how-to-do-silent-printing-to-print-the-word-document-by-rendering-document-pages-as-image)
