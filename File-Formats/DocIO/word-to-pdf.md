@@ -3430,3 +3430,5 @@ Partially supported. At present, the text in a line is scaled uniformly to match
 * [How to mail merge Word documents and convert to PDF in Azure Functions v2](https://www.syncfusion.com/kb/11197/how-to-mail-merge-word-documents-and-convert-to-pdf-in-azure-functions-v2)
 * [How to perform Word to PDF conversion in Azure Functions v1](https://www.syncfusion.com/kb/10056/how-to-perform-word-to-pdf-conversion-in-azure-functions-v1)
 * [What happens when the Word document used fonts for a text is not installed in production machine during Word to PDF or Image conversion](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production)
+* [How to convert and replace EMF image in word document to PNG with same size](https://www.syncfusion.com/kb/12847/how-to-convert-and-replace-emf-image-in-word-document-to-png-with-same-size)
+* [How to perform font substitution in Word to PDF conversion](https://www.syncfusion.com/kb/8484/how-to-perform-font-substitution-in-word-to-pdf-conversion)
