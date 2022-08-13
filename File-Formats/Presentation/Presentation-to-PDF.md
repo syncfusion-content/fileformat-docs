@@ -173,6 +173,8 @@ In Linux OS, you can perform the PowerPoint presentation to PDF conversion using
 
 From v20.1, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209) and [HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209) NuGets to perform PowerPoint presentation to PDF conversion in Linux environment.
 
+If you are using prior to v20.1 release, please refer [here](https://help.syncfusion.com/file-formats/presentation/faq#what-are-the-nuget-packages-to-be-installed-to-perform-powerpoint-presentation-to-pdf-conversion-in-linux-os) to know about how to perform PowerPoint presentation to PDF conversion in Linux.
+
 ## Font substitution for unavailable fonts
 
 When a font used in a PowerPoint presentation is unavailable in the environment where it is converted to PDF, then the library substitutes the ‘Microsoft Sans Serif’ as a default font for text rendering. This leads to a difference in text layouts of PowerPoint presentation and the converted PDF document.  To avoid this, the Essential Presentation library allows you to set an alternate font for the missing font used in the PowerPoint presentation.
