@@ -8,7 +8,22 @@ keywords: create pdf, edit pdf, write pdf, merge, pdf form, fill form, digital s
 ---
 # Create or Generate PDF file in C# and VB.NET
 
-To create a [.NET PDF](https://www.syncfusion.com/document-processing/pdf-framework/net) document from scratch and saving it to disk or stream, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+## Overview
+The Syncfusion Essential PDF is a feature-rich and high-performance [.NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) that is used to create, read, and edit PDF documents programmatically without Adobe dependencies. Using this library, you can create PDF files in .NET applications using C# and VB.NET. 
+
+This section briefly describes how to create PDF files using C#, and also how to add text, images, tables, and other features to PDF documents.
+
+1. [Create PDF files using C#](/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net#creating-a-pdf-document-with-simple-text)
+2. [Add images in PDF using C#](/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net#creating-a-pdf-document-with-image)
+3. [Create Dynamic Tables in C# PDF](/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net#creating-a-pdf-document-with-table)
+4. [C# PDF document with Basic Elements](/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net#creating-a-simple-pdf-document-with-basic-elements)
+5. [Filling Forms](/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net#filling-forms)
+6. [Converting HTML content to PDF](/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net#converting-html-contents-to-pdf)
+7. [Merge PDF documents](/file-formats/pdf/create-pdf-file-in-c-sharp-vb-net#merge-pdf-documents)
+
+### Required Namespaces for Creating PDF Files using C#
+
+To create a [.NET PDF](https://www.syncfusion.com/document-processing/pdf-framework/net) document from scratch and saving it to disk or stream, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/file-formats/pdf/assemblies-required).
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Unlike System.Drawing APIs all the units are measured in point instead of pixel.
@@ -53,7 +68,7 @@ using Syncfusion.Pdf.Grid;
 
 ## Creating a PDF document with simple text
 
-The following code example shows how to create a PDF document with simple text.
+Using C#, you can quickly create a PDF file with simple text. Check out the following code example.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
@@ -167,7 +182,7 @@ else
 
 ## Creating a PDF document with image
 
-The following code example shows how to generate a PDF document with an image.
+The following C# code example shows how to generate a PDF document with an image programmatically.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
@@ -284,7 +299,7 @@ else
 
 ## Creating a PDF document with table
 
-The following code example shows how to generate a PDF document with a simple table.
+The following code example shows how to insert tables into a PDF document using C#.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document
