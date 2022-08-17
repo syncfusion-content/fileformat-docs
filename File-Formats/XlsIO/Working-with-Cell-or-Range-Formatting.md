@@ -2009,7 +2009,7 @@ A complete working example to apply cell text alignment in C# is present on [thi
 
 The following screenshot is the output of previous code:
 
-![Excel formatting document with different alignment options](Working-with-Cell-or-Range-Formatting_images/Excel-Formatting-different-alignment-option.jpeg)
+![Excel formatting with different alignment options](Working-with-Cell-or-Range-Formatting_images/Excel-Formatting-different-alignment-option.jpeg)
 
 
 ## Merging and Un-Merging Cells
@@ -2719,7 +2719,7 @@ A complete working example to apply different font settings in C# is present on 
 
 The output of the previous code is shown as follows.
 
-![Excel formatting document with different font settings](Working-with-Cell-or-Range-Formatting_images/Excel-Formatting-different-font-settings.jpeg)
+![Excel formatting with different font settings](Working-with-Cell-or-Range-Formatting_images/Excel-Formatting-different-font-settings.jpeg)
 
 
 ## Apply Color Settings
@@ -3075,7 +3075,7 @@ A complete working example to apply different border settings in C# is present o
 
 The output of the previous code is shown in the following screenshot:
 
-![Excel formatting document with different border settings](Working-with-Cell-or-Range-Formatting_images/Excel-Formatting-different-border-settings.jpeg)
+![Excel formatting with different border settings](Working-with-Cell-or-Range-Formatting_images/Excel-Formatting-different-border-settings.jpeg)
 
 
 ## HTML String Formatting
