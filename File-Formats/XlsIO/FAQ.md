@@ -65,3 +65,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to detect merged cells in Excel?](faqs/how-to-detect-merged-cells-in-Excel)
 * [How to apply formatting to pivot table in Excel protected view?](faqs/how-to-apply-formatting-to-pivottable-in-Excel-protected-view)
 * [Does XlsIO support multi threading?](faqs/does-xlsio-support-multi-threading)
+* [How to check whether the given range is valid or not?](faqs/how-to-check-whether-the-given-range-is-valid-or-not)
