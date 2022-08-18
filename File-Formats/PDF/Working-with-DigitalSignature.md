@@ -6472,3 +6472,9 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## See Also
+[How to create and validate digital signature in PDF using C#](https://www.syncfusion.com/blogs/post/create-validate-pdf-digital-signatures-csharp.aspx) 
+[How to digitally sign a PDF using C#](https://www.syncfusion.com/kb/9082/how-to-digitally-sign-a-pdf-file-in-c-vb-net)
+
+N> You can also explore our [PDF Digital Signatur C#](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/digital-signature-pdf) feature tour page that helps you to add digital signature and time stamp to your PDF files in any .NET application and [PDF Digital signature .NET demo](https://ej2.syncfusion.com/aspnetmvc/PDF/DigitalSignature#/material) that shows how a PDF document can be secured with certificates and signed with either standard or author signatures.
