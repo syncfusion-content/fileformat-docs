@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Annotations
 
-The Syncfusion .NET PDF Library provides support for interactive [PDF Annotations using C#](https://www.-00000000000000000000000000000000`134esyncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation).
+The Syncfusion .NET PDF Library provides support for interactive [PDF Annotations using C#](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation).
 
 You can add, delete and modify the annotation from the PDF documents.
 
