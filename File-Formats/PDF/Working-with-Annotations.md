@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Annotations
 
-Provides support for interactive [PDF Annotations using C#](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation).
+The Syncfusion .NET PDF Library provides support for interactive [PDF Annotations using C#](https://www.-00000000000000000000000000000000`134esyncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation).
 
 You can add, delete and modify the annotation from the PDF documents.
 
@@ -12274,4 +12274,4 @@ freeText.SetAppearance(true);
 ## See Also
 [How to modify the size of C# PDF Annotation](https://www.syncfusion.com/kb/10290/how-to-modify-the-size-of-the-annotation-in-pdf-using-c-and-vb-net)
 
-N> You can also explore our [PDF Annotation using C#](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation) feature tour page that how to use .NET PDF with 20+ annotation types with built-in support, or create their own custom annotations and [PDF Annotaions .NET demo](https://ej2.syncfusion.com/aspnetmvc/PDF/AnnotationFlatten#/material) that demonstrates the creation of different types of annotations such as ink, free text, pop up, text markup annotation, and more.
+N> You can also explore our [C# PDF Annotation](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation) feature tour page that how to use .NET PDF with 20+ annotation types with built-in support, or create their own custom annotations and [PDF Annotaions .NET demo](https://ej2.syncfusion.com/aspnetmvc/PDF/AnnotationFlatten#/material) that demonstrates the creation of different types of annotations such as ink, free text, pop up, text markup annotation, and more.
