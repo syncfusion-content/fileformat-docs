@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Compression
 
-Essential PDF allows you to [compress .NET PDF](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/compress-pdf) document and thereby reduce the file size in the following three ways.
+The Syncfusion .NET PDF Library allows you to [compress .NET PDF](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/compress-pdf) document and thereby reduce the file size in the following three ways.
 
 1. Compress an existing PDF document
 2. Content compression for a new document
