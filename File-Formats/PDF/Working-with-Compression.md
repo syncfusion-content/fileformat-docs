@@ -710,5 +710,4 @@ loadedDocument.Close(True)
 ## See Also
 [How to compress a PDF document in ASP.NET Core](https://www.syncfusion.com/kb/11704/how-to-compress-a-pdf-document-in-asp-net-core)
 
-N> You can also explore our [Compress PDF C#](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/compress-pdf) feature tour page that explains how the Syncfusion .NET PDF Library provides optimizations in a different ways in detail and [Compress PDF .NET demo](https://ej2.syncfusion.com/aspnetmvc/PDF/CompressExistingPDF#/material) that shows how to compress .NET PDF with just a few lines of C# code.
-
+N> You can also explore our [Compress PDF C#](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/compress-pdf) feature tour page that explains how the Syncfusion .NET PDF Library provides different ways to optimize PDF documents and [Compress PDF .NET demo](https://ej2.syncfusion.com/aspnetmvc/PDF/CompressExistingPDF#/material) that shows how to compress .NET PDF with just a few lines of C# code.
