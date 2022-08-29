@@ -360,7 +360,7 @@ using System.Xml.Linq;
 
 {% endtabs %}
 
-A complete working example of creating a PDF document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/PdfSampleMaUI-1356433164).
+A complete working example of creating a PDF document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/PdfSampleMaUI-1356433164887362210.zip).
 
 By executing the program in windows, you will get the **PDF document** as follows.
 
