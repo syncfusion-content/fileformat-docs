@@ -318,9 +318,12 @@ using System.Xml.Linq;
             using MemoryStream ms = new();
             //Saves the presentation to the memory stream.
             document.Save(ms);
+			//Close the PDF document
+            document.Close(true);
             ms.Position = 0;
-            //Saves the memory stream as a file.
-            DependencyService.Get<ISave>().SaveAndView("Invoice.pdf", "application/pdf", ms);
+            //Saves the memory stream as file.
+            SaveService saveService = new();
+            saveService.SaveAndView("Invoice.pdf", "application/pdf", ms);
         }
 
 
