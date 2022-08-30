@@ -1,9 +1,9 @@
 ---
-Title: Working with Tables using PdfGrid | Syncfusion
-Description: Learn how to create or add a table to a PDF document, apply cell style & built-in table styles, automatic pagination, customize the rows and columns, and more using the PdfGrid model.  
-Platform: File-formats
-Control: PDF
-Documentation: UG
+title: Working with Tables using PdfGrid | Syncfusion
+description: Learn how to create or add a table to a PDF document, apply cell style & built-in table styles, automatic pagination, customize the rows and columns, and more using the PdfGrid model.  
+platform: File-formats
+control: PDF
+documentation: UG
 ---
 
 # Working with .NET PDF Tables using the PdfGrid model 
