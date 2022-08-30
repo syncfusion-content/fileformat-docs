@@ -1,9 +1,9 @@
 ---
-Title: Working with Tables using PdfLightTable | Syncfusion
-Description: Learn how to create or add a table to a PDF document, applying cell style & built-in table styles, automatic pagination, and customize the rows and columns, and more using the PdfLightTable model.  
-Platform: File-formats
-Control: PDF
-Documentation: UG
+title: Working with Tables using PdfLightTable | Syncfusion
+description: Learn how to create a table to PDF, apply cell & built-in table styles, automatic pagination, customize the rows and columns, and more using the PdfLightTable.  
+platform: File-formats
+control: PDF
+documentation: UG
 ---
 
 # Working with .NET PDF Tables using PdfLightTable model
