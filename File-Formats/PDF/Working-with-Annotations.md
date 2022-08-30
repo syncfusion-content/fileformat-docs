@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Annotations
 
-Essential PDF provides support for interactive [annotations](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation).
+The Syncfusion .NET PDF Library provides support for interactive [PDF Annotations using C#](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation).
 
 You can add, delete and modify the annotation from the PDF documents.
 
@@ -12270,3 +12270,8 @@ freeText.SetAppearance(true);
 </tr>
 </table>
 </table>
+
+## See Also
+[How to modify the size of C# PDF Annotation](https://www.syncfusion.com/kb/10290/how-to-modify-the-size-of-the-annotation-in-pdf-using-c-and-vb-net)
+
+N> You can explore our [C# PDF Annotations](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-annotation) feature tour page that shows how to annotate PDF with 20+ annotation types having built-in support or create your own custom annotations, and also check the [PDF Annotations .NET demo](https://ej2.syncfusion.com/aspnetmvc/PDF/AnnotationFlatten#/material) that demonstrates the creation of different types of annotations such as ink, free text, pop up, text markup annotation, and more.
