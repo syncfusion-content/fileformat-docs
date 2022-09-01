@@ -31,47 +31,49 @@ The following namespaces are required to compile the code in this topic:
 T> 1. You can get the good quality converted images by specifying the image type as Metafile in the platforms targeting .NET Framework.
 T> 2. You can specify the quality of the converted charts by setting the scaling mode.
 
-The following code illustrates how to convert the Word document to image.
+## Convert the entire Word to images
 
+You can convert an entire Word document to images.
+
+The following code example illustrates how to convert the entire Word document to images.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-//Loads an existing Word document
-WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
-//Initializes the ChartToImageConverter for converting charts during Word to image conversion
-wordDocument.ChartToImageConverter = new ChartToImageConverter();
-//Sets the scaling mode for charts (Normal mode reduces the file size)
-wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-//Converts word document to image
-Image[] images = wordDocument.RenderAsImages(ImageType.Bitmap);
-int i = 0;
-foreach (Image image in images)
+//Load an existing Word document.
+using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
 {
-    //Saves the images as jpeg
-    image.Save("WordToImage_" + i + ".jpeg", ImageFormat.Jpeg);
-    i++;
+    //Initialize the ChartToImageConverter for converting charts during Word to image conversion.
+    wordDocument.ChartToImageConverter = new ChartToImageConverter();
+    //Set the scaling mode for charts (Normal mode reduces the file size).
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
+    //Convert the entire Word document to images.
+    Image[] images = wordDocument.RenderAsImages(ImageType.Bitmap);
+    int i = 0;
+    foreach (Image image in images)
+    {
+        //Save the image as jpeg.
+        image.Save("WordToImage_" + i + ".jpeg", ImageFormat.Jpeg);
+        i++;
+    }
 }
-//Closes the document
-wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Loads an existing Word document
-Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
-'Initializes the ChartToImageConverter for converting charts during Word to image conversion
-wordDocument.ChartToImageConverter = New ChartToImageConverter()
-'Sets the scaling mode for charts (Normal mode reduces the file size)
-wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-'Converts word document to image
-Dim images As Image() = wordDocument.RenderAsImages(ImageType.Bitmap)
-Dim i As Integer = 0
-For Each image As Image In images
-	'Saves the images as jpeg
-	image.Save("WordToImage_" & i & ".jpeg", ImageFormat.Jpeg)
-	i += 1
-Next
-'Closes the document
-wordDocument.Close()
+'Load an existing Word document.
+Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Initialize the ChartToImageConverter for converting charts during Word to image conversion.
+    wordDocument.ChartToImageConverter = New ChartToImageConverter()
+    'Set the scaling mode for charts (Normal mode reduces the file size).
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
+    'Convert the entire Word document to images.
+    Dim images As Image() = wordDocument.RenderAsImages(ImageType.Bitmap)
+    Dim i = 0
+    For Each image As Image In images
+        'Save the image as jpeg.
+        image.Save("WordToImage_" & i & ".jpeg", ImageFormat.Jpeg)
+        i += 1
+    Next
+End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -79,26 +81,25 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Opens the file as Stream.
+//Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-    //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
     {
-        //Creates a new instance of DocIORenderer class.
+        //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Converts Word document to images.
+            //Convert the entire Word document to images.
             Stream[] imageStreams = wordDocument.RenderAsImages(); 
             int i = 0;
             foreach (Stream stream in imageStreams)
             {
-                //Resets the stream position.
+                //Reset the stream position.
                 stream.Position = 0;
-                //Creates the output image file stream.
+                //Save the stream as file.
                 using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
                 {
-                    //Copies the converted image stream into created output stream.
                     stream.CopyTo(fileStreamOutput);
                 }
                 i++;
@@ -109,23 +110,23 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//Opens the file as Stream.
+//Open the file as Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
-    //Loads file stream into Word document.
-    using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
     {
-        //Creates a new instance of DocIORenderer class.
+        //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Converts Word document to images.
+            //Convert the entire Word document to images.
             Stream[] imageStreams = wordDocument.RenderAsImages();
             int i = 0;
             foreach (Stream stream in imageStreams)
             {
-                //Resets the stream position.
+                //Reset the stream position.
                 stream.Position = 0;
-                //Saves the stream as a file in the device and invoke it for viewing.
+                //Save the stream as file in the device and invoke it for viewing.
                 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage_" + i + ".jpeg", "image/jpeg", stream as MemoryStream);
                 i++;
             }
@@ -136,6 +137,203 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image).
+
+## Convert first page of Word to image
+
+You can convert a specific page of the Word document into an image and use it for a thumbnail.
+
+The following code example illustrates how to convert a first page in a Word document into an image.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+//Load an existing Word document.
+using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Initialize the ChartToImageConverter for converting charts during Word to image conversion.
+    wordDocument.ChartToImageConverter = new ChartToImageConverter();
+    //Set the scaling mode for charts (Normal mode reduces the file size).
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
+    //Convert the first page of the Word document into an image.
+    Image image = wordDocument.RenderAsImages(0, ImageType.Bitmap);
+    //Save the image as jpeg.
+    image.Save("WordToImage.jpeg", ImageFormat.Jpeg);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load an existing Word document.
+Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Initialize the ChartToImageConverter for converting charts during Word to image conversion.
+    wordDocument.ChartToImageConverter = New ChartToImageConverter()
+    'Set the scaling mode for charts (Normal mode reduces the file size).
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
+    'Convert the first page of the Word document into an image.
+    Dim image As Image = wordDocument.RenderAsImages(0, ImageType.Bitmap)
+    'Save the image as jpeg.
+    image.Save("WordToImage.jpeg", ImageFormat.Jpeg)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Create a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Convert the first page of the Word document into an image.
+            Stream imageStream = wordDocument.RenderAsImages(0, ExportImageFormat.Jpeg); 
+            //Reset the stream position.
+            imageStream.Position = 0;
+            //Save the stream as file.
+            using (FileStream fileStreamOutput = File.Create("WordToImage.jpeg"))
+            {
+                imageStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Create a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Convert the entire Word document to images.
+            Stream[] imageStream = wordDocument.RenderAsImages();
+            //Reset the stream position.
+            imageStream.Position = 0;
+            //Save the stream as file in the device and invoke it for viewing.
+            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage.jpeg", "image/jpeg", imageStream as MemoryStream);
+        }
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/First-page-of-Word-to-image).
+
+## Convert a specific range of pages in Word to an image
+
+Users can convert a specific range of pages in a Word document into images.
+
+The following code example illustrates how to convert a specific range of pages in a Word document into images.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+//Load an existing Word document.
+using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Initialize the ChartToImageConverter for converting charts during Word to image conversion.
+    wordDocument.ChartToImageConverter = new ChartToImageConverter();
+    //Set the scaling mode for charts (Normal mode reduces the file size).
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
+    //Convert a specific range of pages in Word document to images.
+    Image[] images = wordDocument.RenderAsImages(1, 2, ImageType.Bitmap);
+    int i = 0;
+    foreach (Image image in images)
+    {
+        //Save the image as jpeg.
+        image.Save("WordToImage_" + i + ".jpeg", ImageFormat.Jpeg);
+        i++;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load an existing Word document.
+Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Initialize the ChartToImageConverter for converting charts during Word to image conversion.
+    wordDocument.ChartToImageConverter = New ChartToImageConverter()
+    'Set the scaling mode for charts (Normal mode reduces the file size).
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
+    'Convert the entire Word document to images.
+    Dim images As Image() = wordDocument.RenderAsImages(1, 2, ImageType.Bitmap)
+    Dim i = 0
+    For Each image As Image In images
+        'Save the image as jpeg.
+        image.Save("WordToImage_" & i & ".jpeg", ImageFormat.Jpeg)
+        i += 1
+    Next
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Create a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Convert a specific range of pages in Word document to images.
+            Stream[] imageStreams = wordDocument.RenderAsImages(1, 2); 
+            int i = 0;
+            foreach (Stream stream in imageStreams)
+            {
+                //Reset the stream position.
+                stream.Position = 0;
+                //Save the stream as file.
+                using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
+                {
+                    stream.CopyTo(fileStreamOutput);
+                }
+                i++;
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Create a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Convert the entire Word document to images.
+            Stream[] imageStreams = wordDocument.RenderAsImages(1, 2);
+            int i = 0;
+            foreach (Stream stream in imageStreams)
+            {
+                //Reset the stream position.
+                stream.Position = 0;
+                //Save the stream as file in the device and invoke it for viewing.
+                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage_" + i + ".jpeg", "image/jpeg", stream as MemoryStream);
+                i++;
+            }
+        }
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Specific-range-of-pages-Word-to-image).
+
+## Custom image resolution
 
 The following code snippet illustrates how to convert a Word document to an image using custom image resolution.
 
