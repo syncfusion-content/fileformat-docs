@@ -605,8 +605,6 @@ using (WordDocument document = new WordDocument())
 
 You can download a complete working sample from
 
-
-
 ## Footnote and Endnote separators
 
 Footnote/Endnote separator is used to separate the text body content and footnote/endnote by a small line. 
