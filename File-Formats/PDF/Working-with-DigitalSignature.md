@@ -6473,9 +6473,9 @@ else
 
 {% endtabs %}
 
-## Adding digital signature to the PDF/A document
+## Adding a digital signature to a PDF/A document
 
-You can add the invisible digital signature to the any PDF/A document without failing the conformance of the PDF document. The following code snippet illustrates the same:
+You can add an invisible digital signature to any PDF/A document without changing the conformance of the PDF document. The following code snippet illustrates the same
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -6490,13 +6490,13 @@ if (loadedDocument.Form == null)
 loadedDocument.CreateForm();
 loadedDocument.Form.SetDefaultAppearance(false);
 
-//Create a new PDF signature without PdfCertificate instance
+//Create a new PDF signature without the PdfCertificate instance
 PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
 
 //Hook up the ComputeHash event
 signature.ComputeHash += Signature_ComputeHash;
 
-//Create X509Certificate2 from your certificate to create a long-term validity
+//Create an X509Certificate2 from your certificate to create a long-term validity
 X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
 //Create LTV with your public certificates
@@ -6529,7 +6529,7 @@ Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedPage, Not
 
 AddHandler signature.ComputeHash, AddressOf Signature_ComputeHash
 
-'Create X509Certificate2 from your certificate to create a long-term validity
+'Create an X509Certificate2 from your certificate to create a long-term validity
 
 Dim x509 As X509Certificate2 = New X509Certificate2("PDF.pfx", "password123")
 
@@ -6561,7 +6561,7 @@ PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 if (loadedDocument.Form == null)
 loadedDocument.CreateForm();
 loadedDocument.Form.SetDefaultAppearance(false);
-//Create a new PDF signature without PdfCertificate instance
+//Create a new PDF signature without the PdfCertificate instance
 
 PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
 
@@ -6569,7 +6569,7 @@ PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Sig
 
 signature.ComputeHash += Signature_ComputeHash;
 
-//Create X509Certificate2 from your certificate to create a long-term validity
+//Create an X509Certificate2 from your certificate to create a long-term validity
 
 X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
@@ -6585,7 +6585,7 @@ loadedDocument.Save(stream);
 
 stream.Position = 0;
 
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+//Save the stream as a PDF document file on the local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -6607,7 +6607,7 @@ PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 if (loadedDocument.Form == null)
 loadedDocument.CreateForm();
 loadedDocument.Form.SetDefaultAppearance(false);
-//Create a new PDF signature without PdfCertificate instance
+//Create a new PDF signature without the PdfCertificate instance
 
 PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
 
@@ -6615,7 +6615,7 @@ PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Sig
 
 signature.ComputeHash += Signature_ComputeHash;
 
-//Create X509Certificate2 from your certificate to create a long-term validity
+//Create an X509Certificate2 from your certificate to create a long-term validity
 
 X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
@@ -6635,7 +6635,7 @@ stream.Position = 0;
 
 loadedDocument.Close(true);
 
-//Defining the ContentType for pdf file
+//Define the ContentType for the pdf file
 
 string contentType = "application/pdf";
 
@@ -6665,7 +6665,7 @@ PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 if (loadedDocument.Form == null)
 loadedDocument.CreateForm();
 loadedDocument.Form.SetDefaultAppearance(false)
-//Create a new PDF signature without PdfCertificate instance
+//Create a new PDF signature without the PdfCertificate instance
 
 PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
 
@@ -6673,7 +6673,7 @@ PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Sig
 
 signature.ComputeHash += Signature_ComputeHash;
 
-//Create X509Certificate2 from your certificate to create a long-term validity
+//Create an X509Certificate2 from your certificate to create a long-term validity
 
 X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
 
@@ -6689,9 +6689,9 @@ loadedDocument.Save(stream);
 
 stream.Position = 0;
 
-//Save the stream into pdf file
+//Save the stream into a pdf file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+//The operation in ‘Save under Xamarin’ varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
