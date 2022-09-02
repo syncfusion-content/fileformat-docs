@@ -250,7 +250,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
             //Reset the stream position.
             imageStream.Position = 0;
             //Save the memory stream as file.
-            Save(imageStream as MemoryStream, "WordToImage_" + i + ".jpeg");
+            Save(imageStream as MemoryStream, "WordToImage.jpeg");
         }
     }
 }
