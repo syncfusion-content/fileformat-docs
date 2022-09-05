@@ -4235,8 +4235,8 @@ using(IPresentation pptxDoc = Presentation.Create())
    
    //Data point settings as total in chart
    IOfficeChartSerie series = chart.Series[0];
-   chart.Series[0].DataPoints[2].SetAsTotal = true;
-   chart.Series[0].DataPoints[5].SetAsTotal = true;
+   chart.Series[0].DataPoints[3].SetAsTotal = true;
+   chart.Series[0].DataPoints[6].SetAsTotal = true;
    
    //Showing the connector lines between data points
    chart.Series[0].SerieFormat.ShowConnectorLines = true;
@@ -4288,8 +4288,8 @@ chart.ChartData.SetValue(8, 2, 345000)
 
 'Data point settings as total in chart
 Dim series As IOfficeChartSerie = chart.Series(0)
-chart.Series(0).DataPoints(2).SetAsTotal = True
-chart.Series(0).DataPoints(5).SetAsTotal = True
+chart.Series(0).DataPoints(3).SetAsTotal = True
+chart.Series(0).DataPoints(6).SetAsTotal = True
 
 'Showing the connector lines between data points
 chart.Series(0).SerieFormat.ShowConnectorLines = True
@@ -4340,8 +4340,8 @@ chart.ChartData.SetValue(8, 2, 345000);
    
 //Data point settings as total in chart
 IOfficeChartSerie series = chart.Series[0];
-chart.Series[0].DataPoints[2].SetAsTotal = true;
-chart.Series[0].DataPoints[5].SetAsTotal = true;
+chart.Series[0].DataPoints[3].SetAsTotal = true;
+chart.Series[0].DataPoints[6].SetAsTotal = true;
   
 //Showing the connector lines between data points
 chart.Series[0].SerieFormat.ShowConnectorLines = true;
@@ -4401,8 +4401,8 @@ chart.ChartData.SetValue(8, 2, 345000);
    
 //Data point settings as total in chart
 IOfficeChartSerie series = chart.Series[0];
-chart.Series[0].DataPoints[2].SetAsTotal = true;
-chart.Series[0].DataPoints[5].SetAsTotal = true;
+chart.Series[0].DataPoints[3].SetAsTotal = true;
+chart.Series[0].DataPoints[6].SetAsTotal = true;
   
 //Showing the connector lines between data points
 chart.Series[0].SerieFormat.ShowConnectorLines = true;
@@ -4455,8 +4455,8 @@ chart.ChartData.SetValue(8, 2, 345000);
    
 //Data point settings as total in chart
 IOfficeChartSerie series = chart.Series[0];
-chart.Series[0].DataPoints[2].SetAsTotal = true;
-chart.Series[0].DataPoints[5].SetAsTotal = true;
+chart.Series[0].DataPoints[3].SetAsTotal = true;
+chart.Series[0].DataPoints[6].SetAsTotal = true;
   
 //Showing the connector lines between data points
 chart.Series[0].SerieFormat.ShowConnectorLines = true;
