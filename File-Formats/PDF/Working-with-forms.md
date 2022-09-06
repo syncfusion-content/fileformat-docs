@@ -8551,7 +8551,39 @@ loadedForm.ImportDataFDF(stream, True)
 
 loadedDocument.Close(True)
 
+{% endhighlight %}
 
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get stream from an existing PDF document. 
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get stream from an existing PDF document. 
+FileStream fdfStream = new FileStream("ImportFDF.fdf", FileMode.Open, FileAccess.Read);
+
+//Import the FDF stream. 
+loadedDocument.Form.ImportDataFDF(fdfStream, true);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+stream.Position = 0;
+
+//Close the document.
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -8610,6 +8642,28 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get stream from an existing PDF document. 
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+//Load the PDF document from stream.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load an existing form. 
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Load the FDF file. 
+FileStream stream = new FileStream("Export.fdf", FileMode.Create, FileAccess.ReadWrite);
+
+//Export the existing PDF document to FDF file. 
+loadedForm.ExportData(stream, DataFormat.Fdf, "SourceForm.pdf");
+
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
