@@ -700,6 +700,205 @@ using (WordDocument document = new WordDocument())
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Change-default-endnote-separator).
 
+## Modify Footnote and Endnote content
+
+The following code example shows how to modify the footnote/endnote content from the word document.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="C#" %}
+//Loads the template document
+WordDocument document = new WordDocument("Template.docx");
+//Gets the textbody of the first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 6
+WParagraph paragraph = textBody.Paragraphs[6];
+//Gets the footnote at index 0
+WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+footnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+footnoteParagraph.AppendText("Footnote is modified.");
+//Gets the textbody of the third section
+textBody = document.Sections[2].Body;
+//Gets the paragraph at index 1
+paragraph = textBody.Paragraphs[1];
+//Gets the footnote at index 0
+WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+endnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+endnoteParagraph.AppendText("Endnote is modified.");
+//Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Loads the template document
+Dim document As New WordDocument("Template.docx")
+'Gets the textbody of the first section
+Dim textBody As WTextBody = document.Sections(0).Body
+'Gets the paragraph at index 6
+Dim paragraph As WParagraph = textBody.Paragraphs(6)
+'Gets the footnote at index 0
+Dim footnote As WFootnote = CType(paragraph.ChildEntities(0), WFootnote)
+'Clear footnote content.
+footnote.TextBody.ChildEntities.Clear()
+Dim footnoteParagraph As WParagraph = CType(footnote.TextBody.AddParagraph, WParagraph)
+'Sets the footnote character format.
+footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
+'Append footnotes text.
+footnoteParagraph.AppendText("Footnote is modified.")
+'Gets the textbody of the third section
+textBody = document.Sections(2).Body
+'Gets the paragraph at index 1
+paragraph = textBody.Paragraphs(1)
+Dim endnote As WFootnote = CType(paragraph.ChildEntities(0), WFootnote)
+'Clear footnote content.
+endnote.TextBody.ChildEntities.Clear()
+Dim endnoteParagraph As WParagraph = CType(endnote.TextBody.AddParagraph, WParagraph)
+'Sets the footnote character format.
+endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
+ 'Append footnotes text.
+endnoteParagraph.AppendText("Endnote is modified.")
+ 'Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads the template document as stream
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the textbody of the first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 6
+WParagraph paragraph = textBody.Paragraphs[6];
+//Gets the footnote at index 0
+WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+footnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+footnoteParagraph.AppendText("Footnote is modified.");
+//Gets the textbody of the third section
+textBody = document.Sections[2].Body;
+//Gets the paragraph at index 1
+paragraph = textBody.Paragraphs[1];
+//Gets the footnote at index 0
+WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+endnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+endnoteParagraph.AppendText("Endnote is modified.");
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Result.docx");
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Loads the template document as stream
+WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+inputStream.Dispose();
+//Gets the textbody of the first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 6
+WParagraph paragraph = textBody.Paragraphs[6];
+//Gets the footnote at index 0
+WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+footnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+footnoteParagraph.AppendText("Footnote is modified.");
+//Gets the textbody of the third section
+textBody = document.Sections[2].Body;
+//Gets the paragraph at index 1
+paragraph = textBody.Paragraphs[1];
+//Gets the footnote at index 0
+WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+endnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+endnoteParagraph.AppendText("Endnote is modified.");
+//Saves the Word document to MemoryStream
+FileStream outputStream = new FileStream("Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+document.Save(outputStream, FormatType.Docx);
+//Closes the document
+document.Close();
+outputStream.Dispose();
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads the template document as stream
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Template.docx"), FormatType.Docx);
+//Gets the textbody of the first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 6
+WParagraph paragraph = textBody.Paragraphs[6];
+//Gets the footnote at index 0
+WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+footnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+footnoteParagraph.AppendText("Footnote is modified.");
+//Gets the textbody of the third section
+textBody = document.Sections[2].Body;
+//Gets the paragraph at index 1
+paragraph = textBody.Paragraphs[1];
+//Gets the footnote at index 0
+WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
+//Clear footnote content.
+endnote.TextBody.ChildEntities.Clear();
+//Add Paragraph to body of footnote.
+WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
+//Sets the footnote character format.
+endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+//Append footnotes text.
+endnoteParagraph.AppendText("Endnote is modified.");
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing.            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from
+
 ## Removing a Footnotes/Endnotes
 
 The following code example shows how to remove the footnotes/endnotes from the Word document.
