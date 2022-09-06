@@ -722,21 +722,21 @@ WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Sets the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 //Append footnotes text.
-footnoteParagraph.AppendText("Footnote is modified.");
+footnoteParagraph.AppendText(" Footnote is modified.");
 //Gets the textbody of the third section
 textBody = document.Sections[2].Body;
 //Gets the paragraph at index 1
 paragraph = textBody.Paragraphs[1];
-//Gets the footnote at index 0
+//Gets the endnote at index 0
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear footnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add Paragraph to body of footnote.
+//Add Paragraph to body of endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
-//Sets the footnote character format.
+//Sets the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Append footnotes text.
-endnoteParagraph.AppendText("Endnote is modified.");
+//Append endnotes text.
+endnoteParagraph.AppendText(" Endnote is modified.");
 //Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -757,19 +757,19 @@ Dim footnoteParagraph As WParagraph = CType(footnote.TextBody.AddParagraph, WPar
 'Sets the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
 'Append footnotes text.
-footnoteParagraph.AppendText("Footnote is modified.")
+footnoteParagraph.AppendText(" Footnote is modified.")
 'Gets the textbody of the third section
 textBody = document.Sections(2).Body
 'Gets the paragraph at index 1
 paragraph = textBody.Paragraphs(1)
 Dim endnote As WFootnote = CType(paragraph.ChildEntities(0), WFootnote)
-'Clear footnote content.
+'Clear endnote content.
 endnote.TextBody.ChildEntities.Clear()
 Dim endnoteParagraph As WParagraph = CType(endnote.TextBody.AddParagraph, WParagraph)
-'Sets the footnote character format.
+'Sets the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
- 'Append footnotes text.
-endnoteParagraph.AppendText("Endnote is modified.")
+ 'Append endnotes text.
+endnoteParagraph.AppendText(" Endnote is modified.")
  'Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
@@ -792,21 +792,21 @@ WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Sets the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 //Append footnotes text.
-footnoteParagraph.AppendText("Footnote is modified.");
+footnoteParagraph.AppendText(" Footnote is modified.");
 //Gets the textbody of the third section
 textBody = document.Sections[2].Body;
 //Gets the paragraph at index 1
 paragraph = textBody.Paragraphs[1];
-//Gets the footnote at index 0
+//Gets the endnote at index 0
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
-//Clear footnote content.
+//Clear endnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add Paragraph to body of footnote.
+//Add Paragraph to body of endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
-//Sets the footnote character format.
+//Sets the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Append footnotes text.
-endnoteParagraph.AppendText("Endnote is modified.");
+//Append endnotes text.
+endnoteParagraph.AppendText(" Endnote is modified.");
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
 await document.SaveAsync(stream, FormatType.Docx);
@@ -832,21 +832,21 @@ WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Sets the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 //Append footnotes text.
-footnoteParagraph.AppendText("Footnote is modified.");
+footnoteParagraph.AppendText(" Footnote is modified.");
 //Gets the textbody of the third section
 textBody = document.Sections[2].Body;
 //Gets the paragraph at index 1
 paragraph = textBody.Paragraphs[1];
-//Gets the footnote at index 0
+//Gets the endnote at index 0
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
-//Clear footnote content.
+//Clear endnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add Paragraph to body of footnote.
+//Add Paragraph to body of endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
-//Sets the footnote character format.
+//Sets the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Append footnotes text.
-endnoteParagraph.AppendText("Endnote is modified.");
+//Append endnotes text.
+endnoteParagraph.AppendText(" Endnote is modified.");
 //Saves the Word document to MemoryStream
 FileStream outputStream = new FileStream("Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 document.Save(outputStream, FormatType.Docx);
@@ -872,21 +872,21 @@ WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Sets the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 //Append footnotes text.
-footnoteParagraph.AppendText("Footnote is modified.");
+footnoteParagraph.AppendText(" Footnote is modified.");
 //Gets the textbody of the third section
 textBody = document.Sections[2].Body;
 //Gets the paragraph at index 1
 paragraph = textBody.Paragraphs[1];
-//Gets the footnote at index 0
+//Gets the endnote at index 0
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
-//Clear footnote content.
+//Clear endnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add Paragraph to body of footnote.
+//Add Paragraph to body of endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
-//Sets the footnote character format.
+//Sets the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Append footnotes text.
-endnoteParagraph.AppendText("Endnote is modified.");
+//Append endnotes text.
+endnoteParagraph.AppendText(" Endnote is modified.");
 //Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
