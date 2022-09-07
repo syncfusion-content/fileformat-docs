@@ -342,268 +342,282 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Adding a Footnote and Endnote position
 
+Footnotes are typically located at the bottom of a page or beneath text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. This can be done using `FootnotePosition` API and `EndnotePosition` API.
+
 The following code example illustrates how to add positions of footnotes and endnotes.
 
 {% tabs %}  
 
 {% highlight c# tabtitle="C#" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Creates a section
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+//Create a section.
 IWSection section = document.AddSection();
-//Adds a paragraph to a section
+//Add a paragraph to a section.
 IWParagraph paragraph = section.AddParagraph();
-//Appends the text to paragraph
+//Append the text to paragraph.
 paragraph.AppendText("First paragraph in First section");
-//Appends the footnotes
+//Append the footnote.
 WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
-//Sets the footnote character format
+//Set the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Sets the numbering format for footnote
+//Set the numbering format for footnote.
 document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
-//Adds footnote text
+//Add footnote text.
 paragraph = footnote.TextBody.AddParagraph();
 paragraph.AppendText("Footnote content");
-//Sets the footnote position
+//Set the footnote position.
 document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText;
-//Adds the new section to the document
+//Add the new section to the document.
 section = document.AddSection();
-//Adds a paragraph to a section
+//Add a paragraph to a section.
 paragraph = section.AddParagraph();
-//Inserts the text into the paragraph
+//Append text into the paragraph.
 paragraph.AppendText("Paragraph in Second section.");
-//Appends the endnotes
+//Append the endnote.
 WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
-//Sets the footnote character format
+//Set the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Sets the numbering format for endnote
+//Set the numbering format for endnote.
 document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
-//Adds endnote text
+//Add endnote text.
 paragraph = endnote.TextBody.AddParagraph();
 paragraph.AppendText("Endnote of second section");
-//Sets the endnote position
+//Set the endnote position.
 document.EndnotePosition = EndnotePosition.DisplayEndOfSection;
-//Adds the new section to the document
+//Add the new section to the document.
 section = document.AddSection();
-//Sets a section break
+//Set a section break.
 section.BreakCode = SectionBreakCode.NoBreak;
-//Adds a paragraph to a section
+//Add a new paragraph to a section.
 paragraph = section.AddParagraph();
-//Inserts the text into the paragraph
+//Append text into the paragraph.
 paragraph.AppendText("Paragraph in third Section.");
-//Saves and closes the Word document instance
+//Save the Word document.
 document.Save("Sample.docx", FormatType.Docx);
-document.Close();
+}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Creates a new document
-Dim document As New WordDocument()
-'Creates a section
-Dim section As IWSection = document.AddSection()
-'Adds a paragraph to a section
-Dim paragraph As IWParagraph = section.AddParagraph()
-'Appends the text to paragraph
-paragraph.AppendText("First paragraph in First section")
-Dim footnote As WFootnote = CType(paragraph.AppendFootnote(FootnoteType.Footnote),WFootnote)
-'Sets the footnote character format
-footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
-'Sets the numbering format for footnote
-document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic
-'Adds footnote text
-paragraph = footnote.TextBody.AddParagraph
-paragraph.AppendText("Footnote content")
-'Sets the footnote position
-document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText
-'Adds the new section to the document
-section = document.AddSection
-'Adds a paragraph to a section
-paragraph = section.AddParagraph
-'Inserts the text into the paragraph
-paragraph.AppendText("Paragraph in Second section.")
-Dim endnote As WFootnote = CType(paragraph.AppendFootnote(FootnoteType.Endnote),WFootnote)
-'Sets the footnote character format
-endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
-'Sets the numbering format for endnote
-document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman
-'Adds endnote text
-paragraph = endnote.TextBody.AddParagraph
-paragraph.AppendText("Endnote of second section")
-'Sets the endnote position
-document.EndnotePosition = EndnotePosition.DisplayEndOfSection
-'Adds the new section to the document
-section = document.AddSection
-'Sets a section break
-section.BreakCode = SectionBreakCode.NoBreak
-'Adds a paragraph to a section
-paragraph = section.AddParagraph
-'Inserts the text into the paragraph
-paragraph.AppendText("Paragraph in third Section.")
-‘Saves and closes the Word document instance
-document.Save("Sample.docx", FormatType.Docx)
-document.Close()
+'Create a new Word document.
+Using document As WordDocument = New WordDocument()
+        'Create a section.
+        Dim section As IWSection = document.AddSection()
+        'Add a paragraph to a section.
+        Dim paragraph As IWParagraph = section.AddParagraph()
+        'Append the text to paragraph.
+        paragraph.AppendText("First paragraph in First section")
+        'Append the footnote.
+        Dim footnote As WFootnote = TryCast(paragraph.AppendFootnote(FootnoteType.Footnote), WFootnote)
+        'Set the footnote character format.
+        footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
+        'Set the numbering format for footnote.
+        document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic
+        'Add footnote text.
+        paragraph = footnote.TextBody.AddParagraph()
+        paragraph.AppendText("Footnote content")
+        'Set the footnote position.
+        document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText
+        'Add the new section to the document.
+        section = document.AddSection()
+        'Add a paragraph to a section.
+        paragraph = section.AddParagraph()
+        'Append text into the paragraph.
+        paragraph.AppendText("Paragraph in Second section.")
+        'Append the endnote.
+        Dim endnote As WFootnote = TryCast(paragraph.AppendFootnote(FootnoteType.Endnote), WFootnote)
+        'Set the endnote character format.
+        endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
+        'Set the numbering format for endnote.
+        document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman
+        'Add endnote text.
+        paragraph = endnote.TextBody.AddParagraph()
+        paragraph.AppendText("Endnote of second section")
+        'Set the endnote position.
+        document.EndnotePosition = EndnotePosition.DisplayEndOfSection
+        'Add the new section to the document.
+        section = document.AddSection()
+        'Set a section break.
+        section.BreakCode = SectionBreakCode.NoBreak
+        'Add a new paragraph to a section.
+        paragraph = section.AddParagraph()
+        'Append text into the paragraph.
+        paragraph.AppendText("Paragraph in third Section.")
+        'Save the Word document.
+        document.Save("Sample.docx", FormatType.Docx)
+        End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
+//Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-	//Creates a section
+	//Create a section.
     IWSection section = document.AddSection();
-    //Adds a paragraph to a section
+    //Add a paragraph to a section.
     IWParagraph paragraph = section.AddParagraph();
-    //Appends the text to paragraph
+    //Append the text to paragraph.
     paragraph.AppendText("First paragraph in First section");
-    //Appends the footnotes
+    //Append the footnote.
     WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
-    //Sets the footnote character format
+    //Set the footnote character format.
     footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Sets the numbering format for footnote
+    //Set the numbering format for footnote.
     document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
-    //Adds footnote text
-    paragraph = footnote.TextBody.AddParagraph();paragraph.AppendText("Footnote content");
-    //Sets the footnote position
+    //Add footnote text.
+    paragraph = footnote.TextBody.AddParagraph();
+    paragraph.AppendText("Footnote content");
+    //Set the footnote position.
     document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText;
-    //Adds the new section to the document
+    //Add the new section to the document.
     section = document.AddSection();
-    //Adds a paragraph to a section
+    //Add a paragraph to a section.
     paragraph = section.AddParagraph();
-    //Inserts the text into the paragraph
+    //Append text into the paragraph.
     paragraph.AppendText("Paragraph in Second section.");
-    //Appends the endnotes
+    //Append the endnote.
     WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
-    //Sets the footnote character format
+    //Set the endnote character format.
     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Sets the numbering format for footnote
+    //Set the numbering format for endnote.
     document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
-    //Adds endnote text
+    //Add endnote text.
     paragraph = endnote.TextBody.AddParagraph();
     paragraph.AppendText("Endnote of second section");
-    //Sets the endnote position
+    //Set the endnote position.
     document.EndnotePosition = EndnotePosition.DisplayEndOfSection;
-    //Adds the new section to the document
+    //Add the new section to the document.
     section = document.AddSection();
-    //Sets a section break
+    //Set a section break.
     section.BreakCode = SectionBreakCode.NoBreak;
-    //Adds a paragraph to a section
+    //Add a new paragraph to a section.
     paragraph = section.AddParagraph();
-    //Inserts the text into the paragraph
+    //Append text into the paragraph.
     paragraph.AppendText("Paragraph in third Section.");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	document.Close();
+    MemoryStream stream = new MemoryStream();
+    //Save the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Save the stream as Word file in local machine
+    Save(stream, "Sample.docx");
+    //Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new instance of WordDocument (Empty Word Document)
+//Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-	//Creates a section.
-    IWSection section = document.AddSection();
-    //Adds a paragraph to a section.
-    IWParagraph paragraph = section.AddParagraph();
-    //Appends the text to paragraph
-    paragraph.AppendText("First paragraph in First section");
-    //Appends the footnotes 
-    WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
-    //Sets the footnote character format
-    footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Adds footnote text
-    paragraph = footnote.TextBody.AddParagraph();
-	paragraph.AppendText("Footnote content");
-    //Sets the footnote position
-    document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText;
-    //Adds the new section to the document
-    section = document.AddSection();
-    //Adds a paragraph to a section
-    paragraph = section.AddParagraph();
-    //Inserts the text into the paragraph
-    paragraph.AppendText("Paragraph in Second section.");
-    //Appends the endnotes
-    WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
-    //Sets the footnote character format
-	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Adds endnote text
-    paragraph = endnote.TextBody.AddParagraph();
-    paragraph.AppendText("Endnote of second section");
-    //Sets the endnote position
-    document.EndnotePosition = EndnotePosition.DisplayEndOfSection;
-    //Adds the new section to the document
-    section = document.AddSection();
-    //Sets a section break
-    section.BreakCode = SectionBreakCode.NoBreak;
-    //Adds a paragraph to a section
-    paragraph = section.AddParagraph();
-    //Inserts the text into the paragraph
-    paragraph.AppendText("Paragraph in third Section.");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
+   //Create a section.
+   IWSection section = document.AddSection();
+   //Add a paragraph to a section.
+   IWParagraph paragraph = section.AddParagraph();
+   //Append the text to paragraph.
+   paragraph.AppendText("First paragraph in First section");
+   //Append the footnote.
+   WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
+   //Set the footnote character format.
+   footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+   //Set the numbering format for footnote.
+   document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
+   //Add footnote text.
+   paragraph = footnote.TextBody.AddParagraph();
+   paragraph.AppendText("Footnote content");
+   //Set the footnote position.
+   document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText;
+   //Add the new section to the document.
+   section = document.AddSection();
+   //Add a paragraph to a section.
+   paragraph = section.AddParagraph();
+   //Append text into the paragraph.
+   paragraph.AppendText("Paragraph in Second section.");
+   //Append the endnote.
+   WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
+   //Set the endnote character format.
+   endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+   //Set the numbering format for endnote.
+   document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
+   //Add endnote text.
+   paragraph = endnote.TextBody.AddParagraph();
+   paragraph.AppendText("Endnote of second section");
+   //Set the endnote position.
+   document.EndnotePosition = EndnotePosition.DisplayEndOfSection;
+   //Add the new section to the document.
+   section = document.AddSection();
+   //Set a section break.
+   section.BreakCode = SectionBreakCode.NoBreak;
+   //Add a new paragraph to a section.
+   paragraph = section.AddParagraph();
+   //Append text into the paragraph.
+   paragraph.AppendText("Paragraph in third Section.");
+   //Save the Word document to MemoryStream.
+   MemoryStream outputStream = new MemoryStream();
+   document.Save(outputStream, FormatType.Docx);
+   outputStream.Position = 0;
+   //Download Word document in the browser.
+   return File(outputStream, "application/msword", "Sample.docx");
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (WordDocument document = new WordDocument())
 {
-	//Creates a section
-	IWSection section = document.AddSection();
-	//Adds a paragraph to a section
-	IWParagraph paragraph = section.AddParagraph();
-	//Appends the text to paragraph
+	//Create a section.
+    IWSection section = document.AddSection();
+    //Add a paragraph to a section.
+    IWParagraph paragraph = section.AddParagraph();
+    //Append the text to paragraph.
     paragraph.AppendText("First paragraph in First section");
-    //Appends the footnotes
+    //Append the footnote.
     WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
-    //Sets the footnote character format
+    //Set the footnote character format.
     footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Sets the numbering format for footnote
+    //Set the numbering format for footnote.
     document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
-    //Adds footnote text
+    //Add footnote text.
     paragraph = footnote.TextBody.AddParagraph();
     paragraph.AppendText("Footnote content");
-    //Sets the footnote position
+    //Set the footnote position.
     document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText;
-    //Adds the new section to the document
+    //Add the new section to the document.
     section = document.AddSection();
-    //Adds a paragraph to a section
+    //Add a paragraph to a section.
     paragraph = section.AddParagraph();
-    //Inserts the text into the paragraph
+    //Append text into the paragraph.
     paragraph.AppendText("Paragraph in Second section.");
-    //Appends the endnotes
+    //Append the endnote.
     WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
-    //Sets the footnote character format
+    //Set the endnote character format.
     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Sets the numbering format for footnote
+    //Set the numbering format for endnote.
     document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
-    //Adds endnote text
+    //Add endnote text.
     paragraph = endnote.TextBody.AddParagraph();
     paragraph.AppendText("Endnote of second section");
-    //Sets the endnote position
+    //Set the endnote position
     document.EndnotePosition = EndnotePosition.DisplayEndOfSection;
-    //Adds the new section to the document
+    //Add the new section to the document.
     section = document.AddSection();
-    //Sets a section break
+    //Set a section break.
     section.BreakCode = SectionBreakCode.NoBreak;
-    //Adds a paragraph to a section
+    //Add a new paragraph to a section.
     paragraph = section.AddParagraph();
-    //Inserts the text into the paragraph
+    //Append text into the paragraph.
     paragraph.AppendText("Paragraph in third Section.");
+	//Save the Word document to MemoryStream.
 	MemoryStream stream = new MemoryStream();
 	document.Save(stream, FormatType.Docx);    
-	//Save the stream as a file in the device and invoke it for viewing
+	//Save the stream as a file in the device and invoke it for viewing.
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
-	//Closes the documents               
-	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
 {% endtabs %}  
 
-You can download a complete working sample from
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Change-default-endnote-separator).
 
 ## Footnote and Endnote separators
 
