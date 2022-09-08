@@ -8,7 +8,7 @@ documentation: UG
 
 # Working with .NET PDF Tables using the PdfGrid model 
 
-The Syncfusion .NET PDF library supports fretting PDF tables or grids. The PDF table displays data from the data sources or by direct data binding in a tabular format. It is designed for high performance with advanced customization, styling, and formatting. Here you will see the creation of a PDF table using the **PdfGrid** model.  
+The Syncfusion .NET PDF library supports creating PDF tables or grids. The PDF table displays data from the data sources or by direct data binding in a tabular format. It is designed for high performance with advanced customization, styling, and formatting. Here you will see the creation of a PDF table using the **PdfGrid** model.  
 
 ## Creating a simple table  
 
