@@ -713,11 +713,11 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
 //Access paragraph in Word document.
 WParagraph paragraph = document.Sections[0].Paragraphs[6] as WParagraph;
-//Get the footnote at index 0.
+//Access footnote in paragraph.
 WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear footnote content.
 footnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of footnote.
+//Add new paragraph to body of the footnote.
 WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Set the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -725,11 +725,11 @@ footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 footnoteParagraph.AppendText(" Footnote is modified.");
 //Access paragraph in Word document.
 paragraph = document.Sections[2].Paragraphs[1] as WParagraph;
-//Get the endnote at index 0.
+//Access endnote in paragraph.
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear endnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of endnote.
+//Add new paragraph to body of the endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
 //Set the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -745,11 +745,11 @@ document.Save("Sample.docx", FormatType.Docx);
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 'Access paragraph in Word document.
 Dim paragraph As WParagraph = TryCast(document.Sections(0).Paragraphs(6), WParagraph)
-'Get the footnote at index 0.
+'Access footnote in paragraph.
 Dim footnote As WFootnote = TryCast(paragraph.ChildEntities(0), WFootnote)
 'Clear footnote content.
 footnote.TextBody.ChildEntities.Clear()
-'Add new paragraph to body of footnote.
+'Add new paragraph to body of the footnote.
 Dim footnoteParagraph As WParagraph = TryCast(footnote.TextBody.AddParagraph(), WParagraph)
 'Set the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
@@ -757,11 +757,11 @@ footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
 footnoteParagraph.AppendText(" Footnote is modified.")
 'Access paragraph in Word document.
 paragraph = TryCast(document.Sections(2).Paragraphs(1), WParagraph)
-'Get the endnote at index 0.
+'Access endnote in paragraph.
 Dim endnote As WFootnote = TryCast(paragraph.ChildEntities(0), WFootnote)
 'Clear endnote content.
 endnote.TextBody.ChildEntities.Clear()
-'Add new paragraph to body of endnote.
+'Add new paragraph to body of the endnote.
 Dim endnoteParagraph As WParagraph = TryCast(endnote.TextBody.AddParagraph(), WParagraph)
 'Set the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
@@ -781,11 +781,11 @@ using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
 {
 //Access paragraph in Word document.
 WParagraph paragraph = document.Sections[0].Paragraphs[6] as WParagraph;
-//Get the footnote at index 0.
+//Access footnote in paragraph.
 WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear footnote content.
 footnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of footnote.
+//Add new paragraph to body of the footnote.
 WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Set the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -793,11 +793,11 @@ footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 footnoteParagraph.AppendText(" Footnote is modified.");
 //Access paragraph in Word document.
 paragraph = document.Sections[2].Paragraphs[1] as WParagraph;
-//Get the endnote at index 0.
+//Access endnote in paragraph.
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear endnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of endnote.
+//Add new paragraph to body of the endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
 //Set the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -823,11 +823,11 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 {
 //Access paragraph in Word document.
 WParagraph paragraph = document.Sections[0].Paragraphs[6] as WParagraph;
-//Get the footnote at index 0.
+//Access footnote in paragraph.
 WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear footnote content.
 footnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of footnote.
+//Add new paragraph to body of the footnote.
 WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Set the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -835,11 +835,11 @@ footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 footnoteParagraph.AppendText(" Footnote is modified.");
 //Access paragraph in Word document.
 paragraph = document.Sections[2].Paragraphs[1] as WParagraph;
-//Get the endnote at index 0.
+//Access endnote in paragraph.
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear endnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of endnote.
+//Add new paragraph to body of the endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
 //Set the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -864,11 +864,11 @@ using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
 {
 //Access paragraph in Word document.
 WParagraph paragraph = document.Sections[0].Paragraphs[6] as WParagraph;
-//Get the footnote at index 0.
+//Access footnote in paragraph.
 WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear footnote content.
 footnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of footnote.
+//Add new paragraph to body of the footnote.
 WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
 //Set the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -876,11 +876,11 @@ footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 footnoteParagraph.AppendText(" Footnote is modified.");
 //Access paragraph in Word document.
 paragraph = document.Sections[2].Paragraphs[1] as WParagraph;
-//Get the endnote at index 0.
+//Access endnote in paragraph.
 WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
 //Clear endnote content.
 endnote.TextBody.ChildEntities.Clear();
-//Add new paragraph to body of endnote.
+//Add new paragraph to body of the endnote.
 WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
 //Set the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -900,7 +900,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Change-default-endnote-separator).
+You can download a complete working sample from [GitHub]
 
 ## Removing a Footnotes/Endnotes
 
