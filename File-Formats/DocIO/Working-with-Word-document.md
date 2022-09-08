@@ -1484,7 +1484,6 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     }
 } 
 
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -1536,7 +1535,7 @@ You can download a complete working sample from [GitHub]
 
 ## Remove background in Word document
 
-You can remove background colors and images in Word document using `NoBackground` API as background type.
+You can remove background colors and images in an existing Word document by setting `NoBackground` as background type.
 
 The following code example shows how to remove background in Word document.
 
