@@ -342,9 +342,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Adding a Footnote and Endnote position
 
-Footnotes are typically located at the bottom of a page or beneath text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. This can be done using `FootnotePosition` API and `EndnotePosition` API.
+Footnotes are typically located at the bottom of a page or beneath the text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. This can be done using `FootnotePosition` API and `EndnotePosition` API.
 
-The following code example illustrates how to add positions of footnotes and endnotes.
+The following code example illustrates how to add positions of footnotes and endnotes:
 
 {% tabs %}  
 
@@ -356,13 +356,13 @@ using (WordDocument document = new WordDocument())
 IWSection section = document.AddSection();
 //Add a paragraph to a section.
 IWParagraph paragraph = section.AddParagraph();
-//Append the text to paragraph.
+//Append the text to the paragraph.
 paragraph.AppendText("First paragraph in First section");
 //Append the footnote.
 WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
 //Set the footnote character format.
 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Set the numbering format for footnote.
+//Set the numbering format for the footnote.
 document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
 //Add footnote text.
 paragraph = footnote.TextBody.AddParagraph();
@@ -379,7 +379,7 @@ paragraph.AppendText("Paragraph in Second section.");
 WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
 //Set the endnote character format.
 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-//Set the numbering format for endnote.
+//Set the numbering format for the endnote.
 document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
 //Add endnote text.
 paragraph = endnote.TextBody.AddParagraph();
@@ -406,13 +406,13 @@ Using document As WordDocument = New WordDocument()
         Dim section As IWSection = document.AddSection()
         'Add a paragraph to a section.
         Dim paragraph As IWParagraph = section.AddParagraph()
-        'Append the text to paragraph.
+        'Append the text to the paragraph.
         paragraph.AppendText("First paragraph in First section")
         'Append the footnote.
         Dim footnote As WFootnote = TryCast(paragraph.AppendFootnote(FootnoteType.Footnote), WFootnote)
         'Set the footnote character format.
         footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
-        'Set the numbering format for footnote.
+        'Set the numbering format for the footnote.
         document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic
         'Add footnote text.
         paragraph = footnote.TextBody.AddParagraph()
@@ -429,7 +429,7 @@ Using document As WordDocument = New WordDocument()
         Dim endnote As WFootnote = TryCast(paragraph.AppendFootnote(FootnoteType.Endnote), WFootnote)
         'Set the endnote character format.
         endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript
-        'Set the numbering format for endnote.
+        'Set the numbering format for the endnote.
         document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman
         'Add endnote text.
         paragraph = endnote.TextBody.AddParagraph()
@@ -457,13 +457,13 @@ using (WordDocument document = new WordDocument())
     IWSection section = document.AddSection();
     //Add a paragraph to a section.
     IWParagraph paragraph = section.AddParagraph();
-    //Append the text to paragraph.
+    //Append the text to the paragraph.
     paragraph.AppendText("First paragraph in First section");
     //Append the footnote.
     WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
     //Set the footnote character format.
     footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Set the numbering format for footnote.
+    //Set the numbering format for the footnote.
     document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
     //Add footnote text.
     paragraph = footnote.TextBody.AddParagraph();
@@ -480,7 +480,7 @@ using (WordDocument document = new WordDocument())
     WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
     //Set the endnote character format.
     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Set the numbering format for endnote.
+    //Set the numbering format for the endnote.
     document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
     //Add endnote text.
     paragraph = endnote.TextBody.AddParagraph();
@@ -513,13 +513,13 @@ using (WordDocument document = new WordDocument())
    IWSection section = document.AddSection();
    //Add a paragraph to a section.
    IWParagraph paragraph = section.AddParagraph();
-   //Append the text to paragraph.
+   //Append the text to the paragraph.
    paragraph.AppendText("First paragraph in First section");
    //Append the footnote.
    WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
    //Set the footnote character format.
    footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-   //Set the numbering format for footnote.
+   //Set the numbering format for the footnote.
    document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
    //Add footnote text.
    paragraph = footnote.TextBody.AddParagraph();
@@ -536,7 +536,7 @@ using (WordDocument document = new WordDocument())
    WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
    //Set the endnote character format.
    endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-   //Set the numbering format for endnote.
+   //Set the numbering format for the endnote.
    document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
    //Add endnote text.
    paragraph = endnote.TextBody.AddParagraph();
@@ -567,13 +567,13 @@ using (WordDocument document = new WordDocument())
     IWSection section = document.AddSection();
     //Add a paragraph to a section.
     IWParagraph paragraph = section.AddParagraph();
-    //Append the text to paragraph.
+    //Append the text to the paragraph.
     paragraph.AppendText("First paragraph in First section");
     //Append the footnote.
     WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
     //Set the footnote character format.
     footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Set the numbering format for footnote.
+    //Set the numbering format for the footnote.
     document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
     //Add footnote text.
     paragraph = footnote.TextBody.AddParagraph();
@@ -590,7 +590,7 @@ using (WordDocument document = new WordDocument())
     WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
     //Set the endnote character format.
     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-    //Set the numbering format for endnote.
+    //Set the numbering format for the endnote.
     document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
     //Add endnote text.
     paragraph = endnote.TextBody.AddParagraph();
@@ -617,7 +617,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}  
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Change-default-endnote-separator).
+You can download a complete working sample from [GitHub]
 
 ## Footnote and Endnote separators
 
