@@ -900,7 +900,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]
+You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Modify-Footnote-and-Endnote-content).
 
 ## Removing a Footnotes/Endnotes
 
