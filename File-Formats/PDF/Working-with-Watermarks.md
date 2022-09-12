@@ -493,7 +493,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Image watermark.
 
-PdfImage image = new PdfBitmap("GifImage.gif");
+PdfImage image = new PdfBitmap("Image.gif");
 
 PdfGraphicsState state = graphics.Save();
 
@@ -523,7 +523,7 @@ Dim graphics As PdfGraphics = pdfPage.Graphics
 
 'Image watermark.
 
-Dim image As PdfImage = New PdfBitmap("GifImage.gif")
+Dim image As PdfImage = New PdfBitmap("Image.gif")
 
 Dim state As PdfGraphicsState = graphics.Save()
 
@@ -553,7 +553,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Load the image as stream.
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.GifImage.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.gif");
 
 //Image watermark.
 
@@ -595,7 +595,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Load the image as stream.
 
-FileStream imageStream = new FileStream("GifImage.gif", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("Image.gif", FileMode.Open, FileAccess.Read);
 
 //Image watermark.
 
@@ -647,7 +647,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Load the image as stream.
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.GifImage.gif ");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.gif ");
 
 PdfImage image = new PdfBitmap(imageStream);
 
@@ -706,7 +706,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Image watermark.
 
-PdfImage image = new PdfBitmap("GifImage.gif");
+PdfImage image = new PdfBitmap("Image.gif");
 
 PdfGraphicsState state = graphics.Save();
 
@@ -734,7 +734,7 @@ Dim graphics As PdfGraphics = loadedPage.Graphics
 
 'Image watermark.
 
-Dim image As PdfImage = New PdfBitmap("GifImage.gif")
+Dim image As PdfImage = New PdfBitmap("Image.gif")
 
 Dim state As PdfGraphicsState = graphics.Save()
 
@@ -776,7 +776,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Load the image as stream
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.GifImage.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.gif");
 
 //Image watermark.
 
@@ -818,7 +818,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Load the image file as stream
 
-FileStream imageStream = new FileStream("GifImage.gif", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("Image.gif", FileMode.Open, FileAccess.Read);
 
 PdfImage image = new PdfBitmap(imageStream);
 
@@ -868,7 +868,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Load the image as stream.
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.GifImage.gif");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.gif");
 
 PdfImage image = new PdfBitmap(imageStream);
 
