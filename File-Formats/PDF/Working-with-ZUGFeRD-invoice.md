@@ -676,7 +676,9 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ZUGFeRD/Extract-ZUGFeRD-invoice-from-PDF-document).
 
 ## Validating ZUGFeRD invoices using Adobe Acrobat
 

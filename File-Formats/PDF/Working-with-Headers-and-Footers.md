@@ -403,3 +403,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Header%20and%20Footer/Adding-an-automatic-field-in-header-and-footer). 

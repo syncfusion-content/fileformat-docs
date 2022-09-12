@@ -234,6 +234,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Adding-text-watermark-in-PDF-document).
+
 The following screenshot shows the output of adding text watermark to PDF document. 
 
 ![watermark](Watermark_images/Watermark_img1.png)
@@ -463,6 +465,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Add-text-watermark-in-an-existing-PDF-document/).
+
 The following screenshot shows the output of adding text watermark to an existing PDF document. 
 
 ![watermark](Watermark_images/Watermark_img2.png)
@@ -679,6 +683,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Adding-image-watermark-in-PDF-document).
 
 The following screenshot shows the output of adding image watermark to PDF document. 
 
@@ -898,6 +904,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Draw-the-image-watermark-in-an-existing-PDF-document).
 
 The following screenshot shows the output of adding image watermark to an existing PDF document. 
 

@@ -158,6 +158,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Brushes/Fill-an-object-with-solid-brush-in-a-PDF/). 
+
 ## Linear gradient brush
 
 The gradient brush is used to fill an object with blend of two or more colors. Essential PDF supports drawing shapes on PDF document with linear gradient brush using [PdfLinearGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLinearGradientBrush.html). The following code snippet illustrates this.
@@ -301,6 +303,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Brushes/Fill-an-object-with-gradient-brush-in-a-PDF/). 
+
 ## Radial Gradient Brush
 
 The gradient brush is used to fill an object with blend of two or more colors. You can draw any shape on PDF document with radial gradient brush using [PdfRadialGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfRadialGradientBrush.html). The following code snippet explains this.
@@ -443,6 +447,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Brushes/Draw-shapes-on-PDF-with-radial-gradient-brush/). 
 
 ## Tiling Brush
 
@@ -601,3 +607,5 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Brushes/Draw-shape-on-PDF-with-tiling-brush/). 

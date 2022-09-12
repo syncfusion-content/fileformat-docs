@@ -287,6 +287,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Navigate-to-specific-URL-from-a-PDF-document/). 
+
 
 To add a web hyperlink to an existing document, please refer the below code snippet.
 
@@ -581,6 +583,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Add-a-web-hyperlink-to-an-existing-PDF-document). 
 
 ## Working with internal document navigation
 
@@ -937,6 +940,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Add-the-hyperlink-for-internal-document-navigation/). 
+
 To add a [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) to an existing document, please use the below code snippet.
 
 {% tabs %}  
@@ -1247,6 +1252,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Internal-document-navigation-to-an-existing-PDF/). 
+
 
 ## Working with external document navigation
 
@@ -1349,6 +1356,8 @@ document.Close()
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Navigate-to-external-document/). 
 
 N> The above link makes use of the absolute path of the file for navigation. So, moving the files to another machine or location may lead to file not found error in PDF reader applications.
 
@@ -1465,3 +1474,5 @@ document.Close()
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Open-a-file-in-relative-path-using-action/). 
