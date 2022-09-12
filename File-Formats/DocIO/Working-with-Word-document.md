@@ -1532,7 +1532,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}  
 
-You can download a complete working sample from [GitHub]https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Hide-backgrounds-in-print-layout-view/.NET-Standard
+You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Hide-backgrounds-in-print-layout-view).
 
 ## Remove background in a Word document
 
@@ -1633,7 +1633,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}  
 
-You can download a complete working sample from [GitHub]https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-background-in-Word-document/.NET-Standard
+You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-background-in-Word-document).
 
 
 ## Working with Alternate chunks
