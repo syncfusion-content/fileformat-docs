@@ -1432,6 +1432,210 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Apply-picture-background-to-document).
 
+## Hide background in the print layout view
+
+You can show or hide background colors and images in the print layout view of Word document using the `DisplayBackgrounds` API.
+
+The following code example shows how to hide the background in print layout view of Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Load Word document.
+using (WordDocument document = new WordDocument(“Input.docx” FormatType.Docx))
+{
+//Disable a flag to hide the background in print layout view.
+document.Settings.DisplayBackgrounds = false;
+//Save the Word document.
+document.Save(“Sample.docx”), FormatType.Docx);
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load Word document.
+Using document As WordDocument = New       WordDocument(“Input.docx"), FormatType.Docx)
+'Disable a flag to hide the background in the print layout view. 
+document.Settings.DisplayBackgrounds = False
+'Save the Word document.
+document.Save(“Sample.docx"), FormatType.Docx)
+End Using
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//"App" is the class of Portable projects.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load file stream into Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Disable a flag to hide the background in the print layout view.
+        document.Settings.DisplayBackgrounds = false;
+        //Save the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file on the local machine.
+        Save(stream, "Sample.docx");
+        //Please refer to the below link to save the Word document in the UWP platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+} 
+
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load file stream into Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Disable a flag to hide the background in the print layout view.
+        document.Settings.DisplayBackgrounds = false;
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download the Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx"); 
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//"App" is the class of Portable projects.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load the file stream into the Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Disable a flag to hide the background in the print layout view.
+        document.Settings.DisplayBackgrounds = false;
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the  link below to save the stream as a file and open the file for viewing on the Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Hide-backgrounds-in-print-layout-view).
+
+## Remove background in a Word document
+
+You can remove background colors and images in an existing Word document by setting `NoBackground` as the background type.
+
+The following code example shows how to remove the background in a Word document:
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Load Word document.
+using (WordDocument document = new WordDocument(“Input.docx” FormatType.Docx))
+{
+//Remove the existing background in the Word document.
+document.Background.Type = BackgroundType.NoBackground;
+//Save the Word document.
+document.Save(“Sample.docx”), FormatType.Docx);
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load Word document.
+Using document As WordDocument = New       WordDocument(“Input.docx"), FormatType.Docx)
+'Remove the existing background in the Word document.
+document.Background.Type = BackgroundType.NoBackground;
+'Save the Word document.
+document.Save(“Sample.docx"), FormatType.Docx)
+End Using
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//"App" is the class of Portable projects.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load file stream into Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Remove the existing background in the Word document.
+        document.Background.Type = BackgroundType.NoBackground;
+        //Save the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file on the local machine.
+        Save(stream, "Sample.docx");
+        //Please refer to the link below to save a Word document in the UWP platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+} 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into the Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Remove the existing background in the Word document.
+        document.Background.Type = BackgroundType.NoBackground;
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download the Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx"); 
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//"App" is the class of Portable projects.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load the file stream into the Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Remove the existing background in the Word document.
+        document.Background.Type = BackgroundType.NoBackground;
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-background-in-Word-document).
+
+
 ## Working with Alternate chunks
 
 Updating Alternate chunk in the Word document, imports the content from the embedded alternate chunk into the main document. When saving the Word document containing alternate chunk as DOCX format document, the alternate chunk content preserved by default. But, when saving as DOC format or other formats, the alternate chunk content will not be preserved. You can use [UpdateAlternateChunks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_UpdateAlternateChunks) method to preserve the alternate chunk content by importing into the main document.
