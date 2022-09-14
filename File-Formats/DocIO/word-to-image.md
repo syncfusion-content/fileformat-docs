@@ -593,7 +593,7 @@ N> 3. Creating an instance of the ChartToImageConverter class is mandatory to 
 N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 N> 5. Total number of images may vary based on unsupported elements in the input Word document.
 N> 6. Word to Image conversion has the same limitations and unsupported elements of Word to PDF conversion.
-N> 7. Different styles of underlines and borders are known limitations in Word to Image conversion in ASP.NET Core, Xamarin, Blazor, WinUI, and .NET MAUI platforms.
+N> 7. Different styles of borders are known limitations in Word to Image conversion in ASP.NET Core, Xamarin, Blazor, WinUI, and .NET MAUI platforms.
 N> 8. In ASP.NET Core, Blazor, Xamarin, WinUI and .NET MAUI platforms, to convert Word document to images we recommend you to use Word to image [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-image) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-image) as a reference in your application.
 N> 9. DocIO supports Word to image conversion in UWP application using DocIORenderer.
 
