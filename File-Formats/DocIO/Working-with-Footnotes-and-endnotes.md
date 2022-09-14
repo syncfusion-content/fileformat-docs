@@ -900,7 +900,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Modify-Footnote-and-Endnote-content).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Modify-Footnote-and-Endnote-content).
 
 ## Removing a Footnotes/Endnotes
 
