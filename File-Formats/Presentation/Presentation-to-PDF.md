@@ -1324,6 +1324,110 @@ pdfDoc.Close()
 
 {% endtabs %}
 
+## Accessible PDF document
+
+This setting allows you to determine whether to preserve document structured tags in the converted PDF document for accessibility (508 or PDF/UA compliance) support. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for people with vision or cognitive impairments who may not able to see or understand the object.
+
+The following code sample shows how to preserve document structured tags in the converted PDF document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Open a PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
+{
+    //Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation.
+    pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+    //Initialize the conversion settings.
+    PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+    // Enable a flag to preserve document structured tags in the converted PDF document.               
+    pdfConverterSettings.AutoTag = true;
+    //Convert the PowerPoint Presentation into PDF document.
+    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
+    {
+        //Save the PDF document.
+        pdfDocument.Save("Sample.pdf");
+    }
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Open a PowerPoint Presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+    'Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation.
+    pptxDoc.ChartToImageConverter = New ChartToImageConverter()
+    'Initialize the conversion settings.
+    Dim pdfConverterSettings As PresentationToPdfConverterSettings = New PresentationToPdfConverterSettings()
+    'Enable a flag to preserve document structured tags in the converted PDF document.
+    pdfConverterSettings.AutoTag = True
+    'Convert the PowerPoint Presentation into PDF document.
+    Using pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+        'Save the PDF document.
+        pdfDocument.Save("Sample.pdf")
+    End Using
+End Using
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Instantiation of PresentationToPdfConverterSettings.
+        PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+        // Enable a flag to preserve document structured tags in the converted PDF document.               
+        pdfConverterSettings.AutoTag = true;
+        //Convert the PowerPoint document to PDF document.
+        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
+        {
+            //Save the converted PDF document to fileStream.
+            using (FileStream fileStreamOutput = File.Create("Sample.pdf"))
+            {
+                pdfDocument.Save(fileStreamOutput);
+                fileStreamOutput.Position = 0;
+            }
+        }   
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Open a PowerPoint presentation.
+using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx")))
+{
+    //Instantiation of PresentationToPdfConverterSettings.
+    PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+    // Enable a flag to preserve document structured tags in the converted PDF document.               
+    pdfConverterSettings.AutoTag = true;
+    //Convert the PowerPoint Presentation into PDF document.
+    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
+    {
+        //Save the converted PDF document to fileStream.
+        using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+        {
+            pdfDocument.Save(outputStream);
+            outputStream.Position = 0;
+            //Save the stream as a file in the device and invoke it for viewing.
+            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", outputStream);
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Chart quality
 
 The Presentation library provides an option to decide the quality of the charts to optimize the converted PDF document size. 
