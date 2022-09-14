@@ -1532,7 +1532,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}  
 
-You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Hide-backgrounds-in-print-layout-view).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Hide-backgrounds-in-print-layout-view).
 
 ## Remove background in a Word document
 
@@ -1546,21 +1546,21 @@ The following code example shows how to remove the background in a Word document
 //Load Word document.
 using (WordDocument document = new WordDocument(“Input.docx” FormatType.Docx))
 {
-//Remove the existing background in the Word document.
-document.Background.Type = BackgroundType.NoBackground;
-//Save the Word document.
-document.Save(“Sample.docx”), FormatType.Docx);
+    //Remove the existing background in the Word document.
+    document.Background.Type = BackgroundType.NoBackground;
+    //Save the Word document.
+    document.Save(“Sample.docx”), FormatType.Docx);
 }
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Load Word document.
-Using document As WordDocument = New       WordDocument(“Input.docx"), FormatType.Docx)
-'Remove the existing background in the Word document.
-document.Background.Type = BackgroundType.NoBackground;
-'Save the Word document.
-document.Save(“Sample.docx"), FormatType.Docx)
+Using document As WordDocument = New WordDocument(“Input.docx"), FormatType.Docx)
+    'Remove the existing background in the Word document.
+    document.Background.Type = BackgroundType.NoBackground;
+    'Save the Word document.
+    document.Save(“Sample.docx"), FormatType.Docx)
 End Using
 
 {% endhighlight %}
@@ -1633,7 +1633,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}  
 
-You can download a complete working sample from [GitHub] (https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-background-in-Word-document).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-background-in-Word-document).
 
 
 ## Working with Alternate chunks
