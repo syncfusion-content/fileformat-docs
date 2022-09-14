@@ -267,6 +267,9 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-popup-annotation-to-the-PDF-document).
+
 To add annotations to an existing PDF document, use the following code example.
 
 {% tabs %}
@@ -516,6 +519,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-popup-annotation-to-an-existing-PDF-document).
+
 ## Flatten annotation
 
 Annotations can be flattened by removing the existing annotation and replacing it with graphics objects that would resemble the annotation and cannot be edited.
@@ -675,6 +680,8 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-the-annotations-in-an-existing-PDF-document).
 
 To flatten the specific annotation in the PDF document, use the below code example.
 
@@ -871,6 +878,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-the-specific-annotaiton-in-the-PDF-document).
+
 To flatten pop-up annotation in the PDF document, use the following code example.
 
 {% tabs %}
@@ -1033,6 +1042,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-popup-annotation-in-the-PDF-document).
+
 ## Flattening annotations without calling save method 
 
 Annotations can be flattened by removing the existing annotation and replacing it with graphic objects that would resemble the annotation and cannot be edited.
@@ -1194,6 +1205,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flattening-annotations-without-calling-save-method).
+
 To flatten the annotation with pop-ups in the PDF document, use the code example below:
 
 {% tabs %}
@@ -1351,6 +1364,9 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flattening-annotations-with-popups-in-PDF).
+
 ## Supported annotation types
 
 ### 3D Annotation
@@ -1557,6 +1573,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-3D-annotation-in-PDF-document).
+
 You can add the JavaScript script to the 3D annotation using the [OnInstantiate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.Pdf3DAnnotation.html#Syncfusion_Pdf_Interactive_Pdf3DAnnotation_OnInstantiate) property, which is executed whenever a 3D stream is read to create an instance of the 3D artwork. The following code snippet illustrate this.
 
 {% tabs %}
@@ -1732,6 +1750,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-the-JavaScript-script-to-the-3D-annotation-in-a-PDF).
+
 ### File Link Annotation 
 
 Links for external files can be added in a PDF document by using the [PdfFileLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFileLinkAnnotation.html) class.
@@ -1824,6 +1844,8 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-file-link-annotation-in-PDF).
 
 ### Rich Media Annotation
 
@@ -2100,6 +2122,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-rich-media-annotation-to-PDF-document).
 
 ### Free Text Annotation
 
@@ -2417,6 +2441,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-free-text-annotation-in-the-PDF-document).
 
 ### Line Annotation 
 
@@ -2813,6 +2839,9 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-line-annotation-to-the-PDF-document).
+
 ### Rubber stamp Annotation
 
 Rubber stamp annotation displays text or graphics intended to look like it is stamped on the page with a rubber stamp. 
@@ -3030,6 +3059,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-rubberstamp-annotation-to-the-PDF-document).
+
 ### Ink Annotation
 
 Ink annotation represents freehand “scribble” comprising one or more disjoint paths. 
@@ -3241,6 +3272,8 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("InkAnnotation.pdf", "application/pdf", stream);
 }
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-ink-annotation-to-the-PDF-document).
 
 {% endhighlight %}
 
@@ -3470,6 +3503,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Get-the-ink-list-points-from-the-existing-PDF-document).
 
 ### Pop-up Annotation
 
@@ -3719,6 +3754,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-popup-annotation-to-the-PDF-document).
+
 ### File Attachment Annotation
 
 File attachment annotation contains reference to a file that typically is embedded in the PDF file.
@@ -3955,6 +3992,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-file-attachment-annotation-in-a-PDF-document).
+
 ### Sound Annotation
 
 Sound annotation is used to play the sound clip in the PDF Document.
@@ -4181,6 +4220,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-sound-annotation-in-a-PDF-document).
+
 ### URI Annotation
 
 URI annotation is used to navigate to a particular web URI
@@ -4404,6 +4445,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-URI-annotation-in-a-PDF-document).
 
 ### Document Link Annotation
 
@@ -4698,6 +4741,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-document-link-annotation-in-PDF-document).
 
 ### Pdf Redaction Annotation
 
@@ -5042,6 +5087,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RedactionAnnotation.pd
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Removing-the-sensitive-text-and-images-from-PDF-document).
+
 N>The redaction annotation flatten operation is currently supported in the .NET Framework and ASP.NET Core platforms only, it is not supported in the UWP, Xamarin platforms.
 
 ## Cloud border style Annotation
@@ -5357,6 +5404,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pd
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-cloud-border-styled-rectangle-annotation-in-the-PDF).
 
 ### Polygon Annotation
 
@@ -5692,6 +5741,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("polygonAnnotation.pdf"
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-cloud-border-styled-polygon-annotation-in-the-PDF).
+
 ### Watermark Annotation
 
 A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page., [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) can be used.
@@ -5923,6 +5974,8 @@ Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WatermarkAnnotati
  }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-watermark-annotation-in-the-PDF-document).
 
 ## Measurement Annotations
 
@@ -6260,6 +6313,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("LineMeasurementAnnotation.pdf
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-line-measurement-annotation-to-the-PDF-document).
+
 ### Square measurement annotation
 
 The square measurement annotation is displayed as square shape in the page. The area of the square is measured when you change the square bound and is displayed in the pop-up window.
@@ -6530,6 +6585,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("SquareMeasurementAnnotation.p
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-square-measurement-annotation-to-PDF-document).
 
 ### Circle measurement annotation
 
@@ -6824,6 +6881,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("CircleMeasurementAnnotation.p
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-circle-measurement-annotation-to-the-PDF-document).
+
 ### Angle measurement annotation
 
 The angle measurement annotation calculates the angle between three points and draws arc between three points. The angle of the annotation is displayed in the pop-up window.
@@ -6921,6 +6980,9 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-angle-measurement-annotation-to-PDF-document).
+
 ## Modifying the annotations
 
 Essential PDF allows you to modify the annotation of existing document. The following code illustrates this.
@@ -7151,6 +7213,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modifying-annotation-of-existing-PDF-document/.NET).
 
 ### Modifying the redaction annotations   
 
@@ -7711,6 +7775,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Removing-annotations-from-an-existing-PDF-document).
+
 ## Importing annotations from FDF file
 
 FDF stands for Forms Data Format. FDF is a file format for representing annotations present in a PDF document. You can import annotation data from the FDF file to PDF using the [ImportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ImportAnnotations_System_IO_Stream_Syncfusion_Pdf_Parsing_AnnotationDataFormat_) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
@@ -7878,6 +7944,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Importing-annotations-from-FDF-file-to-PDF-document).
 
 ## Importing annotations from XFDF file
 
@@ -8047,6 +8115,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Importing-annotations-from-XFDF-file-to-PDF-document).
+
 ## Importing annotations from JSON file
 
 JSON stands for JavaScript Object Notation. It is a collection of key or value pairs and it is used for serializing and transmitting the structured data over a network connection. You can import the annotation data from the JSON file to PDF using the [ImportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ImportAnnotations_System_IO_Stream_Syncfusion_Pdf_Parsing_AnnotationDataFormat_) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
@@ -8203,6 +8273,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportAnnotation.pdf",
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Importing-annotations-from-JSON-file-to-PDF-document).
+
 ## Exporting annotations to FDF file
 
 To export annotation data to the FDF file from PDF document, you can use the [ExportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ExportAnnotations_System_IO_Stream_Syncfusion_Pdf_Parsing_AnnotationDataFormat_) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
@@ -8350,6 +8422,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Exporting-annotation-to-FDF-file-from-PDF-document).
 
 ## Exporting annotations to XFDF file
 
@@ -8499,6 +8573,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Exporting-annotations-to-XFDF-file-from-PDF-document).
+
 ## Exporting annotations to JSON file
 
 To export annotation data to the JSON file from PDF document, you can use the [ExportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ExportAnnotations_System_IO_Stream_Syncfusion_Pdf_Parsing_AnnotationDataFormat_) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
@@ -8638,6 +8714,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExportAnnotation.pdf",
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Exporting-annotations-to-JSON-file-from-PDF-document).
 
 ## Adding comments and review status to the PDF annotation
 
@@ -9000,7 +9078,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-comments-to-the-PDF-annotation).
 
 The following code example explains how to add comments to the existing PDF annotation.
 
@@ -9324,6 +9402,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-comments-to-the-existing-PDF-annotation).
 
 ### Adding review status to the PDF annotation
 
@@ -9682,6 +9762,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-review-status-in-a-newly-created-PDF-annotation).
 
 The following code example explains how to add the review status to the existing PDF annotation. 
 
@@ -10006,7 +10087,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-the-review-status-to-the-existing-PDF-annotation).
 
 ## Removing comments and review status from PDF annotation
 
@@ -10248,6 +10329,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Remove-commets-from-the-existing-PDF-annotation).
+
 The following code example explains how to remove review status to the existing PDF annotation.
 
 {% tabs %}
@@ -10476,6 +10559,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Remove-review-status-to-the-existing-PDF-document).
 
 ## Modifying comments and review status 
 
@@ -10730,6 +10814,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modify-comments-in-the-existing-PDF-annotation).
+
 The following code example explains how to modify review status to the existing PDF annotation.
 
 {% tabs %}
@@ -10979,6 +11065,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modify-review-status-to-the-existing-PDF-annotation).
+
 ## Retrieve review status and comments from PDF annotation
 
 The PDF annotations may have an author-specific state associated with them. The state is not specified in the annotation itself, but it represents a separate text annotation ([Popup Annotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html)).
@@ -11211,6 +11299,8 @@ loadedDocument.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Retrieve-review-status-from-the-existing-PDF-annotations).
+
 ### Retrieve comments from PDF annotation
 
 The following code example explains how to retrieve the annotation comments from the existing PDF document annotations.
@@ -11354,6 +11444,8 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Retrieve-the-annotation-comments-from-the-existing-PDF).
 
 ## Printing Annotations
 
@@ -11590,6 +11682,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Print-annotation-in-the-PDF-document).
 
 The following table explains annotation flags.
 
@@ -12020,6 +12114,8 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-custom-stamp-in-an-existing-PDF-document).
+
 ## Text Markup Annotation
 
 You can highlight the Markup Text using the [PdfTextMarkupAnnotationType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextMarkupAnnotationType.html) enum of the [TextMarkupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextMarkupAnnotation.html) class. This is explained in the following code example.
@@ -12237,6 +12333,8 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Highlight-text-in-the-newly-created-PDF-document).
 
 ## Troubleshooting
 

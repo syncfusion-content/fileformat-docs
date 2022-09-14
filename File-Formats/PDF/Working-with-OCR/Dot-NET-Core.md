@@ -241,6 +241,8 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-for-the-entire-PDF-document).
+
 ## Performing OCR in Linux
 
 To perform the OCR in the ASP.NET Core project in Linux, refer to the following code snippet,
@@ -403,6 +405,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-on-particular-region-of-PDF-document).
 
 ## Performing OCR with rotated pages
 
@@ -459,6 +462,8 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-on-the-rotated-page-of-the-PDF-document).
+
 ## Performing OCR with Unicode characters 
 
 You can perform OCR on Images with Unicode characters. To preserve the Unicode characters in the PDF document, use the UnicodeFont property. Refer to the following code snippet.
@@ -514,7 +519,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %}  
 
- 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-with-unicode-characters-in-a-PDF-document).
 
 ## Layout result 
 
@@ -574,6 +579,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Get-the-OCR'ed-text-and-its-bounds-from-an-input-PDF).
 
 ## Performing OCR with image
 
@@ -638,6 +644,8 @@ string ocrText = processor.PerformOCR(stream, @"tessdata/");
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-on-image-file).
+
 ## OCR an Image to PDF
 
 You can perform OCR on an image and convert it to a searchable PDF document. It is also possible to set PdfConformanceLevel to the output PDF document using OCRSettings. 
@@ -684,6 +692,7 @@ document.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-an-image-and-convert-it-to-a-PDF-document/.NET).
 
 ## Temporary folder
 
@@ -739,6 +748,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Set-temp-folder-while-performing-OCR).
 
 ## Troubleshooting
 

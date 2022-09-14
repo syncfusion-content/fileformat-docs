@@ -260,6 +260,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-new-page-in-a-PDF-XFA-document).
 
 N> XFA documents are created based on the flow layout, so the pages are sequentially added if the doesn’t have space to fit the field it will automatically move on the next page, so we can’t specify the page and page numbers.
 N> PDF supports XFA forms only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP platforms, Xamarin (.NETStandard 2.0 and above), and ASP.NET Core (.NETStandard 2.0 and above).
@@ -550,6 +551,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Create-a-new-PDF-document-with-XFA-page-size).
 
 You can create a custom page size to the PDF document by using following code snippet.
 
@@ -833,6 +835,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Create-a-custom-page-size-to-the-PDF-document).
 
 You can change page orientation from portrait to landscape by using the following code snippet.
 
@@ -1136,6 +1139,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Change-page-orientation-from-portrait-to-landscape-in-PDF).
 
 ## Creating dynamic XFA forms
 
@@ -1421,6 +1425,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Create-a-dynamic-XFA-forms-in-a-PDF-document).
 
 ## Creating static XFA forms
 
@@ -1706,6 +1711,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Create-a-static-XFA-forms-in-a-PDF-document).
 
 ## Creating XFA form fields
 
@@ -1993,6 +1999,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-textbox-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add a textbox field to an existing PDF document
 
@@ -2242,6 +2249,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-textbox-field-to-an-existing-PDF-document).
 
 ### Adding the XFA numeric field
 
@@ -2507,6 +2515,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-XFA-numeric-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the numeric field to an existing PDF document.
 
@@ -2735,6 +2744,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-numeric-field-to-an-existing-PDF-document).
 
 ### Adding the XFA combo box field
 
@@ -3034,6 +3044,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-combobox-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the combo box field to an existing PDF document.
 
@@ -3303,6 +3314,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-combobox-field-to-an-existing-PDF-document).
 
 ### Adding the XFA list box field
 
@@ -3622,6 +3634,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-listbox-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the list box field to an existing PDF document.
 
@@ -3912,6 +3925,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-listbox-field-to-an-existing-PDF-document).
 
 ### Adding XFA check box field
 
@@ -4181,6 +4195,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-checkbox-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the check box field to an existing PDF document.
 
@@ -4420,6 +4435,7 @@ else
 
 {% endtabs %}
  
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-checkbox-field-to-an-existing-PDF-document).
  
 ### Adding the XFA radio button field
 
@@ -4758,6 +4774,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-radio-button-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the radio button field to an existing PDF document.
 
@@ -5067,6 +5084,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-radio-button-field-to-an-existing-PDF-document).
 
 ### Adding the XFA date time field
 
@@ -5346,6 +5364,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-datetime-field-in-a-new-PDF-document/.NET).
 
 The below code snippet illustrates how to add the date time field to an existing PDF document.
 
@@ -5595,6 +5614,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-datetime-field-in-an-existing-PDF-document).
 
 ### Adding the XFA button field
 
@@ -5854,6 +5874,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-button-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the button field to an existing PDF document.
 
@@ -6341,6 +6362,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-text-element-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add a text element to an existing PDF document.
 
@@ -6571,6 +6593,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-text-element-to-an-existing-PDF-document).
 
 ### Adding the XFA rectangle field
 
@@ -6830,6 +6853,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-rectangle-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the rectangle field to an existing PDF document.
 
@@ -7059,6 +7083,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-rectangle-field-to-an-existing-PDF-document).
 
 ### Adding the XFA circle field
 
@@ -7318,6 +7343,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-circle-field-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add the circle field to an existing PDF document.
 
@@ -7806,6 +7832,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-line-to-a-new-PDF-document).
 
 The below code snippet illustrates how to add a line to an existing PDF document.
 
@@ -8286,6 +8313,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-image-to-a-new-PDF-document/.NET).
 
 The below code snippet illustrates how to add an image to an existing PDF document.
 
@@ -8833,6 +8861,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Set-the-horizontal-flow-direction-in-XFA-forms).
 
 ### Vertical flow direction
 
@@ -9152,6 +9181,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Set-the-vertical-flow-direction-in-XFA-forms).
 
 ## Rotating XFA form fields
 
@@ -9451,6 +9481,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Rotating-the-XFA-form-fields-in-a-PDF-document).
 
 ## Validating the date time field
 
@@ -9750,6 +9781,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Validating-the-XFA-datetime-field-in-a-PDF-document).
 
 ## Customizing the numeric field value
 
@@ -10031,6 +10063,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Customizing-the-XFA-numeric-field-in-a-PDF-document).
 
 ## Adding nested sub forms
 
@@ -10380,6 +10413,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-XFA-nested-subforms-in-a-PDF-document).
 
 ## Formatting XFA form fields
 
@@ -10665,6 +10699,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-horizontal-alignments-in-XFA-form-fields).
 
 ### Vertical alignment
 
@@ -10944,6 +10979,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-vertical-alignments-in-XFA-form-fields).
 
 ### Adding margins to the XFA fields
 
@@ -11512,6 +11548,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-padding-to-XFA-form-fields).
 
 ### Adding border to the XFA fields
 
@@ -11801,6 +11838,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-border-to-the-XFA-form-fields).
 
 ## Filling form fields in an existing XFA document
 
@@ -12016,6 +12054,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Filling-the-XFA-textbox-field-in-an-existing-PDF-document).
 
 ### Filling the XFA numeric field
 
@@ -12227,6 +12266,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Filling-the-XFA-numeric-field-in-an-existing-PDF-document).
 
 ### Filling the XFA combo box field
 
@@ -12438,6 +12478,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Filling-the-XFA-combobox-field-in-an-existing-PDF-document).
 
 You can fill and save hidden items in XFA combo box field by using the following code snippet.
 
@@ -12888,6 +12929,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Fill-the-XFA-listbox-field-in-an-existing-PDF-document).
 
 You can also select the multiple values by using the below code snippet.
 
@@ -13308,6 +13350,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Fill-the-XFA-datetime-field-in-an-existing-PDF-document).
 
 ### Filling the XFA check box field
 
@@ -13519,6 +13562,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Fill-the-XFA-checkbox-field-in-an-existing-PDF-document).
 
 ### Filling the XFA radio button field
 
@@ -13750,6 +13794,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Fill-the-XFA-radiobutton-field-in-an-existing-PDF-document).
 
 ### Removing editing capability of form fields
 
@@ -14030,6 +14075,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Removing-editing-capability-of-form-fields-in-a-new-PDF).
 
 The below code snippet illustrates how to set the ```ReadOnly``` property to an existing PDF document.
 
@@ -14219,6 +14265,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Remove-editing-capability-to-an-existing-form-fields).
 
 ## Flattening XFA Form fields
 
@@ -14285,6 +14332,7 @@ ldoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Flattening-XFA-form-fields).
 
 ## Removing the dynamic form fields from an existing XFA document
 
@@ -14496,6 +14544,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Removing-the-dynamic-form-fields-from-an-existing-PDF).
 
 ## Modifying the existing fields in XFA document
 
@@ -14921,6 +14970,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Clear-XFA-datetime-field-value-in-an-existing-XFA-document).
 
 ## Supported fields for XFA form
 

@@ -227,6 +227,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-a-textbox-field-to-a-new-PDF-document).
+
 The below code snippet illustrates how to add the textbox to an existing PDF document.
 
 {% tabs %}  
@@ -491,6 +493,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-the-textbox-to-an-existing-PDF-document).
 
 ### Adding the combo box field
 
@@ -769,6 +772,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-combo-box-in-the-new-PDF-document).
 
 Please refer the below code snippet for adding the combo box in existing PDF document.
 
@@ -1095,6 +1100,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-the-combo-box-in-existing-PDF-document).
+
 ### Adding the radio button field
 
 To create the radio button in the PDF forms, you can use [PdfRadioButtonListField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRadioButtonListField.html) class and you can create the radio button list items by using the [PdfRadioButtonListItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRadioButtonListItem.html) class.
@@ -1371,6 +1378,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-radio-button-in-new-PDF-document).
 
 The below code snippet illustrates how to add the radio button in existing PDF document.
 
@@ -1694,6 +1703,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-radio-button-in-existing-PDF-document).
 
 ### Retrieving option values from acroform radio button
 
@@ -2299,6 +2310,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-listbox-field-in-new-PDF-document).
+
 Please refer the below code snippet for adding the list box field in existing PDF document.
 
 {% tabs %} 
@@ -2643,6 +2656,7 @@ else
 
 {% endtabs %}  
  
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-listbox-field-in-an-existing-PDF-document).
 
 ### Adding the check Box field
 
@@ -2869,6 +2883,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-checkbox-field-in-new-PDF-document).
 
 Please refer the below code snippet for adding the check box field in existing PDF document.
 
@@ -3143,6 +3159,7 @@ else
 
 {% endtabs %}  
   
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-checkbox-field-in-an-existing-PDF-document).
 
 ### Adding the signature field
 
@@ -3373,6 +3390,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-signature-field-in-a-new-PDF-document).
 
 Please refer the below code snippet for adding the signature field in existing PDF document.
 
@@ -3647,6 +3666,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-the-signatre-field-in-existing-PDF-document).
+
 ### Adding the button field 
 
 To create button fields in PDF forms, you can use [PdfButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfButtonField.html) class.
@@ -3873,6 +3894,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-the-button-field-in-a-new-PDF-document).
 
 Please refer the below code snippet for adding the button field in existing PDF document.
 
@@ -4137,6 +4160,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-button-field-in-an-existing-PDF-document).
+
 ## Set appearance to the PDF form fields
 
 After filling the form fields in the PDF document, it may appear empty due to the absence of the appearance dictionary. By setting false to the [SetDefaultAppearance] (https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html#Syncfusion_Pdf_Interactive_PdfForm_SetDefaultAppearance_System_Boolean_) method in [PdfForm](https://help.syncfusion.com/cr/aspnetmvc/Syncfusion.Pdf.Interactive.PdfForm.html) class, you can create the appearance dictionary. By this, the text will be visible in all PDF Viewers.
@@ -4355,6 +4380,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf",
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Set-appearance-to-the-PDF-form-fields).
 
 ## Modifying the existing form field in PDF document 
 
@@ -4865,6 +4892,8 @@ else
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Modifying-fore-and-backcolor-of-existing-form-fields).
+
 ## Filling form fields in an existing PDF Document
 
 Essential PDF allows you to fill the form fields using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. 
@@ -5068,6 +5097,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Filling-the-textbox-field-in-an-existing-PDF-document).
+
 ### Filling the combo box field
 
 You can fill a combo box field using [SelectedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedComboBoxField.html#Syncfusion_Pdf_Parsing_PdfLoadedComboBoxField_SelectedValue) or [SelectedIndex](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedComboBoxField.html#Syncfusion_Pdf_Parsing_PdfLoadedComboBoxField_SelectedIndex) properties of [PdfLoadedComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedComboBoxField.html) class. Please refer the below code snippet to fill the combo box field in an existing PDF document.
@@ -5268,6 +5299,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Fill-the-combobox-field-in-an-existing-PDF-document).
+
 ### Filling the radio button field
 
 You can fill a radio button field using [SelectedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonListField.html#Syncfusion_Pdf_Parsing_PdfLoadedRadioButtonListField_SelectedValue) or [SelectedIndex](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonListField.html#Syncfusion_Pdf_Parsing_PdfLoadedRadioButtonListField_SelectedIndex) properties of [PdfLoadedRadioButtonListField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonListField.html) class. Please refer the below code snippet to fill the radio button field in an existing PDF document.
@@ -5467,6 +5500,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Fill-radio-button-field-in-an-existing-PDF-document).
 
 ### Filling the list box field
 
@@ -5676,6 +5710,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Fill-list-box-field-in-an-existing-PDF-document).
 
 ### Filling the check Box field
 
@@ -5905,6 +5941,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Fill-the-checkbox-field-in-an-existing-PDF-document).
 
 ### Filling the signature field
 
@@ -6162,6 +6200,8 @@ else
 
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Fill-the-signature-field-in-an-existing-PDF).
 
 ### Enumerate the form fields
 
@@ -6426,6 +6466,7 @@ else
 
 {% endtabs %}  
  
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Enumarate-form-fields-in-a-PDF-document).
 
 ### TryGetField
 
@@ -6672,6 +6713,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Get-the-field-from-collection-using-TryGetField).
+
 ### TryGetValue
 
 To get the field value from the given field name, you can use [TryGetValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedFormFieldCollection_TryGetValue_System_String_System_String__) method in [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class. It specifies whether the particular field is available in the form or not by returning a boolean value.
@@ -6889,6 +6932,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Get-the-field-from-collection-using-TryGetValue).
+
 ## Fill the XFA form fields along with Acroform in a same API
 
 The static XFA document contains both the XFA and Acroform.
@@ -7093,6 +7138,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Fill-the-XFA-forms-fields-via-acroform-API).
 
 ## Removing editing capability of form fields
 
@@ -7337,6 +7383,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Removing-editing-capability-of-form-fields).
+
 Please refer the sample for flattening the form fields in existing PDF document.
 
 {% tabs %}  
@@ -7562,6 +7610,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Flattening-form-fields-in-an-existing-PDF-document/.NET).
 
 N> The form fields will be flattened only after the PDF document is saved. 
 
@@ -8048,6 +8098,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Set-readonly-property-to-a-new-PDF-document).
+
 The below code snippet illustrates how to set the ``ReadOnly`` property to an existing PDF document.
 
 {% tabs %}  
@@ -8234,6 +8286,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Set-the-ReadOnly-property-to-an-existing-PDF-document).
 
 N> Flattening and adding Read-only properties can be done to the entire form or an individual form field.
 
@@ -8493,6 +8547,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Remove-the-form-fields-form-the-existing-PDF-document).
+
 ## Importing FDF file to PDF
 
 FDF stands for Forms Data Format. FDF is a file format for representing form data and annotations that are contained in a PDF form. You can import the FDF file to PDF using [ImportDataFDF](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html#Syncfusion_Pdf_Parsing_PdfLoadedForm_ImportDataFDF_System_Byte___) method in [PdfLoadedForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class.
@@ -8557,6 +8613,7 @@ loadedDocument.Close(True)
 
 {% endtabs %}  
  
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Importing-FDF-file-to-PDF-document).
 
 ## Export PDF file to FDF
 
@@ -8612,6 +8669,8 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Export-FDF-file-from-PDF-document).
 
 ## Complex script support for form fields
 
@@ -9764,6 +9823,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Auto-naming-of-form-fields-in-a-PDF-document).
+
 The following screenshot shows the enabling and disabling of form fields auto naming in PDF documents. 
 
 ![Auto Naming](Form_images/Form_img1.png)
@@ -9995,6 +10056,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Auto-resize-the-text-of-textboxfield-in-a-PDF).
 
 ## Troubleshooting
 
@@ -10231,7 +10294,9 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Enable-default-appearance-in-new-PDF-document).
 
 The below code illustrates how to enable the default appearance in existing PDF document.
 
@@ -10450,4 +10515,6 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Enable-default-appearance-in-existing-PDF-document).
