@@ -2206,7 +2206,7 @@ The following code example illustrates how to replace the pattern of text with n
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
     //Replace all occurrences of the given pattern of text with normal text.
-    document.Replace(new Regex("{[A-Za-z]+}"), "Cycles Company");
+    document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
     //Save the Word document.
     document.Save("Sample.docx", FormatType.Docx);
 }
@@ -2216,7 +2216,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Replace all occurrences of the given pattern of text with normal text.
-    document.Replace(New Regex("{[A-Za-z]+}"), "Cycles Company")
+    document.Replace(New Regex("{[A-Za-z]+}"), "cycles company")
     'Save the WordDocument instance.
     document.Save("Sample.docx", FormatType.Docx)
 End Using
@@ -2230,7 +2230,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
     {
         //Replace all occurrences of the given pattern of text with normal text.
-        document.Replace(new Regex("{[A-Za-z]+}"), "Cycles Company");
+        document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
         //Save the Word document to MemoryStream.
         MemoryStream stream = new MemoryStream();
         await document.SaveAsync(stream, FormatType.Docx);
@@ -2250,7 +2250,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
     using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
     {
         //Replace all occurrences of the given pattern of text with normal text.
-        document.Replace(new Regex("{[A-Za-z]+}"), "Cycles Company");
+        document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
         //Save the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
@@ -2269,7 +2269,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
     {
         //Replace all occurrences of the given pattern of text with normal text.
-        document.Replace(new Regex("{[A-Za-z]+}"), "Cycles Company");
+        document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
         //Save the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
@@ -2298,7 +2298,7 @@ The following code example illustrates how to replace a pattern of multiline tex
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
     //Replace the text extended to several paragraphs with simple text.
-    document.ReplaceSingleLine(new Regex("^«(.*)»"), "Replaced paragraph");
+    document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
     //Save the Word document.
     document.Save("Sample.docx", FormatType.Docx);
 }
@@ -2308,7 +2308,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Replace the text extended to several paragraphs with simple text.
-    document.ReplaceSingleLine(New Regex("^«(.*)»"), "Replaced paragraph")
+    document.ReplaceSingleLine(New Regex("\[(.*)\]"), "Thank you for Payment")
     'Save the Word document.
     document.Save("Sample.docx", FormatType.Docx)
 End Using
@@ -2322,7 +2322,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Replace the text extended to several paragraphs with simple text.
-        document.ReplaceSingleLine(new Regex("^«(.*)»"), "Replaced paragraph");
+        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
         //Save the Word document to MemoryStream.
         MemoryStream stream = new MemoryStream();
         await document.SaveAsync(stream, FormatType.Docx);
@@ -2342,7 +2342,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Replace the text extended to several paragraphs with simple text.
-        document.ReplaceSingleLine(new Regex("^«(.*)»"), "Replaced paragraph");
+        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
         //Save the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
@@ -2361,7 +2361,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
         //Replace the text extended to several paragraphs with simple text.
-        document.ReplaceSingleLine(new Regex("^«(.*)»"), "Replaced paragraph");
+        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
         //Save the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
@@ -2379,7 +2379,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace text with formatted text
 
-You can select a text using the `Find` method and replace text in a Word document with that selected text and formatting (bold, italic, and so on).
+You can select a text using the `Find` method and replace text in a Word document with that selected text along with formatting (bold, italic, and so on).
 
 The following code example illustrates how to find and replace text with the formatted text in the Word document.
 
@@ -2492,9 +2492,9 @@ The following code example illustrates how to find and replace the text extended
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
     //Find the first occurrence of particular text extended to several paragraphs in the document.
-    TextSelection[] textSelections = document.FindSingleLine(new Regex ("«(.*)»"));
+    TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
     //Replace the particular text extended to several paragraphs with the selected text.
-    document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), textSelections[1]);
+    document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
     //Save the Word document.
     document.Save("Sample.docx", FormatType.Docx);
 }
@@ -2504,9 +2504,9 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Find the first occurrence of particular text extended to several paragraphs in the document.
-    Dim textSelections As TextSelection() = document.FindSingleLine(New Regex("«(.*)»"))
+    Dim textSelections As TextSelection() = document.FindSingleLine(New Regex("\[(.*)\]"))
     'Replace the particular text extended to several paragraphs with the selected text.
-    document.ReplaceSingleLine(New Regex("\[(.*)\]"), textSelections(1))
+    document.ReplaceSingleLine(New Regex("<<(.*)>>"), textSelections(1))
     'Save the Word document.
     document.Save("Sample.docx", FormatType.Docx)
 End Using
@@ -2520,9 +2520,9 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
     {
         //Find the first occurrence of particular text extended to several paragraphs in the document.
-        TextSelection[] textSelections = document.FindSingleLine(new Regex ("«(.*)»"));
+        TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
         //Replace the particular text extended to several paragraphs with the selected text.
-        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), textSelections[1]);
+        document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
         //Save the Word document to MemoryStream.
         MemoryStream stream = new MemoryStream();
         await document.SaveAsync(stream, FormatType.Docx);
@@ -2542,9 +2542,9 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
     using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
     {
         //Find the first occurrence of particular text extended to several paragraphs in the document.
-        TextSelection[] textSelections = document.FindSingleLine(new Regex ("«(.*)»"));
+        TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
         //Replace the particular text extended to several paragraphs with the selected text.
-        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), textSelections[1]);
+        document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
         //Save the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
@@ -2563,9 +2563,9 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
     {
         //Find the first occurrence of particular text extended to several paragraphs in the document.
-        TextSelection[] textSelections = document.FindSingleLine(new Regex ("«(.*)»"));
+        TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
         //Replace the particular text extended to several paragraphs with the selected text.
-        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), textSelections[1]);
+        document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
         //Save the Word document to MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
