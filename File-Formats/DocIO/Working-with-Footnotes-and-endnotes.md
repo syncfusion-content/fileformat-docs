@@ -563,7 +563,7 @@ using (WordDocument document = new WordDocument())
 {% highlight c# tabtitle="Xamarin" %}
 using (WordDocument document = new WordDocument())
 {
-	//Create a section.
+    //Create a section.
     IWSection section = document.AddSection();
     //Add a paragraph to a section.
     IWParagraph paragraph = section.AddParagraph();
@@ -609,7 +609,7 @@ using (WordDocument document = new WordDocument())
 	MemoryStream outputStream  = new MemoryStream();
 	document.Save(outputStream , FormatType.Docx);    
 	//Save the stream as a file in the device and invoke it for viewing.
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", outputStream );
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream );
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
