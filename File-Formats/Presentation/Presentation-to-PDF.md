@@ -1413,14 +1413,12 @@ using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStr
     //Convert the PowerPoint Presentation into PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
     {
-        //Save the converted PDF document to fileStream.
-        using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-        {
-            pdfDocument.Save(outputStream);
-            outputStream.Position = 0;
-            //Save the stream as a file in the device and invoke it for viewing.
-            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", outputStream);
-        }
+        //Save the converted PDF document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        pdfDocument.Save(outputStream);
+        outputStream.Position = 0;
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", outputStream);
     }
 }
 
