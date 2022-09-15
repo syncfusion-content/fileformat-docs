@@ -2193,7 +2193,7 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
-## Find and Replace the pattern of text with normal text
+## Find and replace the pattern of text with normal text
 
 You can find the pattern of text using Regex and replace it with normal text in a Word document using the `Replace` method.
 
