@@ -3290,14 +3290,6 @@ Only DOCX and WordML format documents are supported.
 </tr>
 <tr>
 <td>
-Underline
-</td>
-<td>
-Only Single, Dotted, Dash, DotDash, DotDotDash, Words, DashHeavy, DashLong, DashLongHeavy, DotDashHeavy, DotDotDashHeavy, DottedHeavy and Thick underline styles are supported.
-</td>
-</tr>
-<tr>
-<td>
 Pagination
 </td>
 <td>
