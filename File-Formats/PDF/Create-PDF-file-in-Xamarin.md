@@ -183,6 +183,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreatePDFwithImage).
+
 ## Creating a PDF document with table
 
 The following code example shows how to create a PDF document with a simple table.
@@ -223,6 +225,8 @@ doc.Close(true);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreatePDFwithTable).
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
@@ -362,6 +366,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreateInvoicePDF).
+
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
 ![Xamarin PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
@@ -411,6 +417,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endhighlight %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/PDFFormFilling).
+
 The filled form is shown in adobe reader application as follows.
 
 ![Filled Xamarin PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
@@ -444,6 +452,8 @@ finalDoc.Close(true);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/MergePDFs).
 
 
 
