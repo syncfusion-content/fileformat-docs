@@ -31,6 +31,7 @@ Both the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Gr
             <th>
                 PdfGrid
             </th>
+        </tr>
     </thead>
     <tbody>
         <tr>
