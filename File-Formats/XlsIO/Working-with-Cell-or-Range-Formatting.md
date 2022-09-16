@@ -2857,13 +2857,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   workbook.SaveAs("BorderSettings.xlsx");
 }
@@ -2899,13 +2903,17 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.Range("E10").CellStyle.Borders(ExcelBordersIndex.DiagonalUp).LineStyle = ExcelLineStyle.Thin
   'DiagonalDown Border
   worksheet.Range("E12").CellStyle.Borders(ExcelBordersIndex.DiagonalDown).LineStyle = ExcelLineStyle.Dotted
-
+  'Inside Horizontal Border
+  worksheet.Range("G2:I5").CellStyle.Borders(ExcelBordersIndex.InsideHorizontal).LineStyle = ExcelLineStyle.Thick
+  'Inside Vertical Border
+  worksheet.Range("G6:I8").CellStyle.Borders(ExcelBordersIndex.InsideVertical).LineStyle = ExcelLineStyle.Thick
+  
   'Apply border color
   worksheet.Range("A2").CellStyle.Borders.Color = ExcelKnownColors.Blue
 
   'Setting the Border as Range
-  worksheet.Range("G2:I8").BorderAround()
-  worksheet.Range("G2:I8").BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red)
+  worksheet.Range("G10:I16").BorderAround()
+  worksheet.Range("G10:I16").BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red)
 
   workbook.SaveAs("BorderSettings.xlsx")
 End Using
@@ -2942,13 +2950,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
@@ -2995,13 +3007,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("BorderSettings.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -3041,13 +3057,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
