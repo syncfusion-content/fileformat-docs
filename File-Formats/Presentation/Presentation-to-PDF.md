@@ -1326,9 +1326,9 @@ pdfDoc.Close()
 
 ## Accessible PDF document
 
-This setting allows you to determine whether to preserve document structured tags in the converted PDF document for accessibility (508 or PDF/UA compliance) support. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for people with vision or cognitive impairments who may not able to see or understand the object.
+This setting allows you to determine whether to preserve structured document tags in the converted PDF document for accessibility (508 or PDF/UA compliance) support. This property will set the title and description for images, diagrams, and other objects in the generated PDF document. This information will be helpful for people with vision or cognitive impairments who may not be able to see or understand the object.
 
-The following code sample shows how to preserve document structured tags in the converted PDF document.
+The following code sample shows how to preserve structured document tags in the converted PDF document.
 
 {% tabs %}
 
@@ -1337,16 +1337,16 @@ The following code sample shows how to preserve document structured tags in the 
 //Open a PowerPoint Presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-    //Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation.
+    //Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
     pptxDoc.ChartToImageConverter = new ChartToImageConverter();
     //Initialize the conversion settings.
     PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
-    // Enable a flag to preserve document structured tags in the converted PDF document.               
+    //Enable a flag to preserve structured document tags in the converted PDF document.               
     pdfConverterSettings.AutoTag = true;
-    //Convert the PowerPoint Presentation into PDF document.
+    //Convert the PowerPoint Presentation into a PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
     {
-        //Save the PDF document.
+        //Save a PDF document.
         pdfDocument.Save("Sample.pdf");
     }
 }
@@ -1357,15 +1357,15 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 'Open a PowerPoint Presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-    'Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation.
+    'Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
     pptxDoc.ChartToImageConverter = New ChartToImageConverter()
     'Initialize the conversion settings.
     Dim pdfConverterSettings As PresentationToPdfConverterSettings = New PresentationToPdfConverterSettings()
-    'Enable a flag to preserve document structured tags in the converted PDF document.
+    'Enable a flag to preserve structured document tags in the converted PDF document.
     pdfConverterSettings.AutoTag = True
-    'Convert the PowerPoint Presentation into PDF document.
+    'Convert the PowerPoint Presentation into a PDF document.
     Using pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
-        'Save the PDF document.
+        'Save a PDF document.
         pdfDocument.Save("Sample.pdf")
     End Using
 End Using
@@ -1374,20 +1374,20 @@ End Using
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PowerPoint presentation into stream.
+//Load the PowerPoint presentation into a stream.
 using (FileStream fileStreamInput = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read))
 {
-    //Open the existing PowerPoint presentation with loaded stream.
+    //Open the existing PowerPoint presentation with the loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-        //Instantiation of PresentationToPdfConverterSettings.
+        //Instantiation of the PresentationToPdfConverterSettings.
         PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
-        // Enable a flag to preserve document structured tags in the converted PDF document.               
+        //Enable a flag to preserve structured document tags in the converted PDF document.               
         pdfConverterSettings.AutoTag = true;
-        //Convert the PowerPoint document to PDF document.
+        //Convert the PowerPoint document to a PDF document.
         using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
         {
-            //Save the converted PDF document to fileStream.
+            //Save the converted PDF document to the fileStream.
             using (FileStream fileStreamOutput = File.Create("Sample.pdf"))
             {
                 pdfDocument.Save(fileStreamOutput);
@@ -1401,19 +1401,19 @@ using (FileStream fileStreamInput = new FileStream("Sample.pptx", FileMode.Open,
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//"App" is the class of Portable project.
+//The "App" is the class of the Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open a PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx")))
 {
-    //Instantiation of PresentationToPdfConverterSettings.
+    //Instantiation of the PresentationToPdfConverterSettings.
     PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
-    // Enable a flag to preserve document structured tags in the converted PDF document.               
+    //Enable a flag to preserve structured document tags in the converted PDF document.               
     pdfConverterSettings.AutoTag = true;
-    //Convert the PowerPoint Presentation into PDF document.
+    //Convert the PowerPoint Presentation into a PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
     {
-        //Save the converted PDF document to MemoryStream.
+        //Save the converted PDF document to the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         pdfDocument.Save(outputStream);
         outputStream.Position = 0;
