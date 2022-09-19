@@ -982,7 +982,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## Modify Footnote and Endnote content
 Modify footnote and endnote contents in an existing Word document.
 
-The following code example shows how to modify the footnote and endnote content from an existing word document.
+The following code example shows how to modify the footnote and endnote content from an existing Word document:
 
 {% tabs %} 
 
