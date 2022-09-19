@@ -3411,6 +3411,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress).
+
 ## PDF/A to PDF conversion
 
 An existing PDF/A conformance document can be converted to a PDF document using the RemoveConformance method in the PdfLoadedDocument. Refer to the following code sample to achieve the same,

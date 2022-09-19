@@ -2072,6 +2072,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Toggle-the-visibility-of-layers-in-new-PDF-document).
+
 The following code illustrates how to toggle the visibility of layers in an existing PDF document by disabling the [Visible](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html#Syncfusion_Pdf_PdfLayer_Visible) property of [PdfLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html).
 
 {% tabs %}  

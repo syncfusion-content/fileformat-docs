@@ -833,6 +833,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Import-multiple-pages-from-an-existing-PDF).
+
 You can also import pages from multiple documents and arrange the pages as required. The following code example explains the same.
 
 {% tabs %}

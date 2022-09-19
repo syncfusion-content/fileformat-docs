@@ -7573,6 +7573,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-circle-field-to-an-existing-PDF-document).
 
 ### Adding the XFA line
 
@@ -8062,6 +8063,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-XFA-line-to-an-existing-PDF-document).
 
 ### Adding the XFA image
 
@@ -8535,6 +8537,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-image-to-an-existing-PDF-document).
 
 ## Working with XFA form flow directions
 
