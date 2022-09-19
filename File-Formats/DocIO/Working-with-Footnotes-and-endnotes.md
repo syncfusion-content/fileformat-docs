@@ -340,11 +340,11 @@ using (WordDocument document = new WordDocument())
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Footnotes-and-Endnotes/Add-endnotes-in-Word-document).
 
-## Adding a Footnote and Endnote position
+## Set Footnotes and Endnotes position
 
 Footnotes are typically located at the bottom of a page or beneath the text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. This can be done using `FootnotePosition` API and `EndnotePosition` API.
 
-The following code example illustrates how to add positions of footnotes and endnotes:
+The following code example illustrates how to set positions for footnotes and endnotes:
 
 {% tabs %}  
 
