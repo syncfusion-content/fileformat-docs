@@ -124,7 +124,7 @@ table.ResetCells(2, 3);
 //Adds new paragraph to the block content control
 paragraph = blockContentControl.TextBody.AddParagraph() as WParagraph;
 //Gets the image stream
-FileStream imageStream = new FileStream(@"D:\Image.png", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream(@"D:/Image.png", FileMode.Open, FileAccess.Read);
 //Adds image to the paragraph
 paragraph.AppendPicture(imageStream);
 //Creates memory stream
@@ -743,7 +743,7 @@ row.Height = 25f;
 //Adds a new paragraph to the cell
 IWParagraph cellPara = row.Cells[0].AddParagraph();
 //Appends a new picture
-IWPicture pic = cellPara.AppendPicture(System.Drawing.Image.FromFile(@"D:\image.jpg"));
+IWPicture pic = cellPara.AppendPicture(System.Drawing.Image.FromFile(@"D:/image.jpg"));
 pic.Height = 80;
 pic.Width = 180;
 //Adds a new paragraph to the next cell
@@ -1017,7 +1017,7 @@ row.Height = 25.0F
 'Adds a New paragraph to the cell
 Dim cellPara As IWParagraph = row.Cells(0).AddParagraph
 'Appends a new picture
-Dim pic As IWPicture = cellPara.AppendPicture(System.Drawing.Image.FromFile("D:\image.jpg"))
+Dim pic As IWPicture = cellPara.AppendPicture(System.Drawing.Image.FromFile("D:/image.jpg"))
 pic.Height = 80
 pic.Width = 180
 'Adds a new paragraph to the next cell
@@ -1572,7 +1572,7 @@ row.Height = 25f;
 //Adds a new paragraph to the cell
 IWParagraph cellPara = row.Cells[0].AddParagraph();
 //Appends new picture
-IWPicture pic = cellPara.AppendPicture(new FileStream(@"D:\image.jpg", FileMode.Open, FileAccess.Read));
+IWPicture pic = cellPara.AppendPicture(new FileStream(@"D:/image.jpg", FileMode.Open, FileAccess.Read));
 pic.Height = 80;
 pic.Width = 180;
 //Adds a new paragraph to the next cell
@@ -2879,7 +2879,7 @@ textRange.Text = "Rich text content control.";
 //Adds new text to the rich text content control
 richTextControl.ParagraphItems.Add(textRange);
 WPicture picture = new WPicture(document);
-Stream imageStream = new FileStream(@"D:\Image.png", FileMode.Open, FileAccess.Read);
+Stream imageStream = new FileStream(@"D:/Image.png", FileMode.Open, FileAccess.Read);
 //Adds image from stream
 picture.LoadImage(imageStream);
 picture.Height = 100;
@@ -3709,7 +3709,7 @@ paragraph.AppendText("A new text is added to the paragraph. ");
 InlineContentControl pictureContentControl = paragraph.AppendInlineContentControl(ContentControlType.Picture) as InlineContentControl;
 //Creates a new image instance and load image 
 WPicture picture = new WPicture(document);
-Stream imageStream = new FileStream(@"D:\Image.png", FileMode.Open, FileAccess.Read);
+Stream imageStream = new FileStream(@"D:/Image.png", FileMode.Open, FileAccess.Read);
 //Adds image from stream
 picture.LoadImage(imageStream);
 //Adds picture to the picture content control

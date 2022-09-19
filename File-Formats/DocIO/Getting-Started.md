@@ -1051,7 +1051,7 @@ The following code example explains how to search a particular text and highligh
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(@"..\..\Data\Giant Panda.docx");
+WordDocument document = new WordDocument(@"../../Data/Giant Panda.docx");
 //Finds the occurrence of the Word "panda" in the document
 TextSelection[] textSelection = document.FindAll("panda", false, true);
 //Iterates through each occurrence and highlights it
@@ -1067,7 +1067,7 @@ document.Close();
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document into DocIO instance
-Dim document As New WordDocument("..\..\Data\Giant Panda.docx")
+Dim document As New WordDocument("../../Data/Giant Panda.docx")
 'Finds the occurrence of the word "panda" in the document
 Dim textSelection As TextSelection() = document.FindAll("panda", False, True)
 'Iterates through each occurrence and highlights it.
@@ -1178,7 +1178,7 @@ The following code example shows how to perform simple Mail merge by using strin
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document with required merge fields
-WordDocument document = new WordDocument(@"..\..\data\SimpleMailMergeTemplate.docx");
+WordDocument document = new WordDocument(@"../../data/SimpleMailMergeTemplate.docx");
 //Initializes the string array with field names
 string[] fieldNames = new string[] {"FirstName", "LastName", "Email", "Country"};
 //Initializes the string array with field values
@@ -1192,7 +1192,7 @@ document.Close();
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Loads the template document with required merge fields
-Dim document As New WordDocument("..\..\data\SimpleMailMergeTemplate.docx")
+Dim document As New WordDocument("../../data/SimpleMailMergeTemplate.docx")
 'Initializes the string array with field names
 Dim fieldNames As String() = New String() {"FirstName", "LastName", "Email", "Country"}
 'Initializes the string array with field values
@@ -1298,7 +1298,7 @@ The following code example shows how to perform Mail merge with objects.
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
-WordDocument document = new WordDocument(@"..\..\Data\EmployeesTemplate.doc");
+WordDocument document = new WordDocument(@"../../Data/EmployeesTemplate.doc");
 //Gets the employee details as IEnumerable collection
 List<Employee> employeeList = GetEmployees();
 //Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection
@@ -1312,7 +1312,7 @@ document.Close();
 
 {% highlight vb.net tabtitle="VB.NET" %}
 //Loads the template document
-Dim document As New WordDocument("..\..\Data\EmployeesTemplate.doc")
+Dim document As New WordDocument("../../Data/EmployeesTemplate.doc")
 'Gets the employee details as IEnumerable collection
 Dim employeeList As List(Of Employee) = GetEmployees()
 'Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection
