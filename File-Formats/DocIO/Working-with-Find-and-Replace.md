@@ -2287,7 +2287,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace a pattern of multiline text
 
-You can find a pattern of text which extends to several paragraphs using Regex and replace it with normal text in a Word document using the ` ReplaceSingleLine` method.
+You can find a pattern of text which extends to several paragraphs using Regex and replace it with normal text in a Word document using the `ReplaceSingleLine` method.
 
 The following code example illustrates how to replace a pattern of multiline text with a single line in a Word document.
 
