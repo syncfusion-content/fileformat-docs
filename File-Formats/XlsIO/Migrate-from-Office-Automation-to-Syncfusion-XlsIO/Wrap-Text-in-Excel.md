@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Wrap Text in Excel
+# How to apply Wrap Text in Excel
 
 When a text is too long for the width of a cell, the lengthy text will spill over into the cell right to it, if it is an empty cell. But, if the cell right to is occupied, only a portion of the lengthy text appears. Wrapping text is a key feature, which wraps text in Excel and allows fitting a long text in a single cell.
 
