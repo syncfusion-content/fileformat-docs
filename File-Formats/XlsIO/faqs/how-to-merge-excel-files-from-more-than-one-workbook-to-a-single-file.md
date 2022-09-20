@@ -14,7 +14,7 @@ You can merge several Excel files from more than one workbook to a single file. 
 
 {% highlight c# tabtitle="C#" %}
 //Loads all the template documents from Data folder
-string[] files = Directory.GetFiles(@"../../Data/");
+string[] files = Directory.GetFiles("../../Data/");
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -125,7 +125,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Loads all the template documents from Data folder
-string[] files = Directory.GetFiles(@"Data/");
+string[] files = Directory.GetFiles("Data/");
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -165,7 +165,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight c# tabtitle="Xamarin" %}
 //Get the path with files to merge
 string path = Path.Combine(Environment.CurrentDirectory);
-string[] files = Directory.GetFiles(path, "Sample*");
+string[] files = Directory.GetFiles(path, "Sample");
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {

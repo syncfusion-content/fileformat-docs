@@ -37,7 +37,7 @@ private void WrapText()
     cellA2.WrapText = true;
 
     //Save the Excel file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_WrapText.xlsx");
+    workbook.SaveCopyAs("InteropOutput_WrapText.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -65,7 +65,7 @@ Private Sub WrapText()
     cellA2.WrapText = True
 
     'Save the Excel file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_WrapText.xlsx")
+    workbook.SaveCopyAs("InteropOutput_WrapText.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -100,7 +100,7 @@ private void WrapText()
         cellA2.WrapText = true;
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_WrapText.xlsx");
+        workbook.SaveAs("XlsIOOutput_WrapText.xlsx");
     }
 }
 {% endhighlight %}
@@ -127,7 +127,7 @@ Private Sub WrapText()
         cellA2.WrapText = True
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_WrapText.xlsx")
+        workbook.SaveAs("XlsIOOutput_WrapText.xlsx")
     End Using
 End Sub
 {% endhighlight %}

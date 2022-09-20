@@ -71,7 +71,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	IWorksheet worksheet = workbook.Worksheets[0];
 
 	//Add a picture
-	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, @"D:\AdventureCycles-Logo.png", 20, 20);
+	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, Server.MapPath("App_Data/AdventureCycles-Logo.png"), 20, 20);
 
 	//Disable gridlines in the worksheet
 	worksheet.IsGridLinesVisible = false;
@@ -434,7 +434,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Load the existing Excel workbook into IWorkbook
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(Server.MapPath("App_Data/Sample.xlsx"));
 
     //Get the first worksheet in the workbook into IWorksheet
     IWorksheet worksheet = workbook.Worksheets[0];
@@ -461,7 +461,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     application.DefaultVersion = ExcelVersion.Xlsx
 
     'Load the existing Excel workbook into IWorkbook
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+    Dim workbook As IWorkbook = application.Workbooks.Open(Server.MapPath("App_Data/Sample.xlsx"))
 
     'Get the first worksheet in the workbook into IWorksheet
     Dim worksheet As IWorksheet = workbook.Worksheets(0)

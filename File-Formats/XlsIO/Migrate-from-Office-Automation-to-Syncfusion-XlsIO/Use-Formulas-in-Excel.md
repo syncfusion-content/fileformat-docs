@@ -48,7 +48,7 @@ private void ExcelFormulas()
     cellA4.Interior.Color = XlRgbColor.rgbYellow;
 
     //Save the Excel file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_ExcelFormulas.xlsx");
+    workbook.SaveCopyAs("InteropOutput_ExcelFormulas.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -87,7 +87,7 @@ Private Sub ExcelFormulas()
     cellA4.Interior.Color = XlRgbColor.rgbYellow
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_ExcelFormulas.xlsx")
+    workbook.SaveCopyAs("InteropOutput_ExcelFormulas.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -133,7 +133,7 @@ private void ExcelFormulas()
         cellA4.CellStyle.Interior.Color = Color.Yellow;
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_ExcelFormulas.xlsx");
+        workbook.SaveAs("XlsIOOutput_ExcelFormulas.xlsx");
     }
 }
 {% endhighlight %}
@@ -171,7 +171,7 @@ Private Sub ExcelFormulas()
         cellA4.CellStyle.Interior.Color = Color.Yellow
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_ExcelFormulas.xlsx")
+        workbook.SaveAs("XlsIOOutput_ExcelFormulas.xlsx")
     End Using
 End Sub
 {% endhighlight %}

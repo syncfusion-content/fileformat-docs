@@ -2495,7 +2495,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Syncfusion.XlsIO.Image image = Syncfusion.XlsIO.Image.FromStream(imageStream);
 
   //Add ole object
-  IOleObject oleObject = worksheet.OleObjects.AddLink(@"..\..\Data\Document.docx", image);
+  IOleObject oleObject = worksheet.OleObjects.AddLink("../../Data/Document.docx", image);
 
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
@@ -2525,7 +2525,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Image image = Image.FromStream(imageStream);
 
   //Add ole object
-  IOleObject oleObject = worksheet.OleObjects.AddLink(@"..\..\Data\Document.docx", image);
+  IOleObject oleObject = worksheet.OleObjects.AddLink("../../Data/Document.docx", image);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("LinkedObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -2549,7 +2549,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(imageStream);
 
   //Add ole object
-  IOleObject oleObject = worksheet.OleObjects.AddLink(@"..\..\Data\Document.docx", image);
+  IOleObject oleObject = worksheet.OleObjects.AddLink("../../Data/Document.docx", image);
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
