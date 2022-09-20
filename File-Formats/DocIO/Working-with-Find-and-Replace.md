@@ -2193,6 +2193,394 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
+## Find and replace the pattern of text with normal text
+
+You can find the pattern of text using Regex and replace it with normal text in a Word document using the `Replace` method.
+
+The following code example illustrates how to replace the pattern of text with normal text in the Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Open an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Replace all occurrences of the given pattern of text with normal text.
+    document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
+    //Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Open an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Replace all occurrences of the given pattern of text with normal text.
+    document.Replace(New Regex("{[A-Za-z]+}"), "cycles company")
+    'Save the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Replace all occurrences of the given pattern of text with normal text.
+        document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
+        //Save the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file on the local machine.
+        Save(stream, "Sample.docx");
+        //Please refer to the link below to save the Word document in the UWP platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Replace all occurrences of the given pattern of text with normal text.
+        document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download the Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load file stream into Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Replace all occurrences of the given pattern of text with normal text.
+        document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-pattern-text-with-normal-text).
+
+## Find and replace a pattern of multiline text
+
+You can find a pattern of text which extends to several paragraphs using Regex and replace it with normal text in a Word document using the `ReplaceSingleLine` method.
+
+The following code example illustrates how to replace a pattern of multiline text with a single line in a Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Open an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Replace the text extended to several paragraphs with simple text.
+    document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
+    //Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Open an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Replace the text extended to several paragraphs with simple text.
+    document.ReplaceSingleLine(New Regex("\[(.*)\]"), "Thank you for Payment")
+    'Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Replace the text extended to several paragraphs with simple text.
+        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
+        //Save the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file in the local machine.
+        Save(stream, "Sample.docx");
+        //Please refer to the link below to save the Word document in the UWP platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Replace the text extended to several paragraphs with simple text.
+        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download the Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Replace the text extended to several paragraphs with simple text.
+        document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-multiline-text-with-single-line).
+
+## Find and replace text with formatted text
+
+You can select a text using the `Find` method and replace text in a Word document with that selected text along with formatting (bold, italic, and so on).
+
+The following code example illustrates how to find and replace text with the formatted text in the Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Open an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Find the first occurrence of a particular text in the document.
+    TextSelection selection = document.Find(new Regex ("^«(.*)»"));
+    //Replace the particular text with the selected text along with formatting.
+    document.Replace("Bear", selection, false, false, true);
+    //Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Open an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Find the first occurrence of a particular text in the document.
+    Dim selection As TextSelection = document.Find(New Regex("^«(.*)»"))
+    'Replace the particular text with the selected text along with formatting.
+    document.Replace("Bear", selection, False, False, True)
+    'Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into the Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Find the first occurrence of a particular text in the document.
+        TextSelection selection = document.Find(new Regex ("^«(.*)»"));
+        //Replace the particular text with the selected text along with formatting.
+        document.Replace("Bear", selection, false, false, true);
+        //Save the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file on the local machine.
+        Save(stream, "Sample.docx");
+        //Please refer to the link below to save the Word document in the UWP platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Find the first occurrence of a particular text in the document.
+        TextSelection selection = document.Find(new Regex ("^«(.*)»"));
+        //Replace the particular text with the selected text along with formatting.
+        document.Replace("Bear", selection, false, false, true);
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download the Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Find the first occurrence of a particular text in the document.
+        TextSelection selection = document.Find(new Regex ("^«(.*)»"));
+        //Replace the particular text with the selected text along with formatting.
+        document.Replace("Bear", selection, false, false, true);
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-text-with-formatted-text).
+
+## Find and replace the text extended to several paragraphs
+
+You can select a text which extends to several paragraphs using the `FindSingleLine` method and replace text in the Word document with that selected text.
+
+The following code example illustrates how to find and replace the text extended to several paragraphs in the Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Open an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Find the first occurrence of particular text extended to several paragraphs in the document.
+    TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
+    //Replace the particular text extended to several paragraphs with the selected text.
+    document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
+    //Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Open an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Find the first occurrence of particular text extended to several paragraphs in the document.
+    Dim textSelections As TextSelection() = document.FindSingleLine(New Regex("\[(.*)\]"))
+    'Replace the particular text extended to several paragraphs with the selected text.
+    document.ReplaceSingleLine(New Regex("<<(.*)>>"), textSelections(1))
+    'Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Find the first occurrence of particular text extended to several paragraphs in the document.
+        TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
+        //Replace the particular text extended to several paragraphs with the selected text.
+        document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
+        //Save the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file in the local machine.
+        Save(stream, "Sample.docx");
+        //Please refer to the link below to save the Word document in the UWP platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Find the first occurrence of particular text extended to several paragraphs in the document.
+        TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
+        //Replace the particular text extended to several paragraphs with the selected text.
+        document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download the Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Find the first occurrence of particular text extended to several paragraphs in the document.
+        TextSelection[] textSelections = document.FindSingleLine(new Regex(@"\[(.*)\]"));
+        //Replace the particular text extended to several paragraphs with the selected text.
+        document.ReplaceSingleLine(new Regex("<<(.*)>>"), textSelections[1]);
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-text-extended-to-several-paragraphs).
+
 ## See Also
 
 * [How to replace the particular text with hyperlink in Word document](https://www.syncfusion.com/kb/11774/how-to-replace-the-particular-text-with-hyperlink-in-word-document)

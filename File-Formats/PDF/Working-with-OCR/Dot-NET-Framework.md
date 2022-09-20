@@ -27,7 +27,7 @@ N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies
 
 
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
 
 
 
@@ -36,7 +36,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
 {% highlight vb.net tabtitle="VB.NET" %}
 
 
-Dim processor As New OCRProcessor("TesseractBinaries\")
+Dim processor As New OCRProcessor("TesseractBinaries/")
 
 
 
@@ -52,9 +52,9 @@ Dim processor As New OCRProcessor("TesseractBinaries\")
 
 
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\");
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/");
 
-processor.PerformOCR(lDoc, @"TessData\");
+processor.PerformOCR(lDoc, @"TessData/");
 
 
 
@@ -63,9 +63,9 @@ processor.PerformOCR(lDoc, @"TessData\");
 {% highlight vb.net tabtitle="VB.NET" %}
 
 
-Dim processor As New OCRProcessor("TesseractBinaries\")
+Dim processor As New OCRProcessor("TesseractBinaries/")
 
-processor.PerformOCR(lDoc, "TessData\")
+processor.PerformOCR(lDoc, "TessData/")
 
 
 
@@ -92,7 +92,7 @@ You can perform OCR on PDF document with the help of [OCRProcessor](https://help
 
 //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {
 
@@ -106,7 +106,7 @@ processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, @"TessData\");
+processor.PerformOCR(lDoc, @"TessData/");
 
 //Save the OCR processed PDF document in the disk
 
@@ -129,7 +129,7 @@ lDoc.Close(true);
 
 'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-Using processor As New OCRProcessor("TesseractBinaries\")
+Using processor As New OCRProcessor("TesseractBinaries/")
 
 'Load a PDF document
 
@@ -141,7 +141,7 @@ processor.Settings.Language = Languages.English
 
 'Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, "TessData\")
+processor.PerformOCR(lDoc, "TessData/")
 
 'Save the OCR processed PDF document in the disk
 
@@ -174,7 +174,7 @@ The following sample code snippet demonstrates the OCR processor with Tesseract3
 {% highlight c# tabtitle="C#" %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.05Binaries \")
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.05Binaries/")
             
 { 
 
@@ -192,7 +192,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version3_05;
  
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 				 
-processor.PerformOCR(lDoc, @"TessData\", true); 
+processor.PerformOCR(lDoc, @"TessData/", true); 
  
 //Save the OCR processed PDF document in the disk 
 				
@@ -207,7 +207,7 @@ lDoc.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+Using processor As New OCRProcessor("Tesseract3.05Binaries/")
 
 'Load a PDF document
 
@@ -223,7 +223,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version3_05
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -254,7 +254,7 @@ The following code sample explains the OCR processor with Tesseract4.0 for PDF d
 {% highlight c# tabtitle="C#" %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries/")
 
 {
 
@@ -272,7 +272,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, @"TessData\", true);
+processor.PerformOCR(lDoc, @"TessData/", true);
 
 //Save the OCR processed PDF document in the disk
 
@@ -286,7 +286,7 @@ lDoc.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-Using processor As New OCRProcessor("Tesseract4.0Binaries\")
+Using processor As New OCRProcessor("Tesseract4.0Binaries/")
 
 'Load a PDF document
 
@@ -302,7 +302,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version4_0
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -328,7 +328,7 @@ You can perform OCR on particular region or several regions of a PDF page with t
 
 //Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {
 
@@ -358,7 +358,7 @@ processor.Settings.Regions = pageRegions;
 
 //Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, @"TessData\");
+processor.PerformOCR(lDoc, @"TessData/");
 
 //Save the OCR processed PDF document in the disk
 
@@ -379,7 +379,7 @@ lDoc.Close(true);
 
 'Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-Using processor As New OCRProcessor("TesseractBinaries\")
+Using processor As New OCRProcessor("TesseractBinaries/")
 
 'Load a PDF document
 
@@ -407,7 +407,7 @@ processor.Settings.Regions = pageRegions
 
 'Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, "TessData\")
+processor.PerformOCR(lDoc, "TessData/")
 
 'Save the OCR processed PDF document in the disk
 
@@ -432,7 +432,7 @@ You can perform OCR on an image also. Refer the below code snippets for the same
 
 //Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {
 
@@ -446,7 +446,7 @@ processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the bitmap image, data dictionary and language
 
-string ocrText= processor.PerformOCR(image, @"TessData\");
+string ocrText= processor.PerformOCR(image, @"TessData/");
 
 }
 
@@ -461,7 +461,7 @@ string ocrText= processor.PerformOCR(image, @"TessData\");
 
 'Initialize the OCR processor by providing the path of the tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-Using processor As New OCRProcessor("TesseractBinaries\")
+Using processor As New OCRProcessor("TesseractBinaries/")
 
 'loading the input image
 
@@ -473,7 +473,7 @@ processor.Settings.Language = Languages.English
 
 'Process OCR by providing the bitmap image, data dictionary and language
 
-Dim ocrText As String = processor.PerformOCR(image, "TessData\")
+Dim ocrText As String = processor.PerformOCR(image, "TessData/")
 
 End Using
 
@@ -494,7 +494,7 @@ You can optimize the memory to perform OCR for large PDF documents by enabling t
 
 //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {
 
@@ -508,7 +508,7 @@ processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the PDF document, Tesseract data and enable isMemoryOptimized property
 
-processor.PerformOCR(lDoc, @"TessData\",true);
+processor.PerformOCR(lDoc, @"TessData/",true);
 
 //Save the OCR processed PDF document in the disk.
 
@@ -527,7 +527,7 @@ lDoc.Close(true);
 
 'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-Using processor As New OCRProcessor("TesseractBinaries\")
+Using processor As New OCRProcessor("TesseractBinaries/")
 
 'Load a PDF document.
 
@@ -539,7 +539,7 @@ processor.Settings.Language = Languages.English
 
 'Process OCR by providing the PDF document and Tesseract data enable isMemoryOptimized property.
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk.
 
@@ -568,7 +568,7 @@ You can perform OCR on the rotated page of a PDF document. Refer to the followin
 
 //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {
 
@@ -586,7 +586,7 @@ processor.Settings.AutoDetectRotation = true;
 
 //Process OCR by providing the PDF document
 
-processor.PerformOCR(lDoc, @"TessData\");
+processor.PerformOCR(lDoc, @"TessData/");
 
 //Save the OCR processed PDF document in the disk
 
@@ -605,7 +605,7 @@ lDoc.Close(true);
 
 'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
-Using processor As New OCRProcessor("TesseractBinaries\")
+Using processor As New OCRProcessor("TesseractBinaries/")
 
 'Load a PDF document.
 
@@ -621,7 +621,7 @@ processor.Settings.AutoDetectRotation = true
 
 'Process OCR by providing the PDF document
 
-processor.PerformOCR(lDoc, "TessData\")
+processor.PerformOCR(lDoc, "TessData/")
 
 'Save the OCR processed PDF document in the disk
 
@@ -649,7 +649,7 @@ You can get the OCRed text and its bounds from a scanned PDF document by using t
 
 //Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {
 
@@ -667,7 +667,7 @@ OCRLayoutResult result;
 
 //Process OCR by providing the PDF document, Tesseract data, and layout result
 
-processor.PerformOCR(lDoc, @"TessData\", out result);
+processor.PerformOCR(lDoc, @"TessData/", out result);
 
 //Get OCRed line collection from first page
 
@@ -698,7 +698,7 @@ lDoc.Close(true);
 
 'Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
-Using processor As New OCRProcessor("TesseractBinaries\")
+Using processor As New OCRProcessor("TesseractBinaries/")
 
 'Load a PDF document
 
@@ -714,7 +714,7 @@ Dim result As OCRLayoutResult
 
 'Process OCR by providing the PDF document, Tesseract data, and layout result
 
-processor.PerformOCR(lDoc, "TessData\", result)
+processor.PerformOCR(lDoc, "TessData/", result)
 
 'Get OCRed line collection from first page
 
@@ -761,7 +761,7 @@ The following sample code snippet demonstrates the OCR processor with native cal
 {% highlight c# tabtitle="C#" %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.02Binaries\")
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.02Binaries/")
             
 { 
 
@@ -779,7 +779,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version3_02;
  
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 				 
-processor.PerformOCR(lDoc, @"TessData\", true); 
+processor.PerformOCR(lDoc, @"TessData/", true); 
  
 //Save the OCR processed PDF document in the disk 
 				
@@ -794,7 +794,7 @@ lDoc.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-Using processor As New OCRProcessor("Tesseract3.02Binaries\")
+Using processor As New OCRProcessor("Tesseract3.02Binaries/")
 
 'Load a PDF document
 
@@ -810,7 +810,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version3_02
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -842,7 +842,7 @@ The following sample code snippet demonstrates the OCR processor with native cal
 {% highlight c# tabtitle="C#" %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries \")
+using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries/")
 		   
 { 
 			
@@ -864,7 +864,7 @@ processor.Settings.EnableNativeCall = true;
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 			  
-processor.PerformOCR(lDoc, @"TessData\", true); 
+processor.PerformOCR(lDoc, @"TessData/", true); 
  
 //Save the OCR processed PDF document in the disk 
 				
@@ -881,7 +881,7 @@ lDoc.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 
-Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+Using processor As New OCRProcessor("Tesseract3.05Binaries/")
 
 'Load a PDF document
 
@@ -901,7 +901,7 @@ processor.Settings.EnableNativeCall = True
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc,"TessData\", True)
+processor.PerformOCR(lDoc,"TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -927,7 +927,7 @@ While performing OCR on an existing scanned PDF document, the OCR Processor will
 
 //Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {
     
@@ -945,7 +945,7 @@ processor.Settings.TempFolder = "D:/Temp/";
 
 //Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, @"TessData\");
+processor.PerformOCR(lDoc, @"TessData/");
 
 //Save the OCR processed PDF document in the disk
 
@@ -963,7 +963,7 @@ lDoc.Close(true);
 
 'Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
 
-Using processor As New OCRProcessor("TesseractBinaries\")
+Using processor As New OCRProcessor("TesseractBinaries/")
 
 'Load a PDF document
 
@@ -979,7 +979,7 @@ processor.Settings.TempFolder = "D:/Temp/"
 
 'Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, "TessData\")
+processor.PerformOCR(lDoc, "TessData/")
 
 'Save the OCR processed PDF document in the disk
 
@@ -1006,7 +1006,7 @@ You can perform OCR with various page segmentation mode. The PageSegment propert
 {% highlight c# tabtitle="C#" %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries/")
 
 {
 
@@ -1028,7 +1028,7 @@ processor.Settings.PageSegment = PageSegmentMode.AutoOsd;
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, @"TessData\", true);
+processor.PerformOCR(lDoc, @"TessData/", true);
 
 //Save the OCR processed PDF document in the disk
 
@@ -1045,7 +1045,7 @@ lDoc.Close(true);
 
 VB
 
-Using processor As New OCRProcessor("Tesseract4.0Binaries\")
+Using processor As New OCRProcessor("Tesseract4.0Binaries/")
 
 'Load a PDF document
 
@@ -1065,7 +1065,7 @@ processor.Settings.TesseractVersion = TesseractVersion.Version4_0
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -1093,7 +1093,7 @@ This is explained in the following code sample
 {% highlight c# tabtitle="C#" %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries/")
 
 {
 
@@ -1114,7 +1114,7 @@ processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly;
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, @"TessData\", true);
+processor.PerformOCR(lDoc, @"TessData/", true);
 
 //Save the OCR processed PDF document in the disk
 
@@ -1131,7 +1131,7 @@ lDoc.Close(true);
 
 VB
 
-Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+Using processor As New OCRProcessor("Tesseract3.05Binaries/")
 
 'Load a PDF document
 
@@ -1151,7 +1151,7 @@ processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -1177,7 +1177,7 @@ This is explained in the following code sample,
 
 {% highlight c# tabtitle="C#" %}
 
-using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries/")
 
 {
 
@@ -1201,7 +1201,7 @@ Processor.Settings.WhiteList = "PDF";
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, @"TessData\", true);
+processor.PerformOCR(lDoc, @"TessData/", true);
 
 //Save the OCR processed PDF document in the disk
 
@@ -1215,7 +1215,7 @@ lDoc.Close(true);
 
 
 {% highlight vb.net tabtitle="VB.NET" %}
-Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+Using processor As New OCRProcessor("Tesseract3.05Binaries/")
 
 'Load a PDF document
 
@@ -1239,7 +1239,7 @@ Processor.Settings.WhiteList = "PDF"
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -1257,7 +1257,7 @@ End Using
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries\")
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract4.0Binaries/")
 
 {
 
@@ -1281,7 +1281,7 @@ Processor.Settings. BlackList = "PDF";
 
 //Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, @"TessData\", true);
+processor.PerformOCR(lDoc, @"TessData/", true);
 
 //Save the OCR processed PDF document in the disk
 
@@ -1294,7 +1294,7 @@ lDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-Using processor As New OCRProcessor("Tesseract3.05Binaries\")
+Using processor As New OCRProcessor("Tesseract3.05Binaries/")
 
 'Load a PDF document
 
@@ -1318,7 +1318,7 @@ Processor.Settings.BlackList = "PDF"
 
 'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
 
-processor.PerformOCR(lDoc, "TessData\", True)
+processor.PerformOCR(lDoc, "TessData/", True)
 
 'Save the OCR processed PDF document in the disk
 
@@ -1438,7 +1438,7 @@ Refer below code snippet to set the performance of the OCR.
 {% highlight c# tabtitle="C#" %}
 
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
 
 //set the OCR performance
 
@@ -1451,7 +1451,7 @@ processor.Settings.Performance = Performance.Fast;
 {% highlight vb.net tabtitle="VB.NET" %}
 
 
-Dim processor As New OCRProcessor("TesseractBinaries\")
+Dim processor As New OCRProcessor("TesseractBinaries/")
 
 'Set the OCR performance
 
@@ -1476,11 +1476,11 @@ processor.Settings.Performance = Performance.Fast
 
 //'TesseractBinaries – path of the folder containing SyncfusionTesseract.dll and liblept168.dll
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\");
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/");
 
 //TessData – path of the folder containing the language pack
 
-processor.PerformOCR(lDoc, @"TessData\");
+processor.PerformOCR(lDoc, @"TessData/");
 
 
 
@@ -1491,11 +1491,11 @@ processor.PerformOCR(lDoc, @"TessData\");
 
 'TesseractBinaries – path of the folder containing SyncfusionTesseract.dll and liblept168.dll
 
-Dim processor As New OCRProcessor("TesseractBinaries\")
+Dim processor As New OCRProcessor("TesseractBinaries/")
 
 'TessData – path of the folder containing the language pack
 
-processor.PerformOCR(lDoc, "TessData\")
+processor.PerformOCR(lDoc, "TessData/")
 
 
 

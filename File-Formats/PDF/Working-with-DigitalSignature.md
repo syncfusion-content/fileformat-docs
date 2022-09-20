@@ -425,7 +425,7 @@ PdfGraphics graphics = page.Graphics;
 
 //Creates a certificate instance from PFX file with private key
 
-Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 
 PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
 

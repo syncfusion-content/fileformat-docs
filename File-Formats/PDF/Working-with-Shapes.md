@@ -2166,7 +2166,7 @@ loadedDocument.Close(True)
 
   {% highlight c# tabtitle="UWP" %}
 //Load the PDF document as stream
-Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream(Sample.Assets.Input.pdf");
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
 
 //Get the page into PdfLoadedPage

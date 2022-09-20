@@ -530,7 +530,7 @@ Save(stream, "Sample.docx");
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
-FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Gets the employee details as “IEnumerable” collection
 List<Employees> employeeList = GetEmployees();
@@ -1396,7 +1396,7 @@ document.Close()
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
-FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Creates a data table 
 DataTable table = new DataTable("CompatibleVersions");
@@ -1541,7 +1541,7 @@ document.Close();
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Opens the template document 
-FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Uses the mail merge events to perform the conditional formatting during runtime
 document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);

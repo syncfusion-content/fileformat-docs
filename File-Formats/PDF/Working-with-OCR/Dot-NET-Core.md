@@ -84,7 +84,7 @@ N> TesseractBinaries and tessdata folders can be copied automatically from the N
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows");
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows");
 
 
 {% endhighlight %}
@@ -98,7 +98,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 
-processor.PerformOCR(lDoc, "tessdata\");
+processor.PerformOCR(lDoc, "tessdata/");
 
 
 {% endhighlight %}
@@ -126,7 +126,7 @@ You can download the language packages from the following link
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Linux");
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Linux");
 
 
 {% endhighlight %}
@@ -140,7 +140,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Linux");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 
-processor.PerformOCR(lDoc, "tessdata\");
+processor.PerformOCR(lDoc, "tessdata/");
 
 
 {% endhighlight %}
@@ -167,7 +167,7 @@ You can download the language packages from the following link
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Mac");
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Mac");
 
 
 {% endhighlight %}
@@ -181,7 +181,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Mac");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 
-processor.PerformOCR(lDoc, "tessdata\");
+processor.PerformOCR(lDoc, "tessdata/");
 
 
 {% endhighlight %}
@@ -203,7 +203,7 @@ To perform the OCR in the ASP.NET Core project in Windows, refer to the followin
 
 
 //Initialize the OCR processor with tesseract binaries folder path
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -213,7 +213,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Perform OCR with input document and tessdata (Language packs)
-processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata/");
 
 MemoryStream outputStream = new MemoryStream();
 
@@ -252,7 +252,7 @@ To perform the OCR in the ASP.NET Core project in Linux, refer to the following 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize the OCR processor with tesseract binaries folder path
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Linux"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Linux"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -262,7 +262,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Perform OCR with input document and tessdata (Language packs)
-processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata/");
 
 MemoryStream outputStream = new MemoryStream();
 
@@ -300,7 +300,7 @@ To perform the OCR in the ASP.NET Core project in Mac, refer to the following co
 
 
 //Initialize the OCR processor with tesseract binaries folder path
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Mac"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Mac"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -310,7 +310,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Perform OCR with input document and tessdata (Language packs)
-processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata/");
 
 MemoryStream outputStream = new MemoryStream();
 
@@ -351,7 +351,7 @@ You can perform OCR on particular region of the PDF page with help of the [PageR
 
 
 //Initialize the OCR processor by providing the path of the tesseract 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -375,7 +375,7 @@ pageRegions.Add(region);
 //Set page regions
 processor.Settings.Regions = pageRegions;
 //Perform OCR with input document and tessdata (Language packs)
-processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata/");
 
 //Creating the stream object 
 MemoryStream outputStream = new MemoryStream();
@@ -418,7 +418,7 @@ You can perform OCR on the rotated page of a PDF document. Refer to the followin
 
 
 //Initialize the OCR processor by providing the path of tesseract 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -432,7 +432,7 @@ processor.Settings.Language = Languages.English;
 processor.Settings.PageSegment = PageSegMode.AutoOsd;
 
 //Process OCR by providing the PDF document, data dictionary, and language
-processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata/");
 
 //Creating the stream object 
 MemoryStream outputStream = new MemoryStream();
@@ -474,7 +474,7 @@ You can perform OCR on Images with Unicode characters. To preserve the Unicode c
 
 
 //Initialize the OCR processor by providing the path of tesseract 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -490,7 +490,7 @@ processor.UnicodeFont = new PdfTrueTypeFont(fontStream, 8);
 processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the PDF document, data dictionary, and language
-processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata/");
 
 //Creating the stream object 
 MemoryStream outputStream = new MemoryStream();
@@ -531,7 +531,7 @@ You can get the OCRed text and its bounds from an input PDF document by using th
 
 
 //Initialize the OCR processor by providing the path of tesseract 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -542,7 +542,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(stream);
 processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the PDF document, data dictionary, and language
-processor.PerformOCR(document, @"TessData\", out result); 
+processor.PerformOCR(document, @"TessData/", out result); 
 //Get OCRed line collection from first page 
 OCRLineCollection lines = result.Pages[0].Lines;
 //Get each OCRed line and its bounds 
@@ -596,7 +596,7 @@ Refer to the following code snippet for Syncfusion.PDF.OCR.Net.Core package:
 
 //Initialize the OCR processor by providing the path of the tesseract binaries
 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 {
 //loading the input image
 FileStream stream = new FileStream(@"Input.jpeg ", FileMode.Open);
@@ -607,7 +607,7 @@ Bitmap image = new Bitmap(stream);
 processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the bitmap image, data dictionary, and language
-string ocrText= processor.PerformOCR(image, @"tessdata\");
+string ocrText= processor.PerformOCR(image, @"tessdata/");
 
 }
 			
@@ -622,7 +622,7 @@ Refer to the following code snippet for Syncfusion.PDF.OCR.NET package:
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize the OCR processor by providing the path of the tesseract binaries
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 {
 
 FileStream stream = new FileStream("Helloworld.jpg", FileMode.Open);
@@ -706,7 +706,7 @@ By default, the system temporary folder will be used for the process. The tempor
 
 
 //Initialize the OCR processor by providing the path of the tesseract 
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\Windows"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows"))
 {
 //Load a PDF document
 FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
@@ -719,7 +719,7 @@ processor.Settings.Language = Languages.English;
 //Set custom temp file path location
 processor.Settings.TempFolder = "D:/Temp/";
 //Process OCR by providing the PDF document, data dictionary, and language
-processor.PerformOCR(document, @"tessdata\");
+processor.PerformOCR(document, @"tessdata/");
 
 //Creating the stream object 
 MemoryStream outputStream = new MemoryStream();
@@ -787,8 +787,8 @@ To resolve this exception, ensure the tesseract binaries are in the following st
 <br/><br/>
 The tesseract binaries path is TesseractBinaries/Windows and the assemblies should be in below structure, 
 <br/><br/>
-1.<span style="color:gray;font-size:14px"><i>TesseractBinaries\Windows\x64\libletpt1753.dll,libSyncfusionTesseract.dll</i></span><br/>
-2.<span style="color:gray;font-size:14px"><i>TesseractBinaries\Windows\x86\libletpt1753.dll,libSyncfusionTesseract.dll</i></span>
+1.<span style="color:gray;font-size:14px"><i>TesseractBinaries/Windows/x64/libletpt1753.dll,libSyncfusionTesseract.dll</i></span><br/>
+2.<span style="color:gray;font-size:14px"><i>TesseractBinaries/Windows/x86/libletpt1753.dll,libSyncfusionTesseract.dll</i></span>
 </td>
 </tr>
 </table>
