@@ -4757,14 +4757,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a Hyperlink for Opening Files using type as File
   IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
   hyperlink2.Type = ExcelHyperLinkType.File;
-  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.Address = "C:/Program files";
   hyperlink2.ScreenTip = "File path";
   hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
 
   //Creating a Hyperlink for Opening Files using type as Unc
   IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
   hyperlink3.Type = ExcelHyperLinkType.Unc;
-  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.Address = "C:/Documents and Settings";
   hyperlink3.ScreenTip = "Click here for files";
   hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
 
@@ -4801,14 +4801,14 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Creating a Hyperlink for Opening Files using type as File
   Dim hyperlink2 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C9"))
   hyperlink2.Type = ExcelHyperLinkType.File
-  hyperlink2.Address = "C:\Program files"
+  hyperlink2.Address = "C:/Program files"
   hyperlink2.ScreenTip = "File path"
   hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
 
   'Creating a Hyperlink for Opening Files using type as Unc
   Dim hyperlink3 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C11"))
   hyperlink3.Type = ExcelHyperLinkType.Unc
-  hyperlink3.Address = "C:\Documents and Settings"
+  hyperlink3.Address = "C:/Documents and Settings"
   hyperlink3.ScreenTip = "Click here for files"
   hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type"
 
@@ -4846,14 +4846,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a Hyperlink for Opening Files using type as File
   IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
   hyperlink2.Type = ExcelHyperLinkType.File;
-  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.Address = "C:/Program files";
   hyperlink2.ScreenTip = "File path";
   hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
 
   //Creating a Hyperlink for Opening Files using type as Unc
   IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
   hyperlink3.Type = ExcelHyperLinkType.Unc;
-  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.Address = "C:/Documents and Settings";
   hyperlink3.ScreenTip = "Click here for files";
   hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
 
@@ -4901,14 +4901,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a Hyperlink for Opening Files using type as File
   IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
   hyperlink2.Type = ExcelHyperLinkType.File;
-  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.Address = "C:/Program files";
   hyperlink2.ScreenTip = "File path";
   hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
 
   //Creating a Hyperlink for Opening Files using type as Unc
   IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
   hyperlink3.Type = ExcelHyperLinkType.Unc;
-  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.Address = "C:/Documents and Settings";
   hyperlink3.ScreenTip = "Click here for files";
   hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
 
@@ -4949,14 +4949,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a Hyperlink for Opening Files using type as File
   IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
   hyperlink2.Type = ExcelHyperLinkType.File;
-  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.Address = "C:/Program files";
   hyperlink2.ScreenTip = "File path";
   hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
 
   //Creating a Hyperlink for Opening Files using type as Unc
   IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
   hyperlink3.Type = ExcelHyperLinkType.Unc;
-  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.Address = "C:/Documents and Settings";
   hyperlink3.ScreenTip = "Click here for files";
   hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
 
@@ -5276,10 +5276,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Adding hyperlink to picture
   sheet = workbook.Worksheets[2];
-  IPictureShape picture = sheet.Pictures.AddPicture(@"Image.png");
+  IPictureShape picture = sheet.Pictures.AddPicture("Image.png");
   hyperlink = sheet.HyperLinks.Add(picture);
   hyperlink.Type = ExcelHyperLinkType.Unc;
-  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.Address = "C:/Documents and Settings";
   hyperlink.ScreenTip = "Click here for files";
 
   workbook.SaveAs("Hyperlink.xlsx");
@@ -5307,7 +5307,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim picture As IPictureShape = sheet.Pictures.AddPicture("Image.png")
   hyperlink = sheet.HyperLinks.Add(picture)
   hyperlink.Type = ExcelHyperLinkType.Unc
-  hyperlink.Address = "C:\Documents and Settings"
+  hyperlink.Address = "C:/Documents and Settings"
   hyperlink.ScreenTip = "Click here for files"
 
   workbook.SaveAs("Hyperlink.xlsx")
@@ -5343,7 +5343,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 10, "Image.png");
   hyperlink = worksheet.HyperLinks.Add(picture);
   hyperlink.Type = ExcelHyperLinkType.Unc;
-  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.Address = "C:/Documents and Settings";
   hyperlink.ScreenTip = "Click here for files";
 
   //Initializes FileSavePicker
@@ -5382,7 +5382,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 10, "Image.png");
   hyperlink = worksheet.HyperLinks.Add(picture);
   hyperlink.Type = ExcelHyperLinkType.Unc;
-  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.Address = "C:/Documents and Settings";
   hyperlink.ScreenTip = "Click here for files";
 
   //Saving the workbook as stream
@@ -5416,7 +5416,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 10, "Image.png");
   hyperlink = worksheet.HyperLinks.Add(picture);
   hyperlink.Type = ExcelHyperLinkType.Unc;
-  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.Address = "C:/Documents and Settings";
   hyperlink.ScreenTip = "Click here for files";
 
   //Saving the workbook as stream

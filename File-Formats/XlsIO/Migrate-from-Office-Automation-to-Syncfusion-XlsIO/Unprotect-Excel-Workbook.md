@@ -22,7 +22,7 @@ private void UnprotectWorkbook()
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
     //Specify the protected Excel file path
-    string myPath = @"d:\test\InteropOutput_ProtectedWorkbook.xlsx";
+    string myPath = "InteropOutput_ProtectedWorkbook.xlsx";
 
     //Open the Excel file
     Workbook workbook = excelApp.Workbooks.Open(myPath);
@@ -31,7 +31,7 @@ private void UnprotectWorkbook()
     workbook.Unprotect("007");
 
     //Save the file
-    workbook.SaveAs(@"d:\test\InteropOutput_UnprotectedWorkbook.xlsx");
+    workbook.SaveAs("InteropOutput_UnprotectedWorkbook.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -44,7 +44,7 @@ Private Sub UnprotectWorkbook()
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
     'Specify the protected Excel file path
-    Dim myPath As String = "d:\test1\InteropOutput_ProtectedWorkbook.xlsx"
+    Dim myPath As String = "InteropOutput_ProtectedWorkbook.xlsx"
 
     'Open the Excel file
     Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
@@ -53,7 +53,7 @@ Private Sub UnprotectWorkbook()
     workbook.Unprotect("007")
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_UnprotectedWorkbook.xlsx")
+    workbook.SaveCopyAs("InteropOutput_UnprotectedWorkbook.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -73,13 +73,13 @@ private void UnprotectWorkbook()
         IApplication application = excelEngine.Excel;
 
         //Open the protected Excel file
-        IWorkbook workbook = application.Workbooks.Open(@"d:\test\XlsIOOutput_ProtectedWorkbook.xlsx");
+        IWorkbook workbook = application.Workbooks.Open("XlsIOOutput_ProtectedWorkbook.xlsx");
 
         //Unprotect the protected workbook using the password
         workbook.Unprotect("password");
 
         //Save the file
-        workbook.SaveAs(@"d:\test\XlsIOOutput_UnprotectedWorkbook.xlsx");
+        workbook.SaveAs("XlsIOOutput_UnprotectedWorkbook.xlsx");
     }
 }
 {% endhighlight %}
@@ -91,13 +91,13 @@ Private Sub UnprotectWorkbook()
         Dim application As IApplication = excelEngine.Excel
 
         'Open the protected Excel file
-        Dim workbook As IWorkbook = application.Workbooks.Open("d:\test1\XlsIOOutput_ProtectedWorkbook.xlsx")
+        Dim workbook As IWorkbook = application.Workbooks.Open("XlsIOOutput_ProtectedWorkbook.xlsx")
 
         'Unprotect the protected workbook using the password
         workbook.Unprotect("password")
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_UnprotectedWorkbook.xlsx")
+        workbook.SaveAs("XlsIOOutput_UnprotectedWorkbook.xlsx")
     End Using
 End Sub
 {% endhighlight %}

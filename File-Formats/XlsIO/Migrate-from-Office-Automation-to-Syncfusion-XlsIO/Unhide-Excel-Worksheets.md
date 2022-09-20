@@ -20,7 +20,7 @@ private void UnhideWorksheet()
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
     //Open the workbook with hidden worksheets
-    Workbook workbook = excelApp.Workbooks.Open(@"d:\test\InteropOutput_HiddenWorksheet.xlsx");
+    Workbook workbook = excelApp.Workbooks.Open("InteropOutput_HiddenWorksheet.xlsx");
 
     //Get the first sheet
     Worksheet worksheet = (Worksheet)workbook.Sheets["Sheet1"];
@@ -29,7 +29,7 @@ private void UnhideWorksheet()
     worksheet.Visible = XlSheetVisibility.xlSheetVisible;
 
     //Save the file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_UnhiddenWorksheet.xlsx");
+    workbook.SaveCopyAs("InteropOutput_UnhiddenWorksheet.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -42,7 +42,7 @@ Private Sub UnhideWorksheet()
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
     'Open the workbook with hidden worksheets
-    Dim workbook As Workbook = excelApp.Workbooks.Open("d:\test\InteropOutput_HiddenWorksheet.xlsx")
+    Dim workbook As Workbook = excelApp.Workbooks.Open("InteropOutput_HiddenWorksheet.xlsx")
 
     'Get the first sheet
     Dim worksheet As Worksheet = workbook.Sheets("Sheet1")
@@ -51,7 +51,7 @@ Private Sub UnhideWorksheet()
     worksheet.Visible = XlSheetVisibility.xlSheetVisible
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_UnhiddenWorksheet.xlsx")
+    workbook.SaveCopyAs("InteropOutput_UnhiddenWorksheet.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -71,7 +71,7 @@ private void UnhideWorksheet()
         IApplication application = excelEngine.Excel;
 
         //Open the workbook with hidden worksheets
-        IWorkbook workbook = application.Workbooks.Open(@"d:\test\XlsIOOutput_HiddenWorksheet.xlsx");
+        IWorkbook workbook = application.Workbooks.Open("XlsIOOutput_HiddenWorksheet.xlsx");
 
         //Get the first sheet
         IWorksheet worksheet = workbook.Worksheets[0];
@@ -80,7 +80,7 @@ private void UnhideWorksheet()
         worksheet.Visibility = WorksheetVisibility.Visible;
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_UnhiddenWorksheet.xlsx");
+        workbook.SaveAs("XlsIOOutput_UnhiddenWorksheet.xlsx");
     }
 }
 {% endhighlight %}
@@ -92,7 +92,7 @@ Private Sub UnhideWorksheet()
         Dim application As IApplication = excelEngine.Excel
 
         'Open the Excel file
-        Dim workbook As IWorkbook = application.Workbooks.Open("d:\test1\XlsIOOutput_HiddenWorksheet.xlsx")
+        Dim workbook As IWorkbook = application.Workbooks.Open("XlsIOOutput_HiddenWorksheet.xlsx")
 
         'Get the first sheet
         Dim worksheet As IWorksheet = workbook.Worksheets(0)
@@ -101,7 +101,7 @@ Private Sub UnhideWorksheet()
         worksheet.Visibility = WorksheetVisibility.Visible
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_UnhiddenWorksheet.xlsx")
+        workbook.SaveAs("XlsIOOutput_UnhiddenWorksheet.xlsx")
     End Using
 End Sub
 {% endhighlight %}

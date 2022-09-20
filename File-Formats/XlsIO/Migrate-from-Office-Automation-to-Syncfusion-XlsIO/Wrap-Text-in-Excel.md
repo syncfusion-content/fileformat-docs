@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Wrap Text in Excel
+# How to apply Wrap Text in Excel
 
 When a text is too long for the width of a cell, the lengthy text will spill over into the cell right to it, if it is an empty cell. But, if the cell right to is occupied, only a portion of the lengthy text appears. Wrapping text is a key feature, which wraps text in Excel and allows fitting a long text in a single cell.
 
@@ -37,7 +37,7 @@ private void WrapText()
     cellA2.WrapText = true;
 
     //Save the Excel file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_WrapText.xlsx");
+    workbook.SaveCopyAs("InteropOutput_WrapText.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -65,7 +65,7 @@ Private Sub WrapText()
     cellA2.WrapText = True
 
     'Save the Excel file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_WrapText.xlsx")
+    workbook.SaveCopyAs("InteropOutput_WrapText.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -100,7 +100,7 @@ private void WrapText()
         cellA2.WrapText = true;
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_WrapText.xlsx");
+        workbook.SaveAs("XlsIOOutput_WrapText.xlsx");
     }
 }
 {% endhighlight %}
@@ -127,7 +127,7 @@ Private Sub WrapText()
         cellA2.WrapText = True
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_WrapText.xlsx")
+        workbook.SaveAs("XlsIOOutput_WrapText.xlsx")
     End Using
 End Sub
 {% endhighlight %}
