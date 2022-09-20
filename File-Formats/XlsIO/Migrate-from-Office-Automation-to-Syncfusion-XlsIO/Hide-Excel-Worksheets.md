@@ -39,7 +39,7 @@ private void HideWorksheet()
     worksheet.Visible = XlSheetVisibility.xlSheetHidden;
 
     //Save the file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_HiddenWorksheet.xlsx");
+    workbook.SaveCopyAs("InteropOutput_HiddenWorksheet.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -64,7 +64,7 @@ Private Sub HideWorksheet()
     worksheet.Visible = XlSheetVisibility.xlSheetHidden
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_HiddenWorksheet.xlsx")
+    workbook.SaveCopyAs("InteropOutput_HiddenWorksheet.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -96,7 +96,7 @@ private void HideWorksheet()
         worksheet.Visibility = WorksheetVisibility.Hidden;
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_HiddenWorksheet.xlsx");
+        workbook.SaveAs("XlsIOOutput_HiddenWorksheet.xlsx");
     }
 }
 {% endhighlight %}
@@ -120,7 +120,7 @@ Private Sub HideWorksheet()
         worksheet.Visibility = WorksheetVisibility.Hidden
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_HiddenWorksheet.xlsx")
+        workbook.SaveAs("XlsIOOutput_HiddenWorksheet.xlsx")
     End Using
 End Sub
 {% endhighlight %}

@@ -1314,7 +1314,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Database path
-  string dataPath = Path.GetFullPath(@"c:\company\DB\TestDB.mdb");
+  string dataPath = Path.GetFullPath("c:/company/DB/TestDB.mdb");
 
   //Connection string for DataSource
   string ConnectionString = "OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";User ID=Admin;Data Source=" + dataPath;
@@ -1356,7 +1356,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
   'Database path
-  Dim dataPath As String = Path.GetFullPath("c:\company\DB\TestDB.mdb")
+  Dim dataPath As String = Path.GetFullPath("c:/company/DB/TestDB.mdb")
 
   'Connection string for DataSource
   Dim ConnectionString As String = "OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password="""";User ID=Admin;Data Source=" + dataPath

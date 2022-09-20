@@ -31,7 +31,7 @@ private void AddComment()
     rng1.AddComment("This is my comment");
 
     //Save the file
-    workbook.SaveAs(@"d:\test\InteropOutput_AddComment.xlsx");
+    workbook.SaveAs("InteropOutput_AddComment.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -53,7 +53,7 @@ Private Sub AddComment()
     rng1.AddComment("This is my comment")
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_AddComment.xlsx")
+    workbook.SaveCopyAs("InteropOutput_AddComment.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -81,7 +81,7 @@ private void AddComment()
         comment.Text = "This is my comment";
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_AddComment.xlsx");
+        workbook.SaveAs("XlsIOOutput_AddComment.xlsx");
     }
 }
 {% endhighlight %}
@@ -101,7 +101,7 @@ Private Sub AddComment()
         comment.Text = "This is my comment"
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_AddComment.xlsx")
+        workbook.SaveAs("XlsIOOutput_AddComment.xlsx")
     End Using
 End Sub
 {% endhighlight %}

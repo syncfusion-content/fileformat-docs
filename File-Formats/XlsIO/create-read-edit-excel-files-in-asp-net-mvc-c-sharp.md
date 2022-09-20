@@ -429,7 +429,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     application.DefaultVersion = ExcelVersion.Xlsx;
 
     //Load the existing Excel workbook into IWorkbook
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(Server.MapPath("App_Data/Sample.xlsx"));
 
     //Get the first worksheet in the workbook into IWorksheet
     IWorksheet worksheet = workbook.Worksheets[0];
@@ -456,7 +456,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     application.DefaultVersion = ExcelVersion.Xlsx
 
     'Load the existing Excel workbook into IWorkbook
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+    Dim workbook As IWorkbook = application.Workbooks.Open(Server.MapPath("App_Data/Sample.xlsx"))
 
     'Get the first worksheet in the workbook into IWorksheet
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
