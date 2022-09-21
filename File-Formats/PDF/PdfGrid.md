@@ -6468,6 +6468,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Apply-word-wrap-in-the-PDF-table-cell).
+
 ## Draw rotated table 
 
 Rotate the table in a PDF document using the ``BeginPageLayout`` as shown in the following code sample. 
@@ -6799,6 +6801,8 @@ private void PdfGrid_BeginPageLayout(object sender, BeginPageLayoutEventArgs e)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Draw-rotated-table-in-PDF-document).
+
 ## Draw HTML styled text 
 
 The Syncfusion .NET PDF library provides support to render HTML string in the PDF table cell using the [PdfHTMLTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfHTMLTextElement.html) class. 
@@ -7054,6 +7058,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Draw-HTML-styled-text-in-a-PDF-table-cell).
    
 ## Add the background picture in a table cell 
 
@@ -7378,6 +7384,8 @@ else
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-the-background-image-in-a-PDF-table-cell).
 
 ## Add different font styles for particular table cell 
 
@@ -7756,6 +7764,8 @@ private static void PdfGrid_BeginCellLayout(object sender, PdfGridBeginCellLayou
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-different-font-style-for-particular-table-cell).
+
 ## Insert image 
 
 Load image streams and files on the disk, and use the System.Drawing.Bitmap objects to insert the image in the table through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. 
@@ -8066,6 +8076,8 @@ private static void PdfGrid_BeginCellLayout(object sender, PdfGridBeginCellLayou
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Insert-image-in-a-particular-table-cell).
 
 ## Draw borderless table 
 
@@ -8495,6 +8507,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Draw-borderless-table-in-PDF-document).
+
 ## Nested Table
 
 The following code illustrates how to create the nested table in a PDF document using the ``PdfGrid.`` 
@@ -8842,6 +8856,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Create-nested-table-in-a-PDF-document).
 
 ## Add a hyperlink 
 

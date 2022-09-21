@@ -4993,3 +4993,4 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Add-text-encoding-using-standard-PDF-fonts).

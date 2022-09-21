@@ -12721,6 +12721,7 @@ else
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Fill-and-save-hidden-items-in-XFA-combobox-field).
 
 ### Filling the XFA list box field
 
