@@ -2586,5 +2586,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to replace the particular text with hyperlink in Word document](https://www.syncfusion.com/kb/11774/how-to-replace-the-particular-text-with-hyperlink-in-word-document)
 * [How to find the empty paragraphs in the Word document using Essential DocIO](https://www.syncfusion.com/kb/3956/how-to-find-the-empty-paragraphs-in-the-word-document-using-essential-docio)
 * [How to replace text in a Word document with HTML](https://www.syncfusion.com/kb/13627/how-to-replace-text-in-a-word-document-with-html)
-* [How to find and replace text inside table in Word document](https://www.syncfusion.com/kb/13640/how-to-find-and-replace-text-inside-table-in-word-document)
+* [How to find and replace text inside table in Word document](https://www.syncfusion.com/kb/13641/how-to-find-and-replace-text-inside-table-in-word-document)
 * [How to find and replace text in headers and footers of Word document](https://www.syncfusion.com/kb/13618/how-to-find-and-replace-text-in-headers-and-footers-of-word-document)
