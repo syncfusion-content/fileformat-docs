@@ -54,7 +54,7 @@ private void FilterData()
     sheet.get_Range("B1", "B5").EntireColumn.AutoFit();
 
     //Save the Excel file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_AutoFilter.xlsx");
+    workbook.SaveCopyAs("InteropOutput_AutoFilter.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -99,7 +99,7 @@ Private Sub FilterData()
     sheet.Range("B1", "B5").EntireColumn.AutoFit()
 
     'Save the Excel file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_AutoFilter.xlsx")
+    workbook.SaveCopyAs("InteropOutput_AutoFilter.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -153,7 +153,7 @@ private void FilterData()
         worksheet.Range["B1:B5"].EntireColumn.AutofitColumns();
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_AutoFilter.xlsx");
+        workbook.SaveAs("XlsIOOutput_AutoFilter.xlsx");
     }
 }
 {% endhighlight %}
@@ -199,7 +199,7 @@ Private Sub FilterData()
         worksheet.Range("B1:B5").EntireColumn.AutofitColumns()
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_AutoFilter.xlsx")
+        workbook.SaveAs("XlsIOOutput_AutoFilter.xlsx")
     End Using
 End Sub
 {% endhighlight %}

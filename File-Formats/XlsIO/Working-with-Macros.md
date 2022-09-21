@@ -879,7 +879,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IVbaModules vbaModules = project.Modules;
 
     //Opening form module existing workbook
-    FileStream input = new FileStream(DataPathBase + "Test.xls", FileMode.Open, FileAccess.ReadWrite);
+    FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
     IWorkbook newBook = application.Workbooks.Open(input);
 
     IVbaProject newProject = newBook.VbaProject;
@@ -1451,7 +1451,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Opening form module existing workbook
-    FileStream input = new FileStream(DataPathBase + "Test.xls", FileMode.Open, FileAccess.ReadWrite);
+    FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
     IWorkbook workbook = application.Workbooks.Open(input);
 
     IWorksheet sheet = workbook.Worksheets[0];
@@ -1656,7 +1656,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Opening form module existing workbook
-    FileStream input = new FileStream(DataPathBase + "Test.xls", FileMode.Open, FileAccess.ReadWrite);
+    FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
     IWorkbook workbook = application.Workbooks.Open(input);
 
     IWorksheet sheet = workbook.Worksheets[0];
@@ -1833,7 +1833,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Opening form module existing workbook
-    FileStream input = new FileStream(DataPathBase + "Test.xls", FileMode.Open, FileAccess.ReadWrite);
+    FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
     IWorkbook workbook = application.Workbooks.Open(input);
 
     IWorksheet sheet = workbook.Worksheets[0];
@@ -2009,7 +2009,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Opening form module existing workbook
-    FileStream input = new FileStream(DataPathBase + "Test.xls", FileMode.Open, FileAccess.ReadWrite);
+    FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
     IWorkbook workbook = application.Workbooks.Open(input);
 
     IWorksheet sheet = workbook.Worksheets[0];
@@ -2168,7 +2168,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
     //Opening form module existing workbook
-    FileStream input = new FileStream(DataPathBase + "Test.xls", FileMode.Open, FileAccess.ReadWrite);
+    FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
     IWorkbook workbook = application.Workbooks.Open(input);
 
     IWorksheet sheet = workbook.Worksheets[0];
