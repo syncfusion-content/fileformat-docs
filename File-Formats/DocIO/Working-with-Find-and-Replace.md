@@ -2379,7 +2379,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace non-breaking spaces with regular spaces
 
-Non-breaking spaces are typically characters that keep words or individual characters together. They keep the words from separating at line breaks or withing the same line.
+Non-breaking spaces are typically characters that keep words or individual characters together. They keep the words from separating at line breaks or within the same line.
 
 The following code example illustrates how to find and replace non-breaking spaces with regular spaces in a Word document using `Replace` method.
 
