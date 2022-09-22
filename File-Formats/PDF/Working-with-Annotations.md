@@ -1033,6 +1033,129 @@ else
 
 {% endtabs %}
 
+### Flattening redaction annotation
+
+To flatten the redaction annotation in PDF document, use the following code example. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the annotation from annotation collection. 
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+{
+    //Check for the Redaction annotation.
+    if (annot is PdfLoadedRedactionAnnotation)
+    {
+        //Get the redaction annotation. 
+        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+        //Flatten the redaction annotation.
+        redactAnnot.Flatten = true;
+
+    }
+}
+
+//Save the document.
+loadedDocument.Save("Output.pdf");
+
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load the existing PDF document. 
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("../../Data/Input.pdf")
+
+'Get the annotation from annotation collection. 
+For Each annot As PdfAnnotation In loadedDocument.Pages(0).Annotations
+
+    'Check for redaction annotation. 
+    If TypeOf annot Is PdfLoadedRedactionAnnotation Then
+
+        'Load the redaction annotation. 
+        Dim redactAnnot As PdfLoadedRedactionAnnotation = TryCast(annot, PdfLoadedRedactionAnnotation)
+
+        'Flatten the redaction annotation.
+        redactAnnot.Flatten = True
+
+    End If
+
+Next
+
+'Save the PDF document. 
+loadedDocument.Save("Output.pdf")
+
+'Close the PDF document. 
+loadedDocument.Close()
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+Essential PDF supports flattening redaction annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get stream from an existing PDF document. 
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the annotation from annotation collection. 
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+{
+    //Check for the Redaction annotation.
+    if (annot is PdfLoadedRedactionAnnotation)
+    {
+        //Get the redaction annotation. 
+        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+        //Flatten the redaction annotation. 
+        redactAnnot.Flatten = true;
+    }
+}
+
+loadedDocument.Redact();
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream(); 
+loadedDocument.Save(stream); 
+
+stream.Position = 0; 
+
+//Close the document.
+loadedDocument.Close(true);
+ 
+//Defining the ContentType for PDF file.
+string contentType = "application/pdf"; 
+
+//Define the file name.
+string fileName = "output.pdf";
+ 
+//Create a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+Essential PDF supports flattening redaction annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> To flatten the redaction annotation from PDF document in ASP.NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project. 
+
 ## Flattening annotations without calling save method 
 
 Annotations can be flattened by removing the existing annotation and replacing it with graphic objects that would resemble the annotation and cannot be edited.
@@ -1351,6 +1474,7 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
 ## Supported annotation types
 
 ### 3D Annotation
@@ -7414,6 +7538,9 @@ redactAnnot.Flatten = true;
 
 }
 }
+
+loadedDocument.Redact();
+
 //Save the document into stream 
 
 MemoryStream stream = new MemoryStream(); 
@@ -7509,6 +7636,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pd
 
 {% endtabs %}
 
+N> To modify the redaction annotation from PDF document in ASP.NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project. 
 
 ## Removing annotations from an existing PDF 
 
