@@ -884,6 +884,97 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-misspelled-word).
 
+## Find and replace non-breaking spaces with regular spaces
+
+The following code example illustrates how to find and replace non-breaking spaces with regular spaces in a Word document.
+
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Replace all occurrences of non-breaking spaces with regular spaces.
+    document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, false, false);
+    //Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load an existing Word document. 
+Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
+    'Replace all occurrences of non-breaking spaces with regular spaces.
+    document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, false, False)
+    'Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Open the file as stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Replace all occurrences of non-breaking spaces with regular spaces.
+        document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, false, false);
+        //Save a Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file in the local machine.
+        Save(stream, "Sample.docx");
+		//Please refer to the link below to save the Word document in the UWP platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Replace all occurrences of non-breaking spaces with regular spaces.
+        document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, false, false);
+        //Save the Word document to the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download as Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Replace all occurrences of non-breaking spaces with regular spaces.
+        document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, false, false);
+        //Save the Word document to the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing. 
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+		//Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://help.syncfusion.com/file-formats/docio/working-with-find-and-replace).
+
 ## Find and replace text with an image
 You can find placeholder text in a Word document and replace it with any desired image.
 
@@ -2376,99 +2467,6 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-multiline-text-with-single-line).
-
-## Find and replace non-breaking spaces with regular spaces
-
-Non-breaking spaces are typically characters that keep words or individual characters together. They keep the words from separating at line breaks or within the same line.
-
-The following code example illustrates how to find and replace non-breaking spaces with regular spaces in a Word document using `Replace` method.
-
-
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
-//Load an existing Word document.
-using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
-{
-    //Replace all occurrences of non-breaking spaces with regular spaces.
-    document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, true, false);
-    //Save the Word document.
-    document.Save("Sample.docx", FormatType.Docx);
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Load an existing Word document. 
-Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
-    'Replace all occurrences of non-breaking spaces with regular spaces.
-    document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, True, False)
-    'Save the Word document.
-    document.Save("Sample.docx", FormatType.Docx)
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Open the file as stream.
-using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.docx"))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-        //Replace all occurrences of non-breaking spaces with regular spaces.
-        document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, true, false);
-        //Save a Word document to MemoryStream.
-        MemoryStream stream = new MemoryStream();
-        await document.SaveAsync(stream, FormatType.Docx);
-        //Save the stream as a Word document file in the local machine.
-        Save(stream, "Sample.docx");
-		//Please refer to the link below to save the Word document in the UWP platform.
-        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Open the file as stream.
-using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-        //Replace all occurrences of non-breaking spaces with regular spaces.
-        document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, true, false);
-        //Save the the Word document to the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        document.Save(outputStream, FormatType.Docx);
-        outputStream.Position = 0;
-        //Download as Word document in the browser.
-        return File(outputStream, "application/msword", "Sample.docx");
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Open the file as stream.
-using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-        //Replace all occurrences of non-breaking spaces with regular spaces.
-        document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, true, false);
-        //Save the Word document to the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        document.Save(outputStream, FormatType.Docx);
-        //Save the stream as a file in the device and invoke it for viewing. 
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-		//Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
-        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-    }
-}
-{% endhighlight %}
-
-{% endtabs %}
-
-You can download a complete working sample from [GitHub]
 
 ## Find and replace text with formatted text
 
