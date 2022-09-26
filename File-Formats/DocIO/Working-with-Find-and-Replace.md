@@ -888,7 +888,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to find and replace non-breaking spaces with regular spaces in a Word document.
 
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -926,8 +925,8 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         await document.SaveAsync(stream, FormatType.Docx);
         //Save the stream as a Word document file in the local machine.
         Save(stream, "Sample.docx");
-		//Please refer to the link below to save the Word document in the UWP platform.
-        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+	//Please refer to the link below to save the Word document in the UWP platform.
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
 {% endhighlight %}
@@ -965,8 +964,8 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         document.Save(outputStream, FormatType.Docx);
         //Save the stream as a file in the device and invoke it for viewing. 
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-		//Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
-        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     }
 }
 {% endhighlight %}
