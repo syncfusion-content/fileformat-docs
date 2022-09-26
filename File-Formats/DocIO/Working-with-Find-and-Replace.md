@@ -925,7 +925,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         await document.SaveAsync(stream, FormatType.Docx);
         //Save the stream as a Word document file in the local machine.
         Save(stream, "Sample.docx");
-		//Please refer the below link to save Word document in UWP platform
+    //Please refer the below link to save Word document in UWP platform
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
@@ -972,7 +972,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://help.syncfusion.com/file-formats/docio/working-with-find-and-replace).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-non-breaking-spaces).
 
 ## Find and replace text with an image
 You can find placeholder text in a Word document and replace it with any desired image.
