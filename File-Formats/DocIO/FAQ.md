@@ -853,7 +853,7 @@ WordDocument document = new WordDocument("Template.docx");
 
 //Attaches the template document to the source document
 
-document.AttachedTemplate.Path = @"D:\Data\Template.docx";
+document.AttachedTemplate.Path = @"D:/Data/Template.docx";
 
 //Updates the styles of the document from the attached template each time the document is opened
 
@@ -877,7 +877,7 @@ Dim document As New WordDocument("Template.docx")
 
 'Attaches the template document to the source document
 
-document.AttachedTemplate.Path = "D:\Data\Template.docx"
+document.AttachedTemplate.Path = "D:/Data/Template.docx"
 
 'Updates the styles of the document from the attached template each time the document is opened
 
@@ -1542,7 +1542,7 @@ WPicture picture = item as WPicture;
 
 image = picture.Image;
 
-image.Save(@"D:\Data\Image" + i + ".jpeg", ImageFormat.Jpeg);
+image.Save(@"D:/Data/Image" + i + ".jpeg", ImageFormat.Jpeg);
 
 i++;
 
@@ -1596,7 +1596,7 @@ Dim picture As WPicture = TryCast(item, WPicture)
 
 image = picture.Image
 
-image.Save("D:\Data\Image" & i & ".jpeg", ImageFormat.Jpeg)
+image.Save("D:/Data/Image" & i & ".jpeg", ImageFormat.Jpeg)
 
 i += 1
 
@@ -1632,7 +1632,7 @@ WordDocument document = new WordDocument("Template.docx");
 
 //Sets the location to extract images
 
-document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
+document.SaveOptions.HtmlExportImagesFolder = @"D:/Data/";
 
 //Saves the document as html file
 
@@ -1656,7 +1656,7 @@ Dim document As New WordDocument("Template.docx")
 
 'Sets the location to extract images
 
-document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
+document.SaveOptions.HtmlExportImagesFolder = "D:/Data/"
 
 'Saves the document as html file
 

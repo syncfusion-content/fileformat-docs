@@ -22,7 +22,7 @@ private void DeleteComment()
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
     //Specify the template Excel file path
-    string myPath = @"d:\test\InteropOutput_AddComment.xlsx";
+    string myPath = "InteropOutput_AddComment.xlsx";
 
     //Open the Excel file containing comment
     Workbook workbook = excelApp.Workbooks.Open(myPath);
@@ -34,7 +34,7 @@ private void DeleteComment()
     rng1.Comment.Delete();
 
     //Save the file
-    workbook.SaveAs(@"d:\test\InteropOutput_DeleteComment.xlsx");
+    workbook.SaveAs("InteropOutput_DeleteComment.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -47,7 +47,7 @@ Private Sub DeleteComment()
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
     'Specify the template Excel file path
-    Dim myPath As String = "d:\test\InteropOutput_AddComment.xlsx"
+    Dim myPath As String = "InteropOutput_AddComment.xlsx"
 
     'Open the Excel file
     Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
@@ -59,7 +59,7 @@ Private Sub DeleteComment()
     rng1.Comment.Delete()
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_DeleteComment.xlsx")
+    workbook.SaveCopyAs("InteropOutput_DeleteComment.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -79,14 +79,14 @@ private void DeleteComment()
         IApplication application = excelEngine.Excel;
 
         //Open the Excel file containing comment
-        IWorkbook workbook = application.Workbooks.Open(@"d:\test\XlsIOOutput_AddComment.xlsx");
+        IWorkbook workbook = application.Workbooks.Open("XlsIOOutput_AddComment.xlsx");
         IWorksheet worksheet = workbook.Worksheets[0];
 
         //Remove the comment
         worksheet.Range["A1"].Comment.Remove();
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_DeleteComment.xlsx");
+        workbook.SaveAs("XlsIOOutput_DeleteComment.xlsx");
     }
 }
 {% endhighlight %}
@@ -98,14 +98,14 @@ Private Sub DeleteComment()
         Dim application As IApplication = excelEngine.Excel
 
         'Open the Excel file containing comment
-        Dim workbook As IWorkbook = application.Workbooks.Open("d:\test1\XlsIOOutput_AddComment.xlsx")
+        Dim workbook As IWorkbook = application.Workbooks.Open("XlsIOOutput_AddComment.xlsx")
         Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
         'Remove the comment.
         worksheet.Range("A1").Comment.Remove()
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_DeleteComment.xlsx")
+        workbook.SaveAs("XlsIOOutput_DeleteComment.xlsx")
     End Using
 End Sub
 {% endhighlight %}

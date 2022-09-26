@@ -955,7 +955,7 @@ namespace ImportFromNestedCollection
             XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
 
             //Read data from XML file. 
-            TextReader textReader = new StreamReader(@"..\..\Data\ExportData.xml");
+            TextReader textReader = new StreamReader("../../Data/ExportData.xml");
             BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
 
             //Initialize parent collection to add data from XML file. 
@@ -1158,7 +1158,7 @@ Namespace ImportFromNestedCollection
             Dim deserializer As XmlSerializer = New XmlSerializer(GetType(BrandObjects))
 			
 			'Read data from XML file. 
-            Dim textReader As TextReader = New StreamReader("..\..\Data\ExportData.xml")
+            Dim textReader As TextReader = New StreamReader("../../Data/ExportData.xml")
             Dim brands As BrandObjects = CType(deserializer.Deserialize(textReader), BrandObjects)
 			
 			'Initialize parent collection to add data from XML file. 
@@ -1594,7 +1594,7 @@ namespace ImportFromNestedCollection
             XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
 
             //Read data from XML file. 
-            FileStream stream = new FileStream(@"..\..\Data\ExportData.xml", FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream("../../Data/ExportData.xml", FileMode.Open, FileAccess.Read);
             TextReader textReader = new StreamReader(stream);
             BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
 
@@ -2121,7 +2121,7 @@ namespace ImportFromNestedCollection
             XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
 
             //Read data from XML file. 
-            TextReader textReader = new StreamReader(@"..\..\Data\ExportData.xml");
+            TextReader textReader = new StreamReader("../../Data/ExportData.xml");
             BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
 
             //Initialize parent collection to add data from XML file. 
@@ -2332,7 +2332,7 @@ Namespace ImportFromNestedCollection
             Dim deserializer As XmlSerializer = New XmlSerializer(GetType(BrandObjects))
 			
 			'Read data from XML file. 
-            Dim textReader As TextReader = New StreamReader("..\..\Data\ExportData.xml")
+            Dim textReader As TextReader = New StreamReader("../../Data/ExportData.xml")
             Dim brands As BrandObjects = CType(deserializer.Deserialize(textReader), BrandObjects)
 			
 			'Initialize parent collection to add data from XML file. 
@@ -2782,7 +2782,7 @@ namespace ImportFromNestedCollection
             XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
 
             //Read data from XML file. 
-            FileStream stream = new FileStream(@"..\..\Data\ExportData.xml", FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream("../../Data/ExportData.xml", FileMode.Open, FileAccess.Read);
             TextReader textReader = new StreamReader(stream);
             BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
 

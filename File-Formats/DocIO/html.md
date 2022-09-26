@@ -445,7 +445,7 @@ The following code sample shows how to customize Word to HTML conversion.
 WordDocument document = new WordDocument("Template.docx");
 HTMLExport export = new HTMLExport();
 //The images in the input document are copied to this folder
-document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
+document.SaveOptions.HtmlExportImagesFolder = @"D:/Data/";
 //The headers and footers in the input are exported
 document.SaveOptions.HtmlExportHeadersFooters = true;
 //Exports the text form fields as editable
@@ -466,7 +466,7 @@ document.Close();
 Dim document As New WordDocument("Template.docx")
 Dim export As New HTMLExport()
 'The images in the input document are copied to this folder
-document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
+document.SaveOptions.HtmlExportImagesFolder = "D:/Data/"
 'The headers and footers in the input are exported
 document.SaveOptions.HtmlExportHeadersFooters = True
 'Exports the text form fields as editable

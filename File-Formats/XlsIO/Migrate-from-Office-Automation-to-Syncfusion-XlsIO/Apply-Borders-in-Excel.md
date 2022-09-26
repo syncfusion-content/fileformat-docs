@@ -70,7 +70,7 @@ private void ApplyBorders()
     worksheet.get_Range("A2", "A2").EntireColumn.AutoFit();
 
     //Save the file
-    workbook.SaveAs(@"d:\test\InteropOutput_Borders.xlsx");
+    workbook.SaveAs("InteropOutput_Borders.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -131,7 +131,7 @@ Private Sub ApplyBorders()
     worksheet.Range("A2", "A2").EntireColumn.AutoFit()
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_Borders.xlsx")
+    workbook.SaveCopyAs("InteropOutput_Borders.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -187,7 +187,7 @@ private void ApplyBorders()
         worksheet.AutofitColumn(1);
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_Borders.xlsx");
+        workbook.SaveAs("XlsIOOutput_Borders.xlsx");
     }
 }
 {% endhighlight %}
@@ -235,7 +235,7 @@ Private Sub ApplyBorders()
         worksheet.AutofitColumn(1)
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_Borders.xlsx")
+        workbook.SaveAs("XlsIOOutput_Borders.xlsx")
     End Using
 End Sub
 {% endhighlight %}

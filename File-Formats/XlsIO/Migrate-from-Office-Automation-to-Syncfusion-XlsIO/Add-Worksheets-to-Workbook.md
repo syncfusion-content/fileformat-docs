@@ -22,7 +22,7 @@ private void AddWorksheet()
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
     //Specify the template Excel file path
-    string myPath = @"d:\test\Sample.xlsx";
+    string myPath = "Sample.xlsx";
 
     //Open the Excel file
     Workbook workbook = excelApp.Workbooks.Open(myPath);
@@ -47,7 +47,7 @@ private void AddWorksheet()
     }
 
     //Save as Excel file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_AddWorksheet.xlsx");
+    workbook.SaveCopyAs("InteropOutput_AddWorksheet.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -60,7 +60,7 @@ Private Sub AddWorksheet()
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
     'Specify the template Excel file path
-    Dim myPath As String = "d:\test1\Sample.xlsx"
+    Dim myPath As String = "Sample.xlsx"
 
     'Open the Excel file
     Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
@@ -84,7 +84,7 @@ Private Sub AddWorksheet()
     Next
 
     'Save as Excel file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_AddWorksheet.xlsx")
+    workbook.SaveCopyAs("InteropOutput_AddWorksheet.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -104,7 +104,7 @@ private void AddWorksheet()
         IApplication application = excelEngine.Excel;
 
         //Specify the template Excel file path
-        string myPath = @"d:\test\Sample.xlsx";
+        string myPath = "Sample.xlsx";
 
         //Instantiate a new workbook
         //Open the Excel file
@@ -127,7 +127,7 @@ private void AddWorksheet()
         }
 
         //Save as Excel file
-        workbook.SaveAs(@"d:\test\XlsIOOutput_AddWorksheet.xlsx");
+        workbook.SaveAs("XlsIOOutput_AddWorksheet.xlsx");
     }
 }
 {% endhighlight %}
@@ -139,7 +139,7 @@ Private Sub AddWorksheet()
         Dim application As IApplication = excelEngine.Excel
 
         'Specify the template Excel file path
-        Dim myPath As String = "d:\test\Sample.xlsx"
+        Dim myPath As String = "Sample.xlsx"
 
         'Instantiate a new workbook
         'Open the Excel file
@@ -161,7 +161,7 @@ Private Sub AddWorksheet()
         Next
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_AddWorksheet.xlsx")
+        workbook.SaveAs("XlsIOOutput_AddWorksheet.xlsx")
     End Using
 End Sub
 {% endhighlight %}

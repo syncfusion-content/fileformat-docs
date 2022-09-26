@@ -2615,7 +2615,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Create the instant for SaveOptions
   HtmlSaveOptions options = new HtmlSaveOptions();
   options.TextMode = HtmlSaveOptions.GetText.DisplayText;
-  options.ImagePath = @"..\..\Images\";
+  options.ImagePath = "../../Images/";
 
   //Save the sheet as HTML
   sheet.SaveAsHtml("Sample.html", options);
@@ -2634,7 +2634,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Create the instant for SaveOptions
   Dim options As New HtmlSaveOptions()
   options.TextMode = HtmlSaveOptions.GetText.DisplayText
-  options.ImagePath = "..\..\Images\"
+  options.ImagePath = "../../Images/"
 
   'Save the sheet as HTML
   sheet.SaveAsHtml("Sample.html", options)
