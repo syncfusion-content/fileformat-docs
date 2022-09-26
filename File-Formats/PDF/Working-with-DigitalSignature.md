@@ -6472,3 +6472,361 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Long Term Validation (LTV) information
+
+Added support for LTV validation and getting CRL and OCSP embedded details from the digital signature.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+// Loads an existing document
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Validates signature and gets the validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+
+// Gets the LTV Verification Information.
+
+LtvVerificationInfo ltvVerificationInfo = result.LtvVerificationInfo;
+
+// Checks whether the signature document LTV is enabled.
+
+bool isLtvEnabled = ltvVerificationInfo.IsLtvEnabled;
+
+// Checks whether the signature document has CRL embedded.
+
+bool isCrlEmbedded = ltvVerificationInfo.IsCrlEmbedded;
+
+// Checks whether the signature document has OCSP embedded.
+
+bool isOcspEmbedded = ltvVerificationInfo.IsOcspEmbedded;
+
+// Closes the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+' Loads an existing document
+
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+' Gets the signature field
+
+Dim signatureField As PdfLoadedSignatureField = document.Form.Fields[0] As PdfLoadedSignatureField
+
+' Validate signature and get validation result
+
+Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature()
+
+' Gets the LTV Verification Information
+
+Dim ltvVerificationInfo As LtvVerificationInfo = result.LtvVerificationInfo
+
+' Checks whether the signature document LTV is enabled.
+
+Dim isLtvEnabled As Boolean = ltvVerificationInfo.IsLtvEnabled
+
+' Checks whether the signature document has CRL embedded
+
+Dim isCrlEmbedded As Boolean = ltvVerificationInfo.IsCrlEmbedded
+
+' Checks whether the signature document has OCSP embedded
+
+Dim isOcspEmbedded As Boolean = ltvVerificationInfo.IsOcspEmbedded
+
+' Close the document
+
+document.Close(true)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Loads an existing signed PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Validates signature and get validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+
+// Gets the LTV verification Information.
+
+LtvVerificationInfo ltvVerificationInfo = result.LtvVerificationInfo;
+
+// Checks whether the signature document LTV is enabled.
+
+bool isLtvEnabled = ltvVerificationInfo.IsLtvEnabled;
+
+// Checks whether the signature document has CRL embedded.
+
+bool isCrlEmbedded = ltvVerificationInfo.IsCrlEmbedded;
+
+// Checks whether the signature document has OCSP embedded.
+
+bool isOcspEmbedded = ltvVerificationInfo.IsOcspEmbedded;
+
+// Closes the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Gets the stream from the document
+
+FileStream documentStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Loads an existing signed PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Validates signature and get validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+
+// Gets the LTV verification Information.
+
+LtvVerificationInfo ltvVerificationInfo = result.LtvVerificationInfo;
+
+// Checks whether the signature document LTV is enabled.
+
+bool isLtvEnabled = ltvVerificationInfo.IsLtvEnabled;
+
+// Checks whether the signature document has CRL embedded.
+
+bool isCrlEmbedded = ltvVerificationInfo.IsCrlEmbedded;
+
+// Checks whether the signature document has OCSP embedded.
+
+bool isOcspEmbedded = ltvVerificationInfo.IsOcspEmbedded;
+
+// Closes the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Loads an existing signed PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Validates signature and get validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+
+// Gets the LTV verification Information.
+
+LtvVerificationInfo ltvVerificationInfo = result.LtvVerificationInfo;
+
+// Checks whether the signature document LTV is enabled.
+
+bool isLtvEnabled = ltvVerificationInfo.IsLtvEnabled;
+
+// Checks whether the signature document has CRL embedded.
+
+bool isCrlEmbedded = ltvVerificationInfo.IsCrlEmbedded;
+
+// Checks whether the signature document has OCSP embedded.
+
+bool isOcspEmbedded = ltvVerificationInfo.IsOcspEmbedded;
+
+// Closes the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Customized revocation validation
+
+Added support to customize revocation validation using [PdfSignatureValidationOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfSignatureValidationOptions.html).
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+// Loads an existing document
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Signature validation options
+
+PdfSignatureValidationOptions options = new PdfSignatureValidationOptions();
+
+// Sets the revocation type
+
+options.RevocationValidationType = RevocationValidationType.Crl;
+
+// Validate signature and get validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(options);
+
+// Closes the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+' Loads an existing document
+
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+' Gets the signature field
+
+Dim signatureField As PdfLoadedSignatureField = document.Form.Fields[0] As PdfLoadedSignatureField
+
+' Signature validation options
+
+Dim options As PdfSignatureValidationOptions = New PdfSignatureValidationOptions()
+
+' Sets the revocation type
+
+options.RevocationValidationType = RevocationValidationType.Crl
+
+' Validates signature and gets the validation result
+
+Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature(options)
+
+' Closes the document
+
+document.Close(true)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Gets the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Loads an existing signed PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Signature validation options
+
+PdfSignatureValidationOptions options = new PdfSignatureValidationOptions();
+
+// Sets the revocation type
+
+options.RevocationValidationType = RevocationValidationType.Crl;
+
+// Validate signature and get validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(options);
+
+// Closes the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Gets the stream from the document
+
+FileStream documentStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Loads an existing signed PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Signature validation options
+
+PdfSignatureValidationOptions options = new PdfSignatureValidationOptions();
+
+// Sets the revocation type
+
+options.RevocationValidationType = RevocationValidationType.Crl;
+
+// Validate signature and get validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(options);
+
+// Closes the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Gets the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Loads an existing signed PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+
+// Gets the signature field
+
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+
+// Signature validation options
+
+PdfSignatureValidationOptions options = new PdfSignatureValidationOptions();
+
+// Sets the revocation type
+
+options.RevocationValidationType = RevocationValidationType.Crl;
+
+// Validates signature and gets the validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(options);
+
+// Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
