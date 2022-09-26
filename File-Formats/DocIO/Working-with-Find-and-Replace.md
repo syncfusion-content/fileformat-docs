@@ -925,7 +925,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         await document.SaveAsync(stream, FormatType.Docx);
         //Save the stream as a Word document file in the local machine.
         Save(stream, "Sample.docx");
-    //Please refer the below link to save Word document in UWP platform
+        //Please refer the below link to save Word document in UWP platform
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
