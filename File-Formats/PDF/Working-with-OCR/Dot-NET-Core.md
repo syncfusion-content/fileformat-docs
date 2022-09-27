@@ -692,7 +692,7 @@ document.Close(true);
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-an-image-and-convert-it-to-a-PDF-document/.NET).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-an-image-and-convert-it-to-a-PDF-document).
 
 ## Temporary folder
 
