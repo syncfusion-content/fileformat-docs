@@ -242,7 +242,7 @@ document.Close(True)
 
 By default, the PDF document generated with the WebKit rendering engine comes with the following warning message.
 
-![WebKit Warning message in the PDF Document](File-Formats/PDF/Convert-HTML-To-PDF/htmlconversion_images/WebKit Warning.png)
+![WebKit Warning message in the PDF Document](File-Formats/PDF/Convert-HTML-To-PDF/htmlconversion_images/WebKit_Warning.png)
 
 Please refer to the below code snippet to use the DisableWebKitWarning API to remove the default WebKit warning message from the PDF document.
 
