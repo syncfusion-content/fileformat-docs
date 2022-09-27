@@ -1072,8 +1072,8 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         await document.SaveAsync(stream, FormatType.Docx);
         //Save the stream as a Word document file in the local machine.
         Save(stream, "Sample.docx");
-		//Please refer the below link to save Word document in UWP platform
-		//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
 {% endhighlight %}
@@ -1119,8 +1119,8 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         document.Save(outputStream, FormatType.Docx);
         //Save the stream as a file in the device and invoke it for viewing. 
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-		//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-		//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     }
 }
 {% endhighlight %}
