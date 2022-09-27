@@ -2013,6 +2013,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf",
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Get-option-value-from-acroform-radio-button).
+
 ### Adding the list box field
 
 You can create the list box field in PDF forms using [PdfListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfListBoxField.html) class.

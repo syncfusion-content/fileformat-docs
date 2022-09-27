@@ -11272,6 +11272,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Adding-margins-to-the-XFA-form-fields).
 
 ### Adding padding to the XFA fields
 
@@ -13143,6 +13144,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Select-multiple-values-in-an-existing-XFA-listbox-field).
 
 ### Filling the XFA date time field
 

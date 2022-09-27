@@ -7573,6 +7573,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pd
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modify-the-redaction-annotation-in-PDF-document).
 
 ## Removing annotations from an existing PDF 
 
