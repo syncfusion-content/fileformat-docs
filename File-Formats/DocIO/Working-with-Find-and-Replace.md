@@ -2699,3 +2699,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to find and replace text inside table in Word document](https://www.syncfusion.com/kb/13641/how-to-find-and-replace-text-inside-table-in-word-document)
 * [How to find and replace text in headers and footers of Word document](https://www.syncfusion.com/kb/13618/how-to-find-and-replace-text-in-headers-and-footers-of-word-document)
 * [How to find and replace placeholder with page break in Word document](https://www.syncfusion.com/kb/13642/how-to-find-and-replace-placeholder-with-page-break-in-word-document)
+* [How to find and replace text with content control in Word document?](https://www.syncfusion.com/kb/13644/how-to-find-and-replace-text-with-content-control-in-word-document)
