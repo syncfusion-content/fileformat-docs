@@ -6472,3 +6472,236 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Adding a digital signature to a PDF/A document
+
+You can add an invisible digital signature to any PDF/A document without changing the conformance of the PDF document. The following code snippet illustrates the same
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load an existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the page of the existing PDF document
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+if (loadedDocument.Form == null)
+loadedDocument.CreateForm();
+loadedDocument.Form.SetDefaultAppearance(false);
+
+//Create a new PDF signature without the PdfCertificate instance
+PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
+
+//Hook up the ComputeHash event
+signature.ComputeHash += Signature_ComputeHash;
+
+//Create an X509Certificate2 from your certificate to create a long-term validity
+X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
+
+//Create LTV with your public certificates
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
+
+//Save and close the PDF document
+loadedDocument.Save("SignedDocument.pdf");
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load an existing PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the page of the existing PDF document
+
+Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+If loadedDocument.Form Is Nothing Then loadedDocument.CreateForm()
+loadedDocument.Form.SetDefaultAppearance(False)
+
+'Create a new PDF signature without PdfCertificate instance
+
+Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedPage, Nothing, "Signature1")
+
+' Hook up the ComputeHash event
+
+AddHandler signature.ComputeHash, AddressOf Signature_ComputeHash
+
+'Create an X509Certificate2 from your certificate to create a long-term validity
+
+Dim x509 As X509Certificate2 = New X509Certificate2("PDF.pfx", "password123")
+
+'Create LTV with your public certificates
+
+signature.CreateLongTermValidity(New List(Of X509Certificate2) From { x509 })
+
+'Save and close the PDF document
+
+loadedDocument.Save("SignedDocument.pdf")
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Load an existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Get the page of the existing PDF document
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+if (loadedDocument.Form == null)
+loadedDocument.CreateForm();
+loadedDocument.Form.SetDefaultAppearance(false);
+//Create a new PDF signature without the PdfCertificate instance
+
+PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
+
+//Hook up the ComputeHash event
+
+signature.ComputeHash += Signature_ComputeHash;
+
+//Create an X509Certificate2 from your certificate to create a long-term validity
+
+X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
+
+//Create LTV with your public certificates
+
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Save the stream as a PDF document file on the local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get the stream from the document
+
+FileStream documentStream = new FileStream("Input.pdf ", FileMode.Open, FileAccess.Read);
+
+//Load an existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Get the page of the existing PDF document
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+if (loadedDocument.Form == null)
+loadedDocument.CreateForm();
+loadedDocument.Form.SetDefaultAppearance(false);
+//Create a new PDF signature without the PdfCertificate instance
+
+PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
+
+//Hook up the ComputeHash event
+
+signature.ComputeHash += Signature_ComputeHash;
+
+//Create an X509Certificate2 from your certificate to create a long-term validity
+
+X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
+
+//Create LTV with your public certificates
+
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Define the ContentType for the pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a File object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets. Input.pdf");
+
+//Load an existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Get the page of the existing PDF document
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+if (loadedDocument.Form == null)
+loadedDocument.CreateForm();
+loadedDocument.Form.SetDefaultAppearance(false)
+//Create a new PDF signature without the PdfCertificate instance
+
+PdfSignature signature = new PdfSignature(loadedDocument, loadedPage, null, "Signature1");
+
+//Hook up the ComputeHash event
+
+signature.ComputeHash += Signature_ComputeHash;
+
+//Create an X509Certificate2 from your certificate to create a long-term validity
+
+X509Certificate2 x509 = new X509Certificate2("PDF.pfx", "password123");
+
+//Create LTV with your public certificates
+
+signature.CreateLongTermValidity(new List<X509Certificate2> { x509 });
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Save the stream into a pdf file
+
+//The operation in ‘Save under Xamarin’ varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
