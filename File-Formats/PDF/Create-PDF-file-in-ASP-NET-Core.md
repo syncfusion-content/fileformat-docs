@@ -89,6 +89,7 @@ return fileStreamResult;
 
 A complete work sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfFile_CoreWeb-983162689 )
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-new-PDF-document).
 
 By executing the program, you will get the PDF document as follows.
 ![ASP.NET Core PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
@@ -127,6 +128,8 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName); 
          
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Creating-a-PDF-document-with-image).
 
 ## Creating a PDF document with table
 
@@ -173,6 +176,8 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-PDF-document-with-table).
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
@@ -312,6 +317,8 @@ document.Close(true);
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-PDF-document-with-basic-elements).
+
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
 ![ASP.NET Core PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
@@ -368,6 +375,8 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Fill-form-in-an-existing-PDF-document).
+
 The filled form is shown in adobe reader application as follows.
 
 ![Filled ASP.NET Core PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
@@ -403,5 +412,7 @@ string fileName = "sample.pdf";
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Merge-multiple-PDF-documents).
 
 N> You can also explore our [.NET Core PDF library demo](https://ej2.syncfusion.com/aspnetcore/PDF/Default#/bootstrap5) that shows how to create and modify PDF files from C# with just five lines of code.

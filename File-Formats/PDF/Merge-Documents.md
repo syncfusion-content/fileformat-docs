@@ -433,6 +433,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/). 
+
 ## Importing pages from multiple documents
 
 Essential PDF provides support for importing the pages from one document to another document using [ImportPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPage_Syncfusion_Pdf_Parsing_PdfLoadedDocument_Syncfusion_Pdf_PdfPageBase_) method. The following code illustrates this. The imported page is added to the end of the original document.
@@ -632,6 +634,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Importing-pages-from-one-document-another-document/). 
+
 You can import multiple pages from an existing document by using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPageRange_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_Int32_System_Int32_) method. The following code example illustrates this.
 
 {% tabs %}
@@ -828,6 +832,8 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Import-multiple-pages-from-an-existing-PDF).
 
 You can also import pages from multiple documents and arrange the pages as required. The following code example explains the same.
 
@@ -1060,6 +1066,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Import-pages-from-multiple-documents-and-arrange-pages/). 
+
 ## Best practices
 
 Merging multiple large PDF documents can lead to high runtime memory. So, you can split the documents into multiple documents and later you can merge. This method avoids the extensive memory usage and increases the performance.
@@ -1125,6 +1133,8 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Split-large-PDF-to-multiple-documents). 
 
 The following code shows how to merge multiple PDF documents.
 
@@ -1329,6 +1339,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/). 
+
 ## Optimizing PDF resources when merging PDF documents
 
 Essential PDF provides support to optimize the PDF resources when merging PDF documents. You can optimize the resources by enabling the OptimizeResources property available in the PdfMergeOptions instance.
@@ -1507,6 +1519,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Optimize-the-PDF-resources-when-merging-PDF-documents/). 
+
 ## Reducing the size of the PDF file while importing pages
 
 Essential PDF provides support for optimization of memory using EnableMemoryOptimization property in the PdfDocument instance. Optimization will be effective only with merge, append and import functions. Enabling this property will optimize the memory but a difference in time occurs based on the document size.
@@ -1631,6 +1645,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Reduce-size-of-PDF-file-while-importing-pages/). 
 
 ## Extend the margin of the PDF pages while merging PDF document
 
@@ -1777,3 +1793,5 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Extend-the-margin-of-PDF-pages-while-merging-PDFs/). 

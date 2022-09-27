@@ -208,6 +208,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-polygon-in-new-PDF-document/). 
+
 The following code snippet explains how to draw a polygon in an existing PDF document.
 
 {% tabs %}
@@ -394,6 +396,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-polygon-in-an-existing-PDF-document/). 
+
 ### Line
 
 You can draw a line in PDF document by using the [DrawLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawLine_Syncfusion_Pdf_Graphics_PdfPen_System_Drawing_PointF_System_Drawing_PointF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw a line in new PDF document.
@@ -543,6 +547,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-line-in-new-PDF-document/). 
 
 The following code snippet explains how to draw a line in an existing PDF document.
 
@@ -695,6 +701,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-line-in-an-existing-PDF-document/). 
+
 ### Curve
 
 You can draw a curve in PDF document by using the [Draw](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_Draw_Syncfusion_Pdf_PdfPage_System_Drawing_PointF_) method of [PdfBezierCurve](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBezierCurve.html). The following code snippet explains how to draw a curve in new PDF document.
@@ -839,6 +847,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-curve-in-new-PDF-document/). 
 
 The following code snippet explains how to draw a curve in an existing PDF document.
 
@@ -985,6 +995,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-curve-in-an-existing-PDF-document/). 
 
 ### Path
 
@@ -1145,6 +1157,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-path-in-a-new-PDF-document/). 
 
 The following code snippet explains how to draw path in an existing PDF document.
 
@@ -1307,6 +1321,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-path-in-an-existing-PDF-document/). 
+
 ### Text
 
 You can draw text in a PDF document by using the [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). To draw different PDF elements based on the position of previously drawn element, draw the text by using [Draw](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html#Syncfusion_Pdf_Graphics_PdfTextElement_Draw_Syncfusion_Pdf_PdfPage_System_Drawing_PointF_Syncfusion_Pdf_Graphics_PdfLayoutFormat_) method of [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) and store its bounds in [PdfLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutResult.html). Refer to the [Working with Text](https://help.syncfusion.com/file-formats/pdf/working-with-text) section for more information.
@@ -1456,6 +1472,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-rectangle-in-a-new-PDF-document/). 
+
 The following code snippet explains how to draw a rectangle in an existing PDF document.
 
 {% tabs %}
@@ -1601,6 +1619,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-rectangle-in-an-existing-PDF-document/). 
 
 ### Pie
 
@@ -1761,6 +1781,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-pie-in-new-PDF-document/). 
 
 The following code snippet explains how to draw a pie in an existing PDF document.
 
@@ -1923,6 +1945,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-pie-in-an-existing-PDF-document/). 
+
 ### Arc
 
 You can draw an arc in PDF document by using the [DrawArc](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawArc_Syncfusion_Pdf_Graphics_PdfPen_System_Drawing_RectangleF_System_Single_System_Single_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw an arc in new PDF document.
@@ -2082,6 +2106,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-an-arc-in-new-PDF-document/). 
 
 The following code snippet explains how to draw an arc in an existing PDF document.
 
@@ -2244,6 +2270,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-an-arc-in-an-existing-PDF-document). 
+
 ### Bezier
 
 You can draw a bezier in PDF document by using the [DrawBezier](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawBezier_Syncfusion_Pdf_Graphics_PdfPen_System_Drawing_PointF_System_Drawing_PointF_System_Drawing_PointF_System_Drawing_PointF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw a bezier in new PDF document.
@@ -2373,6 +2401,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-bazier-in-new-PDF-document/). 
 
 The following code snippet explains how to draw a bezier in an existing PDF document.
 
@@ -2505,6 +2535,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-a-bazier-in-an-existing-PDF-document/). 
+
 ### Ellipse
 
 You can draw an ellipse in PDF document by using the [DrawEllipse](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawEllipse_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_RectangleF_) method of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html). The following code snippet explains how to draw an ellipse in new PDF document.
@@ -2634,6 +2666,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-an-ellipse-in-new-PDF-document/). 
 
 The following code snippet explains how to draw an ellipse in an existing PDF document.
 
@@ -2765,6 +2799,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-an-ellipse-in-an-existing-PDF-document/). 
 
 ## Working with shape pagination
 
@@ -3016,4 +3052,6 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Shapes/Draw-large-shapes-across-multiple-pages/). 
 

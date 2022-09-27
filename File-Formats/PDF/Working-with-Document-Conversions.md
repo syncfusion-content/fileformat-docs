@@ -263,6 +263,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Word-to-PDF/Converting-Word-to-PDF-document).
+
 Note:
 
 * Initializing the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF.
@@ -398,7 +400,7 @@ wordDocument.Close()
 
 {% endtabs %}
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Word-to-PDF/Customizing-the-Word-to-PDF-conversion).
 
 ## Converting Excel documents to PDF
 
@@ -561,6 +563,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Excel-to-PDF/Convert-workbook-to-PDF-document).
+
 ### Converting a Worksheet to PDF
 
 The following code shows how to convert a particular sheet to PDF Document using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html).
@@ -711,7 +715,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Excel-to-PDF/Converting-a-worksheet-to-PDF-document).
 
 ### Creating individual PDF document for each worksheet
 
@@ -873,6 +877,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Excel-to-PDF/Creating-individual-PDF-document-for-each-worksheet).
+
 ### Excel with Chart to PDF
 
 To preserve the charts during Excel to PDF conversion, you should initialize the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication~ChartToImageConverter.html) of [IApplication](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication.html) interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
@@ -1029,6 +1035,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Excel-to-PDF/Converting-Excel-with-chart-to-PDF-document).
 
 ### Supported Elements
 
@@ -1282,6 +1289,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/RTF-to-PDF/Convert-RTF-to-PDF-document).
 
 N> Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document.
 
@@ -1399,7 +1407,7 @@ rtfDocument.Close()
 
 {% endtabs %}
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/RTF-to-PDF/Customizing-the-RTF-to-PDF-document).
 
 ## Converting TIFF to PDF
 
@@ -1719,6 +1727,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub]()https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document.
+
 N> 1. Essential PDF supports converting TIFF to PDF with [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in ASP.NET Core.
 
 
@@ -1824,6 +1834,8 @@ pdfDocument.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Compression-in-monochrome-images).
 
 N> 1. Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame TIFF images are supported.
 N> 2. By default, all monochrome images will be compressed in CITTT4 compression.
@@ -1970,6 +1982,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document).
 
 N> Essential PDF supports converting XPS to PDF with [Syncfusion.XpsToPdfConverter.Net.Core](https://www.nuget.org/packages/Syncfusion.XpsToPdfConverter.Net.Core) package reference in .NET Core application.
 
@@ -2287,6 +2301,8 @@ bitmapimage.Save(@"Images\" + "bitmapImage" + ".png");
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image).
+
 The following code snippet illustrates how to convert a specific range of pages of the PDF file into images in WPF.
 
 {% tabs %}
@@ -2422,6 +2438,8 @@ bitmapimage[i].Save(@"Images\" + "bitmapImage" + i.ToString() + ".png");
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image).
 
 N> The PDF Viewer server library allows the PDF document pages to be exported as raster images. Exporting can be done using the [ExportAsImage()](https://ej2.syncfusion.com/aspnetcore/documentation/pdfviewer/how-to/export-as-image/) method. This option helps to convert a PDF into an image in Net Core. 
 
@@ -2569,6 +2587,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-MHTML-to-PDF-document).
 
 ## HTML to MHTML
 
@@ -2659,6 +2678,7 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-HTML-to-MHTML).
 
 ## HTML to Raster Image
 
@@ -2778,6 +2798,7 @@ File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-HTML-to-raster-image).
 
 ## HTML string to Raster Image
 
@@ -2910,6 +2931,7 @@ File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/HTML-string-to-raster-image/.NET-Standard).
 
 ## Partial webpage to Raster Image
 
@@ -3052,7 +3074,7 @@ File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endtabs %}
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-partial-webpage-to-raster-image).
 
 ## HTML to SVG
 
@@ -3167,6 +3189,8 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub]()https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion.
 
 N> HTML to SVG conversion is not supported in the Mac platforms.
 
@@ -3312,5 +3336,7 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-partial-webpage-to-SVG/.NET-Standard).
 
 N> Partial HTML to SVG conversion is not supported in the Mac platforms

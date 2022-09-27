@@ -141,6 +141,8 @@ loadedDocument.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-the-texts-from-a-page-in-the-PDF-document/). 
+
 N> In this method, the text is extracted in the order in which it is written in the document stream and it may not be in the order in which it is viewed in the PDF reader application.
 
 N> Extracting text from the PDF document pages will not load the entire document content into memory.
@@ -312,6 +314,8 @@ loadedDocument.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-text-from-the-entire-PDF-document/). 
+
 ## Working with layout based text extraction
 
 You can extract text from the given PDF page based on its layout using [ExtractText(bool)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText().html) overload. In this method, the text is extracted in the layout as it is viewed in the reader application.
@@ -437,6 +441,8 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-the-text-with-layout-in-a-PDF-document/). 
 
 N> Layout based text extraction may take additional processing time when compared to the normal extraction mode.
 
@@ -566,6 +572,8 @@ List<TextWord> textWordCollection = line.WordCollection;
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document). 
 
 ### Working with words
  
@@ -707,6 +715,8 @@ List<TextGlyph> textGlyphCollection = textWord.Glyphs;
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-collection-of-words-from-PDF-document/). 
 
 ### Working with characters
 

@@ -225,6 +225,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/One%20dimensional%20barcode/Add-Code39-barcode-to-the-PDF-document).
+
 The below code snippet shows how to add PdfEan13 barcode using the [PdfEan13Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan13Barcode.html) class to a PDF document.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -439,6 +441,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN13Barcode.pdf", "ap
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/One%20dimensional%20barcode/Add-PdfEan13-barcode-to-a-PDF-document).
+
 The below code snippet shows how to add PdfEan8 barcode using the [PdfEan8Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan8Barcode.html) class to a PDF document.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -652,6 +656,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN8Barcode.pdf", "app
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/One%20dimensional%20barcode/Add-PdfEan8-barcode-to-a-PDF-document).
 
 ## Adding a two dimensional barcode to a PDF document
 
@@ -890,6 +896,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Two%20dimensional%20barcode/Add-a-QRBarcode-to-the-PDF-document).
+
 The below code snippet shows how to add a Pdf417 barcode code using [Pdf417Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.Pdf417Barcode.html) class to the PDF document.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1123,6 +1131,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("417Barcode.pdf", "appl
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Two%20dimensional%20barcode/Add-a-Pdf417-barcode-to-the-PDF-document).
 
 ## Set location and size to the barcode
 
@@ -1359,6 +1369,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Set-location-and-size-to-the-barcode-in-a-PDF-document/).
+
 ## Adding a barcode to the PDF document without displaying the barcode text
 
 The following code sample shows how to add a barcode to the PDF document without displaying the barcode text.
@@ -1556,6 +1568,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Add-a-barcode-to-the-PDF-document-without-displaying-text).
+
 ## Export Barcode as Image
 
 Essential PDF supports converting one dimensional barcodes such as Code 39, Code 39 Extended, Code 11, Codabar, Code 32, Code 93, Code 93 Extended, Code 128A, Code 128B, UPC bar code, and Code 128C barcodes to image using the [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html#Syncfusion_Pdf_Barcode_PdfUnidimensionalBarcode_ToImage) method of [PdfUnidimensionalBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html) instance. 
@@ -1623,6 +1637,8 @@ using (MemoryStream stream = new MemoryStream())
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-one-dimensional-barcode-as-image/).
+
 Essential PDF supports converting two-dimensional barcodes such as QR Code and Data Matrix barcode to image. The following code snippet explains how to convert a QR code to image using the [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html#Syncfusion_Pdf_Barcode_PdfQRBarcode_ToImage) method of [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
 
 {% tabs %}
@@ -1682,6 +1698,8 @@ Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
 //PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-two-dimensional-barcode-as-image/).
 
 ## Customizing the barcode appearance
 
