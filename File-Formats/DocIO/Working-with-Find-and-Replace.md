@@ -1019,10 +1019,9 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-text-with-image).
 
-## Find Next and replace with formatted text
+## Find next and replace with formatted text
 
-The following code example illustrates how to find next and replace with formatted text in a Word document.
-
+The following code example illustrates how to find next and replace with formatted text in a Word document:
 
 {% tabs %}  
 
@@ -1030,15 +1029,10 @@ The following code example illustrates how to find next and replace with formatt
 //Load an existing Word document. 
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
-    //Get the text body item.
+    //Access the paragraph in the Word document.
     TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
     //Get the next entry of the specified regex from the text body item.
     TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
-    //Get the found text as single text range and format it.
-    WTextRange textRange = textSelections.GetAsOneRange();
-    textRange.CharacterFormat.Bold = true;
-    textRange.CharacterFormat.FontName = "Times New Roman";
-    textRange.CharacterFormat.FontSize = 12;
     //Find the text that extends to several paragraphs and replace it with the desired content.
     document.ReplaceSingleLine("CompanyName", textSelections, true, true);
     //Save the Word document.
@@ -1049,15 +1043,10 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {% highlight vb.net tabtitle="VB.NET" %}
 'Load an existing Word document. 
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
-    'Get the text body item.
+    'Access the paragraph in the Word document.
     Dim textBodyItem As TextBodyItem = TryCast(document.Sections(0).Paragraphs(3), WParagraph)
     'Get the next entry of the specified regex from the text body item.
     Dim textSelections As TextSelection = document.FindNext(textBodyItem, New Regex("Adventure Works Cycles"))
-    'Get the found text as single text range and format it.
-    Dim textRange As WTextRange = textSelections.GetAsOneRange()
-    textRange.CharacterFormat.Bold = True
-    textRange.CharacterFormat.FontName = "Times New Roman"
-    textRange.CharacterFormat.FontSize = 12
     'Find the text that extends to several paragraphs and replace it with the desired content.
     document.ReplaceSingleLine("CompanyName", textSelections, True, True)
     'Save the Word document.
@@ -1072,15 +1061,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Get the text body item.
+        //Access the paragraph in the Word document.
         TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
         //Get the next entry of the specified regex from the text body item.
         TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
-        //Get the found text as single text range and format it.
-        WTextRange textRange = textSelections.GetAsOneRange();
-        textRange.CharacterFormat.Bold = true;
-        textRange.CharacterFormat.FontName = "Times New Roman";
-        textRange.CharacterFormat.FontSize = 12;
         //Find the text that extends to several paragraphs and replace it with the desired content.
         document.ReplaceSingleLine("CompanyName", textSelections, true, true);
         //Save a Word document to MemoryStream.
@@ -1089,7 +1073,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Save the stream as a Word document file in the local machine.
         Save(stream, "Sample.docx");
 		//Please refer the below link to save Word document in UWP platform
-        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+		//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
 {% endhighlight %}
@@ -1101,15 +1085,10 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Get the text body item.
+        //Access the paragraph in the Word document.
         TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
         //Get the next entry of the specified regex from the text body item.
         TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
-        //Get the found text as single text range and format it.
-        WTextRange textRange = textSelections.GetAsOneRange();
-        textRange.CharacterFormat.Bold = true;
-        textRange.CharacterFormat.FontName = "Times New Roman";
-        textRange.CharacterFormat.FontSize = 12;
         //Find the text that extends to several paragraphs and replace it with the desired content.
         document.ReplaceSingleLine("CompanyName", textSelections, true, true);
         //Save the Word document to the MemoryStream.
@@ -1129,15 +1108,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Get the text body item.
+        //Access the paragraph in the Word document.
         TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
         //Get the next entry of the specified regex from the text body item.
         TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
-        //Get the found text as single text range and format it.
-        WTextRange textRange = textSelections.GetAsOneRange();
-        textRange.CharacterFormat.Bold = true;
-        textRange.CharacterFormat.FontName = "Times New Roman";
-        textRange.CharacterFormat.FontSize = 12;
         //Find the text that extends to several paragraphs and replace it with the desired content.
         document.ReplaceSingleLine("CompanyName", textSelections, true, true);
         //Save the Word document to the MemoryStream.
@@ -1153,7 +1127,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://help.syncfusion.com/file-formats/docio/working-with-find-and-replace).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-next-and-replace-with-formatted-text).
 
 ## Find and replace a pattern of text with a merge field 
 You can find and replace a pattern of text in a Word document with merge fields using Regex.
