@@ -76,6 +76,9 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-action-to-the-PDF-document/).
+
 ## Supported action types
 
 Essential PDF supports the following types of actions.
@@ -282,6 +285,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-the-sound-action-to-PDF-document/).
+
 ### JavaScript action
 
 A [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) allows execution of **JavaScript** code embedded in the **PDF** document.
@@ -466,6 +471,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-JavaScript-action-to-the-PDF-document/).
+
 N> You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below developer guide.
 N> [http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf](http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf)
 
@@ -632,6 +639,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-URI-action-to-the-PDF-document/).
 
 ### GoTo action
 
@@ -847,6 +856,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-GoTo-action-to-the-PDF-document/).
+
 ### Launch action
 
 A [PdfLaunchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLaunchAction.html) allows execution of an external file. The code snippet below explains how to add a launch action.
@@ -917,6 +928,8 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-lauch-action-to-PDF-document).
 
 ### Named action
 
@@ -1109,6 +1122,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-named-action-to-PDF-document).
 
 ### Submit action
 
@@ -1344,6 +1359,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-submit-action-to-the-PDF-document).
 
 ### Reset action
 
@@ -1654,6 +1671,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Reset-form-fields-in-the-PDF-document).
+
 ## Adding an action to the form field
 
 Essential PDF provides support to add various actions to the form fields.
@@ -1912,6 +1931,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Adding-an-action-to-the-form-fields-in-PDF-document/).
+
 ## Adding an action to the bookmarks
 
 Essential PDF provides support to add the various actions to the [Bookmarks](https://help.syncfusion.com/file-formats/pdf/working-with-bookmarks). The code snippet below shows how to add an URI action to bookmark.
@@ -2145,6 +2166,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Adding-an-action-to-the-bookmark-in-the-PDF-document).
+
 ## Add actions to the existing PDF document
 
 To add actions to an existing PDF document, use the following code example.
@@ -2277,6 +2300,8 @@ document.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-actions-to-the-existing-PDF-document).
 
 N> The action assigned to the bookmark works only when destination of bookmark is not set.
 

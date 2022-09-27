@@ -239,6 +239,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Create-table-from-data-source-in-a-PDF).
+
 ### Create a simple table directly without setting any data source 
 
 Set the data directly without setting any data source using the [PdfGridRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridRow.html) and [PdfGridColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridColumn.html) classes. 
@@ -476,6 +478,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-the-data-directly-to-the-table-in-a-PDF).
+
 ### Create a simple table using IEnumerable data source
 
 Create a table using the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) by loading the IEnumerable data source. Refer to the following code.
@@ -706,6 +710,8 @@ else
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Create-table-from-list-in-a-PDF-document).
 
 ### Creating a simple table using PdfGrid in an existing document
 
@@ -953,6 +959,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Create-table-in-an-existing-document).
 
 ## Cell customization 
 
@@ -1363,6 +1371,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Cell-customization-in-PdfGrid).
+
 ## Row customization
 
 You can customize row height and styles using [Rows](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_Rows) property in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) class.
@@ -1660,6 +1670,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Row-customization-of-PdfGrid-in-a-PDF).
+
 ## Column customization 
 
 You can customize column width and text formats using [Columns](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_Columns) property in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) class.
@@ -1948,6 +1960,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Column-customization-of-PdfGrid-in-a-PDF).
 
 ## Table customization 
 
@@ -2250,6 +2264,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Customize-the-table-in-a-PDF-document).
+
 ## Built-in table styles 
 
 In-built table styles can be applied to [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html), and the appearance is made similar to Microsoft Word’s built-in table styles. You can also apply in-built table styles with the following additional table style options.
@@ -2521,6 +2537,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Create-table-with-built-in-style).
 
 The following image shows the PDF document with the ```PdfGridBuiltinStyle.GridTable4Accent1```.
 ![GridTable4Accent1 image](Table_images/Gridtable4Accent1.png)
@@ -2806,6 +2824,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Apply-built-in-style-to-table-with-table-option).
+
 The following image shows the PDF document with `PdfGridBuiltinStyle.Gridtable4Accent4`.
 ![Gridtable4Accent4 image](Table_images/Gridtable4Accent4.png)
 
@@ -3063,6 +3083,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Paginate-the-table-in-PDF-document).
 
 ## Adjust table width automatically 
 
@@ -3338,6 +3360,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Automatically-adjust-the-table-width-in-a-PDF).
 
 ## Adding multiple tables 
 
@@ -3664,6 +3688,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-multiple-tables-in-a-PDF-document).
+
 ## String formatting 
 
 Syncfusion .NET PDF library supports applying string formatting for a whole table, a column in a table, a row in a table, and a cell in a table using the [PdfStingFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html) class.
@@ -3946,6 +3972,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Apply-string-formatting-for-whole-table-in-a-PDF).
+
 ### String formatting to a column 
 
 The following code snippet explains how to add string formatting to a column in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html).
@@ -4209,6 +4237,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-string-formatting-to-a-column-in-table).
 
 ### String formatting for a cell 
 
@@ -4459,6 +4488,7 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-string-formatting-for-a-cell-in-table).
 
 ### String formatting for a row
 
@@ -4738,6 +4768,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-string-formatting-for-a-row-in-table).
+
 ## Row and Column spanning 
 
 The essential PDF supports both row and column spanning in a PDF table.
@@ -4993,6 +5025,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-row-spanning-in-a-PDF-table).
+
 ### Column Spanning 
 
 Span a column in the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) by using the [ColumnSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCell.html#Syncfusion_Pdf_Grid_PdfGridCell_ColumnSpan) property of the [PdfGridCell](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCell.html). The following code sample explains this.
@@ -5241,6 +5275,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-column-spanning-in-a-PDF-table).
 
 ## Table cell Styles 
 
@@ -5713,6 +5749,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-different-cell-styles-to-a-cell-in-a-PDF-table).
+
 ## Table row style 
 
 The essential PDF supports applying different styles to a row in the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) by using the [PdfGridCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCellStyle.html) and [PdfGridRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridRow.html) instances. The following code sample explains this.
@@ -6119,6 +6157,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-different-styles-to-a-row-in-PDF-table).
+
 ## Word wrap
 
 The Syncfusion .NET PDF library supports word wrapping in the table cell by setting the [WordWrap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html#Syncfusion_Pdf_Graphics_PdfStringFormat_WordWrap) property to **Word** of the [PdfWordWrapType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfWordWrapType.html) Enum. It also supports the *Character* and *WordOnly* text wrapping. 
@@ -6427,6 +6467,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Apply-word-wrap-in-the-PDF-table-cell).
 
 ## Draw rotated table 
 
@@ -6759,6 +6801,8 @@ private void PdfGrid_BeginPageLayout(object sender, BeginPageLayoutEventArgs e)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Draw-rotated-table-in-PDF-document).
+
 ## Draw HTML styled text 
 
 The Syncfusion .NET PDF library provides support to render HTML string in the PDF table cell using the [PdfHTMLTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfHTMLTextElement.html) class. 
@@ -7014,6 +7058,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Draw-HTML-styled-text-in-a-PDF-table-cell).
    
 ## Add the background picture in a table cell 
 
@@ -7338,6 +7384,8 @@ else
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-the-background-image-in-a-PDF-table-cell).
 
 ## Add different font styles for particular table cell 
 
@@ -7716,6 +7764,8 @@ private static void PdfGrid_BeginCellLayout(object sender, PdfGridBeginCellLayou
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-different-font-style-for-particular-table-cell).
+
 ## Insert image 
 
 Load image streams and files on the disk, and use the System.Drawing.Bitmap objects to insert the image in the table through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. 
@@ -8026,6 +8076,8 @@ private static void PdfGrid_BeginCellLayout(object sender, PdfGridBeginCellLayou
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Insert-image-in-a-particular-table-cell).
 
 ## Draw borderless table 
 
@@ -8455,6 +8507,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Draw-borderless-table-in-PDF-document).
+
 ## Nested Table
 
 The following code illustrates how to create the nested table in a PDF document using the ``PdfGrid.`` 
@@ -8803,6 +8857,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Create-nested-table-in-a-PDF-document).
+
 ## Add a hyperlink 
 
 In a PDF, hyperlinks can be added to allow the users to navigate to another part of a PDF file, Web page, or any other external content. The hyperlink can be added in the table cell using the [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html), [PdfFileLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFileLinkAnnotation.html) or [PdfUriAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfUriAnnotation.html) classes. 
@@ -9073,3 +9129,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Add-a-hyperlink-in-a-table-cell).

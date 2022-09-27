@@ -261,6 +261,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Templates/Add-the-contents-to-template-and-render-into-PDF-page/). 
 
 The below code snippet illustrates how to render the [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTemplate.html) on an existing PDF document.
 
@@ -528,6 +529,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Templates/Render-the-template-in-an-existing-PDF-document/). 
 
 ## Creating templates from existing PDF document
 
@@ -823,7 +826,7 @@ else
 
 {% endtabs %}  
 
-
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Templates/Create-template-from-an-existing-PDF-document/). 
 
 ## Working with PdfPageTemplateElement
 
@@ -1218,6 +1221,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Templates/Add-the-page-template-elements-in-a-PDF-document/). 
+
 ## Creating Document Overlays 
 
 Multiple templates can be drawn over a PDF page, to create a document-overlay. The below code illustrates how to overlay the documents.
@@ -1525,7 +1530,9 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+ {% endtabs %} 
+
+ You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Templates/Creating-the-document-overlays/).  
 
 ## Adding a PdfPageTemplate in the PDF document
 
@@ -1716,3 +1723,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Templates/Add-a-template-from-an-existing-PDF-document). 
