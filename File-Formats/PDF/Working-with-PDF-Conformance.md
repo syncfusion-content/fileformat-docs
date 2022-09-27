@@ -270,6 +270,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA1B-document).
+
 ## PDF/A-2b conformance
 
 You can create a PDF/A-2b document by specifying the conformance level as ```Pdf_A2B``` through [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html) Enum when creating the new PDF document as follows.
@@ -497,6 +499,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA2B-document).
 
 ## PDF/A-3b conformance
 
@@ -813,6 +817,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA3B-document).
 
 ## PDF/A-1a conformance
 
@@ -1058,6 +1063,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA1A-document).
 
 ## PDF/A-2a conformance
 
@@ -1289,6 +1295,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA2A-document).
 
 ## PDF/A-3a conformance
 
@@ -1603,6 +1610,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA3A-document).
 
 ## PDF/A-2u conformance
 
@@ -1834,6 +1842,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA2U-document).
 
 ## PDF/A-3u conformance
 
@@ -2148,6 +2157,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA3U-document).
+
 ## PDF/A-4 conformance
 
 The separate conformance levels a, b, and u are not used in a PDF/A-4. Instead, PDF/A-4 encourages but does not require the addition of higher-level logical structures, and it requires Unicode mappings for all fonts.
@@ -2377,6 +2388,8 @@ else
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA4-document).
 	
 ## PDF/A-4e conformance
 
@@ -2607,6 +2620,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-the-new-PDFA4E-document).
 
 ## PDF/A-4f conformance
 
@@ -2909,6 +2924,8 @@ else
 
 {% endtabs %}   
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Creating-a-new-PDFA4F-document).
+
 ## PDF/X-1a conformance
 
 You can create a PDF/X-1a document by specifying the conformance level as ```Pdf_X1A2001``` through [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html) Enum when creating the new PDF document, as shown below.
@@ -3001,6 +3018,7 @@ document.Close(True)
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Create-a-PDFX1A-conformance-document).
 
 ## PDF to PDF/A conversion
 
@@ -3161,6 +3179,8 @@ static void LoadedDocument_SubstituteFont(object sender, PdfFontEventArgs args)
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress).
+
 N> 1. Converting PDF to PDF/X-1a conformance document is not supported.
 N> 2. CMYK color space images and symbolic fonts are not supported.
 N> 3. From the .NET Framework 3.5 version, the Essential PDF is compatible with the PDF to PDF/A conversion. 
@@ -3283,6 +3303,8 @@ loadedDocument.Close(true);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-the-conformance-level-of-the-existing-PDF-document).
+
 ## Get PDF to PDF/A conversion progress
 
 You can get conversion progress using PdfAConversionProgress event.
@@ -3390,6 +3412,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress).
+
 ## PDF/A to PDF conversion
 
 An existing PDF/A conformance document can be converted to a PDF document using the RemoveConformance method in the PdfLoadedDocument. Refer to the following code sample to achieve the same,
@@ -3478,3 +3502,5 @@ document.Close(true);
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Convert-PDFA-to-PDF-document).

@@ -1,6 +1,6 @@
 ---
 title: Working with Headers and Footers | Syncfusion
-description: This section explains how to create Headers and Footers in the PDF document
+description: This section explains how to create Headers and Footers in the PDF document using Syncfusion .NET PDF library
 platform: file-formats
 control: PDF
 documentation: UG
@@ -403,3 +403,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Header%20and%20Footer/Adding-an-automatic-field-in-header-and-footer). 

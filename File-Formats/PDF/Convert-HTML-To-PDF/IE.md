@@ -121,6 +121,7 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Converting-the-URL-to-PDF-document).
 
 ## Converting the HTML string to PDF document
 
@@ -197,6 +198,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Converting-HTML-string-to-PDF-document).
+
 ## Converting Windows Authenticated web page to PDF document
 
 The webpage you want to convert may protected with windows authentication. IE rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
@@ -261,6 +264,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Convert-windows-authenticated-webpage-to-PDF).
+
 ## Converting with PDFA conformance
 
 IE HTML to PDF converter provides support for converting the web pages to PDF with PDFA1B conformance, which embeds all the fonts into the PDF document. The following code snippet illustrates how to convert HTML pages to PDF document with PDFA1B conformance.
@@ -319,6 +324,8 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Convert-HTML-to-PDF-with-PDFA-conformance).
 
 ## Limitations in the IE Rendering Engine
 

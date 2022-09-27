@@ -266,6 +266,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-XMP-metadata-in-PDF-document).
+
 ## Adding XMP metadata in an existing PDF document
 
 You can add metadata in an existing PDF document using [XmpMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xmp.XmpMetadata.html) class, as follows.
@@ -500,7 +502,9 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-XMP-metadata-to-an-existing-PDF-document).
 
 ## Supported Schema types
 
@@ -774,6 +778,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-XMP-basic-schema).
+
 ### Dublin Core Schema
 
 The Dublin Core schema provides a set of commonly used properties such as,
@@ -986,6 +992,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-dubline-core-schema-properties).
+
 ### Rights Management Schema
 
 This schema includes properties related to rights management. These properties provide information regarding the legal restrictions associated with a resource.
@@ -1178,6 +1186,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-right-management-schema).
+
 ### Basic Job Ticket Schema
 
 This schema describes very simple workflow or job information and [BasicJobTicketSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xmp.BasicJobTicketSchema.html) class is used for creation.
@@ -1355,6 +1365,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-basic-job-ticket-schema).
 
 ### Paged-Text Schema
 
@@ -1563,6 +1575,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-pages-text-schema).
+
 ### PDF schema
 
 This schema specifies properties used with Adobe PDF documents.
@@ -1757,6 +1771,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-PDF-schema).
+
 ### Custom Schema
 
 A custom schema defines the structure of the customized information records. You can use the [CustomSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xmp.CustomSchema.html) class to: 
@@ -1950,6 +1966,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-custom-schema).
+
 ## Adding Custom Schema to the PDF document
 
 Essential PDF allows you to add required metadata (custom schema) to a PDF document.
@@ -2126,7 +2144,9 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-custom-schema-to-the-PDF-document).
 
 ## Adding Custom Metadata to the PDF document
 
@@ -2288,6 +2308,8 @@ else
 
 {% endtabs %}   
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-custom-metadata-to-the-PDF-document).
+
 ## Removing Custom Metadata from an existing PDF document
 
 You can remove the custom metadata from an existing PDF document as follows. 
@@ -2418,7 +2440,9 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}   
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Remove-custom-metadata-from-an-existing-PDF-document).
 
 ## Working with image metadata
 
@@ -2610,6 +2634,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-XMP-metadata-along-with-an-image-in-PDF).
+
 ## Extracting XMP metadata from PDF image
 
 To extract the [XmpMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xmp.XmpMetadata.html) from an image in an existing PDF document, you can use the [ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ImagesInfo) property in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html) class.
@@ -2705,5 +2731,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Extracting-XMP-metadata-from-PDF-image).
 
 N> To extract the image information from PDF page in .NET Core, you need to include [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in .NET Core project.

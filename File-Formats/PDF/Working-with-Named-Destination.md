@@ -166,6 +166,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Named%20Destination/Adding-named-destination-to-a-PDF-document).
+
 ## Adding Named Destination to an existing PDF document
 
 The following code example shows how to add named destination in an existing PDF document using the [PdfNamedDestination](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfNamedDestination.html) class.
@@ -311,6 +313,8 @@ else
 
  {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Named%20Destination/Adding-named-destination-to-an-existing-PDF-document).
+
 ## Removing/Modifying the named destination
 
 You can remove the named destination using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfNamedDestinationCollection.html#Syncfusion_Pdf_Interactive_PdfNamedDestinationCollection_Remove_System_String_) method of [PdfNamedDestinationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfNamedDestinationCollection.html). The following code snippet illustrates the same.
@@ -450,6 +454,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Named%20Destination/Remove-and-modify-the-named-destination-in-a-PDF).
 
 ## Adding named destination to the bookmarks
 
@@ -611,3 +616,5 @@ else
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Named%20Destination/Adding-named-destination-to-the-bookmarks).

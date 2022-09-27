@@ -118,6 +118,8 @@ doc.Close(true);
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Create-PDF-document-with-image).
+
 ## Creating a PDF document with table
 
 The following code example shows how to create a PDF document with a simple table.
@@ -151,6 +153,8 @@ doc.Save("Output.pdf");
 doc.Close(true);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Create-PDF-document-with-table).
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
@@ -284,6 +288,8 @@ document.Close(true);
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Create-PDF-with-basic-elements).
+
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 ![WinForms PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
@@ -327,6 +333,8 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Fill-a-form-in-an-existing-PDF-document).
+
 The filled form is shown in adobe reader application as follows.
 ![Filled WinForms PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
 
@@ -351,6 +359,8 @@ finalDoc.Close(true);
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Merge-multiple-documents-from-disk).
+
 You can merge the PDF document streams by using the following code example.
 
 {% highlight c# tabtitle="C#" %}
@@ -369,5 +379,7 @@ finalDoc.Save("sample.pdf");
 finalDoc.Close(true);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Merge-multiple-PDF-documents-from-stream).
 
 
