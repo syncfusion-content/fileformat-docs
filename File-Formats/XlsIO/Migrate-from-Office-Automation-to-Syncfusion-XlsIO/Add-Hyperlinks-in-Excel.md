@@ -35,7 +35,7 @@ private void AddHyperlinks()
     worksheet.Hyperlinks.Add(range, "https://www.syncfusion.com/", Type.Missing, "Click to go to Syncfusion site", "Syncfusion Site!");
 
     //Save the file
-    workbook.SaveCopyAs("InteropOutput_Hyperlinks.xlsx");
+    workbook.SaveCopyAs(@"d:\test\InteropOutput_Hyperlinks.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -61,7 +61,7 @@ Private Sub AddHyperlinks()
     worksheet.Hyperlinks.Add(range, "https://www.syncfusion.com/", Type.Missing, "Click to go to Syncfusion site", "Syncfusion Site!")
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_Hyperlinks.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_Hyperlinks.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -94,7 +94,7 @@ private void AddHyperlinks()
         hyperlink.TextToDisplay = "Syncfusion Site!";
 
         //Save the workbook
-        workbook.SaveAs(@"XlsIOOutput_Hyperlinks.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_Hyperlinks.xlsx");
     }
 }
 {% endhighlight %}
@@ -119,7 +119,7 @@ Private Sub AddHyperlinks()
         hyperlink.TextToDisplay = "Syncfusion Site!"
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_Hyperlinks.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_Hyperlinks.xlsx")
     End Using
 End Sub
 {% endhighlight %}

@@ -216,6 +216,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Drawing-text-in-a-new-PDF-document/). 
+
 ## Drawing text in an existing document
 
 The following code snippet illustrates how to add text in the existing PDF document by using [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method.
@@ -398,6 +400,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Draw-text-in-an-existing-PDF-document). 
 
 ## Drawing text using different fonts
 
@@ -619,6 +623,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Draw-text-in-PDF-document-using-standard-fonts/). 
 
 ### Draw text using TrueType fonts
 
@@ -906,6 +912,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Draw-text-in-a-PDF-using-TrueType-fonts/). 
+
 ### Draw text using CJK fonts
 
 You can add text using CJK fonts, initializing [PdfFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfFont.html) class as [PdfCjkStandardFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfCjkStandardFont.html) class. The following code sample illustrates this.
@@ -1074,6 +1082,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Draw-text-in-a-PDF-using-CJK-fonts/). 
 
 ## Measuring a string
 
@@ -1314,6 +1324,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Measure-the-text-in-PDF-document/). 
+
 ## Embedding fonts and working with Unicode text
 
 To embed a font or display Unicode text in the document, the ‘Unicode’ Boolean parameter of the [PdfTrueTypeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTrueTypeFont.html#Syncfusion_Pdf_Base__ctor) constructor has to be set to true. The following code illustrates the same.
@@ -1421,6 +1433,8 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Display-unicode-text-in-PDF-document/). 
 
 ## Drawing Right-To-Left text 
 
@@ -1818,6 +1832,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Draw-Right-To-Left-text-in-a-PDF-document/). 
+
 ## Adding a HTML Styled Text
 
 Essential PDF provides support to render simple HTML string in a PDF document that can flow through multiple pages. This can be done by using the [PdfHTMLTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfHTMLTextElement.html) class.
@@ -2127,6 +2143,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-HTML-styled-text-to-PDF-document/). 
+
 ## Creating a multicolumn PDF document
 
 Essential PDF allows you to create multi-column text in PDF document by using [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) class. The following code example illustrates the same.
@@ -2358,6 +2376,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Creating-a-multicolumn-PDF-document/). 
 
 The [PdfLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class helps to allow the text to flow across pages. The [PdfLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutResult.html) class provides the rendered bounds of the previously added text which can be used to place successive elements without overlapping.
 
@@ -2666,6 +2686,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Add-text-across-multiple-pages). 
+
 ## Inserting Rich Text Format contents 
 
 Essential PDF allows you to insert a RTF text into a PDF document by converting it as bitmap or metafile image and rendering it using [FromRtf](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfImage.html#Syncfusion_Pdf_Graphics_PdfImage_FromRtf_System_String_System_Single_Syncfusion_Pdf_Graphics_PdfImageType_) method of [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfImage.html) class.
@@ -2777,6 +2799,8 @@ doc.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Insert-RTF-text-in-PDF-document/). 
 
 
 N> For converting complex RTF content to PDF, refer the [RTF to PDF](/file-formats/pdf/working-with-document-conversions#converting-rtf-documents-to-pdf "Working with document conversions") section.
@@ -3139,6 +3163,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-an-ordered-list-to-PDF-document/). 
 
 ## Adding an Unordered List 
 
@@ -3536,6 +3562,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-an-unordered-list-to-PDF-document/). 
+
 ## Replace Fonts in an existing document
 
 Essential PDF allows you to replace the fonts in an existing PDF document by using the [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.Fonts.PdfUsedFont.html#Syncfusion_Pdf_Graphics_Fonts_PdfUsedFont_Replace_Syncfusion_Pdf_Graphics_PdfFont_) method. The following code snippet illustrates the same.
@@ -3595,6 +3623,8 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Replace-fonts-in-an-existing-PDF-document/). 
 
 ## Search and get the bounds of a text in a document
 
@@ -3903,6 +3933,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Drawing-complex-script-language-text-to-PDF/). 
+
 You can add the complex script language text in an existing PDF document by using the following code sample.
 
 {% tabs %}
@@ -4159,6 +4191,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Add-complex-script-to-an-existing-PDF-document/). 
 
 ## Drawing text using OpenType font
 
@@ -4424,6 +4458,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Draw-text-using-OpenTypeFont-in-PDF-document/). 
 
 ## Drawing text with baseline alignment
 
@@ -4770,6 +4806,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Drawing-text-with-baseline-alignment-in-a-PDF/). 
+
 ## Adding a text encoding to the PdfStandardFont 
 
 The following code sample shows how to add a text encoding using the standard PDF fonts by initializing PdfFont class as PdfStandardFont class.
@@ -4955,3 +4993,4 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Add-text-encoding-using-standard-PDF-fonts).

@@ -55,7 +55,7 @@ private void CreatePieChart()
     chart.SetSourceData(chartRange, Type.Missing);
 
     //Save the Excel file
-    workbook.SaveCopyAs("InteropOutput_PieChart.xlsx");
+    workbook.SaveCopyAs(@"d:\test\InteropOutput_PieChart.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -102,7 +102,7 @@ Private Sub CreatePieChart()
     chart.SetSourceData(chartRange, Type.Missing)
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_PieChart.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_PieChart.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -156,7 +156,7 @@ private void CreatePieChart()
         chart.ChartTitle = "Users";
 
         //Save the workbook
-        workbook.SaveAs("XlsIOOutput_PieChart.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_PieChart.xlsx");
     }
 }
 {% endhighlight %}
@@ -202,7 +202,7 @@ Private Sub CreatePieChart()
         chart.ChartTitle = "Users"
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_PieChart.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_PieChart.xlsx")
     End Using
 End Sub
 {% endhighlight %}

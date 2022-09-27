@@ -33,7 +33,7 @@ private void CreateNamedRange()
     worksheet.Range["Test_Range"].Value = "Test";
 
     //Save the file
-    workbook.SaveCopyAs("InteropOutput_NamedRange.xlsx");
+    workbook.SaveCopyAs(@"d:\test\InteropOutput_NamedRange.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -57,7 +57,7 @@ Private Sub CreateNamedRange()
     worksheet.Range("Test_Range").Value = "Test"
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_NamedRange.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_NamedRange.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -88,7 +88,7 @@ private void CreateNamedRange()
         worksheet.Range["Test_Range"].Text = "Test";
 
         //Save the workbook
-        workbook.SaveAs("XlsIOOutput_NamedRange.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_NamedRange.xlsx");
     }
 }
 {% endhighlight %}
@@ -111,7 +111,7 @@ Private Sub CreateNamedRange()
         worksheet.Range("Test_Range").Text = "Test"
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_NamedRange.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_NamedRange.xlsx")
     End Using
 End Sub
 {% endhighlight %}

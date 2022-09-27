@@ -31,7 +31,7 @@ private void MergeCells()
     rng1.Merge(Missing.Value);
 
     //Save the file
-    workbook.SaveAs("InteropOutput_MergedCells.xlsx");
+    workbook.SaveAs(@"d:\test\InteropOutput_MergedCells.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -53,7 +53,7 @@ Private Sub MergeCells()
     rng1.Merge(Missing.Value)
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_MergedCells.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_MergedCells.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -80,7 +80,7 @@ private void MergeCells()
         worksheet.Range["A1:C1"].Merge();
 
         //Save the workbook
-        workbook.SaveAs("XlsIOOutput_MergedCells.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_MergedCells.xlsx");
     }
 }
 {% endhighlight %}
@@ -99,7 +99,7 @@ Private Sub MergeCells()
         worksheet.Range("A1:C1").Merge()
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_MergedCells.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_MergedCells.xlsx")
     End Using
 End Sub
 {% endhighlight %}

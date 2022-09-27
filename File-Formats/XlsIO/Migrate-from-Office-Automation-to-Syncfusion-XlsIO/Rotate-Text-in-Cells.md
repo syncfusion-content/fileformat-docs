@@ -44,7 +44,7 @@ private void RotateText()
     range.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
 
     //Save the Excel file
-    workbook.SaveCopyAs("InteropOutput_RotateText.xlsx");
+    workbook.SaveCopyAs(@"d:\test\InteropOutput_RotateText.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -79,7 +79,7 @@ Private Sub RotateText()
     range.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White)
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_RotateText.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_RotateText.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -120,7 +120,7 @@ private void RotateText()
         range.CellStyle.Font.Color = ExcelKnownColors.White;
 
         //Save the workbook
-        workbook.SaveAs("XlsIOOutput_RotateText.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_RotateText.xlsx");
     }
 }
 {% endhighlight %}
@@ -153,7 +153,7 @@ Private Sub RotateText()
         range.CellStyle.Font.Color = ExcelKnownColors.White
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_RotateText.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_RotateText.xlsx")
     End Using
 End Sub
 {% endhighlight %}

@@ -462,8 +462,10 @@ IApplication application = excelEngine.Excel;
 //Assigns default application version
 application.DefaultVersion = ExcelVersion.Xlsx;
 
-//A existing workbook is opened.             
-FileStream sampleFile = new FileStream("Sample.xlsx", FileMode.Open);
+//A existing workbook is opened.              
+string basePath = _hostingEnvironment.WebRootPath + @"\XlsIO\Sample.xlsx";              
+FileStream sampleFile = new FileStream(basePath, FileMode.Open);
+
 IWorkbook workbook = application.Workbooks.Open(sampleFile);
 
 //Access first worksheet from the workbook.

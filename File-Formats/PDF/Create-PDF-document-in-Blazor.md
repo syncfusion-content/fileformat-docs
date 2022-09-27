@@ -218,6 +218,8 @@ Step 8: Add the following JavaScript function in the  ``_Host.cshtml`` available
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ServerSideApplication).
+
 By executing the program, you will get the following output in the browser.
 
 ![Blazor Server-side browser output](Create-PDF-Blazor/Blazor_browser_output.png)
@@ -381,6 +383,9 @@ Step 8: Add the following JavaScript function in the ``index.html`` available un
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ClientSideApplication).
+
 By executing the program, you will get the following output in the browser.
 
 ![Blazor Client-side browser output](Create-PDF-Blazor/Blazor_Client_WebResult.png)

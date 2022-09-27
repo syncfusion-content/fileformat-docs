@@ -31,7 +31,7 @@ private void ProtectWorkbook()
     workbook.Protect("007", true, true);
 
     //Save the file
-    workbook.SaveAs("InteropOutput_ProtectedWorkbook.xlsx");
+    workbook.SaveAs(@"d:\test\InteropOutput_ProtectedWorkbook.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -50,7 +50,7 @@ Private Sub ProtectWorkbook()
     workbook.Protect("007", True, True)
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_ProtectedWorkbook.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_ProtectedWorkbook.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -78,7 +78,7 @@ private void ProtectWorkbook()
         workbook.Protect(isProtectWindow, isProtectContent, "password");
 
         //Save the Excel file
-        workbook.SaveAs("XlsIOOutput_ProtectedWorkbook.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_ProtectedWorkbook.xlsx");
     }
 }
 {% endhighlight %}
@@ -98,7 +98,7 @@ Private Sub ProtectWorkbook()
         workbook.Protect(isProtectWindow, isProtectContent, "password")
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_ProtectedWorkbook.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_ProtectedWorkbook.xlsx")
     End Using
 End Sub
 {% endhighlight %}

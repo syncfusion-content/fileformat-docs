@@ -28,10 +28,10 @@ private void SetWorksheetBackground()
     Worksheet worksheet = (Worksheet)workbook.Sheets["Sheet1"];
 
     //Set a background picture for the sheet
-    worksheet.SetBackgroundPicture("Syncfusion.png");
+    worksheet.SetBackgroundPicture(@"d:\test\Syncfusion.png");
 
     //Save the Excel file
-    workbook.SaveCopyAs("InteropOutput_BackgroundPicture.xlsx");
+    workbook.SaveCopyAs(@"d:\test\InteropOutput_BackgroundPicture.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -50,10 +50,10 @@ Private Sub SetWorksheetBackground()
     Dim worksheet As Worksheet = workbook.Sheets("Sheet1")
 
     'Set a background picture for the sheet
-    worksheet.SetBackgroundPicture("Syncfusion.png")
+    worksheet.SetBackgroundPicture("d:\test\Syncfusion.png")
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_BackgroundPicture.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_BackgroundPicture.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -79,10 +79,10 @@ private void SetWorksheetBackground()
         IWorksheet worksheet = workbook.Worksheets[0];
 
         //Set a background picture for the sheet
-        worksheet.PageSetup.BackgoundImage = new Bitmap("Syncfusion.png");
+        worksheet.PageSetup.BackgoundImage = new Bitmap(@"d:\test\Syncfusion.png");
 
         //Save the workbook
-        workbook.SaveAs("XlsIOOutput_BackgroundPicture.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_BackgroundPicture.xlsx");
     }
 }
 {% endhighlight %}
@@ -100,10 +100,10 @@ Private Sub SetWorksheetBackground()
         Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
         'Set a background picture for the sheet
-        worksheet.PageSetup.BackgoundImage = New Bitmap("Syncfusion.png")
+        worksheet.PageSetup.BackgoundImage = New Bitmap("d:\test\Syncfusion.png")
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_BackgroundPicture.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_BackgroundPicture.xlsx")
     End Using
 End Sub
 {% endhighlight %}

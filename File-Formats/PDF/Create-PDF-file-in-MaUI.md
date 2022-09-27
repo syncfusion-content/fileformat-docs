@@ -12,7 +12,7 @@ The Syncfusion [.NET MAUI PDF library](https://www.syncfusion.com/document-proce
 
 **Prerequisites:**
 
-To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
+To use the .NET MAUI project templates, install the Mobile development with .NET extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
 
 
 ## Steps to create PDF document programmatically in .NET MAUI
@@ -82,8 +82,7 @@ using System.Xml.Linq;
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-            
-			RectangleF TotalPriceCellBounds = RectangleF.Empty;
+            RectangleF TotalPriceCellBounds = RectangleF.Empty;
             RectangleF QuantityCellBounds = RectangleF.Empty;
 
             //Create a new PDF document.
@@ -318,12 +317,9 @@ using System.Xml.Linq;
             using MemoryStream ms = new();
             //Saves the presentation to the memory stream.
             document.Save(ms);
-			//Close the PDF document
-            document.Close(true);
             ms.Position = 0;
-            //Saves the memory stream as file.
-            SaveService saveService = new();
-            saveService.SaveAndView("Invoice.pdf", "application/pdf", ms);
+            //Saves the memory stream as a file.
+            DependencyService.Get<ISave>().SaveAndView("Invoice.pdf", "application/pdf", ms);
         }
 
 
@@ -360,7 +356,270 @@ using System.Xml.Linq;
 
 {% endtabs %}
 
-A complete working example of creating a PDF document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/PdfSampleMaUI-1356433164887362210.zip).
+## Save and View the PDF document in windows
+
+Add the following **SaveWindows.cs** file to the **Project-> Platforms-> Windows** directory to save and view the PDF document in the windows machine.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+using Microsoft.Maui.Controls;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
+using Windows.UI.Popups;
+
+[assembly: Dependency(typeof(SaveWindows))]
+
+class SaveWindows : ISave
+{
+    public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+    {
+        StorageFile stFile;
+        string extension = Path.GetExtension(filename);
+        //Gets process windows handle to open the dialog in application process. 
+        IntPtr windowHandle = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+        if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+        {
+            //Create as file save picker to save a file. 
+            FileSavePicker savePicker = new FileSavePicker();
+                savePicker.DefaultFileExtension = ".pdf";
+                savePicker.SuggestedFileName = filename;
+                //Saves the file as a Pdf file.
+                savePicker.FileTypeChoices.Add("PDF", new List<string>() { ".pdf" });
+
+            WinRT.Interop.InitializeWithWindow.Initialize(savePicker, windowHandle);
+            stFile = await savePicker.PickSaveFileAsync();
+        }
+        else
+        {
+            StorageFolder local = ApplicationData.Current.LocalFolder;
+            stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+        }
+        if (stFile != null)
+        {
+            using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+            {
+                //Write s compressed data from memory to file.
+                using (Stream outstream = zipStream.AsStreamForWrite())
+                {
+                    outstream.SetLength(0);
+                    //Saves the stream as a file.
+                    byte[] buffer = stream.ToArray();
+                    outstream.Write(buffer, 0, buffer.Length);
+                    outstream.Flush();
+                }
+            }
+            //Create a message dialog box. 
+            MessageDialog msgDialog = new MessageDialog("Do you want to view the Document?", "File created.");
+            UICommand yesCmd = new UICommand("Yes");
+            msgDialog.Commands.Add(yesCmd);
+            UICommand noCmd = new UICommand("No");
+            msgDialog.Commands.Add(noCmd);
+
+            WinRT.Interop.InitializeWithWindow.Initialize(msgDialog, windowHandle);
+
+            //Showing a dialog box. 
+            IUICommand cmd = await msgDialog.ShowAsync();
+            if (cmd.Label == yesCmd.Label)
+            {
+                //Launch the saved file. 
+                await Windows.System.Launcher.LaunchFileAsync(stFile);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Save and View the PDF document in Android
+
+Add the following **SaveAndroid.cs** file to the **Project-> Platforms-> Android** directory folder to save and view the PDF document in the Android Device.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+using System;
+using System.IO;
+using Android.Content;
+using Java.IO;
+using System.Threading.Tasks;
+using Android;
+using Android.Content.PM;
+using Microsoft.Maui.Controls;
+using AndroidX.Core.Content;
+using Android.OS;
+using Microsoft.Maui.Essentials;
+
+[assembly: Dependency(typeof(SaveAndroid))]
+
+class SaveAndroid : ISave
+{
+    //Method to save document as a file in Android and view the saved document
+    public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
+    {
+        string exception = string.Empty;
+        string root = null;
+
+        if (Android.OS.Environment.IsExternalStorageEmulated)
+        {
+            root = Android.App.Application.Context.GetExternalFilesDir(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
+        }
+        else
+            root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+
+        Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
+        myDir.Mkdir();
+
+        Java.IO.File file = new Java.IO.File(myDir, fileName);
+
+        if (file.Exists())
+        {
+            file.Delete();
+        }
+
+        try
+        {
+            FileOutputStream outs = new FileOutputStream(file);
+            outs.Write(stream.ToArray());
+
+            outs.Flush();
+            outs.Close();
+        }
+        catch (Exception e)
+        {
+            exception = e.ToString();
+        }
+        if (file.Exists())
+        {
+
+            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.N)
+            {
+                var fileUri = AndroidX.Core.Content.FileProvider.GetUriForFile(Android.App.Application.Context, Android.App.Application.Context.PackageName + ".provider", file);
+                var intent = new Intent(Intent.ActionView);
+                intent.SetData(fileUri);
+                intent.AddFlags(ActivityFlags.NewTask);
+                intent.AddFlags(ActivityFlags.GrantReadUriPermission);
+                Android.App.Application.Context.StartActivity(intent);
+            }
+            else
+            {
+                var fileUri = Android.Net.Uri.Parse(file.AbsolutePath);
+                var intent = new Intent(Intent.ActionView);
+                intent.SetDataAndType(fileUri, contentType);
+                intent = Intent.CreateChooser(intent, "Open File");
+                intent.AddFlags(ActivityFlags.NewTask);
+                Android.App.Application.Context.StartActivity(intent);
+            }
+
+        }
+    }
+}
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Save and View the PDF document in iOS
+
+Add the following **SaveIOS.cs** file to the **Project-> Platforms-> iOS** directory to save the PDF document in the iOS Device.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+using System;
+using System.Threading.Tasks;
+using System.IO;
+using UIKit;
+using QuickLook;
+using Microsoft.Maui.Controls;
+
+[assembly: Dependency(typeof(SaveIOS))]
+
+class SaveIOS : ISave
+{
+    public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+    {
+        string exception = string.Empty;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        string filePath = Path.Combine(path, filename);
+        try
+        {
+            FileStream fileStream = File.Open(filePath, FileMode.Create);
+            stream.Position = 0;
+            stream.CopyTo(fileStream);
+            fileStream.Flush();
+            fileStream.Close();
+        }
+        catch (Exception e)
+        {
+            exception = e.ToString();
+        }
+        if (contentType == "application/html" || exception != string.Empty)
+            return;
+
+        UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+        while (currentController.PresentedViewController != null)
+            currentController = currentController.PresentedViewController;
+        UIView currentView = currentController.View;
+
+        QLPreviewController qlPreview = new QLPreviewController();
+        QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
+        qlPreview.DataSource = new PreviewControllerDS(item);
+        currentController.PresentViewController((UIViewController)qlPreview, true, (Action)null);
+    }
+
+    private string GetMimeType(string filename)
+    {
+        if (string.IsNullOrEmpty(filename))
+        {
+            return null;
+        }
+
+        var extension = Path.GetExtension(filename.ToLowerInvariant());
+
+        switch (extension)
+        {
+            case "png":
+                return "image/png";
+            case "doc":
+                return "application/msword";
+            case "pdf":
+                return "application/pdf";
+            case "jpeg":
+            case "jpg":
+                return "image/jpeg";
+            case "zip":
+            case "docx":
+            case "xlsx":
+            case "pptx":
+                return "application/zip";
+            case "htm":
+            case "html":
+                return "text/html";
+        }
+
+        return "application/octet-stream";
+    }
+
+}
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+A complete working example of creating a PDF document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample2082094668).
 
 By executing the program in windows, you will get the **PDF document** as follows.
 
@@ -375,82 +634,3 @@ By executing the program in iOS, you will get the **PDF document** as follows,
 ![MaUI iOS output PDF document](MaUI_Images/invoice_ios.png)
 
 N> You can also explore our [MAUI PDF library demo](https://www.syncfusion.com/demos/fileformats/pdf-library) that shows how to create and modify PDF files from C# with just five lines of code.
-
-## Helper files for .NET MAUI
-
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Helper_files-1664336865) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
-
-<table>
-  <tr>
-  <td>
-    <b>Folder Name</b>
-  </td>
-  <td>
-    <b>File Name</b>
-  </td>
-  <td>
-    <b>Summary</b>
-  </td>
-  </tr>
-  <tr>
-  <td>
-    .NET MAUI Project
-  </td>
-  <td>
-    SaveService.cs
-  </td>
-  <td>Represent the base class for save operation.
-  </td>
-  </tr>
-  <tr>
-  <td>
-    Windows
-  </td>
-  <td>
-    SaveWindows.cs
-  </td>
-  <td>Save implementation for Windows.
-  </td>
-  </tr>
-  <tr>
-  <td>
-    Android
-  </td>
-  <td>
-    SaveAndroid.cs
-  </td>
-  <td>Save implementation for Android device.
-  </td>
-  </tr>
-  <tr>
-  <td>
-    Mac Catalyst
-  </td>
-  <td>
-    SaveMac.cs
-  </td>
-  <td>Save implementation for Mac Catalyst device.
-  </td>
-  </tr>
-  <tr>
-  <td rowspan="2">
-    iOS
-  </td>
-  <td>
-    SaveIOS.cs
-  </td>
-  <td>
-    Save implementation for iOS device
-  </td>
-  </tr>
-  <tr>
-  <td>
-    PreviewControllerDS.cs<br/>QLPreviewItemFileSystem.cs
-  </td>
-  <td>
-    Helper classes for viewing the <b>Pdf document</b> in iOS device
-  </td>
-  </tr>
-</table>
-
-

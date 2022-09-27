@@ -238,6 +238,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create-a-PDF-document-with-standard-page-size/). 
+
 You can create a PDF document with custom page size by using the following code snippet.
 
 {% tabs %}
@@ -464,6 +466,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create-a-PDF-document-with-custom-page-size/). 
 
 You can change page orientation from portrait to landscape, through [PdfPageOrientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageOrientation.html) Enum by using the following code snippet.
 
@@ -719,6 +723,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Change-the-page-orientation-from-portrait-to-landscape/). 
+
 N> Generally, the PDF page orientation will be updated based on the custom page size. But if a custom page orientation is set using the [Orientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html#Syncfusion_Pdf_PdfPageSettings_Orientation) property, then the PDF page size will be updated based on the custom orientation.
 
 You can also change orientation by setting the rotation angle using [PdfPageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageRotateAngle.html) Enum. The following code snippet illustrates the same.
@@ -970,6 +976,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Rotate_PDF_based_on_angle/). 
+
 ## Creating sections in a PDF
 
 PDF sections are parts of the PDF document, which may contain one or more pages with their unique page settings. The following code snippet illustrates how to create a [PdfSection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfSection.html) in a PDF document.
@@ -1201,6 +1209,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create_sections_in_PDF_document/). 
 
 ## Printing PDF document
 
@@ -1560,6 +1570,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Add_PDF_document_properties/). 
+
 The following code snippet shows how to read and modify the document properties of an existing PDF document.
 
 {% tabs %}
@@ -1776,6 +1788,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Change_existing_PDF_properties). 
+
 ## Performing incremental update for PDF document
 
 The Essential PDF supports incremental update for PDF document. The content of a PDF file can be updated incrementally without rewriting the entire file. Changes are appended to the end of the file, leaving its original contents intact. The main benefit is small changes to a large PDF document can be saved quickly but the resultant document size gets increased compared with the original PDF document. Disabling the [IncrementalUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html#Syncfusion_Pdf_PdfFileStructure_IncrementalUpdate) of [PdfFileStructure](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html) will rewrite the entire file, which results in a smaller PDF. This is illustrated in the following code sample.
@@ -1967,6 +1981,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Perform-incremental-update-for-the-PDF-document/). 
 
 ## Choosing the viewer preferences
 
@@ -2241,6 +2257,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create_PDF_with_viewer_preference/). 
+
 You can also allow the reader application to initially display the bookmarks, thumbnails or attachments using [PdfPageMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageMode.html) Enum.
 
 {% tabs %}
@@ -2467,6 +2485,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create-PDF-with-display-of-specific-panel/). 
+
 ## Adding document action
 
 Please refer to the [actions](/file-formats/pdf/working-with-action "Working with action") section for more document level operations using the PdfJavascript and PDF actions.
@@ -2554,6 +2574,8 @@ End Sub
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create-a-PDF-in-multi-threading-environment). 
+
 You can also modify the existing PDF document in multi-threading environment by using the following code snippet.
 
 {% tabs %}
@@ -2633,6 +2655,8 @@ End Sub
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Modify-existing-PDF-in-multi-threading/). 
 
 ## Uniform Resource Naming in PDF document
 
@@ -2855,6 +2879,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create_PDF_with_Uniform_Resouce_Naming/). 
+
 ## Memory Optimization
 
 Essential PDF provides support for optimization of memory using [EnableMemoryOptimization](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_EnableMemoryOptimization) property in [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) instance. Optimization will be effective only with merge, append and import functions. 
@@ -3007,6 +3033,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Manage_memory_while_appending_PDF_document/). 
+
 ## Find corrupted PDF document   
 
 Syncfusion PDF Library provides support to check whether the existing PDF document is corrupted or not with corruption details. The following code snippet explains how to find the corrupted PDF document.
@@ -3150,6 +3178,8 @@ analyzer.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Find_corrupted_PDF_document/). 
+
 ## Embed all the non-embedded fonts in the existing PDF document  
 
 You can embed all the non-embedded fonts in the existing PDF document using the EmbedFonts method. 
@@ -3183,6 +3213,8 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Embed-all-fonts-in-an-existing-PDF-document/). 
 
 ## Add or retrieve BaseUri in a PDF document
 
@@ -3278,6 +3310,8 @@ document.Close(true);
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Add_BaseUri_in_the_PDF_document/). 
+
 The following code example illustrates the retrieval of BaseUri from the loaded document.
 
 {% tabs %}
@@ -3348,3 +3382,5 @@ string baseUri = document.BaseUri;
 document.Close(true);
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Retrieve_BaseUri_from_the_existing_PDF/). 

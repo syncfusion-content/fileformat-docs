@@ -22,7 +22,7 @@ private void ActivateWorksheet()
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
     //Specify the template Excel file path
-    string myPath = "Sample.xlsx";
+    string myPath = @"d:\test\Sample.xlsx";
 
     //Open the Excel file
     Workbook workbook = excelApp.Workbooks.Open(myPath);
@@ -31,7 +31,7 @@ private void ActivateWorksheet()
     workbook.Sheets[1].Activate();
 
     //Save as Excel file
-    workbook.SaveCopyAs("InteropOutput_ActivateWorksheet.xlsx");
+    workbook.SaveCopyAs(@"d:\test\InteropOutput_ActivateWorksheet.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -44,7 +44,7 @@ Private Sub ActivateWorksheet()
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
     'Specify the template Excel file path
-    Dim myPath As String = "Sample.xlsx"
+    Dim myPath As String = "d:\test1\Sample.xlsx"
 
     'Open the Excel file
     Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
@@ -53,7 +53,7 @@ Private Sub ActivateWorksheet()
     workbook.Sheets(1).Activate()
 
     'Save as Excel file
-    workbook.SaveCopyAs("InteropOutput_ActivateWorksheet.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_ActivateWorksheet.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -73,7 +73,7 @@ private void ActivateWorksheet()
         IApplication application = excelEngine.Excel;
 
         //Specify the template Excel file path
-        string myPath = "Sample.xlsx";
+        string myPath = @"d:\test\Sample.xlsx";
 
         //Instantiate a new workbook
         //Open the Excel file
@@ -83,7 +83,7 @@ private void ActivateWorksheet()
         workbook.Worksheets[0].Activate();
 
         //Save as Excel file
-        workbook.SaveAs("XlsIOOutput_ActivateWorksheet.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_ActivateWorksheet.xlsx");
     }
 }
 {% endhighlight %}
@@ -95,7 +95,7 @@ Private Sub ActivateWorksheet()
         Dim application As IApplication = excelEngine.Excel
 
         'Specify the template Excel file path
-        Dim myPath As String = "Sample.xlsx"
+        Dim myPath As String = "d:\test\Sample.xlsx"
 
         'Instantiate a new workbook
         'Open the Excel file
@@ -105,7 +105,7 @@ Private Sub ActivateWorksheet()
         workbook.Worksheets(0).Activate()
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_ActivateWorksheet.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_ActivateWorksheet.xlsx")
     End Using
 End Sub
 {% endhighlight %}

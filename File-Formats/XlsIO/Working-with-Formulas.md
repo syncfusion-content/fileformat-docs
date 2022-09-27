@@ -2718,7 +2718,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Adding the XLAM file reference to AddIn functions
   //NOTE: The add-in name must be same as the function name
-  unknownFunctions.Add("D:/AddIn.xlam", "AddInFunction");
+  unknownFunctions.Add(@"D:\AddIn.xlam", "AddInFunction");
 
   //Use the function. The expected result is 30
   sheet.Range["A3"].Formula = "AddInFunction(10,20)";
@@ -2751,7 +2751,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Adding the XLAM file reference to AddIn functions
   'NOTE: The add-in name must be same as the function name
-  unknownFunctions.Add("D:/AddIn.xlam", "AddInFunction")
+  unknownFunctions.Add("D:\AddIn.xlam", "AddInFunction")
 
   'Use the function. The expected result is 30
   sheet.Range("A3").Formula = "AddInFunction(10,20)"

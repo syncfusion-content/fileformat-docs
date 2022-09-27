@@ -227,6 +227,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Create-simple-table-from-data-source).
+
 ### Create a simple table directly without setting any data source 
 
 Directly add rows and columns instead of a data source, by setting the [DataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html#Syncfusion_Pdf_Tables_PdfLightTable_DataSourceType) property to **TableDirect** of [PdfLightTableDataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTableDataSourceType.html) Enum. 
@@ -448,6 +450,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Add-the-data-directly-into-the-PDF-table).
 
 ### Creating a simple table in an existing PDF document 
 
@@ -689,6 +693,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Creating-the-table-in-an-existing-PDF-document).
 
 ## Support for cell customization 
 
@@ -992,6 +998,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Customize-the-table-cell-in-PDF-document).
 
 ### Draw graphics elements in a particular cell 
 
@@ -1335,6 +1343,8 @@ private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventAr
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Draw-graphics-element-in-particular-cell).
 
 ## Support for rows and columns customization 
 
@@ -1685,6 +1695,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Row-customization-of-the-table-in-PDF-document).
+
 ### Column customization 
 
 The following code sample illustrates how to customize the column in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html) using the [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html) class. 
@@ -1974,6 +1986,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Column-customization-of-the-table-in-PDF-document).
 
 ## Table customization 
 
@@ -2278,6 +2292,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Customize-the-table-in-a-PDF-document).
+
 ## Built-in table styles 
 
 In-built table styles can be applied to [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html), and the appearance is made similar to Microsoft Word’s built-in table styles. You can also apply in-built table styles with the following additional table style options.
@@ -2549,6 +2565,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Create-table-with-built-in-style).
+
 The following image shows the PDF document with ```PdfGridBuiltinStyle.Gridtable4Accent2```.
 ![Gridtable4Accent2 image](Table_images/Gridtable4Accent2.png)
 
@@ -2796,6 +2814,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Paginate-table-in-a-PDF-document).
 
 ## String formatting 
 
@@ -3078,6 +3098,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Add-string-formatting-for-whole-table-in-a-PDF).
+
 ### String formatting to a column in PdfGrid
 
 The following code sample explains how to add string formatting to a column in the [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html).
@@ -3342,4 +3364,6 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Add-string-formatting-to-a-column-in-table).
 

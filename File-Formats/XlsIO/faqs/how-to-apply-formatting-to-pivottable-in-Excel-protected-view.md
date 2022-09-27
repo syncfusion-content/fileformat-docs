@@ -74,7 +74,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark15
 
     pivotTable.Layout()
-    workbook.SaveAs("PivotTable.xlsx")
+    workbook.SaveAs("../../Output/PivotTable.xlsx")
 End Using
 {% endhighlight %}
 

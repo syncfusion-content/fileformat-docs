@@ -22,7 +22,7 @@ private void UnmergeCells()
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
     //Specify the template Excel file path
-    string myPath = "InteropOutput_MergedCells.xlsx";
+    string myPath = @"d:\test\InteropOutput_MergedCells.xlsx";
 
     //Open the Excel file
     Workbook workbook = excelApp.Workbooks.Open(myPath);
@@ -34,7 +34,7 @@ private void UnmergeCells()
     rng1.UnMerge();
 
     //Save the file
-    workbook.SaveAs("InteropOutput_UnmergedCells.xlsx");
+    workbook.SaveAs(@"d:\test\InteropOutput_UnmergedCells.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -47,7 +47,7 @@ Private Sub UnmergeCells()
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
     'Specify the template Excel file path
-    Dim myPath As String = "InteropOutput_MergedCells.xlsx"
+    Dim myPath As String = "d:\test\InteropOutput_MergedCells.xlsx"
 
     'Open the Excel file
     Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
@@ -59,7 +59,7 @@ Private Sub UnmergeCells()
     rng1.UnMerge()
 
     'Save the file
-    workbook.SaveCopyAs("InteropOutput_UnmergedCells.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_UnmergedCells.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -79,14 +79,14 @@ private void UnmergeCells()
         IApplication application = excelEngine.Excel;
 
         //Open the Excel file containing merged cells
-        IWorkbook workbook = application.Workbooks.Open("XlsIOOutput_MergedCells.xlsx");
+        IWorkbook workbook = application.Workbooks.Open(@"d:\test\XlsIOOutput_MergedCells.xlsx");
         IWorksheet worksheet = workbook.Worksheets[0];
 
         //Unmerge the merged cells from A1 to C1
         worksheet.Range["A1:C1"].UnMerge();
 
         //Save the workbook
-        workbook.SaveAs("XlsIOOutput_UnmergedCells.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_UnmergedCells.xlsx");
     }
 }
 {% endhighlight %}
@@ -98,14 +98,14 @@ Private Sub UnmergeCells()
         Dim application As IApplication = excelEngine.Excel
 
         'Open the Excel file
-        Dim workbook As IWorkbook = application.Workbooks.Open("XlsIOOutput_MergedCells.xlsx")
+        Dim workbook As IWorkbook = application.Workbooks.Open("d:\test1\XlsIOOutput_MergedCells.xlsx")
         Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
         'Unmerge the merged cells from A1 to C1
         worksheet.Range("A1:C1").UnMerge()
 
         'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_UnmergedCells.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_UnmergedCells.xlsx")
     End Using
 End Sub
 {% endhighlight %}

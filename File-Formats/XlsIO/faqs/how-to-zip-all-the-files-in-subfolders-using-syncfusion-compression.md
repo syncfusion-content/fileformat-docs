@@ -20,7 +20,7 @@ class Program
     {
         private static List<DirectoryInfo> arrOfItems = new List<DirectoryInfo>();
         private static ZipArchive zipArchive = new ZipArchive();
-        private static string folderPath = "ZipFiles";
+        private static string folderPath = @"..\..\ZipFiles";
 
         private static void SubFoldersFiles(string path)
 
@@ -58,7 +58,7 @@ class Program
 
                 // Saving zipped file.
 
-                zipArchive.Save("UnzippedFile.zip");
+                zipArchive.Save(@"..\..\UnzippedFile.zip");
 
                 zipArchive.Close();
 
@@ -138,9 +138,9 @@ class Program
 
             ZipArchive zip = new ZipArchive();
 
-            string path = "UnZippedFile";
+            string path = @"..\..\UnZippedFile";
 
-            zip.Open("UnzippedFile.zip");
+            zip.Open(@"..\..\UnzippedFile.zip");
 
             if (!Directory.Exists(path))
 
@@ -214,7 +214,7 @@ Imports Syncfusion.Compression.Zip
 Class Program
 	Private Shared arrOfItems As New List(Of DirectoryInfo)()
 	Private Shared zipArchive As New ZipArchive()
-	Private Shared folderPath As String = "ZipFiles"
+	Private Shared folderPath As String = "..\..\ZipFiles"
 
 	Private Shared Sub SubFoldersFiles(path As String)
 
@@ -248,7 +248,7 @@ Class Program
 
 			' Saving zipped file.
 
-			zipArchive.Save("UnzippedFile.zip")
+			zipArchive.Save("..\..\UnzippedFile.zip")
 
 			zipArchive.Close()
 
@@ -322,9 +322,9 @@ Class Program
 
 		Dim zip As New ZipArchive()
 
-		Dim path As String = "UnZippedFile"
+		Dim path As String = "..\..\UnZippedFile"
 
-		zip.Open("UnzippedFile.zip")
+		zip.Open("..\..\UnzippedFile.zip")
 
 		If Not Directory.Exists(path) Then
 
