@@ -5027,3 +5027,29 @@ N> Syncfusion XlsIO supports importing HTML tables with the inline styles alone.
 N> Syncfusion XlsIO depends on the XMLDocument object to load HTML string in which the "<" and "&" symbols are invalid. These symbols needs to be changed as "&lt;" and "&amp;" respectively, to overcome the xml exception.
 
 N> Data formatting can be applied to the Excel cells only after importing the HTML table to Excel.
+
+### Import HTML Table with Formula
+
+Syncfusion XlsIO also supports importing HTML table with formula to Excel worksheet. The following code snippet explains this.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas)
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas);
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas);
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas);
+{% endhighlight %}
+{% endtabs %}
