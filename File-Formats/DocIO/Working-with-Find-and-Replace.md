@@ -801,7 +801,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find next and replace with formatted text
 
-The following code example illustrates how to replace the text extended to several paragraphs with particular text in the document:
+The following code example illustrates how to replace the text extended to several paragraphs with a particular text in the document.
 
 {% tabs %}  
 
@@ -809,13 +809,13 @@ The following code example illustrates how to replace the text extended to sever
 //Load an existing Word document. 
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
-    //Access the specific paragraph in the Word document.
+    //Access the specific paragraph in a Word document.
     TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
-    //Find the next occurrence of specified text from the previous paragraph.
+    //Find the next occurrence of the specified text from the previous paragraph.
     TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
     //Replace the text extended to two paragraphs with the above selected text.
     document.ReplaceSingleLine("CompanyName", textSelections, true, true);
-    //Save the Word document.
+    //Save a Word document.
     document.Save("Sample.docx");
 }           
 {% endhighlight %}
@@ -823,31 +823,31 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {% highlight vb.net tabtitle="VB.NET" %}
 'Load an existing Word document. 
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
-    'Access the specific paragraph in the Word document.
+    'Access the specific paragraph in a Word document.
     Dim textBodyItem As TextBodyItem = TryCast(document.Sections(0).Paragraphs(3), WParagraph)
-    'Find the next occurrence of specified text from the previous paragraph.
+    'Find the next occurrence of the specified text from the previous paragraph.
     Dim textSelections As TextSelection = document.FindNext(textBodyItem, New Regex("Adventure Works Cycles"))
     'Replace the text extended to two paragraphs with the above selected text.
     document.ReplaceSingleLine("CompanyName", textSelections, True, True)
-    'Save the Word document.
+    'Save a Word document.
     document.Save("Sample.docx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Access the specific paragraph in the Word document.
+        //Access the specific paragraph in a Word document.
         TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
-        //Find the next occurrence of specified text from the previous paragraph.
+        //Find the next occurrence of the specified text from the previous paragraph.
         TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
         //Replace the text extended to two paragraphs with the above selected text.
         document.ReplaceSingleLine("CompanyName", textSelections, true, true);
-        //Save a Word document to MemoryStream.
+        //Save a Word document to the MemoryStream.
         MemoryStream stream = new MemoryStream();
         await document.SaveAsync(stream, FormatType.Docx);
         //Save the stream as a Word document file in the local machine.
@@ -859,42 +859,42 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Access the specific paragraph in the Word document.
+        //Access the specific paragraph in a Word document.
         TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
-        //Find the next occurrence of specified text from the previous paragraph.
+        //Find the next occurrence of the specified text from the previous paragraph.
         TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
         //Replace the text extended to two paragraphs with the above selected text.
         document.ReplaceSingleLine("CompanyName", textSelections, true, true);
-        //Save the Word document to the MemoryStream.
+        //Save a Word document to the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
         outputStream.Position = 0;
-        //Download as Word document in the browser.
+        //Download as a Word document in the browser.
         return File(outputStream, "application/msword", "Sample.docx");
     }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Access the specific paragraph in the Word document.
+        //Access the specific paragraph in a Word document.
         TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
-        //Find the next occurrence of specified text from the previous paragraph.
+        //Find the next occurrence of the specified text from the previous paragraph.
         TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
         //Replace the text extended to two paragraphs with the above selected text.
         document.ReplaceSingleLine("CompanyName", textSelections, true, true);
-        //Save the Word document to the MemoryStream.
+        //Save a Word document to the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
         //Save the stream as a file in the device and invoke it for viewing. 
