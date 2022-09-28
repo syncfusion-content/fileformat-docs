@@ -885,7 +885,7 @@ document.Close();
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-misspelled-word).
 
 ## Find and replace non-breaking spaces with regular spaces
-You can find and replace non-breaking spaces with regular spaces by using `Replace` method.
+You can find non-breaking spaces used in a Word document and replace them with regular spaces using `Replace` method.
 
 The following code example illustrates how to find and replace non-breaking spaces with regular spaces in a Word document.
 
