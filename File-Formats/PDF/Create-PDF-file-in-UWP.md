@@ -198,6 +198,8 @@ Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Create-PDF-document-with-image).
+
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
 
@@ -331,6 +333,8 @@ document.Close(true);
 Save(stream, "Sample.pdf");
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Create-PDF-document-with-basic-elements).
+
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 ![UWP PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
 
@@ -384,6 +388,8 @@ loadedDocument.Close(true);
 Save(stream, "output.pdf");
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Fill-form-in-a-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
 

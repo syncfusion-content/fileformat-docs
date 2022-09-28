@@ -241,6 +241,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Add-a-new-page-to-the-PDF-document/). 
+
 ## Inserting pages in a document
 
 You can insert an empty page at any location in the existing PDF document using [Insert](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedPageCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedPageCollection_Insert_System_Int32_) method. The below code snippet explains the same.
@@ -412,6 +414,8 @@ else
 {% endhighlight %}
 
  {% endtabs %}  
+
+ You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Insert-pages-in-a-PDF-document/). 
 
 ## Adding margin to the PDF pages
 
@@ -665,6 +669,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Add-margin-to-the-PDF-pages/). 
 
 ## Adding sections with different page settings
 
@@ -1095,6 +1101,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Adding-sections-with-different-page-settings/). 
+
 ## Get number of pages from a PDF document 
 
 You can get page count from the existing PDF document as shown in the following code snippet.
@@ -1209,6 +1217,8 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Get-number-of-pages-from-PDF-document/). 
 
 
 ## Importing pages from an existing document.
@@ -1437,6 +1447,8 @@ else
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Importing-pages-from-one-PDF-to-another-PDF/). 
 
 ## Importing pages from an existing document without bookmarks.
 
@@ -1667,6 +1679,8 @@ else
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Import-pages-from-PDF-without-bookmarks/.NET). 
+
 ## Rearranging pages in an existing document
 
 You can rearrange the pages in an existing PDF document using [ReArrange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedPageCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedPageCollection_ReArrange_System_Int32___) method. This method uses zero based start index. The following code snippet illustrates the same.
@@ -1837,6 +1851,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Rearrange-pages-in-an-existing-PDF-document/). 
 
 
 ## Changing the page numbers in a PDF document
@@ -2058,6 +2074,8 @@ else
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Changing-page-numbers-in-a-PDF-document/). 
+
 
 ## Removing pages from a document
 
@@ -2236,6 +2254,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Remove-pages-from-the-existing-PDF-document/). 
 
 ## Rotating a PDF page
 
@@ -2501,6 +2521,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Rotating-a-PDF-page/). 
+
 ## Rotating an existing PDF page
 
 You can also rotate a PDF page in the existing PDF document using PdfPageRotateAngle(https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageRotateAngle.html) as shown in the following code snippet.
@@ -2682,6 +2704,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Rotate-an-existing-PDF-page). 
+
 ## Detect empty pages from a PDF document
 
 You can find the empty pages from the PDF document using the [IsBlank](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_IsBlank) property as shown in the following code sample.  
@@ -2862,6 +2886,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Detect-empty-pages-from-PDF/). 
 
 ## Splitting a PDF file to individual pages
 
@@ -3071,6 +3097,9 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Splitting-PDF-file-into-individual-pages/). 
+
 ## Span a text element to multiple pages and draw the next element
 
 The ['PdfLayoutFormat'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class helps to allow the text to flow across pages. The ['PdfLayoutResult'](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutResult.html) class provides the rendered bounds of the previously added text, which can be used to place successive elements without overlapping. 
@@ -3236,5 +3265,7 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 
-{% endtabs %}  
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Pages/Span-text-element-to-multiple-pages-in-a-PDF/). 
 

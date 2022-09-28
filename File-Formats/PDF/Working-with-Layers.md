@@ -289,7 +289,9 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Adding-layers-in-a-PDF-document).
 
 The below code illustrates how to add the multiple layers in an existing PDF document.
 
@@ -587,6 +589,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Add-the-multiple-layers-in-an-existing-PDF-document).
+
 ## Adding annotation to layer
 
 Essential PDF allows the users to add [Annotation](https://help.syncfusion.com/file-formats/pdf/working-with-annotations) to layers in the PDF document. Refer to the following code snippet.  
@@ -865,6 +869,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Adding-annotation-to-layer-in-the-PDF-document).
 
 The following code illustrates how to add annotation to the layers in an existing PDF document.
 
@@ -1161,6 +1167,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Add-annotation-to-the-layer-in-an-existing-PDF-document).
+
 ## Nested Layers
 
 Essential PDF allows users to add nested layers in the PDF document. Refer to the following code snippet. 
@@ -1440,6 +1448,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Add-nested-layers-in-the-PDF-document).
+
 ## Removing layers from an existing PDF document
 
 You can remove the layers from layer collection, represented by the [PdfPageLayerCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageLayerCollection.html) of the loaded page. This is illustrated in the following code sample.
@@ -1650,6 +1660,8 @@ else
 {% endhighlight %}
 
  {% endtabs %}  
+
+ You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Removing-layers-from-an-existing-PDF-document).
  
 ## Flattening the layers in an existing PDF document
 
@@ -1768,6 +1780,8 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Flattening-the-layers-in-an-existing-PDF-document/).
 
 ## Toggling the visibility of layers
 
@@ -2058,6 +2072,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Toggle-the-visibility-of-layers-in-new-PDF-document).
+
 The following code illustrates how to toggle the visibility of layers in an existing PDF document by disabling the [Visible](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html#Syncfusion_Pdf_PdfLayer_Visible) property of [PdfLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html).
 
 {% tabs %}  
@@ -2237,6 +2253,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Toggle-the-visibility-of-layers-in-an-existing-PDF).
 
 ## Lock or Unlock layers
 
@@ -2423,6 +2440,8 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Add-a-lock-state-to-the-layer-in-a-new-PDF-document).
+
 ## Removing the layer with its graphical content
 
 The Syncfusion PDF library allows users to remove layers from PDF documents, and we can also remove the graphical content of layers upto n layer recursively.
@@ -2490,3 +2509,5 @@ End Sub
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Layer/Removing-the-layer-with-its-graphical-content).

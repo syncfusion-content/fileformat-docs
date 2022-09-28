@@ -243,6 +243,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Bookmarks/Adding-bookmarks-in-a-PDF-document/). 
+
 ## Adding Bookmarks in an existing PDF document
 
 To add bookmarks to an existing PDF document, use the following code example.
@@ -476,6 +478,8 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Bookmarks/Adding-bookmarks-in-an-existing-PDF-document/). 
 
 ## Adding a Child to the Bookmarks
 
@@ -762,6 +766,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Bookmarks/Adding-a-child-to-the-bookmarks-in-a-PDF). 
+
 ## Inserting Bookmarks in an existing PDF
 
 When loading an existing document, the Essential PDF loads all bookmarks of the document.  
@@ -957,6 +963,8 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Bookmarks/Inserting-bookmarks-in-an-existing-PDF/). 
 
 ## Removing Bookmarks from an existing PDF 
 
@@ -1158,6 +1166,8 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Bookmarks/Remove-bookmarks-from-an-existing-PDF-document/). 
 
 ## Modifying the Bookmarks
 
@@ -1389,6 +1399,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Bookmarks/Modify-the-bookmarks-in-an-existing-PDF-document/). 
+
 ## Bookmark page index in an existing PDF document
 You can get bookmark page index from the existing PDF document as shown in the following code snippet.
 {% tabs %}
@@ -1567,3 +1579,5 @@ else
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Bookmarks/Get-bookmark-page-index-from-the-existing-PDF-document/). 

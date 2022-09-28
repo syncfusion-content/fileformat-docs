@@ -314,6 +314,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Draw-rectangle-on-new-PDF-with-CalGray-brush).
+
 The following code example illustrates how to draw a rectangle with **CalGray** brush in existing PDF document.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -608,6 +610,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Draw-rectangle-with-CalGray-brush-in-an-existing-PDF).
 
 ## ICC-based Color Spaces
 
@@ -1004,6 +1008,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Create-PDF-document-with-ICC-color-space).
+
 The following code example illustrates how to set the indexed ICC color space in existing PDF document.
 
 {% tabs %}
@@ -1388,6 +1394,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Set-ICC-color-space-in-an-existing-PDF-document).
+
 ## Pantone colors
 
 The following code example illustrates how to draw the graphics elements by using Pantone colors through [PdfSeparationColorSpace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.ColorSpace.PdfSeparationColorSpace.html) class in new PDF document.
@@ -1696,6 +1704,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Draw-graphics-elements-by-using-Pantone-colors-in-a-PDF).
 
 The following code example illustrates how to draw the graphics elements by using Pantone colors in existing PDF document.
 
@@ -2010,6 +2020,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Add-graphics-elemets-by-Pantone-color-in-existing-PDF).
 
 ## Working with color space in graphics
 
@@ -2347,6 +2359,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Use-color-space-in-particular-object-in-a-new-PDF).
 
 The following code illustrates how to use the color spaces in particular objects in existing PDF document.
 {% tabs %}
@@ -2699,3 +2713,5 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/ColorSpace/Add-color-space-in-particular-object-in-an-existing-PDF).

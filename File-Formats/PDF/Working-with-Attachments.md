@@ -217,6 +217,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Attachment/Adding-attachment-to-a-PDF-document/).
+
 Essential PDF also provides support for adding the attachments to existing PDF documents. The following code example illustrates the same.
 
 
@@ -434,6 +436,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Attachment/Adding-the-attachments-to-an-existing-PDF-document/).
+
 ## Removing attachment from an existing PDF 
 
 Essential PDF allows you to remove the attachments from the existing document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachmentCollection.html#Syncfusion_Pdf_Interactive_PdfAttachmentCollection_Remove_Syncfusion_Pdf_Interactive_PdfAttachment_) method, as shown in the following code example.
@@ -620,6 +624,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Attachment/Remove-attachment-from-an-existing-PDF-document/).
+
 ## Extracting and saving an attachment to the disk.
 
 Essential PDF provides support for extracting the attachments and saving them to the disk. The following code example explains how to extract and save an attachment.
@@ -751,3 +757,5 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Attachment/Extract-and-saving-an-attachment-to-the-disk/).
