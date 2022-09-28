@@ -800,7 +800,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "applic
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-paragraphs-with-text).
 
 ## Find next and replace with formatted text
-You can find the next occurrence of a text using the `FindNext`method. You can also replace the text that extends to two paragraphs using `ReplaceSingleline`method.
+You can find the next occurrence of a text using the `FindNext` method. You can also replace the text that extends to two paragraphs using `ReplaceSingleline` method.
 
 The following code example illustrates how to replace the text extended to several paragraphs with a particular text in the document.
 
