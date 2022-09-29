@@ -185,14 +185,14 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
 <b>Steps to convert HTML to PDF in .NET application</b>
 
 Create a new .NET console application.
-![Create .net core console sample](htmlconversion_images/createconsolesample1.png)
+![Create .net core console sample](Convert-HTML-To-PDF/htmlconversion_images/createconsolesample1.png)
 
 
-![Select target .net core version](htmlconversion_images/createconsolesample2.png)
+![Select target .net core version](Convert-HTML-To-PDF/htmlconversion_images/createconsolesample2.png)
 
 Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as a reference to your .NET application from [NuGet.org](https://www.nuget.org/). 
 
-![Install HTML to PDF converter .NET package](htmlconversion_images/createconsolesample3.png)
+![Install HTML to PDF converter .NET package](Convert-HTML-To-PDF/htmlconversion_images/createconsolesample3.png)
 
 Include the following namespace in your class file. 
 
@@ -227,7 +227,7 @@ document.Close(true);
 
 A complete working demo can be downloaded from [HTML-to-PDF.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTML-to-PDF-Demo-1725937239). By executing the program, you will get the PDF document as follows.
 
-![Install HTML to PDF converter .NET package](htmlconversion_images/outputscreenshot.png)
+![Install HTML to PDF converter .NET package](Convert-HTML-To-PDF/htmlconversion_images/outputscreenshot.png)
 
 
 ### Convert HTML to PDF in Linux
@@ -1917,9 +1917,9 @@ By default, the Blink rendering engine use system proxy settings for converting 
 
 <b>Please refer below screenshots:</b>
  
-![Manual proxy](htmlconversion_images/proxy.png)
+![Manual proxy](Convert-HTML-To-PDF/htmlconversion_images/proxy.png)
 
-![Manual proxy settings](htmlconversion_images/proxy2.png)
+![Manual proxy settings](Convert-HTML-To-PDF/htmlconversion_images/proxy2.png)
 
 ### Manual proxy
 
@@ -2550,20 +2550,20 @@ You can download and install the HTML to PDF converter for Windows, Linux and Ma
 
 Get the required assemblies and demos for converting HTML to PDF by installing the HTML converter installer for windows. 
 
-![HTML to PDF converter for Windows download in add-on section](htmlconversion_images/windowshtmlconverteraddon.png)
+![HTML to PDF converter for Windows download in add-on section](Convert-HTML-To-PDF/htmlconversion_images/windowshtmlconverteraddon.png)
 
 ### Linux
 
 Get the required assemblies and demos for converting HTML to PDF by installing the HTML converter installer for Linux. 
 
-![HTML to PDF converter for Linux download in add-on section](htmlconversion_images/linuxhtmlconverteraddon.png)
+![HTML to PDF converter for Linux download in add-on section](Convert-HTML-To-PDF/htmlconversion_images/linuxhtmlconverteraddon.png)
 
 
 ### Mac
 
 Get the required assemblies and demos for converting HTML to PDF by installing the HTML converter installer for Mac. 
 
-![[HTML to PDF converter for Mac download in add-on section]](htmlconversion_images/machtmlconverteraddon.png)
+![[HTML to PDF converter for Mac download in add-on section]](Convert-HTML-To-PDF/htmlconversion_images/machtmlconverteraddon.png)
 
 ## Troubleshooting and FAQ
 
@@ -2746,9 +2746,9 @@ settings.TempPath = "D://MyProject//bin";
 <br/>
 <b>Refer to the following screenshot:</b>
 <br/>
-<img src="htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
+<img src="Convert-HTML-To-PDF/htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
 <br/>
-<img src="htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
+<img src="Convert-HTML-To-PDF/htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
 <br/>
 Also, please add the below command line arguments in our converter setting,
 <br/>
@@ -2898,7 +2898,7 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 
 By default, the PDF document generated with the WebKit rendering engine comes with the following warning message.
 
-![WebKit Warning message in the PDF Document](File-Formats/PDF/Convert-HTML-To-PDF/htmlconversion_images/WebKit Warning.png)
+![WebKit Warning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/WebKit Warning.png)
 
 Please refer to the below code snippet to use the DisableWebKitWarning API to remove the default WebKit warning message from the PDF document.
 
