@@ -14,10 +14,10 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 ## Steps to convert HTML to PDF in ASP.NET Core application:
 
 Create a new C# ASP.NET Core Web Application project.
-![convert_HtmltoPdf_ASP.NET_CORE1](htmlconversion_images\ASP.NET_CORE1.png)
+![convert_HtmltoPdf_ASP.NET_CORE1](htmlconversion_images\aspnetcore1.png)
 
 Install Syncfusion.HtmlToPdfConverter.Net.Windows NuGet package as reference to your .NET Standard applications from NuGet.org.
-![convert_HtmltoPdf_ASP.NET_CORE2](htmlconversion_images\ASP.NET_CORE2.png)
+![convert_HtmltoPdf_ASP.NET_CORE2](htmlconversion_images\aspnetcore2.png)
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
@@ -49,11 +49,15 @@ Add a new action method ExportToPDF in HomeController.cs and include the below c
 
 // Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
 //Convert URL to PDF.
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
 MemoryStream stream = new MemoryStream();
+
 //Save and close the document. 
 document.Save(stream);
+
 document.Close(); 
 
 return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
