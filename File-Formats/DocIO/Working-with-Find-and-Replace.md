@@ -2701,3 +2701,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to find and replace text in headers and footers of Word document](https://www.syncfusion.com/kb/13618/how-to-find-and-replace-text-in-headers-and-footers-of-word-document)
 * [How to find and replace placeholder with page break in Word document](https://www.syncfusion.com/kb/13642/how-to-find-and-replace-placeholder-with-page-break-in-word-document)
 * [How to find and replace text with content control in Word document?](https://www.syncfusion.com/kb/13644/how-to-find-and-replace-text-with-content-control-in-word-document)
+* [How to find and replace line break in Word document as paragraph mark?](https://www.syncfusion.com/kb/13647/how-to-find-and-replace-line-break-in-word-document-as-paragraph-mark)
