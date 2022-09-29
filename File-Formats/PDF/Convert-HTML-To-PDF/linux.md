@@ -30,7 +30,7 @@ dotnet new console
 
 {% endhighlight %}
 
-![Convert HTMLToPDF Linux Step1](htmlconversion_images/LinuxStep1.jpg)
+![Convert HTMLToPDF Linux Step1](htmlconversion_images/LinuxStep1.png)
 
 Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by executing the following command.
 
@@ -40,7 +40,7 @@ dotnet add package Syncfusion.HtmlToPdfConverter.Net.Linux -v xx.x.x.xx -s https
 
 {% endhighlight %}
 
-![Convert HTMLToPDF Linux Step2](htmlconversion_images/LinuxStep2.jpg)
+![Convert HTMLToPDF Linux Step2](htmlconversion_images/LinuxStep2.png)
 
 Include the following namespaces and code samples in Program.cs file.
 
@@ -87,7 +87,7 @@ dotnet restore
 
 {% endhighlight %}
 
-![Convert HTMLToPDF Linux Step3](htmlconversion_images/LinuxStep3.jpg)
+![Convert HTMLToPDF Linux Step3](htmlconversion_images/LinuxStep3.png)
 
 Execute the following command in the terminal to run the application.
 
@@ -97,10 +97,10 @@ dotnet run
 
 {% endhighlight %}
 
-![Convert HTMLToPDF Linux Step4](htmlconversion_images/LinuxStep4.jpg)
+![Convert HTMLToPDF Linux Step4](htmlconversion_images/LinuxStep4.png)
 
 Download a complete working demo from [Linux-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Linux-HTML-to-PDF-Demo1625305923).
 
 By executing the program, you will get the PDF document as follows. The output will be saved in parallel to the program.cs file.
 
-![Convert HTMLToPDF Linux5](htmlconversion_images/htmltopdfoutput.jpg)
+![Convert HTMLToPDF Linux5](htmlconversion_images/htmltopdfoutput.png)
