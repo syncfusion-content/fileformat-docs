@@ -2783,6 +2783,118 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-text-extended-to-several-paragraphs).
 
+## Find next multiline text and replace with selected text
+
+You can select the next occurrence of a text which extends to several paragraphs using the `FindNextSingleLine` method and replace text in the Word document with that selected text.
+
+The following code example illustrates how to find the next occurrence of text extended to several paragraphs and replace the particular text with selected text in the Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Open an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Access the specific table in a Word document.
+    WTable table = document.LastSection.Tables[0] as WTable;
+    //Find the next occurrence of particular text extended to several paragraphs after the specific table.
+    TextSelection[] textSelections = document.FindNextSingleLine(table, new Regex(@"\[(.*)\]"));
+    //Replace the particular text with the selected text.
+    document.Replace("Equation of sodium chloride and silver nitrate", textSelections[1], true, true);
+    //Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Open an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Access the specific table in a Word document.
+    Dim table As WTable = TryCast(document.LastSection.Tables(0), WTable)
+    'Find the next occurrence of particular text extended to several paragraphs after the specific table.
+    Dim textSelections As TextSelection() = document.FindNextSingleLine(table, New Regex("\[(.*)\]"))
+    'Replace the particular text with the selected text.
+    document.Replace("Equation of sodium chloride and silver nitrate", textSelections(1), True, True)
+    'Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Access the specific table in a Word document.
+        WTable table = document.LastSection.Tables[0] as WTable;
+        //Find the next occurrence of particular text extended to several paragraphs after the specific table.
+        TextSelection[] textSelections = document.FindNextSingleLine(table, new Regex(@"\[(.*)\]"));
+        //Replace the particular text with the selected text.
+        document.Replace("Equation of sodium chloride and silver nitrate", textSelections[1], true, true);
+        //Save the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file in the local machine.
+        Save(stream, "Sample.docx");
+        //Please refer to the link below to save the Word document in the UWP platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Access the specific table in a Word document.
+        WTable table = document.LastSection.Tables[0] as WTable;
+        //Find the next occurrence of particular text extended to several paragraphs after the specific table.
+        TextSelection[] textSelections = document.FindNextSingleLine(table, new Regex(@"\[(.*)\]"));
+        //Replace the particular text with the selected text.
+        document.Replace("Equation of sodium chloride and silver nitrate", textSelections[1], true, true);
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download the Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
+    {
+        //Access the specific table in a Word document.
+        WTable table = document.LastSection.Tables[0] as WTable;
+        //Find the next occurrence of particular text extended to several paragraphs after the specific table.
+        TextSelection[] textSelections = document.FindNextSingleLine(table, new Regex(@"\[(.*)\]"));
+        //Replace the particular text with the selected text.
+        document.Replace("Equation of sodium chloride and silver nitrate", textSelections[1], true, true);
+        //Save the Word document to MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing.
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Please download the helper files from the link below to save the stream as a file and open the file for viewing on the Xamarin platform.
+        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-next-multiline-text-and-replace-text).
+
 ## See Also
 
 * [How to replace the particular text with hyperlink in Word document](https://www.syncfusion.com/kb/11774/how-to-replace-the-particular-text-with-hyperlink-in-word-document)
