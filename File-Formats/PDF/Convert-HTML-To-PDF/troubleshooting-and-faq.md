@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-## Troubleshooting and FAQ
+# Troubleshooting and FAQ
 
 <table>
 <th style="font-size:14px">Exception</th>
