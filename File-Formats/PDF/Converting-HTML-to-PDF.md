@@ -134,7 +134,7 @@ ASP.NET MVC
 
 ### Assemblies Required
 
-Get the following required assemblies by downloading the HTML converter installer. Download and install the HTML converter for [Windows](/file-formats/pdf/convert-html-to-pdf/advanced-installation#windows), [Linux](/file-formats/pdf/convert-html-to-pdf/advanced-installation#linux), and [Mac](/file-formats/pdf/convert-html-to-pdf/advanced-installation#mac), respectively. Please refer to the [advanced installation](/file-formats/pdf/convert-html-to-pdf/advanced-installation) steps for more details. 
+Get the following required assemblies by downloading the HTML converter installer. Download and install the HTML converter for [Windows](https://help.syncfusion.com//file-formats/pdf/convert-html-to-pdf/advanced-installation#windows), [Linux](https://help.syncfusion.com//file-formats/pdf/convert-html-to-pdf/advanced-installation#linux), and [Mac](https://help.syncfusion.com//file-formats/pdf/convert-html-to-pdf/advanced-installation#mac), respectively. Please refer to the [advanced installation](/file-formats/pdf/convert-html-to-pdf/advanced-installation) steps for more details. 
 
 <table>
 <tr>
