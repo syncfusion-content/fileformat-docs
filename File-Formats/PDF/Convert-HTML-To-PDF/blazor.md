@@ -21,7 +21,6 @@ Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/pa
 ![Blazor_step3](htmlconversion_images/blazor_step3.png)
 
 Create a new cs file named ExportService under Data folder and include the following namespaces in the file.
-![Blazor_step4](htmlconversion_images/blazor_step4.png)
 
 {% highlight c# tabtitle="C#" %}
 
@@ -144,7 +143,7 @@ Add the following JavaScript function in the _Host.cshtml available under the Pa
 {% endhighlight %}
 
 By executing the program, you will get the following output in the browser.
-![Blazor_step5](htmlconversion_images/blazor_step5.png)
+![Blazor_step4](htmlconversion_images/blazor_step4.png)
 
 Click the Export to PDF button, and you will get the PDF document with the following output.
 ![HTMLTOPDF](htmlconversion_images/htmltopdfoutput.png)
