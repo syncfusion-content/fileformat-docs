@@ -359,7 +359,7 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
 <br/>
 <i>Note:</i><br/>
-<i>Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os)'| markdownify }} to know about the NuGet packages that need to be installed to perform Word to PDF conversion in Linux OS.</i><br/>
+<i>Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-image-conversion-in-linux-os)'| markdownify }} to know about the NuGet packages that need to be installed to perform Word to Image conversion in Linux OS.</i><br/>
 </td>
 <td>
 Install-Package Syncfusion.DocIORenderer.Net.Core
