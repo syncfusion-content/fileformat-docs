@@ -227,7 +227,7 @@ document.Close(true);
 
 A complete working demo can be downloaded from [HTML-to-PDF.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTML-to-PDF-Demo-1725937239). By executing the program, you will get the PDF document as follows.
 
-![Install HTML to PDF converter .NET package](Convert-HTML-To-PDF/htmlconversion_images/outputscreenshot.png)
+![Install HTML to PDF converter .NET package](Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png)
 
 
 ### Convert HTML to PDF in Linux
