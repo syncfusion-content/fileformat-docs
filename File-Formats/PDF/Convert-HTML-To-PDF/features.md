@@ -288,9 +288,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -315,30 +316,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Disable JavaScript; By default, true
-blinkConverterSettings.EnableJavaScript = false;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -368,9 +345,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -395,30 +373,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-// Set additional delay; units in milliseconds
-blinkConverterSettings.AdditionalDelay = 3000;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -448,9 +402,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -475,30 +430,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Enable hyperlinks; By default - true
-blinkConverterSettings.EnableHyperLink = false;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -536,12 +467,11 @@ htmlConverter.ConverterSettings = settings;
 
 PdfDocument document = htmlConverter.Convert("input.html"); 
 
-//Save and close the PDF document
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
-document.Save("Output.pdf");
-
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -569,34 +499,6 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set enable bookmarks
-
-settings.EnableBookmarks = true;
-
-//Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
-
-//Convert HTML to PDF
-
-PdfDocument document = htmlConverter.Convert("input.html");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -677,10 +579,11 @@ htmlConverter.ConverterSettings = settings;
 
 PdfDocument document = htmlConverter.Convert("input.html");
 
-//Save and close the PDF document
 
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -710,34 +613,6 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set enable table of contents
-
-settings.EnableToc = true;
-
-//Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
-
-//Convert HTML to PDF
-
-PdfDocument document = htmlConverter.Convert("input.html");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -830,10 +705,10 @@ htmlConverter.ConverterSettings = settings;
 
 PdfDocument document = htmlConverter.Convert("input.html");
 
-//Save and close the PDF document
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
-document.Save("Output.pdf");
-
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -877,48 +752,6 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set enable table of contents
-
-settings.EnableToc = true;
-
-//Set the style for level 1(H1) items in table of contents
-
-HtmlToPdfTocStyle tocstyleH1 = new HtmlToPdfTocStyle();
-
-tocstyleH1.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Regular);
-
-tocstyleH1.BackgroundColor = new PdfSolidBrush(new PdfColor(Color.FromArgb(68, 114, 196)));
-
-tocstyleH1.ForeColor = PdfBrushes.White;
-
-tocstyleH1.Padding = new PdfPaddings(5, 5, 3, 3);
-
-settings.Toc.SetItemStyle(1, tocstyleH1);
-
-//Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
-
-//Convert HTML to PDF
-
-PdfDocument document = htmlConverter.Convert("input.html");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -991,9 +824,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1018,30 +852,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set print media type
-blinkConverterSettings.MediaType = MediaType.Print;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -1077,10 +887,10 @@ htmlConverter.ConverterSettings = settings;
 
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
 
-//Save and close the PDF document
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
-document.Save("Output.pdf");
-
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1113,34 +923,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set enable form
-
-settings.EnableForm = true;
-
-//Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-
-PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Convert-HTML-form-to-PDF-fillable-form).
@@ -1168,9 +950,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.example.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1196,31 +979,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-// Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-blinkConverterSettings.Username = "username";
-
-blinkConverterSettings.Password = "password";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.example.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -1254,9 +1012,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.example.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1284,34 +1043,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-// Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-// Add cookies as name and value pair
-
-blinkConverterSettings.Cookies.Add("CookieName1", " CookieValue1");
-
-blinkConverterSettings.Cookies.Add("CookieName2", " CookieValue2");
-
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.example.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -1345,10 +1076,10 @@ htmlConverter.ConverterSettings = settings;
 
 PdfDocument document = htmlConverter.Convert("https://www.example.com");
 
-//Save and close the PDF document 
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
-document.Save("Output.pdf");
-
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1376,34 +1107,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
 document.Save("Output.pdf")
 
 document.Close(true)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter 
-
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Add a bearer token to login a webpage
-
-settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
-
-//Assign Blink settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-
-PdfDocument document = htmlConverter.Convert("https://www.example.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -1437,9 +1140,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1464,30 +1168,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Enable offline mode
-blinkConverterSettings.EnableOfflineMode = true;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -1519,9 +1199,11 @@ htmlConverter.ConverterSettings = settings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.example.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
 
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1550,31 +1232,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Add HTTP post parameters to HttpPostFields
-settings.HttpPostFields.Add("firstName", "Andrew");
-settings.HttpPostFields.Add("lastName", "Fuller");
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.example.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Access-a-webpage-using-HTTP-POST).
@@ -1600,9 +1257,10 @@ string urlToConvert = url + httpGetData;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert(urlToConvert);
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1629,31 +1287,6 @@ Dim document As PdfDocument = htmlConverter.Convert(urlToConvert)
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-string url = "https://www.example.com";
-
-Uri getMethodUri = new Uri(url);
-string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("{0}={1}", "firstName", "Andrew");
-
-httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
-
-string urlToConvert = url + httpGetData;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert(urlToConvert);
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -1705,10 +1338,10 @@ htmlConverter.ConverterSettings = settings;
 
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
-document.Save("Output.pdf");
-
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1747,38 +1380,6 @@ document.Close(True)
 
 {% endtabs %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set manual proxy settings
-
-settings.ProxySettings.HostName = "127.0.0.1";
-
-settings.ProxySettings.PortNumber = 8080;
-
-settings.ProxySettings.Type = BlinkProxyType.HTTP;
-
-//Assign Blink converter settings to HTML converter
-
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
 ## Viewport
 
 Adjusting the HTML content size in PDF is possible by using the [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_ViewPortSize) property of Blink HTML converter. 
@@ -1802,9 +1403,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1832,30 +1434,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set Blink viewport size
-blinkConverterSettings.ViewPortSize = new Size(800, 0);
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Adjusting-the-HTML-content-size-in-PDF-document).
@@ -1876,10 +1454,10 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
 
-//Save and close the PDF document
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
-document.Save("Output.pdf");
-
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -1899,24 +1477,6 @@ Dim document As PdfDocument = htmlConverter. ConvertPartialHtml("input.html", "p
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-//Convert Partial webpage to PDF
-
-PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -1973,9 +1533,10 @@ htmlConverter.ConverterSettings = settings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -2003,30 +1564,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set singlePageLayout option to render the whole HTML content in a single PDF page
-settings.SinglePageLayout = SinglePageLayout.FitWidth;
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 ## Layout Result
@@ -2050,9 +1587,10 @@ PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 11);
 
 document.Pages[document.Pages.Count - 1].Graphics.DrawString("End of HTML content", font, PdfBrushes.Red, new PointF(0, layoutResult.Bounds.Bottom));
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -2076,29 +1614,6 @@ document.Pages((document.Pages.Count - 1)).Graphics.DrawString("End of HTML cont
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-PdfLayoutResult layoutResult = null;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com", out layoutResult); 
-
-//Draw the text at the end of HTML content
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 11);
-
-document.Pages[document.Pages.Count - 1].Graphics.DrawString("End of HTML content", font, PdfBrushes.Red, new PointF(0, layoutResult.Bounds.Bottom));
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -2132,9 +1647,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("input.html");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -2159,30 +1675,6 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-// Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-// Set windows status.
-blinkConverterSettings.WindowStatus = "completed";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("input.html");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
@@ -2236,9 +1728,10 @@ htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
-//Save and close the PDF document
-document.Save("Output.pdf");
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
@@ -2263,30 +1756,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set Temporary Path to generate temporary files
-blinkConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
 
 {% endhighlight %}
 
