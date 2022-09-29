@@ -134,7 +134,7 @@ ASP.NET MVC
 
 ### Assemblies Required
 
-Get the following required assemblies by downloading the HTML converter installer. Download and install the HTML converter for [Windows](), [Linux](), and [Mac](), respectively. Please refer to the [advanced installation]() steps for more details. 
+Get the following required assemblies by downloading the HTML converter installer. Download and install the HTML converter for [Windows](/file-formats/pdf/convert-html-to-pdf/advanced-installation#windows), [Linux](/file-formats/pdf/convert-html-to-pdf/advanced-installation#linux), and [Mac](/file-formats/pdf/convert-html-to-pdf/advanced-installation#mac), respectively. Please refer to the [advanced installation](/file-formats/pdf/convert-html-to-pdf/advanced-installation) steps for more details. 
 
 <table>
 <tr>
@@ -251,6 +251,14 @@ HTML to PDF converter .NET library supports conversion in ASP.NET MVC. Refer to 
 
 ### Convert HTML to PDF in Blazor
 HTML to PDF converter .NET library supports conversion in Blazor. Refer to [this](/file-formats/pdf/convert-html-to-pdf/blazor) section for more information about HTML to PDF conversion in Blazor.
+
+## Feature
+
+Refer to [this](/file-formats/pdf/convert-html-to-pdf/features) section for more information about features in HTML to PDF converter, you can get the details, code examples and demo from this section. 
+
+## Troubleshooting and FAQ
+
+Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting-and-faq) section for troubleshooting HTML to PDF conversion failures and frequently asked questions.
 
 ## Steps to disable WebKit warning while performing HTML to PDF
 
