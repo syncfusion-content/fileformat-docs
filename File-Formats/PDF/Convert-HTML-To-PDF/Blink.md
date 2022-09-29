@@ -60,7 +60,7 @@ Assemblies
 <li>Syncfusion.Compression.Portable.dll</li>
 <li>Syncfusion.Pdf.Portable.dll</li>
 <li>Syncfusion.HtmlConverter.Portable.dll</li>
-<li>Newtonsoft.Json package (v10.0.1 or above)</li>
+<li>Newtonsoft.Json package (v13.0.1 or above)</li>
 </ul>
 </td></tr>
 </table>
