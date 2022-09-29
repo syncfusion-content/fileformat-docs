@@ -8,16 +8,22 @@ keywords: Assemblies
 ---
 
 # Convert HTML to PDF file in Mac
-# Steps to convert HTML to PDF in ASP.NET Core Mac:
-Step 1: Create a new C# ASP.NET Core Web Application project.
+
+Steps to convert HTML to PDF in ASP.NET Core Mac:
+
+Create a new C# ASP.NET Core Web Application project.
 ![Mac_step1](htmlconversion_images/mac_step1.png)
-Step 2: Select the Target Framework of your project
+
+Select the Target Framework of your project
 ![Mac_step2](htmlconversion_images/mac_step2.png)
-Step 3: Configure your application and click Create.
+
+Configure your application and click Create.
 ![Mac_step3](htmlconversion_images/mac_step3.png)
-Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Mac](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+
+Install the [Syncfusion.HtmlToPdfConverter.Net.Mac](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Mac_step4](htmlconversion_images/mac_step4.png)
-step 5: A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
+
+A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -28,9 +34,9 @@ using Microsoft.AspNetCore.Hosting;
 
 {% endhighlight %}
 
-Step 6: A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
+A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
 
-Step 7:Add a new button in the Index.cshtml as shown below.
+Add a new button in the Index.cshtml as shown below.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -45,7 +51,7 @@ Html.EndForm();
 
 {% endhighlight %}
 
-Step 8:Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
+Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -67,8 +73,11 @@ public IActionResult ExportToPDF()
 
 Right click the project and select Build.
 ![Mac_step5](htmlconversion_images/mac_step5.png)
+
 After Build succeeded. Run the application.
 ![Mac_step6](htmlconversion_images/mac_step6.png)
+
 A complete working sample can be downloaded from [Mac-HTML-to-PDF-Demo.zip] (https://www.syncfusion.com/downloads/support/directtrac/general/ze/Mac-HTML-to-PDF-Demo514297355)
+
 By executing the program, you will get the PDF document as follows.
-![HTMLTOPDF](htmlconversion_images/outputscreenshot.png)
+![HTMLTOPDF](htmlconversion_images/htmltopdfoutput.png)
