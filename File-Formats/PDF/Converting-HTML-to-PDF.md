@@ -2898,7 +2898,7 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 
 By default, the PDF document generated with the WebKit rendering engine comes with the following warning message.
 
-![WebKit Warning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/WebKit Warning.png)
+![WebKit Warning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/WebKitWarning.png)
 
 Please refer to the below code snippet to use the DisableWebKitWarning API to remove the default WebKit warning message from the PDF document.
 
