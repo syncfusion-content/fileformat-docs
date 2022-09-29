@@ -143,8 +143,8 @@ image[0].Dispose();
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 'Convert URL to Image
 Dim image As Image[] = htmlConverter.ConvertToImage("https://www.google.com")
@@ -158,8 +158,8 @@ image[0].Dispose(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 //Convert URL to Image
 Image image = htmlConverter.ConvertToImage("https://www.google.com");
@@ -194,8 +194,8 @@ To convert the HTML string to Image, refer to the following code snippet.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 //HTML string and Base URL
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
@@ -213,8 +213,8 @@ image[0].Dispose();
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 'HTML string and Base URL
 Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
@@ -232,8 +232,8 @@ image[0].Dispose(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 //HTML string and Base URL
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
@@ -274,8 +274,8 @@ The Blink HTML converter supports enabling or disabling the JavaScript while con
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -297,8 +297,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -320,8 +320,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -354,8 +354,8 @@ The Blink HTML converter provides an option to set the [AdditionalDelay](https:/
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -377,8 +377,8 @@ document.Close(true);
 
 {%  highlight vb.net %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -400,8 +400,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -434,8 +434,8 @@ The Blink HTML converter support preserving URL links from HTML to PDF. Refer to
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -457,8 +457,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = NewHtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = NewHtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -480,8 +480,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -518,9 +518,9 @@ Refer to the following code snippet.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -546,9 +546,9 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter.
 
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -574,9 +574,9 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -659,9 +659,9 @@ Refer to the following code snippet.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -687,9 +687,9 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter.
 
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -715,9 +715,9 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -798,9 +798,9 @@ Refer to the following code snippet.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -840,9 +840,9 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter.
 
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -882,9 +882,9 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -977,8 +977,8 @@ The Blink HTML Converter allows selection of media type while converting HTML to
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1000,8 +1000,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1023,8 +1023,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1059,9 +1059,9 @@ Blink rendering engine provides support for converting HTML forms to PDF fillabl
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1087,9 +1087,9 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter.
 
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1115,9 +1115,9 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1153,8 +1153,8 @@ The webpage you want to convert may protected with windows authentication. Blink
 
 {% highlight c# tabtitle="C#" %}
 
-// Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+// Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1177,8 +1177,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1201,8 +1201,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-// Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+// Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1236,8 +1236,8 @@ The Blink HTML converter provides support for form authentication by using cooki
 
 {% highlight c# tabtitle="C#" %}
 
-// Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+// Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1263,8 +1263,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1289,8 +1289,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-// Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+// Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1329,7 +1329,7 @@ The Blink HTML converter supports token-based authentication by using the HTTP r
 
 //Initialize HTML to PDF converter 
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1357,7 +1357,7 @@ document.Close(true);
 
 'Initialize HTML to PDF converter 
 
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings
 
@@ -1383,7 +1383,7 @@ document.Close(true)
 
 //Initialize HTML to PDF converter 
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1423,8 +1423,8 @@ Refer to the following code snippet.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1446,8 +1446,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1469,8 +1469,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1504,8 +1504,8 @@ Refer to the following code snippet to access a webpage using HTTP POST.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1528,8 +1528,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1552,8 +1552,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1585,8 +1585,8 @@ Use the following code snippet to access a webpage using HTTP GET.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 string url = "https://www.example.com";
 
@@ -1609,8 +1609,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim url As String = "https://www.example.com"
 
@@ -1634,8 +1634,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 string url = "https://www.example.com";
 
@@ -1683,9 +1683,9 @@ You can specify the manual proxy settings for the conversion using the ProxySett
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1715,9 +1715,9 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter.
 
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1749,9 +1749,9 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1788,8 +1788,8 @@ Refer to the following code snippet to adjust Blink viewport.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1811,8 +1811,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -1834,8 +1834,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -1868,9 +1868,9 @@ The Blink rendering engine provides support for converting only the part of an H
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 //Convert Partial webpage to PDF
 
@@ -1886,9 +1886,9 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter.
 
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 'Convert Partial webpage to PDF
 
@@ -1904,9 +1904,9 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
+//Initialize the HTML to PDF converter.
 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 //Convert Partial webpage to PDF
 
@@ -1959,8 +1959,8 @@ Refer to the following code snippet.
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -1982,8 +1982,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -2005,8 +2005,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 
@@ -2037,8 +2037,8 @@ Getting height of the HTML content in PDF document is possible by using the ```P
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 PdfLayoutResult layoutResult = null;
 
@@ -2059,8 +2059,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim layoutResult As PdfLayoutResult = Nothing
 
@@ -2081,8 +2081,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 PdfLayoutResult layoutResult = null;
 
@@ -2118,8 +2118,8 @@ Refer to the following code snippet.
 
 {% highlight c# tabtitle="C#" %}
 
-// Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+// Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -2141,8 +2141,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -2164,8 +2164,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-// Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+// Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -2222,8 +2222,8 @@ The temporary path can be changed by using the [TempPath](https://help.syncfusio
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
@@ -2245,8 +2245,8 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
@@ -2268,8 +2268,8 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
