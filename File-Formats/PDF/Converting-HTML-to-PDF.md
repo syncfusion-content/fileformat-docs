@@ -250,7 +250,7 @@ HTML to PDF converter .NET library supports conversion in ASP.NET Core. Refer to
 HTML to PDF converter .NET library supports conversion in ASP.NET MVC. Refer to [this](/file-formats/pdf/convert-html-to-pdf/aspnetmvc) section for more information about HTML to PDF conversion in ASP.NET MVC.
 
 ### Convert HTML to PDF in Blazor
-HTML to PDF converter .NET library supports conversion in Blazor. Refer to [this](/file-formats/pdf/converting-html-to-pdf/blazor) section for more information about HTML to PDF conversion in Blazor.
+HTML to PDF converter .NET library supports conversion in Blazor. Refer to [this](/file-formats/pdf/convert-html-to-pdf/blazor) section for more information about HTML to PDF conversion in Blazor.
 
 ## Features
 
