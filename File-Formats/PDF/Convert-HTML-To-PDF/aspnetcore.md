@@ -40,6 +40,7 @@ Add an Export To PDF button in index.cshtml as shown below.
 }
 Html.EndForm();
 }
+
 {% endhighlight %}
 
 Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
@@ -56,6 +57,7 @@ document.Save(stream);
 document.Close(); 
 
 return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
+
 {% endhighlight %}
 
 A complete demo can be downloaded from [HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTML-to-PDF-Net-Demo1022175116)  
