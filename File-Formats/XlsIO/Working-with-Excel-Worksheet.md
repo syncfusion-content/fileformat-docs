@@ -2208,6 +2208,143 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+## Maximum Rows and Columns for CSV
+
+The maximum number of rows and columns supported for an Excel file are 1,048,576 by 16,384 respectively. These can be modified based on the input document. The following code snippet explains this.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  
+  application.MaximumRowsForCSV = 3000000;
+  application.MaximumColumnsForCSV = 20000;
+  
+  IWorkbook workbook = application.Workbooks.Open("Sample.csv");
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  sheet.Range[2000000, 1].Text = "Syncfusion";
+  sheet.Range[20, 18000].Text = "Syncfusion";
+  
+  workbook.SaveAs("Output.csv", ",");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  
+  application.MaximumRowsForCSV = 3000000
+  application.MaximumColumnsForCSV = 20000
+  
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.csv")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  
+  sheet.Range(2000000, 1).Text = "document"
+  sheet.Range(20, 18000).Text = "Syncfusion"
+  
+  workbook.SaveAs("Output.csv", ",")
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  
+  application.MaximumRowsForCSV = 3000000;
+  application.MaximumColumnsForCSV = 20000;
+  
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".csv");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+  
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  sheet.Range[2000000, 1].Text = "Syncfusion";
+  sheet.Range[20, 18000].Text = "Syncfusion";
+  
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("CSV Files", new List<string>() { ".csv" });
+  
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  
+  //Saves changes to the specified storage file
+  await sheet.SaveAsAsync(storageFile,",");
+}  
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  
+  application.MaximumRowsForCSV = 3000000;
+  application.MaximumColumnsForCSV = 20000;
+  
+  FileStream inputStream = new FileStream("Sample.csv", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  sheet.Range[2000000, 1].Text = "Syncfusion";
+  sheet.Range[20, 18000].Text = "Syncfusion";
+  
+  FileStream outputStream = new FileStream("Output.csv", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(outputStream,",");
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  
+  application.MaximumRowsForCSV = 3000000;
+  application.MaximumColumnsForCSV = 20000;
+  
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("WorksheetFeatures.Sample.csv");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  sheet.Range[2000000, 1].Text = "Syncfusion";
+  sheet.Range[20, 18000].Text = "Syncfusion";
+  
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream, ",");
+
+  stream.Position = 0;
+  
+  //Save the document as file and view the saved document
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.csv", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.csv", "application/msexcel", stream);
+  }
+{% endhighlight %}
+{% endtabs %}
+
 ## Save Worksheet as CSV
 
 The following code example illustrates how to save a worksheet as CSV file.
