@@ -2210,7 +2210,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Maximum Rows and Columns for CSV
 
-The maximum number of rows and columns supported for an Excel file are 1,048,576 by 16,384 respectively. These can be modified based on the input document. The following code snippet explains this.
+By default, XlsIO allows only 1048576 rows and 16256 columns while loading or saving a CSV document. This limit can be increased by modifying the MaximumRowsForCSV and MaximumColumnsForCSV properties. The following code snippet explains this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
