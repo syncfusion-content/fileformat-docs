@@ -4864,6 +4864,4 @@ From v20.2
 {{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209)'| markdownify }}
 </td>
 </tr>
-</td>
-</tr>
 </table>
