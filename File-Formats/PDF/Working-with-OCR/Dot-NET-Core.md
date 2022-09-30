@@ -750,7 +750,7 @@ return File(outputStream, contentType, fileName);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Set-temp-folder-while-performing-OCR).
 
-##Performing OCR with External OCR Engine
+## Performing OCR with External OCR Engine
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as Azure Computer Vision and more. 
 Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with Azure computer vision.
 {% tabs %} 
@@ -776,7 +776,7 @@ processor.ExternalEngine = azureOcrEngine;
 //Perform OCR with an input document.
 processor.PerformOCR(lDoc);
 
-FileStream outputStream = new FileStream(@"Input.pdf", FileMode.CreateNew);
+FileStream outputStream = new FileStream(@"Output.pdf", FileMode.CreateNew);
 
 //Save the document into the stream.
 lDoc.Save(outputStream);
