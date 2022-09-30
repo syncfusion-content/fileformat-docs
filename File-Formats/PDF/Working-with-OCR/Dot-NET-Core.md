@@ -750,6 +750,196 @@ return File(outputStream, contentType, fileName);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Set-temp-folder-while-performing-OCR).
 
+## Performing OCR with External OCR Engine
+The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as Azure Computer Vision and more. 
+Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with Azure computer vision.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
+{
+//Load a PDF document.
+FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
+
+//Set the OCR language.
+processor.Settings.Language = Languages.English;
+
+//Initialize the Azure vision external OCR engine.
+IOcrEngine azureOcrEngine = new AzureExternalOcrEngine();
+
+processor.ExternalEngine = azureOcrEngine;
+
+//Perform OCR with an input document.
+processor.PerformOCR(lDoc);
+
+FileStream outputStream = new FileStream(@"Output.pdf", FileMode.CreateNew);
+
+//Save the document into the stream.
+lDoc.Save(outputStream);
+
+//If the position is not set to '0,' a PDF will be empty. 
+outputStream.Position = 0;
+
+//Close the document. 
+lDoc.Close(true);
+outputStream.Close();
+}
+
+
+{% endhighlight %}
+
+{% endtabs %} 
+
+Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image. 
+Refer to the following code sample to perform OCR with Azure computer vision. 
+N> Provide a valid subscription key and endpoint to work with Azure computer vision. 
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+
+class AzureExternalOcrEngine : IOcrEngine
+{
+private string subscriptionKey = "SubscriptionKey";
+private string endpoint = "endpoint";
+
+public OCRLayoutResult PerformOCR(Stream imgStream)
+{
+ComputerVisionClient client = Authenticate();
+ReadResult azureOcrResult = ReadFileUrl(client, imgStream).Result;
+
+
+OCRLayoutResult result = ConvertAzureVisionOcrToOcrLayoutResult(azureOcrResult);
+
+return result;
+}
+
+public ComputerVisionClient Authenticate()
+{
+ComputerVisionClient client = new ComputerVisionClient(new ApiKeyServiceClientCredentials(subscriptionKey))
+{
+Endpoint = endpoint
+};
+return client;
+}
+
+public async Task<ReadResult> ReadFileUrl(ComputerVisionClient client, Stream stream)
+{
+stream.Position = 0;
+var textHeaders = await client.ReadInStreamAsync(stream);
+string operationLocation = textHeaders.OperationLocation;
+
+const int numberOfCharsInOperationId = 36;
+
+string operationId = operationLocation.Substring(operationLocation.Length - numberOfCharsInOperationId);
+//Extract the text.
+ReadOperationResult results;
+do
+{
+results = await client.GetReadResultAsync(Guid.Parse(operationId));
+}
+while ((results.Status == OperationStatusCodes.Running || results.Status == OperationStatusCodes.NotStarted));
+
+ReadResult azureOcrResult = results.AnalyzeResult.ReadResults[0];
+
+return azureOcrResult;
+}
+
+private OCRLayoutResult ConvertAzureVisionOcrToOcrLayoutResult(ReadResult azureVisionOcr)
+{
+Syncfusion.OCRProcessor.Line ocrLine;
+Syncfusion.OCRProcessor.Word ocrWord;
+
+OCRLayoutResult ocrlayoutResult = new OCRLayoutResult();
+
+ocrlayoutResult.ImageWidth = (float)azureVisionOcr.Width;
+ocrlayoutResult.ImageHeight = (float)azureVisionOcr.Height;
+
+//Page
+Syncfusion.OCRProcessor.Page normalPage = new Syncfusion.OCRProcessor.Page();
+
+//Lines
+foreach (var line in azureVisionOcr.Lines)
+{
+ocrLine = new Syncfusion.OCRProcessor.Line();
+
+//Word
+foreach (var word in line.Words)
+{
+ocrWord = new Syncfusion.OCRProcessor.Word();
+
+Rectangle rect = GetAzureVisionBounds(word.BoundingBox);
+
+ocrWord.Text = word.Text;
+ocrWord.Rectangle = rect;
+
+ocrLine.Add(ocrWord);
+}
+normalPage.Add(ocrLine);
+}
+
+ocrlayoutResult.Add(normalPage);
+
+return ocrlayoutResult;
+}
+
+private Rectangle GetAzureVisionBounds(IList<double?> bbox)
+{
+Rectangle rect = Rectangle.Empty;
+PointF[] pointCollection = new PointF[bbox.Count / 2];
+int count = 0;
+for (int i = 0; i < bbox.Count; i = i + 2)
+{
+pointCollection[count] = new PointF((float)bbox[i], (float)bbox[i + 1]);
+count++;
+}
+float xMin = 0;
+float yMin = 0;
+float xMax = 0;
+float yMax = 0;
+bool first = true;
+
+foreach (PointF point in pointCollection)
+{
+if (first)
+{
+xMin = point.X;
+yMin = point.Y;
+first = false;
+}
+else
+{
+if (point.X < xMin)
+xMin = point.X;
+else if (point.X > xMax)
+xMax = point.X;
+if (point.Y < yMin)
+yMin = point.Y;
+else if (point.Y > yMax)
+yMax = point.Y;
+}
+}
+
+int x = Convert.ToInt32(xMin);
+int y = Convert.ToInt32(yMin);
+int w = Convert.ToInt32(xMax);
+int h = Convert.ToInt32(yMax);
+
+return new Rectangle(x, y, w, h);
+}
+}
+
+
+{% endhighlight %}
+
+{% endtabs %} 
+
 ## Troubleshooting
 
 <table>
