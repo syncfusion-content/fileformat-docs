@@ -258,7 +258,7 @@ Refer to [this](/file-formats/pdf/convert-html-to-pdf/features) section for more
 
 ## Troubleshooting and FAQ
 
-Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting-and-faq) section for troubleshooting HTML to PDF conversion failures and frequently asked questions.
+Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting) section for troubleshooting HTML to PDF conversion failures and frequently asked questions.
 
 ## Steps to disable WebKit warning while performing HTML to PDF
 
