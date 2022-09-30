@@ -1326,7 +1326,7 @@ pdfDoc.Close()
 
 ## Accessible PDF document
 
-This setting allows you to determine whether to preserve structured document tags in the converted **PDF document for accessibility (508 or PDF/UA compliance) support**. This property will set the title and description for images, diagrams, and other objects in the generated PDF document. This information will be helpful for **people with vision or cognitive impairments** who may not be able to see or understand the object.
+This setting allows you to determine whether to preserve structured document tags in the converted PDF document for accessibility **(508 or PDF/UA compliance)** support. This property will set the title and description for images, diagrams, and other objects in the generated PDF document. This information will be helpful for **people with vision or cognitive impairments** who may not be able to see or understand the object.
 
 The following code sample shows how to preserve structured document tags in the converted PDF document.
 
