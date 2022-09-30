@@ -244,10 +244,10 @@ HTML to PDF converter .NET library supports conversion in Mac. Refer to [this](/
 
 ### Convert HTML to PDF in ASP.NET Core
 
-HTML to PDF converter .NET library supports conversion in ASP.NET Core. Refer to [this](/file-formats/pdf/convert-html-to-pdf/aspnetcore) section for more information about HTML to PDF conversion in ASP.NET Core. 
+HTML to PDF converter .NET library supports conversion in ASP.NET Core. Refer to [this](/file-formats/pdf/convert-html-to-pdf/net-core) section for more information about HTML to PDF conversion in ASP.NET Core. 
 
 ### Convert HTML to PDF in ASP.NET MVC
-HTML to PDF converter .NET library supports conversion in ASP.NET MVC. Refer to [this](/file-formats/pdf/convert-html-to-pdf/aspnetmvc) section for more information about HTML to PDF conversion in ASP.NET MVC.
+HTML to PDF converter .NET library supports conversion in ASP.NET MVC. Refer to [this](/file-formats/pdf/convert-html-to-pdf/aspnet-mvc) section for more information about HTML to PDF conversion in ASP.NET MVC.
 
 ### Convert HTML to PDF in Blazor
 HTML to PDF converter .NET library supports conversion in Blazor. Refer to [this](/file-formats/pdf/convert-html-to-pdf/blazor) section for more information about HTML to PDF conversion in Blazor.
@@ -258,7 +258,7 @@ Refer to [this](/file-formats/pdf/convert-html-to-pdf/features) section for more
 
 ## Troubleshooting and FAQ
 
-Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting-and-faq) section for troubleshooting HTML to PDF conversion failures and frequently asked questions.
+Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting) section for troubleshooting HTML to PDF conversion failures and frequently asked questions.
 
 ## Steps to disable WebKit warning while performing HTML to PDF
 
@@ -324,7 +324,7 @@ document.Close(True)
 
 {% endtabs %}
 
-N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/blink)engine for best quality and accuracy in HTML to PDF conversion.
+N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf) engine for best quality and accuracy in HTML to PDF conversion.
 
 ## Steps to disable IE warning while performing HTML To PDF using the IE rendering engine
 
