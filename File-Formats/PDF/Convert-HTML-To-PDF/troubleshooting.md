@@ -187,9 +187,9 @@ settings.TempPath = "D://MyProject//bin";
 <br/>
 <b>Refer to the following screenshot:</b>
 <br/>
-<img src="/htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
+<img src="htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
 <br/>
-<img src="/htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
+<img src="htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
 <br/>
 Also, please add the below command line arguments in our converter setting,
 <br/>
