@@ -753,6 +753,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## Performing OCR with External OCR Engine
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as Azure Computer Vision and more. 
 Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with Azure computer vision.
+
 {% tabs %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
