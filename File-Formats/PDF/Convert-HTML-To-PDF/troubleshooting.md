@@ -1,6 +1,6 @@
 ---
 title: Converting HTML to PDF | Syncfusion
-description: Learn how to convert HTML to PDF using Blink rendering engines (Blink, WebKit and IE) with various features like TOC, partial web page to PDF etc.
+description: Learn how to convert HTML to PDF using Blink rendering engines with various features like TOC, partial web page to PDF etc.
 platform: file-formats
 control: PDF
 documentation: UG
@@ -187,9 +187,9 @@ settings.TempPath = "D://MyProject//bin";
 <br/>
 <b>Refer to the following screenshot:</b>
 <br/>
-<img src="Convert-HTML-To-PDF/htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
+<img src="/htmlconversion_images/Permission_chrome.png" alt="Blink chrome file permission">
 <br/>
-<img src="Convert-HTML-To-PDF/htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
+<img src="/htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
 <br/>
 Also, please add the below command line arguments in our converter setting,
 <br/>
