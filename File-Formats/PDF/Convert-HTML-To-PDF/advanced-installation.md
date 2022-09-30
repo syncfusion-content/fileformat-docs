@@ -29,4 +29,4 @@ Get the required assemblies and demos for converting HTML to PDF by installing t
 
 Get the required assemblies and demos for converting HTML to PDF by installing the HTML converter installer for Mac. 
 
-![[HTML to PDF converter for Mac download in add-on section](htmlconversion_images/machtmlconverteraddon.png)
+![HTML to PDF converter for Mac download in add-on section](htmlconversion_images/machtmlconverteraddon.png)
