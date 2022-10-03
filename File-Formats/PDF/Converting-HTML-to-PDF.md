@@ -14,20 +14,20 @@ Syncfusion HTML-to-PDF converter will work seamlessly in various platforms like 
 
 ## Key features for HTML Converter
 
-* Converts any webpage to PDF.
-* Converts any raw HTML string to PDF.
-* Converts HTML form to fillable PDF form.
-* Automatically creates Table of Contents.
-* Automatically creates bookmark hierarchy.
-* Converts only a part of the web page to PDF.
+* Converts any [webpage to PDF.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-pdf)
+* Converts any raw [HTML string to PDF.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#html-string-to-pdf)
+* Converts [HTML form to fillable PDF form.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#html-form-to-pdf-form)
+* Automatically creates [Table of Contents.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#table-of-contents)
+* Automatically creates [bookmark hierarchy.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#bookmarks)
+* Converts only a [part of the web page to PDF.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#partial-webpage-to-pdf)
 * Supports PDF header and PDF footer.
 * Repeats HTML table header and footer in PDF.
 * Supports HTML5, CSS3, SVG, and Web fonts.
-* Converts any HTML to an image.
+* Converts any [HTML to an image.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-image)
 * Converts any SVG to image.
 * Supports accessing HTML pages using both HTTP POST and GET methods.
 * Supports HTTP cookies.
-* Supports cookies-based form authentication.
+* Supports cookies-based [form authentication.](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#form-authentication)
 * Thread safe.
 * Supports internal and external hyperlinks.
 * Sets document properties, page settings, security, viewer preferences, and more.
