@@ -279,6 +279,177 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to position and resize picture in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pictures%20in%20Excel/Position%20and%20Resize%20Picture).   
 
+## Align picture
+
+The following code snipper explains to align a picture within a cell.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  
+  //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
+  IWorkbook workbook = application.Workbooks.Create(1);
+                
+  //The first worksheet object in the worksheets collection is accessed.
+  IWorksheet worksheet = workbook.Worksheets[0];
+  int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+  int scaleHeight = (int)application.ConvertUnits((int)worksheet["B1"].RowHeight, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+
+  //Insert Image to B1
+  worksheet.Pictures.AddPicture(1, 2, "image.png", scaleWidth, scaleHeight);
+         
+  //Resize B1 RowHeight & ColumnWidth
+  worksheet.Range["B1"].RowHeight = 155;
+  worksheet.Range["B1"].ColumnWidth = 10;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = ExcelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+
+  'A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+  'The first worksheet object in the worksheets collection is accessed.
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim scaleWidth As Integer = CInt(application.ConvertUnits(CInt(worksheet("B1").ColumnWidth), MeasureUnits.Millimeter, MeasureUnits.Pixel))
+  Dim scaleHeight As Integer = CInt(application.ConvertUnits(CInt(worksheet("B1").RowHeight), MeasureUnits.Millimeter, MeasureUnits.Pixel))
+
+  'Insert Image to B1
+  worksheet.Pictures.AddPicture(1, 2, "image.png", scaleWidth, scaleHeight)
+
+  'Resize B1 RowHeight & ColumnWidth
+  worksheet.Range("B1").RowHeight = 155
+  worksheet.Range("B1").ColumnWidth = 10
+
+  workbook.SaveAs("output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
+  IWorkbook workbook = application.Workbooks.Create(1);
+  
+  //The first worksheet object in the worksheets collection is accessed.
+  IWorksheet worksheet = workbook.Worksheets[0];
+  int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+  int scaleHeight = (int)application.ConvertUnits((int)worksheet["B1"].RowHeight, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+  StorageFile storageFileImage = await StorageFile.GetFileFromPathAsync(Path.GetFullPath("image.png"));
+
+  var randomAccessStream = await storageFileImage.OpenReadAsync();
+  Stream imageStream = randomAccessStream.AsStreamForRead();
+
+  //Insert Image to B1
+  worksheet.Pictures.AddPicture(1, 2, imageStream, scaleWidth, scaleHeight);
+
+  //Resize B1 RowHeight & ColumnWidth
+  worksheet.Range["B1"].RowHeight = 155;
+  worksheet.Range["B1"].ColumnWidth = 10; 
+  
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
+  IWorkbook workbook = application.Workbooks.Create(1);
+  
+  //The first worksheet object in the worksheets collection is accessed.
+  IWorksheet worksheet = workbook.Worksheets[0];
+  int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+  int scaleHeight = (int)application.ConvertUnits((int)worksheet["B1"].RowHeight, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+
+  
+  //Adding a picture
+  FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.Read);
+  
+  //Insert Image to B1
+  worksheet.Pictures.AddPicture(1, 2, imageStream, scaleWidth, scaleHeight);
+
+  //Resize B1 RowHeight & ColumnWidth
+  worksheet.Range["B1"].RowHeight = 155;
+  worksheet.Range["B1"].ColumnWidth = 10; 
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
+  IWorkbook workbook = application.Workbooks.Create(1);
+  
+  //The first worksheet object in the worksheets collection is accessed.
+  IWorksheet worksheet = workbook.Worksheets[0];
+  int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+  int scaleHeight = (int)application.ConvertUnits((int)worksheet["B1"].RowHeight, MeasureUnits.Millimeter, MeasureUnits.Pixel);
+  
+  //Adding a picture
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.png");
+  
+  //Insert Image to B1
+  worksheet.Pictures.AddPicture(1, 2, imageStream, scaleWidth, scaleHeight);
+
+  //Resize B1 RowHeight & ColumnWidth
+  worksheet.Range["B1"].RowHeight = 155;
+  worksheet.Range["B1"].ColumnWidth = 10; 
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Image into Merged Region
 
 The following code snippet explains how to add images into merged regions.
