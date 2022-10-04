@@ -2326,6 +2326,32 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to apply wrap text in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Wrap%20Text).
 
+## Unwrap Text
+
+Similarly, the wrapped text can be unwrapped by disabling the WrapText property. The following code explains this.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+worksheet.Range("A2:C2").WrapText = False
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+{% endtabs %}
+
 ## Auto-Fit Rows or Columns
 
 Cell dimensions can be auto-sized to its content dynamically to make its content visible. 
