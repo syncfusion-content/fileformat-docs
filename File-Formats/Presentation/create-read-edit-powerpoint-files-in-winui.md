@@ -16,26 +16,26 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 ### Create a PowerPoint file in WinUI
 
-1.Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
+1. Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
 ![Create the WinUI Desktop app in Visual Studio](Workingwith_WinUI/Create_Desktop_Project.png)
 
-2.Enter the project name and click **Create**.
+2. Enter the project name and click **Create**.
 
 ![Create a project name for your new project](Workingwith_WinUI/Desktop_Configure.png)
 
-3.Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
+3. Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
 ![Set the target version](Workingwith_WinUI/Target_Version.png)
 
-4.Install the Syncfusion.Presentation.NET NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
+4. Install the Syncfusion.Presentation.NET NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
 
 ![Install the Presentation .NET Nuget](Workingwith_WinUI/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5.Add a new button to the **MainWindow.xaml** as shown below.
-
+5. Add a new button to the **MainWindow.xaml** as shown below.
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -57,9 +57,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6.Include the following namespaces in the **MainWindow.xaml.cs** file.
-
+6. Include the following namespaces in the **MainWindow.xaml.cs** file.
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -70,9 +72,11 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7.Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
-
+7. Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -126,6 +130,8 @@ pptxDoc.Save(outputStream);
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example of creating a Presentation file in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint724079917.zip).
 
@@ -161,28 +167,28 @@ pptxDoc.Save(outputStream);
 
 ### Create a PowerPoint file in WinUI
 
-1.Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the template and **click** the Next button.
+1. Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the template and **click** the Next button.
 
 ![Create the WinUI UWP app in Visual Studio](Workingwith_WinUI/Create_UWP_Project.png)
 
 N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://aka.ms/projectreunion/previewdownload) for Visual Studio.
 
-2.Enter the project name and click **Create**.
+2. Enter the project name and click **Create**.
 
 ![Create a project name for your new project](Workingwith_WinUI/UWP_Configure.png)
 
-3.Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
+3. Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
 ![Set the target version](Workingwith_WinUI/Target_Version.png)
 
-4.Install the Syncfusion.Presentation.NET NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
+4. Install the Syncfusion.Presentation.NET NuGet package as a reference to your .NET Standard applications from the [NuGet.org](https://www.nuget.org/).
 
 ![Install the Presentation .NET Nuget](Workingwith_WinUI/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5.Add a new button to the **MainPage.xaml** as shown below.
-
+5. Add a new button to the **MainPage.xaml** as shown below.
+{% capture codesnippet4 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -205,9 +211,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-6.Include the following namespaces in the **MainPage.xaml.cs** file.
-
+6. Include the following namespaces in the **MainPage.xaml.cs** file.
+{% capture codesnippet5 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -221,9 +229,11 @@ using System.Reflection;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
-7.Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
-
+7. Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
+{% capture codesnippet6 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -282,6 +292,8 @@ using (IPresentation pptxDoc = Presentation.Create())
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet6 | OrderList_Indent_Level_1 }}
 A complete working example of creating a Presentation file in the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint_UWP-1654817345.zip).
 
 By executing the program, you will get the **PowerPoint slide** as follows.

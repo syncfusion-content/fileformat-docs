@@ -25,26 +25,26 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 
 ## Server-side application
 
-1.Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
+1. Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document ](Workingwith_Blazor/Create_project.png)
 
-2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+2. Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
-3.Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
+3. Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Server.png)
 
-4.To **create a PowerPoint document in Server-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
+4. To **create a PowerPoint document in Server-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
 
 ![Install .NET Core Nuget Package](Workingwith_Blazor/NuGet.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as **Presentation** under **Pages** folder and include the following namespaces in the file.
-
+5. Create a razor file with name as **Presentation** under **Pages** folder and include the following namespaces in the file.
+{% capture codesnippet1 %}​
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 @page "/Presentation"
@@ -54,9 +54,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 @inject Microsoft.JSInterop.IJSRuntime JS
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6.Add the following code to create a new button.
-
+6. Add the following code to create a new button.
+{% capture codesnippet2 %}​
 {% tabs %}
 
 {% highlight CSHTML %}
@@ -68,9 +70,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7.Add the following code in **Presentation.razor** file to create and download the **Presentation document**.
-
+7. Add the following code in **Presentation.razor** file to create and download the **Presentation document**.
+{% capture codesnippet3 %}​
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -91,9 +95,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-8.Create a new cs file with name as **PresentationService** under Data folder and include the following namespaces in the file.
-
+8. Create a new cs file with name as **PresentationService** under Data folder and include the following namespaces in the file.
+{% capture codesnippet4 %}​
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -105,9 +111,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-9.Create a new MemoryStream method with name as **CreatePowerPoint** and include the following code snippet to **create a PowerPoint document in Blazor** Server-Side application.
-
+9. Create a new MemoryStream method with name as **CreatePowerPoint** and include the following code snippet to **create a PowerPoint document in Blazor** Server-Side application.
+{% capture codesnippet5 %}​
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -172,9 +180,11 @@ public MemoryStream CreatePowerPoint()
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
-10.Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
-
+10. Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
+{% capture codesnippet6 %}​
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -191,9 +201,11 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet6 | OrderList_Indent_Level_1 }}
 
-11.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
-
+11. Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+{% capture codesnippet7 %}​
 {% tabs %}
 
 {% highlight HTML %}
@@ -224,6 +236,8 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet7 | OrderList_Indent_Level_1 }}
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
@@ -231,26 +245,26 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 ## Client-side application
 
-1.Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
+1. Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document](Workingwith_Blazor/Create_project.png)
 
-2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+2. Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
-3.Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
+3. Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Client.png)
 
-4.To **create a PowerPoint document in Server-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
+4. To **create a PowerPoint document in Server-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
 
 ![Install .NET Core Nuget Package](Workingwith_Blazor/NuGet.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as ``Presentation`` under ``Pages`` folder and add the following namespaces in the file.
-
+5. Create a razor file with name as ``Presentation`` under ``Pages`` folder and add the following namespaces in the file.
+{% capture codesnippet8 %}​
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 @page "/Presentation"
@@ -260,9 +274,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 @inject Microsoft.JSInterop.IJSRuntime JS
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet8 | OrderList_Indent_Level_1 }}
 
-6.Add the following code to create a new button.
-
+6. Add the following code to create a new button.
+{% capture codesnippet9 %}​
 {% tabs %}
 
 {% highlight CSHTML %}
@@ -274,9 +290,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet9 | OrderList_Indent_Level_1 }}
 
-7.Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **create a PowerPoint document in Blazor** Client-Side application.
-
+7. Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **create a PowerPoint document in Blazor** Client-Side application.
+{% capture codesnippet10 %}​
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -345,9 +363,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet10 | OrderList_Indent_Level_1 }}
 
-8.To download the PowerPoint document in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
-
+8. To download the PowerPoint document in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+{% capture codesnippet11 %}​
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -364,9 +384,11 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet11 | OrderList_Indent_Level_1 }}
 
-9.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
-
+9. Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+{% capture codesnippet12 %}​
 {% tabs %}
 
 {% highlight HTML %}
@@ -397,6 +419,8 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet12 | OrderList_Indent_Level_1 }}
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
