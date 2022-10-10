@@ -68,7 +68,7 @@ stream.Dispose();
 
 {% endhighlight %}
 
-A complete working sample can be downloaded from [WPF-HTML-to-PDF-Demo.zip] (https://www.syncfusion.com/downloads/support/directtrac/general/ze/WPF-HTML-to-PDF-Demo2114579782)
+A complete working sample can be downloaded from [WPF-HTML-to-PDF-Demo.zip(https://www.syncfusion.com/downloads/support/directtrac/general/ze/WPF-HTML-to-PDF-Demo2114579782)
 
 
 By executing the program, you will get the PDF document as follows.
