@@ -26,8 +26,9 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-4.Include the following namespaces in the HomeController.cs file.
+4. Include the following namespaces in the HomeController.cs file.
 
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -39,11 +40,14 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 5.A default action method named Index will be present in HomeController.cs. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
-6.Add a new button in the Index.cshtml as shown below.
+6. Add a new button in the Index.cshtml as shown below.
 
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -60,9 +64,12 @@ Html.EndForm();
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7.Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
+7. Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
 
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -292,6 +299,9 @@ return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
+
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/ASP.NET-Core).
 

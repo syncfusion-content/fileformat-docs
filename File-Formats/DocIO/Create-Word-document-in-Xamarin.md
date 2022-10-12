@@ -28,7 +28,7 @@ N> If .NET Standard is not available in the code sharing strategy, the Portable 
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-4.Add new Forms XAML page in **portable project**. If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+4. Add new Forms XAML page in **portable project**. If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 <ul>
 <li>
 To add the new XAML page, right click on the project and select <b>Add > New Item</b> and add a Forms XAML Page from the list. Name it as MainXamlPage.
@@ -38,6 +38,7 @@ In App class of <b>portable project</b> (App.cs), replace the existing construct
 </li>
 </ul>
 
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -51,9 +52,12 @@ public App()
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5.In the MainXamlPage.xaml add new button as shown below.
+5. In the MainXamlPage.xaml add new button as shown below.
 
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -70,9 +74,12 @@ public App()
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Include the following namespace in the MainXamlPage.xaml.cs file.
+6. Include the following namespace in the MainXamlPage.xaml.cs file.
 
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -85,9 +92,12 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-7.Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create Word document and save it in a stream.
+7. Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create Word document and save it in a stream.
 
+{% capture codesnippet4 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -322,6 +332,8 @@ void OnButtonClicked(object sender, EventArgs args)
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
 ## Helper files for Xamarin
 

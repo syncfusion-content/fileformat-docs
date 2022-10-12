@@ -43,8 +43,9 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as **DocIO** under **Pages** folder and include the following namespaces in the file.
+5. Create a razor file with name as **DocIO** under **Pages** folder and include the following namespaces in the file.
 
+{% capture codesnippet1 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 @page "/DocIO"
@@ -54,8 +55,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 @inject Microsoft.JSInterop.IJSRuntime JS
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6.Add the following code in **DocIO.razor** file to create a new button.
+6. Add the following code in **DocIO.razor** file to create a new button.
+
+{% capture codesnippet2 %}
 
 {% tabs %}
 {% highlight CSHTML %}
@@ -64,8 +69,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 <button class="btn btn-primary" @onclick="@CreateWord">Create Word</button>
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7.Add the following code in **DocIO.razor** file to create and download the **Word document**.
+7. Add the following code in **DocIO.razor** file to create and download the **Word document**.
+
+{% capture codesnippet3 %}
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -83,8 +92,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 }
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-8.Create a new cs file with name as **WordService** under Data folder and include the following namespaces in the file.
+8. Create a new cs file with name as **WordService** under Data folder and include the following namespaces in the file.
+
+{% capture codesnippet4 %}
 
 {% tabs %}
 
@@ -97,8 +110,12 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-9.Create a new MemoryStream method with name as **CreateWord** in **WordService** class and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
+9. Create a new MemoryStream method with name as **CreateWord** in **WordService** class and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
+
+{% capture codesnippet5 %}
 
 {% tabs %}
 
@@ -176,8 +193,12 @@ public MemoryStream CreateWord()
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
-10.Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
+10. Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
+
+{% capture codesnippet6 %}
 
 {% tabs %}
 
@@ -195,8 +216,12 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet6 | OrderList_Indent_Level_1 }}
 
-11.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+11. Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+
+{% capture codesnippet7 %}
 
 {% tabs %}
 
@@ -228,8 +253,12 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet7 | OrderList_Indent_Level_1 }}
 
-12.Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+12. Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+
+{% capture codesnippet8 %}
 
 {% tabs %}
 
@@ -244,6 +273,8 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet8 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Blazor/Server-side-application).
 
@@ -271,7 +302,9 @@ By executing the program, you will get the **Word document** as follows.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
+5. Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
+
+{% capture codesnippet9 %}
 
 {% tabs %}
 
@@ -284,8 +317,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet9 | OrderList_Indent_Level_1 }}
 
-6.Add the following code to create a new button.
+6. Add the following code to create a new button.
+
+{% capture codesnippet10 %}
 
 {% tabs %}
 
@@ -298,8 +335,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet10 | OrderList_Indent_Level_1 }}
 
-7.Create a new async method with name as ``CreateWord`` and include the following code snippet to **create a Word document in Blazor** Client-Side application.
+7. Create a new async method with name as ``CreateWord`` and include the following code snippet to **create a Word document in Blazor** Client-Side application.
+
+{% capture codesnippet11 %}
 
 {% tabs %}
 
@@ -382,8 +423,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet11 | OrderList_Indent_Level_1 }}
 
-8.Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+8. Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+
+{% capture codesnippet12 %}
 
 {% tabs %}
 
@@ -401,8 +446,12 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet12 | OrderList_Indent_Level_1 }}
 
-9.Add the following JavaScript function in the Index.html file present under ``wwwroot``.
+9. Add the following JavaScript function in the Index.html file present under ``wwwroot``.
+
+{% capture codesnippet13 %}
 
 {% tabs %}
 
@@ -434,8 +483,12 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet13 | OrderList_Indent_Level_1 }}
 
-10.Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+10. Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+
+{% capture codesnippet14 %}
 
 {% tabs %}
 
@@ -450,6 +503,8 @@ public static class FileUtils
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet14 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Blazor/Client-side-application).
 

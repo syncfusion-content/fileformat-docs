@@ -22,8 +22,9 @@ Syncfusion Essential DocIO is a [UWP Word library](https://www.syncfusion.com/wo
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-3.Add a new button in the MainPage.xaml as shown below.
+3. Add a new button in the MainPage.xaml as shown below.
 
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -45,9 +46,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4.Include the following namespaces in the MainPage.xaml.cs file.
+4. Include the following namespaces in the MainPage.xaml.cs file.
 
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -62,9 +66,12 @@ using System.Reflection;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-5.Include the below code snippet in the click event of the button in MainPage.xaml.cs, to **create a Word document** and save the **Word** document as a physical file and open the file for viewing.
+5. Include the below code snippet in the click event of the button in MainPage.xaml.cs, to **create a Word document** and save the **Word** document as a physical file and open the file for viewing.
 
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -296,6 +303,8 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 ## Save Word document in UWP
 
