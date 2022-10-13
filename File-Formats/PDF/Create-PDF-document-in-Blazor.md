@@ -20,26 +20,26 @@ For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assembli
 
 ## Steps to create PDF document in Blazor Server-Side application
 
-Step 1. Create a new C# Blazor server-side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor server-side application project. Select Blazor App from the template and click the Next button.
 
 ![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_create_project.png)
 
-Step 2. Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
+Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 
 
 ![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_images_Server_Creation.png)
 
-Step 3. Choose Blazor Server App from the dashboard and click Create button to create a new Blazor server-side application.
+Step 3: Choose Blazor Server App from the dashboard and click Create button to create a new Blazor server-side application.
 
 ![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_images_Server.png)
 
-Step 4. Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
+Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
 ![Add PDF reference to the project](Create-PDF-Blazor/Blazor_reference.png)
 
-Step 5. Create a new cs file named  ``ExportService`` under ``Data`` folder and include the following namespaces in the file.
+Step 5: Create a new cs file named  ``ExportService`` under ``Data`` folder and include the following namespaces in the file.
 
-{% capture codesnippet1 %}​
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.Pdf;
@@ -48,11 +48,9 @@ using Syncfusion.Pdf.Grid;
 using Syncfusion.Drawing;
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-    Add the following method in the ``ExportService`` class
-{% capture codesnippet2 %}​
+Add the following method in the ``ExportService`` class
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Export weather data to PDF document.
@@ -117,11 +115,8 @@ public static MemoryStream CreatePdf(WeatherForecast[] forecasts)
 }
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_2 }}
 
-    Register your service in the ``ConfigureServices`` method available in the ``Startup.cs`` class as follows.
-{% capture codesnippet3 %}
+Register your service in the ``ConfigureServices`` method available in the ``Startup.cs`` class as follows.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 public void ConfigureServices(IServiceCollection services)
@@ -133,12 +128,10 @@ public void ConfigureServices(IServiceCollection services)
 }
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_2 }}
 
 
-Step 6. Inject ``ExportService`` in-to ``FetchData.razor`` using the following code.
-{% capture codesnippet4 %}
+Step 6: Inject ``ExportService`` in-to ``FetchData.razor`` using the following code.
+
 {% tabs %}
 {% highlight CSHTML %}
 @inject ExportToFileService exportService
@@ -146,21 +139,17 @@ Step 6. Inject ``ExportService`` in-to ``FetchData.razor`` using the following c
 @using  System.IO;
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-    Create a button in the ``FetchData.razor`` using the following code.
-{% capture codesnippet5 %}
+Create a button in the ``FetchData.razor`` using the following code.
+
 {% tabs %}
 {% highlight CSHTML %}
 <button class="btn btn-primary" @onclick="@ExportToPdf">Export to PDF</button>
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet5 | OrderList_Indent_Level_2 }}
 
-    Add the ``ExportToPdf`` method in ``FetchData.razor`` page to call the export service.
-{% capture codesnippet6 %}
+Add the ``ExportToPdf`` method in ``FetchData.razor`` page to call the export service.
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 @functions
@@ -176,11 +165,9 @@ Step 6. Inject ``ExportService`` in-to ``FetchData.razor`` using the following c
 }
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet6 | OrderList_Indent_Level_2 }}
 
-Step 7. Create a class file with  ``FileUtil`` name and add the following code to invoke the JavaScript action to download the file in the browser.
-{% capture codesnippet7 %}
+Step 7: Create a class file with  ``FileUtil`` name and add the following code to invoke the JavaScript action to download the file in the browser.
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -197,11 +184,9 @@ public static class FileUtil
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet7 | OrderList_Indent_Level_1 }}
 
-Step 8. Add the following JavaScript function in the  ``_Host.cshtml`` available under the ``Pages`` folder.
-{% capture codesnippet8 %}
+Step 8: Add the following JavaScript function in the  ``_Host.cshtml`` available under the ``Pages`` folder.
+
 {% tabs %}
 
 {% highlight HTML %}
@@ -232,8 +217,6 @@ Step 8. Add the following JavaScript function in the  ``_Host.cshtml`` available
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet8 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ServerSideApplication).
 
@@ -251,24 +234,24 @@ N> It is recommended to use Blazor Server-Side application to reduce the pay bac
 
 ## Steps to create PDF document in Blazor client-side application:
 
-Step 1. Create a new C# Blazor client-side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor client-side application project. Select Blazor App from the template and click the Next button.
 
 ![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_create_project.png)
 
-Step 2. Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
+Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 
 ![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_Client_NewProject.png)
 
-Step 3. Blazor WebAssembly App from the dashboard and click Create button to create a new Blazor client-side application. 
+Step 3: Blazor WebAssembly App from the dashboard and click Create button to create a new Blazor client-side application. 
 
 ![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_Client_Template.png)
 
-Step 4. Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
+Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
 ![Add PDF reference to the project](Create-PDF-Blazor/Blazor_Client_NuGet.png)
 
-Step 5. Next, include the following namespaces in that  ``FetchData.razor`` file.
-{% capture codesnippet9 %}​
+Step 5: Next, include the following namespaces in that  ``FetchData.razor`` file.
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 @using Syncfusion.Pdf
@@ -280,21 +263,17 @@ Step 5. Next, include the following namespaces in that  ``FetchData.razor`` file
 
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet9 | OrderList_Indent_Level_1 }}
 
-Step 6. Create a button in the ``FetchData.razor`` using the following code.
-{% capture codesnippet10 %}​
+Step 6: Create a button in the ``FetchData.razor`` using the following code.
+
 {% tabs %}
 {% highlight CSHTML %}
 <button class="btn btn-primary" @onclick="@ExportToPdf">Export to PDF</button>
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet10 | OrderList_Indent_Level_1 }}
 
-    Next, define ``@ExportToPdf`` click function on ``FetchData.razor``  file.
- {% capture codesnippet11 %}​
+ Next, define ``@ExportToPdf`` click function on ``FetchData.razor``  file.
+ 
  {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -352,10 +331,9 @@ JS.SaveAs("Sample.pdf", memoryStream.ToArray());
 
 {% endhighlight %}
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet11 | OrderList_Indent_Level_2 }}
-Step 7. Create a class file with ``FileUtil`` name and add the following code to invoke the JavaScript action to download the file in the browser.
-{% capture codesnippet12 %}​
+
+Step 7: Create a class file with ``FileUtil`` name and add the following code to invoke the JavaScript action to download the file in the browser.
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -372,11 +350,9 @@ public static class FileUtil
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet12 | OrderList_Indent_Level_1 }}
 
-Step 8. Add the following JavaScript function in the ``index.html`` available under the ``wwwroot`` folder.
-{% capture codesnippet13 %}​
+Step 8: Add the following JavaScript function in the ``index.html`` available under the ``wwwroot`` folder.
+
 {% tabs %}
 
 {% highlight HTML %}
@@ -407,8 +383,6 @@ Step 8. Add the following JavaScript function in the ``index.html`` available un
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet13 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ClientSideApplication).
 
