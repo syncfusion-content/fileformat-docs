@@ -47,7 +47,7 @@ Trial message will be displayed as watermark in the generated documents, if File
 | **Trial installer** | If we used trial Syncfusion assemblies in the build server, we should register the corresponding version and platform license key in the application to avoid the trial license warning. | Yes | Any developer trial license can be used to [generate license keys](https://help.syncfusion.com/file-formats/licensing/how-to-generate) for build environments also |
 | **Licensed installer** |There is no need to register the licence keys if the Syncfusion assemblies used in the build server were obtained from a licenced installer. <br><br>You can [download](https://help.syncfusion.com/common/essential-studio/installation/web-installer/how-to-download#download-the-license-version) and [install](https://help.syncfusion.com/file-formats/installation/web-installer/how-to-install) the licensed version of our installer. | No | Not applicable |
 
-You can [download](https://help.syncfusion.com/file-formats/installation/web-installer/how-to-download#download-the-license-version)) and [install](https://help.syncfusion.com/file-formats/installation/web-installer/how-to-install) the licensed version of our installer.
+You can [download](https://help.syncfusion.com/file-formats/installation/web-installer/how-to-download#download-the-license-version) and [install](https://help.syncfusion.com/file-formats/installation/web-installer/how-to-install) the licensed version of our installer.
 
 ## See Also
 
