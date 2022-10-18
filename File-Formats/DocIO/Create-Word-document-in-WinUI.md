@@ -34,7 +34,9 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5.Add a new button to the **MainWindow.xaml** as shown below.
+5. Add a new button to the **MainWindow.xaml** as shown below.
+
+{% capture codesnippet1 %}
 
 {% tabs %}
 
@@ -57,8 +59,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6.Include the following namespaces in the **MainWindow.xaml.cs** file.
+6. Include the following namespaces in the **MainWindow.xaml.cs** file.
+
+{% capture codesnippet2 %}
 
 {% tabs %}
 
@@ -71,8 +77,12 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7.Add a new action method **CreateDocument** in MainWindow.xaml.cs and include the below code snippet to **create a Word document**.
+7. Add a new action method **CreateDocument** in MainWindow.xaml.cs and include the below code snippet to **create a Word document**.
+
+{% capture codesnippet3 %}
 
 {% tabs %}
 
@@ -304,6 +314,8 @@ Save(outputStream, "Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WinUI/WinUI-Desktop-app).
 
@@ -333,7 +345,9 @@ N> To get the UWP Experimental project templates and build UWP apps with WinUI 3
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5.Add a new button in the **MainPage.xaml** as shown below.
+5. Add a new button in the **MainPage.xaml** as shown below.
+
+{% capture codesnippet4 %}
 
 {% tabs %}
 
@@ -357,8 +371,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-6.Include the following namespaces in the **MainPage.xaml.cs** file.
+6. Include the following namespaces in the **MainPage.xaml.cs** file.
+
+{% capture codesnippet5 %}
 
 {% tabs %}
 
@@ -374,8 +392,12 @@ using Windows.Storage.Pickers;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
-7.Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+7. Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+
+{% capture codesnippet6 %}
 
 {% tabs %}
 
@@ -606,6 +628,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet6 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WinUI/WinUI-UWP-app).
 
