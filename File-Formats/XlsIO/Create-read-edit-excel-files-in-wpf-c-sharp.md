@@ -13,16 +13,16 @@ documentation: UG
 
 The below steps illustrates creating a simple Invoice formatted Excel document in WPF.
 
-1.Create a new C# WPF Application project.
+1. Create a new C# WPF Application project.
 
 ![Create WPF application in Visual Studio](Wpf_images/Wpf_images_img1.png)
 
-2.Install the [Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
+2. Install the [Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](Wpf_images/Wpf_images_img2.png)
 
-3.Include the following code snippet in Add a new button in MainWindow.xaml file to add a button for the creation of Excel document.
-
+3. Include the following code snippet in Add a new button in MainWindow.xaml file to add a button for the creation of Excel document.
+{% capture codesnippet1 %}
 {% tabs %}
 {% highlight XAML %}
 <Grid>
@@ -30,9 +30,11 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 </Grid>
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4.Include the following namespaces in MainWindow.xaml.cs file.
-
+4. Include the following namespaces in MainWindow.xaml.cs file.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
@@ -48,9 +50,11 @@ Imports System.IO
 Imports System.Windows
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-5.Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
-
+5. Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
@@ -408,6 +412,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 {% endtabs %}  
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example to create an Excel file in WPF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WPF/Create%20Excel). 
 

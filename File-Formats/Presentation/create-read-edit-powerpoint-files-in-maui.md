@@ -14,22 +14,22 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 
 ## Steps to create PowerPoint file in .NET MAUI
 
-1.Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
+1. Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
 ![Create the MAUI app in Visual Studio](Workingwith_MAUI/Create_Project.png)
 
-2.Enter the project name and click **Create**.
+2. Enter the project name and click **Create**.
 
 ![Create a project name for your new project](Workingwith_MAUI/Configure.png)
 
-3.Install the Syncfusion.Presentation.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+3. Install the Syncfusion.Presentation.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install the Presentation .NET NuGet package](Workingwith_MAUI/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-4.Add a new button to the **MainPage.xaml** as shown below.
-
+4. Add a new button to the **MainPage.xaml** as shown below.
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -55,9 +55,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5.Include the following namespaces in the **MainPage.xaml.cs** file.
-
+5. Include the following namespaces in the **MainPage.xaml.cs** file.
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -69,9 +71,11 @@ using System.Reflection;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
-
+6. Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -131,6 +135,8 @@ saveService.SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedoc
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example of creating a Presentation file in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint-472985326.zip).
 

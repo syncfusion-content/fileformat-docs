@@ -13,16 +13,16 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in UWP application.
 
-1.Create a new C# Blank App (Universal Windows) project.
+1. Create a new C# Blank App (Universal Windows) project.
 
 ![Create UWP application in Visual Studio](UWP_images/UWP_images_img1.png)
 
-2.Install the [Syncfusion.XlsIO.UWP](https://www.nuget.org/packages/Syncfusion.XlsIO.UWP) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
+2. Install the [Syncfusion.XlsIO.UWP](https://www.nuget.org/packages/Syncfusion.XlsIO.UWP) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](UWP_images/UWP_images_img2.png)
 
-3.Add a new button in the MainPage.xaml as shown below.
-
+3. Add a new button in the MainPage.xaml as shown below.
+{% capture codesnippet1 %}
 {% tabs %}  
 {% highlight XAML %}
 <Page
@@ -41,9 +41,11 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 </Page>
 {% endhighlight %}
 {% endtabs %}  
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4.Include the following namespaces in the MainPage.xaml.cs file.
-
+4. Include the following namespaces in the MainPage.xaml.cs file.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
@@ -58,10 +60,12 @@ Imports Windows.Storage.Pickers
 Imports Windows.Storage
 Imports Windows.UI
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}  
 
-5.Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create an Excel file and save the Excel document as a physical file and open the file for viewing.
-
+5. Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create an Excel file and save the Excel document as a physical file and open the file for viewing.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
@@ -462,6 +466,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example of how to create an Excel file in UWP in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/UWP/Create%20Excel).
 

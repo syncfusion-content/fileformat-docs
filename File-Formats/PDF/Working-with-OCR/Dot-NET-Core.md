@@ -78,7 +78,7 @@ N> TesseractBinaries and tessdata folders can be copied automatically from the N
 ## Prerequisites for Windows 
 
 *   Provide the TesseractBinaries windows folder path when creating a new OCR processor. Please refer to the following code snippet for windows.
-
+{% capture codesnippet1 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -89,10 +89,12 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows");
 
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }} 
 
 *   Provide the tesseract language data folder path (tessdata) when performing the OCR to recognize different language images.
-
+{% capture codesnippet2 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -104,6 +106,8 @@ processor.PerformOCR(lDoc, "tessdata/");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 You can download the language packages from the following link
 
@@ -120,7 +124,7 @@ You can download the language packages from the following link
         3. sudo apt-get install y- libopenjp2-7
  
 *	Provide the TesseractBinaries Linux folder path when creating a new OCR processor. Please refer to the following code snippet for Linux.
-
+{% capture codesnippet3 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -132,9 +136,11 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Linux");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 *	Provide the tesseract language data folder path (tessdata) when performing the OCR to recognize different language images.
-              
+ {% capture codesnippet4 %}             
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -146,6 +152,8 @@ processor.PerformOCR(lDoc, "tessdata/");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
 You can download the language packages from the following link
         
@@ -161,7 +169,7 @@ You can download the language packages from the following link
         2. brew install tesseract
 
 *	Provide the TesseractBinaries Mac folder path when creating a new OCR processor. Please refer to the following code snippet for Mac.
-
+{% capture codesnippet5 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -173,9 +181,11 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Mac");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
 *	Provide the tesseract language data folder path (tessdata) when performing the OCR to recognize different language images.
-
+{% capture codesnippet6 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -187,6 +197,8 @@ processor.PerformOCR(lDoc, "tessdata/");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet6 | OrderList_Indent_Level_1 }}
 
 You can download the language packages from the following link
         
