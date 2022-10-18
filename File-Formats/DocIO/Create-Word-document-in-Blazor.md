@@ -13,7 +13,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 **Prerequisites:**
 
 * Visual Studio 2019 Preview
-* Install the [.NET Core SDK 3.0 Preview](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* Install the [.NET Core SDK 3.1 Preview](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
 
 **Creating a Blazor project**
 
