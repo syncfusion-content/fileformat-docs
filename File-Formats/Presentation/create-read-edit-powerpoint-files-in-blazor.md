@@ -13,7 +13,7 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 **Prerequisites**
 
 * Visual Studio 2019 Preview
-* Install [.NET Core SDK 3.0 Preview](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* Install [.NET Core SDK 3.1](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
 
 **Creating a Blazor project**
 
