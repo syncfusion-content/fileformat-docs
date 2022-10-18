@@ -12,16 +12,16 @@ You can create or edit a PowerPoint file with the Syncfusion [UWP PowerPoint lib
 
 ## Create a PowerPoint file in UWP
 
-1.Create a new C# UWP application project.
+1. Create a new C# UWP application project.
 
 ![Create UWP project](Workingwith_UWP/CreateUWP.png)
 
-2.Install the [Syncfusion.Presentation.UWP](https://www.nuget.org/packages/Syncfusion.Presentation.UWP/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+2. Install the [Syncfusion.Presentation.UWP](https://www.nuget.org/packages/Syncfusion.Presentation.UWP/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install UWP Nuget](Workingwith_UWP/Install_Nuget.png)
 
-3.Add a new button in the MainPage.xaml as shown below.
-
+3. Add a new button in the MainPage.xaml as shown below.
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -44,9 +44,11 @@ You can create or edit a PowerPoint file with the Syncfusion [UWP PowerPoint lib
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }
 
-4.Include the following namespaces in the MainPage.xaml.cs file.
-
+4. Include the following namespaces in the MainPage.xaml.cs file.
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -58,8 +60,10 @@ using Windows.Storage;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }
 
-5.Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
+5. Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
 
 **Create Presentation instance:**
 

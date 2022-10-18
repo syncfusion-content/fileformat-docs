@@ -13,16 +13,16 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET MVC.
 
-1.Create a new ASP.NET MVC application project.
+1. Create a new ASP.NET MVC application project.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/ASP-NET-MVC_images_img1.png)
 
-2.Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+2. Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET-MVC_images/ASP-NET-MVC_images_img2.png)
 
-3.A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
-
+3. A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
+{% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
@@ -31,12 +31,15 @@ using Syncfusion.XlsIO;
 {% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.XlsIO
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4.A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
 
-5.Add a new button in the Index.cshtml as shown below.
+4. A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
 
+5. Add a new button in the Index.cshtml as shown below.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight HTML %}
 @{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
@@ -48,10 +51,13 @@ Imports Syncfusion.XlsIO
     Html.EndForm();
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 
+6. Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
@@ -407,6 +413,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 {% endtabs %}  
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example of how to create an Excel file in ASP.NET MVC in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Create%20Excel).
 

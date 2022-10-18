@@ -688,24 +688,24 @@ The ZUGFeRD invoices can be validated as follows:
 
 1. Conformance to the PDF/A-3b standard can be checked with Preflight function in Adobe acrobat. 
 
-* Open the PDF and choose Tools > Print Production > Preflight in the right pane.
+    * Open the PDF and choose Tools > Print Production > Preflight in the right pane.
 
-* Select the PDF/A-3b profile and click the Analyze button.
+    * Select the PDF/A-3b profile and click the Analyze button.
 
 ![PDF/A-3b Preflight Check image](ZUGFeRD_images/PDF_A_3b_Check.png)
 
-* Check the result
+    * Check the result
 
 ![PDF/A-3b Preflight Results image](ZUGFeRD_images/PDF_A_3b_Results.png)
 
-2.	Conformance to the ZUGFeRD invoice can be checked as follows:
+2. Conformance to the ZUGFeRD invoice can be checked as follows:
 
-* Open the PDF and choose Tools > Print Production > Preflight in the right pane.
+    * Open the PDF and choose Tools > Print Production > Preflight in the right pane.
 
-* Select the ZUGFeRD profile and click the Analyze button.
+    * Select the ZUGFeRD profile and click the Analyze button.
 
 ![PDF ZUGFeRD Preflight Check image](ZUGFeRD_images/PDF_ZUGFeRD_Check.png)
 
-* Check the result
+    * Check the result
 
 ![PDF ZUGFeRD Preflight Results image](ZUGFeRD_images/PDF_ZUGFeRD_Results.png)

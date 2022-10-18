@@ -12,7 +12,9 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Steps to create Word document programmatically in .NET Core application on Linux
 
-1.Execute the following command in Linux terminal to create a new .NET Core Console application.
+1. Execute the following command in Linux terminal to create a new .NET Core Console application.
+
+{% capture codesnippet1 %}
 
 {% tabs %}
 
@@ -23,10 +25,14 @@ dotnet new console
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 ![Create .NET Core console application on Linux](Linux-images/CreateNewProject1.png)
 
-2.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
+2. Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
+
+{% capture codesnippet2 %}
 
 {% tabs %}
 
@@ -37,12 +43,16 @@ dotnet add package Syncfusion.DocIO.Net.Core -v 17.4.0.39 -s https://www.nuget.o
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 ![Install NuGet packages](Linux-images/InstallNuGetPackages1.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-3.Add the following Namespaces in Program.cs file.
+3. Add the following Namespaces in Program.cs file.
+
+{% capture codesnippet3 %}
 
 {% tabs %}
 
@@ -55,8 +65,12 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-4.Add the following code snippet in Program.cs file.
+4. Add the following code snippet in Program.cs file.
+
+{% capture codesnippet4 %}
 
 {% tabs %}
 
@@ -290,8 +304,12 @@ outputStream.Dispose();
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-5.Execute the following command to restore the NuGet packages.
+5. Execute the following command to restore the NuGet packages.
+
+{% capture codesnippet5 %}
 
 {% tabs %}
 
@@ -302,10 +320,14 @@ dotnet restore
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
 ![Restore the NuGet packages](Linux-images/Restore.png)
 
-6.Execute the following command in terminal to run the application.
+6. Execute the following command in terminal to run the application.
+
+{% capture codesnippet6 %}
 
 {% tabs %}
 
@@ -316,6 +338,8 @@ dotnet run
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet6 | OrderList_Indent_Level_1 }}
 
 ![Run the Applcation](Linux-images/Run.png)
 

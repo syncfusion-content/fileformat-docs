@@ -13,16 +13,16 @@ documentation: UG
 
 The below steps illustrates creating a simple Invoice formatted Excel document in Windows Forms.
 
-1.Create a new C# Windows Forms Application project.
+1. Create a new C# Windows Forms Application project.
 
 ![Create Windows Forms application in Visual Studio](Windows-Forms_images/Windows-Forms_images_img1.png)
 
-2.Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
+2. Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](Windows-Forms_images/Windows-Forms_images_img2.png)
 
-3.Include the following namespaces in the Form1.Designer.cs file.
-
+3. Include the following namespaces in the Form1.Designer.cs file.
+{% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using System.IO;
@@ -39,10 +39,12 @@ Imports System
 Imports Syste.Drawing
 Imports System.Windows.Forms
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }} 
 
-4.Add a new button in the Form1.Designer.cs file to create an Excel document as shown below.
-
+4. Add a new button in the Form1.Designer.cs file to create an Excel document as shown below.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 private Button btnCreate;
@@ -100,10 +102,12 @@ Private Sub InitializeComponent()
     Text = "Create Spreadsheet"
 End Sub
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }} 
 
-5.Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
-
+5. Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
@@ -460,7 +464,9 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}  
 
 A complete working example to create an Excel file in Windows Forms in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Windows%20Forms/Create%20Excel).
 

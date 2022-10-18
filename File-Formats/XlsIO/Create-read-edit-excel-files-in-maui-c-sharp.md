@@ -17,20 +17,20 @@ To use the MAUI project templates, install the Mobile development with .NET exte
 
 The below steps illustrates creating a simple Invoice formatted Excel document in .NET MAUI.
 
-1.Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
+1. Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
 
 ![Create .NET MAUI application in Visual Studio](MAUI_images/MAUI_images_img1.png)
 
-2.Enter the project name and click **Create**.
+2. Enter the project name and click **Create**.
 
 ![Name the project](MAUI_images/MAUI_images_img2.png)
 
-3.Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
+3. Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](MAUI_images/MAUI_images_img3.png)
 
-4.Add a new button to the **MainWindow.xaml** as shown below.
-
+4. Add a new button to the **MainWindow.xaml** as shown below.
+{% capture codesnippet1 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -49,9 +49,11 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 </ContentPage>
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5.Include the following namespaces in the **MainWindow.xaml.cs** file.
-
+5. Include the following namespaces in the **MainWindow.xaml.cs** file.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
@@ -59,9 +61,11 @@ using System.IO;
 using System.Reflection;
 {% endhighlight %}
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Add a new action method **createExcel_Click** in MainWindow.xaml.cs and include the below code snippet to **create an Excel document**.
-
+6. Add a new action method **createExcel_Click** in MainWindow.xaml.cs and include the below code snippet to **create an Excel document**.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
@@ -248,7 +252,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     saveService.SaveAndView("Output.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ms);
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }} 
 
 ## Save Service class in portable project
 

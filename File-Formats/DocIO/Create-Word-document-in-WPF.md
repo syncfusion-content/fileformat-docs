@@ -22,8 +22,9 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/w
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-3.Include the following namespaces in the MainWindow.xaml.cs file.
+3. Include the following namespaces in the MainWindow.xaml.cs file.
 
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -36,9 +37,12 @@ using System.Windows;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4.Add a new button in **MainWindow.xaml** to create Word file as follows.
+4. Add a new button in **MainWindow.xaml** to create Word file as follows.
 
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -59,9 +63,12 @@ using System.Windows;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-5.Add the following code in **btnCreate_Click** to **create Word document** with simple text.
+5. Add the following code in **btnCreate_Click** to **create Word document** with simple text.
 
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -283,6 +290,8 @@ document.Save("Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WPF).
 
