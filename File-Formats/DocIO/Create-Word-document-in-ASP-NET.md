@@ -24,8 +24,9 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 3.Add a new Web Form in your project. Right click on the project and select **Add > New Item** and add a Web Form from the list. Name it as MainPage.
 
-4.Add a new button in the **MainPage.aspx** as shown below.
+4. Add a new button in the **MainPage.aspx** as shown below.
 
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -46,9 +47,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5.Include the following namespace in your **MainPage.aspx.cs** file.
+5. Include the following namespace in your **MainPage.aspx.cs** file.
 
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -61,9 +65,12 @@ using System.Drawing;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Include the below code snippet in the click event of the button in **MainPage.aspx.cs**, to **create Word document** and download it.
+6. Include the below code snippet in the click event of the button in **MainPage.aspx.cs**, to **create Word document** and download it.
 
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -285,6 +292,8 @@ document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, Http
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/ASP.NET).
 

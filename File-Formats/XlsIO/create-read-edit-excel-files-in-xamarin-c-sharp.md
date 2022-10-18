@@ -13,26 +13,26 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Xamarin application.
 
-1.Create a new C# Xamarin.Forms application project.
+1. Create a new C# Xamarin.Forms application project.
 
 ![Create ASP.NET Core web application in Visual Studio](XAMARIN_images/XAMARIAN_images_img1.png)
 
-2.Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+2. Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N>If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
 ![Select Web application pattern](XAMARIN_images/XAMARIAN_images_img2.png)
 
-3.Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+3. Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](XAMARIN_images/XAMARIAN_images_img3.png)
 
-4.Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+4. Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 
-i)	To add the new XAML page, right click on the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
+	i)	To add the new XAML page, right click on the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
 
-ii)	In App class of portable project (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the MainXamlPage.
-
+	ii)	In App class of portable project (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the MainXamlPage.
+{% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 public App()
@@ -49,9 +49,12 @@ Public Sub New()
     MainPage = New MainXamlPage()
 End Sub
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_2 }} 
 
-5.In the MainXamlPage.xaml add new button as shown below.
+5. In the MainXamlPage.xaml add new button as shown below.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight XAML %}
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -63,10 +66,12 @@ End Sub
 
 </StackLayout> </ContentPage>
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }} 
 
-6.Include the following namespace in the MainXamlPage.xaml.cs file.
-
+6. Include the following namespace in the MainXamlPage.xaml.cs file.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
@@ -79,10 +84,12 @@ Imports Syncfusion.XlsIO
 Imports System.Reflection
 Imports Color = Syncfusion.Drawing.Color
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}  
 
-7.Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
-
+7. Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
+{% capture codesnippet4 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 void OnButtonClicked(object sender, EventArgs args)
@@ -460,8 +467,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 {% endtabs %}  
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-8.Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~1-1423062113.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8. Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~1-1423062113.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
 <tr>
@@ -551,7 +560,7 @@ Save implementation for WinRT device.
 </tbody>
 </table>
 
-9.Compile and execute the application. Now this application creates a simple Excel document.
+9. Compile and execute the application. Now this application creates a simple Excel document.
 
 
 A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 

@@ -20,7 +20,7 @@ N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies
 3. Syncfusion.OCRProcessor.Base.dll
 
 * Place the SyncfusionTesseract.dll and liblept168.dll Tesseract assemblies in the local system and provide the assembly path to the OCR processor.
-
+{% capture codesnippet1 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="C#" %}
@@ -43,9 +43,11 @@ Dim processor As New OCRProcessor("TesseractBinaries/")
 {% endhighlight %}
 
 {% endtabs %}  
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 * Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor 
-
+{% capture codesnippet2 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="C#" %}
@@ -71,7 +73,9 @@ processor.PerformOCR(lDoc, "TessData/")
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }} 
 
 You can also download the language packages from below link
 
