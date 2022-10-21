@@ -45,7 +45,7 @@ You can create or edit a PowerPoint file with the Syncfusion [UWP PowerPoint lib
 
 {% endtabs %}
 {% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
+{{ codesnippet1 | OrderList_Indent_Level_1 }
 
 4. Include the following namespaces in the MainPage.xaml.cs file.
 {% capture codesnippet2 %}
@@ -61,7 +61,7 @@ using Windows.Storage;
 
 {% endtabs %}
 {% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
+{{ codesnippet2 | OrderList_Indent_Level_1 }
 
 5. Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
 
