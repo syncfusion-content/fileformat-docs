@@ -68,7 +68,7 @@ using System.IO;
 
 {% endtabs %}
 {% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 6. Include the below code snippet in the click event of the button in MainWindow.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
 
