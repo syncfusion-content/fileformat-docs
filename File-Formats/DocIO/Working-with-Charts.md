@@ -2374,7 +2374,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Get the first paragraph from section. 
         WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
-		//Get the chart element from paragraph.
+//Get the chart element from paragraph.
         WChart chart = paragraph.ChildEntities[0] as WChart;
         //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
@@ -2436,7 +2436,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open))
     {
         //Get the first paragraph from section. 
         WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
-		//Get the chart element from paragraph.
+//Get the chart element from paragraph.
         WChart chart = paragraph.ChildEntities[0] as WChart;
         //Create an instance of DocIORenderer.
         using (DocIORenderer renderer = new DocIORenderer())
@@ -2466,7 +2466,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Get the first paragraph from section. 
         WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
-		//Get the chart element from paragraph.
+//Get the chart element from paragraph.
         WChart chart = paragraph.ChildEntities[0] as WChart;
         //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
