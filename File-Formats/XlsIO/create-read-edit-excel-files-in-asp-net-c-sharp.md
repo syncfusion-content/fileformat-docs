@@ -13,18 +13,18 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET.
 
-1.Create a new ASP.NET Web application project.
+1. Create a new ASP.NET Web application project.
 
 ![Create ASP.NET application in Visual Studio](ASP-NET_images/ASP-NET_images_img1.png)
 
-2.Install the [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+2. Install the [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET_images/ASP-NET_images_img2.png)
 
-3.Add a new Web Form in ASP .NET project. Right click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
+3. Add a new Web Form in ASP .NET project. Right click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
 
-4.Add a new button in the MainPage.aspx as shown below.
-
+4. Add a new button in the MainPage.aspx as shown below.
+{% capture codesnippet1 %}
 {% tabs %} 
 {% highlight HTML %}
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -41,9 +41,11 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 </html>
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5.Include the following namespace in your MainPage.aspx.cs file.
-
+5. Include the following namespace in your MainPage.aspx.cs file.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
@@ -54,10 +56,12 @@ using System.Drawing;
 Imports Syncfusion.XlsIO
 Imports System.Drawing
 {% endhighlight %}
-{% endtabs %}    
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Include the below code snippet in the click event of the button in MainPage.aspx.cs, to create an Excel file and download it
-
+6. Include the below code snippet in the click event of the button in MainPage.aspx.cs, to create an Excel file and download it
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -411,7 +415,9 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
     workbook.SaveAs("Output.xlsx", Response, ExcelDownloadType.Open, ExcelHttpContentType.Excel2016)
 End Using
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example of how to create an Excel file in ASP.NET in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20WebForms/Create%20Excel).
 

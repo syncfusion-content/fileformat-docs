@@ -12,15 +12,15 @@ You can create or edit a PowerPoint file in WPF with Syncfusion PowerPoint libra
 
 ## Create a PowerPoint file in WPF
 
-1.Create a new C# WPF application project.
+1. Create a new C# WPF application project.
 
 ![Create WPF project](Workingwith_WPF/CreateWPF.png)
 
-2.Install the [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+2. Install the [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Presentation WPF Nuget](Workingwith_WPF/Install_Nuget.png)
 
-3.After installing the **Syncfusion.Presentation.Wpf** nuget package, the following assemblies were included in our project.
+3. After installing the **Syncfusion.Presentation.Wpf** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
 <li>Syncfusion.Licensing</li>
@@ -30,8 +30,8 @@ You can create or edit a PowerPoint file in WPF with Syncfusion PowerPoint libra
 <li>Syncfusion.PresentationToPdfConverter.Base</li>
 </ul>
 
-4.Add a new button in the **MainWindow.xaml** as shown below.
-
+4. Add a new button in the **MainWindow.xaml** as shown below.
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -52,9 +52,11 @@ You can create or edit a PowerPoint file in WPF with Syncfusion PowerPoint libra
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5.Include the following namespaces in the **MainWindow.xaml.cs** file.
-
+5. Include the following namespaces in the **MainWindow.xaml.cs** file.
+{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -65,8 +67,10 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Include the below code snippet in the click event of the button in MainWindow.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
+6. Include the below code snippet in the click event of the button in MainWindow.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
 
 **Create Presentation instance:**
 

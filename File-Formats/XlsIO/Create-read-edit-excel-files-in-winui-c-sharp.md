@@ -13,24 +13,24 @@ Syncfusion Excel library for WinUI platform can be used to create, read, edit Ex
 
 The below steps illustrates creating a simple Invoice formatted Excel document in WinUI.
 
-1.Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
+1. Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
 ![Create WinUI application in Visual Studio](WinUI_images/WinUI_images_img1.png)
 
-2.Enter the project name and click **Create**.
+2. Enter the project name and click **Create**.
 
 ![Name the project](WinUI_images/WinUI_images_img2.png)
 
-3.Select the target and minimum platform versions.
+3. Select the target and minimum platform versions.
 
 ![Target version](WinUI_images/WinUI_images_img3.png)
 
-4.Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
+4. Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](WinUI_images/WinUI_images_img4.png)
 
 5. Add a new button to the **MainWindow.xaml** as shown below.
-
+{% capture codesnippet1 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 <Window
@@ -48,9 +48,11 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 </Window>
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6.Include the following namespaces in MainPage.xaml.cs file.
-
+6. Include the following namespaces in MainPage.xaml.cs file.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Windows.Storage;
@@ -61,9 +63,11 @@ using Syncfusion.XlsIO;
 using System.IO;
 {% endhighlight %}
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7.Include the below code snippet in button click event to create an Excel file and download it.
-
+7. Include the below code snippet in button click event to create an Excel file and download it.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
@@ -247,10 +251,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     Save(stream, "Output");
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }} 
 
-8.Include this below helper Save method in **MainPage.xaml.cs** file.
-
+8. Include this below helper Save method in **MainPage.xaml.cs** file.
+{% capture codesnippet4 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 async void Save(MemoryStream stream, string filename)
@@ -290,6 +296,8 @@ async void Save(MemoryStream stream, string filename)
 }
 {% endhighlight %}
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
 A complete working example of how to create an Excel file in WinUI in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WinUI/Create%20Excel).
 

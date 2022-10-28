@@ -30,7 +30,9 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-4.Add a new button to the **MainPage.xaml** as shown below.
+4. Add a new button to the **MainPage.xaml** as shown below.
+
+{% capture codesnippet1 %}
 
 {% tabs %}
 
@@ -57,8 +59,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5.Include the following namespaces in the **MainPage.xaml.cs** file.
+5. Include the following namespaces in the **MainPage.xaml.cs** file.
+
+{% capture codesnippet2 %}
 
 {% tabs %}
 
@@ -72,8 +78,12 @@ using System.Reflection;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6.Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+6. Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+
+{% capture codesnippet3 %}
 
 {% tabs %}
 
@@ -309,6 +319,8 @@ saveService.SaveAndView("Sample.docx", "application/msword", ms);
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET-MAUI).
 
