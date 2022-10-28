@@ -2365,6 +2365,7 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone. You can convert chart as images in UWP using DocIORenderer.
 //Open the file as Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
@@ -2373,11 +2374,11 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Get the first paragraph from section. 
         WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
+		//Get the chart element from paragraph.
+        WChart chart = paragraph.ChildEntities[0] as WChart;
         //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Get the chart element from paragraph.
-            WChart chart = paragraph.ChildEntities[0] as WChart;
             //Creating the memory stream for image.
             using (MemoryStream stream = new MemoryStream())
             {
@@ -2435,11 +2436,11 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open))
     {
         //Get the first paragraph from section. 
         WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
+		//Get the chart element from paragraph.
+        WChart chart = paragraph.ChildEntities[0] as WChart;
         //Create an instance of DocIORenderer.
         using (DocIORenderer renderer = new DocIORenderer())
         {
-            //Get the chart element from paragraph.
-            WChart chart = paragraph.ChildEntities[0] as WChart;
             //Creating the memory stream for image.
             using (MemoryStream stream = new MemoryStream())
             {
@@ -2465,11 +2466,11 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Get the first paragraph from section. 
         WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
+		//Get the chart element from paragraph.
+        WChart chart = paragraph.ChildEntities[0] as WChart;
         //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Get the chart element from paragraph.
-            WChart chart = paragraph.ChildEntities[0] as WChart;
             //Creating the memory stream for image.
             MemoryStream stream = new MemoryStream();
             //Convert chart to image. 
