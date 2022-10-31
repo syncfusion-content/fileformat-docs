@@ -1,4 +1,4 @@
----
+-	--
 title: Word document to PDF Conversion | DocIO | Syncfusion
 description: This section illustrates how to convert Word document to PDF using Syncfusion Word library (Essential DocIO)
 platform: file-formats
@@ -3204,9 +3204,9 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+Private Sub FontSettings_SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
     'Sets the alternate font when a specified font is not installed in the production environment
-    If args.OrignalFontName = "Arial Unicode MS" && args.FontStyle == FontStyle.Regular Then
+    If args.OrignalFontName = "Arial Unicode MS" And args.FontStyle = FontStyle.Regular Then
         args.AlternateFontStream = New FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
     Else
 	    args.AlternateFontName = "Times New Roman"
