@@ -313,6 +313,53 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 </table>
 
 <table>
+<th style="font-size:14px">Issue
+</th>
+<th style="font-size:14px">Unable to convert unsecured https URL to PDF using Blink.
+</th>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>The issue is happen due to invalid SSL certificate errors in unsecured sites.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>You can able to bypass the invalid SSL certificate errors using the command line arguments property of Blink converter settings.
+BlinkConverterSettings settings = new BlinkConverterSettings();
+settings.CommandLineArguments.Add("--ignore-certificate-errors"); 
+</td>
+</tr>
+</table>
+
+<table>
+<th style="font-size:14px">Issue
+</th>
+<th style="font-size:14px">Conversion failure in windows server 2012 R2.
+</th>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>The issue may happen due to windows server environment permission restriction.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>We can resolve this permission related failure in the Blink rendering engine using below command line arguments in our converter settings. 
+//Set command line arguments to run without sandbox.
+blinkConverterSettings.CommandLineArguments.Add("--no-sandbox");
+blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
+</td>
+</tr>
+</table>
+
+<table>
 	<tr>
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
 	</tr>
