@@ -1276,7 +1276,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
     pptxDoc.ChartToImageConverter = new ChartToImageConverter();
     //Initialize the conversion settings.
     PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
-    //Sets RecreateNestedMetafile property to true to Recreate the Nested Metafile automatically.              
+    //Set RecreateNestedMetafile property to true to Recreate the Nested Metafile automatically.              
     pdfConverterSettings.RecreateNestedMetafile = true;
     //Convert the PowerPoint Presentation into a PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
@@ -1296,7 +1296,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
     pptxDoc.ChartToImageConverter = New ChartToImageConverter()
     'Initialize the conversion settings.
     Dim pdfConverterSettings As PresentationToPdfConverterSettings = New PresentationToPdfConverterSettings()
-    'Enable a flag to preserve structured document tags in the converted PDF document.
+    'Set RecreateNestedMetafile property to true to Recreate the Nested Metafile automatically.
     pdfConverterSettings.RecreateNestedMetafile = True
     'Convert the PowerPoint Presentation into a PDF document.
     Using pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
