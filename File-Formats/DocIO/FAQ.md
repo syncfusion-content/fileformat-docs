@@ -4804,7 +4804,7 @@ NuGet packages to install
 </thead>
 <tr>
 <td>
-From v20.3.0.x 
+From v20.3.0.56 
 </td>
 <td>
 {{'[SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)'| markdownify }}<br/>
@@ -4866,7 +4866,7 @@ NuGet packages to install
 </thead>
 <tr>
 <td>
-From v20.3
+From v20.3.0.56
 </td>
 <td>
 {{'[SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)'| markdownify }}<br/>
