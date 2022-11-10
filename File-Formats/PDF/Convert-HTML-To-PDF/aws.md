@@ -7,7 +7,7 @@ documentation: UG
 keywords: Assemblies
 ---
 
-The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. It is reliable and accurate. Using this library, you can convert HTML to PDF in AWS Lambda using Blink.
+The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. It is reliable and accurate. Using this library, you can convert HTML to PDF in AWS using Blink.
 
 # Setting up the AWS Toolkit for Visual Studio:
 
