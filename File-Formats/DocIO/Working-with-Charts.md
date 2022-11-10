@@ -2379,11 +2379,9 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Creating the memory stream for an image.
-            using (MemoryStream stream = new MemoryStream())
+            //Convert chart to an image.
+            using (Stream stream = chart.SaveAsImage())
             {
-                //Convert chart to an image.
-                chart.SaveAsImage(stream);
                 //Save the memory stream as file.
                 Save(stream as MemoryStream, "ChartToImage.jpeg");
             }
@@ -2434,21 +2432,20 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open))
     //Load file stream into Word document.
     using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
     {
-        //Get the first paragraph from the section. 
+        //Get the first paragraph from the section.
         WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
         //Get the chart element from the paragraph.
         WChart chart = paragraph.ChildEntities[0] as WChart;
         //Create an instance of DocIORenderer.
         using (DocIORenderer renderer = new DocIORenderer())
         {
-            //Creating the memory stream for an image.
-            using (MemoryStream stream = new MemoryStream())
+            //Convert chart to an image.
+            using (Stream stream = chart.SaveAsImage())
             {
-                //Convert chart to an image.
-                chart.SaveAsImage(stream);
-                //Save the stream as a file.
+                //Create the output image file stream. 
                 using (FileStream fileStreamOutput = File.Create("ChartToImage.jpeg"))
                 {
+                    //Copies the converted image stream into created output stream.
                     stream.CopyTo(fileStreamOutput);
                 }
             }
@@ -2471,12 +2468,12 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Create a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Creating the memory stream for an image.
-            MemoryStream stream = new MemoryStream();
-            //Convert chart to an image. 
-            chart.SaveAsImage(stream);
-            //Save the stream as file in the device and invoke it for viewing.
-            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ChartToImage.jpeg", "image/jpeg", stream as MemoryStream);
+            //Convert chart to an image.
+            using (Stream stream = chart.SaveAsImage())
+            {
+                //Save the stream as file in the device and invoke it for viewing.
+                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ChartToImage.jpeg", "image/jpeg", stream as MemoryStream);
+            }
         }
     }
 }
