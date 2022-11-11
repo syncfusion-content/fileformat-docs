@@ -1,17 +1,17 @@
 ---
 title: Convert HTML to PDF in Azure | Syncfusion
-description: Learn how to convert HTML to PDF in Azure .NET Core with easy steps using Syncfusion .NET HTML converter library.
+description: Learn how to convert HTML to PDF in Azure with easy steps using Syncfusion .NET HTML converter library.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 ---
 
-Syncfusion [HTML to PDF converter](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. It is reliable and accurate. The result preserves all graphics, images, text, fonts, and the layout of the original HTML document or webpage. Using this library, you can convert an HTML to PDF using C# with the Blink rendering engine in Azure App Service on Linux, Azure app service using the Linux [docker](https://www.docker.com/why-docker) container and Azure Function Application Linux.
+The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. It is reliable and accurate. The result preserves all graphics, images, text, fonts, and the layout of the original HTML document or webpage. Using this library, you can convert an HTML to PDF using C# with the Blink rendering engine in Azure App Service on Linux, Azure app service using the Linux [docker](https://www.docker.com/why-docker) container and Azure Function Application Linux.
 
-## Azure App Service Linux
+# Azure App Service Linux
 
-### Steps to convert HTML to PDF in Azure App service on Linux:
+## Steps to convert HTML to PDF in Azure App service on Linux:
 
 Create a new ASP.NET Core MVC application. 
 ![Convert HTMLToPDF Azure NetCore Step1](htmlconversion_images/AzureNetCore1.png)
@@ -24,7 +24,7 @@ There are two ways to install the dependency packages to Azure server:
 Using SSH from Azure portal.
 By running the commands from C#.
 
-### Using SSH command line:
+## Using SSH command line:
 
 After publishing the Web application, login to the Azure portal in a web interface and open the published app service.
 Under Development Tools Menu, Open the SSH and Click the go link.
@@ -38,7 +38,7 @@ apt-get update && apt-get install -yq --no-install-recommends  libasound2 libatk
 
 {% endhighlight %}
 
-### Running the commands from C#
+## Running the commands from C#
 
 Create a shell file with the above commands in the project and name it as dependenciesInstall.sh. In this article, these steps have been followed to install dependencies packages. 
 ![Convert HTMLToPDF Azure NetCore Step5](htmlconversion_images/AzureNetCore5.png)
@@ -146,7 +146,7 @@ public ActionResult ExportToPDF()
 
 {% endhighlight %}
 
-### Refer to the following steps to publish as Azure App Linux:
+## Refer to the following steps to publish as Azure App Linux:
 
 Right-click the project and select Publish.
 ![Convert HTMLToPDF Azure NetCore Step7](htmlconversion_images/AzureNetCore7.png)
@@ -168,9 +168,9 @@ Now, the published webpage will open in the browser. Click Export to PDF to conv
 
 A complete work sample for converting an HTML to PDF in Azure App service on Linux can be downloaded from [AzureAppLinux_CoreSample.zip.](https://www.syncfusion.com/downloads/support/directtrac/general/ze/AzureAppLinux_CoreSample-2144256654)
 
-## Azure App Service Linux with docker
+# Azure App Service Linux with docker
 
-### Steps to convert HTML to PDF in Azure app service using the Blink with Linux docker container:
+## Steps to convert HTML to PDF in Azure app service using the Blink with Linux docker container:
 
 Create a new ASP.NET Core application and enable the docker support with Linux as a target OS.
 ![Convert HTMLToPDF Azure Docker Step1](htmlconversion_images/DockerStep1.png)
@@ -256,7 +256,7 @@ Build and run the sample in the docker, it will pull the Linux docker image from
 By executing the program, you will get the PDF document as follows.
 ![Convert HTMLToPDF Azure Docker Step7](htmlconversion_images/htmltopdfoutput.png)
 
-### Deploy the container to Azure container instance:
+## Deploy the container to Azure container instance:
 
 Create a publish target to deploy the docker image to Azure. 
 ![Convert HTMLToPDF Azure Docker Step8](htmlconversion_images/AzureDocker3.png)
@@ -278,9 +278,9 @@ Click Export to PDF option to convert the Google webpage to a PDF. You will get 
 
 A complete work sample can be downloaded from [BlinkLinuxDockerAzureSample.zip.](https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkLinuxDockerAzureSample637072917)
 
-## Azure App Function Linux
+# Azure App Function Linux
 
-### Steps to convert HTML to PDF in the Azure Functions using the Blink rendering engine
+## Steps to convert HTML to PDF in the Azure Functions using the Blink rendering engine
 Create the Azure function project.
 ![Convert HTMLToPDF Azure Functions Step1](htmlconversion_images/AzureFunctions1.png)
 
@@ -434,7 +434,7 @@ UserRead = 256
 
 {% endhighlight %}
 
-### Publish to Azure Functions Linux
+## Publish to Azure Functions Linux
 
 Right-click the project and select Publish. Then, create a new profile in the Publish Window. The Blink rendering engine will work in consumption plan. So, you can create the Azure Function App service with a consumption plan.
 ![Convert HTMLToPDF Azure Functions Step4](htmlconversion_images/AzureFunctions4.png)
