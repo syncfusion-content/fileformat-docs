@@ -329,8 +329,13 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 <th style="font-size:14px">Solution
 </th>
 <td>You can able to bypass the invalid SSL certificate errors using the command line arguments property of Blink converter settings.
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
 BlinkConverterSettings settings = new BlinkConverterSettings();
-settings.CommandLineArguments.Add("--ignore-certificate-errors"); 
+settings.CommandLineArguments.Add("--ignore-certificate-errors");
+
+{% endhighlight %}
 </td>
 </tr>
 </table>
@@ -352,9 +357,14 @@ settings.CommandLineArguments.Add("--ignore-certificate-errors");
 <th style="font-size:14px">Solution
 </th>
 <td>We can resolve this permission related failure in the Blink rendering engine using below command line arguments in our converter settings. 
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
 //Set command line arguments to run without sandbox.
 blinkConverterSettings.CommandLineArguments.Add("--no-sandbox");
 blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
+
+{% endhighlight %}
 </td>
 </tr>
 </table>
