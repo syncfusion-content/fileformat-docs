@@ -45,7 +45,6 @@ Include the following namespaces in your .cs or .vb file
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
@@ -53,7 +52,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.DocIO
-
 Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
@@ -61,7 +59,6 @@ Imports Syncfusion.DocIO.DLS
 {% highlight c# tabtitle="UWP" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -69,7 +66,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -77,7 +73,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="Xamarin" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -1807,9 +1802,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "applicat
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
 
-N> 
-When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
-ChartToImageConverter is supported from .NET Framework 4.0 onwards
+N> 1. When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
+N> 2. ChartToImageConverter is supported from .NET Framework 4.0 onwards
 
 ## See Also
 
