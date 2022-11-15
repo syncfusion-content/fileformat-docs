@@ -762,7 +762,7 @@ return File(outputStream, contentType, fileName);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Set-temp-folder-while-performing-OCR).
 
-## Performing OCR with Azure Vision
+## Perform OCR with Azure Vision
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as Azure Computer Vision and more. 
 Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with Azure computer vision.
 
@@ -952,7 +952,7 @@ return new Rectangle(x, y, w, h);
 
 {% endtabs %} 
 
-## Performing OCR with AWS Textract
+## Perform OCR with AWS Textract
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as AWS Textract and more. 
 Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with AWS Textract.
 {% tabs %} 
