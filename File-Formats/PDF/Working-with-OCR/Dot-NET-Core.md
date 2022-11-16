@@ -1014,7 +1014,7 @@ public OCRLayoutResult PerformOCR(Stream stream)
 AmazonTextractClient clientText = Authenticate();
 
 DetectDocumentTextResponse textResponse = GetAWSTextractResult(clientText, stream).Result;
-
+            
 OCRLayoutResult oCRLayoutResult = ConvertAWSTextractResultToOcrLayoutResult(textResponse);
 return oCRLayoutResult;
 }
@@ -1024,9 +1024,10 @@ public AmazonTextractClient Authenticate()
 AmazonTextractClient client = new AmazonTextractClient(awsAccessKeyId, awsSecretAccessKey, RegionEndpoint.USEast1);
 return client;
 }
-
+        
 public async Task<DetectDocumentTextResponse> GetAWSTextractResult(AmazonTextractClient client, Stream stream)
 {
+stream.Position = 0;
 MemoryStream memoryStream = new MemoryStream();
 stream.CopyTo(memoryStream);
 Bitmap bitmap = new Bitmap(memoryStream);
@@ -1042,7 +1043,7 @@ Bytes = memoryStream
 });
 return response;
 }
-
+        
 public OCRLayoutResult ConvertAWSTextractResultToOcrLayoutResult(DetectDocumentTextResponse textResponse)
 {
 OCRLayoutResult layoutResult = new OCRLayoutResult();
@@ -1052,13 +1053,13 @@ Syncfusion.OCRProcessor.Word ocrWord;
 layoutResult.ImageHeight = imageHeight;
 layoutResult.ImageWidth = imageWidth;
 foreach (var page in textResponse.Blocks)
-{
+{                   
 ocrLine = new Line();
 if (page.BlockType == "WORD")
 {
 ocrWord = new Word();
 ocrWord.Text = page.Text;
-
+                    
 float left = page.Geometry.BoundingBox.Left;
 float top = page.Geometry.BoundingBox.Top;
 float width = page.Geometry.BoundingBox.Width;
@@ -1067,7 +1068,7 @@ Rectangle rect = GetBoundingBox(left,top,width,height);
 ocrWord.Rectangle = rect;
 ocrLine.Add(ocrWord);
 ocrPage.Add(ocrLine);
-}
+}               
 }
 layoutResult.Add(ocrPage);
 return layoutResult;
