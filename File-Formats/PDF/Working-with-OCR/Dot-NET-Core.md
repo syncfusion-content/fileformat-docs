@@ -1089,6 +1089,7 @@ return rect;
 {% endhighlight %}
 
 {% endtabs %} 
+You can download a complete working sample from GitHub.
 
 ## Troubleshooting
 
