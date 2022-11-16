@@ -762,7 +762,7 @@ return File(outputStream, contentType, fileName);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Set-temp-folder-while-performing-OCR).
 
-## Performing OCR with External OCR Engine
+## Performing OCR with Azure Vision
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as Azure Computer Vision and more. 
 Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with Azure computer vision.
 
@@ -951,6 +951,145 @@ return new Rectangle(x, y, w, h);
 {% endhighlight %}
 
 {% endtabs %} 
+You can download a complete working sample from GitHub.
+
+## Performing OCR with AWS Textract
+The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as AWS Textract and more. 
+Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with AWS Textract.
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
+{
+//Load a PDF document.
+FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
+
+//Set the OCR language.
+processor.Settings.Language = Languages.English;
+
+//Initialize the  AWS Textract external OCR engine.
+IOcrEngine azureOcrEngine = new AWSExternalOcrEngine();
+
+processor.ExternalEngine = azureOcrEngine;
+
+//Perform OCR with input document.
+string text = processor.PerformOCR(lDoc);
+
+FileStream outputStream = new FileStream(@"Output.pdf", FileMode.Create);
+
+//Save the document into stream.
+lDoc.Save(outputStream);
+
+//If the position is not set to '0' then the PDF will be empty.
+outputStream.Position = 0;
+
+//Close the document.
+lDoc.Close();
+stream.Dispose();
+outputStream.Dispose();
+}
+
+
+{% endhighlight %}
+
+{% endtabs %}
+Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image.
+Refer to the following code sample to perform OCR with AWS Textract.
+N> Provide a valid Access key and Secret Access Key to work with AWS Textract.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+class AWSExternalOcrEngine : IOcrEngine
+{
+private string awsAccessKeyId = "Access key ID";
+private string awsSecretAccessKey = "Secret access key";
+private float imageHeight;
+private float imageWidth;
+public OCRLayoutResult PerformOCR(Stream stream)
+{
+AmazonTextractClient clientText = Authenticate();
+
+DetectDocumentTextResponse textResponse = GetAWSTextractResult(clientText, stream).Result;
+            
+OCRLayoutResult oCRLayoutResult = ConvertAWSTextractResultToOcrLayoutResult(textResponse);
+return oCRLayoutResult;
+}
+
+public AmazonTextractClient Authenticate()
+{
+AmazonTextractClient client = new AmazonTextractClient(awsAccessKeyId, awsSecretAccessKey, RegionEndpoint.USEast1);
+return client;
+}
+        
+public async Task<DetectDocumentTextResponse> GetAWSTextractResult(AmazonTextractClient client, Stream stream)
+{
+stream.Position = 0;
+MemoryStream memoryStream = new MemoryStream();
+stream.CopyTo(memoryStream);
+PdfBitmap bitmap = new PdfBitmap(memoryStream);
+imageHeight = bitmap.Height;
+imageWidth = bitmap.Width;
+
+DetectDocumentTextResponse response = await client.DetectDocumentTextAsync(new DetectDocumentTextRequest
+{
+Document = new Document
+{
+Bytes = memoryStream
+}
+});
+return response;
+}
+        
+public OCRLayoutResult ConvertAWSTextractResultToOcrLayoutResult(DetectDocumentTextResponse textResponse)
+{
+OCRLayoutResult layoutResult = new OCRLayoutResult();
+Syncfusion.OCRProcessor.Page ocrPage = new Page();
+Syncfusion.OCRProcessor.Line ocrLine;
+Syncfusion.OCRProcessor.Word ocrWord;
+layoutResult.ImageHeight = imageHeight;
+layoutResult.ImageWidth = imageWidth;
+foreach (var page in textResponse.Blocks)
+{                   
+ocrLine = new Line();
+if (page.BlockType == "WORD")
+{
+ocrWord = new Word();
+ocrWord.Text = page.Text;
+                    
+float left = page.Geometry.BoundingBox.Left;
+float top = page.Geometry.BoundingBox.Top;
+float width = page.Geometry.BoundingBox.Width;
+float height = page.Geometry.BoundingBox.Height;
+Rectangle rect = GetBoundingBox(left,top,width,height);
+ocrWord.Rectangle = rect;
+ocrLine.Add(ocrWord);
+ocrPage.Add(ocrLine);
+}               
+}
+layoutResult.Add(ocrPage);
+return layoutResult;
+}
+public Rectangle GetBoundingBox(float left, float top, float width, float height)
+{
+int x = Convert.ToInt32(left * imageWidth);
+int y = Convert.ToInt32(top * imageHeight);
+int bboxWidth = Convert.ToInt32((width * imageWidth) + x);
+int bboxHeight = Convert.ToInt32((height * imageHeight) + y);
+Rectangle rect = new Rectangle(x,y, bboxWidth, bboxHeight);
+return rect;
+}
+}
+
+
+{% endhighlight %}
+
+{% endtabs %} 
+You can download a complete working sample from GitHub.
 
 ## Troubleshooting
 
