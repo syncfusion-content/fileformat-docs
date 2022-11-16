@@ -951,6 +951,7 @@ return new Rectangle(x, y, w, h);
 {% endhighlight %}
 
 {% endtabs %} 
+You can download a complete working sample from GitHub.
 
 ## Performing OCR with AWS Textract
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as AWS Textract and more. 
@@ -1030,7 +1031,7 @@ public async Task<DetectDocumentTextResponse> GetAWSTextractResult(AmazonTextrac
 stream.Position = 0;
 MemoryStream memoryStream = new MemoryStream();
 stream.CopyTo(memoryStream);
-Bitmap bitmap = new Bitmap(memoryStream);
+PdfBitmap bitmap = new PdfBitmap(memoryStream);
 imageHeight = bitmap.Height;
 imageWidth = bitmap.Width;
 
@@ -1088,6 +1089,7 @@ return rect;
 {% endhighlight %}
 
 {% endtabs %} 
+You can download a complete working sample from GitHub.
 ## Troubleshooting
 
 <table>
