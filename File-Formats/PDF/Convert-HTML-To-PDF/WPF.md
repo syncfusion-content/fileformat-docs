@@ -37,7 +37,7 @@ Add a new button in MainWindow.xaml to convert Html to Pdf document as follows.
 <Grid HorizontalAlignment="Left" Margin="0,0,0,-0.333" Width="793">
 <Button Content="Convert Html to PDF" HorizontalAlignment="Left" Margin="318,210,0,0" VerticalAlignment="Top" Width="166" Click=" btnCreate_Click " Height="19"/>
 <TextBlock HorizontalAlignment="Left" Margin="222,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17"/>
-<TextBlock HorizontalAlignment="Left" Margin="291,175,0,0" TextWrapping="Wrap" Text="Click the button to convert Htnl to PDF." VerticalAlignment="Top"/>
+<TextBlock HorizontalAlignment="Left" Margin="291,175,0,0" TextWrapping="Wrap" Text="Click the button to convert Html to PDF." VerticalAlignment="Top"/>
 </Grid>
 
 {% endhighlight %}
