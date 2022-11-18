@@ -92,7 +92,6 @@ stream.Position = 0;
 document.Close();
 stream.Dispose();
 
-
 {% endhighlight %}
 
 A complete working sample can be downloaded from [WinForms-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinForms-HTML-to-PDF-Demo-819812860)
