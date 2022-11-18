@@ -10,15 +10,15 @@ keywords: Assemblies
 # Convert HTML to PDF file in WPF
 ## Steps to convert Html to PDF document in WPF:
 
-Create a new WPF application project.
+1. Create a new WPF application project.
 ![Convert HTMLToPDF WPF Step1](htmlconversion_images/WPF_Step1.png)
 Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 ![Convert HTMLToPDF WPF Step2](htmlconversion_images/WPF_Step2.png)
 
-Install the [Syncfusion.HtmlToPdfConverter.WPF](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WPF) NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/)
+2. Install the [Syncfusion.HtmlToPdfConverter.WPF](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WPF) NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/)
 ![Convert HTMLToPDF Docker Step3](htmlconversion_images/WPF_Step3.png)
 
-Include the following namespaces in the MainWindow.xaml.cs file.
+3. Include the following namespaces in the MainWindow.xaml.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -35,10 +35,9 @@ Add a new button in MainWindow.xaml to convert Html to Pdf document as follows.
 {% highlight c# tabtitle="C#" %}
 
 <Grid HorizontalAlignment="Left" Margin="0,0,0,-0.333" Width="793">
-<Button Content="Convert Html ot PDF" HorizontalAlignment="Left" Margin="318,210,0,0" VerticalAlignment="Top" Width="166" Click=" btnCreate_Click " Height="19"/>
+<Button Content="Convert Html to PDF" HorizontalAlignment="Left" Margin="318,210,0,0" VerticalAlignment="Top" Width="166" Click=" btnCreate_Click " Height="19"/>
 <TextBlock HorizontalAlignment="Left" Margin="222,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17"/>
 <TextBlock HorizontalAlignment="Left" Margin="291,175,0,0" TextWrapping="Wrap" Text="Click the button to convert Htnl to PDF." VerticalAlignment="Top"/>
-
 </Grid>
 
 {% endhighlight %}
@@ -49,22 +48,22 @@ Add the following code in btnCreate_Click to convert Html to PDF document.
 
 // Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new System.Drawing.Size(1280, 0);
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
 // Convert URL to PDF.
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-
+//Load the PDF document.
 FileStream stream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew);
-
 //Save the document into stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 document.Close();
 stream.Dispose();
-
 
 {% endhighlight %}
 

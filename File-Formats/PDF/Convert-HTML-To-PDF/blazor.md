@@ -11,16 +11,16 @@ keywords: Assemblies
 
 Steps to convert HTML to PDF in Blazor application
 
-Create a new C# Blazor application project. Select Blazor App from the template and click the Next button.
+1. Create a new C# Blazor application project. Select Blazor App from the template and click the Next button.
 ![Blazor_step1](htmlconversion_images/blazor_step1.png)
 
 Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 ![Blazor_step2](htmlconversion_images/blazor_step2.png)
 
-Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org/).
+2. Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org/).
 ![Blazor_step3](htmlconversion_images/blazor_step3.png)
 
-Create a new cs file named ExportService under Data folder and include the following namespaces in the file.
+3. Create a new cs file named ExportService under Data folder and include the following namespaces in the file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -30,7 +30,6 @@ using System.IO;
 
 {% endhighlight %}
 
-
 Add the following method in the ExportService class
 
 {% highlight c# tabtitle="C#" %}
@@ -39,8 +38,14 @@ public MemoryStream CreatePdf()
 {
     //Initialize HTML to PDF converter.
     HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+    BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+    //Set Blink viewport size.
+    blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+    //Assign Blink converter settings to HTML converter.
+    htmlConverter.ConverterSettings = blinkConverterSettings;
     //Convert URL to PDF.
     PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+    //Save the document into stream.
     MemoryStream stream = new MemoryStream();
     document.Save(stream);
     return stream;

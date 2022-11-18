@@ -13,18 +13,19 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
 ## Steps to convert HTML to PDF in ASP.NET Core application:
 
-Create a new C# ASP.NET Core Web Application project.
+1. Create a new C# ASP.NET Core Web Application project.
 ![convert_HtmltoPdf_ASPNET_CORE1](htmlconversion_images/aspnetcore1.png)
 
-Install Syncfusion.HtmlToPdfConverter.Net.Windows NuGet package as reference to your .NET Standard applications from NuGet.org.
+2. Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![convert_HtmltoPdf_ASPNET_CORE2](htmlconversion_images/aspnetcore2.png)
 
-A default controller with name HomeController.cs gets added on creation of ASP.NET Core MVC project. Include the following namespaces in that HomeController.cs file.
+3. A default controller with name HomeController.cs gets added on creation of ASP.NET Core MVC project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
+using System.IO;
 
 {% endhighlight %}
 
@@ -49,17 +50,18 @@ Add a new action method ExportToPDF in HomeController.cs and include the below c
 
 // Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF.
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-
+//Save the document into stream.
 MemoryStream stream = new MemoryStream();
-
 //Save and close the document. 
 document.Save(stream);
-
 document.Close(); 
-
 return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
 
 {% endhighlight %}

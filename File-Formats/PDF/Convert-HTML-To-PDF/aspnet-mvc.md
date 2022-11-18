@@ -13,18 +13,19 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
 ## Steps to convert HTML to PDF document in ASP.NET MVC
 
-Create a new C# ASP.NET Web Application (.NET Framework) project.
+1. Create a new C# ASP.NET Web Application (.NET Framework) project.
 ![convert_HtmltoPdf_ASP.NET_MVC1](htmlconversion_images/aspnetmvc1.png)
 
-Install Syncfusion.HtmlToPdfConverter.AspNet.Mvc5  NuGet package as reference to your .NET applications from NuGet.org.
+2. Install [Syncfusion.HtmlToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet.Mvc5)  NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
 ![convert_HtmltoPdf_ASP.NET_MVC2](htmlconversion_images/aspnetmvc2.png)
 
-Include the following namespaces in that HomeController.cs file.
+3. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
+using System.IO;
 
 {% endhighlight %}
 
@@ -49,15 +50,18 @@ Add a new action method ExportToPDF in HomeController.cs and include the below c
 
 // Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new System.Drawing.Size(1280, 0);
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
 // Convert URL to PDF.
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-
+//Save the document into stream.
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
+
 {% endhighlight %}
 
 A complete working demo can be downloaded from [HTMLToPdf.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTML-to-PDF-MVC-Demo1437749865)
