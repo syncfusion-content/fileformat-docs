@@ -809,6 +809,7 @@ outputStream.Close();
 
 Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image. 
 Refer to the following code sample to perform OCR with Azure computer vision. 
+	
 N> Provide a valid subscription key and endpoint to work with Azure computer vision. 
 
 {% tabs %} 
@@ -998,6 +999,7 @@ outputStream.Dispose();
 {% endtabs %}
 Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image.
 Refer to the following code sample to perform OCR with AWS Textract.
+	
 N> Provide a valid Access key and Secret Access Key to work with AWS Textract.
 
 {% tabs %} 
