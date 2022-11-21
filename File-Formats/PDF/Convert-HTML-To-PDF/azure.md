@@ -18,10 +18,10 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/document-proce
 1. Create a new ASP.NET Core MVC application.
 ![Convert HTMLToPDF Azure NetCore Step1](htmlconversion_images/AzureNetCore1.png)
 
-2. Choose your project's target framework, then select     Configure for HTTPS.
+2. Choose your project's target framework and select Configure for HTTPS.
 ![Convert HTMLToPDF Azure NetCore Step2](htmlconversion_images/AzureNetCore2.png)
 
-3. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/)
+3. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 ![Convert HTMLToPDF Azure NetCore Step3](htmlconversion_images/AzureNetCore3.png)
 
 ## There are two ways to install the dependency packages to Azure server:
@@ -168,7 +168,7 @@ A complete work sample for converting an HTML to PDF in Azure App service on Lin
 2. Choose your project's target framework, then select Configure for HTTPS and Enable Docker.
 ![Convert HTMLToPDF Azure Docker Step2](htmlconversion_images/DockerStep2.png)
 
-3. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/)
+3. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 ![Convert HTMLToPDF Docker Step3](htmlconversion_images/AzureDocker1.png)
 
 4. Include the following commands in the docker file to install the dependent packages in the docker container.
@@ -272,7 +272,7 @@ A complete work sample can be downloaded from [BlinkLinuxDockerAzureSample.zip.]
 2. Select the Azure Functions type and .NET Core version.
 ![Convert HTMLToPDF Azure Functions Step2](htmlconversion_images/AzureFunctions2.png)
 
-3. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/)
+3. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 ![Convert HTMLToPDF Azure Functions Step3](htmlconversion_images/AzureFunctions3.png)
 
 4. Include the following namespaces in Function1.cs file.
