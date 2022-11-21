@@ -8565,55 +8565,72 @@ The below code illustrates how to import FDF file to PDF.
 
 {% highlight c# tabtitle="C#" %}
 
-
-//Load an existing document.  
-
+//Load an existing document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-// Load the existing form
-
+//Load the existing form
 PdfLoadedForm loadedForm = loadedDocument.Form;
 
-// Load the FDF file
-
+//Load the FDF file
 FileStream stream = new FileStream("ImportFDF.fdf", FileMode.Open);
 
-// Import the FDF stream
-
+//Import the FDF stream
 loadedForm.ImportDataFDF(stream, true);
 
-//Close the document.
-
+//Close the document
 loadedDocument.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
 'Load an existing document.
-
 Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-' Load the existing form
-
+'Load the existing form
 Dim loadedForm As PdfLoadedForm = loadedDocument.Form
 
-' Load the FDF file
-
+'Load the FDF file
 Dim stream As New FileStream("ImportFDF.fdf", FileMode.Open)
 
-' Import the FDF stream
-
+'Import the FDF stream
 loadedForm.ImportDataFDF(stream, True)
 
-' Close the document
-
+'Close the document
 loadedDocument.Close(True)
 
+{% endhighlight %}
 
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get stream from an existing PDF document
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get stream from an existing PDF document
+FileStream fdfStream = new FileStream("ImportFDF.fdf", FileMode.Open, FileAccess.Read);
+
+//Import the FDF stream
+loadedDocument.Form.ImportDataFDF(fdfStream, true);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+stream.Position = 0;
+
+//Close the document
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -8631,48 +8648,57 @@ The below code illustrates how to export FDF file from PDF document.
 
 {% highlight c# tabtitle="C#" %}
 
-
-// Load an existing document
-
+//Load an existing document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-// Load an existing form
-
+//Load an existing form
 PdfLoadedForm loadedForm = loadedDocument.Form;
 
 //Export the existing PDF document to FDF file
-
 loadedForm.ExportData("Export.fdf", DataFormat.Fdf, "SourceForm.pdf");
 
 //Close the document
-
 loadedDocument.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-' Load an existing document
-
+'Load an existing document
 Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-' Load an existing form
-
+'Load an existing form
 Dim loadedForm As PdfLoadedForm = loadedDocument.Form
 
 'Export the existing PDF document to FDF file
-
 loadedForm.ExportData("Export.fdf", DataFormat.Fdf, "SourceForm.pdf")
 
 'Close the document
-
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get stream from an existing PDF document
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+//Load the PDF document from stream
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load an existing form
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Load the FDF file
+FileStream stream = new FileStream("Export.fdf", FileMode.Create, FileAccess.ReadWrite);
+
+//Export the existing PDF document to FDF file
+loadedForm.ExportData(stream, DataFormat.Fdf, "SourceForm.pdf");
+
+//Close the document
+loadedDocument.Close(true);
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
