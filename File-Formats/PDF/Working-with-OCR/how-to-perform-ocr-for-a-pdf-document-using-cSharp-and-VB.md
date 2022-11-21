@@ -26,10 +26,10 @@ To use the Syncfusion OCR processor library in your application, you need to add
 ## Steps to perform OCR on a entire PDF document programmatically
 
 1. Create a new C# Windows Forms application project. 
-![create-project.png](OCR-Images/WF-OCR-project-creation.png)
+![create-project.png](OCR-Images/WF-OCR-project.png)
 
 2. Install [Syncfusion.Pdf.OCR.WinForms](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/) NuGet packages as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org/). 
-![NuGet project](OCR-Images/OCR-nuGet-package.png)
+![NuGet project](OCR-Images/OCR-NuGet.png)
 
 3. Include the following namespaces in the Form1.cs file.
 
