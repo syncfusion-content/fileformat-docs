@@ -78,7 +78,7 @@ public ActionResult ExportToPDF()
      PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
      //Create memory stream.
      MemoryStream stream = new MemoryStream(); 
-     //Save and close a PDF document. 
+     //Save the document to memory stream. 
      document.Save(stream); 
      return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
 }

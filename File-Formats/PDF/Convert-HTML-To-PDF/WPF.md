@@ -15,7 +15,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
 1. Create a new WPF application project.
 ![Convert HTMLToPDF WPF Step1](htmlconversion_images/WPF_Step1.png)
-Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
+In project configuration window, name your project and select Create.
 ![Convert HTMLToPDF WPF Step2](htmlconversion_images/WPF_Step2.png)
 
 2. Install the [Syncfusion.HtmlToPdfConverter.WPF](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WPF) NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/).

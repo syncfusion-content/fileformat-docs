@@ -16,7 +16,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 1. Create a new C# Blazor Server application project. Select Blazor App from the template and click the Next button.
 ![Blazor_step1](htmlconversion_images/blazor_step1.png)
 
-   Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
+   In the project configuration window, name your project and select Create.
 ![Blazor_step2](htmlconversion_images/blazor_step2.png)
 
 2. Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/) NuGet package as a reference to your Blazor Server application from [NuGet.org](https://www.nuget.org/).
