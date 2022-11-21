@@ -17,12 +17,12 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 * Download and install the AWS Toolkit for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/).
 * The Toolkit can be installed from Tools/Extension and updates options in Visual Studio. 
 
-## Refer to the following steps to convert HTML to PDF in AWS Lambda:
+## Refer to the following steps to convert HTML to PDF in AWS Lambda
 
 * Create an AWS Lambda function to convert HTML to PDF and publish it to AWS.
 * Invoke the AWS Lambda function in your main application using AWS SDKs.
 
-## Steps to convert HTML to PDF in AWS Lambda:
+## Steps to convert HTML to PDF in AWS Lambda
 
 1. Create a new AWS Lambda project as follows:
 ![Convert HTMLToPDF AWS Step1](htmlconversion_images/AWS1.png) 

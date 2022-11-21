@@ -9,8 +9,7 @@ keywords: Assemblies
 
 # Ubuntu
 
-The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web pages to PDF.  Using this library, convert an HTML to PDF in Linux.
-
+The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web pages to PDF document in Linux.
 ## Pre-requisites
 
  * The following Linux dependencies should be installed where the conversion takes place. 

@@ -9,7 +9,7 @@ keywords: Assemblies
 
 # Convert HTML to PDF file in Mac
 
-## Steps to convert HTML to PDF in ASP.NET Core Mac:
+## Steps to convert HTML to PDF in ASP.NET Core MVC
 
 1. Create a new C# ASP.NET Core Web Application project.
 ![Mac_step1](htmlconversion_images/mac_step1.png)
