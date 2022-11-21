@@ -38,26 +38,26 @@ In project configuration window, name your project and select Create.
     private Label label;
     private void InitializeComponent()
     {
-    btnCreate = new Button();
-    label = new Label();
+        btnCreate = new Button();
+        label = new Label();
 
-    //Label
-    label.Location = new System.Drawing.Point(0, 40);
-    label.Size = new System.Drawing.Size(426, 35);
-    label.Text = "Click the button to convert Html to PDF file";
-    label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        //Label
+        label.Location = new System.Drawing.Point(0, 40);
+        label.Size = new System.Drawing.Size(426, 35);
+        label.Text = "Click the button to convert Html to PDF file";
+        label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
-    //Button
-    btnCreate.Location = new System.Drawing.Point(180, 110);
-    btnCreate.Size = new System.Drawing.Size(85, 26);
-    btnCreate.Text = "Convert Html to PDF";
-    btnCreate.Click += new EventHandler(btnCreate_Click);
+        //Button
+        btnCreate.Location = new System.Drawing.Point(180, 110);
+        btnCreate.Size = new System.Drawing.Size(85, 26);
+        btnCreate.Text = "Convert Html to PDF";
+        btnCreate.Click += new EventHandler(btnCreate_Click);
 
-    //Create PDF
-    ClientSize = new System.Drawing.Size(450, 150);
-    Controls.Add(label);
-    Controls.Add(btnCreate);
-    Text = "Convert Html to PDF";
+        //Create PDF
+        ClientSize = new System.Drawing.Size(450, 150);
+        Controls.Add(label);
+        Controls.Add(btnCreate);
+        Text = "Convert Html to PDF";
     }
 
    {% endhighlight %}
