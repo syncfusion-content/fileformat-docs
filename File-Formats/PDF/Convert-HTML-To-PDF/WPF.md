@@ -11,7 +11,7 @@ keywords: Assemblies
 
 The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or web pages to PDF in WPF application.
 
-## Steps to convert Html to PDF document in WPF:
+## Steps to convert Html to PDF document in WPF
 
 1. Create a new WPF application project.
 ![Convert HTMLToPDF WPF Step1](htmlconversion_images/WPF_Step1.png)
