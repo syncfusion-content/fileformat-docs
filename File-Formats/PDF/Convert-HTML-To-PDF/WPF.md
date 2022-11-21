@@ -8,6 +8,9 @@ keywords: Assemblies
 ---
 
 # Convert HTML to PDF file in WPF
+
+The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or web pages to PDF in WPF application.
+
 ## Steps to convert Html to PDF document in WPF:
 
 1. Create a new WPF application project.
@@ -15,7 +18,7 @@ keywords: Assemblies
 Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 ![Convert HTMLToPDF WPF Step2](htmlconversion_images/WPF_Step2.png)
 
-2. Install the [Syncfusion.HtmlToPdfConverter.WPF](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WPF) NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/)
+2. Install the [Syncfusion.HtmlToPdfConverter.WPF](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WPF) NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/).
 ![Convert HTMLToPDF Docker Step3](htmlconversion_images/WPF_Step3.png)
 
 3. Include the following namespaces in the MainWindow.xaml.cs file.
@@ -30,7 +33,7 @@ using Syncfusion.HtmlConverter;
 
 {% endhighlight %}
 
-Add a new button in MainWindow.xaml to convert Html to Pdf document as follows.
+4. Add a new button in MainWindow.xaml to convert Html to Pdf document as follows.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -42,7 +45,7 @@ Add a new button in MainWindow.xaml to convert Html to Pdf document as follows.
 
 {% endhighlight %}
 
-Add the following code in btnCreate_Click to convert Html to PDF document.
+5. Add the following code in btnCreate_Click to convert Html to PDF document.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -53,9 +56,9 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 blinkConverterSettings.ViewPortSize = new System.Drawing.Size(1280, 0);
 //Assign Blink converter settings to HTML converter.
 htmlConverter.ConverterSettings = blinkConverterSettings;
-// Convert URL to PDF.
+// Convert URL to PDF document.
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-//Load the PDF document.
+//Create file stream.
 FileStream stream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew);
 //Save the document into stream.
 document.Save(stream);

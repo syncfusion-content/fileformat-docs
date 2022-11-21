@@ -9,18 +9,20 @@ keywords: Assemblies
 
 # Convert HTML to PDF file in Blazor
 
-Steps to convert HTML to PDF in Blazor application
+The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or web pages to PDF document in Blazor.
 
-1. Create a new C# Blazor application project. Select Blazor App from the template and click the Next button.
+## Steps to convert HTML to PDF in Blazor application:
+
+1. Create a new C# Blazor Server application project. Select Blazor App from the template and click the Next button.
 ![Blazor_step1](htmlconversion_images/blazor_step1.png)
 
-Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
+   Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
 ![Blazor_step2](htmlconversion_images/blazor_step2.png)
 
-2. Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org/).
+2. Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/) NuGet package as a reference to your Blazor Server application from [NuGet.org](https://www.nuget.org/).
 ![Blazor_step3](htmlconversion_images/blazor_step3.png)
 
-3. Create a new cs file named ExportService under Data folder and include the following namespaces in the file.
+3. Create a new class file named ExportService under Data folder and include the following namespaces in the file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -30,7 +32,7 @@ using System.IO;
 
 {% endhighlight %}
 
-Add the following method in the ExportService class
+4. Add the following code in the ExportService class.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -43,17 +45,18 @@ public MemoryStream CreatePdf()
     blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
     //Assign Blink converter settings to HTML converter.
     htmlConverter.ConverterSettings = blinkConverterSettings;
-    //Convert URL to PDF.
+    //Convert URL to PDF document.
     PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-    //Save the document into stream.
+    //Create memory stream.
     MemoryStream stream = new MemoryStream();
+    //Save the document to memory stream.
     document.Save(stream);
     return stream;
 }
 
 {% endhighlight %}
 
-Register your service in the ConfigureServices method available in the Startup.cs class as follows.
+5. Register your service in the ConfigureServices method available in the Startup.cs class as follows.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -67,7 +70,7 @@ public void ConfigureServices(IServiceCollection services)
 
 {% endhighlight %}
 
-Inject ExportService in-to FetchData.razor using the following code.
+6. Inject ExportService in-to FetchData.razor using the following code.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -77,7 +80,7 @@ Inject ExportService in-to FetchData.razor using the following code.
 
 {% endhighlight %}
 
-Create a button in the FetchData.razor using the following code.
+7. Create a button in the FetchData.razor using the following code.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -85,7 +88,7 @@ Create a button in the FetchData.razor using the following code.
 
 {% endhighlight %}
 
-Add the ExportToPdf method in FetchData.razor page to call the export service.
+8. Add the ExportToPdf method in FetchData.razor page to call the export service.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -103,7 +106,7 @@ Add the ExportToPdf method in FetchData.razor page to call the export service.
 
 {% endhighlight %}
 
-Create a class file with FileUtil name and add the following code to invoke the JavaScript action to download the file in the browser.
+9. Create a class file with FileUtil name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -118,7 +121,7 @@ public static class FileUtil
 
 {% endhighlight %}
 
-Add the following JavaScript function in the _Host.cshtml available under the Pages folder.
+10. Add the following JavaScript function in the _Host.cshtml available under the Pages folder.
 
 {% highlight c# tabtitle="C#" %}
 

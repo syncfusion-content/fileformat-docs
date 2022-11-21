@@ -29,7 +29,7 @@ using System.IO;
 
 {% endhighlight %}
 
-Add an Export To PDF button in index.cshtml as shown below.
+4. Add an Export To PDF button in index.cshtml as shown below.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -44,7 +44,7 @@ Html.EndForm();
 
 {% endhighlight %}
 
-Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
+5. Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -55,9 +55,9 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
 //Assign Blink converter settings to HTML converter.
 htmlConverter.ConverterSettings = blinkConverterSettings;
-//Convert URL to PDF.
+//Convert URL to PDF document.
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-//Save the document into stream.
+//Create memory stream.
 MemoryStream stream = new MemoryStream();
 //Save and close the document. 
 document.Save(stream);

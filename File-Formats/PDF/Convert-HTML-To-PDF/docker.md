@@ -7,15 +7,17 @@ documentation: UG
 keywords: Assemblies
 ---
 
+# Convert HTML to PDF file in Linux docker container
+
 The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web pages to PDF.  This library converts an HTML to PDF in a Linux [docker](https://www.docker.com/why-docker/) container.
 
-# Steps to convert HTML to PDF in Linux docker container:
+## Steps to convert HTML to PDF in Linux docker container:
 
 1. Create a new ASP.NET Core application and enable the docker support with Linux as a target OS.
 ![Convert HTMLToPDF Docker Step1](htmlconversion_images/DockerStep1.png)
 ![Convert HTMLToPDF Docker Step2](htmlconversion_images/DockerStep2.png)
 
-2. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/)
+2. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 ![Convert HTMLToPDF Docker Step3](htmlconversion_images/DockerStep3.png)
 
 3. Include the following commands in the docker file to install the dependent packages in the docker container.
@@ -34,7 +36,7 @@ RUN apt-get update && \
 
 ![Convert HTMLToPDF Docker Step4](htmlconversion_images/DockerStep4.png)
 
-Add an Export to the PDF button in the index.cshtml.
+4. Add an Export to the PDF button in the index.cshtml.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -50,7 +52,7 @@ Add an Export to the PDF button in the index.cshtml.
 
 ![Convert HTMLToPDF Docker Step5](htmlconversion_images/DockerStep5.png)
 
-Include the following namespaces and code samples in the controller for converting HTML to PDF.
+5. Include the following namespaces and code samples in the controller for converting HTML to PDF.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -65,25 +67,19 @@ using System.IO
 public ActionResult ExportToPDF()
 {
      //Initialize HTML to PDF converter. 
-     HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
- 
-     BlinkConverterSettings settings = new BlinkConverterSettings();
-     
+     HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(); 
+     BlinkConverterSettings settings = new BlinkConverterSettings();     
      //Set command line arguments to run without the sandbox.
      settings.CommandLineArguments.Add("--no-sandbox");
-     settings.CommandLineArguments.Add("--disable-setuid-sandbox");
-     
+     settings.CommandLineArguments.Add("--disable-setuid-sandbox");     
      //Assign Blink settings to the HTML converter.
-     htmlConverter.ConverterSettings = settings;
- 
-     //Convert URL to PDF.
-     PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
- 
-     MemoryStream stream = new MemoryStream();
- 
+     htmlConverter.ConverterSettings = settings; 
+     //Convert URL to PDF document.
+     PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
+     //Create memory stream.
+     MemoryStream stream = new MemoryStream(); 
      //Save and close a PDF document. 
-     document.Save(stream);
- 
+     document.Save(stream); 
      return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
 }
 
