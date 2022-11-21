@@ -24,109 +24,109 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
 3. Create a new class file named ExportService under Data folder and include the following namespaces in the file.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-using Syncfusion.HtmlConverter;
-using Syncfusion.Pdf;
-using System.IO;
+   using Syncfusion.HtmlConverter;
+   using Syncfusion.Pdf;
+   using System.IO;
 
-{% endhighlight %}
+   {% endhighlight %}
 
 4. Add the following code in the ExportService class.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-public MemoryStream CreatePdf()
-{
-    //Initialize HTML to PDF converter.
-    HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-    BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-    //Set Blink viewport size.
-    blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
-    //Assign Blink converter settings to HTML converter.
-    htmlConverter.ConverterSettings = blinkConverterSettings;
-    //Convert URL to PDF document.
-    PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-    //Create memory stream.
-    MemoryStream stream = new MemoryStream();
-    //Save the document to memory stream.
-    document.Save(stream);
-    return stream;
-}
+   public MemoryStream CreatePdf()
+   {
+      //Initialize HTML to PDF converter.
+      HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+      BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+      //Set Blink viewport size.
+      blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+      //Assign Blink converter settings to HTML converter.
+      htmlConverter.ConverterSettings = blinkConverterSettings;
+      //Convert URL to PDF document.
+      PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+      //Create memory stream.
+      MemoryStream stream = new MemoryStream();
+      //Save the document to memory stream.
+      document.Save(stream);
+      return stream;
+   }
 
-{% endhighlight %}
+   {% endhighlight %}
 
 5. Register your service in the ConfigureServices method available in the Startup.cs class as follows.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddRazorPages();
-    services.AddServerSideBlazor();
-    services.AddSingleton<WeatherForecastService>();
-    services.AddSingleton<ExportService>();
-}
+   public void ConfigureServices(IServiceCollection services)
+   {
+      services.AddRazorPages();
+      services.AddServerSideBlazor();
+      services.AddSingleton<WeatherForecastService>();
+      services.AddSingleton<ExportService>();
+   }
 
-{% endhighlight %}
+   {% endhighlight %}
 
 6. Inject ExportService in-to FetchData.razor using the following code.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-@inject ExportToFileService exportService
-@inject Microsoft.JSInterop.IJSRuntime JS
-@using  System.IO;
+   @inject ExportToFileService exportService
+   @inject Microsoft.JSInterop.IJSRuntime JS
+   @using  System.IO;
 
-{% endhighlight %}
+   {% endhighlight %}
 
 7. Create a button in the FetchData.razor using the following code.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-<button class="btn btn-primary" @onclick="@ExportToPdf">Export to PDF</button>
+   <button class="btn btn-primary" @onclick="@ExportToPdf">Export to PDF</button>
 
-{% endhighlight %}
+   {% endhighlight %}
 
 8. Add the ExportToPdf method in FetchData.razor page to call the export service.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-@functions
-{
+   @functions
+   {
  
-    protected async Task ExportToPdf()
-    {
-        using (MemoryStream excelStream =exportService.CreatePdf(forecasts))
-        {
-            await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
-        }
-    }
-}
+       protected async Task ExportToPdf()
+       {
+           using (MemoryStream excelStream =exportService.CreatePdf(forecasts))
+           {
+               await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
+           }
+       }
+   }
 
-{% endhighlight %}
+   {% endhighlight %}
 
 9. Create a class file with FileUtil name and add the following code to invoke the JavaScript action to download the file in the browser.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-public static class FileUtil
-{
-    public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
+   public static class FileUtil
+   {
+       public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
            "saveAsFile",
            filename,
            Convert.ToBase64String(data));
-}
+   }
 
-{% endhighlight %}
+    {% endhighlight %}
 
 10. Add the following JavaScript function in the _Host.cshtml available under the Pages folder.
 
-{% highlight c# tabtitle="C#" %}
+    {% highlight c# tabtitle="C#" %}
 
-<script type="text/javascript">
-    function saveAsFile(filename, bytesBase64) {
+    <script type="text/javascript">
+        function saveAsFile(filename, bytesBase64) {
             if (navigator.msSaveBlob) {
                 //Download document in Edge browser
                 var data = window.atob(bytesBase64);
@@ -138,22 +138,22 @@ public static class FileUtil
                 navigator.msSaveBlob(blob, filename);
             }
             else {
-        var link = document.createElement('a');
-        link.download = filename;
-        link.href = "data:application/octet-stream;base64," + bytesBase64;
-        document.body.appendChild(link); // Needed for Firefox
-        link.click();
-        document.body.removeChild(link);
-    }
+                var link = document.createElement('a');
+                link.download = filename;
+                link.href = "data:application/octet-stream;base64," + bytesBase64;
+                document.body.appendChild(link); // Needed for Firefox
+                link.click();
+                document.body.removeChild(link);
+            }
         }
-</script>
+    </script>
 
-{% endhighlight %}
+    {% endhighlight %}
 
-By executing the program, you will get the following output in the browser.
+11. By executing the program, you will get the following output in the browser.
 ![Blazor_step4](htmlconversion_images/blazor_step4.png)
 
-Click the Export to PDF button, and you will get the PDF document with the following output.
+    Click the Export to PDF button, and you will get the PDF document with the following output.
 ![HTMLTOPDF](htmlconversion_images/htmltopdfoutput.png)
 
-A complete work sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Blazor-HTML-to-PDF-Demo.zip ](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Blazor-HTML-to-PDF-Demo-899009860)
+    A complete work sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Blazor-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Blazor-HTML-to-PDF-Demo-899009860)

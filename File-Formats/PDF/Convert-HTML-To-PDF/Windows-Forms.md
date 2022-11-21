@@ -23,83 +23,82 @@ In project configuration window, name your project and select Create.
 
 3. Add the following namespaces into Form1.Designer.cs file.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-using System;
-using System.Windows.Forms;
+   using System;
+   using System.Windows.Forms;
 
-{% endhighlight %}
+   {% endhighlight %}
 
 4. Add a new button in Form1.Designer.cs to convert Html to Pdf document as follows.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-private Button btnCreate;
-private Label label;
-private void InitializeComponent()
-{
-btnCreate = new Button();
-label = new Label();
+    private Button btnCreate;
+    private Label label;
+    private void InitializeComponent()
+    {
+    btnCreate = new Button();
+    label = new Label();
 
-//Label
-label.Location = new System.Drawing.Point(0, 40);
-label.Size = new System.Drawing.Size(426, 35);
-label.Text = "Click the button to convert Html to PDF file";
-label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+    //Label
+    label.Location = new System.Drawing.Point(0, 40);
+    label.Size = new System.Drawing.Size(426, 35);
+    label.Text = "Click the button to convert Html to PDF file";
+    label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
-//Button
-btnCreate.Location = new System.Drawing.Point(180, 110);
-btnCreate.Size = new System.Drawing.Size(85, 26);
-btnCreate.Text = "Convert Html to PDF";
-btnCreate.Click += new EventHandler(btnCreate_Click);
+    //Button
+    btnCreate.Location = new System.Drawing.Point(180, 110);
+    btnCreate.Size = new System.Drawing.Size(85, 26);
+    btnCreate.Text = "Convert Html to PDF";
+    btnCreate.Click += new EventHandler(btnCreate_Click);
 
-//Create PDF
-ClientSize = new System.Drawing.Size(450, 150);
-Controls.Add(label);
-Controls.Add(btnCreate);
-Text = "Convert Html to PDF";
-}
+    //Create PDF
+    ClientSize = new System.Drawing.Size(450, 150);
+    Controls.Add(label);
+    Controls.Add(btnCreate);
+    Text = "Convert Html to PDF";
+    }
 
-{% endhighlight %}
+   {% endhighlight %}
 
 5. Include the following namespaces in the Form1.cs file.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-using Syncfusion.HtmlConverter;
-using Syncfusion.Pdf;
-using System;
+   using Syncfusion.HtmlConverter;
+   using Syncfusion.Pdf;
+   using System;
 
-{% endhighlight %}
+   {% endhighlight %}
 
 6. Create the btnCreate_Click event and add the following code in btnCreate_Click to convert Html to pdf document.
 
-{% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-// Initialize HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-//Set Blink viewport size.
-blinkConverterSettings.ViewPortSize = new System.Drawing.Size(1280, 0);
-//Assign Blink converter settings to HTML converter.
-htmlConverter.ConverterSettings = blinkConverterSettings;
-// Convert URL to PDF document.
-PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-//Create file stream.
-FileStream stream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew);
-//Save the document into stream.
-document.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-stream.Dispose();
+   //Initialize HTML to PDF converter.
+   HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+   BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+   //Set Blink viewport size.
+   blinkConverterSettings.ViewPortSize = new System.Drawing.Size(1280, 0);
+   //Assign Blink converter settings to HTML converter.
+   htmlConverter.ConverterSettings = blinkConverterSettings;
+   //Convert URL to PDF document.
+   PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+   //Create file stream.
+   FileStream stream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew);
+   //Save the document into stream.
+   document.Save(stream);
+   //If the position is not set to '0' then the PDF will be empty.
+   stream.Position = 0;
+   //Close the document.
+   document.Close();
+   stream.Dispose();
 
-{% endhighlight %}
+   {% endhighlight %}
 
-A complete working sample can be downloaded from [WinForms-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinForms-HTML-to-PDF-Demo-819812860)
-
-By executing the program, you will get the PDF document as follows.
+7. By executing the program, you will get the PDF document as follows.
 ![Convert HTMLToPDF Windows Forms output](htmlconversion_images/htmltopdfoutput.png)
 
+   A complete working sample can be downloaded from [WinForms-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/WinForms-HTML-to-PDF-Demo-819812860)
 
