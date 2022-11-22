@@ -137,7 +137,7 @@ private void InstallDependecies(string shellFilePath)
 
    {% endhighlight %}
 
-## Steps to publish as Azure App Linux
+### Steps to publish as Azure App Linux
 
 1. Right-click the project and select Publish.
 ![Convert HTMLToPDF Azure NetCore Step7](htmlconversion_images/AzureNetCore7.png)
