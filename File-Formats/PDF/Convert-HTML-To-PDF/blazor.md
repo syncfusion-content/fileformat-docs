@@ -9,7 +9,7 @@ keywords: Assemblies
 
 # Convert HTML to PDF file in Blazor
 
-The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or web pages to PDF document in Blazor.
+The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or web pages to PDF document in Blazor application.
 
 ## Steps to convert HTML to PDF in Blazor application
 
@@ -32,7 +32,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
    {% endhighlight %}
 
-4. Add the following code in the ExportService class.
+4. Add the following code to convert HTML to PDF document in ExportService class.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -70,7 +70,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
    {% endhighlight %}
 
-6. Inject ExportService in-to FetchData.razor using the following code.
+6. Inject ExportService into FetchData.razor using the following code.
 
    {% highlight c# tabtitle="C#" %}
 
