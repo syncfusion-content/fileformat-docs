@@ -17,17 +17,17 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 * Download and install the AWS Toolkit for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/).
 * The Toolkit can be installed from Tools/Extension and updates options in Visual Studio. 
 
-## Refer to the following steps to convert HTML to PDF in AWS Lambda
+Refer to the following steps to convert HTML to PDF in AWS Lambda
 
 * Create an AWS Lambda function to convert HTML to PDF and publish it to AWS.
 * Invoke the AWS Lambda function in your main application using AWS SDKs.
 
 ## Steps to convert HTML to PDF in AWS Lambda
 
-1. Create a new AWS Lambda project as follows:
+1. Create a new AWS Lambda project as follows.
 ![Convert HTMLToPDF AWS Step1](htmlconversion_images/AWS1.png) 
  
-2. Create a project name and select location.
+2. In configuration window, name the project and select Create.
 ![Convert HTMLToPDF AWS Step2](htmlconversion_images/AWS2.png) 
 
 3. Select Blueprint as Empty Function and click Finish.
@@ -46,7 +46,7 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 
    {% endhighlight %}
 
-6. Add the following code snippet in Function.cs to create a PDF document.
+6. Add the following code snippet in Function.cs to convert HTML to PDF document.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -75,15 +75,15 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 10. After deploying the application, Sign in your AWS account and you can see the published Lambda function in AWS console. 
 ![Convert HTMLToPDF AWS Step8](htmlconversion_images/AWS8.png)
 
-## Refer to the following steps to invoke the AWS Lambda function from the console application:
+## Steps to invoke the AWS Lambda function from the console application
 
 1. Create a new console project.  
 ![Convert HTMLToPDF AWS Step9](htmlconversion_images/AWS9.png)
 
-2. Create a project name and select folder path. 
+2. In project configuration windows, name the project and select Create.
 ![Convert HTMLToPDF AWS Step10](htmlconversion_images/AWS10.png)   
 
-3. Install the AWSSDK.Core, AWSSDK.Lambda and Newtonsoft.Json package as a reference to your main application from the NuGet.org.    
+3. Install the [AWSSDK.Core](https://www.nuget.org/packages/AWSSDK.Core), [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) and [Newtonsoft.Json package](https://www.nuget.org/packages/Newtonsoft.Json/13.0.2-beta3) as a reference to your main application from the [NuGet.org](https://www.nuget.org/).    
 ![Convert HTMLToPDF AWS Step11](htmlconversion_images/AWS11.png)  
  
 4. Include the following namespaces in Program.cs file.
@@ -127,7 +127,7 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
             System.Diagnostics.Process.Start("Sample.pdf");
    {% endhighlight %}
  
-6. By executing the program, you will get the PDF document as follows. 
+   By executing the program, you will get the PDF document as follows. 
 ![Convert HTMLToPDF AWS Step11](htmlconversion_images/AWS12.png) 
 
 A complete working sample can be downloaded from below links

@@ -45,7 +45,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    ![Convert HTMLToPDF Linux Step2](htmlconversion_images/LinuxStep2.png)
 
-3. Include the following namespaces and code samples in Program.cs file.
+3. Include the following namespaces.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -54,6 +54,8 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
    using System.IO;
 
    {% endhighlight %}
+
+4.  Add code samples in Program.cs file.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -74,7 +76,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    {% endhighlight %}
 
-4. Execute the following command to restore the NuGet packages.
+5. Execute the following command to restore the NuGet packages.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -84,7 +86,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    ![Convert HTMLToPDF Linux Step3](htmlconversion_images/LinuxStep3.png)
 
-5. Execute the following command in the terminal to run the application.
+6. Execute the following command in the terminal to run the application.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -94,8 +96,8 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    ![Convert HTMLToPDF Linux Step4](htmlconversion_images/LinuxStep4.png)
 
-6. Download a complete working demo from [Linux-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Linux-HTML-to-PDF-Demo1625305923).
-
-7. By executing the program, you will get the PDF document as follows. The output will be saved in parallel to the program.cs file.
+   By executing the program, you will get the PDF document as follows. The output will be saved in parallel to the program.cs file.
 
    ![Convert HTMLToPDF Linux5](htmlconversion_images/htmltopdfoutput.png)
+
+    Download a complete working demo from [Linux-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Linux-HTML-to-PDF-Demo1625305923).
