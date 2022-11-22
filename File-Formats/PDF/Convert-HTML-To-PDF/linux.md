@@ -57,20 +57,20 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    {% highlight c# tabtitle="C#" %}
 
-   //Initialize HTML to PDF converter. 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-BlinkConverterSettings settings = new BlinkConverterSettings();   
-//Set command line arguments to run without the sandbox. 
-settings.CommandLineArguments.Add("--no-sandbox")
-settings.CommandLineArguments.Add("--disable-setuid-sandbox");    
-//Assign Blink settings to the HTML converter.
-htmlConverter.ConverterSettings = settings;
-//Convert URL to PDF.
-PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-//Save and close a PDF document. 
-document.Save(fileStream);
-document.Close(true);
+            //Initialize HTML to PDF converter. 
+            HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+            BlinkConverterSettings settings = new BlinkConverterSettings();
+            //Set command line arguments to run without the sandbox. 
+            settings.CommandLineArguments.Add("--no-sandbox");
+            settings.CommandLineArguments.Add("--disable-setuid-sandbox");
+            //Assign Blink settings to the HTML converter.
+            htmlConverter.ConverterSettings = settings;
+            //Convert URL to PDF.
+            PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+            FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            //Save and close a PDF document. 
+            document.Save(fileStream);
+            document.Close(true);
 
    {% endhighlight %}
 

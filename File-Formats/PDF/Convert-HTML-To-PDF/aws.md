@@ -11,7 +11,7 @@ keywords: Assemblies
 
 The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. The result preserves all graphics, images, text, fonts, and the layout of the original HTML document or webpage. Using this library, you can convert HTML to PDF using C# with Blink rendering engine in AWS.
 
-## Setting up the AWS Toolkit for Visual Studio:
+## Setting up the AWS Toolkit for Visual Studio
 
 * You can create an AWS account by referring to this [link.](https://aws.amazon.com/) 
 * Download and install the AWS Toolkit for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/).
@@ -50,16 +50,16 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 
    {% highlight c# tabtitle="C#" %}
 
-   //Initialize HTML to PDF converter with Blink rendering engine.
-   HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-   //Convert URL to PDF.
-   PdfDocument document = htmlConverter.Convert(input);
-   //Save the document into stream.
-   MemoryStream memoryStream = new MemoryStream();
-   //Save and Close the PDF Document.
-   document.Save(memoryStream);
-   document.Close(true);
-   return Convert.ToBase64String(memoryStream.ToArray());
+            //Initialize HTML to PDF converter with Blink rendering engine.
+            HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+            //Convert URL to PDF.
+            PdfDocument document = htmlConverter.Convert(input);
+            //Save the document into stream.
+            MemoryStream memoryStream = new MemoryStream();
+            //Save and Close the PDF Document.
+            document.Save(memoryStream);
+            document.Close(true);
+            return Convert.ToBase64String(memoryStream.ToArray());
 
    {% endhighlight %}
 
@@ -102,30 +102,29 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 
    {% highlight c# tabtitle="C#" %}
 
-   //Create a new AmazonLambdaClient
-   AmazonLambdaClient client = new AmazonLambdaClient("awsaccessKeyID", "awsSecreteAccessKey", RegionEndpoint.USEast1);
-   //Create new InvokeRequest with the published function name
-   InvokeRequest invoke = new InvokeRequest
-   {
-     FunctionName = "AwsLambdaFunctionHtmlToPdfConversion",
-     InvocationType = InvocationType.RequestResponse,
-     Payload = "\" https://www.google.co.in/ \""
-  };
-   //Get the InvokeResponse from client InvokeRequest
-   InvokeResponse response = client.Invoke(invoke);
-   //Read the response stream
-   var stream = new StreamReader(response.Payload);
-   JsonReader reader = new JsonTextReader(stream);
-   var serilizer = new JsonSerializer();
-   var responseText = serilizer.Deserialize(reader);
-   //Convert Base64String into PDF document
-   byte[] bytes = Convert.FromBase64String(responseText.ToString());
-   FileStream fileStream = new FileStream("Sample.pdf", FileMode.Create);
-   BinaryWriter writer = new BinaryWriter(fileStream);
-   writer.Write(bytes, 0, bytes.Length);
-   writer.Close();
-   System.Diagnostics.Process.Start("Sample.pdf");
-
+            //Create a new AmazonLambdaClient
+            AmazonLambdaClient client = new AmazonLambdaClient("awsaccessKeyID", "awsSecreteAccessKey", RegionEndpoint.USEast1);
+            //Create new InvokeRequest with the published function name
+            InvokeRequest invoke = new InvokeRequest
+            {
+                FunctionName = "AwsLambdaFunctionHtmlToPdfConversion",
+                InvocationType = InvocationType.RequestResponse,
+                Payload = "\" https://www.google.co.in/ \""
+            };
+            //Get the InvokeResponse from client InvokeRequest
+            InvokeResponse response = client.Invoke(invoke);
+            //Read the response stream
+            var stream = new StreamReader(response.Payload);
+            JsonReader reader = new JsonTextReader(stream);
+            var serilizer = new JsonSerializer();
+            var responseText = serilizer.Deserialize(reader);
+            //Convert Base64String into PDF document
+            byte[] bytes = Convert.FromBase64String(responseText.ToString());
+            FileStream fileStream = new FileStream("Sample.pdf", FileMode.Create);
+            BinaryWriter writer = new BinaryWriter(fileStream);
+            writer.Write(bytes, 0, bytes.Length);
+            writer.Close();
+            System.Diagnostics.Process.Start("Sample.pdf");
    {% endhighlight %}
  
 6. By executing the program, you will get the PDF document as follows. 

@@ -42,9 +42,9 @@ keywords: Assemblies
 
    @{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
    {
-   <div>
-    <input type="submit" value="Convert PDF" style="width:150px;height:27px" />
-   </div>
+     <div>
+      <input type="submit" value="Convert PDF" style="width:150px;height:27px" />
+     </div>
    }
    Html.EndForm();
    }
@@ -55,17 +55,17 @@ keywords: Assemblies
 
    {% highlight c# tabtitle="C#" %}
 
-   public IActionResult ExportToPDF()
-   {
-        //Initialize HTML to PDF converter.
-        HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-        //Convert URL to PDF.
-        PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-        MemoryStream stream = new MemoryStream();
-        document.Save(stream);
-       //Download the PDF document in the browser
-        return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
-   }
+        public IActionResult ExportToPDF()
+        {
+            //Initialize HTML to PDF converter.
+            HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+            //Convert URL to PDF.
+            PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+            MemoryStream stream = new MemoryStream();
+            document.Save(stream);
+            //Download the PDF document in the browser
+            return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
+        }
 
    {% endhighlight %}
 
