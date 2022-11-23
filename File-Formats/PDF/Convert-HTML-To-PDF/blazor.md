@@ -14,13 +14,13 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 ## Steps to convert HTML to PDF in Blazor application
 
 1. Create a new C# Blazor Server application project. Select Blazor App from the template and click the Next button.
-![Blazor_step1](htmlconversion_images/blazor_step1.png)
+   <img src="htmlconversion_images/blazor_step1.png" alt="Blazor_step1" width="100%" Height="Auto"/>
 
    In the project configuration window, name your project and select Create.
-![Blazor_step2](htmlconversion_images/blazor_step2.png)
+   <img src="htmlconversion_images/blazor_step2.png" alt="Blazor_step2" width="100%" Height="Auto"/>
 
 2. Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/) NuGet package as a reference to your Blazor Server application from [NuGet.org](https://www.nuget.org/).
-![Blazor_step3](htmlconversion_images/blazor_step3.png)
+   <img src="htmlconversion_images/blazor_step3.png" alt="Blazor_step3" width="100%" Height="Auto"/>
 
 3. Create a new class file named ExportService under Data folder and include the following namespaces in the file.
 
@@ -150,10 +150,10 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
     {% endhighlight %}
 
-11. By executing the program, you will get the following output in the browser.
-![Blazor_step4](htmlconversion_images/blazor_step4.png)
+    By executing the program, you will get the following output in the browser.
+    <img src="htmlconversion_images/blazor_step4.png" alt="Blazor_step4" width="100%" Height="Auto"/>
 
     Click the Export to PDF button, and you will get the PDF document with the following output.
-![HTMLTOPDF](htmlconversion_images/htmltopdfoutput.png)
+    <img src="htmlconversion_images/htmltopdfoutput.png" alt="HTMLTOPDF" width="100%" Height="Auto"/>
 
-    A complete work sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Blazor-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Blazor-HTML-to-PDF-Demo-899009860)
+    A complete work sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-dotnet-examples/blob/master/Blazor)

@@ -66,8 +66,8 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    {% highlight c# tabtitle="C#" %}
 
-    public ActionResult ExportToPDF()
-    {
+   public ActionResult ExportToPDF()
+   {
       //Initialize HTML to PDF converter. 
       HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(); 
       BlinkConverterSettings settings = new BlinkConverterSettings();     
@@ -85,13 +85,13 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
       //Save the document to memory stream. 
       document.Save(stream); 
       return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
-    }
+   }
 
-    {% endhighlight %}
+   {% endhighlight %}
 
 6. Build and run the sample in the Docker. It will pull the Linux Docker image from the Docker hub and run the project. Now, the webpage will open in the browser. Click the button to convert the webpage to a PDF.
 
-7. By executing the program, you will get the PDF document as follows.
+   By executing the program, you will get the PDF document as follows.
    <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Dockeroutput" width="100%" Height="Auto"/>
 
-   A complete demo for converting an HTML to PDF in the Linux docker container can be downloaded from [Docker-HTML-to-PDF-Demo](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Docker-HTML-to-PDF-Demo-799181742).
+   A complete demo for converting an HTML to PDF in the Linux docker container can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-dotnet-examples/blob/master/Docker).

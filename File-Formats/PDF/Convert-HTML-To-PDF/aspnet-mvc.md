@@ -14,10 +14,10 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 ## Steps to convert HTML to PDF document in ASP.NET MVC
 
 1. Create a new C# ASP.NET Web Application (.NET Framework) project.
-![convert_HtmltoPdf_ASP.NET_MVC1](htmlconversion_images/aspnetmvc1.png)
+   <img src="htmlconversion_images/aspnetmvc1.png" alt="convert_HtmltoPdf_ASP.NET_MVC1" width="100%" Height="Auto"/>
 
 2. Install [Syncfusion.HtmlToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet.Mvc5)  NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
-![convert_HtmltoPdf_ASP.NET_MVC2](htmlconversion_images/aspnetmvc2.png)
+   <img src="htmlconversion_images/aspnetmvc2.png" alt="convert_HtmltoPdf_ASP.NET_MVC2" width="100%" Height="Auto"/>
 
 3. Include the following namespaces in the HomeController.cs file.
 
@@ -65,7 +65,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
    {% endhighlight %}
 
-6. By executing the program, you will get the PDF document as follows.
-![convert_HtmltoPdf_ASP.NET_MVC1](htmlconversion_images/htmltopdfoutput.png)
+   By executing the program, you will get the PDF document as follows.
+   <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF ASP.NET_MVC output" width="100%" Height="Auto"/>
 
-   A complete working demo can be downloaded from [HTMLToPdf.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTML-to-PDF-MVC-Demo1437749865)
+   A complete working demo can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-dotnet-examples/blob/master/ASP.NET%20MVC)
