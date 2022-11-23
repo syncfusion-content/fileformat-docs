@@ -321,6 +321,8 @@ Excel 2016 Charts
 
 N> From the above supported chart types table, Waterfall and Line_3D charts are not supported in chart to image conversion in .NET Standard 2.0 onwards.
 
+N> Only embedded charts are supported in chart to image conversion. Chart sheets are not supported.
+
 ## Supported chart elements
 XlsIO supports the following chart elements in image conversion:
 ![chart elements](Working-With-Charts_images/chart-elements.jpeg)
