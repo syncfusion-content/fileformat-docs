@@ -144,7 +144,7 @@ End Using
 
 {% endtabs %} 
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET%20Framework/Windows%20Forms).
 
 By executing the program, you will get the PDF document (contains selectable text) as follows. 
 ![output-pdf](OCR-Images/OCR-output-image.png)
