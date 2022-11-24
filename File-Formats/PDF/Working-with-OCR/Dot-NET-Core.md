@@ -157,7 +157,7 @@ processor.PerformOCR(lDoc, "tessdata/");
 
 You can download the language packages from the following link
         
-[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://github.com/tesseract-ocr/tessdata)
 
 
 ## Prerequisites for Mac
