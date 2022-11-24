@@ -157,7 +157,7 @@ processor.PerformOCR(lDoc, "tessdata/");
 
 You can download the language packages from the following link
         
-[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://github.com/tesseract-ocr/tessdata)
 
 
 ## Prerequisites for Mac
@@ -253,7 +253,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-for-the-entire-PDF-document).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-for-the-entire-PDF-document).
 
 ## Performing OCR in Linux
 
@@ -417,7 +417,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-on-particular-region-of-PDF-document).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-particular-region-of-PDF-document).
 
 ## Performing OCR with rotated pages
 
@@ -474,7 +474,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %}  
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-on-the-rotated-page-of-the-PDF-document).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-the-rotated-page-of-the-PDF-document).
 
 ## Performing OCR with Unicode characters 
 
@@ -531,7 +531,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %}  
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-with-unicode-characters-in-a-PDF-document).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-with-unicode-characters-in-a-PDF-document).
 
 ## Layout result 
 
@@ -591,7 +591,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Get-the-OCR'ed-text-and-its-bounds-from-an-input-PDF).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Get-the-OCR'ed-text-and-its-bounds-from-an-input-PDF).
 
 ## Performing OCR with image
 
@@ -656,7 +656,7 @@ string ocrText = processor.PerformOCR(stream, @"tessdata/");
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-on-image-file).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-image-file).
 
 ## OCR an Image to PDF
 
@@ -704,7 +704,7 @@ document.Close(true);
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Perform-OCR-an-image-and-convert-it-to-a-PDF-document).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-an-image-and-convert-it-to-a-PDF-document).
 
 ## Temporary folder
 
@@ -760,7 +760,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/Set-temp-folder-while-performing-OCR).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Set-temp-folder-while-performing-OCR).
 
 ## Performing OCR with Azure Vision
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as Azure Computer Vision and more. 
@@ -808,8 +808,10 @@ outputStream.Close();
 {% endtabs %} 
 
 Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image. 
-Refer to the following code sample to perform OCR with Azure computer vision. 
+
 N> Provide a valid subscription key and endpoint to work with Azure computer vision. 
+
+Refer to the following code sample to perform OCR with Azure computer vision. 
 
 {% tabs %} 
 
@@ -951,7 +953,6 @@ return new Rectangle(x, y, w, h);
 {% endhighlight %}
 
 {% endtabs %} 
-You can download a complete working sample from GitHub.
 
 ## Performing OCR with AWS Textract
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as AWS Textract and more. 
@@ -996,9 +997,11 @@ outputStream.Dispose();
 {% endhighlight %}
 
 {% endtabs %}
-Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image.
-Refer to the following code sample to perform OCR with AWS Textract.
+Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image. 
+
 N> Provide a valid Access key and Secret Access Key to work with AWS Textract.
+
+Refer to the following code sample to perform OCR with AWS Textract.
 
 {% tabs %} 
 
@@ -1089,7 +1092,6 @@ return rect;
 {% endhighlight %}
 
 {% endtabs %} 
-You can download a complete working sample from GitHub.
 
 ## Troubleshooting
 
