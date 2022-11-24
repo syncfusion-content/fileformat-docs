@@ -12,16 +12,15 @@ keywords: Assemblies
 Steps to convert HTML to PDF in ASP.NET Core Mac:
 
 Create a new C# ASP.NET Core Web Application project.
-![Mac_step1](htmlconversion_images/mac_step1.png)
-
+<img src="htmlconversion_images/mac_step1.png" alt="Mac_step1" width="100%" Height="Auto"/>
 Select the Target Framework of your project
-![Mac_step2](htmlconversion_images/mac_step2.png)
+<img src="htmlconversion_images/mac_step2.png" alt="Mac_step2" width="100%" Height="Auto"/>
 
 Configure your application and click Create.
-![Mac_step3](htmlconversion_images/mac_step3.png)
+<img src="htmlconversion_images/mac_step3.png" alt="Mac_step3" width="80%" Height="Auto"/>
 
 Install the [Syncfusion.HtmlToPdfConverter.Net.Mac](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
-![Mac_step4](htmlconversion_images/mac_step4.png)
+<img src="htmlconversion_images/mac_step4.png" alt="Mac_step1" width="80%" Height="Auto"/>
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
