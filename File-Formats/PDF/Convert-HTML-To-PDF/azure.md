@@ -99,7 +99,7 @@ Include the following namespaces and code samples in the controller for converti
 
 using Syncfusion.HtmlConverter;
 using Syncfusion.Pdf;
-using System.IO
+using System.IO;
 
 {% endhighlight %}
 
@@ -219,7 +219,7 @@ Include the following namespaces and code samples in the controller for converti
 
 using Syncfusion.HtmlConverter;
 using Syncfusion.Pdf;
-using System.IO
+using System.IO;
 
 {% endhighlight %}
 
