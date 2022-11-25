@@ -74,7 +74,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
    {% highlight c# tabtitle="C#" %}
 
-   @inject ExportToFileService exportService
+   @inject ExportService exportService
    @inject Microsoft.JSInterop.IJSRuntime JS
    @using  System.IO;
 
@@ -97,7 +97,8 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
  
        protected async Task ExportToPdf()
        {
-           using (MemoryStream excelStream =exportService.CreatePdf(forecasts))
+           ExportService exportService = new ExportService();
+           using (MemoryStream excelStream = exportService.CreatePdf())
            {
                await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
            }
