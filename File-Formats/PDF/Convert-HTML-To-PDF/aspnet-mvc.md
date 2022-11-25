@@ -16,10 +16,14 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 1. Create a new C# ASP.NET Web Application (.NET Framework) project.
    <img src="htmlconversion_images/aspnetmvc1.png" alt="convert_HtmltoPdf_ASP.NET_MVC1" width="100%" Height="Auto"/>
 
-2. Install [Syncfusion.HtmlToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet.Mvc5)  NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
+2. In the project configuration windows, name your project and select Create.
    <img src="htmlconversion_images/aspnetmvc2.png" alt="convert_HtmltoPdf_ASP.NET_MVC2" width="100%" Height="Auto"/>
+   <img src="htmlconversion_images/aspnetmvc3.png" alt="convert_HtmltoPdf_ASP.NET_MVC3" width="100%" Height="Auto"/>
 
-3. Include the following namespaces in the HomeController.cs file.
+3. Install [Syncfusion.HtmlToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet.Mvc5)  NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
+   <img src="htmlconversion_images/aspnetmvc4.png" alt="convert_HtmltoPdf_ASP.NET_MVC4" width="100%" Height="Auto"/>
+
+4. Include the following namespaces in the HomeController.cs file.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -29,7 +33,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
    {% endhighlight %}
 
-4. Add a new button in the Index.cshtml as shown below.
+5. Add a new button in the Index.cshtml as shown below.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -44,7 +48,7 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 
    {% endhighlight %}
 
-5. Add a new action method named ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF document.
+6. Add a new action method named ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF document.
 
    {% highlight c# tabtitle="C#" %}
 
