@@ -58,7 +58,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    using Syncfusion.HtmlConverter;
    using Syncfusion.Pdf;
-   using System.IO
+   using System.IO;
 
    {% endhighlight %}
 
