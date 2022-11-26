@@ -14,16 +14,15 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 ## Steps to convert HTML to PDF in ASP.NET Core MVC
 
 1. Create a new C# ASP.NET Core Web Application project.
-    ![Mac_step1](htmlconversion_images/mac_step1.png)
-
+     <img src="htmlconversion_images/mac_step1.png" alt="Mac_step1" width="100%" Height="Auto"/>
 2. Select the Target Framework of your project.
-    ![Mac_step2](htmlconversion_images/mac_step2.png)
+     <img src="htmlconversion_images/mac_step2.png" alt="Mac_step2" width="100%" Height="Auto"/>
 
 3. Configure your application and click Create.
-    ![Mac_step3](htmlconversion_images/mac_step3.png)
+     <img src="htmlconversion_images/mac_step3.png" alt="Mac_step3" width="100%" Height="Auto"/>)
 
 4. Install the [Syncfusion.HtmlToPdfConverter.Net.Mac](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
-    ![Mac_step4](htmlconversion_images/mac_step4.png)
+     <img src="htmlconversion_images/mac_step4.png" alt="Mac_step4" width="100%" Height="Auto"/>
 
 5. A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
@@ -72,12 +71,12 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
    {% endhighlight %}
 
 8. Right click the project and select Build.
-    ![Mac_step5](htmlconversion_images/mac_step5.png)
+     <img src="htmlconversion_images/mac_step5.png" alt="Mac_step5" width="100%" Height="Auto"/>
 
 9. After Build succeeded. Run the application.
-    ![Mac_step6](htmlconversion_images/mac_step6.png)
+     <img src="htmlconversion_images/mac_step6.png" alt="Mac_step6" width="100%" Height="Auto"/>
 
    By executing the program, you will get the PDF document as follows.
-    ![HTMLTOPDF](htmlconversion_images/htmltopdfoutput.png)
+     <img src="htmlconversion_images/htmltopdfoutput.png" alt="HTMLtoPDF" width="100%" Height="Auto"/>
 
 A complete working sample can be downloaded from [Mac-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Mac-HTML-to-PDF-Demo514297355).
