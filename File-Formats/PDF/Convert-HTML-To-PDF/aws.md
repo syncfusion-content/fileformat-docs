@@ -130,8 +130,6 @@ Refer to the following steps to convert HTML to PDF in AWS Lambda
    By executing the program, you will get the PDF document as follows. 
     <img src="htmlconversion_images/AWS12.png" alt="Convert HTMLToPDF AWS Step12" width="100%" Height="Auto"/> 
 
-A complete working sample can be downloaded from below links
-AWS Lambda: [HtmlToPDFAWSLambdaBlink.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HtmlToPDFAWSLambdaBlink-1145438247)
-Console sample: [ClientHtmlToPDFConversion.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientHtmlToPDFConversion-1236563355.zip)
+A complete work sample for converting an HTML to PDF in the AWS framework can be downloaded from [Github]()
 
 

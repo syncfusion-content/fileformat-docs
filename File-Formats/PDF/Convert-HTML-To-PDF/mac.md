@@ -79,4 +79,4 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
    By executing the program, you will get the PDF document as follows.
      <img src="htmlconversion_images/htmltopdfoutput.png" alt="HTMLtoPDF" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from [Mac-HTML-to-PDF-Demo.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Mac-HTML-to-PDF-Demo514297355).
+A complete work sample for converting an HTML to PDF in the Mac framework can be downloaded from [Github]()
