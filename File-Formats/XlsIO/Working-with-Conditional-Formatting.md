@@ -426,16 +426,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -450,7 +448,6 @@ N> The conditional formats for a single range should be added in descending orde
 When proper criteria is met, the output file looks as follows:
 
 ![working with conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img1.jpeg)
-
 
 ## Reading Conditional Formats in XlsIO
 
@@ -572,16 +569,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -699,16 +694,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -826,16 +819,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -953,16 +944,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1080,16 +1069,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1107,405 +1094,401 @@ The below code example shows how to format unique and duplicate values using con
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    IWorkbook workbook = application.Workbooks.Create(1);
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Fill worksheet with data
-    worksheet.Range["A1:B1"].Merge();
-    worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
-    worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
-    worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-    worksheet.Range["A1"].Text = "Global Internet Usage";
-    worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
-
-    worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
-    worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
-    worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-
-    worksheet.Range["A3"].Text = "Country";
-    worksheet.Range["A4"].Text = "Northern America";
-    worksheet.Range["A5"].Text = "Central America";
-    worksheet.Range["A6"].Text = "The Caribbean";
-    worksheet.Range["A7"].Text = "South America";
-    worksheet.Range["A8"].Text = "Northern Europe";
-    worksheet.Range["A9"].Text = "Eastern Europe";
-    worksheet.Range["A10"].Text = "Western Europe";
-    worksheet.Range["A11"].Text = "Southern Europe";
-    worksheet.Range["A12"].Text = "Northern Africa";
-    worksheet.Range["A13"].Text = "Eastern Africa";
-    worksheet.Range["A14"].Text = "Middle Africa";
-    worksheet.Range["A15"].Text = "Western Africa";
-    worksheet.Range["A16"].Text = "Southern Africa";
-    worksheet.Range["A17"].Text = "Central Asia";
-    worksheet.Range["A18"].Text = "Eastern Asia";
-    worksheet.Range["A19"].Text = "Southern Asia";
-    worksheet.Range["A20"].Text = "SouthEast Asia";
-    worksheet.Range["A21"].Text = "Oceania";
-    
-
-    worksheet.Range["B3"].Text = "Usage";
-    worksheet.Range["B4"].Value = "88%";
-    worksheet.Range["B5"].Value = "61%";
-    worksheet.Range["B6"].Value = "49%";
-    worksheet.Range["B7"].Value = "68%";
-    worksheet.Range["B8"].Value = "94%";
-    worksheet.Range["B9"].Value = "74%";
-    worksheet.Range["B10"].Value = "90%";
-    worksheet.Range["B11"].Value = "77%";
-    worksheet.Range["B12"].Value = "49%";
-    worksheet.Range["B13"].Value = "27%";
-    worksheet.Range["B14"].Value = "12%";
-    worksheet.Range["B15"].Value = "39%";
-    worksheet.Range["B16"].Value = "51%";
-    worksheet.Range["B17"].Value = "50%";
-    worksheet.Range["B18"].Value = "58%";
-    worksheet.Range["B19"].Value = "36%";
-    worksheet.Range["B20"].Value = "58%";
-    worksheet.Range["B21"].Value = "69%";
-
-    worksheet.SetColumnWidth(1, 23.45);
-    worksheet.SetColumnWidth(2, 8.09);
-
-    IConditionalFormats conditionalFormats =
-    worksheet.Range["A4:B21"].ConditionalFormats;
-    IConditionalFormat condition = conditionalFormats.AddCondition();
-
-    //conditional format to set duplicate format type
-    condition.FormatType = ExcelCFType.Duplicate;
-    condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
-
-    //Saves the Excel
-    workbook.SaveAs("Output.xlsx");
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  
+  //Fill worksheet with data
+  worksheet.Range["A1:B1"].Merge();
+  worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
+  worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
+  worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+  worksheet.Range["A1"].Text = "Global Internet Usage";
+  worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
+  
+  worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
+  worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
+  worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+  
+  worksheet.Range["A3"].Text = "Country";
+  worksheet.Range["A4"].Text = "Northern America";
+  worksheet.Range["A5"].Text = "Central America";
+  worksheet.Range["A6"].Text = "The Caribbean";
+  worksheet.Range["A7"].Text = "South America";
+  worksheet.Range["A8"].Text = "Northern Europe";
+  worksheet.Range["A9"].Text = "Eastern Europe";
+  worksheet.Range["A10"].Text = "Western Europe";
+  worksheet.Range["A11"].Text = "Southern Europe";
+  worksheet.Range["A12"].Text = "Northern Africa";
+  worksheet.Range["A13"].Text = "Eastern Africa";
+  worksheet.Range["A14"].Text = "Middle Africa";
+  worksheet.Range["A15"].Text = "Western Africa";
+  worksheet.Range["A16"].Text = "Southern Africa";
+  worksheet.Range["A17"].Text = "Central Asia";
+  worksheet.Range["A18"].Text = "Eastern Asia";
+  worksheet.Range["A19"].Text = "Southern Asia";
+  worksheet.Range["A20"].Text = "SouthEast Asia";
+  worksheet.Range["A21"].Text = "Oceania";    
+  
+  worksheet.Range["B3"].Text = "Usage";
+  worksheet.Range["B4"].Value = "88%";
+  worksheet.Range["B5"].Value = "61%";
+  worksheet.Range["B6"].Value = "49%";
+  worksheet.Range["B7"].Value = "68%";
+  worksheet.Range["B8"].Value = "94%";
+  worksheet.Range["B9"].Value = "74%";
+  worksheet.Range["B10"].Value = "90%";
+  worksheet.Range["B11"].Value = "77%";
+  worksheet.Range["B12"].Value = "49%";
+  worksheet.Range["B13"].Value = "27%";
+  worksheet.Range["B14"].Value = "12%";
+  worksheet.Range["B15"].Value = "39%";
+  worksheet.Range["B16"].Value = "51%";
+  worksheet.Range["B17"].Value = "50%";
+  worksheet.Range["B18"].Value = "58%";
+  worksheet.Range["B19"].Value = "36%";
+  worksheet.Range["B20"].Value = "58%";
+  worksheet.Range["B21"].Value = "69%";
+  
+  worksheet.SetColumnWidth(1, 23.45);
+  worksheet.SetColumnWidth(2, 8.09);
+  
+  IConditionalFormats conditionalFormats =
+  worksheet.Range["A4:B21"].ConditionalFormats;
+  IConditionalFormat condition = conditionalFormats.AddCondition();
+  
+  //conditional format to set duplicate format type
+  condition.FormatType = ExcelCFType.Duplicate;
+  condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
+  
+  //Saves the Excel
+  workbook.SaveAs("Output.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2016
-    Dim workbook As IWorkbook = application.Workbooks.Create(1)
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-    'Fill worksheet with data
-    worksheet.Range("A1:B1").Merge()
-    worksheet.Range("A1:B1").CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255)
-    worksheet.Range("A1:B1").CellStyle.Font.Size = 14
-    worksheet.Range("A1:B1").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
-    worksheet.Range("A1").Text = "Global Internet Usage"
-
-    worksheet.Range("A1:B1").CellStyle.Font.Bold = True
-    worksheet.Range("A3:B21").CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64)
-    worksheet.Range("A3:B3").CellStyle.Font.Bold = True
-    worksheet.Range("B3").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight
-
-    worksheet.Range("A3").Text = "Country"
-    worksheet.Range("A4").Text = "Northern America"
-    worksheet.Range("A5").Text = "Central America"
-    worksheet.Range("A6").Text = "The Caribbean"
-    worksheet.Range("A7").Text = "South America"
-    worksheet.Range("A8").Text = "Northern Europe"
-    worksheet.Range("A9").Text = "Eastern Europe"
-    worksheet.Range("A10").Text = "Western Europe"
-    worksheet.Range("A11").Text = "Southern Europe"
-    worksheet.Range("A12").Text = "Northern Africa"
-    worksheet.Range("A13").Text = "Eastern Africa"
-    worksheet.Range("A14").Text = "Middle Africa"
-    worksheet.Range("A15").Text = "Western Africa"
-    worksheet.Range("A16").Text = "Southern Africa"
-    worksheet.Range("A17").Text = "Central Asia"
-    worksheet.Range("A18").Text = "Eastern Asia"
-    worksheet.Range("A19").Text = "Southern Asia"
-    worksheet.Range("A20").Text = "SouthEast Asia"
-    worksheet.Range("A21").Text = "Oceania"
-
-    worksheet.Range("B3").Text = "Usage"
-    worksheet.Range("B4").Value = "88%"
-    worksheet.Range("B5").Value = "61%"
-    worksheet.Range("B6").Value = "49%"
-    worksheet.Range("B7").Value = "68%"
-    worksheet.Range("B8").Value = "94%"
-    worksheet.Range("B9").Value = "74%"
-    worksheet.Range("B10").Value = "90%"
-    worksheet.Range("B11").Value = "77%"
-    worksheet.Range("B12").Value = "49%"
-    worksheet.Range("B13").Value = "27%"
-    worksheet.Range("B14").Value = "12%"
-    worksheet.Range("B15").Value = "39%"
-    worksheet.Range("B16").Value = "51%"
-    worksheet.Range("B17").Value = "50%"
-    worksheet.Range("B18").Value = "58%"
-    worksheet.Range("B19").Value = "36%"
-    worksheet.Range("B20").Value = "58%"
-    worksheet.Range("B21").Value = "69%"
-    
-    worksheet.SetColumnWidth(1, 23.45)
-    worksheet.SetColumnWidth(2, 8.09)
-
-    'conditional format to set duplicate format type
-    Dim conditionalFormats As IConditionalFormats =
-    worksheet.Range("A4:B21").ConditionalFormats
-    Dim condition As IConditionalFormat = conditionalFormats.AddCondition()
-    condition.FormatType = ExcelCFType.Duplicate
-    condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206)
-
-    'Saves the Excel
-    workbook.SaveAs("Output.xlsx")
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  
+  'Fill worksheet with data
+  worksheet.Range("A1:B1").Merge()
+  worksheet.Range("A1:B1").CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255)
+  worksheet.Range("A1:B1").CellStyle.Font.Size = 14
+  worksheet.Range("A1:B1").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
+  worksheet.Range("A1").Text = "Global Internet Usage"
+  
+  worksheet.Range("A1:B1").CellStyle.Font.Bold = True
+  worksheet.Range("A3:B21").CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64)
+  worksheet.Range("A3:B3").CellStyle.Font.Bold = True
+  worksheet.Range("B3").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight
+  
+  worksheet.Range("A3").Text = "Country"
+  worksheet.Range("A4").Text = "Northern America"
+  worksheet.Range("A5").Text = "Central America"
+  worksheet.Range("A6").Text = "The Caribbean"
+  worksheet.Range("A7").Text = "South America"
+  worksheet.Range("A8").Text = "Northern Europe"
+  worksheet.Range("A9").Text = "Eastern Europe"
+  worksheet.Range("A10").Text = "Western Europe"
+  worksheet.Range("A11").Text = "Southern Europe"
+  worksheet.Range("A12").Text = "Northern Africa"
+  worksheet.Range("A13").Text = "Eastern Africa"
+  worksheet.Range("A14").Text = "Middle Africa"
+  worksheet.Range("A15").Text = "Western Africa"
+  worksheet.Range("A16").Text = "Southern Africa"
+  worksheet.Range("A17").Text = "Central Asia"
+  worksheet.Range("A18").Text = "Eastern Asia"
+  worksheet.Range("A19").Text = "Southern Asia"
+  worksheet.Range("A20").Text = "SouthEast Asia"
+  worksheet.Range("A21").Text = "Oceania"
+  
+  worksheet.Range("B3").Text = "Usage"
+  worksheet.Range("B4").Value = "88%"
+  worksheet.Range("B5").Value = "61%"
+  worksheet.Range("B6").Value = "49%"
+  worksheet.Range("B7").Value = "68%"
+  worksheet.Range("B8").Value = "94%"
+  worksheet.Range("B9").Value = "74%"
+  worksheet.Range("B10").Value = "90%"
+  worksheet.Range("B11").Value = "77%"
+  worksheet.Range("B12").Value = "49%"
+  worksheet.Range("B13").Value = "27%"
+  worksheet.Range("B14").Value = "12%"
+  worksheet.Range("B15").Value = "39%"
+  worksheet.Range("B16").Value = "51%"
+  worksheet.Range("B17").Value = "50%"
+  worksheet.Range("B18").Value = "58%"
+  worksheet.Range("B19").Value = "36%"
+  worksheet.Range("B20").Value = "58%"
+  worksheet.Range("B21").Value = "69%"
+  
+  worksheet.SetColumnWidth(1, 23.45)
+  worksheet.SetColumnWidth(2, 8.09)
+  
+  'conditional format to set duplicate format type
+  Dim conditionalFormats As IConditionalFormats =
+  worksheet.Range("A4:B21").ConditionalFormats
+  Dim condition As IConditionalFormat = conditionalFormats.AddCondition()
+  condition.FormatType = ExcelCFType.Duplicate
+  condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206)
+  
+  'Saves the Excel
+  workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    IWorkbook workbook = application.Workbooks.Create(1);
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Fill worksheet with data
-    worksheet.Range["A1:B1"].Merge();
-    worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
-    worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
-    worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-    worksheet.Range["A1"].Text = "Global Internet Usage";
-    worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
-
-    worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
-    worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
-    worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-
-    worksheet.Range["A3"].Text = "Country";
-    worksheet.Range["A4"].Text = "Northern America";
-    worksheet.Range["A5"].Text = "Central America";
-    worksheet.Range["A6"].Text = "The Caribbean";
-    worksheet.Range["A7"].Text = "South America";
-    worksheet.Range["A8"].Text = "Northern Europe";
-    worksheet.Range["A9"].Text = "Eastern Europe";
-    worksheet.Range["A10"].Text = "Western Europe";
-    worksheet.Range["A11"].Text = "Southern Europe";
-    worksheet.Range["A12"].Text = "Northern Africa";
-    worksheet.Range["A13"].Text = "Eastern Africa";
-    worksheet.Range["A14"].Text = "Middle Africa";
-    worksheet.Range["A15"].Text = "Western Africa";
-    worksheet.Range["A16"].Text = "Southern Africa";
-    worksheet.Range["A17"].Text = "Central Asia";
-    worksheet.Range["A18"].Text = "Eastern Asia";
-    worksheet.Range["A19"].Text = "Southern Asia";
-    worksheet.Range["A20"].Text = "SouthEast Asia";
-    worksheet.Range["A21"].Text = "Oceania";
-    
-
-    worksheet.Range["B3"].Text = "Usage";
-    worksheet.Range["B4"].Value = "88%";
-    worksheet.Range["B5"].Value = "61%";
-    worksheet.Range["B6"].Value = "49%";
-    worksheet.Range["B7"].Value = "68%";
-    worksheet.Range["B8"].Value = "94%";
-    worksheet.Range["B9"].Value = "74%";
-    worksheet.Range["B10"].Value = "90%";
-    worksheet.Range["B11"].Value = "77%";
-    worksheet.Range["B12"].Value = "49%";
-    worksheet.Range["B13"].Value = "27%";
-    worksheet.Range["B14"].Value = "12%";
-    worksheet.Range["B15"].Value = "39%";
-    worksheet.Range["B16"].Value = "51%";
-    worksheet.Range["B17"].Value = "50%";
-    worksheet.Range["B18"].Value = "58%";
-    worksheet.Range["B19"].Value = "36%";
-    worksheet.Range["B20"].Value = "58%";
-    worksheet.Range["B21"].Value = "69%";
-
-    worksheet.SetColumnWidth(1, 23.45);
-    worksheet.SetColumnWidth(2, 8.09);
-
-    IConditionalFormats conditionalFormats =
-    worksheet.Range["A4:B21"].ConditionalFormats;
-    IConditionalFormat condition = conditionalFormats.AddCondition();
-
-    //conditional format to set duplicate format type
-    condition.FormatType = ExcelCFType.Duplicate;
-    condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
-
-    //Creates a storage file from FileSavePicker
-    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
-
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(outputStorageFile);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  
+  //Fill worksheet with data
+  worksheet.Range["A1:B1"].Merge();
+  worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
+  worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
+  worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+  worksheet.Range["A1"].Text = "Global Internet Usage";
+  worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
+  
+  worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
+  worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
+  worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+  
+  worksheet.Range["A3"].Text = "Country";
+  worksheet.Range["A4"].Text = "Northern America";
+  worksheet.Range["A5"].Text = "Central America";
+  worksheet.Range["A6"].Text = "The Caribbean";
+  worksheet.Range["A7"].Text = "South America";
+  worksheet.Range["A8"].Text = "Northern Europe";
+  worksheet.Range["A9"].Text = "Eastern Europe";
+  worksheet.Range["A10"].Text = "Western Europe";
+  worksheet.Range["A11"].Text = "Southern Europe";
+  worksheet.Range["A12"].Text = "Northern Africa";
+  worksheet.Range["A13"].Text = "Eastern Africa";
+  worksheet.Range["A14"].Text = "Middle Africa";
+  worksheet.Range["A15"].Text = "Western Africa";
+  worksheet.Range["A16"].Text = "Southern Africa";
+  worksheet.Range["A17"].Text = "Central Asia";
+  worksheet.Range["A18"].Text = "Eastern Asia";
+  worksheet.Range["A19"].Text = "Southern Asia";
+  worksheet.Range["A20"].Text = "SouthEast Asia";
+  worksheet.Range["A21"].Text = "Oceania";    
+  
+  worksheet.Range["B3"].Text = "Usage";
+  worksheet.Range["B4"].Value = "88%";
+  worksheet.Range["B5"].Value = "61%";
+  worksheet.Range["B6"].Value = "49%";
+  worksheet.Range["B7"].Value = "68%";
+  worksheet.Range["B8"].Value = "94%";
+  worksheet.Range["B9"].Value = "74%";
+  worksheet.Range["B10"].Value = "90%";
+  worksheet.Range["B11"].Value = "77%";
+  worksheet.Range["B12"].Value = "49%";
+  worksheet.Range["B13"].Value = "27%";
+  worksheet.Range["B14"].Value = "12%";
+  worksheet.Range["B15"].Value = "39%";
+  worksheet.Range["B16"].Value = "51%";
+  worksheet.Range["B17"].Value = "50%";
+  worksheet.Range["B18"].Value = "58%";
+  worksheet.Range["B19"].Value = "36%";
+  worksheet.Range["B20"].Value = "58%";
+  worksheet.Range["B21"].Value = "69%";
+  
+  worksheet.SetColumnWidth(1, 23.45);
+  worksheet.SetColumnWidth(2, 8.09);
+  
+  IConditionalFormats conditionalFormats =
+  worksheet.Range["A4:B21"].ConditionalFormats;
+  IConditionalFormat condition = conditionalFormats.AddCondition();
+  
+  //conditional format to set duplicate format type
+  condition.FormatType = ExcelCFType.Duplicate;
+  condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+  
+  //Creates a storage file from FileSavePicker
+  StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+  
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(outputStorageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    IWorkbook workbook = application.Workbooks.Create(1);
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Fill worksheet with data
-    worksheet.Range["A1:B1"].Merge();
-    worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
-    worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
-    worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-    worksheet.Range["A1"].Text = "Global Internet Usage";
-    worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
-
-    worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
-    worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
-    worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-
-    worksheet.Range["A3"].Text = "Country";
-    worksheet.Range["A4"].Text = "Northern America";
-    worksheet.Range["A5"].Text = "Central America";
-    worksheet.Range["A6"].Text = "The Caribbean";
-    worksheet.Range["A7"].Text = "South America";
-    worksheet.Range["A8"].Text = "Northern Europe";
-    worksheet.Range["A9"].Text = "Eastern Europe";
-    worksheet.Range["A10"].Text = "Western Europe";
-    worksheet.Range["A11"].Text = "Southern Europe";
-    worksheet.Range["A12"].Text = "Northern Africa";
-    worksheet.Range["A13"].Text = "Eastern Africa";
-    worksheet.Range["A14"].Text = "Middle Africa";
-    worksheet.Range["A15"].Text = "Western Africa";
-    worksheet.Range["A16"].Text = "Southern Africa";
-    worksheet.Range["A17"].Text = "Central Asia";
-    worksheet.Range["A18"].Text = "Eastern Asia";
-    worksheet.Range["A19"].Text = "Southern Asia";
-    worksheet.Range["A20"].Text = "SouthEast Asia";
-    worksheet.Range["A21"].Text = "Oceania";
-    
-
-    worksheet.Range["B3"].Text = "Usage";
-    worksheet.Range["B4"].Value = "88%";
-    worksheet.Range["B5"].Value = "61%";
-    worksheet.Range["B6"].Value = "49%";
-    worksheet.Range["B7"].Value = "68%";
-    worksheet.Range["B8"].Value = "94%";
-    worksheet.Range["B9"].Value = "74%";
-    worksheet.Range["B10"].Value = "90%";
-    worksheet.Range["B11"].Value = "77%";
-    worksheet.Range["B12"].Value = "49%";
-    worksheet.Range["B13"].Value = "27%";
-    worksheet.Range["B14"].Value = "12%";
-    worksheet.Range["B15"].Value = "39%";
-    worksheet.Range["B16"].Value = "51%";
-    worksheet.Range["B17"].Value = "50%";
-    worksheet.Range["B18"].Value = "58%";
-    worksheet.Range["B19"].Value = "36%";
-    worksheet.Range["B20"].Value = "58%";
-    worksheet.Range["B21"].Value = "69%";
-
-    worksheet.SetColumnWidth(1, 23.45);
-    worksheet.SetColumnWidth(2, 8.09);
-
-    IConditionalFormats conditionalFormats =
-    worksheet.Range["A4:B21"].ConditionalFormats;
-    IConditionalFormat condition = conditionalFormats.AddCondition();
-
-    //conditional format to set duplicate format type
-    condition.FormatType = ExcelCFType.Duplicate;
-    condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
-    
-    //Saves the excel document to MemoryStream
-    FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  
+  //Fill worksheet with data
+  worksheet.Range["A1:B1"].Merge();
+  worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
+  worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
+  worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+  worksheet.Range["A1"].Text = "Global Internet Usage";
+  worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
+  
+  worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
+  worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
+  worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+  
+  worksheet.Range["A3"].Text = "Country";
+  worksheet.Range["A4"].Text = "Northern America";
+  worksheet.Range["A5"].Text = "Central America";
+  worksheet.Range["A6"].Text = "The Caribbean";
+  worksheet.Range["A7"].Text = "South America";
+  worksheet.Range["A8"].Text = "Northern Europe";
+  worksheet.Range["A9"].Text = "Eastern Europe";
+  worksheet.Range["A10"].Text = "Western Europe";
+  worksheet.Range["A11"].Text = "Southern Europe";
+  worksheet.Range["A12"].Text = "Northern Africa";
+  worksheet.Range["A13"].Text = "Eastern Africa";
+  worksheet.Range["A14"].Text = "Middle Africa";
+  worksheet.Range["A15"].Text = "Western Africa";
+  worksheet.Range["A16"].Text = "Southern Africa";
+  worksheet.Range["A17"].Text = "Central Asia";
+  worksheet.Range["A18"].Text = "Eastern Asia";
+  worksheet.Range["A19"].Text = "Southern Asia";
+  worksheet.Range["A20"].Text = "SouthEast Asia";
+  worksheet.Range["A21"].Text = "Oceania";    
+  
+  worksheet.Range["B3"].Text = "Usage";
+  worksheet.Range["B4"].Value = "88%";
+  worksheet.Range["B5"].Value = "61%";
+  worksheet.Range["B6"].Value = "49%";
+  worksheet.Range["B7"].Value = "68%";
+  worksheet.Range["B8"].Value = "94%";
+  worksheet.Range["B9"].Value = "74%";
+  worksheet.Range["B10"].Value = "90%";
+  worksheet.Range["B11"].Value = "77%";
+  worksheet.Range["B12"].Value = "49%";
+  worksheet.Range["B13"].Value = "27%";
+  worksheet.Range["B14"].Value = "12%";
+  worksheet.Range["B15"].Value = "39%";
+  worksheet.Range["B16"].Value = "51%";
+  worksheet.Range["B17"].Value = "50%";
+  worksheet.Range["B18"].Value = "58%";
+  worksheet.Range["B19"].Value = "36%";
+  worksheet.Range["B20"].Value = "58%";
+  worksheet.Range["B21"].Value = "69%";
+  
+  worksheet.SetColumnWidth(1, 23.45);
+  worksheet.SetColumnWidth(2, 8.09);
+  
+  IConditionalFormats conditionalFormats =
+  worksheet.Range["A4:B21"].ConditionalFormats;
+  IConditionalFormat condition = conditionalFormats.AddCondition();
+  
+  //conditional format to set duplicate format type
+  condition.FormatType = ExcelCFType.Duplicate;
+  condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
+  
+  //Saves the excel document to MemoryStream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    IWorkbook workbook = application.Workbooks.Create(1);
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Fill worksheet with data
-    worksheet.Range["A1:B1"].Merge();
-    worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
-    worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
-    worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-    worksheet.Range["A1"].Text = "Global Internet Usage";
-    worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
-
-    worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
-    worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
-    worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-
-    worksheet.Range["A3"].Text = "Country";
-    worksheet.Range["A4"].Text = "Northern America";
-    worksheet.Range["A5"].Text = "Central America";
-    worksheet.Range["A6"].Text = "The Caribbean";
-    worksheet.Range["A7"].Text = "South America";
-    worksheet.Range["A8"].Text = "Northern Europe";
-    worksheet.Range["A9"].Text = "Eastern Europe";
-    worksheet.Range["A10"].Text = "Western Europe";
-    worksheet.Range["A11"].Text = "Southern Europe";
-    worksheet.Range["A12"].Text = "Northern Africa";
-    worksheet.Range["A13"].Text = "Eastern Africa";
-    worksheet.Range["A14"].Text = "Middle Africa";
-    worksheet.Range["A15"].Text = "Western Africa";
-    worksheet.Range["A16"].Text = "Southern Africa";
-    worksheet.Range["A17"].Text = "Central Asia";
-    worksheet.Range["A18"].Text = "Eastern Asia";
-    worksheet.Range["A19"].Text = "Southern Asia";
-    worksheet.Range["A20"].Text = "SouthEast Asia";
-    worksheet.Range["A21"].Text = "Oceania";
-    
-    worksheet.Range["B3"].Text = "Usage";
-    worksheet.Range["B4"].Value = "88%";
-    worksheet.Range["B5"].Value = "61%";
-    worksheet.Range["B6"].Value = "49%";
-    worksheet.Range["B7"].Value = "68%";
-    worksheet.Range["B8"].Value = "94%";
-    worksheet.Range["B9"].Value = "74%";
-    worksheet.Range["B10"].Value = "90%";
-    worksheet.Range["B11"].Value = "77%";
-    worksheet.Range["B12"].Value = "49%";
-    worksheet.Range["B13"].Value = "27%";
-    worksheet.Range["B14"].Value = "12%";
-    worksheet.Range["B15"].Value = "39%";
-    worksheet.Range["B16"].Value = "51%";
-    worksheet.Range["B17"].Value = "50%";
-    worksheet.Range["B18"].Value = "58%";
-    worksheet.Range["B19"].Value = "36%";
-    worksheet.Range["B20"].Value = "58%";
-    worksheet.Range["B21"].Value = "69%";
-
-    worksheet.SetColumnWidth(1, 23.45);
-    worksheet.SetColumnWidth(2, 8.09);
-
-    IConditionalFormats conditionalFormats =
-    worksheet.Range["A4:B21"].ConditionalFormats;
-    IConditionalFormat condition = conditionalFormats.AddCondition();
-
-    //conditional format to set duplicate format type
-    condition.FormatType = ExcelCFType.Duplicate;
-    condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
-
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
   
-    stream.Position = 0;
-   
-    //Save the document as file and view the saved document 
-	
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-    }    
+  //Fill worksheet with data
+  worksheet.Range["A1:B1"].Merge();
+  worksheet.Range["A1:B1"].CellStyle.Font.RGBColor = Color.FromArgb(255, 102, 102, 255);
+  worksheet.Range["A1:B1"].CellStyle.Font.Size = 14;
+  worksheet.Range["A1:B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+  worksheet.Range["A1"].Text = "Global Internet Usage";
+  worksheet.Range["A1:B1"].CellStyle.Font.Bold = true;
+  
+  worksheet.Range["A3:B21"].CellStyle.Font.RGBColor = Color.FromArgb(255, 64, 64, 64);
+  worksheet.Range["A3:B3"].CellStyle.Font.Bold = true;
+  worksheet.Range["B3"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+  
+  worksheet.Range["A3"].Text = "Country";
+  worksheet.Range["A4"].Text = "Northern America";
+  worksheet.Range["A5"].Text = "Central America";
+  worksheet.Range["A6"].Text = "The Caribbean";
+  worksheet.Range["A7"].Text = "South America";
+  worksheet.Range["A8"].Text = "Northern Europe";
+  worksheet.Range["A9"].Text = "Eastern Europe";
+  worksheet.Range["A10"].Text = "Western Europe";
+  worksheet.Range["A11"].Text = "Southern Europe";
+  worksheet.Range["A12"].Text = "Northern Africa";
+  worksheet.Range["A13"].Text = "Eastern Africa";
+  worksheet.Range["A14"].Text = "Middle Africa";
+  worksheet.Range["A15"].Text = "Western Africa";
+  worksheet.Range["A16"].Text = "Southern Africa";
+  worksheet.Range["A17"].Text = "Central Asia";
+  worksheet.Range["A18"].Text = "Eastern Asia";
+  worksheet.Range["A19"].Text = "Southern Asia";
+  worksheet.Range["A20"].Text = "SouthEast Asia";
+  worksheet.Range["A21"].Text = "Oceania";
+  
+  worksheet.Range["B3"].Text = "Usage";
+  worksheet.Range["B4"].Value = "88%";
+  worksheet.Range["B5"].Value = "61%";
+  worksheet.Range["B6"].Value = "49%";
+  worksheet.Range["B7"].Value = "68%";
+  worksheet.Range["B8"].Value = "94%";
+  worksheet.Range["B9"].Value = "74%";
+  worksheet.Range["B10"].Value = "90%";
+  worksheet.Range["B11"].Value = "77%";
+  worksheet.Range["B12"].Value = "49%";
+  worksheet.Range["B13"].Value = "27%";
+  worksheet.Range["B14"].Value = "12%";
+  worksheet.Range["B15"].Value = "39%";
+  worksheet.Range["B16"].Value = "51%";
+  worksheet.Range["B17"].Value = "50%";
+  worksheet.Range["B18"].Value = "58%";
+  worksheet.Range["B19"].Value = "36%";
+  worksheet.Range["B20"].Value = "58%";
+  worksheet.Range["B21"].Value = "69%";
+  
+  worksheet.SetColumnWidth(1, 23.45);
+  worksheet.SetColumnWidth(2, 8.09);
+  
+  IConditionalFormats conditionalFormats =
+  worksheet.Range["A4:B21"].ConditionalFormats;
+  IConditionalFormat condition = conditionalFormats.AddCondition();
+  
+  //conditional format to set duplicate format type
+  condition.FormatType = ExcelCFType.Duplicate;
+  condition.BackColorRGB = Color.FromArgb(255, 255, 199, 206);
+  
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  
+  stream.Position = 0;
+  
+  //Save the document as file and view the saved document 	
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }    
 }
 {% endhighlight %}
 {% endtabs %}
@@ -1537,189 +1520,186 @@ The below code example shows how to format top 10 rank values from the given dat
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
-
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
-
-    //Set type as Top for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Top;
-
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 10;
-
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
-
-    //Saves the Excel
-    workbook.SaveAs("TopBottom.xlsx");
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+  
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
+  
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
+  
+  //Set type as Top for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Top;
+  
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 10;
+  
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+  
+  //Saves the Excel
+  workbook.SaveAs("TopBottom.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
-    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-	
-	'Applying conditional formatting to "N6:N35".
-    Dim formats As IConditionalFormats = worksheet.Range("N6:N35").ConditionalFormats
-    Dim format As IConditionalFormat = formats.AddCondition()
-	
-	'Set type as Top for TopBottom rule.
-    format.FormatType = ExcelCFType.TopBottom
-    Dim topBottom As ITopBottom = format.TopBottom
-	
-	'Set rank value for the TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Top
-	
-	'Set rank value for the TopBottom rule.
-    topBottom.Rank = 10
-	
-	'Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102)
-	
-	'Saves the Excel
-    workbook.SaveAs("TopBottom.xlsx")
+  'Applying conditional formatting to "N6:N35".
+  Dim formats As IConditionalFormats = worksheet.Range("N6:N35").ConditionalFormats
+  Dim format As IConditionalFormat = formats.AddCondition()
 
+  'Set type as Top for TopBottom rule.
+  format.FormatType = ExcelCFType.TopBottom
+  Dim topBottom As ITopBottom = format.TopBottom
+
+  'Set rank value for the TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Top
+
+  'Set rank value for the TopBottom rule.
+  topBottom.Rank = 10
+
+  'Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102)
+
+  'Saves the Excel
+  workbook.SaveAs("TopBottom.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    
-	//Instantiates the File Picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile openFile = await openPicker.PickSingleFileAsync();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    //Open the workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
 
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Open the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Set type as Top for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Top;
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
 
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 10;
+  //Set type as Top for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Top;
 
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
-	
-	//Save the workbook
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "TopBottom";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 10;
 
-    //Creates a storage file from FileSavePicker
-    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
 
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(outputStorageFile);
+  //Save the workbook
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "TopBottom";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(outputStorageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
-
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
-
-    //Set type as Top for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Top;
-
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 10;
-
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
-    
-    //Saves the excel document to MemoryStream
-    FileStream stream = new FileStream("TopBottom.xlsx", FileMode.Create, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
+  
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
+  
+  //Set type as Top for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Top;
+  
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 10;
+  
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+  
+  //Saves the excel document to MemoryStream
+  FileStream stream = new FileStream("TopBottom.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
-
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
-
-    //Set type as Top for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Top;
-
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 10;
-
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
-
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
   
-    stream.Position = 0;
-   
-    //Save the document as file and view the saved document 
-	
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
-    }    
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
+  
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
+  
+  //Set type as Top for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Top;
+  
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 10;
+  
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+  
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  
+  stream.Position = 0;
+  
+  //Save the document as file and view the saved document 	
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+  }    
 }
 {% endhighlight %}
 {% endtabs %}
@@ -1740,204 +1720,201 @@ The below code example shows how to format top 50 percentage rank values from th
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
-	
-	//Set type as Bottom for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Bottom;
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
 
-    //Set true to Percent property for TopBottom rule.
-    topBottom.Percent = true;
+  //Set type as Bottom for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Bottom;
 
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 50;
+  //Set true to Percent property for TopBottom rule.
+  topBottom.Percent = true;
 
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 50;
 
-    //Saves the Excel
-    workbook.SaveAs("TopBottom.xlsx");   
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+
+  //Saves the Excel
+  workbook.SaveAs("TopBottom.xlsx");   
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
-    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-	
-	'Applying conditional formatting to "N6:N35".
-    Dim formats As IConditionalFormats = worksheet.Range("N6:N35").ConditionalFormats
-    Dim format As IConditionalFormat = formats.AddCondition()
-	
-	'Set type as Top for TopBottom rule.
-    format.FormatType = ExcelCFType.TopBottom
-    Dim topBottom As ITopBottom = format.TopBottom
-		
-	'Set type as Bottom for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Bottom
+  'Applying conditional formatting to "N6:N35".
+  Dim formats As IConditionalFormats = worksheet.Range("N6:N35").ConditionalFormats
+  Dim format As IConditionalFormat = formats.AddCondition()
 
-    'Set true to Percent property for TopBottom rule.
-    topBottom.Percent = true
+  'Set type as Top for TopBottom rule.
+  format.FormatType = ExcelCFType.TopBottom
+  Dim topBottom As ITopBottom = format.TopBottom
 
-    Set rank value for the TopBottom rule.
-    topBottom.Rank = 50
-	
-	'Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102)
-	
-	'Saves the Excel
-    workbook.SaveAs("TopBottom.xlsx")
+  'Set type as Bottom for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Bottom
 
+  'Set true to Percent property for TopBottom rule.
+  topBottom.Percent = true
+
+  Set rank value for the TopBottom rule.
+  topBottom.Rank = 50
+
+  'Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102)
+
+  'Saves the Excel
+  workbook.SaveAs("TopBottom.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    
-	//Instantiates the File Picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile openFile = await openPicker.PickSingleFileAsync();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
 
-    //Open the workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Open the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
 
-    //Set type as Bottom for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Bottom;
+  //Set type as Bottom for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Bottom;
 
-    //Set true to Percent property for TopBottom rule.
-    topBottom.Percent = true;
+  //Set true to Percent property for TopBottom rule.
+  topBottom.Percent = true;
 
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 50;
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 50;
 
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
-	
-	//Save the workbook
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "TopBottom";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
 
-    //Creates a storage file from FileSavePicker
-    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+  //Save the workbook
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "TopBottom";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
 
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(outputStorageFile);
+  //Creates a storage file from FileSavePicker
+  StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(outputStorageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
 
-    //Set type as Bottom for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Bottom;
+  //Set type as Bottom for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Bottom;
 
-    //Set true to Percent property for TopBottom rule.
-    topBottom.Percent = true;
+  //Set true to Percent property for TopBottom rule.
+  topBottom.Percent = true;
 
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 50;
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 50;
 
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
-    
-    //Saves the excel document to MemoryStream
-    FileStream stream = new FileStream("TopBottom.xlsx", FileMode.Create, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+
+  //Saves the excel document to MemoryStream
+  FileStream stream = new FileStream("TopBottom.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "N6:N35".
-    IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "N6:N35".
+  IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying top or bottom rule in the conditional formatting.
-    format.FormatType = ExcelCFType.TopBottom;
-    ITopBottom topBottom = format.TopBottom;
+  //Applying top or bottom rule in the conditional formatting.
+  format.FormatType = ExcelCFType.TopBottom;
+  ITopBottom topBottom = format.TopBottom;
 
-    //Set type as Bottom for TopBottom rule.
-    topBottom.Type = ExcelCFTopBottomType.Bottom;
+  //Set type as Bottom for TopBottom rule.
+  topBottom.Type = ExcelCFTopBottomType.Bottom;
 
-    //Set true to Percent property for TopBottom rule.
-    topBottom.Percent = true;
+  //Set true to Percent property for TopBottom rule.
+  topBottom.Percent = true;
 
-    //Set rank value for the TopBottom rule.
-    topBottom.Rank = 50;
+  //Set rank value for the TopBottom rule.
+  topBottom.Rank = 50;
 
-    //Set color for Conditional Formattting.
-    format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
+  //Set color for Conditional Formattting.
+  format.BackColorRGB = System.Drawing.Color.FromArgb(51, 153, 102);
 
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-  
-    stream.Position = 0;
-   
-    //Save the document as file and view the saved document 
-	
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
-    }    
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+ 
+  //Save the document as file and view the saved document 	
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TopBottom.xlsx", "application/msexcel", stream);
+  }    
 }
 {% endhighlight %}
 {% endtabs %}
@@ -1969,179 +1946,176 @@ The below code example shows how to format a range with values that are below av
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set AverageType as Below for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+  //Set AverageType as Below for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
 
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
 
-    //Saves the Excel
-    workbook.SaveAs("AboveBelowAverage.xlsx");   
+  //Saves the Excel
+  workbook.SaveAs("AboveBelowAverage.xlsx");   
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
-    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-		
-	'Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  'Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    'Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  'Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    'Set AverageType as Below for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+  'Set AverageType as Below for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
 
-    'Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
-	
-	'Saves the Excel
-    workbook.SaveAs("AboveBelowAverage.xlsx")
+  'Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
 
+  'Saves the Excel
+  workbook.SaveAs("AboveBelowAverage.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    
-	//Instantiates the File Picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile openFile = await openPicker.PickSingleFileAsync();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
 
-    //Open the workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Open the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set AverageType as Below for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+  //Set AverageType as Below for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
 
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
-	
-	//Save the workbook
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "AboveBelowAverage";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
 
-    //Creates a storage file from FileSavePicker
-    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+  //Save the workbook
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "AboveBelowAverage";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
 
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(outputStorageFile);
+  //Creates a storage file from FileSavePicker
+  StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(outputStorageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set AverageType as Below for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+  //Set AverageType as Below for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
 
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
-    
-    //Saves the excel document to MemoryStream
-    FileStream stream = new FileStream("AboveBelowAverage.xlsx", FileMode.Create, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+  //Saves the excel document to MemoryStream
+  FileStream stream = new FileStream("AboveBelowAverage.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set AverageType as Below for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
+  //Set AverageType as Below for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.Below;
 
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
 
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-  
-    stream.Position = 0;
-   
-    //Save the document as file and view the saved document 
-	
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
-    }    
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document 	
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+  }    
 }
 {% endhighlight %}
 {% endtabs %}
@@ -2160,194 +2134,191 @@ The below code example shows how to format a range with values above standard de
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = workbook = application.Workbooks.Open("CFTemplate.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+  //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
 
-    //Set value to StdDevValue property for AboveBelowAverage rule.
-    aboveBelowAverage.StdDevValue = 1;
+  //Set value to StdDevValue property for AboveBelowAverage rule.
+  aboveBelowAverage.StdDevValue = 1;
 
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
 
-    //Saves the Excel
-    workbook.SaveAs("AboveBelowAverage.xlsx");   
+  //Saves the Excel
+  workbook.SaveAs("AboveBelowAverage.xlsx");   
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
-    Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-		
-	'Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
-
-    'Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
-
-    'Set AverageType as AboveStdDev for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev
-
-    'Set value to StdDevValue property for AboveBelowAverage rule.
-    aboveBelowAverage.StdDevValue = 1
-
-    'Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("CFTemplate.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 	
-	'Saves the Excel
-    workbook.SaveAs("AboveBelowAverage.xlsx")
+  'Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
+  'Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+
+  'Set AverageType as AboveStdDev for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev
+
+  'Set value to StdDevValue property for AboveBelowAverage rule.
+  aboveBelowAverage.StdDevValue = 1
+
+  'Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+  'Saves the Excel
+  workbook.SaveAs("AboveBelowAverage.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    
-	//Instantiates the File Picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile openFile = await openPicker.PickSingleFileAsync();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    //Open the workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Open the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);  
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set value to StdDevValue property for AboveBelowAverage rule.
-    aboveBelowAverage.StdDevValue = 1;
+  //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
 
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
-	
-	//Save the workbook
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "AboveBelowAverage";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+  //Set value to StdDevValue property for AboveBelowAverage rule.
+  aboveBelowAverage.StdDevValue = 1;
 
-    //Creates a storage file from FileSavePicker
-    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
 
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(outputStorageFile);
+  //Save the workbook
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "AboveBelowAverage";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() {".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(outputStorageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("CFTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+  //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
 
-    //Set value to StdDevValue property for AboveBelowAverage rule.
-    aboveBelowAverage.StdDevValue = 1;
+  //Set value to StdDevValue property for AboveBelowAverage rule.
+  aboveBelowAverage.StdDevValue = 1;
 
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
-    
-    //Saves the excel document to MemoryStream
-    FileStream stream = new FileStream("AboveBelowAverage.xlsx", FileMode.Create, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+  //Saves the excel document to MemoryStream
+  FileStream stream = new FileStream("AboveBelowAverage.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.CFTemplate.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Applying conditional formatting to "M6:M35"
-    IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
-    IConditionalFormat format = formats.AddCondition();
+  //Applying conditional formatting to "M6:M35"
+  IConditionalFormats formats = worksheet.Range["M6:M35"].ConditionalFormats;
+  IConditionalFormat format = formats.AddCondition();
 
-    //Applying above or below average rule in the conditional formatting
-    format.FormatType = ExcelCFType.AboveBelowAverage;
-    IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
+  //Applying above or below average rule in the conditional formatting
+  format.FormatType = ExcelCFType.AboveBelowAverage;
+  IAboveBelowAverage aboveBelowAverage = format.AboveBelowAverage;
 
-    //Set AverageType as AboveStdDev for AboveBelowAverage rule.
-    aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
+  //Set AverageType as AboveStdDev for AboveBelowAverage rule.
+  aboveBelowAverage.AverageType = ExcelCFAverageType.AboveStdDev;
 
-    //Set value to StdDevValue property for AboveBelowAverage rule.
-    aboveBelowAverage.StdDevValue = 1;
-	
-    //Set color for Conditional Formattting.
-    format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
-    format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+  //Set value to StdDevValue property for AboveBelowAverage rule.
+  aboveBelowAverage.StdDevValue = 1;
 
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-  
-    stream.Position = 0;
-   
-    //Save the document as file and view the saved document 
-	
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
-    }    
+  //Set color for Conditional Formattting.
+  format.FontColorRGB = System.Drawing.Color.FromArgb(255, 255, 255);
+  format.BackColorRGB = System.Drawing.Color.FromArgb(166, 59, 38);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document 
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.   
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AboveBelowAverage.xlsx", "application/msexcel", stream);
+  }    
 }
 {% endhighlight %}
 {% endtabs %}
@@ -2720,7 +2691,6 @@ iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
 iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -2750,9 +2720,6 @@ iconValue3.Index = 0
 iconValue3.Type = ConditionValueType.Percent
 iconValue3.Value = "75"
 iconValue3.Operator = ConditionalFormatOperator.GreaterThan
-
-
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -2783,7 +2750,6 @@ iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
 iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -2814,7 +2780,6 @@ iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
 iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -2845,7 +2810,6 @@ iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
 iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -3210,16 +3174,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ConditionalFormatting.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
