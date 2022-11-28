@@ -226,7 +226,7 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
 
    {% endtabs %}
 
-   A complete working demo can be downloaded from [Github](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTML-to-PDF-Demo-1725937239). By executing the program, you will get the PDF document as follows.
+   A complete working demo can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/.NET). By executing the program, you will get the PDF document as follows.
 
    <img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="htmltopdfoutput" width="100%" Height="Auto"/>
 
