@@ -229,6 +229,7 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
    By executing the program, you will get the PDF document as follows.
    <img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="htmltopdfoutput" width="100%" Height="Auto"/>
 
+   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/.NET).
 
 ### Convert HTML to PDF in Linux
 
