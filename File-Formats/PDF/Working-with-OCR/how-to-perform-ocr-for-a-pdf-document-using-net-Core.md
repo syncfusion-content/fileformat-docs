@@ -1,30 +1,30 @@
 ---
 title: How to perform OCR on a PDF document using ASP.Net Core | Syncfusion
-description: This section explains how to perform OCR on a entire PDF document using syncfusion .NET Core PDF library.
+description: This section explains how to perform OCR on an entire PDF document using the Syncfusion .NET Core PDF library. 
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# How to perform OCR on a PDF document using ASP.NET Core
+# How to Perform OCR on a PDF Document Using ASP.NET Core
 
-Optical Character Recognition (OCR) is a technology used to convert scanned paper document, in the form of PDF files or images, into searchable, editable data. 
+Optical Character Recognition (OCR) is a technology that converts scanned paper documents from PDF files or images into searchable and editable data.
 
-The [Syncfusion OCR processor library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) has extended support to process OCR on scanned PDF documents and other scanned images in .NET Core platform with the help of [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine. 
+The [Syncfusion OCR processor library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) has extended support to process OCR on scanned PDF documents and other scanned images in the .NET Core platform with the help of the [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine. 
 
-## Steps to perform OCR on particular region of a PDF programmatically: 
+## Steps to perform OCR on a PDF document programmatically
 
 1.Create a new C# ASP.NET Core Web application project. 
  <img src="OCR-Images/Core_sample_creation_step1.png" alt=".NET Core sample creation step1" width="100%" Height="Auto"/> 
 
-2.In project configuration window, name your project and select Next.
+2.In the project configuration window, name your project and select <b>Next</b>.
  <img src="OCR-Images/Core_sample_creation_step2.png" alt=".NET Core sample creation step2" width="100%" Height="Auto"/> 
  <img src="OCR-Images/Core_sample_creation_step3.png" alt=".NET Core sample creation step3" width="100%" Height="Auto"/> 
 
 3.Install the [Syncfusion.PDF.OCR.Net.Core](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core/) NuGet package as a reference to your .NET Standard application from [nuget.org](https://www.nuget.org/).  
  <img src="OCR-Images/Core_sample_creation_step4.png" alt="Installation of .NET Core NuGet package" width="100%" Height="Auto"/> 
 
-4.Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies are passed as a parameter to the OCR processor.
+4.Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies is passed as a parameter to the OCR processor.
 {% tabs %}  
 
 {% highlight c# tabtitle="C#" %}
@@ -35,7 +35,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
 
 {% endtabs %}  
 
-5.Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the following link to download OCR language data for other languages.
+5.Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link, 
 https://github.com/tesseract-ocr/tessdata 
 
 {% tabs %}  
@@ -49,7 +49,7 @@ processor.PerformOCR(loadedDocument, "tessdata/");
 
 {% endtabs %}  
 
-6.A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go to View where you will be directed to its associated view page Index.cshtml.
+6.A default action method named Index will be present in HomeController.cs. Right-click on Index method and select <b>Go to View</b>, where you will be directed to its associated view page Index.cshtml.
 7.Add a new button in the Index.cshtml as shown below.
 
 {% highlight c# tabtitle="C#" %}
@@ -65,7 +65,7 @@ processor.PerformOCR(loadedDocument, "tessdata/");
 
 {% endhighlight %}
 
-8.A default controller with name HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
+8.A default controller with name HomeController.cs is added to the creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 {% tabs %}  
 
 {% highlight c# tabtitle="C#" %}
