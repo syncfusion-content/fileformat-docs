@@ -99,5 +99,5 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
        <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Linux Step5" width="100%" Height="Auto"/> 
 
 
-    A complete work sample for converting an HTML to PDF in the Linux framework can be downloaded from [Github]()
+   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Linux)
   
