@@ -158,4 +158,4 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
     Click the Export to PDF button, and you will get the PDF document with the following output.
     <img src="htmlconversion_images/htmltopdfoutput.png" alt="HTMLTOPDF" width="100%" Height="Auto"/>
 
-    A complete work sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Blazor)
+    A complete work sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Blazor).
