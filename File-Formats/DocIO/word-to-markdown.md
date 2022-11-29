@@ -8,13 +8,13 @@ documentation: UG
 
 # Word to Markdown Conversion
 
-Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. The .NET Word (DocIO) library supports conversion of Word document to Markdown file, which mostly follows the CommonMark specification and GitHub flavored syntax.
+Markdown is a lightweight markup language that adds formatting elements to plaintext text documents. The .NET Word (DocIO) library supports the conversion of a Word document to a Markdown file, which mostly follows the CommonMark specification and GitHub-flavored syntax.
 
 ## Convert Word to Markdown
 
-You can convert an existing Word document or document that is created from scratch into Markdown file using the .NET Word (DocIO) library.
+Convert an existing Word document or document that is created from scratch into a Markdown file using the .NET Word (DocIO) library.
 
-The following code example shows how to convert Word document to Markdown:
+The following code example shows how to convert a Word document to a Markdown.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -41,14 +41,14 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Save as Markdown file into MemoryStream.
+        //Save as a Markdown file into the MemoryStream.
         MemoryStream stream = new MemoryStream();
         await document.SaveAsync(stream, FormatType.Markdown);
         //Save the stream as a Markdown file in the local machine.
         Save(stream, "WordtoMd.md");
     }
 }
-//Saves the Word document
+//Saves a Word document.
 async void Save(MemoryStream streams, string filename)
 {
     streams.Position = 0;
@@ -70,7 +70,7 @@ async void Save(MemoryStream streams, string filename)
     {
         using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
         {
-            //Write compressed data from memory to file
+            //Write the compressed data from the memory to a file.
             using (Stream outstream = zipStream.AsStreamForWrite())
             {
                 byte[] buffer = streams.ToArray();
@@ -79,7 +79,7 @@ async void Save(MemoryStream streams, string filename)
             }
         }
     }
-    //Launch the saved Word file
+    //Launch the saved Word file.
     await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 {% endhighlight %}
@@ -91,30 +91,30 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Save as Markdown file into the MemoryStream.
+        //Save as a Markdown file into the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Markdown);
         outputStream.Position = 0;
-        //Download Markdown file in the browser.
+        //Download the Markdown file in the browser.
         return File(outputStream, "application/msword", "WordToMd.md");
     }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
     {
-        //Save as Markdown file into the MemoryStream.
+        //Save as a Markdown file into the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Markdown);
         //Save the stream as a file in the device and invoke it for viewing. 
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordtoMd.md", "application/msword", outputStream);
     }
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
@@ -139,7 +139,7 @@ The following table illustrates the supported Markdown elements in Word to Markd
 <tr>
 <td style="width: 182.986px;">Headings</td>
 <td style="width: 557.014px;">
-<p>Apply heading style for paragraphs. DocIO supports to convert 6 level of headings from Word document to its equivalent headings syntax in Markdown.</p>
+<p>Apply heading style for paragraphs. DocIO supports converting 6 levels of headings from a Word document to their equivalent headings' syntax in Markdown.</p>
 <p>Heading style paragraph. &nbsp;</p>
 6 level headings only supported in Markdown.</td>
 </tr>
@@ -173,50 +173,50 @@ The following table illustrates the supported Markdown elements in Word to Markd
 </tr>
 <tr>
 <td style="width: 182.986px;">Task items</td>
-<td style="width: 557.014px;">Set checkbox content control as first item of paragraph.</td>
+<td style="width: 557.014px;">Set checkbox content control as the first item of the paragraph.</td>
 </tr>
 </tbody>
 </table>
 
 ## Create Markdown elements
 
-You can create all the supported Markdown elements in Word document using .NET Word (DocIO) library and then save the Word document as Markdown file.
+Create all the supported Markdown elements in a Word document using the .NET Word (DocIO) library, then save a Word document as a Markdown file.
 
 ### Code blocks
 
 The Essential DocIO supports two types of code blocks in Word to Markdown conversion. 
 
-* Indented code block: Set the paragraph style as “IndentedCode”.
-* Fenced code block: Set the paragraph style as “FencedCode”.
+* Indented code block: Set the paragraph style as “IndentedCode.”
+* Fenced code block: Set the paragraph style as “FencedCode.”
 
-The following code example shows how to create code blocks in Word document using DocIO.
+The following code example shows how to create code blocks in a Word document using DocIO.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Append text to paragraph.
+    //Append text to the paragraph.
     IWTextRange textRange = paragraph.AppendText("Fenced Code");
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as FencedCode.
+    //Create a user-defined style as FencedCode.
     IWParagraphStyle style = document.AddParagraphStyle("FencedCode");
-    //Apply FencedCode style for paragraph.
+    //Apply FencedCode style for the paragraph.
     paragraph.ApplyStyle("FencedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n{\n\tStatic void Main()\n\t{\n\t\tConsole.WriteLine(\"Fenced Code\")\n\t}\n}");
-    //Add new paragraph and append text to paragraph.
+    //Add a new paragraph and append text to the paragraph.
     section.AddParagraph().AppendText("Indented Code");
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as IndentedCode.
+    //Create a user-defined style as IndentedCode.
     style = document.AddParagraphStyle("IndentedCode");
-    //Apply IndentedCode style for paragraph.
+    //Apply IndentedCode style for the paragraph.
     paragraph.ApplyStyle("IndentedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
@@ -228,27 +228,27 @@ using (WordDocument document = new WordDocument())
 {% highlight vb.net tabtitle="VB.NET" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
-    'Add new section to the document.
+    'Add a new section to the document.
     Dim section As IWSection = document.AddSection()
-    'Add new paragraph to the section
+    'Add a new paragraph to the section.
     Dim paragraph As IWParagraph = section.AddParagraph()
-    'Append text to paragraph.
+    'Append text to the paragraph.
     Dim textRange As IWTextRange = paragraph.AppendText("Fenced Code")
-    'Add new paragraph to the section
+    'Add a new paragraph to the section.
     paragraph = section.AddParagraph()
-    'Create user defined style as FencedCode.
+    'Create a user-defined style as FencedCode.
     Dim style As IWParagraphStyle = document.AddParagraphStyle("FencedCode")
-    'Apply FencedCode style for paragraph.
+    'Apply FencedCode style for the paragraph.
     paragraph.ApplyStyle("FencedCode")
     'Append text.
     textRange = paragraph.AppendText("class Hello" & vbLf & "{" & vbLf & vbTab & "Static void Main()" & vbLf & vbTab & "{" & vbLf & vbTab & vbTab & "Console.WriteLine(""Fenced Code"")" & vbLf & vbTab & "}" & vbLf & "}")
-    'Add new paragraph and append text to paragraph.
+    'Add a new paragraph and append text to the paragraph.
     section.AddParagraph().AppendText("Indented Code")
-    'Add new paragraph to the section
+    'Add a new paragraph to the section.
     paragraph = section.AddParagraph()
-    'Create user defined style as IndentedCode.
+    'Create a user-defined style as IndentedCode.
     style = document.AddParagraphStyle("IndentedCode")
-    'Apply IndentedCode style for paragraph.
+    'Apply IndentedCode style for the paragraph.
     paragraph.ApplyStyle("IndentedCode")
     'Append text.
     textRange = paragraph.AppendText("class Hello" & vbLf & vbTab & "{" & vbLf & vbTab & vbTab & "Static void Main()" & vbLf & vbTab & vbTab & "{" & vbLf & vbTab & vbTab & vbTab & "Console.WriteLine(""Indented Code"")" & vbLf & vbTab & vbTab & "}" & vbLf & vbTab & "}")
@@ -261,34 +261,34 @@ End Using
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Append text to paragraph.
+    //Append text to the paragraph.
     IWTextRange textRange = paragraph.AppendText("Fenced Code");
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as FencedCode.
+    //Create a user-defined style as FencedCode..
     IWParagraphStyle style = document.AddParagraphStyle("FencedCode");
-    //Apply FencedCode style for paragraph.
+    //Apply FencedCode style for the paragraph.
     paragraph.ApplyStyle("FencedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n{\n\tStatic void Main()\n\t{\n\t\tConsole.WriteLine(\"Fenced Code\")\n\t}\n}");
-    //Add new paragraph and append text to paragraph.
+    //Add a new paragraph and append text to the paragraph.
     section.AddParagraph().AppendText("Indented Code");
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as IndentedCode.
+    //Create a user-defined style as IndentedCode.
     style = document.AddParagraphStyle("IndentedCode");
-    //Apply IndentedCode style for paragraph.
+    //Apply IndentedCode style for the paragraph.
     paragraph.ApplyStyle("IndentedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
     //Save the document as a Markdown file.
     Save(stream, "WordtoMd.md");
 }
-//Please refer the below link to save Word document in UWP platform
+//Please refer to the following link to save a Word document in the UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -298,29 +298,29 @@ using (WordDocument document = new WordDocument())
 {
     //Add new section to the document.
     IWSection section = document.AddSection();
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Append text to paragraph.
+    //Append text to the paragraph.
     IWTextRange textRange = paragraph.AppendText("Fenced Code");
-    //Add new paragraph to the section
+    /Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as FencedCode.
+    //Create a user-defined style as FencedCode.
     IWParagraphStyle style = document.AddParagraphStyle("FencedCode");
-    //Apply FencedCode style for paragraph.
+    /Apply FencedCode style for the paragraph.
     paragraph.ApplyStyle("FencedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n{\n\tStatic void Main()\n\t{\n\t\tConsole.WriteLine(\"Fenced Code\")\n\t}\n}");
-    //Add new paragraph and append text to paragraph.
+    //Add a new paragraph and append text to the paragraph.
     section.AddParagraph().AppendText("Indented Code");
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as IndentedCode.
+    //Create a user-defined style as IndentedCode.
     style = document.AddParagraphStyle("IndentedCode");
-    //Apply IndentedCode style for paragraph.
+    //Apply IndentedCode style for the paragraph.
     paragraph.ApplyStyle("IndentedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
-    //Save as Markdown file into the MemoryStream.
+    //Save as a Markdown file into the MemoryStream.
     MemoryStream outputStream = new MemoryStream();
     document.Save(outputStream, FormatType.Markdown);
     outputStream.Position = 0;
@@ -332,56 +332,56 @@ using (WordDocument document = new WordDocument())
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Append text to paragraph.
+    //Append text to the paragraph.
     IWTextRange textRange = paragraph.AppendText("Fenced Code");
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as FencedCode.
+    //Create a user-defined style as FencedCode.
     IWParagraphStyle style = document.AddParagraphStyle("FencedCode");
-    //Apply FencedCode style for paragraph.
+    //Apply FencedCode style for the paragraph.
     paragraph.ApplyStyle("FencedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n{\n\tStatic void Main()\n\t{\n\t\tConsole.WriteLine(\"Fenced Code\")\n\t}\n}");
-    //Add new paragraph and append text to paragraph.
+    //Add a new paragraph and append text to the paragraph.
     section.AddParagraph().AppendText("Indented Code");
-    //Add new paragraph to the section
+    //Add a new paragraph to the section.
     paragraph = section.AddParagraph();
-    //Create user defined style as IndentedCode.
+    //Create a user-defined style as IndentedCode.
     style = document.AddParagraphStyle("IndentedCode");
-    //Apply IndentedCode style for paragraph.
+    //Apply IndentedCode style for the paragraph.
     paragraph.ApplyStyle("IndentedCode");
     //Append text.
     textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
     //Save the document as a Markdown file.
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToMd.md", "application/msword", stream);
 }
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
 
 ### Block quotes
 
-You can create block quotes in Word document by applying “Quote” paragraph style to the paragraphs.
+Create block quotes in a Word document by applying the “Quote” paragraph style to the paragraphs.
 
-The following code example shows how to create block quotes in Word document.
+The following code example shows how to create block quotes in a Word document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Create user defined style.
+    //Create a user-defined style.
     IWParagraphStyle style = document.AddParagraphStyle("Quote");
-    //Adds new paragraph to section.
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Applying Quote style to simple hello world text.
+    //Apply Quote style to simple hello world text.
     paragraph.ApplyStyle("Quote");
     //Append text.
     IWTextRange textRange = paragraph.AppendText("Hello World");
@@ -392,13 +392,13 @@ using (WordDocument document = new WordDocument())
 {% highlight vb.net tabtitle="VB.NET" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
-    'Add new section to the document.
+    'Add a new section to the document.
     Dim section As IWSection = document.AddSection()
-    'Create user defined style.
+    'Create a user-defined style.
     Dim style As IWParagraphStyle = document.AddParagraphStyle("Quote")
-    'Adds new paragraph to section.
+    'Add a new paragraph to the section.
     Dim paragraph As IWParagraph = section.AddParagraph()
-    'Applying Quote style to simple hello world text.
+    'Apply Quote style to simple hello world text.
     paragraph.ApplyStyle("Quote")
     'Append text.
     Dim textRange As IWTextRange = paragraph.AppendText("Hello World")
@@ -410,20 +410,20 @@ End Using
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Create user defined style.
+    //Create a user-defined style.
     IWParagraphStyle style = document.AddParagraphStyle("Quote");
-    //Adds new paragraph to section.
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Applying Quote style to simple hello world text.
+    //Apply Quote style to simple hello world text.
     paragraph.ApplyStyle("Quote");
     //Append text.
     IWTextRange textRange = paragraph.AppendText("Hello World");
     //Save the document as a Markdown file.
     Save(stream, "WordtoMd.md");
 }
-//Please refer the below link to save Word document in UWP platform
+//Please refer to the following link to save a Word document in the UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -431,13 +431,13 @@ using (WordDocument document = new WordDocument())
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Create user defined style.
+    //Create a user-defined style.
     IWParagraphStyle style = document.AddParagraphStyle("Quote");
-    //Adds new paragraph to section.
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Applying Quote style to simple hello world text.
+    //Apply Quote style to simple hello world text.
     paragraph.ApplyStyle("Quote");
     //Append text.
     IWTextRange textRange = paragraph.AppendText("Hello World");
@@ -450,42 +450,42 @@ using (WordDocument document = new WordDocument())
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Create user defined style.
+    //Create a user-defined style.
     IWParagraphStyle style = document.AddParagraphStyle("Quote");
-    //Adds new paragraph to section.
+    //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
-    //Applying Quote style to simple hello world text.
+    //Apply Quote style to a simple hello world text.
     paragraph.ApplyStyle("Quote");
     //Append text.
     IWTextRange textRange = paragraph.AppendText("Hello World");
-    //Save the Word document to MemoryStream.
+    //Save a Word document to the MemoryStream.
     MemoryStream outputStream = new MemoryStream();
     document.Save(outputStream, FormatType.Markdown);
     //Save the stream as a file in the device and invoke it for viewing.
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToMd.md", "application/msword", outputStream);
 }
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %}
 
-N> Nested block quotes are not supported in Word to Markdown conversion. To preserve nested block quotes, add the number of “>” characters at the beginning of paragraph in Word document as equivalent to nth nested level of block quote. For example, to insert 2nd nested level block quote, add two “>” characters at the start of sentence and not need to apply “Quote” style to the paragraph.
+N> Nested block quotes are not supported in a Word to the Markdown conversion. To preserve nested block quotes, add the number of “>” characters at the beginning of the paragraph in a Word document as equivalent to the nth nested level of the block quote. For example, to insert the 2nd nested level block quote, add two “>” characters at the start of the sentence, and no need to apply the “Quote” style to the paragraph.
 
 ## Customize image saving
 
-When converting Word document to Markdown using Save(fileName) overloads, DocIO creates a new folder parallel to the output file name and exports all the images into it as default.
+When converting a Word document to a Markdown using the Save(fileName) overloads, DocIO creates a new folder parallel to the output file name and exports all the images into it as default.
 
-When converting Word document to Markdown using Save(Stream, FormatType) overloads, DocIO preserves the images as base64 format in output Markdown file as default.
+When converting a Word document to a Markdown using the Save(Stream, FormatType) overloads, DocIO preserves the images as base64 format in the output Markdown file as default.
 
-You can also customize the above default behaviours using below options in DocIO.
+Also, customize the above default behaviors using the following options in DocIO.
 
 ### Export images to folder
 
-You can specify the folder location to export the images using MarkdownExportImagesFolder API.
+Specify the folder location to export the images using the MarkdownExportImagesFolder API.
 
-The following code example illustrates how set images folder to export the images while converting Word document to Markdown file.
+The following code example illustrates how set the images folder to export the images while converting a Word document to a Markdown file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -494,7 +494,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
     //Set images folder to export images. 
     document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
-    //Save the Word document as a Markdown file.
+    //Save a Word document as a Markdown file.
     document.Save("WordtoMd.md", FormatType.Markdown);
 }
 {% endhighlight %}
@@ -504,13 +504,13 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 'Set images folder to export images. 
 document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
-'Save the document as a Markdown file.
+'Save a document as a Markdown file.
 document.Save("WordtoMd.md", FormatType.Markdown)
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//DocIO doesn’t supports MarkdownExportImagesFolder API in UWP and Xamarin platforms
+//DocIO doesn’t support the MarkdownExportImagesFolder API in UWP and Xamarin platforms.
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -534,15 +534,15 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//DocIO doesn’t supports MarkdownExportImagesFolder API in UWP and Xamarin platforms
+//DocIO doesn’t support the MarkdownExportImagesFolder API in UWP and Xamarin platforms.
 {% endhighlight %}
 {% endtabs %}
 
 ### Customize the image path
 
-DocIO provides an ImageNodeVisited event, which is used to customize the image path to set in output Markdown file and save images externally while converting Word document to Markdown.
+DocIO provides an ImageNodeVisited event, which is used to customize the image path to set in the output Markdown file and save images externally while converting a Word document to a Markdown.
 
-The following code example illustrates how to save Image files during Word to Markdown Conversion.
+The following code example illustrates how to save Image files during a Word to Markdown Conversion.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -551,18 +551,18 @@ using (WordDocument document = new WordDocument(@"Input.docx"))
 {
     //Hook the event to customize the image. 
     document.SaveOptions.ImageNodeVisited += SaveImage;
-    //Save the Word document as a Markdown file.
+    //Save a Word document as a Markdown file.
     document.Save("WordtoMd.md", FormatType.Markdown);
 }
-The following code examples shows the event handler to customize the image path and save the image in external folder.
+The following code examples show the event handler to customize the image path and save the image in an external folder.
 
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
             string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as file. 
+            //Save the image stream as a file. 
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);
-            // Set the image uri to be used in output markdown.
+            //Set the image URI to be used in the output markdown.
             args.Uri = imagepath;
         }
 {% endhighlight %}
@@ -572,23 +572,23 @@ static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
 Using document As WordDocument = New WordDocument("Input.docx")
  'Hook the event to customize the image. 
 document.SaveOptions.ImageNodeVisited += SaveImage
- 'Save the Word document as a Markdown file.
+ 'Save a Word document as a Markdown file.
 document.Save("WordtoMd.md", FormatType.Markdown)
 End Using
 
 Private Shared Sub SaveImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
 Dim imagepath = "D:\Temp\Image1.png"
- 'Save the image stream as file. 
+ 'Save the image stream as a file. 
 Using fileStreamOutput = File.Create(imagepath)
    args.ImageStream.CopyTo(fileStreamOutput)
 End Using
-'Set the uri to be used for image in output markdown. 
+'Set the URI to be used for the image in the output markdown. 
    args.Uri = imagepath
 End Sub
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -596,22 +596,22 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Hook the event to customize the image. 
         document.SaveOptions.ImageNodeVisited += SaveImage;
-        //Save a Markdown file to MemoryStream.
+        //Save a Markdown file to the MemoryStream.
         MemoryStream stream = new MemoryStream();
         await document.SaveAsync(stream, FormatType.Markdown);
         //Save the stream as a Markdown file in the local machine.
         Save(stream, "WordtoMd.md");
     }
-//Please refer the below link to save Markdown file in UWP platform
+//Please refer to the following link to save the Markdown file in the UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
             string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as file. 
+            //Save the image stream as a file.
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the uri to be used for image in output markdown. 
+            //Set the URI to be used for the image in the output markdown. 
             args.Uri = imagepath;
         }
 {% endhighlight %}
@@ -639,16 +639,16 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
             string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as file. 
+            //Save the image stream as a file.
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the uri to be used for image in output Markdown. 
+            //Set the URI to be used for the image in the output Markdown. 
             args.Uri = imagepath;
         }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -662,16 +662,16 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Save the stream as a file in the device and invoke it for viewing. 
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordtoMd.md", "application/msword", outputStream);
     }
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
             string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as file. 
+            //Save the image stream as a file. 
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the uri to be used for image in output markdown. 
+            //Set the URI to be used for the image in the output markdown. 
             args.Uri = imagepath;
         }
 {% endhighlight %}
@@ -707,7 +707,7 @@ The following table shows the list of Word document elements supported in Word t
 </tr>
 <tr style="height: 13px;">
 <td style="width: 182.986px; height: 13px;">Block Content Control</td>
-<td style="width: 557.014px; height: 13px;">Contents inside control controls are preserved as normal text. If first item of paragraph is checkbox content control, then it preserves as task item.</td>
+<td style="width: 557.014px; height: 13px;">Contents inside control controls are preserved as normal text. If the first item of the paragraph is a checkbox content control, then it preserves as a task item.</td>
 </tr>
 </tbody>
 </table>
@@ -746,7 +746,7 @@ The following table shows the list of Word document elements supported in Word t
 <td style="width: 262.889px; height: 13px;">Content Control</td>
 <td style="width: 479.111px; height: 13px;">
 <p>Contents inside control controls are preserved as normal text.</p>
-<p>If first item of paragraph is checkbox content control, then it preserves as task item.</p>
+<p>If the first item of the paragraph is checkbox content control, then it preserves as a task item.</p>
 </td>
 </tr>
 <tr style="height: 13.6667px;">
@@ -790,7 +790,7 @@ The following table shows the list of Word document elements supported in Word t
 <td style="width: 318.625px;">List</td>
 <td style="width: 424.375px;">
 <p>Numbered and bulleted lists are supported.</p>
-<p>To restart numbering for the continuous list in output markdown syntax, you should specify non-empty paragraph in between the two list in the Word document.</p>
+<p>To restart numbering for the continuous list in the output markdown syntax, you should specify a non-empty paragraph in between the two lists in a Word document.</p>
 </td>
 </tr>
 </tbody>
