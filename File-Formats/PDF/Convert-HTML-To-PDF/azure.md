@@ -401,6 +401,5 @@ A complete work sample can be downloaded from [Github](https://github.com/Syncfu
 2. After creating the profile, click the Publish button.
      <img src="htmlconversion_images/AzureFunctions5.png" alt="Convert HTMLToPDF Azure Functions Step5" width="100%" Height="Auto"/> 
 3. Now, go to the Azure portal and select the App Services. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get the PDF document as follows.
-Example:[https://htmltopdfconvert.azurewebsites.net/api/Function1?code=tDSUOHPn1buOQXvUatt0BQl4TdpMwlfcBG9WaUK48pFGAzFu8BAIZQ==&url=https://www.syncfusion.com](https://htmltopdfconvert.azurewebsites.net/api/Function1?code=tDSUOHPn1buOQXvUatt0BQl4TdpMwlfcBG9WaUK48pFGAzFu8BAIZQ==&url=https://www.syncfusion.com)
       <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Azure Functions Step6" width="100%" Height="Auto"/> 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/HtmlToPdfBlinkAzureFunction)
