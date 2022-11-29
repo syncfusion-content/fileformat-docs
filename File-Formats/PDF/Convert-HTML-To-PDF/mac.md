@@ -73,7 +73,9 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 8. Right click the project and select Build.
      <img src="htmlconversion_images/mac_step5.png" alt="Mac_step5" width="100%" Height="Auto"/>
 
-9. After Build succeeded. Run the application.
+`Note: After Build succeeds unzip the chromium.app file (bin -> Debug ->net6.0 -> BlinkBinariesMac -> Chromium.app).`
+
+9.Run the application.
      <img src="htmlconversion_images/mac_step6.png" alt="Mac_step6" width="100%" Height="Auto"/>
 
    By executing the program, you will get the PDF document as follows.
