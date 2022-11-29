@@ -115,7 +115,7 @@ return fileStreamResult;
 
 {% endtabs %} 
 
-A complete working sample can be downloaded from [GitHub]().
+A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET%20Core).
 
 By executing the program, you will get the text file (contains extracted text) as follows. 
 ![output pdf](OCR-images/OCR-output-image.png)
