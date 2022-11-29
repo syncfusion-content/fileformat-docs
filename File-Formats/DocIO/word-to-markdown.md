@@ -8,8 +8,6 @@ documentation: UG
 
 # Word to Markdown Conversion
 
-## Markdown
-
 Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. The .NET Word (DocIO) library supports conversion of Word document to Markdown file, which mostly follows the CommonMark specification and GitHub flavored syntax.
 
 ## Convert Word to Markdown
@@ -124,7 +122,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 ## Supported Markdown elements
 
-The following table illustrates the supported Markdown elements in .NET Word (DocIO) library and how to set that Markdown elements in Word document.
+The following table illustrates the supported Markdown elements in Word to Markdown conversion and how to set that Markdown elements in input Word document.
 
 <table style="width: 760px;">
 <thead>
@@ -681,7 +679,7 @@ static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
 
 ## Supported Word document elements
 
-The following table shows the list of supported elements while converting from Word document to Markdown.
+The following table shows the list of Word document elements supported in Word to Markdown conversion.
 
 ### Body items
 
