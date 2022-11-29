@@ -155,6 +155,7 @@ private void InstallDependecies(string shellFilePath)
 
    Now, the published webpage will open in the browser. Click Export to PDF button to convert Syncfusion webpage to PDF document.
      <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Azure NetCore Step12" width="100%" Height="Auto"/> 
+A complete work sample for converting an HTML to PDF in Azure App service on Linux can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/AzureAppLinux_CoreSample)
 
 ## Azure App Service Linux with docker
 
@@ -259,6 +260,7 @@ private void InstallDependecies(string shellFilePath)
 
 6. Click the button to convert Syncfusion webpage to a PDF document. You will get the PDF document as follows. 
      <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Azure Docker Output" width="100%" Height="Auto"/> 
+A complete work sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/BlinkLinuxDockerAzureSample)
 
 ## Azure App Function Linux
 
@@ -399,4 +401,5 @@ private void InstallDependecies(string shellFilePath)
 2. After creating the profile, click the Publish button.
      <img src="htmlconversion_images/AzureFunctions5.png" alt="Convert HTMLToPDF Azure Functions Step5" width="100%" Height="Auto"/> 
 3. Now, go to the Azure portal and select the App Services. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get the PDF document as follows.
-     <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Azure Functions Step6" width="100%" Height="Auto"/> 
+      <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Azure Functions Step6" width="100%" Height="Auto"/> 
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/HtmlToPdfBlinkAzureFunction)
