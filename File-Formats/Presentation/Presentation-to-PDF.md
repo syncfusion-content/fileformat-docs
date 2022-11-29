@@ -1258,6 +1258,57 @@ pdfDoc.Close()
 
 {% endtabs %}
 
+## Recreate Nested Metafile
+
+This setting allows you to regenerate the nested EMF images in the PowerPoint presentation document during PDF conversion.
+This property is recommended to resolve the scaling problem of the nested metafile images by regenerating the nested metafile images present in the PowerPoint presentation document.
+
+The following code sample shows how to use this property to regenerate the nested EMF images in the PowerPoint presentation document during PDF conversion.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Open a PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
+{
+    //Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
+    pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+    //Initialize the conversion settings.
+    PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+    //Set the RecreateNestedMetafile property to true to recreate the nested metafile automatically.          
+    pdfConverterSettings.RecreateNestedMetafile = true;
+    //Convert the PowerPoint Presentation into a PDF document.
+    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
+    {
+        //Save a PDF document.
+        pdfDocument.Save("Sample.pdf");
+    }
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Open a PowerPoint Presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+    'Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
+    pptxDoc.ChartToImageConverter = New ChartToImageConverter()
+    'Initialize the conversion settings.
+    Dim pdfConverterSettings As PresentationToPdfConverterSettings = New PresentationToPdfConverterSettings()
+    'Set the RecreateNestedMetafile property to true to recreate the nested metafile automatically.
+    pdfConverterSettings.RecreateNestedMetafile = True
+    'Convert the PowerPoint Presentation into a PDF document.
+    Using pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+        'Save a PDF document.
+        pdfDocument.Save("Sample.pdf")
+    End Using
+End Using
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## PDF Conformance
 
 Essential Presentation currently supports following PDF conformances while converting a PowerPoint document to PDF.
