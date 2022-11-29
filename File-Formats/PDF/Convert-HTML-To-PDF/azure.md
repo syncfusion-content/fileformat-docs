@@ -49,38 +49,7 @@ There are two ways to install the dependency packages to Azure server,
 2. Set Copy to Output Directory as "Copy if newer" to the dependenciesInstall.sh file.
      <img src="htmlconversion_images/AzureNetCore6.png" alt="Convert HTMLToPDF Azure NetCore Step6" width="100%" Height="Auto"/> 
 
-3. Include the following code snippet to install the dependencies code in Configure method in startup.cs file.
-
-   {% highlight c# tabtitle="C#" %}
-
-   //Install the dependencies packages for HTML to PDF conversion in Linux
-   string shellFilePath = System.IO.Path.Combine(env.ContentRootPath, "dependenciesInstall.sh");
-   InstallDependecies(shellFilePath);
-
-   {% endhighlight %}
-
-   {% highlight c# tabtitle="C#" %}
-
-   // [C# Code]
-private void InstallDependecies(string shellFilePath) 
-{
-      Process process = new Process
-      {
-            StartInfo = new ProcessStartInfo
-            {
-                  FileName = "/bin/bash",
-                  Arguments = "-c " + shellFilePath,
-                  CreateNoWindow = true,
-                  UseShellExecute = false,
-             }
-      };
-      process.Start();
-      process.WaitForExit();
-}
-
-   {% endhighlight %}
-
-4. Add an Export to the PDF button in the index.cshtml.
+3. Add an Export to the PDF button in the index.cshtml.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -94,23 +63,26 @@ private void InstallDependecies(string shellFilePath)
 
    {% endhighlight %}
 
-5. Include the following namespaces.
+4. Include the following namespaces.
 
    {% highlight c# tabtitle="C#" %}
 
    using Syncfusion.HtmlConverter;
    using Syncfusion.Pdf;
-   using System.IO
+   using System.IO;
 
    {% endhighlight %}
 
-6. Add the code samples in the controller for converting HTML to PDF.
+5. Add the code samples in the controller for converting HTML to PDF.
 
    {% highlight c# tabtitle="C#" %}
 
         public ActionResult ExportToPDF()
         {
             Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
+            //Install the dependencies packages for HTML to PDF conversion in Linux
+            string shellFilePath = System.IO.Path.Combine(env.ContentRootPath, "dependenciesInstall.sh");
+            InstallDependecies(shellFilePath);
             //Initialize HTML to PDF converter 
             HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
             BlinkConverterSettings settings = new BlinkConverterSettings();
@@ -134,6 +106,22 @@ private void InstallDependecies(string shellFilePath)
             //Creates a FileContentResult object by using the file contents, content type, and file name
             return File(stream, contentType, fileName);
         }
+        // [C# Code]
+        private void InstallDependecies(string shellFilePath) 
+        {
+             Process process = new Process
+            {
+              StartInfo = new ProcessStartInfo
+              {
+                  FileName = "/bin/bash",
+                  Arguments = "-c " + shellFilePath,
+                  CreateNoWindow = true,
+                  UseShellExecute = false,
+              }
+          };
+          process.Start();
+          process.WaitForExit();
+        }
 
    {% endhighlight %}
 
@@ -155,7 +143,7 @@ private void InstallDependecies(string shellFilePath)
 
    Now, the published webpage will open in the browser. Click Export to PDF button to convert Syncfusion webpage to PDF document.
      <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Azure NetCore Step12" width="100%" Height="Auto"/> 
-A complete work sample for converting an HTML to PDF in Azure App service on Linux can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/AzureAppLinux_CoreSample)
+A complete work sample for converting an HTML to PDF in Azure App service on Linux can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/HTML_to_PDF_Azure_app_service)
 
 ## Azure App Service Linux with docker
 
@@ -402,4 +390,4 @@ A complete work sample can be downloaded from [Github](https://github.com/Syncfu
      <img src="htmlconversion_images/AzureFunctions5.png" alt="Convert HTMLToPDF Azure Functions Step5" width="100%" Height="Auto"/> 
 3. Now, go to the Azure portal and select the App Services. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get the PDF document as follows.
       <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Azure Functions Step6" width="100%" Height="Auto"/> 
-A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/HtmlToPdfBlinkAzureFunction)
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Azure/HTML_to_PDF_Azure_functions)
