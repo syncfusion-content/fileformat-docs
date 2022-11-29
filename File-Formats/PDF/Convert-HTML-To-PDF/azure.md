@@ -209,7 +209,7 @@ A complete work sample for converting an HTML to PDF in Azure App service on Lin
 
    using Syncfusion.HtmlConverter;
    using Syncfusion.Pdf;
-   using System.IO
+   using System.IO;
 
    {% endhighlight %}
 
