@@ -755,10 +755,6 @@ The following table shows the list of supported elements while converting from W
 <td style="width: 262.889px; height: 13.6667px;">Breaks</td>
 <td style="width: 479.111px; height: 13.6667px;">Line and text wrapping breaks are supported.</td>
 </tr>
-<tr style="height: 13px;">
-<td style="width: 262.889px; height: 13px;">List</td>
-<td style="width: 479.111px; height: 13px;">To restart numbering for the continuous list in output markdown syntax, you should specify non-empty paragraph in between the two list in the Word document.</td>
-</tr>
 </tbody>
 </table>
 
@@ -794,7 +790,10 @@ The following table shows the list of supported elements while converting from W
 </tr>
 <tr>
 <td style="width: 318.625px;">List</td>
-<td style="width: 424.375px;">Numbered and bulleted lists are supported.</td>
+<td style="width: 424.375px;">
+<p>Numbered and bulleted lists are supported.</p>
+<p>To restart numbering for the continuous list in output markdown syntax, you should specify non-empty paragraph in between the two list in the Word document.</p>
+</td>
 </tr>
 </tbody>
 </table>
