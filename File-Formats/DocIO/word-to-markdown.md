@@ -296,7 +296,7 @@ using (WordDocument document = new WordDocument())
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
     //Add a new paragraph to the section.
     IWParagraph paragraph = section.AddParagraph();
