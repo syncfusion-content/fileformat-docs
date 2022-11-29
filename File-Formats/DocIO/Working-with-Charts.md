@@ -2365,16 +2365,120 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone. You can convert chart as images in UWP using DocIORenderer.
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Get the first paragraph from the section.
+        WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
+        //Get the chart element from the paragraph.
+        WChart chart = paragraph.ChildEntities[0] as WChart;
+        //Create a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Convert chart to an image.
+            using (Stream stream = chart.SaveAsImage())
+            {
+                //Save the memory stream as file.
+                Save(stream as MemoryStream, "ChartToImage.jpeg");
+            }
+        }
+    }
+}
+
+//Save the image.
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".jpeg";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Image", new List<string>() { ".jpeg" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file.
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved image file.
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open))
+{
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
+    {
+        //Get the first paragraph from the section.
+        WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
+        //Get the chart element from the paragraph.
+        WChart chart = paragraph.ChildEntities[0] as WChart;
+        //Create an instance of DocIORenderer.
+        using (DocIORenderer renderer = new DocIORenderer())
+        {
+            //Convert chart to an image.
+            using (Stream stream = chart.SaveAsImage())
+            {
+                //Create the output image file stream. 
+                using (FileStream fileStreamOutput = File.Create("ChartToImage.jpeg"))
+                {
+                    //Copies the converted image stream into created output stream.
+                    stream.CopyTo(fileStreamOutput);
+                }
+            }
+        }
+    }
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
+{
+    //Load file stream into Word document.
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Get the first paragraph from the section.. 
+        WParagraph paragraph = wordDocument.LastSection.Paragraphs[0];
+        //Get the chart element from the paragraph.
+        WChart chart = paragraph.ChildEntities[0] as WChart;
+        //Create a new instance of DocIORenderer class.
+        using (DocIORenderer render = new DocIORenderer())
+        {
+            //Convert chart to an image.
+            using (Stream stream = chart.SaveAsImage())
+            {
+                //Save the stream as file in the device and invoke it for viewing.
+                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ChartToImage.jpeg", "image/jpeg", stream as MemoryStream);
+            }
+        }
+    }
+}
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Convert-chart-to-image).
