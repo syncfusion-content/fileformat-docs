@@ -106,7 +106,9 @@ N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has c
 
 ## Converting HTML to PDF
 
-For converting HTML to PDF using IE rendering engine, the following NuGet packages need to be installed in your application.
+For converting HTML to PDF file, the following NuGet packages need to to be installed in your .NET application from [nuget.org](https://www.nuget.org/).  
+
+N> The HTML to PDF converter library internally uses the Blink rendering engine for the conversion. The binaries will differ for Windows, Linux, Mac, and AWS. So, separate packages are provided based on OS. Include the packages based on your requirement.
 
 <table>
 <tr>
@@ -117,48 +119,39 @@ For converting HTML to PDF using IE rendering engine, the following NuGet packag
 </tr>
 <tr>
 <td>
-Windows Forms<br/>
-Console Application (Targeting .NET Framework)
+(.NET Core, .NET 5, .NET 6) Windows
 </td>
 <td>
-{{'[Syncfusion.HtmlToPdfConverter.IE.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.WinForms/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-WPF
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.IE.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.Wpf/)'| markdownify }}
+{{'[Syncfusion.HtmlToPdfConverter.Net.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET
+(.NET Core, .NET 5, .NET 6) Linux
 </td>
 <td>
-{{'[Syncfusion.HtmlToPdfConverter.IE.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.AspNet/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC4
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc4/)'| markdownify }}
+{{'[Syncfusion.HtmlToPdfConverter.Net.Linux.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET MVC5
+(.NET Core, .NET 5, .NET 6) Mac
 </td>
 <td>
-{{'[Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc5/)'| markdownify }}
+{{'[Syncfusion.HtmlToPdfConverter.Net.Mac.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+(.NET Core, .NET 5, .NET 6) Aws
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Net.Aws.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/)'| markdownify }}
 </td>
 </tr>
 </table>
 
-For converting HTML to PDF using QtWebkit rendering engine, the following NuGet packages need to be installed in your application.
+Use the following packages for .NET Framework targeted applications. If you are using other Syncfusion libraries or components, use the HTML to PDF converter library with the same platform packages.
 
 <table>
 <tr>
@@ -169,72 +162,10 @@ For converting HTML to PDF using QtWebkit rendering engine, the following NuGet 
 </tr>
 <tr>
 <td>
-Windows Forms<br/>
-Console Application (Targeting .NET Framework)
+Windows Forms
 </td>
 <td>
-{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-WPF
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Wpf/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC4
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc4/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC5
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc5/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Core<br/>
-Console Application (Targeting .NET Core)
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/)'| markdownify }}
-</td>
-</tr>
-</table>
-
-For converting HTML to PDF using Blink rendering engine, the following NuGet packages need to be installed in your application.
-
-<table>
-<tr>
-<thead>
-<th><b>Platform(s)</b></th>
-<th><b>NuGet Package</b></th>
-</thead>
-</tr>
-<tr>
-<td>
-Windows Forms<br/>
-Console Application (Targeting .NET Framework)
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.WinForms/)'| markdownify }}
+{{'[Syncfusion.HtmlToPdfConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WinForms/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -242,7 +173,7 @@ Console Application (Targeting .NET Framework)
 WPF
 </td>
 <td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Wpf/)'| markdownify }}
+{{'[Syncfusion.HtmlToPdfConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Wpf/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -250,39 +181,15 @@ WPF
 ASP.NET
 </td>
 <td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.AspNet/)'| markdownify }}
+{{'[Syncfusion.HtmlToPdfConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet/)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET MVC5
+ASP.NET MVC
 </td>
 <td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Core (Windows)
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Core (Linux)
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Linux/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Core (Mac)
-</td>
-<td>
-{{'[Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Mac/)'| markdownify }}
+{{'[Syncfusion.HtmlToPdfConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
 </table>
