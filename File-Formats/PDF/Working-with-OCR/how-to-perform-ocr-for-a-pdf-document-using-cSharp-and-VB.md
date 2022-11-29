@@ -25,13 +25,13 @@ To use the Syncfusion OCR processor library in your application, you need to add
 
 ## Steps to perform OCR on a entire PDF document programmatically
 
-1. Create a new C# Windows Forms application project. 
-![create-project.png](OCR-Images/WF-OCR-project.png)
+1.Create a new C# Windows Forms application project. 
+<img src="OCR-Images/WF_sample_creation_step1.png" alt="WF sample creation step1" width="100%" Height="Auto"/> 
 
-2. Install [Syncfusion.Pdf.OCR.WinForms](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/) NuGet packages as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org/). 
-![NuGet project](OCR-Images/OCR-NuGet.png)
+2.Install [Syncfusion.Pdf.OCR.WinForms](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/) NuGet packages as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org/). 
+<img src="OCR-Images/WF_sample_creation_step2.png" alt="Install NuGet" width="100%" Height="Auto"/> 
 
-3. Include the following namespaces in the Form1.cs file.
+3.Include the following namespaces in the Form1.cs file.
 
 {% tabs %}  
 
@@ -51,7 +51,7 @@ Imports Syncfusion.OCRProcessor
 
 {% endtabs %}  
 
-4. Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies are passed as a parameter to the OCR processor.
+4.Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies are passed as a parameter to the OCR processor.
 
 {% tabs %}  
 
@@ -69,7 +69,7 @@ Dim processor As New OCRProcessor("TesseractBinaries/")
 
 {% endtabs %}  
 
-5. Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor.
+5.Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor.
 
 {% tabs %}  
 
@@ -89,7 +89,7 @@ processor.PerformOCR(lDoc, "TessData/")
 
 {% endtabs %} 
 
-6. Use the following code snippet to process OCR on a entire PDF document.
+6.Use the following code snippet to process OCR on a entire PDF document.
 
 {% tabs %}  
 
