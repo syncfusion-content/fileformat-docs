@@ -581,7 +581,288 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
+
+## Customize Table of Contents
+
+You can customize table of contents using `LowerHeadingLevel`, `UpperHeadingLevel`, `UseHeadingStyles`, `IncludePageNumbers`, `RightAlignPageNumbers`, `UseHyperlinks`, `UseOutlineLevels`, `IncludeNewLineCharacters` and `UseTableEntryFields` API's.
+
+The following code example shows how to customize table of contents.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="C#" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+    {
+    //Add a section into the Word document.
+    IWSection section = document.AddSection();
+    //Add a paragraph into the created section.
+    IWParagraph tocParagraph = section.AddParagraph();
+    // Append table of content to the end of the paragraph with the specified lower and upper heading levels.
+    TableOfContent tableOfContent = tocParagraph.AppendTOC(1, 5);
+    //Set starting heading level of the table of contents.
+    tableOfContent.LowerHeadingLevel = 1;
+    //Set ending heading level of the table of contents.
+    tableOfContent.UpperHeadingLevel = 5;
+    //Use default heading styles
+    tableOfContent.UseHeadingStyles = true;
+    //Show page numbers in table of content.
+    tableOfContent.IncludePageNumbers = true;
+    //Set page numbers to right alignment.
+    tableOfContent.RightAlignPageNumbers = true;
+    //Set the outline levels.
+    tableOfContent.UseOutlineLevels = true;
+    //Set hyperlinks for the TOC levels.
+    tableOfContent.UseHyperlinks = true;
+    //Indicate whether to use table entry fields.
+    tableOfContent.UseTableEntryFields = true;
+    //Add a paragraph into the section.
+    WParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Append text.
+    paragraph.AppendText("First ");
+    //Append line break.
+    paragraph.AppendBreak(BreakType.LineBreak);
+    paragraph.AppendText("Chapter");
+    //Include new line to preserve newline characters TableOfContent.
+    tableOfContent.IncludeNewLineCharacters = true;
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Second ");
+    paragraph.AppendText("Chapter");
+    //Sets a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Third ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Fourth ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading3);
+    //Add the text into the new paragraph of the section.
+    section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Update the table of content.
+    document.UpdateTableOfContents();
+    //Save a Word document.
+    document.Save("Sample.docx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+//Create a new Word document.
+Using document As WordDocument = New WordDocument()
+    'Add a section into the Word document.
+    Dim section As IWSection = document.AddSection()
+    'Add a paragraph into the created section.
+    Dim tocParagraph As IWParagraph = section.AddParagraph()
+    ' Append table of content to the end of the paragraph with the specified lower and upper heading levels.
+    Dim tableOfContent As TableOfContent = tocParagraph.AppendTOC(1, 5)
+    'Set starting heading level of the table of contents.
+    tableOfContent.LowerHeadingLevel = 1
+    'Set ending heading level of the table of contents.
+    tableOfContent.UpperHeadingLevel = 5
+    'Use default heading styles
+    tableOfContent.UseHeadingStyles = True
+    'Show page numbers in table of content.
+    tableOfContent.IncludePageNumbers = True
+    'Set page numbers to right alignment.
+    tableOfContent.RightAlignPageNumbers = True
+    'Set the outline levels.
+    tableOfContent.UseOutlineLevels = True
+    'Set hyperlinks for the TOC levels.
+    tableOfContent.UseHyperlinks = True
+    'Indicate whether to use table entry fields.
+    tableOfContent.UseTableEntryFields = True
+    'Add the paragraph into the section.
+    Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
+    'Append text.
+    paragraph.AppendText("First ")
+    'Append line break.
+    paragraph.AppendText("Chapter")
+    'Include new line to preserve newline characters TableOfContent.
+    tableOfContent.IncludeNewLineCharacters = True
+    'Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    section = document.AddSection()
+    paragraph = TryCast(section.AddParagraph(), WParagraph)
+    paragraph.AppendText("Second ")
+    paragraph.AppendText("Chapter")
+    'Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    section = document.AddSection()
+    paragraph = TryCast(section.AddParagraph(), WParagraph)
+    paragraph.AppendText("Third ")
+    paragraph.AppendText("Chapter")
+    'Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading2)
+    section = document.AddSection()
+    paragraph = TryCast(section.AddParagraph(), WParagraph)
+    paragraph.AppendText("Fourth ")
+    paragraph.AppendText("Chapter")
+    'Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading3)
+    'Add the text into the new paragraph of the section.
+    section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+    'Update the table of content.
+    document.UpdateTableOfContents()
+    'Save a Word document.
+    document.Save("Sample.docx")
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//DocIO supports Table of contents in WPF, Windows Forms platforms alone
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+    {
+    //Add a section into the Word document.
+    IWSection section = document.AddSection();
+    //Add a paragraph into the created section.
+    IWParagraph tocParagraph = section.AddParagraph();
+    // Append table of content to the end of a paragraph with the specified lower and upper heading levels.
+    TableOfContent tableOfContent = tocParagraph.AppendTOC(1, 5);
+    //Set starting heading level of the table of contents.
+    tableOfContent.LowerHeadingLevel = 1;
+    //Set ending heading level of the table of contents.
+    tableOfContent.UpperHeadingLevel = 5;
+    //Use default heading styles
+    tableOfContent.UseHeadingStyles = true;
+    //Show page numbers in table of content.
+    tableOfContent.IncludePageNumbers = true;
+    //Set page numbers to right alignment.
+    tableOfContent.RightAlignPageNumbers = true;
+    //Set the outline levels.
+    tableOfContent.UseOutlineLevels = true;
+    //Set hyperlinks for the TOC levels.
+    tableOfContent.UseHyperlinks = true;
+    //Indicate whether to use table entry fields.
+    tableOfContent.UseTableEntryFields = true;
+    //Add a paragraph into the section.
+    WParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Append text.
+    paragraph.AppendText("First ");
+    //Append line break.
+    paragraph.AppendBreak(BreakType.LineBreak);
+    paragraph.AppendText("Chapter");
+    //Include new line to preserve newline characters TableOfContent.
+    tableOfContent.IncludeNewLineCharacters = true;
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Second ");
+    paragraph.AppendText("Chapter");
+    //Sets a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Third ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Fourth ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading3);
+    //Adds the text into the new paragraph of the section.
+    section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Update the table of content.
+    document.UpdateTableOfContents();
+    //Save a Markdown file to the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Markdown);
+    outputStream.Position = 0;
+    //Download as a Markdown file in the browser.
+    FileStream outStream = File.Create("Sample.docx");
+    outputStream.CopyTo(outStream);
+    outputStream.Dispose();
+    outStream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a section into the Word document.
+    IWSection section = document.AddSection();
+    //Add a paragraph into the created section.
+    IWParagraph tocParagraph = section.AddParagraph();
+    // Append table of content to the end of the paragraph with the specified lower and upper heading levels.
+    TableOfContent tableOfContent = tocParagraph.AppendTOC(1, 5);
+    //Set starting heading level of the table of contents.
+    tableOfContent.LowerHeadingLevel = 1;
+    //Set ending heading level of the table of contents.
+    tableOfContent.UpperHeadingLevel = 5;
+    //Use default heading styles
+    tableOfContent.UseHeadingStyles = true;
+    //Show page numbers in table of content.
+    tableOfContent.IncludePageNumbers = true;
+    //Set page numbers to right alignment.
+    tableOfContent.RightAlignPageNumbers = true;
+    //Set the outline levels.
+    tableOfContent.UseOutlineLevels = true;
+    //Set hyperlinks for the TOC levels.
+    tableOfContent.UseHyperlinks = true;
+    //Indicate whether to use table entry fields.
+    tableOfContent.UseTableEntryFields = true;
+    //Add the paragraph into the section.
+    WParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Append text.
+    paragraph.AppendText("First ");
+    //Append line break.
+    paragraph.AppendBreak(BreakType.LineBreak);
+    paragraph.AppendText("Chapter");
+    //Include new line to preserve newline characters TableOfContent.
+    tableOfContent.IncludeNewLineCharacters = true;
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Second ");
+    paragraph.AppendText("Chapter");
+    //Sets a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Third ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    section = document.AddSection();
+    paragraph = section.AddParagraph() as WParagraph;
+    paragraph.AppendText("Fourth ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading3);
+    //Add a text into the new paragraph of the section.
+    section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Update the table of content.
+    document.UpdateTableOfContents();
+    //Save a Word document to MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Markdown);
+    //Save a stream as a file in the device and invoke it for viewing.
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+}
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/TOC-with-user-defined-styles).
 
