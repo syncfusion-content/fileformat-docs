@@ -33,7 +33,7 @@ Step 1: Execute the following command in the Linux terminal to create a new .NET
 
    {% endhighlight %}
 
-    <img src="htmlconversion_images/LinuxStep1.png" alt="Convert HTMLToPDF Linux Step1" width="100%" Height="Auto"/> 
+ <img src="htmlconversion_images/LinuxStep1.png" alt="Convert HTMLToPDF Linux Step1" width="100%" Height="Auto"/>
 
 Step 2: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by executing the following command.
 
@@ -43,7 +43,7 @@ Step 2: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.
 
    {% endhighlight %}
 
-    <img src="htmlconversion_images/LinuxStep2.png" alt="Convert HTMLToPDF Linux Step2" width="100%" Height="Auto"/> 
+<img src="htmlconversion_images/LinuxStep2.png" alt="Convert HTMLToPDF Linux Step2" width="100%" Height="Auto"/>
 
 Step 3: Include the following namespaces.
 
@@ -84,7 +84,7 @@ Step 5: Execute the following command to restore the NuGet packages.
 
    {% endhighlight %}
 
-    <img src="htmlconversion_images/LinuxStep3.png" alt="Convert HTMLToPDF Linux Step3" width="100%" Height="Auto"/> 
+<img src="htmlconversion_images/LinuxStep3.png" alt="Convert HTMLToPDF Linux Step3" width="100%" Height="Auto"/>
 Step 6: Execute the following command in the terminal to run the application.
 
    {% highlight c# tabtitle="C#" %}
@@ -96,7 +96,7 @@ Step 6: Execute the following command in the terminal to run the application.
    <img src="htmlconversion_images/LinuxStep4.png" alt="Convert HTMLToPDF Linux Step4" width="100%" Height="Auto"/> 
 
    By executing the program, you will get the PDF document as follows. The output will be saved in parallel to the program.cs file.
-       <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Linux Step5" width="100%" Height="Auto"/> 
+   <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Linux Step5" width="100%" Height="Auto"/> 
 
 
    A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Linux)
