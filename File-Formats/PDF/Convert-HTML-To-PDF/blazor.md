@@ -95,15 +95,14 @@ Step 8: Add the ExportToPdf method in FetchData.razor page to call the export se
 
    @functions
    {
- 
-       protected async Task ExportToPdf()
-       {
-           ExportService exportService = new ExportService();
-           using (MemoryStream excelStream = exportService.CreatePdf())
-           {
-               await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
-           }
-       }
+      protected async Task ExportToPdf()
+      {
+         ExportService exportService = new ExportService();
+         using (MemoryStream excelStream = exportService.CreatePdf())
+         {
+            await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
+         }
+      }
    }
 
    {% endhighlight %}
@@ -114,20 +113,20 @@ Step 9: Create a class file with FileUtil name and add the following code to inv
 
    public static class FileUtil
    {
-       public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
+      public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
            "saveAsFile",
            filename,
            Convert.ToBase64String(data));
    }
 
-    {% endhighlight %}
+   {% endhighlight %}
 
 Step 10: Add the following JavaScript function in the _Host.cshtml available under the Pages folder.
 
-    {% highlight c# tabtitle="C#" %}
+   {% highlight c# tabtitle="C#" %}
 
-    <script type="text/javascript">
+   <script type="text/javascript">
         function saveAsFile(filename, bytesBase64) {
             if (navigator.msSaveBlob) {
                 //Download document in Edge browser
@@ -147,16 +146,16 @@ Step 10: Add the following JavaScript function in the _Host.cshtml available und
                 link.click();
                 document.body.removeChild(link);
             }
-        }
-    </script>
+         }
+   </script>
 
-    {% endhighlight %}
+   {% endhighlight %}
 
    By executing the program, you will get the following output in the browser.
-    <img src="htmlconversion_images/blazor_step4.png" alt="Blazor_step4" width="100%" Height="Auto"/>
+   <img src="htmlconversion_images/blazor_step4.png" alt="Blazor_step4" width="100%" Height="Auto"/>
 
    Click the Export to PDF button, and you will get the PDF document with the following output.
-    <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Blazor output" width="100%" Height="Auto"/>
+   <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Blazor output" width="100%" Height="Auto"/>
     
    A complete working sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Blazor).
     

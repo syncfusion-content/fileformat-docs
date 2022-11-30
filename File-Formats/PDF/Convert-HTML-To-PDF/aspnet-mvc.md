@@ -38,12 +38,12 @@ Step 5: Add a new button in the Index.cshtml as shown below.
    {% highlight c# tabtitle="C#" %}
 
    @{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
-       {
-          <div>
-              <input type="submit" value="Convert PDF" style="width:150px;height:27px" />
-          </div>
-       }
-       Html.EndForm();
+      {
+         <div>
+            <input type="submit" value="Convert PDF" style="width:150px;height:27px" />
+         </div>
+      }
+      Html.EndForm();
    }
 
    {% endhighlight %}
