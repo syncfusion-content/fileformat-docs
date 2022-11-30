@@ -24,19 +24,19 @@ Refer to the following steps to convert HTML to PDF in AWS Lambda
 
 ## Steps to convert HTML to PDF in AWS Lambda
 
-1. Create a new AWS Lambda project as follows.
+Step 1: Create a new AWS Lambda project as follows.
     <img src="htmlconversion_images/AWS1.png" alt="Convert HTMLToPDF AWS Step1" width="100%" Height="Auto"/> 
  
-2. In configuration window, name the project and select Create.
+Step 2: In configuration window, name the project and select Create.
     <img src="htmlconversion_images/AWS2.png" alt="Convert HTMLToPDF AWS Step2" width="100%" Height="Auto"/>  
 
-3. Select Blueprint as Empty Function and click Finish.
+Step 3: Select Blueprint as Empty Function and click Finish.
     <img src="htmlconversion_images/AWS3.png" alt="Convert HTMLToPDF AWS Step3" width="100%" Height="Auto"/> 
 
-4. Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your AWS lambda project from [NuGet.org.](https://www.nuget.org/)
+Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your AWS lambda project from [NuGet.org.](https://www.nuget.org/)
     <img src="htmlconversion_images/AWS4.png" alt="Convert HTMLToPDF AWS Step4" width="100%" Height="Auto"/> 
 
-5. Using the following namespaces in the Function.cs file.
+Step 5: Using the following namespaces in the Function.cs file.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -46,7 +46,7 @@ Refer to the following steps to convert HTML to PDF in AWS Lambda
 
    {% endhighlight %}
 
-6. Add the following code snippet in Function.cs to convert HTML to PDF document.
+Step 6: Add the following code snippet in Function.cs to convert HTML to PDF document.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -63,30 +63,30 @@ Refer to the following steps to convert HTML to PDF in AWS Lambda
 
    {% endhighlight %}
 
-7. Right-click the project and select Publish to AWS Lambda. 
+Step 7: Right-click the project and select Publish to AWS Lambda. 
     <img src="htmlconversion_images/AWS5.png" alt="Convert HTMLToPDF AWS Step5" width="100%" Height="Auto"/>   
 
-8. Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click Next.   
+Step 8: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click Next.   
     <img src="htmlconversion_images/AWS6.png" alt="Convert HTMLToPDF AWS Step6" width="100%" Height="Auto"/>     
 
-9. In the Advanced Function Details window, specify the Role Name as based on AWS Managed policy. After selecting the role, click the Upload button to deploy your application.
+Step 9: In the Advanced Function Details window, specify the Role Name as based on AWS Managed policy. After selecting the role, click the Upload button to deploy your application.
     <img src="htmlconversion_images/AWS7.png" alt="Convert HTMLToPDF AWS Step7" width="100%" Height="Auto"/>   
 
-10. After deploying the application, Sign in your AWS account and you can see the published Lambda function in AWS console. 
+Step 10: After deploying the application, Sign in your AWS account and you can see the published Lambda function in AWS console. 
     <img src="htmlconversion_images/AWS8.png" alt="Convert HTMLToPDF AWS Step8" width="100%" Height="Auto"/> 
 
 ## Steps to invoke the AWS Lambda function from the console application
 
-1. Create a new console project.  
+Step 1: Create a new console project.  
     <img src="htmlconversion_images/AWS9.png" alt="Convert HTMLToPDF AWS Step9" width="100%" Height="Auto"/> 
 
-2. In project configuration windows, name the project and select Create.
+Step 2: In project configuration windows, name the project and select Create.
     <img src="htmlconversion_images/AWS10.png" alt="Convert HTMLToPDF AWS Step10" width="100%" Height="Auto"/>   
 
-3. Install the [AWSSDK.Core](https://www.nuget.org/packages/AWSSDK.Core), [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) and [Newtonsoft.Json package](https://www.nuget.org/packages/Newtonsoft.Json/13.0.2-beta3) as a reference to your main application from the [NuGet.org](https://www.nuget.org/).    
+Step 3: Install the [AWSSDK.Core](https://www.nuget.org/packages/AWSSDK.Core), [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) and [Newtonsoft.Json package](https://www.nuget.org/packages/Newtonsoft.Json/13.0.2-beta3) as a reference to your main application from the [NuGet.org](https://www.nuget.org/).    
     <img src="htmlconversion_images/AWS11.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>   
  
-4. Include the following namespaces in Program.cs file.
+Step 4: Include the following namespaces in Program.cs file.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -98,7 +98,7 @@ Refer to the following steps to convert HTML to PDF in AWS Lambda
 
    {% endhighlight %}
 
-5. Add the following code snippet in Program class to invoke the published AWS Lambda function using the function name and access keys.
+Step 5: Add the following code snippet in Program class to invoke the published AWS Lambda function using the function name and access keys.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -129,6 +129,6 @@ Refer to the following steps to convert HTML to PDF in AWS Lambda
  
    By executing the program, you will get the PDF document as follows. 
     <img src="htmlconversion_images/AWS12.png" alt="Convert HTMLToPDF AWS Step12" width="100%" Height="Auto"/> 
-   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/AWS) 
+   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS) 
 
 

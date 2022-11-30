@@ -25,7 +25,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
 ## Steps to convert HTML to PDF in .NET Core application on Linux
 
-1. Execute the following command in the Linux terminal to create a new .NET Core Console application.
+Step 1: Execute the following command in the Linux terminal to create a new .NET Core Console application.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -35,7 +35,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
     <img src="htmlconversion_images/LinuxStep1.png" alt="Convert HTMLToPDF Linux Step1" width="100%" Height="Auto"/> 
 
-2. Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by executing the following command.
+Step 2: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by executing the following command.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -45,7 +45,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
     <img src="htmlconversion_images/LinuxStep2.png" alt="Convert HTMLToPDF Linux Step2" width="100%" Height="Auto"/> 
 
-3. Include the following namespaces.
+Step 3: Include the following namespaces.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -55,7 +55,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    {% endhighlight %}
 
-4.  Add code samples in Program.cs file.
+Step 4:  Add code samples in Program.cs file.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -76,7 +76,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
 
    {% endhighlight %}
 
-5. Execute the following command to restore the NuGet packages.
+Step 5: Execute the following command to restore the NuGet packages.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -85,7 +85,7 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
    {% endhighlight %}
 
     <img src="htmlconversion_images/LinuxStep3.png" alt="Convert HTMLToPDF Linux Step3" width="100%" Height="Auto"/> 
-6. Execute the following command in the terminal to run the application.
+Step 6: Execute the following command in the terminal to run the application.
 
    {% highlight c# tabtitle="C#" %}
 
@@ -99,5 +99,5 @@ The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web
        <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Linux Step5" width="100%" Height="Auto"/> 
 
 
-   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/blob/master/Linux)
+   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Linux)
   
