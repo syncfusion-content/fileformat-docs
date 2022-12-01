@@ -75,3 +75,4 @@ Step 6: Add a new action method named ExportToPDF in HomeController.cs and inclu
  
    A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/ASP.NET%20Core).
    
+   
