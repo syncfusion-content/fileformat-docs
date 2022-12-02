@@ -583,7 +583,7 @@ document.Close();
 
 {% endtabs %}
 
-## Customize Table of Contents
+## Applying switches for table of contents
 
 You can customize table of contents using `LowerHeadingLevel`, `UpperHeadingLevel`, `UseHeadingStyles`, `IncludePageNumbers`, `RightAlignPageNumbers`, `UseHyperlinks`, `UseOutlineLevels`, `IncludeNewLineCharacters` and `UseTableEntryFields` API's.
 
@@ -594,7 +594,7 @@ The following code example shows how to customize table of contents.
 {% highlight c# tabtitle="C#" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
-    {
+{
     //Add a section into the Word document.
     IWSection section = document.AddSection();
     //Add a paragraph into the created section.
@@ -610,14 +610,12 @@ using (WordDocument document = new WordDocument())
     //Show page numbers in table of content.
     tableOfContent.IncludePageNumbers = true;
     //Set page numbers to right alignment.
-    tableOfContent.RightAlignPageNumbers = true;
+    tableOfContent.RightAlignPageNumbers = false;
     //Set hyperlinks for the TOC levels.
-    tableOfContent.UseHyperlinks = true;
-    //Indicate whether to use table entry fields.
-    tableOfContent.UseTableEntryFields = true;
+    tableOfContent.UseHyperlinks = false;
     //Add a paragraph into the section.
     paragraph = section.AddParagraph();
-     //Append text.
+    //Append text.
     paragraph.AppendText("First ");
     //Append line break.
     paragraph.AppendBreak(BreakType.LineBreak);
@@ -626,12 +624,16 @@ using (WordDocument document = new WordDocument())
     tableOfContent.IncludeNewLineCharacters = true;
     //Set a built-in heading style.
     paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    //Add a section into the Word document.
     section = document.AddSection();
-    paragraph = section.AddParagraph() as WParagraph;
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append text.
     paragraph.AppendText("Second ");
     paragraph.AppendText("Chapter");
     //Sets a built-in heading style.
     paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Add a section into the Word document.
     section = document.AddSection();
     paragraph = section.AddParagraph();
     paragraph.AppendText("Third ");
@@ -654,6 +656,14 @@ using (WordDocument document = new WordDocument())
     paragraph.AppendText("Outline Level Paragraph");
     //Set the outline levels.
     tableOfContent.UseOutlineLevels = true;
+    //Add a section into the Word document.
+    section = document.AddSection();
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append a field to the paragraph.
+    paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
+    //Indicate whether to use table entry fields.
+    tableOfContent.UseTableEntryFields = true;
     //Update the table of content.
     document.UpdateTableOfContents();
     //Save a Word document.
@@ -679,11 +689,9 @@ tableOfContent.UseHeadingStyles = True
 'Show page numbers in table of content.
 tableOfContent.IncludePageNumbers = True
 'Set page numbers to right alignment.
-tableOfContent.RightAlignPageNumbers = True
+tableOfContent.RightAlignPageNumbers = False
 'Set hyperlinks for the TOC levels.
-tableOfContent.UseHyperlinks = True
-'Indicate whether to use table entry fields.
-tableOfContent.UseTableEntryFields = True
+tableOfContent.UseHyperlinks = False
 'Add a paragraph into the section.
 paragraph = section.AddParagraph()
 'Append text.
@@ -695,20 +703,24 @@ paragraph.AppendText("Chapter")
 tableOfContent.IncludeNewLineCharacters = True
 'Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading2)
+'Add a section into the Word document.
 section = document.AddSection()
-paragraph = TryCast(section.AddParagraph(), WParagraph)
+'Add a paragraph to the section.
+paragraph = section.AddParagraph()
+'Append text.
 paragraph.AppendText("Second ")
 paragraph.AppendText("Chapter")
 'Sets a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading1)
+'Add a section into the Word document.
 section = document.AddSection()
-paragraph = TryCast(section.AddParagraph(), WParagraph)
+paragraph = section.AddParagraph()
 paragraph.AppendText("Third ")
 paragraph.AppendText("Chapter")
 'Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading2)
 section = document.AddSection()
-paragraph = TryCast(section.AddParagraph(), WParagraph)
+paragraph = section.AddParagraph()
 paragraph.AppendText("Fourth ")
 paragraph.AppendText("Chapter")
 'Set a built-in heading style.
@@ -719,9 +731,18 @@ section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company
 paragraph = section.AddParagraph()
 'Set outline level for paragraph.
 paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2
+'Append text.
 paragraph.AppendText("Outline Level Paragraph")
 'Set the outline levels.
 tableOfContent.UseOutlineLevels = True
+'Add a section into the Word document.
+section = document.AddSection()
+'Add a paragraph to the section.
+paragraph = section.AddParagraph()
+'Append a field to the paragraph.
+paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry)
+'Indicate whether to use table entry fields.
+tableOfContent.UseTableEntryFields = True
 'Update the table of content.
 document.UpdateTableOfContents()
 'Save a Word document.
@@ -736,7 +757,7 @@ End Using
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
-    {
+{
     //Add a section into the Word document.
     IWSection section = document.AddSection();
     //Add a paragraph into the created section.
@@ -752,11 +773,9 @@ using (WordDocument document = new WordDocument())
     //Show page numbers in table of content.
     tableOfContent.IncludePageNumbers = true;
     //Set page numbers to right alignment.
-    tableOfContent.RightAlignPageNumbers = true;
+    tableOfContent.RightAlignPageNumbers = false;
     //Set hyperlinks for the TOC levels.
-    tableOfContent.UseHyperlinks = true;
-    //Indicate whether to use table entry fields.
-    tableOfContent.UseTableEntryFields = true;
+    tableOfContent.UseHyperlinks = false;
     //Add a paragraph into the section.
     paragraph = section.AddParagraph();
     //Append text.
@@ -768,12 +787,16 @@ using (WordDocument document = new WordDocument())
     tableOfContent.IncludeNewLineCharacters = true;
     //Set a built-in heading style.
     paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    //Add a section into the Word document.
     section = document.AddSection();
-    paragraph = section.AddParagraph() as WParagraph;
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append text.
     paragraph.AppendText("Second ");
     paragraph.AppendText("Chapter");
     //Sets a built-in heading style.
     paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Add a section into the Word document.
     section = document.AddSection();
     paragraph = section.AddParagraph();
     paragraph.AppendText("Third ");
@@ -796,6 +819,14 @@ using (WordDocument document = new WordDocument())
     paragraph.AppendText("Outline Level Paragraph");
     //Set the outline levels.
     tableOfContent.UseOutlineLevels = true;
+    //Add a section into the Word document.
+    section = document.AddSection();
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append a field to the paragraph.
+    paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
+    //Indicate whether to use table entry fields.
+    tableOfContent.UseTableEntryFields = true;
     //Update the table of content.
     document.UpdateTableOfContents();
     //Save a Markdown file to the MemoryStream.
@@ -829,14 +860,12 @@ using (WordDocument document = new WordDocument())
     //Show page numbers in table of content.
     tableOfContent.IncludePageNumbers = true;
     //Set page numbers to right alignment.
-    tableOfContent.RightAlignPageNumbers = true;
+    tableOfContent.RightAlignPageNumbers = false;
     //Set hyperlinks for the TOC levels.
-    tableOfContent.UseHyperlinks = true;
-    //Indicate whether to use table entry fields.
-    tableOfContent.UseTableEntryFields = true;
+    tableOfContent.UseHyperlinks = false;
     //Add a paragraph into the section.
     paragraph = section.AddParagraph();
-     //Append text.
+    //Append text.
     paragraph.AppendText("First ");
     //Append line break.
     paragraph.AppendBreak(BreakType.LineBreak);
@@ -845,12 +874,16 @@ using (WordDocument document = new WordDocument())
     tableOfContent.IncludeNewLineCharacters = true;
     //Set a built-in heading style.
     paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    //Add a section into the Word document.
     section = document.AddSection();
-    paragraph = section.AddParagraph() as WParagraph;
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append text.
     paragraph.AppendText("Second ");
     paragraph.AppendText("Chapter");
     //Sets a built-in heading style.
     paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Add a section into the Word document.
     section = document.AddSection();
     paragraph = section.AddParagraph();
     paragraph.AppendText("Third ");
@@ -873,6 +906,14 @@ using (WordDocument document = new WordDocument())
     paragraph.AppendText("Outline Level Paragraph");
     //Set the outline levels.
     tableOfContent.UseOutlineLevels = true;
+    //Add a section into the Word document.
+    section = document.AddSection();
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append a field to the paragraph.
+    paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
+    //Indicate whether to use table entry fields.
+    tableOfContent.UseTableEntryFields = true;
     //Update the table of content.
     document.UpdateTableOfContents();
     //Save a Word document to MemoryStream.
