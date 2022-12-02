@@ -583,6 +583,8 @@ document.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/TOC-with-user-defined-styles).
+
 ## Applying switches for table of contents
 
 You can customize table of contents using `LowerHeadingLevel`, `UpperHeadingLevel`, `UseHeadingStyles`, `IncludePageNumbers`, `RightAlignPageNumbers`, `UseHyperlinks`, `UseOutlineLevels`, `IncludeNewLineCharacters` and `UseTableEntryFields` API's.
@@ -929,7 +931,7 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/TOC-with-user-defined-styles).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Apply-switches-for-TOC).
 
 ## See Also
 
