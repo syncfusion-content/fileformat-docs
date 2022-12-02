@@ -184,15 +184,15 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
 
 <b>Steps to convert HTML to PDF in .NET application</b>
 
-1. Create a new .NET console application.
+Step 1: Create a new .NET console application.
    <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample1.png" alt="Create .net core console sample" width="100%" Height="Auto"/>
 
    <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample2.png" alt="Select target .net core version" width="100%" Height="Auto"/>
 
-2. Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as a reference to your .NET application from [NuGet.org](https://www.nuget.org/). 
+Step 2: Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as a reference to your .NET application from [NuGet.org](https://www.nuget.org/). 
    <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample3.png" alt="Install HTML to PDF converter .NET package" width="100%" Height="Auto"/>
 
-3. Include the following namespace in your class file. 
+Step 3: Include the following namespace in your class file. 
 
    {% highlight c# tabtitle="C#" %}
 
@@ -201,7 +201,7 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
 
    {% endhighlight %}
 
-4. Use the following code sample to convert the URL to PDF in the program.cs.
+Step 4: Use the following code sample to convert the URL to PDF in the program.cs.
 
    {% tabs %}
 
@@ -229,6 +229,7 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
    By executing the program, you will get the PDF document as follows.
    <img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="htmltopdfoutput" width="100%" Height="Auto"/>
 
+   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/.NET).
 
 ### Convert HTML to PDF in Linux
 
