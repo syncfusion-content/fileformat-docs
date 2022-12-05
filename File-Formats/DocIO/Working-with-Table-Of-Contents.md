@@ -587,9 +587,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Applying switches for table of contents
 
-You can customize table of contents using `LowerHeadingLevel`, `UpperHeadingLevel`, `UseHeadingStyles`, `IncludePageNumbers`, `RightAlignPageNumbers`, `UseHyperlinks`, `UseOutlineLevels`, `IncludeNewLineCharacters` and `UseTableEntryFields` API's.
+Switches are used to change the default settings in word document. TOC will determine the TOC entries based on the TOC switches. You can set heading levels, specify whether to use default heading styles, show page numbers, set page numbers to right alignment, set hyperlinks for TOC levels, preserve line break and text wrapping break in TOC, set outline levels for paragraph and specify whether to use table of entry fields. 
 
-The following code example shows how to customize table of contents.
+The following code example illustrates how to apply switches for table of contents.
 
 {% tabs %} 
 
