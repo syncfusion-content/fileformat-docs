@@ -28,7 +28,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  
+
   //Saves the workbook to a JSON file, as schema by default
   workbook.SaveAsJson("Excel-Workbook-To-JSON-as-schema-default.json");
 
@@ -47,23 +47,23 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+  'Saves the workbook to a JSON file, as schema by default
+  workbook.SaveAsJson("Excel-Workbook-To-JSON-as-schema-default.json")
 	
-	'Saves the workbook to a JSON file, as schema by default
-    workbook.SaveAsJson("Excel-Workbook-To-JSON-as-schema-default.json")
+  'Saves the workbook to a JSON file as schema
+  workbook.SaveAsJson("Excel-Workbook-To-JSON-as-schema.json", true)
 
-	'Saves the workbook to a JSON file as schema
-	workbook.SaveAsJson("Excel-Workbook-To-JSON-as-schema.json", true)
+  'Saves the workbook to a JSON filestream as schema by default
+  Dim stream As FileStream = new FileStream("Excel-Workbook-To-JSON-filestream-as-schema-default.json", FileMode.Create)
+  workbook.SaveAsJson(stream)
 
-	'Saves the workbook to a JSON filestream as schema by default
-	Dim stream As FileStream = new FileStream("Excel-Workbook-To-JSON-filestream-as-schema-default.json", FileMode.Create)
-    workbook.SaveAsJson(stream)
-
-	'Saves the workbook to a JSON filestream as schema
-	Dim stream1 As FileStream = new FileStream("Excel-Workbook-To-JSON-filestream-as-schema.json",FileMode.Create)
-    workbook.SaveAsJson(stream1, true)
+  'Saves the workbook to a JSON filestream as schema
+  Dim stream1 As FileStream = new FileStream("Excel-Workbook-To-JSON-filestream-as-schema.json",FileMode.Create)
+  workbook.SaveAsJson(stream1, true)
 End Using
 {% endhighlight %}
 {% highlight c# tabtitle="UWP" %}
@@ -74,7 +74,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -105,41 +104,41 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".json";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".json";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -155,17 +154,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
+
 {% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-             
+
   //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
+  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -173,13 +173,16 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAsJson(outputStream);
 
-  //Save the stream as JSON document and view the saved document  
-  
+  //Save the stream as JSON document and view the saved document    
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Workbook-To-JSON-filestream-as-schema.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Workbook-To-JSON-filestream-as-schema.json", "application/notepad", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Excel-Workbook-To-JSON-filestream-as-schmea.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Workbook-To-JSON-filestream-as-schmea.json", "application/notepad", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
@@ -196,7 +199,6 @@ A complete working example to convert Excel to JSON with schema in C# is present
 The following code illustrates how to convert an Excel workbook to the JSON file or JSON file stream without schema.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -215,18 +217,19 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-	'Saves the workbook to a JSON file without schema
-    workbook.SaveAsJson("Excel-Workbook-To-JSON-without-schema.json", false)
+  'Saves the workbook to a JSON file without schema
+  workbook.SaveAsJson("Excel-Workbook-To-JSON-without-schema.json", false)
 
-	'Saves the workbook to a JSON filestream without schema
-	Dim stream As FileStream = new FileStream("Excel-Workbook-To-JSON-filestream-without-schema.json", FileMode.Create)
-    workbook.SaveAsJson(stream, false)
+  'Saves the workbook to a JSON filestream without schema
+  Dim stream As FileStream = new FileStream("Excel-Workbook-To-JSON-filestream-without-schema.json", FileMode.Create)
+  workbook.SaveAsJson(stream, false)
 End Using
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -235,7 +238,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -265,41 +267,41 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".json";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".json";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -310,17 +312,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
+
 {% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-             
+
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -328,19 +331,21 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAsJson(outputStream, false);
 
-  //Save the stream as JSON document and view the saved document  
-  
+  //Save the stream as JSON document and view the saved document    
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Workbook-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Workbook-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Excel-Workbook-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Workbook-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
   outputStream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}
 
@@ -351,7 +356,6 @@ A complete working example to convert Excel to JSON without schema in C# is pres
 The following code illustrates how to convert an Excel worksheet to the JSON file or JSON file stream with schema.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -380,28 +384,29 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-	'Active worksheet
-	Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Active worksheet
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-	'Saves the worksheet to a JSON file, as schema by default
-    workbook.SaveAsJson("Excel-Worksheet-To-JSON-as-schema-default.json", worksheet)
+  'Saves the worksheet to a JSON file, as schema by default
+  workbook.SaveAsJson("Excel-Worksheet-To-JSON-as-schema-default.json", worksheet)
 
-	'Saves the worksheet to a JSON file as schema
-	workbook.SaveAsJson("Excel-Worksheet-To-JSON-as-schema.json", worksheet, true)
+  'Saves the worksheet to a JSON file as schema
+  workbook.SaveAsJson("Excel-Worksheet-To-JSON-as-schema.json", worksheet, true)
 
-	'Saves the worksheet to a JSON filestream as schema by default
-	Dim stream As FileStream = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema-default.json",FileMode.Create)
-    workbook.SaveAsJson(stream, worksheet)
+  'Saves the worksheet to a JSON filestream as schema by default
+  Dim stream As FileStream = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema-default.json",FileMode.Create)
+  workbook.SaveAsJson(stream, worksheet)
 
-	'Saves the worksheet to a JSON filestream as schema
-	Dim stream1 As FileStream = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema.json",FileMode.Create)
-    workbook.SaveAsJson(stream1, worksheet, true)
+  'Saves the worksheet to a JSON filestream as schema
+  Dim stream1 As FileStream = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema.json",FileMode.Create)
+  workbook.SaveAsJson(stream1, worksheet, true)
 End Using
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -410,7 +415,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -438,41 +442,41 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".json";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".json";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -488,17 +492,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream1.Dispose();
 }
 {% endhighlight %}
+
 {% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-             
+
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -506,19 +511,21 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAsJson(outputStream, worksheet);
 
-  //Save the stream as JSON document and view the saved document  
-  
+  //Save the stream as JSON document and view the saved document    
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
   outputStream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}
 
@@ -529,7 +536,6 @@ A complete working example to convert Excel worksheet to JSON with schema in C# 
 The following code illustrates how to convert an Excel worksheet to the JSON file or file stream without schema.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -551,21 +557,22 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-	'Active worksheet
-	Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Active worksheet
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-	'Saves the worksheet to a JSON file without schema
-    workbook.SaveAsJson("Excel-Worksheet-To-JSON-without-schema.json", worksheet, false)
+  'Saves the worksheet to a JSON file without schema
+  workbook.SaveAsJson("Excel-Worksheet-To-JSON-without-schema.json", worksheet, false)
 
-	'Saves the worksheet to a JSON filestream without schema
-	Dim stream As FileStream = new FileStream("Excel-Worksheet-To-JSON-filestream-without-schema.json", FileMode.Create)
-    workbook.SaveAsJson(stream, worksheet, false)
+  'Saves the worksheet to a JSON filestream without schema
+  Dim stream As FileStream = new FileStream("Excel-Worksheet-To-JSON-filestream-without-schema.json", FileMode.Create)
+  workbook.SaveAsJson(stream, worksheet, false)
 End Using
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -574,7 +581,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -604,41 +610,41 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".json";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".json";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion =ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -648,17 +654,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Dispose();
 }
 {% endhighlight %}
+
 {% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-             
+
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -666,19 +673,21 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAsJson(outputStream, worksheet, false);
 
-  //Save the stream as JSON document and view the saved document  
-  
+  //Save the stream as JSON document and view the saved document    
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Worksheet-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Worksheet-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Excel-Worksheet-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Worksheet-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
   outputStream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}
 
@@ -689,7 +698,6 @@ A complete working example to convert Excel worksheet to JSON without schema in 
 The following code illustrates how to convert an Excel Custom Range to the JSON file or file stream as schema.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -721,31 +729,32 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-	
-	'Active worksheet
-	Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-	'Custom range
-	Dim range As IRange = worksheet.Range("A2:A5")
+  'Active worksheet
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-	'Saves the range to a JSON file, as schema by default
-    workbook.SaveAsJson("Excel-Range-To-JSON-as-schema-default.json", range)
+  'Custom range
+  Dim range As IRange = worksheet.Range("A2:A5")
 
-	'Saves the range to a JSON file as schema
-    workbook.SaveAsJson("Excel-Range-To-JSON-as-schema.json", range, true)
+  'Saves the range to a JSON file, as schema by default
+  workbook.SaveAsJson("Excel-Range-To-JSON-as-schema-default.json", range)
 
-	'Saves the range to a JSON filestream, as schema by default
-	Dim stream As FileStream = new FileStream("Excel-Range-To-JSON-filestream-as-schema-default.json", FileMode.Create)
-    workbook.SaveAsJson(stream, range)
+  'Saves the range to a JSON file as schema
+  workbook.SaveAsJson("Excel-Range-To-JSON-as-schema.json", range, true)
 
-	'Saves the range to a JSON filestream as schema
-	Dim stream1 As FileStream = new FileStream("Excel-Range-To-JSON-filestream-as-schema.json", FileMode.Create)
-    workbook.SaveAsJson(stream1, range, true)
+  'Saves the range to a JSON filestream, as schema by default
+  Dim stream As FileStream = new FileStream("Excel-Range-To-JSON-filestream-as-schema-default.json", FileMode.Create)
+  workbook.SaveAsJson(stream, range)
+
+  'Saves the range to a JSON filestream as schema
+  Dim stream1 As FileStream = new FileStream("Excel-Range-To-JSON-filestream-as-schema.json", FileMode.Create)
+  workbook.SaveAsJson(stream1, range, true)
 End Using
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -754,9 +763,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
+
   //Custom range
   IRange range = worksheet.Range["A2:A5"];
 
@@ -784,42 +793,41 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".json";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".json";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -843,14 +851,15 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-             
+
   //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
+  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
+
   //Custom range
   IRange range = worksheet.Range["A2:A5"];
 
@@ -858,19 +867,21 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAsJson(outputStream, range);
 
-  //Save the stream as JSON document and view the saved document  
-  
+  //Save the stream as JSON document and view the saved document    
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Range-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Range-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Excel-Range-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Range-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
   outputStream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}
 
@@ -881,7 +892,6 @@ A complete working example to convert range to JSON with schema in C# is present
 The following code illustrates how to convert an Excel Custom Range to the JSON file or JSON file stream without schema.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -906,24 +916,25 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-	
-	'Active worksheet
-	Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-	'Custom range
-	Dim range As IRange = worksheet.Range("A2:A5")
+  'Active worksheet
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-	'Saves the range to a JSON file without schema
-    workbook.SaveAsJson("Excel-Range-To-JSON-without-schema.json", range, false)
+  'Custom range
+  Dim range As IRange = worksheet.Range("A2:A5")
 
-	'Saves the range to a JSON filestream without schema
-	Dim stream As FileStream = new FileStream("Excel-Range-To-JSON-filestream-without-schema.json", FileMode.Create)
-    workbook.SaveAsJson(stream, range, false)
+  'Saves the range to a JSON file without schema
+  workbook.SaveAsJson("Excel-Range-To-JSON-without-schema.json", range, false)
+
+  'Saves the range to a JSON filestream without schema
+  Dim stream As FileStream = new FileStream("Excel-Range-To-JSON-filestream-without-schema.json", FileMode.Create)
+  workbook.SaveAsJson(stream, range, false)
 End Using
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -932,9 +943,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
+
   //Custom range
   IRange range = worksheet.Range["A2:A5"];
 
@@ -962,42 +973,41 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".json";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".json";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("JSON Files", new List<string>() { ".json" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1015,14 +1025,15 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-             
+
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
+
   //Custom range
   IRange range = worksheet.Range["A2:A5"];
 
@@ -1030,19 +1041,21 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAsJson(outputStream, range, false);
 
-  //Save the stream as JSON document and view the saved document  
-  
+  //Save the stream as JSON document and view the saved document    
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Range-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Range-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Excel-Range-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Range-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
   outputStream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}
 

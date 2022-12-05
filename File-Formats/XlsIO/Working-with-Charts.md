@@ -150,16 +150,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -302,16 +301,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -350,7 +347,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   {
 	for (int j = 2; j <= 3; j++)
 	{
-	  sheet.Range[i, j].Number = r.Next(0, 500);
+      sheet.Range[i, j].Number = r.Next(0, 500);
 	}
   }
   IChartShape chart = sheet.Charts.Add();
@@ -398,7 +395,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim r As Random = New Random
   For i As Integer = 2 To 6
     For j As Integer = 2 To 3
-	  sheet.Range(i, j).Number = r.Next(0, 500)
+      sheet.Range(i, j).Number = r.Next(0, 500)
 	Next j
   Next i
   
@@ -450,7 +447,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   {
 	for (int j = 2; j <= 3; j++)
 	{
-	  sheet.Range[i, j].Number = r.Next(0, 500);
+      sheet.Range[i, j].Number = r.Next(0, 500);
 	}
   }  
   IChartShape chart = sheet.Charts.Add();
@@ -511,7 +508,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   {
 	for (int j = 2; j <= 3; j++)
 	{
-	  sheet.Range[i, j].Number = r.Next(0, 500);
+      sheet.Range[i, j].Number = r.Next(0, 500);
 	}
   }
   IChartShape chart = sheet.Charts.Add();
@@ -565,7 +562,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   {
 	for (int j = 2; j <= 3; j++)
 	{
-	  sheet.Range[i, j].Number = r.Next(0, 500);
+      sheet.Range[i, j].Number = r.Next(0, 500);
 	}
   }
   IChartShape chart = sheet.Charts.Add();
@@ -593,16 +590,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -729,16 +724,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1741,16 +1734,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1759,7 +1750,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to create a custom chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Custom%20Chart).
 
 ![chart](Working-with-Charts_images/Working-with-charts_img1.jpeg)
-
 
 ## Remove a chart 
 
@@ -1875,16 +1865,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.  
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1901,7 +1889,6 @@ The appearance of a chart can be modified according to the convenience and usage
 The following screen shot shows the elements of chart.
 
 ![chart elements](Working-with-Charts_images/Working-with-charts_img2.jpeg)
-
 
 1. The chart area of the chart.
 2. The plot area of the chart.
@@ -2317,16 +2304,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2532,9 +2517,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -2715,9 +2698,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -2893,9 +2874,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -3068,9 +3047,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -3095,148 +3072,146 @@ The following code snippet shows how to add High-low lines in a stock chart.
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Set HasHighLowLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
-    
-    //Apply formats to HighLowLines.
-    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+  //Set HasHighLowLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
 
-    workbook.SaveAs("HighLowLines.xlsx");
-    workbook.Close();
+  //Apply formats to HighLowLines.
+  chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+
+  workbook.SaveAs("HighLowLines.xlsx");
+  workbook.Close();
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using engine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = engine.Excel
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-    Dim chart As IChartShape = worksheet.Charts(0)
-    Dim chartSerie As IChartSerie = chart.Series(0)
- 
-    ‘Set HasHighLowLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = True;
-    
-    ‘Apply formats to HighLowLines.
-    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue
+  Dim application As IApplication = engine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim chart As IChartShape = worksheet.Charts(0)
+  Dim chartSerie As IChartSerie = chart.Series(0)
 
-    workbook.SaveAs("HighLowLines.xlsx")
-    workbook.Close()
+  ‘Set HasHighLowLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = True;
+
+  ‘Apply formats to HighLowLines.
+  chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue
+
+  workbook.SaveAs("HighLowLines.xlsx")
+  workbook.Close()
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    //Instantiates the file picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile file = await openPicker.PickSingleFileAsync();
-    
-    //Opening an existing workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(file);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
-  
-    //Set HasHighLowLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
-    
-    //Apply formats to HighLowLines.
-    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "HighLowLines";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-    
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-    
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
+
+  //Set HasHighLowLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
+
+  //Apply formats to HighLowLines.
+  chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "HighLowLines";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Set HasHighLowLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
-    
-    //Apply formats to HighLowLines.
-    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color. Blue;
+  //Set HasHighLowLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
 
-    FileStream stream = new FileStream("HighLowLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
-    workbook.Close();
+  //Apply formats to HighLowLines.
+  chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color. Blue;
+
+  FileStream stream = new FileStream("HighLowLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+  workbook.Close();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    
-    //"App" is the class of portable project
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Set HasHighLowLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
-    
-    //Apply formats to HighLowLines.
-    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-    
-    stream.Position = 0;
-    
-    //Save the document as file and view the saved document
-    
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-    
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("HighLowLines.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-      Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HighLowLines.xlsx", "application/msexcel", stream);
-    }
-    workbook.Close();
+  //Set HasHighLowLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
+
+  //Apply formats to HighLowLines.
+  chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document    
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.    
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("HighLowLines.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HighLowLines.xlsx", "application/msexcel", stream);
+  }
+  workbook.Close();
 }
 {% endhighlight %}
 {% endtabs %}
@@ -3257,148 +3232,146 @@ The following code snippet shows how to add Drop lines in a stock chart.
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Set HasDropLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+  //Set HasDropLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
 
-    //Apply formats to DropLines.
-    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+  //Apply formats to DropLines.
+  chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
 
-    workbook.SaveAs("DropLines.xlsx");
-    workbook.Close();
+  workbook.SaveAs("DropLines.xlsx");
+  workbook.Close();
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using engine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = engine.Excel
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-    Dim chart As IChartShape = worksheet.Charts(0)
-    Dim chartSerie As IChartSerie = chart.Series(0)
- 
-    ‘Set HasDropLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = True;
-    
-    ‘Apply formats to DropLines.
-    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green
+  Dim application As IApplication = engine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim chart As IChartShape = worksheet.Charts(0)
+  Dim chartSerie As IChartSerie = chart.Series(0)
 
-    workbook.SaveAs("DropLines.xlsx")
-    workbook.Close()
+  ‘Set HasDropLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = True;
+
+  ‘Apply formats to DropLines.
+  chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green
+
+  workbook.SaveAs("DropLines.xlsx")
+  workbook.Close()
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    //Instantiates the file picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile file = await openPicker.PickSingleFileAsync();
-    
-    //Opening an existing workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(file);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
-  
-    //Set HasDropLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Apply formats to DropLines.
-    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "DropLines";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-    
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-    
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  //Set HasDropLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+
+  //Apply formats to DropLines.
+  chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "DropLines";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Set HasDropLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+  //Set HasDropLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
 
-    //Apply formats to DropLines.
-    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+  //Apply formats to DropLines.
+  chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
 
-    FileStream stream = new FileStream("DropLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
-    workbook.Close();
+  FileStream stream = new FileStream("DropLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+  workbook.Close();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    
-    //"App" is the class of portable project
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Set HasDropLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Apply formats to DropLines.
-    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+  //Set HasDropLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
 
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-    
-    stream.Position = 0;
-    
-    //Save the document as file and view the saved document
-    
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-    
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DropLines.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-      Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DropLines.xlsx", "application/msexcel", stream);
-    }
-    workbook.Close();
+  //Apply formats to DropLines.
+  chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document  
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.  
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DropLines.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DropLines.xlsx", "application/msexcel", stream);
+  }
+  workbook.Close();
 }
 {% endhighlight %}
 {% endtabs %}
@@ -3420,148 +3393,146 @@ The following code snippet shows how to add series lines in a pie chart.
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Set HasSeriesLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
-    
-    //Apply formats to SeriesLines.
-    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+  //Set HasSeriesLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
 
-    workbook.SaveAs("SeriesLines.xlsx");
-    workbook.Close();
+  //Apply formats to SeriesLines.
+  chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+  workbook.SaveAs("SeriesLines.xlsx");
+  workbook.Close();
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using engine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = engine.Excel
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-    Dim chart As IChartShape = worksheet.Charts(0)
-    Dim chartSerie As IChartSerie = chart.Series(0)
- 
-    ‘Set HasSeriesLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = True;
-    
-    ‘Apply formats to SeriesLines.
-    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red
+  Dim application As IApplication = engine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim chart As IChartShape = worksheet.Charts(0)
+  Dim chartSerie As IChartSerie = chart.Series(0)
 
-    workbook.SaveAs("SeriesLines.xlsx")
-    workbook.Close()
+  ‘Set HasSeriesLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = True;
+
+  ‘Apply formats to SeriesLines.
+  chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red
+
+  workbook.SaveAs("SeriesLines.xlsx")
+  workbook.Close()
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    //Instantiates the file picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile file = await openPicker.PickSingleFileAsync();
-    
-    //Opening an existing workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(file);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
-  
-    //Set HasSeriesLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
-    
-    //Apply formats to SeriesLines.
-    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "SeriesLines";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-    
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-    
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
+
+  //Set HasSeriesLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
+
+  //Apply formats to SeriesLines.
+  chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "SeriesLines";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Set HasSeriesLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
-    
-    //Apply formats to SeriesLines.
-    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+  //Set HasSeriesLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
 
-    FileStream stream = new FileStream("SeriesLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
-    workbook.Close();
+  //Apply formats to SeriesLines.
+  chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+  FileStream stream = new FileStream("SeriesLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+  workbook.Close();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine engine = new ExcelEngine())
 {
-    IApplication application = engine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    
-    //"App" is the class of portable project
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    IChartShape chart = worksheet.Charts[0];
-    IChartSerie chartSerie = chart.Series[0];
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Set HasSeriesLines property to true.
-    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
-    
-    //Apply formats to SeriesLines.
-    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+  IChartShape chart = worksheet.Charts[0];
+  IChartSerie chartSerie = chart.Series[0];
 
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-    
-    stream.Position = 0;
-    
-    //Save the document as file and view the saved document
-    
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-    
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SeriesLines.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-      Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SeriesLines.xlsx", "application/msexcel", stream);
-    }
-    workbook.Close();
+  //Set HasSeriesLines property to true.
+  chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
+
+  //Apply formats to SeriesLines.
+  chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document  
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.  
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SeriesLines.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SeriesLines.xlsx", "application/msexcel", stream);
+  }
+  workbook.Close();
 }
 {% endhighlight %}
 {% endtabs %}
@@ -3732,9 +3703,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -3904,9 +3873,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -4226,16 +4193,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -4353,7 +4318,6 @@ chart.Legend.Layout.TopMode = LayoutModes.edge;
 {% endtabs %}  
 
 ### Resizing Chart
-
 
 The following code sample illustrates how to resize a chart in a worksheet.
 
@@ -4801,16 +4765,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -4978,9 +4940,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -5163,9 +5123,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -5441,9 +5399,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -5630,16 +5586,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sparkline.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sparkline.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sparkline.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sparkline.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -5779,16 +5733,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -5950,16 +5902,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -6154,16 +6104,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Funnel.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Funnel.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Funnel.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Funnel.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -6298,7 +6246,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Create a chart
   IChartShape chart = sheet.Charts.Add();
-  
+
   //Set the chart title
   chart.ChartTitle = "Test Scores";
 
@@ -6453,16 +6401,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Box and Whisker.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Box and Whisker.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Box and Whisker.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Box and Whisker.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -6692,16 +6638,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -6926,16 +6870,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Histogram.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Histogram.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Histogram.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Histogram.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -6978,7 +6920,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Formatting Pareto line      
   chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green;
-	
+
   //Gap width settings
   chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
 
@@ -7166,16 +7108,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Pareto.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Pareto.xlsx", "application/msexcel", stream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Pareto.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Pareto.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -7375,16 +7315,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Treemap.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Treemap.xlsx", "application/msexcel", stream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Treemap.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Treemap.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -7584,16 +7522,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sunburst.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sunburst.xlsx", "application/msexcel", stream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sunburst.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sunburst.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -7606,7 +7542,6 @@ A complete working example to create sunburst chart in C# is present on [this Gi
 The following screen shot shows the output of above code.
 
 ![sunburst chart](Working-with-Charts_images/sunburst.jpeg)
-
 
 N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.
 
