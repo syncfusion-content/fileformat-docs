@@ -554,17 +554,6 @@ using (WordDocument document = new WordDocument(@"Input.docx"))
     //Save a Word document as a Markdown file.
     document.Save("WordtoMd.md", FormatType.Markdown);
 }
-The following code examples show the event handler to customize the image path and save the image in an external folder.
-
-static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-        {
-            string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as a file. 
-            using (FileStream fileStreamOutput = File.Create(imagepath))
-                args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the image URI to be used in the output markdown.
-            args.Uri = imagepath;
-        }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -575,45 +564,10 @@ document.SaveOptions.ImageNodeVisited += SaveImage
  'Save a Word document as a Markdown file.
 document.Save("WordtoMd.md", FormatType.Markdown)
 End Using
-
-Private Shared Sub SaveImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
-Dim imagepath = "D:\Temp\Image1.png"
- 'Save the image stream as a file. 
-Using fileStreamOutput = File.Create(imagepath)
-   args.ImageStream.CopyTo(fileStreamOutput)
-End Using
-'Set the URI to be used for the image in the output markdown. 
-   args.Uri = imagepath
-End Sub
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as a Stream.
-using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-        //Hook the event to customize the image. 
-        document.SaveOptions.ImageNodeVisited += SaveImage;
-        //Save a Markdown file to the MemoryStream.
-        MemoryStream stream = new MemoryStream();
-        await document.SaveAsync(stream, FormatType.Markdown);
-        //Save the stream as a Markdown file in the local machine.
-        Save(stream, "WordtoMd.md");
-    }
-//Please refer to the following link to save the Markdown file in the UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-}
-static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-        {
-            string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as a file.
-            using (FileStream fileStreamOutput = File.Create(imagepath))
-                args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the URI to be used for the image in the output markdown. 
-            args.Uri = imagepath;
-        }
+//DocIO doesn’t support the ImageNodeVisitedEventArgs in UWP platform.
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -636,15 +590,6 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         outStream.Dispose();
     }
 }
-static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-        {
-            string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as a file.
-            using (FileStream fileStreamOutput = File.Create(imagepath))
-                args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the URI to be used for the image in the output Markdown. 
-            args.Uri = imagepath;
-        }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -665,6 +610,53 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 //Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
+{% endhighlight %}
+{% endtabs %}
+
+The following code examples show the event handler to customize the image path and save the image in an external folder.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+        {
+            string imagepath = @"D:\Temp\Image1.png";
+            //Save the image stream as a file. 
+            using (FileStream fileStreamOutput = File.Create(imagepath))
+                args.ImageStream.CopyTo(fileStreamOutput);
+            //Set the image URI to be used in the output markdown.
+            args.Uri = imagepath;
+        }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Private Shared Sub SaveImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
+Dim imagepath = "D:\Temp\Image1.png"
+ 'Save the image stream as a file. 
+Using fileStreamOutput = File.Create(imagepath)
+   args.ImageStream.CopyTo(fileStreamOutput)
+End Using
+'Set the URI to be used for the image in the output markdown. 
+   args.Uri = imagepath
+End Sub
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//DocIO doesn’t support the ImageNodeVisitedEventArgs in UWP platform.
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+        {
+            string imagepath = @"D:\Temp\Image1.png";
+            //Save the image stream as a file.
+            using (FileStream fileStreamOutput = File.Create(imagepath))
+                args.ImageStream.CopyTo(fileStreamOutput);
+            //Set the URI to be used for the image in the output Markdown. 
+            args.Uri = imagepath;
+        }
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
             string imagepath = @"D:\Temp\Image1.png";
