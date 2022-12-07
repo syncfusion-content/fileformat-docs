@@ -587,9 +587,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Apply switches for table of contents
 
-You can modify the preservation of TOC entries in Word document by applying switches to table of contents. You can apply switches to preserve TOC entries as hyperlink or not, use default heading styles, preserve page numbers or not, aligning the page numbers, preserve new line characters, preserve outline level paragraphs, and preserve table of entry fields in the TOC entries using Word (DocIO) library.
+You can modify the preservation of TOC entries in a Word document by applying switches to the table of contents, and you can also apply switches to preserve TOC entries as hyperlinks or not, use the default heading styles, preserve page numbers or not, align the page numbers, preserve new line characters, preserve outline level paragraphs, and preserve table of entry fields in the TOC entries using Word (DocIO) library.
 
-The following code example illustrates how to apply switches for table of contents.
+The following code example illustrates how to apply switches for the table of contents.
 
 {% tabs %} 
 
@@ -597,11 +597,11 @@ The following code example illustrates how to apply switches for table of conten
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-//Add a section into the Word document.
+Add a section to the Word document.
 IWSection section = document.AddSection();
-//Add a paragraph into the created section.
+Add a paragraph to the created section.
 IWParagraph paragraph = section.AddParagraph();
-//Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries.
+Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries.
 TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
 //Set lower heading level for TOC.
 tableOfContent.LowerHeadingLevel = 2;
@@ -611,31 +611,31 @@ tableOfContent.UpperHeadingLevel = 5;
 tableOfContent.UseHeadingStyles = true;
 //Enable a flag to show page numbers in TOC entries.
 tableOfContent.IncludePageNumbers = true;
-//Disable a flag to align page numbers after to the TOC entries.
+Disable a flag to align page numbers after the TOC entries.
 tableOfContent.RightAlignPageNumbers = false;
 //Disable a flag to preserve TOC entries without hyperlinks.
 tableOfContent.UseHyperlinks = false;
-//Add a paragraph into the section.
+Add a paragraph to the section.
 paragraph = section.AddParagraph();
 //Append text.
 paragraph.AppendText("First ");
 //Append line break.
 paragraph.AppendBreak(BreakType.LineBreak);
 paragraph.AppendText("Chapter");
-//Enable a flag to include new line characters in TOC entries.
+Enable a flag to include newline characters in TOC entries.
 tableOfContent.IncludeNewLineCharacters = true;
 //Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading2);
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
 //Append text.
 paragraph.AppendText("Second ");
 paragraph.AppendText("Chapter");
-//Sets a built-in heading style.
+Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 paragraph = section.AddParagraph();
 paragraph.AppendText("Third ");
@@ -648,7 +648,7 @@ paragraph.AppendText("Fourth ");
 paragraph.AppendText("Chapter");
 //Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading3);
-//Add the text into the new paragraph of the section.
+Add the text to the new paragraph of the section.
 section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
@@ -658,7 +658,7 @@ paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2;
 paragraph.AppendText("Outline Level Paragraph");
 //Enable a flag to consider outline level paragraphs in TOC entries.
 tableOfContent.UseOutlineLevels = true;
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
@@ -666,7 +666,7 @@ paragraph = section.AddParagraph();
 paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
 //Enable a flag to use table entry fields in TOC entries.
 tableOfContent.UseTableEntryFields = true;
-//Update the table of content.
+Update the table of contents.
 document.UpdateTableOfContents();
 //Save a Word document.
 document.Save("Sample.docx");
@@ -760,11 +760,11 @@ End Using
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-//Add a section into the Word document.
+Add a section to the Word document.
 IWSection section = document.AddSection();
-//Add a paragraph into the created section.
+Add a paragraph to the created section.
 IWParagraph paragraph = section.AddParagraph();
-//Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries.
+Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries.
 TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
 //Set lower heading level for TOC.
 tableOfContent.LowerHeadingLevel = 2;
@@ -774,31 +774,31 @@ tableOfContent.UpperHeadingLevel = 5;
 tableOfContent.UseHeadingStyles = true;
 //Enable a flag to show page numbers in TOC entries.
 tableOfContent.IncludePageNumbers = true;
-//Disable a flag to align page numbers after to the TOC entries.
+Disable a flag to align page numbers after the TOC entries.
 tableOfContent.RightAlignPageNumbers = false;
 //Disable a flag to preserve TOC entries without hyperlinks.
 tableOfContent.UseHyperlinks = false;
-//Add a paragraph into the section.
+Add a paragraph to the section.
 paragraph = section.AddParagraph();
 //Append text.
 paragraph.AppendText("First ");
 //Append line break.
 paragraph.AppendBreak(BreakType.LineBreak);
 paragraph.AppendText("Chapter");
-//Enable a flag to include new line characters in TOC entries.
+Enable a flag to include newline characters in TOC entries.
 tableOfContent.IncludeNewLineCharacters = true;
 //Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading2);
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
 //Append text.
 paragraph.AppendText("Second ");
 paragraph.AppendText("Chapter");
-//Sets a built-in heading style.
+Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 paragraph = section.AddParagraph();
 paragraph.AppendText("Third ");
@@ -811,7 +811,7 @@ paragraph.AppendText("Fourth ");
 paragraph.AppendText("Chapter");
 //Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading3);
-//Add the text into the new paragraph of the section.
+Add the text to the new paragraph of the section.
 section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
@@ -821,7 +821,7 @@ paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2;
 paragraph.AppendText("Outline Level Paragraph");
 //Enable a flag to consider outline level paragraphs in TOC entries.
 tableOfContent.UseOutlineLevels = true;
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
@@ -829,7 +829,7 @@ paragraph = section.AddParagraph();
 paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
 //Enable a flag to use table entry fields in TOC entries.
 tableOfContent.UseTableEntryFields = true;
-//Update the table of content.
+Update the table of contents.
 document.UpdateTableOfContents();
 //Save a Markdown file to the MemoryStream.
 MemoryStream outputStream = new MemoryStream();
@@ -847,11 +847,11 @@ outStream.Dispose();
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-//Add a section into the Word document.
+Add a section to the Word document.
 IWSection section = document.AddSection();
-//Add a paragraph into the created section.
+Add a paragraph to the created section.
 IWParagraph paragraph = section.AddParagraph();
-//Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries.
+Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries.
 TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
 //Set lower heading level for TOC.
 tableOfContent.LowerHeadingLevel = 2;
@@ -861,31 +861,31 @@ tableOfContent.UpperHeadingLevel = 5;
 tableOfContent.UseHeadingStyles = true;
 //Enable a flag to show page numbers in TOC entries.
 tableOfContent.IncludePageNumbers = true;
-//Disable a flag to align page numbers after to the TOC entries.
+Disable a flag to align page numbers after the TOC entries.
 tableOfContent.RightAlignPageNumbers = false;
 //Disable a flag to preserve TOC entries without hyperlinks.
 tableOfContent.UseHyperlinks = false;
-//Add a paragraph into the section.
+Add a paragraph to the section.
 paragraph = section.AddParagraph();
 //Append text.
 paragraph.AppendText("First ");
 //Append line break.
 paragraph.AppendBreak(BreakType.LineBreak);
 paragraph.AppendText("Chapter");
-//Enable a flag to include new line characters in TOC entries.
+Enable a flag to include newline characters in TOC entries.
 tableOfContent.IncludeNewLineCharacters = true;
 //Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading2);
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
 //Append text.
 paragraph.AppendText("Second ");
 paragraph.AppendText("Chapter");
-//Sets a built-in heading style.
+Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 paragraph = section.AddParagraph();
 paragraph.AppendText("Third ");
@@ -898,7 +898,7 @@ paragraph.AppendText("Fourth ");
 paragraph.AppendText("Chapter");
 //Set a built-in heading style.
 paragraph.ApplyStyle(BuiltinStyle.Heading3);
-//Add the text into the new paragraph of the section.
+Add the text to the new paragraph of the section.
 section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
@@ -908,7 +908,7 @@ paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2;
 paragraph.AppendText("Outline Level Paragraph");
 //Enable a flag to consider outline level paragraphs in TOC entries.
 tableOfContent.UseOutlineLevels = true;
-//Add a section into the Word document.
+Add a section to the Word document.
 section = document.AddSection();
 //Add a paragraph to the section.
 paragraph = section.AddParagraph();
@@ -916,7 +916,7 @@ paragraph = section.AddParagraph();
 paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
 //Enable a flag to use table entry fields in TOC entries.
 tableOfContent.UseTableEntryFields = true;
-//Update the table of content.
+Update the table of contents.
 document.UpdateTableOfContents();
 //Save a Word document to MemoryStream.
 MemoryStream outputStream = new MemoryStream();
