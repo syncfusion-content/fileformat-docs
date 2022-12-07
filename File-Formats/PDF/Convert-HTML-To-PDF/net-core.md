@@ -25,54 +25,54 @@ Step 3:  Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.o
 
 Step 4: A default controller with name HomeController.cs gets added on creation of ASP.NET Core MVC project. Include the following namespaces in that HomeController.cs file.
 
-   {% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C#" %}
 
-   using Syncfusion.Pdf;
-   using Syncfusion.HtmlConverter;
-   using System.IO;
+using Syncfusion.Pdf;
+using Syncfusion.HtmlConverter;
+using System.IO;
 
-   {% endhighlight %}
+{% endhighlight %}
 
 Step 5: Add a new button in index.cshtml as shown below.
 
-   {% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C#" %}
 
-   @{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
-      {
-         <div>
-            <input type="submit" value="Convert PDF" style="width:150px;height:27px" />
-         </div>
-      }
-      Html.EndForm();
-   }
+@{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
+    {
+        <div>
+            <input type="submit" value="Convert HTML to PDF" style="width:150px;height:27px" />
+        </div>
+    }
+    Html.EndForm();
+}
 
-   {% endhighlight %}
+{% endhighlight %}
 
 Step 6: Add a new action method named ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
 
-   {% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C#" %}
 
-   //Initialize HTML to PDF converter.
-   HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-   BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-   //Set Blink viewport size.
-   blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
-   //Assign Blink converter settings to HTML converter.
-   htmlConverter.ConverterSettings = blinkConverterSettings;
-   //Convert URL to PDF document.
-   PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-   //Create memory stream.
-   MemoryStream stream = new MemoryStream();
-   //Save and close the document. 
-   document.Save(stream);
-   document.Close(); 
-   return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save and close the document. 
+document.Save(stream);
+document.Close(); 
+return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "HTML-to-PDF.pdf");
 
-   {% endhighlight %}
+{% endhighlight %}
 
-   By executing the program, you will get the PDF document as follows.
-   <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF ASP.NET_Core output" width="100%" Height="Auto"/>
+By executing the program, you will get the PDF document as follows.
+<img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF ASP.NET_Core output" width="100%" Height="Auto"/>
  
-   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/ASP.NET%20Core).
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/ASP.NET%20Core).
    
    
