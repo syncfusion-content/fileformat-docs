@@ -678,18 +678,18 @@ The following table shows the list of Word document elements supported in Word t
 <table style="width: 760px;">
 <thead>
 <tr style="height: 13px;">
-<td style="width: 182.986px; height: 13px;"><strong>Element in Word document</strong></td>
-<td style="width: 557.014px; height: 13px;"><strong>Notes</strong></td>
+<td style="width: 269.931px; height: 13px;"><strong>Element in Word document</strong></td>
+<td style="width: 465.069px; height: 13px;"><strong>Notes</strong></td>
 </tr>
 </thead>
 <tbody>
 <tr style="height: 13px;">
-<td style="width: 182.986px; height: 13px;">Paragraph</td>
-<td style="width: 557.014px; height: 13px;">Preserved as one line.</td>
+<td style="width: 269.931px; height: 13px;">Paragraph</td>
+<td style="width: 465.069px; height: 13px;">Preserved as one line.</td>
 </tr>
 <tr style="height: 13px;">
-<td style="width: 182.986px; height: 13px;">Table</td>
-<td style="width: 557.014px; height: 13px;">
+<td style="width: 269.931px; height: 13px;">Table</td>
+<td style="width: 465.069px; height: 13px;">
 <ul>
 <li>Preserves as per GitHub flavoured Markdown syntax.</li>
 <li>Column alignment is based on alignment of first paragraph in cells of row.</li>
@@ -698,8 +698,8 @@ The following table shows the list of Word document elements supported in Word t
 </td>
 </tr>
 <tr style="height: 13px;">
-<td style="width: 182.986px; height: 13px;">Block Content Control</td>
-<td style="width: 557.014px; height: 13px;">Contents inside control controls are preserved as normal text. If the first item of the paragraph is a checkbox content control, then it preserves as a task item.</td>
+<td style="width: 269.931px; height: 13px;">Block Content Control</td>
+<td style="width: 465.069px; height: 13px;">Contents inside control controls are preserved as normal text. If the first item of the paragraph is a checkbox content control, then it preserves as a task item.</td>
 </tr>
 </tbody>
 </table>
