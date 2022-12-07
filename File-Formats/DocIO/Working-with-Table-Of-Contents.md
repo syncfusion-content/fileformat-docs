@@ -906,7 +906,7 @@ paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2;
 //Append text.
 paragraph.AppendText("Outline Level Paragraph");
-//Enable a flag to consider outline level paragraphs in TOC entries.
+Enable a flag to consider outline-level paragraphs in TOC entries.
 tableOfContent.UseOutlineLevels = true;
 Add a section to the Word document.
 section = document.AddSection();
@@ -925,7 +925,7 @@ document.Save(outputStream, FormatType.Markdown);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
 }
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Please download the helper files from the following link to save the stream as a file and open the file for viewing on Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
