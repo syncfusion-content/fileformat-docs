@@ -753,7 +753,7 @@ End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//DocIO supports Table of contents in WPF, Windows Forms platforms alone
+//DocIO supports Table of contents in WPF, Windows Forms platforms alone.
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
