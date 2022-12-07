@@ -6830,3 +6830,121 @@ document.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+## Remove existing digital signatures from a PDF document 
+
+The following code example illustrates how to remove existing digital signatures from a PDF document. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load an existing PDF document
+PdfLoadedDocument pdfLoadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the signature field from PDF form field collection
+PdfLoadedSignatureField signatureField = pdfLoadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+//Remove signature field from form field collection
+pdfLoadedDocument.Form.Fields.Remove(signatureField);
+
+//Save and close the PDF document
+pdfLoadedDocument.Save("RemoveDigital.pdf");
+pdfLoadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load an existing PDF document
+Dim pdfLoadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the signature field from PDF form field collection
+Dim signatureField As PdfLoadedSignatureField = TryCast(pdfLoadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+'Remove signature field from form field collection
+pdfLoadedDocument.Form.Fields.Remove(signatureField)
+
+'Save and close the PDF document
+pdfLoadedDocument.Save("RemoveDigital.pdf")
+pdfLoadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Load an existing PDF document 
+Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument pdfLoadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the signature field from PDF form field collection
+PdfLoadedSignatureField signatureField = pdfLoadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+//Remove signature field from form field collection
+pdfLoadedDocument.Form.Fields.Remove(signatureField);
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+await pdfLoadedDocument.SaveAsync(stream);
+//Close the document
+pdfLoadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load an existing PDF document
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument pdfLoadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the signature field from PDF form field collection
+PdfLoadedSignatureField signatureField = pdfLoadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+//Remove signature field from form field collection
+pdfLoadedDocument.Form.Fields.Remove(signatureField);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+pdfLoadedDocument.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfLoadedDocument.Close(true);
+
+//Defining the ContentType for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load an existing PDF document 
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument pdfLoadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the signature field from PDF form field collection
+PdfLoadedSignatureField signatureField = pdfLoadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+//Remove signature field from PdfLoadedDocument form field collection
+pdfLoadedDocument.Form.Fields.Remove(signatureField);
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+pdfLoadedDocument.Save(stream);
+//Close the document
+pdfLoadedDocument.Close(true);
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
