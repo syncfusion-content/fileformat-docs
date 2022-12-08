@@ -17,9 +17,9 @@ keywords:
 
 ## Find and replace in PowerPoint presentation
 
-You can find text in a Presentation document and replace it with other text.
+You can find text in a PowerPoint presentation and replace it with other text.
 
-The following code example illustrates how to find a particular text and replace with other text in a Presentation document.
+The following code example illustrates how to find a particular text and replace it with other text in a PowerPoint presentation.
 
 {% tabs %}  
 
@@ -27,7 +27,7 @@ The following code example illustrates how to find a particular text and replace
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	//Finds all the occurrences of a particular text in the presentation document
+	//Finds all the occurrences of a particular text in the PowerPoint presentation
 	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 	foreach (ITextSelection textSelection in textSelections)
 	{
@@ -44,7 +44,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	'Finds all the occurrences of a particular text in the presentation document
+	'Finds all the occurrences of a particular text in the PowerPoint presentation
 	Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", False, False)
 	For Each textSelection As ITextSelection In textSelections
 		'Gets the found text as single text part
@@ -66,7 +66,7 @@ openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-//Finds all the occurrences of a particular text in the presentation document
+//Finds all the occurrences of a particular text in the PowerPoint presentation
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
@@ -91,7 +91,7 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	//Finds all the occurrences of a particular text in the presentation document
+	//Finds all the occurrences of a particular text in the PowerPoint presentation
 	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 	foreach (ITextSelection textSelection in textSelections)
 	{
@@ -116,7 +116,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Finds all the occurrences of a particular text in the presentation document
+//Finds all the occurrences of a particular text in the PowerPoint presentation
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
@@ -143,7 +143,7 @@ else
 
 ### Match case
 
-You can replace the text by matching case also.
+You can find and replace the text by matching case also.
 
 The following code example illustrates how to find a particular text by matching its case.
 
@@ -279,7 +279,7 @@ else
 
 ### Whole words only
 
-You can replace the text by matching whole word only.
+You can find and replace the text by matching whole word only.
 
 The following code example illustrates how to find a particular text by matching the whole word.
 
@@ -415,9 +415,9 @@ else
 
 ### Find and replace the first occurrence
 
-You can find the text and replace only the first occurrence of the text.
+You can find only the first occurrence of the text and replace it with other text.
 
-The following code example illustrates how to find a particular text and replace only the first occurrence of the text.
+The following code example illustrates how to find the first occurrence of particular text and replace it with other text.
 
 {% tabs %}  
 
@@ -425,7 +425,7 @@ The following code example illustrates how to find a particular text and replace
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	//Finds the first occurrence of a particular text in the presentation document
+	//Finds the first occurrence of a particular text in the PowerPoint presentation
 	ITextSelection textSelection = pptxDoc.Find("product", false, false);
 	//Gets the found text as single text part
 	ITextPart textPart = textSelection.GetAsOneTextPart();
@@ -439,7 +439,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	'Finds the first occurrence of a particular text in the presentation document
+	'Finds the first occurrence of a particular text in the PowerPoint presentation
 	Dim textSelection As ITextSelection = pptxDoc.Find("product", False, False)
 	'Gets the found text as single text part
 	Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
@@ -459,7 +459,7 @@ openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-//Finds the first occurrence of a particular text in the presentation document
+//Finds the first occurrence of a particular text in the PowerPoint presentation
 ITextSelection textSelection = pptxDoc.Find("product", false, false);
 //Gets the found text as single text part
 ITextPart textPart = textSelection.GetAsOneTextPart();
@@ -481,7 +481,7 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	//Finds the first occurrence of a particular text in the presentation document
+	//Finds the first occurrence of a particular text in the PowerPoint presentation
 	ITextSelection textSelection = pptxDoc.Find("product", false, false);
 	//Gets the found text as single text part
 	ITextPart textPart = textSelection.GetAsOneTextPart();
@@ -503,7 +503,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Finds the first occurrence of a particular text in the presentation document
+//Finds the first occurrence of a particular text in the PowerPoint presentation
 ITextSelection textSelection = pptxDoc.Find("product", false, false);
 //Gets the found text as single text part
 ITextPart textPart = textSelection.GetAsOneTextPart();
@@ -527,7 +527,7 @@ else
 
 ## Find and replace in specific slide
 
-You can find text in a Presentation document and replace it with other text in a specific slide.
+You can find a text in specific PowerPoint slide (slide, notes slide, master slide or layout slide) and replace it with other text.
 
 The following code example illustrates how to find a particular text and replace with other text in a specific slide.
 
@@ -658,12 +658,7 @@ else
 
 ## Find and highlight in PowerPoint presentation
 
-.NET PowerPoint library allows you to find the text in the PowerPoint presentation and then to manipulate it.
-
-* You can find the first occurrence or all the occurrences of the text in the PowerPoint presentation.
-* You can find the text from specific slide, notes slide, master slide or layout slide.
-* You can find the text by matching case, whole word and all occurrence or first occurrence alone.
-* You can also find the content that spans across several lines.
+.NET PowerPoint library allows you to find the text in the PowerPoint presentation and highlight it.
 
 The following code example illustrates how to find a particular text and highlight it.
 
@@ -673,7 +668,7 @@ The following code example illustrates how to find a particular text and highlig
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	//Finds all the occurrences of a particular text in the presentation document
+	//Finds all the occurrences of a particular text in the PowerPoint presentation
 	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 	foreach (ITextSelection textSelection in textSelections)
 	{
@@ -692,7 +687,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	'Finds all the occurrences of a particular text in the presentation document
+	'Finds all the occurrences of a particular text in the PowerPoint presentation
 	Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", False, False)
 	For Each textSelection As ITextSelection In textSelections
 		'Gets the found text containing text parts
@@ -715,7 +710,7 @@ openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-//Finds all the occurrences of a particular text in the presentation document
+//Finds all the occurrences of a particular text in the PowerPoint presentation
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
@@ -742,7 +737,7 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	//Finds all the occurrences of a particular text in the presentation document
+	//Finds all the occurrences of a particular text in the PowerPoint presentation
 	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 	foreach (ITextSelection textSelection in textSelections)
 	{
@@ -769,7 +764,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Finds all the occurrences of a particular text in the presentation document
+//Finds all the occurrences of a particular text in the PowerPoint presentation
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
@@ -798,7 +793,7 @@ else
 
 ## Find and highlight in specific slide
 
-You can find text in a specific slide and highlight the found text in the specific slide.
+You can find a text in specific PowerPoint slide (slide, notes slide, master slide or layout slide) and highlight the found text.
 
 The following code example illustrates how to find a particular text and highlight it in specific slide.
 
