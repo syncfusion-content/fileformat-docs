@@ -8,18 +8,18 @@ keywords:
 ---
 # Working with Find and Replace
 
-.NET PowerPoint library allows you to replace a specific text in the PowerPoint presentation with another text.
+.NET PowerPoint library allows you to search a particular text you like to change and replace it with another text in the PowerPoint presentation.
 
-* You can replace either the first occurrence or all the occurrences of the text with another text in all PowerPoint slides and elements such as Shape, Textbox, Table, SmartArt, etc.
+* You can replace either the first occurrence or all the occurrences of the text with another text in all PowerPoint slides and elements such as shape, textbox, table, smartart, etc.
 * You can replace the text in specific slide, notes slide, master slide or layout slide.
-* You can replace the text by matching case, whole word and all occurrence or first occurrence alone.
+* You can replace the text by matching case, whole word and all occurrences or first occurrence alone.
 * You can also replace the content that spans across several lines.
 
 ## Find and replace in PowerPoint presentation
 
 You can find text in a PowerPoint presentation and replace it with other text.
 
-The following code example illustrates how to find a particular text and replace it with other text in a PowerPoint presentation.
+The following code example illustrates how to find all occurences of a particular text and replace it with other text in a PowerPoint presentation.
 
 {% tabs %}  
 
@@ -145,7 +145,7 @@ else
 
 You can find and replace the text by matching case also.
 
-The following code example illustrates how to find a particular text by matching its case.
+The following code example illustrates how to find all occurences of a particular text by matching its case.
 
 {% tabs %}  
 
@@ -281,7 +281,7 @@ else
 
 You can find and replace the text by matching whole word only.
 
-The following code example illustrates how to find a particular text by matching the whole word.
+The following code example illustrates how to find all occurences of a particular text by matching the whole word.
 
 {% tabs %}  
 
@@ -527,9 +527,9 @@ else
 
 ## Find and replace in specific slide
 
-You can find a text in specific PowerPoint slide (slide, notes slide, master slide or layout slide) and replace it with other text.
+You can find all occurences of a text in specific PowerPoint slide (slide, notes slide, master slide or layout slide) and replace it with other text.
 
-The following code example illustrates how to find a particular text and replace with other text in a specific slide.
+The following code example illustrates how to find all occurences of a particular text and replace with other text in a specific slide.
 
 {% tabs %}  
 
@@ -658,9 +658,9 @@ else
 
 ## Find and highlight in PowerPoint presentation
 
-.NET PowerPoint library allows you to find the text in the PowerPoint presentation and highlight it.
+.NET PowerPoint library allows you to find all the occurences of a text in the PowerPoint presentation and highlight it.
 
-The following code example illustrates how to find a particular text and highlight it.
+The following code example illustrates how to find all the occurences of a particular text and highlight it.
 
 {% tabs %}  
 
@@ -793,9 +793,9 @@ else
 
 ## Find and highlight in specific slide
 
-You can find a text in specific PowerPoint slide (slide, notes slide, master slide or layout slide) and highlight the found text.
+You can find all the occurences of a text in specific PowerPoint slide (slide, notes slide, master slide or layout slide) and highlight the found text.
 
-The following code example illustrates how to find a particular text and highlight it in specific slide.
+The following code example illustrates how to find all the occurrences of a particular text and highlight it in specific slide.
 
 {% tabs %}  
 
