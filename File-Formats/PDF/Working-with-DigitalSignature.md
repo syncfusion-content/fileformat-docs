@@ -2090,6 +2090,123 @@ else
 
 {% endtabs %}
 
+## Digitally sign a PDF document with long-term archive timestamps (LTA)
+The PDF LTA signature is the next level of the LTV signature. It follows the standard PAdES B-LTA. As per the standard, the validation-related information of the timestamp is added to the DSS along with other signature information mentioned in the LTV signature.
+
+The document timestamp is also applied to the PDF document, so it provides more viability to the signature. This level is recommended for qualified electronic signatures.
+
+The following code example shows how to sign a PDF document with LTA.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load existing PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument("PDF_Succinctly.pdf");
+//Load digital ID with password.
+PdfCertificate certificate = new PdfCertificate("DigitalSignatureTest.pfx", "DigitalPass123");
+//Create a signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(document, document.Pages[0], certificate, "DigitalSignature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+signature.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Enable LTV document.
+signature.EnableLtv = true;
+//Save the PDF document.
+document.Save("LTV_document.pdf");
+//Close the document.
+document.Close(true);
+PdfLoadedDocument ltDocument = new PdfLoadedDocument("LTV_document.pdf");
+//Load the existing PDF page.
+PdfLoadedPage lpage = ltDocument.Pages[0] as PdfLoadedPage;
+//Create PDF signature with empty certificate.
+PdfSignature timeStamp = new PdfSignature(lpage, "timestamp");
+timeStamp.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Save and close the PDF document
+ltDocument.Save("PAdES B-LTA.pdf");
+ltDocument.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Loads a PDF document
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
+'Load digital ID with password.
+Dim certificate As PdfCertificate = New PdfCertificate("DigitalSignatureTest.pfx", "DigitalPass123")
+'Create a signature with loaded digital ID.
+Dim signature As PdfSignature = New PdfSignature(document, document.Pages(0), certificate, "DigitalSignature")
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256
+signature.TimeStampServer = New TimeStampServer(New Uri("http://timestamping.ensuredca.com"))
+'Enable LTV document.
+signature.EnableLtv = True
+'Saves the document
+document.Save("LTV_document.pdf")
+'Closes the document
+document.Close(True)
+'Loads a PDF document
+Dim ltDocument As PdfLoadedDocument = New PdfLoadedDocument("LTV_document.pdf")
+'Load the existing PDF page.
+Dim lpage As PdfLoadedPage = TryCast(ltDocument.Pages(0), PdfLoadedPage)
+'Create PDF signature with empty certificate.
+Dim timeStamp As PdfSignature = New PdfSignature(lpage, "timestamp")
+timeStamp.TimeStampServer = New TimeStampServer(New Uri("http://timestamping.ensuredca.com"))
+'Saves the document
+ltDocument.Save("PAdES B-LTA.pdf")
+'Closes the document
+ltDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+FileStream documentStream1 = new FileStream("PDF_Succinctly.pdf", FileMode.Open, FileAccess.Read);
+//Load existing PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream1);
+//Load digital ID with password.
+FileStream documentStream2 = new FileStream("DigitalSignatureTest.pfx", FileMode.Open, FileAccess.Read);
+PdfCertificate certificate = new PdfCertificate(documentStream2, "DigitalPass123");
+//Create a signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(document, document.Pages[0], certificate, "DigitalSignature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+signature.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Enable LTV document.
+signature.EnableLtv = true;
+//Save the PDF document.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+//Load existing PDF document.
+PdfLoadedDocument ltDocument = new PdfLoadedDocument(stream);
+//Load the existing PDF page.
+PdfLoadedPage lpage = ltDocument.Pages[0] as PdfLoadedPage;
+//Create PDF signature with empty certificate.
+PdfSignature timeStamp = new PdfSignature(lpage, "timestamp");
+timeStamp.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Close the documents
+ltDocument.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Adding a signature validation appearance based on the signature 
 
 You can add the dynamic signature validation appearance to the signature field by enabling the [EnableValidationAppearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_EnableValidationAppearance) property available in the [PdfSignature](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html) class, the appearance will change based on the PDF reader validation. 
