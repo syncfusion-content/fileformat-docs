@@ -2283,7 +2283,7 @@ loadedDocument.Save(stream1);
 loadedDocument.Close(true);
 
 //Load an existing PDF document
-PdfLoadedDocument ltDocument = new PdfLoadedDocument(stream);
+PdfLoadedDocument ltDocument = new PdfLoadedDocument(stream1);
 //Load the existing PDF page.
 PdfLoadedPage lpage = ltDocument.Pages[0] as PdfLoadedPage;
 //Create PDF signature with empty certificate.
