@@ -2090,13 +2090,14 @@ else
 
 {% endtabs %}
 
-## Digitally sign a PDF document with long-term archive timestamps (LTA)
+## Digitally sign a PDF document using long-term archive timestamps (LTA)
 
-The PDF LTA signature is the next level of the LTV signature. It follows the standard PAdES B-LTA. As per the standard, the validation-related information of the timestamp is added to the DSS along with other signature information mentioned in the LTV signature.
+The PDF LTA signature is the next level of the LTV signature. It follows the standard PAdES B-LTA. According to the standard, the validation-related information of the timestamp is added to the DSS along with other signature information mentioned in the LTV signature.
 
 The document timestamp is also applied to the PDF document, so it provides more viability to the signature. This level is recommended for qualified electronic signatures.
 
 The following code example shows how to sign a PDF document with LTA.
+
 
 {% tabs %}
 
@@ -2308,13 +2309,13 @@ else
 
 {% endtabs %}
 
-## Digitally sign a PDF document using Windows certificate store
+## Digitally sign a PDF document using the Windows certificate store
 
-A secure way to store the digital ID is using a Windows certificate store. If a root certificate is added in the Windows certificate store, you don’t need to add and trust each of the certificates that are already present in the Windows certificate store manually.
+A Windows certificate store is a secure way to store the digital ID. If a root certificate is added to the Windows certificate store, you do not need to manually add and trust each of the certificates that are already present in the Windows certificate store.
 
 You can retrieve the digital ID “X509Certificate2” from the Windows certificate store and use it to add a digital signature to a PDF document.
 
-The following code example shows how to create a PDF digital signature using Windows certificate store
+The following code example shows how to create a PDF digital signature using the Windows certificate store.
 
 {% tabs %}
 
@@ -2364,6 +2365,7 @@ Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedDocument.
 //Changing the digital signature standard and hashing algorithm.
 signature.Settings.CryptographicStandard = CryptographicStandard.CADES
 signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA512
+
 //Save the PDF document
 loadedDocument.Save("WindowsStore.pdf")
 //Close the document.
