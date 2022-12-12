@@ -983,6 +983,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Signing-an-existing-PDF-document/).
+
 ## Sign an existing document using stream
 
 You can load the signature field from an existing PDF document and add certificate to the document using stream as follows.
@@ -1598,7 +1600,7 @@ Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
 'Sets an image for the signature field
 Dim signatureImage As New PdfBitmap("signature.jpg")
 
-‘Sets enable signature validation appearance    
+'Sets enable signature validation appearance    
 signature.EnableValidationAppearance = True
 
 'Sets signature info
