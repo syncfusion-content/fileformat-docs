@@ -2785,6 +2785,10 @@ PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
 
+//Change the digital signature standard and hashing algorithm.
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA512;
+
 //Sets an image for signature field
 
 PdfBitmap image = new PdfBitmap(@"syncfusion_logo.jpeg");
@@ -3673,6 +3677,8 @@ PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 //Creates a digital signature
 
 PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
 
 //Sets an image for signature field
 
