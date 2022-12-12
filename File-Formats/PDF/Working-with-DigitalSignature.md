@@ -221,6 +221,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Add-a-digital-signature-to-the-PDF-document/).
+
 ## Adding a digital signature using stream
 
 The following code example illustrates how to add a digital signature in the PDF document
@@ -817,6 +819,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Add-digital-signature-using-X509Certificate2/).
+
 ## Signing an existing document
 
 You can load the signature field from the existing PDF document and add certificate to the document as follows.
@@ -1356,6 +1360,8 @@ private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs 
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Externally-sign-a-PDF-document/).
+
 ## Create Long Term Validation (LTV) when signing PDF documents externally
 
 You can create a Long Term validation (LTV) when signing PDF documents externally using your private/public certificates.The following code example shows how to create an LTV when signing a PDF document from external signature.
@@ -1528,6 +1534,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Create-LTV-when-signing-PDF-documents-externally/).
 
 ## Adding a signature validation appearance based on the signature 
 
@@ -1759,6 +1767,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Adding-a-signature-validation-appearance-in-a-PDF/).
+
 ## Adding a timestamp in digital signature
 
 Essential PDF allows you to add timestamp in the digital signature of the PDF document. The following code example explains the same.
@@ -1988,6 +1998,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Adding-a-timestamp-in-digital-signature-of-PDF/).
+
 ## Adding a timestamp to PDF document
 
 You can add timestamp to the PDF document using the following code snippet.
@@ -2126,6 +2138,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Adding-a-timestamp-to-PDF-document/).
 
 ## Adding a timestamp to existing PDF document
 
@@ -2280,6 +2294,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Adding-a-timestamp-to-an-existing-PDF/).
+
 ## Retrieve certificate details from an existing signed PDF document
 
 The Essential PDF provides support to get the certificate details from an existing signed PDF document such as,
@@ -2419,6 +2435,8 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-certificate-details-from-an-existing-PDF/).
 
 ## Enable Long Term Validation (LTV) PDF signature
 
@@ -2668,6 +2686,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Enable-LTV-PDF-signature/).
+
 ## Adding a digital signature with customization
 
 The [PdfSignatureSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html) allows you to add customized digital signatures to the PDF document.
@@ -2907,6 +2927,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Adding-a-digital-signature-with-CAdES-format/).
 
 ### Customize digestion algorithm
 
@@ -3151,6 +3173,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Add-digital-signature-with-digest-algorithm/).
 
 ## Digital signature validation
 
@@ -3410,6 +3434,8 @@ loadedDocument.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Validate-the-digitally-signed-PDF-signature/).
+
 ### Validate all signatures in PDF document
 
 Added the support to validate all the digital signatures in an existing PDF document. 
@@ -3557,6 +3583,8 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Validate-all-signatures-in-digitally-signed-PDF/).
 
 ## Deferred signing in PDF document
 
@@ -4115,7 +4143,7 @@ class ExternalSigner : IPdfExternalSigner
 
 {% endtabs %}
 
-A complete working sample can be downloaded from [PdfDeferredSigningSample.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Sample-1493484644.zip)
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Deferred-signing-in-PDF-document/).
 
 ## Adding the estimated size of the signature
 
@@ -4289,6 +4317,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Adding-the-estimated-size-of-the-signature/).
 
 ## Deferred signing without PKCS7 encoding
 
@@ -5039,6 +5069,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Draw-text-or-images-in-the-signature-appearance/).
 
 ## Long Term Validation (LTV) information
 
