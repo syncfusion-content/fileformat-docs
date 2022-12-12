@@ -5703,3 +5703,338 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+## Adding multiple signatures to a PDF document
+
+The following code example illustrates how to add multiple signatures to a PDF document without invalidating the previous signature.  
+
+N> It is recommended to use licensed assemblies or registered license keys in your respective applications to add multiple digital signatures to the PDF documents without invalidating the previous signatures. 
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Load an existing PDF document. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the first page of the document.
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField1 = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//Create a certificate instance from a PFX file with a private key.
+PdfCertificate certificate1 = new PdfCertificate("PDF.pfx", "password123");
+
+//Add a signature to the signature field.
+signatureField1.Signature = new PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1);
+
+//Set an image for the signature field.
+PdfBitmap signatureImage = new PdfBitmap(@"Student Signature.jpg");
+
+//Insert an image in the signature appearance. 
+signatureField1.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage, 0, 0, 90, 20);
+
+//Save the document into the stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Load the signed PDF document.
+PdfLoadedDocument signedDocument = new PdfLoadedDocument(stream);
+
+//Load the PDF page.
+PdfLoadedPage loadedPage = signedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField2 = signedDocument.Form.Fields[1] as PdfLoadedSignatureField;
+
+//Add a signature to the signature field. 
+signatureField2.Signature = new PdfSignature(signedDocument, loadedPage, certificate1, "Signature", signatureField2);
+
+//Set an image for the signature field.
+PdfBitmap signatureImage1 = new PdfBitmap(@"Teacher Signature.png");
+
+//Draw an image in the signature appearance. 
+signatureField2.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage1, 0, 0, 90, 20);
+
+//Save the PDF document. 
+signedDocument.Save("Multiple_signature.pdf");
+
+//Close the PDF documents. 
+signedDocument.Close(true);
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load an existing PDF document. 
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the first page of the document.
+Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Get the first signature field of the PDF document.
+Dim signatureField1 As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+
+'Create a certificate instance from the PFX file with a private key.
+Dim certificate1 As PdfCertificate = New PdfCertificate("PDF.pfx", "password123")
+
+'Add a signature to the signature field. 
+signatureField1.Signature = New PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1)
+
+'Set an image for the signature field.
+Dim signatureImage As PdfBitmap = New PdfBitmap("Student Signature.jpg")
+
+'Draw an image in the signature appearance. 
+signatureField1.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage, 0, 0, 90, 20)
+
+'Save the document into the stream.
+Dim stream As MemoryStream = New MemoryStream()
+loadedDocument.Save(stream)
+
+'Load the signed PDF document.
+Dim signedDocument As PdfLoadedDocument = New PdfLoadedDocument(stream)
+
+'Load the PDF page.
+Dim loadedPage As PdfLoadedPage = TryCast(signedDocument.Pages(0), PdfLoadedPage)
+
+'Get the first signature field of the PDF document.
+Dim signatureField2 As PdfLoadedSignatureField = TryCast(signedDocument.Form.Fields(1), PdfLoadedSignatureField)
+signatureField2.Signature = New PdfSignature(signedDocument, loadedPage, certificate1, "Signature", signatureField2)
+
+'Set an image for the signature field.
+Dim signatureImage1 As PdfBitmap = New PdfBitmap("Teacher Signature.png")
+
+'Draw an image in the signature appearance. 
+signatureField2.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage1, 0, 0, 90, 20)
+
+'Save the PDF document. 
+signedDocument.Save("Multiple_signature.pdf")
+
+'Close the PDF documents. 
+signedDocument.Close(True)
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Load the file as a stream.
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Load an existing PDF document. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the first page of the document.
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField1 = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//Get the certificate as a stream. 
+Stream certificateStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+//Creates a certificate instance from the PFX file with a private key.
+PdfCertificate certificate1 = new PdfCertificate(certificateStream, "password123");
+
+//Add a signature to the signature field.
+signatureField1.Signature = new PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1);
+
+//Get the image as a stream. 
+Stream imageStream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Student Signature.jpg");
+
+//Set an image for the signature field.
+PdfBitmap signatureImage = new PdfBitmap(imageStream1);
+
+//Insert the image in the signature appearance. 
+signatureField1.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage, 0, 0, 90, 20);
+
+//Save the document into the stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Load the signed PDF document.
+PdfLoadedDocument signedDocument = new PdfLoadedDocument(stream);
+
+//Load the PDF page.
+PdfLoadedPage loadedPage = signedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField2 = signedDocument.Form.Fields[1] as PdfLoadedSignatureField;
+
+//Add the signature to the signature field. 
+signatureField2.Signature = new PdfSignature(signedDocument, loadedPage, certificate1, "Signature", signatureField2);
+
+//Get the image as a stream. 
+Stream imageStream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Teacher Signature.png");
+
+//Sets an image for the signature field.
+PdfBitmap signatureImage1 = new PdfBitmap(imageStream2);
+
+//Draw an image in the signature appearance. 
+signatureField2.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage1, 0, 0, 90, 20);
+
+//Create a memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in a browser after saving it.
+signedDocument.Save(ms);
+
+//Close the documents.
+signedDocument.Close(true);
+loadedDocument.Close(true);
+
+//Save the PDF document. 
+Save(ms, "Multiple_signature.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream("SignatureFields.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the first page of the document.
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField1 = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//Creates a certificate.
+FileStream certificateStream1 = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+PdfCertificate certificate1 = new PdfCertificate(certificateStream1, "password123");
+
+//Add signature to the signature field.
+signatureField1.Signature = new PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1);
+
+//Get the image as a stream. 
+FileStream imageStream = new FileStream("Student Signature.jpg", FileMode.Open, FileAccess.Read);
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Draw an image in signature appearance. 
+signatureField1.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage, 0, 0, 90, 20);
+
+//Save the document into the stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Load the signed PDF document.
+PdfLoadedDocument signedDocument = new PdfLoadedDocument(stream);
+
+//Load the PDF page.
+PdfLoadedPage loadedPage = signedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField2 = signedDocument.Form.Fields[1] as PdfLoadedSignatureField;
+
+//Add the signature to the signature field. 
+signatureField1.Signature = new PdfSignature(signedDocument, loadedPage, certificate1, "Signature", signatureField2);
+
+//Load the image as a stream. 
+FileStream imageStream1 = new FileStream("Teacher Signature.png", FileMode.Open, FileAccess.Read);
+PdfBitmap signatureImage1 = new PdfBitmap(imageStream1);
+
+//Draw the image in signature appearance. 
+signatureField1.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage1, 0, 0, 90, 20);
+
+//Saving the PDF to the MemoryStream.
+MemoryStream signedStream = new MemoryStream();
+signedDocument.Save(signedStream);
+
+//Set the position as '0'.
+signedStream.Position = 0;
+
+//Close the documents. 
+signedDocument.Close(true);
+loadedDocument.Close(true);
+
+//Defining the ContentType for a pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Multiple_Signature.pdf";
+
+//Create the FileContentResult object by using the file contents, content type, and file name. 
+return File(signedStream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load the file as a stream.
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Load an existing PDF document. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the first page of the document.
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField1 = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//Get the certificate as a stream. 
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+//Create a certificate instance from a PFX file with the private key.
+PdfCertificate certificate1 = new PdfCertificate(certificateStream, "password123");
+
+//Add a signature to the signature field.
+signatureField1.Signature = new PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1);
+
+//Get the image as a stream. 
+Stream imageStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Student Signature.jpg");
+
+//Set an image for the signature field.
+PdfBitmap signatureImage = new PdfBitmap(imageStream1);
+
+//Insert image in the signature appearance. 
+signatureField1.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage, 0, 0, 90, 20);
+
+//Save the document into the stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Load the signed PDF document.
+PdfLoadedDocument signedDocument = new PdfLoadedDocument(stream);
+
+//Load the PDF page.
+PdfLoadedPage loadedPage = signedDocument.Pages[0] as PdfLoadedPage;
+
+//Gets the first signature field of the PDF document.
+PdfLoadedSignatureField signatureField2 = signedDocument.Form.Fields[1] as PdfLoadedSignatureField;
+
+//Add signature to the signature field. 
+signatureField2.Signature = new PdfSignature(signedDocument, loadedPage, certificate1, "Signature", signatureField2);
+
+//Get the image as a stream. 
+Stream imageStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Teacher Signature.png");
+
+//Sets an image for the signature field.
+PdfBitmap signatureImage1 = new PdfBitmap(imageStream2);
+
+//Draw an image in the signature appearance. 
+signatureField2.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage1, 0, 0, 90, 20);
+
+//Save the document to the stream. 
+MemoryStream ms = new MemoryStream();
+signedDocument.Save(ms);
+
+//Close the documents.
+signedDocument.Close(true);
+loadedDocument.Close(true);
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+{% endtabs %}
