@@ -1537,6 +1537,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Create-LTV-when-signing-PDF-documents-externally/).
+
 ## Digitally sign a PDF document using long-term archive timestamps (LTA)
 
 The PDF LTA signature is the next level of the LTV signature. It follows the standard PAdES B-LTA. According to the standard, the validation-related information of the timestamp is added to the DSS along with other signature information mentioned in the LTV signature.
@@ -1756,11 +1758,13 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Sign_PDF_with_LTA/).
+
 ## Digitally sign a PDF document using the Windows certificate store
 
 A Windows certificate store is a secure way to store the digital ID. If a root certificate is added to the Windows certificate store, you do not need to manually add and trust each of the certificates that are already present in the Windows certificate store.
 
-You can retrieve the digital ID “X509Certificate2” from the Windows certificate store and use it to add a digital signature to a PDF document.
+You can retrieve the digital ID "X509Certificate2" from the Windows certificate store and use it to add a digital signature to a PDF document.
 
 The following code example shows how to create a PDF digital signature using the Windows certificate store.
 
@@ -1869,8 +1873,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Create-LTV-when-signing-PDF-documents-externally/).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Sign_PDF_Windows_Certificate/).
 
 ## Adding a signature validation appearance based on the signature 
 
@@ -5567,6 +5570,8 @@ document.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Get-LTV-information/).
+
 ## Customized revocation validation
 
 Added support to customize revocation validation using [PdfSignatureValidationOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfSignatureValidationOptions.html).
@@ -5691,6 +5696,8 @@ document.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Customized-revocation-validation/).
+
 ## Remove existing digital signatures from a PDF document 
 
 The following code example illustrates how to remove existing digital signatures from a PDF document. 
@@ -5808,6 +5815,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Remove_existing_digital_signature_from_PDF/).
 
 ## Certified signature 
 
@@ -5961,6 +5970,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Sign-PDF-without-showing-digital-signature/).
+
 ## Retrieve digital signature information from an existing PDF document 
 
 The following code snippet illustrates how to retrieve digital signature information from an existing PDF document. 
@@ -6076,3 +6087,5 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-digital-signature-information-from-PDF/).
