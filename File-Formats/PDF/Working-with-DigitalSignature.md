@@ -1537,6 +1537,339 @@ else
 
 {% endtabs %}
 
+## Digitally sign a PDF document using long-term archive timestamps (LTA)
+
+The PDF LTA signature is the next level of the LTV signature. It follows the standard PAdES B-LTA. According to the standard, the validation-related information of the timestamp is added to the DSS along with other signature information mentioned in the LTV signature.
+
+The document timestamp is also applied to the PDF document, so it provides more viability to the signature. This level is recommended for qualified electronic signatures.
+
+The following code example shows how to sign a PDF document with LTA.
+
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PDF_Succinctly.pdf");
+//Load digital ID with password.
+PdfCertificate certificate = new PdfCertificate("DigitalSignatureTest.pfx", "DigitalPass123");
+
+//Create a signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], certificate, "DigitalSignature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+signature.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Enable LTV document.
+signature.EnableLtv = true;
+
+//Save the PDF document.
+loadedDocument.Save("LTV_document.pdf");
+//Close the document.
+loadedDocument.Close(true);
+
+//Load existing PDF document.
+PdfLoadedDocument ltDocument = new PdfLoadedDocument("LTV_document.pdf");
+//Load the existing PDF page.
+PdfLoadedPage lpage = ltDocument.Pages[0] as PdfLoadedPage;
+
+//Create PDF signature with empty certificate.
+PdfSignature timeStamp = new PdfSignature(lpage, "timestamp");
+timeStamp.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+
+//Save and close the PDF document
+ltDocument.Save("PAdES B-LTA.pdf");
+ltDocument.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Loads a PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
+'Load digital ID with password.
+Dim certificate As PdfCertificate = New PdfCertificate("DigitalSignatureTest.pfx", "DigitalPass123")
+
+'Create a signature with loaded digital ID.
+Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedDocument.Pages(0), certificate, "DigitalSignature")
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256
+signature.TimeStampServer = New TimeStampServer(New Uri("http://timestamping.ensuredca.com"))
+'Enable LTV document.
+signature.EnableLtv = True
+
+'Saves the document
+loadedDocument.Save("LTV_document.pdf")
+'Closes the document
+loadedDocument.Close(True)
+
+'Loads a PDF document
+Dim ltDocument As PdfLoadedDocument = New PdfLoadedDocument("LTV_document.pdf")
+'Load the existing PDF page.
+Dim lpage As PdfLoadedPage = TryCast(ltDocument.Pages(0), PdfLoadedPage)
+
+'Create PDF signature with empty certificate.
+Dim timeStamp As PdfSignature = New PdfSignature(lpage, "timestamp")
+timeStamp.TimeStampServer = New TimeStampServer(New Uri("http://timestamping.ensuredca.com"))
+
+'Saves the document
+ltDocument.Save("PAdES B-LTA.pdf")
+'Closes the document
+ltDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//Get the stream from the document
+Stream documentStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Assets.Input.pdf");
+//Load an existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream1);
+//Get the stream from the document
+Stream documentStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Assets.DigitalSignatureTest.pfx");
+//Load digital ID with password.
+PdfCertificate certificate = new PdfCertificate(documentStream2, "DigitalPass123");
+
+//Create a signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], certificate, "DigitalSignature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+signature.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Enable LTV document.
+signature.EnableLtv = true;
+
+//Save and close the PDF document
+MemoryStream stream1 = new MemoryStream();
+loadedDocument.Save(stream1);
+loadedDocument.Close(true);
+
+//Load an existing PDF document
+PdfLoadedDocument ltDocument = new PdfLoadedDocument(stream1);
+//Load the existing PDF page.
+PdfLoadedPage lpage = ltDocument.Pages[0] as PdfLoadedPage;
+
+//Create PDF signature with empty certificate.
+PdfSignature timeStamp = new PdfSignature(lpage, "timestamp");
+timeStamp.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+
+//Save and close the PDF document
+MemoryStream stream2 = new MemoryStream();
+ltDocument.Save(stream2);
+ltDocument.Close(true);
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream2, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load existing PDF document.
+FileStream documentStream1 = new FileStream("PDF_Succinctly.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream1);
+//Load digital ID with password.
+FileStream documentStream2 = new FileStream("DigitalSignatureTest.pfx", FileMode.Open, FileAccess.Read);
+PdfCertificate certificate = new PdfCertificate(documentStream2, "DigitalPass123");
+
+//Create a signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], certificate, "DigitalSignature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+signature.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Enable LTV document.
+signature.EnableLtv = true;
+
+//Save the PDF document.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+
+//Load existing PDF document.
+PdfLoadedDocument ltDocument = new PdfLoadedDocument(stream);
+//Load the existing PDF page.
+PdfLoadedPage lpage = ltDocument.Pages[0] as PdfLoadedPage;
+
+//Create PDF signature with empty certificate.
+PdfSignature timeStamp = new PdfSignature(lpage, "timestamp");
+timeStamp.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+
+//Save and close the PDF document
+MemoryStream stream1 = new MemoryStream();
+ltDocument.Save(stream1);
+//Close the documents
+ltDocument.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream1, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Get the stream from the document
+Stream documentStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Assets.PDF_Succinctly.pdf");
+//Load an existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream1);
+//Get the stream from the document
+Stream documentStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Assets.DigitalSignatureTest.pfx");
+//Load digital ID with password.
+PdfCertificate certificate = new PdfCertificate(documentStream2, "DigitalPass123");
+
+//Create a signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], certificate, "DigitalSignature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+signature.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+//Enable LTV document.
+signature.EnableLtv = true;
+
+//Save and close the PDF document
+MemoryStream stream1 = new MemoryStream();
+loadedDocument.Save(stream1);
+loadedDocument.Close(true);
+
+//Load an existing PDF document
+PdfLoadedDocument ltDocument = new PdfLoadedDocument(stream1);
+//Load the existing PDF page.
+PdfLoadedPage lpage = ltDocument.Pages[0] as PdfLoadedPage;
+//Create PDF signature with empty certificate.
+PdfSignature timeStamp = new PdfSignature(lpage, "timestamp");
+timeStamp.TimeStampServer = new TimeStampServer(new Uri("http://timestamping.ensuredca.com"));
+
+//Save the stream into pdf file
+MemoryStream stream2 = new MemoryStream();
+ltDocument.Save(stream2);
+ltDocument.Close(true);
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream2);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream2);
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+## Digitally sign a PDF document using the Windows certificate store
+
+A Windows certificate store is a secure way to store the digital ID. If a root certificate is added to the Windows certificate store, you do not need to manually add and trust each of the certificates that are already present in the Windows certificate store.
+
+You can retrieve the digital ID “X509Certificate2” from the Windows certificate store and use it to add a digital signature to a PDF document.
+
+The following code example shows how to create a PDF digital signature using the Windows certificate store.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize the Windows store.
+X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
+store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
+//Find the certificate using thumb print.
+X509Certificate2Collection fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByThumbprint, "F85E1C5D93115CA3F969DA3ABC8E0E9547FCCF5A", true);
+X509Certificate2 digitalID = fcollection[0];
+
+//Load existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PDF_Succinctly.pdf");
+//Load X509Certificate2.
+PdfCertificate certificate = new PdfCertificate(digitalID);
+
+//Create a Revision 2 signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], certificate, "DigitalSignature");
+//Changing the digital signature standard and hashing algorithm.
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA512;
+
+//Save the PDF document.
+loadedDocument.Save("WindowsStore.pdf");
+//Close the document.
+loadedDocument.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+//Initialize the Windows store.
+Dim store As X509Store = New X509Store("MY", StoreLocation.CurrentUser)
+store.Open(OpenFlags.[ReadOnly] Or OpenFlags.OpenExistingOnly)
+//Find the certificate using thumb print.
+Dim collection As X509Certificate2Collection = CType(store.Certificates, X509Certificate2Collection)
+Dim fcollection As X509Certificate2Collection = CType(collection.Find(X509FindType.FindByThumbprint, "F85E1C5D93115CA3F969DA3ABC8E0E9547FCCF5A", True), X509Certificate2Collection)
+Dim digitalID As X509Certificate2 = fcollection(0)
+
+//Load existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
+//Load X509Certificate2.
+Dim certificate As PdfCertificate = New PdfCertificate(digitalID)
+//Create a Revision 2 signature with loaded digital ID.
+Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedDocument.Pages(0), certificate, "DigitalSignature")
+//Changing the digital signature standard and hashing algorithm.
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA512
+
+//Save the PDF document
+loadedDocument.Save("WindowsStore.pdf")
+//Close the document.
+loadedDocument.Close(True)
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Essential PDF supports Digitally sign a PDF document using Windows certificate store only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize the Windows store.
+X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
+store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
+//Find the certificate using thumb print.
+X509Certificate2Collection fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByThumbprint, "F85E1C5D93115CA3F969DA3ABC8E0E9547FCCF5A", true);
+X509Certificate2 digitalID = collection[0];
+
+//Load existing PDF document.
+FileStream documentStream = new FileStream("PDF_Succinctly.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+//Load X509Certificate2.
+PdfCertificate certificate = new PdfCertificate(digitalID);
+
+//Create a Revision 2 signature with loaded digital ID.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], certificate, "DigitalSignature");
+//Changing the digital signature standard and hashing algorithm.
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA512;
+
+//Save the PDF document.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Essential PDF supports Digitally sign a PDF document using Windows certificate store only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Create-LTV-when-signing-PDF-documents-externally/).
 
 ## Adding a signature validation appearance based on the signature 
@@ -1791,6 +2124,10 @@ PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
+
+//Change the digital signature standard and hashing algorithm.
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA512;
 
 //Sets an image for signature field
 PdfBitmap image = new PdfBitmap(@"syncfusion_logo.jpeg");
@@ -2464,6 +2801,8 @@ PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "password123");
 
 //Creates a digital signature
 PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA256;
 
 //Sets an image for signature field
 PdfBitmap image = new PdfBitmap(@"syncfusion_logo.jpeg");
