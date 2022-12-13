@@ -954,6 +954,8 @@ return new Rectangle(x, y, w, h);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-Azure-Vision).
+
 ## Performing OCR with AWS Textract
 The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as AWS Textract and more. 
 Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with AWS Textract.
@@ -1092,6 +1094,8 @@ return rect;
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-AWS-Textract).
 
 ## Troubleshooting
 
