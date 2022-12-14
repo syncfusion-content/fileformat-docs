@@ -1,27 +1,27 @@
 ---
-title: Perform OCR on a PDF document in ASP.NET Core | Syncfusion
-description: Learn how to efficiently perform OCR on a PDF document in ASP.NET Core with easy steps using Syncfusion .NET library.
+title: Perform OCR on PDF and image files in ASP.NET Core | Syncfusion
+description: Learn how to perform OCR on scanned PDF documents and images with different tesseract version in ASP.NET Core using Syncfusion .NET OCR library.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 ---
 
-# Perform OCR on a PDF document in ASP.NET Core
+# Perform OCR in ASP.NET Core
 
-The Syncfusion Essential PDF is a .NET PDF library that supports OCR by using the Tesseract open-source engine in ASP.NET Core application. 
+The Syncfusion .NET OCR library used to extract text from scanned PDFs and images in ASP.NET Core application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
-## Steps to perform OCR on a PDF document in ASP.NET Core application
+## Steps to perform OCR on entire PDF document in ASP.NET Core application
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
-   <img src="OCR-Images/aspnetcore1.png" alt="convert_OCR_ASPNET_CORE1" width="100%" Height="Auto"/>
+<img src="OCR-Images/aspnetcore1.png" alt="convert_OCR_ASPNET_CORE1" width="100%" Height="Auto"/>
 
 Step 2:  In configuration windows, name your project and select Next.
-   <img src="OCR-Images/aspnetcore2.png" alt="convert_OCR_ASPNET_CORE2" width="100%" Height="Auto"/>
-   <img src="OCR-Images/aspnetcore3.png" alt="convert_OCR_ASPNET_CORE3" width="100%" Height="Auto"/>
+<img src="OCR-Images/aspnetcore2.png" alt="convert_OCR_ASPNET_CORE2" width="100%" Height="Auto"/>
+<img src="OCR-Images/aspnetcore3.png" alt="convert_OCR_ASPNET_CORE3" width="100%" Height="Auto"/>
 
 Step 3:  Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).   
-   <img src="OCR-Images/aspnetcore4.png" alt="convert_OCR_ASPNET_CORE4" width="100%" Height="Auto"/>
+<img src="OCR-Images/aspnetcore4.png" alt="convert_OCR_ASPNET_CORE4" width="100%" Height="Auto"/>
 
 Step 4: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies is passed as a parameter to the OCR processor.
 

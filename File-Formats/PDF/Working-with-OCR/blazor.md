@@ -1,17 +1,17 @@
 ---
-title: Perform OCR on a PDF document in Blazor | Syncfusion
-description: Learn how to efficiently perform OCR on a PDF document in Blazor with easy steps using Syncfusion .NET library.
+title: Perform OCR on PDF and image files in Blazor | Syncfusion
+description: Learn how to perform OCR on scanned PDF documents and images with different tesseract version in Blazor using Syncfusion .NET OCR library.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 ---
 
-# Perform OCR on a PDF document in Blazor
+# Perform OCR in Blazor
 
-The Syncfusion Essential PDF is a .NET PDF library that supports OCR by using the Tesseract open-source engine in Blazor application.
+The Syncfusion .NET OCR library used to extract text from scanned PDFs and images in Blazor application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
-## Steps to perform OCR on a PDF document in Blazor application
+## Steps to perform OCR on entire PDF document in Blazor application
 
 Step 1: Create a new C# Blazor Server application project. Select Blazor App from the template and click the Next button.
 <img src="OCR-Images/blazor_step1.png" alt="Blazor_step1" width="100%" Height="Auto"/>
