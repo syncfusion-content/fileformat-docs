@@ -120,5 +120,5 @@ Step 12: Build and run the sample in the Docker. It will pull the Linux Docker i
 By executing the program, you will get the PDF document as follows.
 <img src="OCR-Images/OCR-output-image.png" alt="Convert HTMLToPDF Dockeroutput" width="100%" Height="Auto"/>
 
-A complete working sample for converting an HTML to PDF in the Linux docker container can be downloaded from [Github]().
+A complete working sample for converting an HTML to PDF in the Linux docker container can be downloaded from Github.
   

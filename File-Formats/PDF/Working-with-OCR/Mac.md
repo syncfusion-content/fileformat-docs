@@ -105,4 +105,4 @@ Step 9: Run the application.
 By executing the program, you will get the PDF document as follows.
 <img src="OCR-Images/OCR-output-image.png" alt="Mac_step4" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Mac)
+A complete working sample can be downloaded from Github
