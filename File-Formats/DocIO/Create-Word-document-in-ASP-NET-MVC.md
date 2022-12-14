@@ -12,17 +12,17 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/w
 
 ## Steps to create Word document programmatically:
 
-1.Create a new ASP.NET MVC application project.
+Step 1. Create a new ASP.NET MVC application project.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/CreateProject.png)
 
-2.Install the [Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 2. Install the [Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO ASP.NET MVC NuGet package](ASP-NET-MVC_images/Install_Nuget.jpg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-3. Include the following namespace in that HomeController.cs file.
+Step 3. Include the following namespace in that HomeController.cs file.
 
 {% capture codesnippet1 %}
 {% tabs %}
@@ -40,9 +40,9 @@ using System.Drawing;
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4.A default action method named **Index** will be present in HomeController.cs. Right click on this action method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
+Step 4. A default action method named **Index** will be present in HomeController.cs. Right click on this action method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
-5. Add a new button in the Index.cshtml as shown below.
+Step 5. Add a new button in the Index.cshtml as shown below.
 
 {% capture codesnippet2 %}
 {% tabs %}
@@ -64,7 +64,7 @@ Html.EndForm();
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6. Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
+Step 6. Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
 
 {% capture codesnippet3 %}
 {% tabs %}

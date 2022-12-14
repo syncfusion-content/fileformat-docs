@@ -16,25 +16,25 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 ## WinUI Desktop app
 
-1.Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
+Step 1. Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
 ![Create the WinUI Desktop app in Visual Studio](WinUI_Images/Create_Desktop_Project.png)
 
-2.Enter the project name and click **Create**.
+Step 2. Enter the project name and click **Create**.
 
 ![Create a project name for your new project](WinUI_Images/Desktop_Configure.png)
 
-3.Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
+Step 3. Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
 ![Set the target version](WinUI_Images/Target_Version.png)
 
-4.Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+Step 4. Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 
 ![Install the DocIO .NET NuGet package](WinUI_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5. Add a new button to the **MainWindow.xaml** as shown below.
+Step 5. Add a new button to the **MainWindow.xaml** as shown below.
 
 {% capture codesnippet1 %}
 
@@ -62,7 +62,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6. Include the following namespaces in the **MainWindow.xaml.cs** file.
+Step 6. Include the following namespaces in the **MainWindow.xaml.cs** file.
 
 {% capture codesnippet2 %}
 
@@ -325,27 +325,27 @@ By executing the program, you will get the **Word document** as follows.
 
 ## WinUI UWP app
 
-1.Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the template and **click** the Next button.
+Step 1. Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the template and **click** the Next button.
 
 ![Create the WinUI UWP app in Visual Studio](WinUI_Images/Create_UWP_Project.png)
 
 N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://aka.ms/projectreunion/previewdownload) for Visual Studio.
 
-2.Enter the project name and click **Create**.
+Step 2. Enter the project name and click **Create**.
 
 ![Create a project name for your new project](WinUI_Images/UWP_Configure.png)
 
-3.Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
+Step 3. Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
 ![Set the target version](WinUI_Images/Target_Version.png)
 
-4.Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+Step 4. Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 
 ![Install the DocIO .NET NuGet package](WinUI_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-5. Add a new button in the **MainPage.xaml** as shown below.
+Step 5. Add a new button in the **MainPage.xaml** as shown below.
 
 {% capture codesnippet4 %}
 
@@ -374,7 +374,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endcapture %}
 {{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-6. Include the following namespaces in the **MainPage.xaml.cs** file.
+Step 6. Include the following namespaces in the **MainPage.xaml.cs** file.
 
 {% capture codesnippet5 %}
 
@@ -395,7 +395,7 @@ using Windows.Storage.Pickers;
 {% endcapture %}
 {{ codesnippet5 | OrderList_Indent_Level_1 }}
 
-7. Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+Step 7. Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
 
 {% capture codesnippet6 %}
 
