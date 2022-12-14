@@ -11,19 +11,19 @@ You can create or edit a PowerPoint file with the Syncfusion [ASP.NET Core Power
 
 ## Create a PowerPoint file in ASP.NET Core
 
-1.Create a new C# ASP.NET Core web application project.
+Step 1: Create a new C# ASP.NET Core web application project.
 
 ![Create ASP.NET Core Web project for PowerPoint file](Workingwith_Core/CreateCore.png)
 
-2.Select Web Application pattern (Model-View-Controller) for the project.
+Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
 ![Select Web Application pattern for PowerPoint file](Workingwith_Core/MVC.png)
 
-3.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Presentation .Net Core Nuget](Workingwith_Core/install_nuget.png)
 
-4.After installing the **Syncfusion.Presentation.Net.Core** nuget package, the following assemblies were included in our project.
+Step 4: After installing the **Syncfusion.Presentation.Net.Core** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Net.Core</li>
 <li>Syncfusion.Licensing</li>
@@ -33,7 +33,7 @@ You can create or edit a PowerPoint file with the Syncfusion [ASP.NET Core Power
 		 
 ![Installed Assemblies in Presentation ASP.NET Core](Workingwith_Core/installed_assemblies.png)
 
-5.The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET Core platform.
+Step 5: The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET Core platform.
 
 **Create Presentation instance:**
 

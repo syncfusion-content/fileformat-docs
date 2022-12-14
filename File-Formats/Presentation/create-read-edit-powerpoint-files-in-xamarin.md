@@ -12,19 +12,19 @@ You can create or edit a PowerPoint file with the Syncfusion [Xamarin PowerPoint
 
 ## Create a PowerPoint file in Xamarin
 
-1. Create a new C# **Xamarin.Forms** application project.
+Step 1: Create a new C# **Xamarin.Forms** application project.
 
 ![Create Xamarin project](Workingwith_Xamarin/CreateProject.png)
 
-2. Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 ![Create Xamarin CodeSharing Option](Workingwith_Xamarin/CodeSharing.png)
 
-3. Install [Syncfusion.Xamarin.Presentation](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/) NuGet package as a reference to the .NET Standard project in your Xamarin applications from [NuGet.org](https://www.nuget.org/).
+Step 3: Install [Syncfusion.Xamarin.Presentation](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/) NuGet package as a reference to the .NET Standard project in your Xamarin applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Xamarin Nuget](Workingwith_Xamarin/InstallNuget.png)
 
-4. Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+Step 4: Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 <ul>
 <li>To add the new XAML page, right click on the project and select <b>Add > New Item</b> and add a Forms XAML Page from the list. Name it as MainXamlPage.</li>
 <li>In App class of <b>portable project</b> (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the <b>MainXamlPage</b>.</li>
@@ -45,7 +45,7 @@ public App()
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_2 }}
 
-5. In the MainXamlPage.xaml add new button as shown below.
+Step 5: In the MainXamlPage.xaml add new button as shown below.
 {% capture codesnippet2 %}
 {% tabs %}
 
@@ -65,7 +65,7 @@ public App()
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6. Include the following namespace in the MainXamlPage.xaml.cs file.
+Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
 {% capture codesnippet3 %}
 {% tabs %}
 
@@ -77,7 +77,7 @@ using Syncfusion.Presentation;
 {% endcapture %}
 {{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-7. Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PowerPoint file and save it in a stream.
+Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PowerPoint file and save it in a stream.
 
 **Create Presentation instance:**
 
@@ -232,7 +232,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
 
 {% endtabs %}
 
-8. Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Step 8: Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -297,7 +297,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
   </tr>
 </table>
 
-9. Compile and execute the application. 
+Step 9: Compile and execute the application. 
 
 The output of the above code example will generate the below PowerPoint slide.
 
