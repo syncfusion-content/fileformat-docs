@@ -11,7 +11,7 @@ You can create or edit a PowerPoint file in .NET Core on Linux using Syncfusion 
 
 ## Create a PowerPoint file in .NET Core Console application project on Linux
 
-1. Execute the following command in Linux terminal to create a new .NET Core Console application.
+Step 1. Execute the following command in Linux terminal to create a new .NET Core Console application.
 {% capture codesnippet1 %}
 {% tabs %}
 
@@ -27,7 +27,7 @@ dotnet new console
 
 ![Create .NET Core console project](Workingwith_Linux/CreateCore.png)
 
-2. Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
+Step 2. Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
 {% capture codesnippet2 %}
 {% tabs %}
 
@@ -45,7 +45,7 @@ dotnet add package Syncfusion.Presentation.Net.Core -v 17.4.0.39 -s https://www.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-3. Add the following Namespaces in Program.cs file.
+Step 3. Add the following Namespaces in Program.cs file.
 {% capture codesnippet3 %}
 {% tabs %}
 
@@ -60,7 +60,7 @@ using System.IO;
 {% endcapture %}
 {{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-4. Add the following code snippet in Program.cs file.
+Step 4. Add the following code snippet in Program.cs file.
 {% capture codesnippet4 %}
 {% tabs %}
 
@@ -132,7 +132,7 @@ pptxDoc.Close();
 {% endcapture %}
 {{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-5. Execute the following command to restore the NuGet packages.
+Step 5. Execute the following command to restore the NuGet packages.
 {% capture codesnippet5 %}
 {% tabs %}
 
@@ -148,7 +148,7 @@ dotnet restore
 
 ![Restore the NuGet packages](Workingwith_Linux/Restore.png)
 
-6. Execute the following command in terminal to run the application.
+Step 6. Execute the following command in terminal to run the application.
 {% capture codesnippet6 %}
 {% tabs %}
 

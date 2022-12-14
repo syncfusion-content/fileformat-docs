@@ -12,19 +12,19 @@ You can create or edit a PowerPoint file in ASP.NET with Syncfusion PowerPoint l
 
 ## Create a PowerPoint file in ASP.NET
 
-1.Create a new C# ASP.NET web application project.
+Step 1. Create a new C# ASP.NET web application project.
 
 ![Create ASP.NET Web project](Workingwith_Web/CreateProject.png)
 
-2.Select the **Web Forms** template to create the project.
+Step 2. Select the **Web Forms** template to create the project.
 
 ![Select Web Forms template](Workingwith_Web/SelectWeb.png)
 
-3.Install the [Syncfusion.Presentation.AspNet](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Step 3. Install the [Syncfusion.Presentation.AspNet](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Presentation Web Nuget](Workingwith_Web/InstallNuget.png)
 
-4.After installing the **Syncfusion.Presentation.AspNet** nuget package, the following assemblies were included in our project.
+Step 4. After installing the **Syncfusion.Presentation.AspNet** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
 <li>Syncfusion.Licensing</li>
@@ -32,7 +32,7 @@ You can create or edit a PowerPoint file in ASP.NET with Syncfusion PowerPoint l
 <li>Syncfusion.Presentation.Base</li>
 </ul>
 
-5.The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET platform.
+Step 5. The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET platform.
 
 **Create Presentation instance:**
 

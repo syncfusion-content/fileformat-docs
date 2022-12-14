@@ -11,22 +11,22 @@ You can create or edit a PowerPoint file in .NET Core on Mac OS using Syncfusion
 
 ## Create a PowerPoint file in .NET Core Console application project on Mac OS
 
-1. Create a new C# .NET Core console application.
+Step 1. Create a new C# .NET Core console application.
 
 ![Create .NET Core console project](Workingwith_Mac/CreateProject.png)
 
-2. Select the project version.
+Step 2. Select the project version.
 
 ![Select project version](Workingwith_Mac/selectprojectverion.png)
 
-3. Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Step 3. Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget1.png)
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-4. Include the following Namespaces in the Program.cs file.
+Step 4. Include the following Namespaces in the Program.cs file.
 {% capture codesnippet1 %}
 {% tabs %}
 
@@ -41,7 +41,7 @@ using System.IO;
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5. Add the following code snippet in Program.cs file.
+Step 5. Add the following code snippet in Program.cs file.
 {% capture codesnippet2 %}
 {% tabs %}
 

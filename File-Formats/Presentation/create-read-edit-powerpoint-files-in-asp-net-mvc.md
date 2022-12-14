@@ -12,19 +12,19 @@ You can create or edit a PowerPoint file in ASP.NET MVC with Syncfusion PowerPoi
 
 ## Create a PowerPoint file in ASP.NET MVC
 
-1.Create a new C# ASP.NET MVC application project.
+Step 1. Create a new C# ASP.NET MVC application project.
 
 ![Create ASP.NET MVC project](Workingwith_MVC/CreateMVC.png)
 
-2.Select the **MVC** template to create the project.
+Step 2. Select the **MVC** template to create the project.
 
 ![Select MVC template](Workingwith_MVC/Select_template.png)
 
-3.Install the [Syncfusion.Presentation.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Step 3. Install the [Syncfusion.Presentation.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install ASP.NET MVC Nuget](Workingwith_MVC/Install_Nuget.png)
 
-4.After installing the **Syncfusion.Presentation.AspNet.Mvc5** nuget package, the following assemblies were included in our project.
+Step 4. After installing the **Syncfusion.Presentation.AspNet.Mvc5** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
 <li>Syncfusion.Licensing</li>
@@ -32,7 +32,7 @@ You can create or edit a PowerPoint file in ASP.NET MVC with Syncfusion PowerPoi
 <li>Syncfusion.Presentation.Base</li>
 </ul>
 
-5.The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET MVC platform.
+Step 5. The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET MVC platform.
 
 **Create Presentation instance:**
 
