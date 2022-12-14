@@ -12,7 +12,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Steps to create Word document programmatically:
 
-Step 1. Create a new ASP.NET Core Web application project.
+Step 1: Create a new ASP.NET Core Web application project.
 
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProject.png)
 
