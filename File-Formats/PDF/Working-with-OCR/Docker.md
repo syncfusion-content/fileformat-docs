@@ -1,19 +1,17 @@
 ---
-title: Performing OCR in Docker | Syncfusion
-description: Learn how to Perform OCR in Docker with easy steps using Syncfusion .NET OCR library.
+title: Perform OCR on PDF and image files in Docker | Syncfusion
+description: Learn how to perform OCR on scanned PDF documents and images in Docker with different tesseract version using Syncfusion .NET OCR library.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 ---
 
-# How to Perform OCR on a PDF Document Using Docker container
+# Perform OCR in Docker
 
-Optical Character Recognition (OCR) is a technology that converts scanned paper documents from PDF files or images into searchable and editable data.
+The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) used to extract text from scanned PDFs and images in Docker application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
-The [Syncfusion OCR processor library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) has extended support to OCR process PDF documents and other scanned images in [docker](https://www.docker.com/why-docker/) container with the help of the [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine.
-
-## Steps to perform OCR on a PDF document programmatically
+## Steps to perform OCR on entire PDF document in Docker
 
 Step 1: Create a new ASP.NET Core application project.
 <img src="OCR-Images/OCRDocker1.png" alt="OCR Docker Step1" width="100%" Height="Auto"/>
@@ -28,12 +26,15 @@ Step 4: Install the [Syncfusion.PDF.OCR.Net](https://www.nuget.org/packages/Sync
 <img src="OCR-Images/OCRDocker4.png" alt="OCR Docker Step4" width="100%" Height="Auto"/>
 
 Step 5: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies is passed as a parameter to the OCR processor.
+
 {% highlight c# tabtitle="C#" %}
 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
 
 {% endhighlight %}
-Step 6: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following [link](https://github.com/tesseract-ocr/tessdata)
+
+Step 6: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link,[Tesseract language data](https://github.com/tesseract-ocr/tessdata).
+
 {% highlight c# tabtitle="C#" %}
 
 OCRProcessor processor = new OCRProcessor("Tesseractbinaries\");
@@ -54,6 +55,7 @@ libgdiplus libc6-dev
 <img src="OCR-Images/OCRDocker5.png" alt="Convert HTMLToPDF Docker Step5" width="100%" Height="Auto"/>
 
 Step 8: A default action method named Index will be present in HomeController.cs. Right-click on Index method and select Go to View, where you will be directed to its associated view page Index.cshtml.
+
 Step 9: Add a new button in the index.cshtml as shown below.
 
 {% highlight c# tabtitle="C#" %}
@@ -89,7 +91,7 @@ public ActionResult PerformOCR()
    string docPath = _hostingEnvironment.WebRootPath + "/Data/Input.pdf";
    string tesseractPath = _hostingEnvironment.WebRootPath + "/Data/Tesseractbinaries/Linux";
     //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
-     using (OCRProcessor processor = new OCRProcessor(tesseractPath))
+    using (OCRProcessor processor = new OCRProcessor(tesseractPath))
     {
         FileStream fileStream = new FileStream(docPath, FileMode.Open, FileAccess.Read);
         //Load a PDF document

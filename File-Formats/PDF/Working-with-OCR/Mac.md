@@ -1,22 +1,21 @@
 ---
-title: Performing OCR in Mac | Syncfusion
-description: Learn how to Perform OCR in Mac with easy steps using Syncfusion .NET OCR library.library.
+title: Perform OCR on PDF and image files in Mac | Syncfusion
+description: Learn how to perform OCR on scanned PDF documents and images in Mac with different tesseract version using Syncfusion .NET OCR library.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 ---
 
-# How to Perform OCR on a PDF Document Using Mac
+# Perform OCR in Mac
 
-Optical Character Recognition (OCR) is a technology that converts scanned paper documents from PDF files or images into searchable and editable data.
+The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) used to extract text from scanned PDFs and images in Mac application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
-The [Syncfusion OCR processor library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) has extended support to OCR process PDF documents and other scanned images in Mac with the help of the [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine.
-
-## Steps to perform OCR on a PDF document programmatically
+## Steps to perform OCR on entire PDF document in Mac
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
 <img src="OCR-Images/mac_step1.png" alt="Mac_step1" width="100%" Height="Auto"/>
+
 Step 2: Select the Target Framework of your project.
 <img src="OCR-Images/mac_step2.png" alt="Mac_step2" width="100%" Height="Auto"/>
 
@@ -60,7 +59,9 @@ Step 7: Add a new button in the Index.cshtml as shown below.
 {% endhighlight %}
 
 <img src="OCR-Images/mac_step5.png" alt="Mac_step4" width="100%" Height="Auto"/>
+
 Step 7: Add a new action method PerformOCR in HomeController.cs and include the below code snippet to perform OCR in PDF file and download it.
+
 {% highlight c# tabtitle="C#" %}
 
 public ActionResult PerformOCR()
@@ -68,7 +69,7 @@ public ActionResult PerformOCR()
     string docPath = _hostingEnvironment.WebRootPath + "/Input.pdf";
     string tesseractPath = _hostingEnvironment.WebRootPath + "Tesseractbinaries/Mac";
     //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
-     using (OCRProcessor processor = new OCRProcessor(tesseractPath))
+    using (OCRProcessor processor = new OCRProcessor(tesseractPath))
     {
         FileStream fileStream = new FileStream(docPath, FileMode.Open, FileAccess.Read);
         //Load a PDF document
@@ -96,8 +97,6 @@ public ActionResult PerformOCR()
 
 Step 8: Right click the project and select Build.
 <img src="OCR-Images/mac_step6.png" alt="Mac_step4" width="100%" Height="Auto"/>
-
-`Note: Once the build succeeded, unzip the chromium.app file in bin folder (bin -> Debug ->net6.0 -> BlinkBinariesMac -> Chromium.app)`
 
 Step 9: Run the application.
 <img src="OCR-Images/mac_step7.png" alt="Mac_step4" width="100%" Height="Auto"/>
