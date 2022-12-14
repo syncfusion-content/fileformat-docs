@@ -12,17 +12,17 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/w
 
 ## Steps to create Word document programmatically in WPF:
 
-1.Create a new WPF application project.
+Step 1: Create a new WPF application project.
 
 ![Create WPF application in Visual Studio](WPF_images/Create_Project.jpg)
 
-2.Install the [Syncfusion.DocIO.Wpf](https://www.nuget.org/packages/Syncfusion.DocIO.Wpf) NuGet package as a reference to your WPF application from [NuGet.org](https://www.nuget.org/).
+Step 2: Install the [Syncfusion.DocIO.Wpf](https://www.nuget.org/packages/Syncfusion.DocIO.Wpf) NuGet package as a reference to your WPF application from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO WPF NuGet package](WPF_images/Install_NuGet.jpg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-3. Include the following namespaces in the MainWindow.xaml.cs file.
+Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
 
 {% capture codesnippet1 %}
 {% tabs %}
@@ -40,7 +40,7 @@ using System.Windows;
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4. Add a new button in **MainWindow.xaml** to create Word file as follows.
+Step 4: Add a new button in **MainWindow.xaml** to create Word file as follows.
 
 {% capture codesnippet2 %}
 {% tabs %}
@@ -66,7 +66,7 @@ using System.Windows;
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-5. Add the following code in **btnCreate_Click** to **create Word document** with simple text.
+Step 5: Add the following code in **btnCreate_Click** to **create Word document** with simple text.
 
 {% capture codesnippet3 %}
 {% tabs %}

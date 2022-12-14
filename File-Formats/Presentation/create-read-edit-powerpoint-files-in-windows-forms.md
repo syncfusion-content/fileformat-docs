@@ -12,15 +12,15 @@ You can create or edit a PowerPoint file in Windows Forms with Syncfusion PowerP
 
 ## Create a PowerPoint file in Windows Forms
 
-1.Create a new C# Windows Forms application project.
+Step 1: Create a new C# Windows Forms application project.
 
 ![Create Windows Forms project](Workingwith_Windows/Create_Windows.png)
 
-2.Install the [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Step 2: Install the [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Presentation Winforms Nuget](Workingwith_Windows/Install_Nuget.png)
 
-3.After installing the **Syncfusion.Presentation.WinForms** nuget package, the following assemblies were included in our project.
+Step 3: After installing the **Syncfusion.Presentation.WinForms** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
 <li>Syncfusion.Licensing</li>
@@ -30,7 +30,7 @@ You can create or edit a PowerPoint file in Windows Forms with Syncfusion PowerP
 <li>Syncfusion.PresentationToPdfConverter.Base</li>
 </ul>
 
-4.The below code snippets demonstrate how to create a PowerPoint Presentation in Windows Forms platform.
+Step 4: The below code snippets demonstrate how to create a PowerPoint Presentation in Windows Forms platform.
 
 **Create Presentation instance:**
 
