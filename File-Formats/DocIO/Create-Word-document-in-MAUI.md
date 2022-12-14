@@ -16,21 +16,21 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 
 ## Steps to create Word document programmatically in .NET MAUI
 
-Step 1. Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
+Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
 ![Create the MAUI app in Visual Studio](MAUI_Images/Create_Project.png)
 
-Step 2. Enter the project name and click **Create**.
+Step 2: Enter the project name and click **Create**.
 
 ![Create a project name for your new project](MAUI_Images/Configure.png)
 
-Step 3. Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install the DocIO .NET NuGet package](MAUI_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
 
-Step 4. Add a new button to the **MainPage.xaml** as shown below.
+Step 4: Add a new button to the **MainPage.xaml** as shown below.
 
 {% capture codesnippet1 %}
 
@@ -62,7 +62,7 @@ Step 4. Add a new button to the **MainPage.xaml** as shown below.
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-Step 5. Include the following namespaces in the **MainPage.xaml.cs** file.
+Step 5: Include the following namespaces in the **MainPage.xaml.cs** file.
 
 {% capture codesnippet2 %}
 
@@ -81,7 +81,7 @@ using System.Reflection;
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-Step 6. Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+Step 6: Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
 
 {% capture codesnippet3 %}
 
