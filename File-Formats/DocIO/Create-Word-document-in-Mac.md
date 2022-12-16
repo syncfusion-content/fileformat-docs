@@ -12,22 +12,22 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Steps to create Word document programmatically in .NET Core application on Mac OS
 
-1.Create a new .NET Core console application project.
+Step 1: Create a new .NET Core console application project.
 
 ![Create .NET Core console application in Visual Studio](Mac-images/CreateProject.png)
 
-2.Select the project version.
+Step 2: Select the project version.
 
 ![Select Project version](Mac-images/selectprojectverion.png)
 
-3.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO .NET Core NuGet package](Mac-images/Install_Nuget1.png)
 ![Install DocIO .NET Core NuGet package](Mac-images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-4. Include the following Namespaces in the Program.cs file.
+Step 4: Include the following Namespaces in the Program.cs file.
 
 {% capture codesnippet1 %}
 
@@ -46,7 +46,7 @@ using System.IO;
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 
-5. Add the following code snippet in Program.cs file.
+Step 5: Add the following code snippet in Program.cs file.
 
 {% capture codesnippet2 %}
 

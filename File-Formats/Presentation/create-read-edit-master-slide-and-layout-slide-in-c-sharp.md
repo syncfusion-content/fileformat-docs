@@ -28,51 +28,29 @@ The following code example demonstrates how to access the **MasterSlide** in a P
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Create();
-
 //Access the first master slide in PowerPoint file
-
 IMasterSlide masterSlide = pptxDoc.Masters[0];
-
 //Get the first shape name from the master slide
-
 string shapeName = masterSlide.Shapes[0].ShapeName;
-
 //Save the PowerPoint file
-
 pptxDoc.Save("Sample.pptx");
-
 //Close the Presentation instance
-
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Create a PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Create()
-
 'Access the first master slide in PowerPoint file.
-
 Dim masterSlide As IMasterSlide = pptxDoc.Masters(0)
-
 'Get the first shape name from the master slide
-
 Dim shapeName As String = masterSlide.Shapes(0).ShapeName
-
 'Save the PowerPoint file.
-
 pptxDoc.Save("AccessMasterSlide.pptx")
-
 'Close the Presentation instance
-
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% endtabs %}
