@@ -11,6 +11,7 @@ documentation: UG
 The Essential DocIO converts the Word document into Text file and vice versa. The following code example shows how to convert the Word document into text file.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
 //Loads a template document
 WordDocument document = new WordDocument("Template.docx");
@@ -33,8 +34,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Txt);
@@ -43,7 +43,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     //Closes the Word document
     document.Close();
 }
-
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
@@ -98,18 +97,17 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Txt);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("WordToText.txt", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToText.txt", "application/msword", stream);
     //Closes the Word document
     document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}
@@ -119,6 +117,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to convert a Text file into Word document.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
 //Loads a text file
 WordDocument document = new WordDocument("Template.txt");
@@ -141,8 +140,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.txt")),
-              FormatType.Txt))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.txt")), FormatType.Txt))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Docx);
@@ -194,6 +192,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to retrieve the Word document contents as a plain text.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
 //Loads a template document
 WordDocument document = new WordDocument("Template.docx");
@@ -236,8 +235,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Gets the document text
     string text = document.GetText();
@@ -314,6 +312,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Text-file-conversion/Retrieve-Word-document-as-plain-text).
