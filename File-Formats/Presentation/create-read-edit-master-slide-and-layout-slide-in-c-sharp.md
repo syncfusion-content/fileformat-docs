@@ -62,7 +62,6 @@ You can change the background of the master slide, all slides in the presentatio
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Create())
 {
@@ -79,11 +78,9 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Save the PowerPoint file.
     pptxDoc.Save("Sample.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Create a PowerPoint presentation.
 Using pptxDoc As IPresentation = Presentation.Create()
     'Access the first master slide in PowerPoint file.
@@ -99,11 +96,9 @@ Using pptxDoc As IPresentation = Presentation.Create()
     'Save the PowerPoint file.
     pptxDoc.Save("Sample.pptx")
 End Using
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Create())
 {
@@ -127,11 +122,9 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Save changes to the specified storage file
     await pptxDoc.SaveAsync(storageFile);
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Create())
 {
@@ -152,11 +145,9 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Download PowerPoint Presentation in the browser.
     return File(outputStream, "application/vnd.openxmlformats-officedocument.presentationml.presentation", "Sample.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Create())
 {
@@ -180,7 +171,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     else
         Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", outputStream);
 }
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -194,47 +184,33 @@ The following code example demonstrates how to create new custom layout slide an
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a new LayoutSlide to the PowerPoint file
 ILayoutSlide layoutSlide = pptxDoc.Masters[0].LayoutSlides.Add(SlideLayoutType.Blank, "CustomLayout");
-
 //Add a shape to the LayoutSlide
 IShape shape = layoutSlide.Shapes.AddShape(AutoShapeType.Diamond, 30, 20, 400, 300);
-
 //Change the background color for LayoutSlide
 layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90);
-
 //Save the PowerPoint file
 pptxDoc.Save("LayoutSlide.pptx");
-
 //Close the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Creates a PowerPoint instance
 Dim pptxDoc As IPresentation = Presentation.Create()
-
 'Add a new LayoutSlide to the PowerPoint file
 Dim layoutSlide As ILayoutSlide = pptxDoc.Masters(0).LayoutSlides.Add(SlideLayoutType.Blank, "CustomLayout")
-
 'Add a shape to the LayoutSlide
 Dim shape As IShape = layoutSlide.Shapes.AddShape(AutoShapeType.Diamond, 30, 20, 400, 300)
-
 'Change the background color for LayoutSlide
 layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90)
-
 'Save the PowerPoint file
 pptxDoc.Save("LayoutSlide.pptx")
-
 'Close the Presentation instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% endtabs %}
