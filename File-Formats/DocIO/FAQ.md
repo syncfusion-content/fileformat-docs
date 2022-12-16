@@ -1063,7 +1063,9 @@ Yes, you can specify the PDF conformance level in Word to PDF conversion. For mo
 
 ### Mail merge
 
-The Mail merge feature can be used to generate reports and letters in Microsoft Word. The following code examples show how to generate an employee report from an MDB data source by using Microsoft Office Automation and DocIO.
+The Mail merge feature can be used to generate reports and letters in Microsoft Word. The following code examples show how to generate an employee report from an MDB data source by using Office Automation and DocIO.
+
+Using Microsoft Office Automation
 
 Office Automation performs the Mail merge by executing a SQL query on the Word document. The output of the Mail merge can be sent to a new Word document. Alternatively, it can be sent to a printer, a fax machine, or forwarded to an e-mail address.
 
@@ -1186,6 +1188,8 @@ For more information on Mail merge using DocIO, you can refer to online document
 ### Find and Replace
 
 This section illustrates how to perform a simple find and replace operation in a Word document by using Microsoft Office Automation and DocIO.
+
+Using Microsoft Office Automation
 
 The following code example illustrates how to search for a word in a Word document, replace it with another word and save the document under a new name.
 
