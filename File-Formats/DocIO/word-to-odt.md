@@ -35,8 +35,7 @@ document.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Odt);
@@ -45,7 +44,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     //Closes the Word document
     document.Close();
 }
-
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
@@ -105,8 +103,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Odt);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("WordToODT.odt", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToODT.odt", "application/msword", stream);
     //Closes the Word document
     document.Close();
 }
