@@ -222,7 +222,7 @@ Dim textShape As IShape  = firstSlide.AddTextBox(100, 75, 756, 200)
 'Adds a paragraph into the textShape
 Dim paragraph As IParagraph  = textShape.TextBody.AddParagraph()
 
-'Set the horizontal alignment of paragraph
+'Set the horizontal alignment of paragraph 
 paragraph.HorizontalAlignment = HorizontalAlignmentType.Center
 
 'Add a textPart in the paragraph
