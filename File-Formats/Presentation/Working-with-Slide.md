@@ -16,7 +16,6 @@ The following code example demonstrates how to add a blank slide to the Presenta
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
 //Adds a slide to the PowerPoint presentation
@@ -25,11 +24,9 @@ ISlide slide = pptxDoc.Slides.Add();
 pptxDoc.Save("Sample.pptx");
 //Closes the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Creates a PowerPoint instance
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Adds a slide to the PowerPoint presentation
@@ -38,11 +35,9 @@ Dim slide As ISlide = pptxDoc.Slides.Add()
 pptxDoc.Save("Sample.pptx")
 'Closes the Presentation instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
 //Adds new Blank type of slide.
@@ -56,11 +51,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
 //Adds a slide to the PowerPoint presentation
@@ -72,11 +65,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Closes the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
 //Adds a slide to the PowerPoint presentation
@@ -93,7 +84,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -121,7 +111,6 @@ The following example demonstrates how to access a slide from the predefined bla
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -130,11 +119,9 @@ ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 pptxDoc.Save("Sample.pptx");
 //Close the PowerPoint instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Create a PowerPoint file
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Add a slide of blank layout type
@@ -143,11 +130,9 @@ Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 pptxDoc.Save("Sample.pptx")
 'Close the PowerPoint instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -161,11 +146,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -177,11 +160,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Close the PowerPoint presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -198,7 +179,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -208,7 +188,6 @@ The following code example demonstrates how to add a slide with all other predef
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -237,11 +216,9 @@ ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);
 pptxDoc.Save("Sample.pptx");
 //Close the PowerPoint instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Create a PowerPoint file
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Add a slide of blank layout type
@@ -270,11 +247,9 @@ Dim ISlide As slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText)
 pptxDoc.Save("Sample.pptx")
 'Close the PowerPoint instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -308,11 +283,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of Blank type
@@ -344,11 +317,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Close the PowerPoint presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of Blank type
@@ -385,7 +356,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -399,7 +369,6 @@ The following code example demonstrates how to create and use a customized slide
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Open the template presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Add a new custom layout slide to the master collection with a specific layout type and name
@@ -416,11 +385,9 @@ ISlide slide = pptxDoc.Slides.Add(layoutSlide);
 pptxDoc.Save("Output.pptx");
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Open the template presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Add a new custom layout slide to the master collection with a specific layout type and name
@@ -437,11 +404,9 @@ Dim slide As ISlide = pptxDoc.Slides.Add(layoutSlide)
 pptxDoc.Save("Output.pptx")
 'Close the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
@@ -469,11 +434,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -494,11 +457,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
@@ -526,7 +487,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -536,7 +496,6 @@ The following code example demonstrates how to add a slide with an existing slid
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Open the template presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Get the layout slide collection of the master
@@ -558,11 +517,9 @@ ISlide slide = pptxDoc.Slides.Add(slideLayout);
 pptxDoc.Save("Output.pptx");
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Open the template presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Get the layout slide collection of the master
@@ -582,11 +539,9 @@ Dim slide As ISlide = pptxDoc.Slides.Add(slideLayout)
 pptxDoc.Save("Output.pptx")
 'Close the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -621,11 +576,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -651,11 +604,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
@@ -688,7 +639,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -700,7 +650,6 @@ You can create a deep copy of a slide by cloning the slide. The cloned slide is 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Opens an existing Presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation.pptx");
 //Retrieves the slide instance.
@@ -717,11 +666,9 @@ pptxDoc.Slides.Add(slideClone);
 pptxDoc.Save("Output.pptx");
 //Closes the Presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation.pptx")
 'Retrieves the slide instance.
@@ -738,11 +685,9 @@ pptxDoc.Slides.Add(slideClone)
 pptxDoc.Save("Output.pptx")
 'Closes the Presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -770,11 +715,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -795,11 +738,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
@@ -827,7 +768,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -839,7 +779,6 @@ The Essential Presentation provides ability to clone slides from one Presentatio
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Opens the source Presentation
 IPresentation sourcePresentation = Presentation.Open("SourcePresentation.pptx");
 //Opens the destination Presentation
@@ -854,11 +793,9 @@ destinationPresentation.Save("Output.pptx");
 sourcePresentation.Close();
 //Closes the destination Presentation
 destinationPresentation.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Opens the source Presentation
 Dim sourcePresentation_1 As IPresentation = Presentation.Open("SourcePresentation.pptx")
 'Opens the destination Presentation
@@ -873,11 +810,9 @@ destinationPresentation_1.Save("Output.pptx")
 sourcePresentation.Close()
 'Closes the destination Presentation
 destinationPresentation.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -904,11 +839,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await destinationPresentation.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Opens the source Presentation
 IPresentation sourcePresentation = Presentation.Open(SourcePresentationStream);
 //Opens the destination Presentation
@@ -953,7 +886,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -965,7 +897,6 @@ The Essential Presentation provides the ability to delete a slide by its instanc
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Opens an existing presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation1.pptx");
 //Retrieves the slide instance.
@@ -978,11 +909,9 @@ pptxDoc.Slides.RemoveAt(1);
 pptxDoc.Save("Output.pptx");
 //Closes the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation1.pptx")
 'Retrieves the slide instance.
@@ -995,11 +924,9 @@ pptxDoc.Slides.RemoveAt(1)
 pptxDoc.Save("Output.pptx")
 'Closes the Presentation instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1023,11 +950,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -1044,11 +969,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Closes the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
@@ -1072,7 +995,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -1084,7 +1006,6 @@ You can convert a presentation slide to image with Essential Presentation. The f
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Opens a PowerPoint presentation file
 IPresentation pptxDoc = Presentation.Open(fileName); 
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter 
@@ -1095,11 +1016,9 @@ Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Met
 image.Save("slide1.png"); 
 //Closes the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Opens a PowerPoint presentation file
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter 
@@ -1110,11 +1029,9 @@ Dim image As Image = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageT
 image.Save("slide1.png")
 'Closes the Presentation instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.FileTypeFilter.Add(".pptx");
@@ -1133,19 +1050,14 @@ StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.png", Creati
 await slide1.SaveAsImageAsync(imageFile, cancellationToken.Token);
 //Close the presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //PowerPoint Presentation to image conversion is not supported for ASP.NET Core platforms.
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //PowerPoint Presentation to image conversion is not supported for Xamarin platforms.
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -1161,7 +1073,6 @@ The following code example demonstrates setting the background for a slide.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Opens an existing Presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation1.pptx");
 //Retrieves the slide instance.
@@ -1180,11 +1091,9 @@ gradient.GradientStops.Add(ColorObject.Yellow, 50);
 pptxDoc.Save("Output.pptx");
 //Closes the Presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation1.pptx")
 'Retrieves the slide instance.
@@ -1203,11 +1112,9 @@ gradient.GradientStops.Add(ColorObject.Yellow, 50)
 pptxDoc.Save("Output.pptx")
 'Closes the Presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1237,11 +1144,9 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -1264,11 +1169,9 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Closes the Presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
@@ -1298,7 +1201,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
