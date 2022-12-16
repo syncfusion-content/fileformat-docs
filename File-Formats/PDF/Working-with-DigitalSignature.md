@@ -6088,6 +6088,8 @@ loadedDocument.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-digital-signature-information-from-PDF/).
+
 ## Adding multiple signatures to a PDF document
 
 The following code example illustrates how to add multiple signatures to a PDF document without invalidating the previous signature.  
@@ -6423,4 +6425,4 @@ else
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-digital-signature-information-from-PDF/).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Multiple-digital-signature/).
