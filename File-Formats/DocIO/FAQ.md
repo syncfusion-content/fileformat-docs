@@ -2002,185 +2002,105 @@ Adding Comments using Microsoft Office Automation
 
 The following code example illustrates how to add comments to a Word document. You need to define the range of text where the comment is to be added.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
-
 using word = Microsoft.Office.Interop.Word;
 
 ---------
 
 //Initializes objects.
-
 object nullobject = System.Reflection.Missing.Value;
-
 object newFilePath = "Sample.docx";
-
 //Starts the Word application.
-
 word.Application wordApp = new word.Application();
-
 //Creates a new document.
-
 wordApp.Documents.Add(ref nullobject, ref nullobject, ref nullobject, ref nullobject);
-
 word.Document doc = wordApp.ActiveDocument;
-
 //Inserts text to the Word document.
-
 object start = 0;
-
 object end = 0;
-
 word.Range rng = doc.Range(ref start, ref end);
-
 rng.Text = "New Text";
-
 //Adds comment to the inserted text.
-
 object text = "Comment goes here";
-
 doc.Comments.Add(rng, ref text);
-
 //Saves the document.
-
-doc.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject);
-
+doc.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject);
 //Closes the document.
-
 doc.Close(ref nullobject, ref nullobject, ref nullobject);
-
 //Quits the application.
-
 wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
-
 Imports word = Microsoft.Office.Interop.Word
 
 ---------
 
 ‘Initializes objects.
-
 Dim nullobject As Object = System.Reflection.Missing.Value
-
 Dim newFilePath As Object = "Sample.docx"
-
 ‘Starts the Word application.
-
 Dim wordApp As word.Application = New word.Application()
-
 ‘Creates a new document.
-
 wordApp.Documents.Add(nullobject, nullobject, nullobject, nullobject)
-
 Dim doc As word.Document = wordApp.ActiveDocument
-
 ‘Inserts text to the Word document.
-
 Dim startobj As Object = 0
-
 Dim endobj As Object = 0
-
 Dim rng As word.Range = doc.Range(startobj, endobj)
-
 rng.Text = "New Text"
-
 ‘Adds comment to the inserted text.
-
 Dim text As Object = "Comment goes here"
-
 doc.Comments.Add(rng, text)
-
 ‘Saves the document and quits application.
-
 doc.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject)
-
 ‘Closes the document.
-
 doc.Close(nullobject, nullobject, nullobject)
-
 ‘Quits the application.
-
 wordApp.Quit()
+{% endhighlight %}
 
-{% endhighlight %} 
-
- {% endtabs %}  
+{% endtabs %}
 
 #### Adding Comments Using DocIO
 
 You can insert comments to a paragraph or text in a Word document by using DocIO. The following code example shows how to insert comments to a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Creates a new Word document.
-
 WordDocument doc = new WordDocument();
-
 IWSection section = doc.AddSection();
-
 //Adds a paragraph to the document.
-
 IWParagraph para = section.AddParagraph();
-
 para.AppendText("New Text");
-
 //Adds comment to the paragraph.
-
 para.AppendComment("Comment goes here");
-
 //Saves the document.
-
 doc.Save("Sample.doc", FormatType.Doc);
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
-
 ‘Creates a new Word document.
-
 Dim doc As WordDocument = New WordDocument()
-
 Dim section As IWSection = doc.AddSection()
-
 ‘Adds a paragraph to the document.
-
 Dim para As IWParagraph = section.AddParagraph()
-
 para.AppendText("New Text")
-
 para.AppendComment("Comment goes here")
-
 ‘Saves the document.
-
 doc.Save("Sample.doc", FormatType.Doc)
-
 {% endhighlight %} 
 
- {% endtabs %}  
+{% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
 
 N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
 [Working with Comments](/file-formats/docio/working-with-comments) 
-
-
 
 ### Document Protection
 
@@ -2190,123 +2110,57 @@ Using Microsoft Office Automation
 
 [WdProtectionType](https://docs.microsoft.com/en-gb/office/vba/api/Word.WdProtectionType) is used to specify the protection type of the Word document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
-
 //Initializes objects.
-
 object nullobject = System.Reflection.Missing.Value;
-
 object filepath = "Template.docx";
-
 object newFilePath = "Sample.docx";
-
 object noReset = false;
-
 object password = System.String.Empty;
-
 object useIRM = false;
-
 object enforceStyleLock = false;
-
 //Starts the Word application.
-
 word.Application wordApp = new word.Application();
-
 //Opens the Word document to be protected.
-
-word.Document document = wordApp.Documents.Open(ref filepath, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref nullobject, ref nullobject);
-
+word.Document document = wordApp.Documents.Open(ref filepath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject);
 wordApp.Visible = false;
-
 //Sets "Allow only Comments" protection to Word document.
-
 document.Protect(word.WdProtectionType.wdAllowOnlyComments, ref noReset, ref password, ref useIRM, ref enforceStyleLock);
-
 //Saves the document.
-
-document.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject);
-
+document.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject);
 //Closes the document.
-
 document.Close(ref nullobject, ref nullobject, ref nullobject);
-
 //Quits the application.
-
 wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
-
 'Initializes objects.
-
 Dim nullobject As Object = System.Reflection.Missing.Value
-
 Dim filepath As Object = "Template.docx"
-
 Dim newFilePath As Object = "Sample.docx"
-
 Dim noReset As Object = False
-
 Dim password As Object = System.[String].Empty
-
 Dim useIRM As Object = False
-
 Dim enforceStyleLock As Object = False
-
 'Starts the Word application.
-
 Dim wordApp As New Word.Application()
-
 'Opens the Word document that is to be protected.
-
-Dim document As Word.Document = wordApp.Documents.Open(filepath, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject)
-
+Dim document As Word.Document = wordApp.Documents.Open(filepath, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject)
 wordApp.Visible = False
-
 'Sets "Allow only Comments" protection to Word document.
-
 document.Protect(Word.WdProtectionType.wdAllowOnlyComments, noReset, password, useIRM, enforceStyleLock)
-
 'Saves the document.
-
-document.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject)
-
+document.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject)
 'Closes the document.
-
 document.Close(nullobject, nullobject, nullobject)
-
 'Quits the application.
-
 wordApp.Quit(nullobject, nullobject, nullobject)
+{% endhighlight %}
 
-
-{% endhighlight %}  
-
- {% endtabs %}  
-
+{% endtabs %}  
 
 ### Using DocIO
 
@@ -2318,57 +2172,34 @@ DocIO uses ProtectionType property to specify the protection type of the Word do
 * AllowOnlyReading: All kinds of editing are restricted here and it makes the Word document as read-only document.
 * NoProtection: Does not protect the document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Loads the existing Word document by using DocIO instance
-
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
-
 //Sets "Allow only Comments" protection to Word document.
-
 document.ProtectionType = Syncfusion.DocIO.ProtectionType.AllowOnlyComments;
-
 //Saves and closes the document.
-
 document.Save("Sample.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
-
 'Loads the existing Word document by using DocIO instance
-
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
-
 'Sets "Allow only Comments" protection to Word document.
-
 document.ProtectionType = Syncfusion.DocIO.ProtectionType.AllowOnlyComments
-
 'Saves and closes the document.
-
 document.Save("Sample.docx", FormatType.Docx)
-
 document.Close()
-
-
-
 {% endhighlight %}
 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Security/Allow-editing-comments-only).
 
 Refer to the online documentation link for more details about the ways to protect the Word documents by using DocIO:
-
 [Protecting word document from editing](/File-Formats/DocIO/Working-with-Security)
-
-
 
 ### Table of Contents
 
@@ -2378,216 +2209,106 @@ Using Microsoft Office Automation
 
 The following code example shows how to insert and update table of contents in a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
-
 //Initializes objects.
-
 object nullobject = System.Reflection.Missing.Value;
-
 object filepath = "Template.docx";
-
 object newFilePath = "Sample.docx";
-
 object trueobj = true;
-
 //Starts the Word application.
-
 word.Application wordApp = new word.Application();
-
 //Opens the Word document.
-
-word.Document document = wordApp.Documents.Open(ref filepath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref nullobject);
-
+word.Document document = wordApp.Documents.Open(ref filepath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject);
 wordApp.Visible = false;
-
 //Defines the range for TOC in the document.
-
 object tocstart = 0;
-
 object tocend = 0;
-
 word.Range rngToc = document.Range(ref tocstart, ref tocend);
-
 //Adds TOC.
-
-word.TableOfContents tableOfContents = document.TablesOfContents.Add(rngToc, ref trueobj, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj);
-
+word.TableOfContents tableOfContents = document.TablesOfContents.Add(rngToc, ref trueobj, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj);
 //Updates TOC.
-
 tableOfContents.Update();
-
 //Saves the document.
-
-document.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
-
-ref nullobject, ref nullobject);
-
+document.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject);
 //Closes the document.
-
 document.Close(ref nullobject, ref nullobject, ref nullobject);
-
 //Quits the application.
-
 wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
-
 'Initializes objects.
-
 Dim nullobject As Object = System.Reflection.Missing.Value
-
 Dim filepath As Object = "Template.docx"
-
 Dim newFilePath As Object = "Sample.docx"
-
 Dim trueobj As Object = True
-
 'Starts the Word application.
-
 Dim wordApp As New Word.Application()
-
 'Opens the Word document.
-
-Dim document As Word.Document = wordApp.Documents.Open(filepath, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject)
-
+Dim document As Word.Document = wordApp.Documents.Open(filepath, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject)
 wordApp.Visible = False
-
 'Defines the range for TOC in the document.
-
 Dim tocstart As Object = 0
-
 Dim tocend As Object = 0
-
 Dim rngToc As Word.Range = document.Range(tocstart, tocend)
-
 'Adds TOC.
-
-Dim tableOfContents As Word.TableOfContents = document.TablesOfContents.Add(rngToc, trueobj, nullobject, nullobject, nullobject, nullobject, _
-
-trueobj, trueobj, trueobj, trueobj, trueobj, trueobj)
-
+Dim tableOfContents As Word.TableOfContents = document.TablesOfContents.Add(rngToc, trueobj, nullobject, nullobject, nullobject, nullobject, trueobj, trueobj, trueobj, trueobj, trueobj, trueobj)
 'Updates TOC.
-
 tableOfContents.Update()
-
 'Saves the document.
-
-document.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, _
-
-nullobject, nullobject, nullobject, nullobject)
-
+document.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, nullobject)
 'Closes the document.
-
 document.Close(nullobject, nullobject, nullobject)
-
 'Quits the application.
-
 wordApp.Quit(nullobject, nullobject, nullobject)
-
 {% endhighlight %}
 
-
-
-{% endtabs %}  
-
+{% endtabs %}
 
 ### Using DocIO
 
 The following code example illustrates how to insert and update the table of contents in a Word document by using DocIO.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
-
 //Loads the existing Word document by using DocIO instance
-
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
-
 IWSection section = document.Sections[0];
-
 //Appends TOC to the first paragraph of the document.
-
 WParagraph paragraph = new WParagraph(document);
-
 TableOfContent tableOfContents = paragraph.AppendTOC(1, 3);
-
 section.Paragraphs.Insert(0, paragraph);
-
 //Updates table of contents.
-
 document.UpdateTableOfContents();
-
 //Saves and closes the document.
-
 document.Save("Sample.docx", FormatType.Docx);
-
 document.Close();
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
-
 'Loads the existing Word document by using DocIO instance
-
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
-
 Dim section As IWSection = document.Sections(0)
-
 'Appends TOC to the first paragraph of the document.
-
 Dim paragraph As New WParagraph(document)
-
 Dim tableOfContents As TableOfContent = paragraph.AppendTOC(1, 3)
-
 section.Paragraphs.Insert(0, paragraph)
-
 'Updates table of contents.
-
 document.UpdateTableOfContents()
-
 'Saves and closes the document.
-
 document.Save("Sample.docx", FormatType.Docx)
-
 document.Close()
-
-
-
 {% endhighlight %}
 
- {% endtabs %}  
+ {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Add-table-of-contents).
 
 Refer to the online documentation link for more information about adding the table of contents to the Word document by using DocIO:
-
 [Working with table of contents](/file-formats/docio/working-with-table-of-contents)
-
-
 
 ## How to copy necessary fonts to Linux containers
 
@@ -2597,13 +2318,13 @@ You should copy necessary fonts to this location "/usr/local/share/fonts/" befor
 
 Use the following code example to copy fonts to containers.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight Dockerfile %}
 COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 {% endhighlight %}
 
- {% endtabs %}  
+ {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Copy-fonts-to-linux-containers).
 
@@ -2613,23 +2334,23 @@ The fonts present in the location(in Linux) "/usr/share/fonts/" is used for conv
 
 Use the following code example to install the Microsoft compatible fonts to Linux.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight Kconfig %}
 sudo apt-get install ttf-mscorefonts-installer
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 After the installation, the necessary Microsoft compatible fonts will be available in this location "/usr/share/fonts/truetype/msttcorefonts", which will be considered for conversion.
- 
+
 ## How to install necessary fonts in Linux containers
 
 In Word to PDF conversion, Essential DocIO uses the fonts which are installed in the corresponding production machine to measure and draw the text. If the font is not available in the production environment, then the alternate font will be used to measure and draw text based on the environment. And so, it is mandatory to install all the fonts used in the Word document in machine to achieve proper preservation.
 
 Use the following code example to install fonts in containers.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight Dockerfile %}
 RUN apt-get update -y && apt-get install libfontconfig -y
@@ -2663,29 +2384,29 @@ T> We recommend you check whether the required Culture/Locale is set to the Dock
 
 The following code example will set en_US locale to the container by setting Language to en_US.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight Dockerfile %}
 ENV LANG="en_US.UTF-8"
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ## How to resolve LibSkiaSharp not found exception
 
 * In Docker container, ensure whether the libfontconfig package properly installed by adding the following line in your Docker file.
-{% tabs %} 
+{% tabs %}
 
 {% highlight Dockerfile %}
 RUN apt-get update -y && apt-get install libfontconfig -y
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 
 * In production environment (hosted server machine), ensure whether the Visual C++ Redistributable is properly installed.
 
-	[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, if not installed.
+    [Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, if not installed.
 
 ## How to set title when converting Word document to EPUB
 
@@ -2694,10 +2415,9 @@ You can set title for EPUB file by setting the required title (string) to the bu
 
 The following code example illustrates how to set title for EPUB when converting a Word document to EPUB using DocIO.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Loads the existing Word document by using DocIO instance
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Sets title for Word document, which will be applied as title for the output EPUB file.
@@ -2705,11 +2425,9 @@ document.BuiltinDocumentProperties.Title = "This is a title in EPub document";
 //Saves and closes the document
 document.Save("Sample.epub", FormatType.EPub);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Loads the existing Word document by using DocIO instance
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Sets title for Word document, which will be applied as title for the output EPUB file.
@@ -2723,7 +2441,6 @@ document.BuiltinDocumentProperties.Title = "This is a title in EPub document"
 'Saves and closes the document.
 document.Save("Sample.epub", FormatType.EPub)
 document.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -2746,17 +2463,14 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
-
 {% endhighlight %}
-{% endtabs %} 
+
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-EPUB-conversion/Set-title-for-EPUB).
 
@@ -2766,7 +2480,7 @@ You can check whether a Word document contains tracked changes by using `HasChan
 
 The following code example shows how to check whether a Word document contains tracked changes.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
@@ -2775,7 +2489,7 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-	document.Revisions.AcceptAll();
+    document.Revisions.AcceptAll();
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -2787,7 +2501,7 @@ Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx
 Dim hasChanges As Boolean = document.HasChanges
 'When the document has track changes, accepts all changes
 If hasChanges Then
-	document.Revisions.AcceptAll()
+    document.Revisions.AcceptAll()
 End If
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2803,7 +2517,7 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-	document.Revisions.AcceptAll();
+    document.Revisions.AcceptAll();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -2824,7 +2538,7 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-	document.Revisions.AcceptAll();
+    document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -2844,7 +2558,7 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 bool hasChanges = document.HasChanges;
 //When the document has track changes, accepts all changes
 if (hasChanges)
-	document.Revisions.AcceptAll();
+    document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -2852,7 +2566,7 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
@@ -2869,7 +2583,7 @@ For example, if you like to accept or reject changes of specific revision type (
 
 The following code example shows how to accept or reject track changes of specific type in the Word document .
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
@@ -2877,14 +2591,14 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	// Gets the type of the track changes revision
-	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Accepts only insertion and Move from revisions changes
-	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    // Gets the type of the track changes revision
+    RevisionType revisionType = document.Revisions[i].RevisionType;
+    //Accepts only insertion and Move from revisions changes
+    if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
@@ -2896,15 +2610,15 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
 For i As Integer = document.Revisions.Count - 1 To 0 Step -1
-	Dim revisionType As RevisionType = document.Revisions(i).RevisionType
-	'Accepts only insertion and Move from revisions changes
-	If ((revisionType = RevisionType.Insertions) OrElse (revisionType = RevisionType.MoveFrom)) Then
-		document.Revisions(i).Accept()
-	End If
-	'Resets to last item when accept the moving related revisions.
-	If i > document.Revisions.Count - 1 Then
-		i = document.Revisions.Count
-	End If
+    Dim revisionType As RevisionType = document.Revisions(i).RevisionType
+    'Accepts only insertion and Move from revisions changes
+    If ((revisionType = RevisionType.Insertions) OrElse (revisionType = RevisionType.MoveFrom)) Then
+        document.Revisions(i).Accept()
+    End If
+    'Resets to last item when accept the moving related revisions.
+    If i > document.Revisions.Count - 1 Then
+    i = document.Revisions.Count
+    End If
 Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2919,14 +2633,14 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	// Gets the type of the track changes revision
-	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Accepts only insertion and Move from revisions changes
-	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    // Gets the type of the track changes revision
+    RevisionType revisionType = document.Revisions[i].RevisionType;
+    //Accepts only insertion and Move from revisions changes
+    if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2947,14 +2661,14 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	// Gets the type of the track changes revision
-	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Accepts only insertion and Move from revisions changes
-	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    // Gets the type of the track changes revision
+    RevisionType revisionType = document.Revisions[i].RevisionType;
+    //Accepts only insertion and Move from revisions changes
+    if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2974,14 +2688,14 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	// Gets the type of the track changes revision
-	RevisionType revisionType = document.Revisions[i].RevisionType;
-	//Accepts only insertion and Move from revisions changes
-	if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    // Gets the type of the track changes revision
+    RevisionType revisionType = document.Revisions[i].RevisionType;
+    //Accepts only insertion and Move from revisions changes
+    if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2990,7 +2704,7 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
@@ -3005,7 +2719,7 @@ TrackChanges is used to keep track of the changes made to a Word document. This 
 
 The following code example shows how to enable track changes of the document.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -3026,7 +2740,7 @@ document.TrackChanges = true;
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Creates a new Word document 
@@ -3074,7 +2788,7 @@ document.Close();
 
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
@@ -3144,28 +2858,28 @@ In addition to the previous NuGet packages, SkiaSharp.Linux helper NuGet package
 2. Create a folder and name it as SkiaSharp.Linux and place the downloaded file in the folder structure "SkiaSharp.Linux\runtimes\linux-x64\native"
 3. Create a nuspec file with name SkiaSharp.Linux.nuspec using the following metadata information and place it inside SkiaSharp.Linux folder. The nuspec file can be customized.
 
-	{% tabs %}
-	{% highlight XML %}
-	<?xml version="1.0" encoding="utf-8"?>
-	<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-		<metadata>
-			<id>SkiaSharp.Linux</id>
-			<version>1.59.3</version>
-			<title>SkiaSharp for Linux</title>
-			<authors>Syncfusion Inc.</authors>
-			<owners>Syncfusion Inc.</owners>
-			<requireLicenseAcceptance>false</requireLicenseAcceptance>
-			<description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
-			<tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
-			<dependencies>
-				<group targetFramework=".NETStandard1.4">
-					<dependency id="SkiaSharp" version="1.59.3" />
-				</group>
-			</dependencies>
-		</metadata>
-	</package>
-	{% endhighlight %}
-	{% endtabs %}
+    {% tabs %}
+    {% highlight XML %}
+    <?xml version="1.0" encoding="utf-8"?>
+    <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+        <metadata>
+            <id>SkiaSharp.Linux</id>
+            <version>1.59.3</version>
+            <title>SkiaSharp for Linux</title>
+            <authors>Syncfusion Inc.</authors>
+            <owners>Syncfusion Inc.</owners>
+            <requireLicenseAcceptance>false</requireLicenseAcceptance>
+            <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
+            <tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
+            <dependencies>
+                <group targetFramework=".NETStandard1.4">
+                    <dependency id="SkiaSharp" version="1.59.3" />
+                </group>
+            </dependencies>
+        </metadata>
+    </package>
+    {% endhighlight %}
+    {% endtabs %}
 
 4. Make sure that the nuget.exe file is present along with SkiaSharp.Linux folder (in the parent folder of SkiaSharp.Linux folder). If not, download it from [here](https://www.nuget.org/downloads#).
 5. Open a command prompt and navigate to SkiaSharp.Linux folder.
