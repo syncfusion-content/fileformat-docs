@@ -59,10 +59,8 @@ using (WordDocument document = new WordDocument())
 {
     //Adds a section and a paragraph to the document
     document.EnsureMinimal();
-
     //Appends text to the last paragraph of the document
     document.LastParagraph.AppendText("Hello World");
-
     MemoryStream stream = new MemoryStream();
     //Saves the Word file to MemoryStream
     await document.SaveAsync(stream, FormatType.Docx);
@@ -98,19 +96,15 @@ using (WordDocument document = new WordDocument())
 {
     //Adds a section and a paragraph to the document
     document.EnsureMinimal();
-
     //Appends text to the last paragraph of the document
     document.LastParagraph.AppendText("Hello World");
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
-
     //Save the stream as a file in the device and invoke it for viewing
-
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Sample.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
     //Closes the document              
     document.Close();
-	
+
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
@@ -154,10 +148,8 @@ using (WordDocument document = new WordDocument())
 {
     //Adds a section and a paragraph to the document
     document.EnsureMinimal();
-
     //Appends text to the last paragraph of the document
     document.LastParagraph.AppendText("Hello World");
-
     MemoryStream stream = new MemoryStream();
     //Saves the Word file to MemoryStream
     await document.SaveAsync(stream, FormatType.Docx);
@@ -199,7 +191,7 @@ using (WordDocument document = new WordDocument())
     document.Save(stream, FormatType.Dotx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.dotx", "application/msword", stream);
-    //Closes the document              
+    //Closes the document
     document.Close();
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
@@ -304,8 +296,7 @@ document.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.WordML);
@@ -336,14 +327,12 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.WordML);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("WordToWordML.xml", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToWordML.xml", "application/msword", stream);
     //Closes the Word document
     document.Close();
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -380,8 +369,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")),
-              FormatType.WordML))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")), FormatType.WordML))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Docx);
@@ -412,8 +400,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.WordM
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")),
-              FormatType.WordML))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")), FormatType.WordML))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
@@ -534,7 +521,6 @@ using (WordDocument document = new WordDocument())
     Save(stream, "BinaryDocument.doc");
     document.Close();
 }
-
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
@@ -600,19 +586,20 @@ using (WordDocument document = new WordDocument())
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Doc);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("BinaryDocument.doc", "application/msword", stream);
-    //Closes the document              
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("BinaryDocument.doc", "application/msword", stream);
+    //Closes the document
     document.Close();
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Create-Doc-format-Word-document).
 
 ### DOC to DOCX and DOCX to DOC
+
 The following code shows, how to convert the DOC file into DOCX file format using DocIO
 
 {% tabs %}
@@ -638,8 +625,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.doc")),
-              FormatType.Doc))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.doc")), FormatType.Doc))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Docx);
@@ -670,14 +656,12 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Doc))
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.doc")),
-              FormatType.Doc))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.doc")), FormatType.Doc))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("DocToWord.docx", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DocToWord.docx", "application/msword", stream);
     //Closes the Word document
     document.Close();
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -714,8 +698,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Doc);
@@ -724,7 +707,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     //Closes the Word document
     document.Close();
 }
-
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
@@ -779,14 +761,12 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Doc);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("DocxToBinary.doc", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DocxToBinary.doc", "application/msword", stream);
     //Closes the Word document
     document.Close();
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -802,7 +782,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code shows, how to save Word document with same word version compatibility
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
@@ -893,7 +873,6 @@ using (WordDocument document = new WordDocument())
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 }
-
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -912,7 +891,7 @@ Whereas the recent changes saved as incremental save information using older Mic
 
 The following code example shows how to open a Word (*.doc) document containing incremental save information without exception.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an empty Word document instance
@@ -958,7 +937,6 @@ using (WordDocument document = new WordDocument())
     Save(stream, "Sample.doc");
     document.Close();
 }
-
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
@@ -1030,9 +1008,8 @@ using (WordDocument document = new WordDocument())
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Doc);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Sample.doc", "application/msword", stream);
-    //Closes the document              
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.doc", "application/msword", stream);
+    //Closes the document
     document.Close();
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
@@ -1051,7 +1028,7 @@ If  `PreserveOleImageAsImage` flag is enabled, DocIO internally skips to read th
 
 The following code example shows how to preserve embedded Ole image as normal image in a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an empty Word document instance
@@ -1095,7 +1072,6 @@ using (WordDocument document = new WordDocument())
     Save(stream, "Sample.docx");
     document.Close();
 }
-
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1135,9 +1111,8 @@ using (WordDocument document = new WordDocument())
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>()
-                        .SaveAndView("Sample.docx", "application/msword", stream);
-    //Closes the document              
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+    //Closes the document
     document.Close();
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
