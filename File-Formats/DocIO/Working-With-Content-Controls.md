@@ -3299,9 +3299,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-document.Close();
 {% endhighlight %}
 {% endtabs %}
 
@@ -3613,9 +3613,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-document.Close();
 {% endhighlight %}
 {% endtabs %}
 
@@ -3745,9 +3745,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-document.Close();
 {% endhighlight %}
 {% endtabs %}
 
@@ -3877,31 +3877,31 @@ Next
 'Saves and closes the document instance
 document.Save("Sample.docx")
 document.Close()
-		
+
 Private Shared Sub IterateTextBody(ByVal textBody As WTextBody)
-	'Iterates through each of the child items of WTextBody
-	For i As Integer = 0 To textBody.ChildEntities.Count - 1
-		'IEntity is the basic unit in DocIO DOM. 
-		'Accesses the body items (should be either paragraph, table or block content control) as IEntity
-		Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
-		'A Text body has 3 types of elements - Paragraph, Table and Block Content Control
-		'Decides the element type by using EntityType
-		Select Case bodyItemEntity.EntityType
-			Case EntityType.Paragraph
-				Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
-				'Processes the paragraph contents
-				'Iterates through the paragraph's DOM
-				IterateParagraph(paragraph.Items)
-			Case EntityType.Table
-				'Table is a collection of rows and cells
-				'Iterates through table's DOM
-				SurroundingClass.IterateTable(TryCast(bodyItemEntity, WTable))
-			Case EntityType.BlockContentControl
-				Dim blockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
-				'Iterates to the body items of Block Content Control.
-				IterateTextBody(blockContentControl.TextBody)
-		End Select
-	Next
+    'Iterates through each of the child items of WTextBody
+    For i As Integer = 0 To textBody.ChildEntities.Count - 1
+        'IEntity is the basic unit in DocIO DOM. 
+        'Accesses the body items (should be either paragraph, table or block content control) as IEntity
+        Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
+        'A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        'Decides the element type by using EntityType
+        Select Case bodyItemEntity.EntityType
+            Case EntityType.Paragraph
+                Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
+                'Processes the paragraph contents
+                'Iterates through the paragraph's DOM
+                IterateParagraph(paragraph.Items)
+            Case EntityType.Table
+                'Table is a collection of rows and cells
+                'Iterates through table's DOM
+                SurroundingClass.IterateTable(TryCast(bodyItemEntity, WTable))
+            Case EntityType.BlockContentControl
+                Dim blockContentControl As BlockContentControl = TryCast(bodyItemEntity, BlockContentControl)
+                'Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody)
+        End Select
+    Next
 End Sub
 
 Private Shared Sub IterateTable(ByVal table As WTable)
@@ -3933,7 +3933,7 @@ Private Shared Sub IterateParagraph(ByVal paraItems As ParagraphItemCollection)
             Case EntityType.InlineContentControl
                 Dim inlineContentControl As InlineContentControl = TryCast(entity, InlineContentControl)
                 If inlineContentControl.ContentControlProperties.Title = "ReplaceText" Then 
-				    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl)
+                    ReplaceTextWithInlineContentControl("Hello World", inlineContentControl)
         End Select
     Next
 End Sub
@@ -3946,7 +3946,7 @@ Private Shared Sub ReplaceTextWithInlineContentControl(ByVal text As String, ByV
             Exit For
         End If
     Next
-	'Remove exiting items and add new text range with required text
+    'Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear()
     Dim textRange As WTextRange = New WTextRange(inlineContentControl.Document)
     textRange.Text = text
@@ -3958,7 +3958,7 @@ End Sub
 {% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
-            
+
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
 inputStream.Dispose();
 ///Processes the body contents for each section in the Word document
@@ -4061,7 +4061,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
-	//Remove exiting items and add new text range with required text
+    //Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
@@ -4084,7 +4084,6 @@ foreach (WSection section in document.Sections)
     WTextBody sectionBody = section.Body;
     IterateTextBody(sectionBody);
 }
-			
 //Creates memory stream
 MemoryStream outputStream = new MemoryStream();
 //Saves and closes the Word document instance
@@ -4176,7 +4175,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
-	//Remove exiting items and add new text range with required text
+    //Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
@@ -4184,7 +4183,6 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
         textRange.ApplyCharacterFormat(characterFormat);
     inlineContentControl.ParagraphItems.Add(textRange);
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -4199,7 +4197,6 @@ foreach (WSection section in document.Sections)
     WTextBody sectionBody = section.Body;
     IterateTextBody(sectionBody);
 }
-
 //Creates memory stream
 MemoryStream outputStream = new MemoryStream();
 //Saves and closes the Word document instance
@@ -4294,7 +4291,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
             break;
         }
     }
-	//Remove exiting items and add new text range with required text
+    //Remove exiting items and add new text range with required text
     inlineContentControl.ParagraphItems.Clear();
     WTextRange textRange = new WTextRange(inlineContentControl.Document);
     textRange.Text = text;
@@ -4303,6 +4300,6 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
     inlineContentControl.ParagraphItems.Add(textRange);
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
 
 N> In the above-mentioned code samples, for Xamarin platforms the document is saved as stream only. To save the stream to file kindly refer code sample [here](https://help.syncfusion.com/file-formats/docio/xamarin#save-the-document#).
