@@ -1,15 +1,15 @@
 ---
 title: Perform OCR on PDF and image files in Mac | Syncfusion
-description: Learn how to perform OCR on scanned PDF documents and images in Mac with different tesseract version using Syncfusion .NET OCR library.
+description: Learn how to perform OCR on scanned PDF documents and images in Mac with different tesseract versions using Syncfusion .NET OCR library.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 ---
 
-# Perform OCR in Mac
+# Perform OCR using Mac
 
-The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) used to extract text from scanned PDFs and images in Mac application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
+The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) is used to extract text from the scanned PDFs and images in Mac application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
 ## Steps to perform OCR on entire PDF document in Mac
 
@@ -25,14 +25,15 @@ Step 3: Configure your application and click Create.
 Step 4: Install the [Syncfusion.PDF.OCR.Net](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/mac_step4.png" alt="Mac_step4" width="100%" Height="Auto"/>
 
-Step 5: To install the “’libgdiplus”, and “tesseract” packages in the Mac machine where the OCR operations occur. Please refer to the following commands to install this package.
+
+Step 5: To install the “’libgdiplus” and “tesseract” packages in the Mac machine where the OCR operations occur, please refer to the following commands.
 
 {% highlight c# tabtitle="C#" %}
 1.brew install mono-libgdiplus
 2.brew install tesseract
 {% endhighlight %}
 
-Step 5: A default controller with name HomeController.cs gets added on creation of ASP.NET project. Include the following namespaces in that HomeController.cs file.
+Step 6: A default controller with the name HomeController.cs gets added to the creation of the ASP.NET project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -41,9 +42,9 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 6: A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
+Step 7: A default action method named Index will be present in the HomeController.cs. Right-click on the Index method and select Go To View, where you will be directed to its associated view page Index.cshtml.
 
-Step 7: Add a new button in the Index.cshtml as shown below.
+Step 8: Add a new button in the Index.cshtml as follows.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -60,7 +61,7 @@ Step 7: Add a new button in the Index.cshtml as shown below.
 
 <img src="OCR-Images/mac_step5.png" alt="Mac_step4" width="100%" Height="Auto"/>
 
-Step 7: Add a new action method PerformOCR in HomeController.cs and include the below code snippet to perform OCR in PDF file and download it.
+Step 9: Add a new action method PerformOCR in the HomeController.cs, and include the following code sample to perform OCR in a PDF file and download it.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -95,13 +96,13 @@ public ActionResult PerformOCR()
 
 {% endhighlight %}
 
-Step 8: Right click the project and select Build.
+Step 10: Right-click the project and select Build.
 <img src="OCR-Images/mac_step6.png" alt="Mac_step4" width="100%" Height="Auto"/>
 
-Step 9: Run the application.
+Step 11: Run the application.
 <img src="OCR-Images/mac_step7.png" alt="Mac_step4" width="100%" Height="Auto"/>
 
-By executing the program, you will get the PDF document as follows.
+By executing the program, you will get a PDF document as follows.
 <img src="OCR-Images/OCR-output-image.png" alt="Mac_step4" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from Github
+A complete working sample can be downloaded from GitHub.
