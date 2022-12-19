@@ -14,7 +14,7 @@ With this support, the changes made in the Word document by DocIO library cannot
 
 The following code example illustrates how to enable track changes of the document.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -135,9 +135,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Enable-track-changes-of-Word).
 
@@ -147,14 +147,14 @@ You can **accept all track changes in Word document** using `AcceptAll`method.
 
 The following code example shows how to accept all the tracked changes.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Accepts all the tracked changes revisions
 if (document.HasChanges)
-	document.Revisions.AcceptAll();
+    document.Revisions.AcceptAll();
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -165,7 +165,7 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Accepts all the tracked changes revisions
 If document.HasChanges Then
-	document.Revisions.AcceptAll()
+    document.Revisions.AcceptAll()
 End If
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -199,7 +199,7 @@ FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileA
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Accepts all the tracked changes revisions in the Word document
 if (document.HasChanges)
-	document.Revisions.AcceptAll();
+    document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -217,7 +217,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
 //Accepts all the tracked changes revisions
 if (document.HasChanges)
-	document.Revisions.AcceptAll();
+    document.Revisions.AcceptAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -225,10 +225,10 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -244,14 +244,14 @@ You can **reject all track changes in Word document** using `RejectAll` method.
 
 The following code example shows how to reject all the tracked changes.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Rejects all the tracked changes revisions
 if (document.HasChanges)
-	document.Revisions.RejectAll();
+    document.Revisions.RejectAll();
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -262,12 +262,12 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Rejects all the tracked changes revisions
 If document.HasChanges Then
-	document.Revisions.RejectAll()
+    document.Revisions.RejectAll()
 End If
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
@@ -276,7 +276,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Rejects all the tracked changes revisions
 if (document.HasChanges)
-	document.Revisions.RejectAll();
+    document.Revisions.RejectAll();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -295,7 +295,7 @@ FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileA
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Rejects all the tracked changes revisions in the Word document
 if (document.HasChanges)
-	document.Revisions.RejectAll();
+    document.Revisions.RejectAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -313,7 +313,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
 //Rejects all the tracked changes revisions
 if (document.HasChanges)
-	document.Revisions.RejectAll();
+    document.Revisions.RejectAll();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -321,10 +321,10 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -340,7 +340,7 @@ You can **accept all changes made by the author** in the Word document using `Ac
 
 The following code example shows how to accept the tracked changes made by the author.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
@@ -348,12 +348,12 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and accepts it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and accepts it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
@@ -365,14 +365,14 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
 For i As Integer = document.Revisions.Count - 1 To 0 Step -1
-	'Checks the author of current revision and accepts it.
-	If document.Revisions(i).Author Is "Nancy Davolio" Then
-		document.Revisions(i).Accept()
-	End If
-	'Resets to last item when accept the moving related revisions.
-	If i > document.Revisions.Count - 1 Then
-		i = document.Revisions.Count
-	End If
+    'Checks the author of current revision and accepts it.
+    If document.Revisions(i).Author Is "Nancy Davolio" Then
+        document.Revisions(i).Accept()
+    End If
+    'Resets to last item when accept the moving related revisions.
+    If i > document.Revisions.Count - 1 Then
+        i = document.Revisions.Count
+    End If
 Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
@@ -387,12 +387,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and accepts it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and accepts it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -404,7 +404,7 @@ document.Close();
 
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Opens an existing word document 
@@ -413,12 +413,12 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and accepts it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and accepts it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -428,7 +428,7 @@ document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
@@ -438,12 +438,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and accepts it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Accept();
-	//Resets to last item when accept the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and accepts it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Accept();
+    //Resets to last item when accept the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -452,10 +452,10 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -467,7 +467,7 @@ You can **reject all changes made by the author** in the Word document using `Re
 
 The following code example shows how to reject the tracked changes made by the author.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
@@ -475,12 +475,12 @@ WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and rejects it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Reject();
-	//Resets to last item when reject the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and rejects it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Reject();
+    //Resets to last item when reject the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
@@ -492,19 +492,19 @@ document.Close();
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 'Iterates into all the revisions in Word document
 For i As Integer = document.Revisions.Count - 1 To 0 Step -1
-	'Checks the author of current revision and rejects it.
-	If document.Revisions(i).Author Is "Nancy Davolio" Then
-		document.Revisions(i).Reject()
-	End If
-	'Resets to last item when accept the moving related revisions.
-	If i > document.Revisions.Count - 1 Then
-		i = document.Revisions.Count
-	End If
+    'Checks the author of current revision and rejects it.
+    If document.Revisions(i).Author Is "Nancy Davolio" Then
+        document.Revisions(i).Reject()
+    End If
+    'Resets to last item when accept the moving related revisions.
+    If i > document.Revisions.Count - 1 Then
+        i = document.Revisions.Count
+    End If
 Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project
@@ -514,12 +514,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and rejects it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Reject();
-	//Resets to last item when reject the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and rejects it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Reject();
+    //Resets to last item when reject the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -540,12 +540,12 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and rejects it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Reject();
-	//Resets to last item when reject the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and rejects it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Reject();
+    //Resets to last item when reject the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -555,7 +555,7 @@ document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 //"App" is the class of Portable project
@@ -565,12 +565,12 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sam
 //Iterates into all the revisions in Word document
 for (int i = document.Revisions.Count - 1; i >= 0; i--)
 {
-	//Checks the author of current revision and rejects it.
-	if (document.Revisions[i].Author == "Nancy Davolio")
-		document.Revisions[i].Reject();
-	//Resets to last item when reject the moving related revisions.
-	if (i > document.Revisions.Count - 1)
-		i = document.Revisions.Count;
+    //Checks the author of current revision and rejects it.
+    if (document.Revisions[i].Author == "Nancy Davolio")
+        document.Revisions[i].Reject();
+    //Resets to last item when reject the moving related revisions.
+    if (i > document.Revisions.Count - 1)
+        i = document.Revisions.Count;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -579,10 +579,10 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -594,7 +594,7 @@ You can get the **revision information of track changes** in the Word document l
 
 The following code example shows how to get the details about the revision information of track changes.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing Word document
