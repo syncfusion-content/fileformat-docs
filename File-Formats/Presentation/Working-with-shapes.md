@@ -1,11 +1,11 @@
 ---
-title: Working with shapes in PowerPoint Presentation
-description: Working with shapes in PowerPoint Presentation
+title: Working with shapes in PowerPoint Presentation | Syncfusion |
+description: Code examples to create, edit and format PowerPoint shapes in .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with Shapes
+# Working with PowerPoint Shapes
 
 ## Adding shapes to a slide
 
