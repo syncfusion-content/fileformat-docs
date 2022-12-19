@@ -7,7 +7,7 @@ documentation: UG
 keywords: Working with Notes
 ---
 
-# Working with Notes
+# Working with PowerPoint Notes
 
 Notes are the contents associated with each slide and are visible only to the presenter when monitors are shared in “Presenter View”. It shows hint for the speaker, so it is often called as “Speaker Notes”. The presenter can optionally add key points to notes. You can add and modify the notes in your slide using Essential Presentation library.
 

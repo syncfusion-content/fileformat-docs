@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with SmartArt
+# Working with PowerPoint SmartArt
 
 A SmartArt diagram is a visual representation of your information, to effectively communicate your ideas in presentations. You can add and modify the SmartArt diagrams in PowerPoint presentations using Essential Presentation library.
 
