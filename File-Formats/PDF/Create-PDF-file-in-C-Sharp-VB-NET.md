@@ -1418,6 +1418,8 @@ document.Close(True)
 
 //Syncfusion .NET PDF library supports converting HTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
+{% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter with Blink rendering engine.
