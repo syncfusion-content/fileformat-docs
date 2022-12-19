@@ -28,7 +28,7 @@ You need to define commands with the table name and expression for linking the m
 
 The following code example shows how to perform a nested Mail merge.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
@@ -80,34 +80,34 @@ The following code example shows GetCommands method which is used to get data fo
 {% highlight c# tabtitle="C#" %}
 private ArrayList GetCommands()
 {
-	//ArrayList contains the list of commands
-	ArrayList commands = new ArrayList();
-	//DictionaryEntry contains "Source table" (key) and "Command" (value)
-	DictionaryEntry entry = new DictionaryEntry("Employees", "Select TOP 10 * FROM Employees");
-	commands.Add(entry);
-	//Retrieves the customer details
-	entry = new DictionaryEntry("Customers", "SELECT * FROM Customers WHERE Customers.EmployeeID='%Employees.EmployeeID%'");
-	commands.Add(entry);
-	//Retrieves the order details
-	entry = new DictionaryEntry("Orders", "SELECT * FROM Orders WHERE Orders.CustomerID='%Customers.CustomerID%'");
-	commands.Add(entry);
-	return commands;
+    //ArrayList contains the list of commands
+    ArrayList commands = new ArrayList();
+    //DictionaryEntry contains "Source table" (key) and "Command" (value)
+    DictionaryEntry entry = new DictionaryEntry("Employees", "Select TOP 10 * FROM Employees");
+    commands.Add(entry);
+    //Retrieves the customer details
+    entry = new DictionaryEntry("Customers", "SELECT * FROM Customers WHERE Customers.EmployeeID='%Employees.EmployeeID%'");
+    commands.Add(entry);
+    //Retrieves the order details
+    entry = new DictionaryEntry("Orders", "SELECT * FROM Orders WHERE Orders.CustomerID='%Customers.CustomerID%'");
+    commands.Add(entry);
+    return commands;
 }
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetCommands() As ArrayList
-	'ArrayList contains the list of commands
-	Dim commands As New ArrayList()
-	'DictionaryEntry contains "Source table" (key) and "Command" (value)
-	Dim entry As New DictionaryEntry("Employees", "SELECT TOP 10 * FROM Employees")
-	commands.Add(entry)
-	'Retrieves the customer details
-	entry = New DictionaryEntry("Customers", "SELECT * FROM Customers WHERE Customers.EmployeeID='%Employees.EmployeeID%'")
-	commands.Add(entry)
-	'Retrieves the order details
-	entry = New DictionaryEntry("Orders", "SELECT * FROM Orders WHERE Orders.CustomerID='%Customers.CustomerID%'")
-	commands.Add(entry)
-	Return commands
+    'ArrayList contains the list of commands
+    Dim commands As New ArrayList()
+    'DictionaryEntry contains "Source table" (key) and "Command" (value)
+    Dim entry As New DictionaryEntry("Employees", "SELECT TOP 10 * FROM Employees")
+    commands.Add(entry)
+    'Retrieves the customer details
+    entry = New DictionaryEntry("Customers", "SELECT * FROM Customers WHERE Customers.EmployeeID='%Employees.EmployeeID%'")
+    commands.Add(entry)
+    'Retrieves the order details
+    entry = New DictionaryEntry("Orders", "SELECT * FROM Orders WHERE Orders.CustomerID='%Customers.CustomerID%'")
+    commands.Add(entry)
+    Return commands
 End Function
 {% endhighlight %}
 {% highlight c# tabtitle="UWP" %}
@@ -212,7 +212,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -250,90 +249,86 @@ return File(stream, "application/msword", "Sample.docx");
 {% highlight c# tabtitle="Xamarin" %}
 //Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
 //You can use IDictionary<string, object> collection to generate dynamic objects.
-
 {% endhighlight %}
 
 {% endtabs %}
 
 The following code example shows GetCustomers and GetOrders methods which are used to get data for mail merge.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 private List<ExpandoObject> GetCustomers()
 {
-	List<ExpandoObject> customers = new List<ExpandoObject>();
-	customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
-	customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
-	customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
-	return customers;
+    List<ExpandoObject> customers = new List<ExpandoObject>();
+    customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
+    customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
+    customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
+    return customers;
 }
 private List<ExpandoObject> GetOrders()
 {
-	List<ExpandoObject> orders = new List<ExpandoObject>();
-	orders.Add(GetDynamicOrder(1001, "MSWord", 100));
-	orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
-	orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
-	return orders;
+    List<ExpandoObject> orders = new List<ExpandoObject>();
+    orders.Add(GetDynamicOrder(1001, "MSWord", 100));
+    orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
+    orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
+    return orders;
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetCustomers() As List(Of ExpandoObject)
-	Dim customers As New List(Of ExpandoObject)()
-	customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"))
-	customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"))
-	customers.Add(GetDynamicCustomer(110, "David", "Syncfusion"))
-	Return customers
+    Dim customers As New List(Of ExpandoObject)()
+    customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"))
+    customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"))
+    customers.Add(GetDynamicCustomer(110, "David", "Syncfusion"))
+    Return customers
 End Function
 Private Function GetOrders() As List(Of ExpandoObject)
-	Dim orders As New List(Of ExpandoObject)()
-	orders.Add(GetDynamicOrder(1001, "MSWord", 100))
-	orders.Add(GetDynamicOrder(1002, "AdobeReader", 100))
-	orders.Add(GetDynamicOrder(1003, "VisualStudio", 102))
-	Return orders
+    Dim orders As New List(Of ExpandoObject)()
+    orders.Add(GetDynamicOrder(1001, "MSWord", 100))
+    orders.Add(GetDynamicOrder(1002, "AdobeReader", 100))
+    orders.Add(GetDynamicOrder(1003, "VisualStudio", 102))
+    Return orders
 End Function
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 private List<ExpandoObject> GetCustomers()
 {
-	List<ExpandoObject> customers = new List<ExpandoObject>();
-	customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
-	customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
-	customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
-	return customers;
+    List<ExpandoObject> customers = new List<ExpandoObject>();
+    customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
+    customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
+    customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
+    return customers;
 }
 private List<ExpandoObject> GetOrders()
 {
-	List<ExpandoObject> orders = new List<ExpandoObject>();
-	orders.Add(GetDynamicOrder(1001, "MSWord", 100));
-	orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
-	orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
-	return orders;
+    List<ExpandoObject> orders = new List<ExpandoObject>();
+    orders.Add(GetDynamicOrder(1001, "MSWord", 100));
+    orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
+    orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
+    return orders;
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 private List<ExpandoObject> GetCustomers()
 {
-	List<ExpandoObject> customers = new List<ExpandoObject>();
-	customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
-	customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
-	customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
-	return customers;
+    List<ExpandoObject> customers = new List<ExpandoObject>();
+    customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
+    customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
+    customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
+    return customers;
 }
 private List<ExpandoObject> GetOrders()
 {
-	List<ExpandoObject> orders = new List<ExpandoObject>();
-	orders.Add(GetDynamicOrder(1001, "MSWord", 100));
-	orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
-	orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
-	return orders;
+    List<ExpandoObject> orders = new List<ExpandoObject>();
+    orders.Add(GetDynamicOrder(1001, "MSWord", 100));
+    orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
+    orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
+    return orders;
 }
-
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -345,78 +340,78 @@ private List<ExpandoObject> GetOrders()
 
 The following code example shows GetDynamicCustomer and GetDynamicOrder methods, which are used to generate dynamic objects for mail merge.
 
-{% tabs %}  
+{% tabs %}
 {% highlight c# tabtitle="C#" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
-	dynamic dynamicCustomer = new ExpandoObject();
-	dynamicCustomer.CustomerID = customerID;
-	dynamicCustomer.CustomerName = customerName;
-	dynamicCustomer.CompanyName = companyName;
-	return dynamicCustomer;
+    dynamic dynamicCustomer = new ExpandoObject();
+    dynamicCustomer.CustomerID = customerID;
+    dynamicCustomer.CustomerName = customerName;
+    dynamicCustomer.CompanyName = companyName;
+    return dynamicCustomer;
 }
 private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 {
-	dynamic dynamicOrder = new ExpandoObject();
-	dynamicOrder.OrderID = orderID;
-	dynamicOrder.OrderName = orderName;
-	dynamicOrder.CustomerID = customerID;
-	return dynamicOrder;
+    dynamic dynamicOrder = new ExpandoObject();
+    dynamicOrder.OrderID = orderID;
+    dynamicOrder.OrderName = orderName;
+    dynamicOrder.CustomerID = customerID;
+    return dynamicOrder;
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function GetDynamicCustomer(customerID As Integer, customerName As String, companyName As String) As Object
-	Dim dynamicCustomer As Object = New ExpandoObject()
-	dynamicCustomer.CustomerID = customerID
-	dynamicCustomer.CustomerName = customerName
-	dynamicCustomer.CompanyName = companyName
-	Return dynamicCustomer
+    Dim dynamicCustomer As Object = New ExpandoObject()
+    dynamicCustomer.CustomerID = customerID
+    dynamicCustomer.CustomerName = customerName
+    dynamicCustomer.CompanyName = companyName
+    Return dynamicCustomer
 End Function
 Private Function GetDynamicOrder(orderID As Integer, orderName As String, customerID As Integer) As Object
-	Dim dynamicOrder As Object = New ExpandoObject()
-	dynamicOrder.OrderID = orderID
-	dynamicOrder.OrderName = orderName
-	dynamicOrder.CustomerID = customerID
-	Return dynamicOrder
+    Dim dynamicOrder As Object = New ExpandoObject()
+    dynamicOrder.OrderID = orderID
+    dynamicOrder.OrderName = orderName
+    dynamicOrder.CustomerID = customerID
+    Return dynamicOrder
 End Function
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
-	dynamic dynamicCustomer = new ExpandoObject();
-	dynamicCustomer.CustomerID = customerID;
-	dynamicCustomer.CustomerName = customerName;
-	dynamicCustomer.CompanyName = companyName;
-	return dynamicCustomer;
+    dynamic dynamicCustomer = new ExpandoObject();
+    dynamicCustomer.CustomerID = customerID;
+    dynamicCustomer.CustomerName = customerName;
+    dynamicCustomer.CompanyName = companyName;
+    return dynamicCustomer;
 }
 private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 {
-	dynamic dynamicOrder = new ExpandoObject();
-	dynamicOrder.OrderID = orderID;
-	dynamicOrder.OrderName = orderName;
-	dynamicOrder.CustomerID = customerID;
-	return dynamicOrder;
+    dynamic dynamicOrder = new ExpandoObject();
+    dynamicOrder.OrderID = orderID;
+    dynamicOrder.OrderName = orderName;
+    dynamicOrder.CustomerID = customerID;
+    return dynamicOrder;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
-	dynamic dynamicCustomer = new ExpandoObject();
-	dynamicCustomer.CustomerID = customerID;
-	dynamicCustomer.CustomerName = customerName;
-	dynamicCustomer.CompanyName = companyName;
-	return dynamicCustomer;
+    dynamic dynamicCustomer = new ExpandoObject();
+    dynamicCustomer.CustomerID = customerID;
+    dynamicCustomer.CustomerName = customerName;
+    dynamicCustomer.CompanyName = companyName;
+    return dynamicCustomer;
 }
 private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 {
-	dynamic dynamicOrder = new ExpandoObject();
-	dynamicOrder.OrderID = orderID;
-	dynamicOrder.OrderName = orderName;
-	dynamicOrder.CustomerID = customerID;
-	return dynamicOrder;
+    dynamic dynamicOrder = new ExpandoObject();
+    dynamicOrder.OrderID = orderID;
+    dynamicOrder.OrderName = orderName;
+    dynamicOrder.CustomerID = customerID;
+    return dynamicOrder;
 }
 {% endhighlight %}
 
@@ -494,7 +489,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -535,7 +529,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
