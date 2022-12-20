@@ -2283,7 +2283,6 @@ chart.ChartData.SetValue(3, 2, 5)
 chart.ChartData.SetValue(4, 2, 1)
 
 'Apply chart elements
-
 'Set chart title
 chart.ChartTitle = "Scatter Markers Chart"
 'Set legend  
