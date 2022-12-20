@@ -118,13 +118,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-paragraph).
 
 The following code example illustrates how to modify an existing paragraph.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -159,12 +159,12 @@ Dim textBody As WTextBody = document.Sections(0).Body
 Dim paragraph As WParagraph = textBody.Paragraphs(1)
 'Iterates through the child elements of paragraph
 For Each item As ParagraphItem In paragraph.ChildEntities
-	If TypeOf item Is WTextRange Then
-		Dim text As WTextRange = TryCast(item, WTextRange)
-		'Modifies the character format of the text
-		text.CharacterFormat.Bold = True
-		Exit For
-	End If
+    If TypeOf item Is WTextRange Then
+        Dim text As WTextRange = TryCast(item, WTextRange)
+        'Modifies the character format of the text
+        text.CharacterFormat.Bold = True
+        Exit For
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -261,9 +261,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Modify-an-existing-paragraph).
 
@@ -273,10 +273,10 @@ As in the Microsoft Word, DocIO provides support for all the paragraph formattin
 
 N>The `FirstLineIndent` can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Creates a new Word document 
+//Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
 IWSection section = document.AddSection();
@@ -317,7 +317,7 @@ paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}   
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
@@ -411,10 +411,10 @@ T> You can define a custom style or modify any built-in style to the required fo
 
 The following code example explains how to use the predefined styles.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Creates a new Word document 
+//Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
 IWSection section = document.AddSection();
@@ -448,7 +448,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
+//Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
 IWSection section = document.AddSection();
@@ -520,7 +520,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example explains how to create a custom paragraph style and apply it to a paragraph.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -670,7 +670,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Create-custom-paragraph-style).
 
-### Tab stop  
+### Tab stop
 
 A tab stop is a horizontal position that is set for aligning text of the paragraph.  A tab character causes the carriage to go to the next tab stop.
 
@@ -678,7 +678,7 @@ Each paragraph has its own tab stop collection where the new tab stop can be add
 
 The following code example explains how to add tab stops to the paragraph.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -802,7 +802,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can set RTL (Right-to-left) direction to the paragraph in a Word document. The following code example shows how to set RTL (Right-to-left) for a paragraph in Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -862,7 +862,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -911,12 +910,11 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}   
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/RTL-paragraph).
 
@@ -934,7 +932,7 @@ Paragraph and character styles present in the existing document are accessible t
 
 This following code example demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an input Word template
@@ -973,22 +971,22 @@ document.Close()
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
 {
-	//Accesses the styles collection that contains paragraph and character styles in Word document
-	IStyleCollection styleCollection = document.Styles;
-	//Finds the style with the name "Heading 1"
-	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
-	//Changes the text color of style "Heading 1" as DarkBlue
-	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
-	//Changes the first line indent of Paragraph as 36 points
-	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
+    //Accesses the styles collection that contains paragraph and character styles in Word document
+    IStyleCollection styleCollection = document.Styles;
+    //Finds the style with the name "Heading 1"
+    WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+    //Changes the text color of style "Heading 1" as DarkBlue
+    heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
+    //Changes the first line indent of Paragraph as 36 points
+    heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine
+    Save(stream, "Result.docx");
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    document.Close();
 }
 {% endhighlight %}
 
@@ -997,21 +995,21 @@ FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, File
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
 {
-	//Accesses the styles collection that contains paragraph and character styles in Word document
-	IStyleCollection styleCollection = document.Styles;
-	//Finds the style with the name "Heading 1"
-	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
-	//Changes the text color of style "Heading 1" as DarkBlue
-	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	//Changes the first line indent of Paragraph as 36 points
-	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+    //Accesses the styles collection that contains paragraph and character styles in Word document
+    IStyleCollection styleCollection = document.Styles;
+    //Finds the style with the name "Heading 1"
+    WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+    //Changes the text color of style "Heading 1" as DarkBlue
+    heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+    //Changes the first line indent of Paragraph as 36 points
+    heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+    MemoryStream stream = new MemoryStream();
+    //Saves and closes the destination document to  MemoryStream
+    document.Save(stream, FormatType.Docx);
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -1020,26 +1018,26 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
 {
-	//Accesses the styles collection that contains paragraph and character styles in Word document
-	IStyleCollection styleCollection = document.Styles;
-	//Finds the style with the name "Heading 1"
-	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
-	//Changes the text color of style "Heading 1" as DarkBlue
-	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	//Changes the first line indent of Paragraph as 36 points
-	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
-	MemoryStream stream = new MemoryStream();
-	document.Save(stream, FormatType.Docx);   
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the document              
-	document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Accesses the styles collection that contains paragraph and character styles in Word document
+    IStyleCollection styleCollection = document.Styles;
+    //Finds the style with the name "Heading 1"
+    WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+    //Changes the text color of style "Heading 1" as DarkBlue
+    heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+    //Changes the first line indent of Paragraph as 36 points
+    heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);   
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+    //Closes the document              
+    document.Close();
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Access-styles-in-document).
 
@@ -1047,7 +1045,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an input Word template
@@ -1092,23 +1090,23 @@ document.Close()
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
 {
-	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
-	//Sets the formatting of the style
-	myStyle.CharacterFormat.FontSize = 16f;
-	myStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
-	myStyle.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyStyle");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
+    IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+    //Sets the formatting of the style
+    myStyle.CharacterFormat.FontSize = 16f;
+    myStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
+    myStyle.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
+    //Appends the contents into the paragraph
+    document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle("MyStyle");
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine
+    Save(stream, "Result.docx");
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    document.Close();
 }
 {% endhighlight %}
 
@@ -1117,22 +1115,22 @@ FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, File
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
 {
-	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
-	//Sets the formatting of the style
-	myStyle.CharacterFormat.FontSize = 16f;
-	myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyStyle");
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+    IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+    //Sets the formatting of the style
+    myStyle.CharacterFormat.FontSize = 16f;
+    myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+    myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    //Appends the contents into the paragraph
+    document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle("MyStyle");
+    MemoryStream stream = new MemoryStream();
+    //Saves and closes the destination document to  MemoryStream
+    document.Save(stream, FormatType.Docx);
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -1141,27 +1139,27 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
 {
-	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
-	//Sets the formatting of the style
-	myStyle.CharacterFormat.FontSize = 16f;
-	myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyStyle");
-	MemoryStream stream = new MemoryStream();
-	document.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the document              
-	document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+    //Sets the formatting of the style
+    myStyle.CharacterFormat.FontSize = 16f;
+    myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+    myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    //Appends the contents into the paragraph
+    document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle("MyStyle");
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+    //Closes the document
+    document.Close();
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
  
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Create-new-paragraph-style).
 
@@ -1169,7 +1167,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 DocIO provides a set of predefined styles. You can apply those predefined styles as shown in the following code example.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an input Word template
@@ -1204,16 +1202,16 @@ document.Close()
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
 {
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine
+    Save(stream, "Result.docx");
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    document.Close();
 }
 {% endhighlight %}
 
@@ -1222,15 +1220,15 @@ FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, File
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
 {
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+    MemoryStream stream = new MemoryStream();
+    //Saves and closes the destination document to  MemoryStream
+    document.Save(stream, FormatType.Docx);
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -1239,20 +1237,20 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
 {
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
-	MemoryStream stream = new MemoryStream();
-	document.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the document              
-	document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+    //Closes the document              
+    document.Close();
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Apply-built-in-style).
 
@@ -1310,7 +1308,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance.
 document.Close();
-
 //Please refer to the following link to save a Word document in the UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1351,7 +1348,6 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance.
 document.Close();
-
 Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1366,7 +1362,7 @@ Text within a paragraph is represented by one or more instances of the `WTextRan
 
 The following code example explains how to append text to the paragraph.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -1470,9 +1466,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Append-text-to-paragraph).
 
@@ -1480,7 +1476,7 @@ Text in the paragraph can be modified or replaced with a new text. This can be a
 
 The following code example explains how to replace the text of a text range.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document 
@@ -1511,12 +1507,12 @@ Dim document As New WordDocument("Template.docx")
 Dim lastParagraph As WParagraph = document.LastParagraph
 'Iterates through the paragraph items to get the text range and modifies its content
 For i As Integer = 0 To lastParagraph.ChildEntities.Count - 1
-	If TypeOf lastParagraph.ChildEntities(i) Is WTextRange Then
-		Dim textRange As WTextRange = TryCast(lastParagraph.ChildEntities(i), WTextRange)
-		textRange.Text = "First text range of the last paragraph is replaced"
-		textRange.CharacterFormat.FontSize = 14
-		Exit For
-	End If
+    If TypeOf lastParagraph.ChildEntities(i) Is WTextRange Then
+        Dim textRange As WTextRange = TryCast(lastParagraph.ChildEntities(i), WTextRange)
+        textRange.Text = "First text range of the last paragraph is replaced"
+        textRange.CharacterFormat.FontSize = 14
+        Exit For
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -1595,7 +1591,6 @@ for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
         WTextRange textRange = lastParagraph.ChildEntities[i] as WTextRange;
         textRange.Text = "First text range of the last paragraph is replaced";
         textRange.CharacterFormat.FontSize = 14;
-
         break;
     }
 }
@@ -1608,9 +1603,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Replace-text-of-a-text-range).
 
@@ -1618,7 +1613,7 @@ Text formatting enhances the appearance of text in the document. Text formatting
 
 The following code example explains how to apply formatting to the text.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Create a new Word document 
@@ -1867,9 +1862,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Apply-formatting-to-text).
 
@@ -1882,7 +1877,7 @@ DocIO provides support for both inline and absolute positioned images.
 
 The following code example explains how to add image to the paragraph.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -1991,9 +1986,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-image).
 
@@ -2003,7 +1998,7 @@ Image present in the document can be replaced with a new image. This can be achi
 
 The following code example explains how to replace an existing image.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -2036,16 +2031,16 @@ Dim document As New WordDocument("Template.docx")
 Dim textbody As WTextBody = document.Sections(0).Body
 'Iterates through the paragraphs of the textbody
 For Each paragraph As WParagraph In textbody.Paragraphs
-	'Iterates through the child elements of paragraph
-	For Each item As ParagraphItem In paragraph.ChildEntities
-		If TypeOf item Is WPicture Then
-			Dim picture As WPicture = TryCast(item, WPicture)
-			'Replaces the image
-			If picture.Title = "Bookmark" Then
-				picture.LoadImage(Image.FromFile("Image.png"))
-			End If
-		End If
-	Next
+    'Iterates through the child elements of paragraph
+    For Each item As ParagraphItem In paragraph.ChildEntities
+        If TypeOf item Is WPicture Then
+            Dim picture As WPicture = TryCast(item, WPicture)
+            'Replaces the image
+            If picture.Title = "Bookmark" Then
+                picture.LoadImage(Image.FromFile("Image.png"))
+            End If
+        End If
+    Next
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2154,19 +2149,19 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Replace-image).
 
 ### Remove image
 
-Images can be removed from the document by removing it from the paragraph items. 
+Images can be removed from the document by removing it from the paragraph items.
 
 The following code example explains how to remove the image from the paragraph items.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document 
@@ -2198,14 +2193,14 @@ Dim document As New WordDocument("Template.docx")
 Dim textbody As WTextBody = document.Sections(0).Body
 'Iterates through the paragraphs of the textbody
 For Each paragraph As WParagraph In textbody.Paragraphs
-	'Iterates through the child elements of paragraph
-	For i As Integer = 0 To paragraph.ChildEntities.Count - 1
-		'Removes images from the paragraph
-		If TypeOf paragraph.ChildEntities(i) Is WPicture Then
-			paragraph.Items.RemoveAt(i)
-			i -= 1
-		End If
-	Next
+    'Iterates through the child elements of paragraph
+    For i As Integer = 0 To paragraph.ChildEntities.Count - 1
+        'Removes images from the paragraph
+        If TypeOf paragraph.ChildEntities(i) Is WPicture Then
+            paragraph.Items.RemoveAt(i)
+            i -= 1
+        End If
+    Next
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2302,9 +2297,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Remove-image).
 
@@ -2314,7 +2309,7 @@ Absolute positioned images have properties such as position, wrap formats, and a
 
 The following code example explains how various picture formats can be applied to the picture.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -2518,19 +2513,19 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Format-and-rotate-image).
 
-### Find an image by title 
+### Find an image by title
 
 An Image with a specific title can be retrieved by iterating the paragraph items that can be used for further manipulations.
 
 The following code example explains how images can be iterated from the document elements.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -2571,19 +2566,19 @@ Dim document As New WordDocument("Template.docx")
 Dim textBody As WTextBody = document.Sections(0).Body
 'Iterates through the textbody child entities
 For Each item As TextBodyItem In textBody.ChildEntities
-	If TypeOf item Is WParagraph Then
-		Dim paragraph As WParagraph = TryCast(item, WParagraph)
-		For Each paraItem As ParagraphItem In paragraph.ChildEntities
-			'Gets the image from its title and modifies its width and height
-			If TypeOf paraItem Is WPicture Then
-				Dim picture As WPicture = TryCast(paraItem, WPicture)
-				If picture.Title = "Bookmark" Then
-					picture.Width = 150
-					picture.Height = 100
-				End If
-			End If
-		Next
-	End If
+    If TypeOf item Is WParagraph Then
+        Dim paragraph As WParagraph = TryCast(item, WParagraph)
+        For Each paraItem As ParagraphItem In paragraph.ChildEntities
+            'Gets the image from its title and modifies its width and height
+            If TypeOf paraItem Is WPicture Then
+                Dim picture As WPicture = TryCast(paraItem, WPicture)
+                If picture.Title = "Bookmark" Then
+                    picture.Width = 150
+                    picture.Height = 100
+                End If
+            End If
+        Next
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2704,19 +2699,19 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Find-an-image-by-title).
 
-### Add Image caption 
+### Add Image caption
 
 You can add caption to an image and update the caption numbers (Sequence fields) using `AddCaption` method.
 
 The following code example shows how to add caption to an image.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new document
@@ -2838,7 +2833,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
-          
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -2932,13 +2926,11 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
 
-{% endhighlight %} 
-
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-image-caption).
 
@@ -2955,7 +2947,7 @@ Lists can organize and format the contents of a document in hierarchical way. Th
 
 The following code example explains how to create a simple bulleted list.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -3114,15 +3106,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin  
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Simple-bulleted-list).
 
 The following code example explains how to create a simple numbered list.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -3281,15 +3273,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Simple-numbered-list).
 
 The following code example explains how to create a multilevel bulleted list.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -3393,7 +3385,7 @@ document.Close();
 Save(stream, "Result.docx");
 //Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
@@ -3468,15 +3460,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Multilevel-bulleted-list).
 
 The following code example explains how to create multilevel numbered list.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -3542,7 +3534,7 @@ paragraph.ListFormat.IncreaseIndentLevel()
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}  
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
@@ -3657,13 +3649,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Multilevel-numbered-list).
 
 The list levels can be incremented or decremented by using the `IncreaseIndentLevel` and `DecreaseIndentLevel` methods respectively. The following code example explains how to increase or decrease the list indent levels.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -3877,15 +3869,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Increase-or-decrease-list-indent).
 
 The following code example explains how to create user defined list styles.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -4104,9 +4096,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/User-defined-numbered-list).
 
@@ -4114,7 +4106,7 @@ The following code example explains how to create numbered list with prefix from
 
 N> The `NumberPrefix` value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -4269,7 +4261,7 @@ document.Close();
 Save(stream, "Result.docx");
 //Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Creates a new Word document 
@@ -4330,7 +4322,7 @@ return File(stream, "application/msword", "Result.docx");
 WordDocument document = new WordDocument();
 //Adds new section to the document
 IWSection section = document.AddSection();
-//Adds new list style to the document          
+//Adds new list style to the document
 ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
 WListLevel levelOne = listStyle.Levels[0];
 //Defines the follow character, prefix from previous level, start index for level 0
@@ -4380,13 +4372,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/List-with-prefix-from-previous-level).
 
 The following code example illustrates how to create a user defined bulleted list style.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Create a new Word document.
@@ -4664,7 +4656,7 @@ This API holds the static string of the list value recently calculated while sav
 
 The following example shows how to **get a string that represents the appearance of list value of the paragraph**.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -4707,7 +4699,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -4745,7 +4736,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -4754,7 +4744,6 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Get-list-value).
 
 N> For a picture bulleted list, the `ListString` API is not valid and it will return an empty string.
-
 
 ## Working with hyperlinks
 
@@ -4769,7 +4758,7 @@ Hyperlinks have two parts: the address and display content.
 
 The following code example explains how to insert a web link.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -4868,15 +4857,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-web-link).
 
 The following code example illustrates how to add an email link.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -4975,15 +4964,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-an-email-link).
 
 The following code example explains how to add a file hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -5082,15 +5071,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);   
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin     
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-file-hyperlink).
 
 The following code example explains how to add a bookmark hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -5221,7 +5210,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-bookmark-hyperlink).
 
@@ -5229,7 +5218,7 @@ The display content for the Hyperlinks can also be an image that may redirect to
 
 The following code example explains how to add image hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -5269,7 +5258,7 @@ paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.We
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
@@ -5348,15 +5337,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-image-hyperlink).
 
 The following code example explains how to modify the URL of an existing hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document 
@@ -5392,18 +5381,18 @@ Dim document As New WordDocument("Sample.docx", FormatType.Docx)
 Dim paragraph As WParagraph = document.LastParagraph
 'Iterates through the paragraph items
 For Each item As ParagraphItem In paragraph.ChildEntities
-	If TypeOf item Is WField Then
-		If TryCast(item, WField).FieldType = FieldType.FieldHyperlink Then
-			'Gets the hyperlink field
-			Dim link As New Hyperlink(TryCast(item, WField))
-			If link.Type = HyperlinkType.WebLink Then
-				'Modifies the url of the hyperlink
-				link.Uri = "http://www.google.com"
-				link.TextToDisplay = "Google"
-				Exit For
-			End If
-		End If
-	End If
+    If TypeOf item Is WField Then
+        If TryCast(item, WField).FieldType = FieldType.FieldHyperlink Then
+            'Gets the hyperlink field
+            Dim link As New Hyperlink(TryCast(item, WField))
+            If link.Type = HyperlinkType.WebLink Then
+                'Modifies the url of the hyperlink
+                link.Uri = "http://www.google.com"
+                link.TextToDisplay = "Google"
+                Exit For
+            End If
+        End If
+    End If
 Next
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -5514,9 +5503,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Modify-url-of-hyperlink).
 
@@ -5526,7 +5515,7 @@ Symbols are used to add contents such as currencies, numbers, punctuations, etc.
 
 The following code example explains how to add new symbol to the document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -5618,15 +5607,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-symbols).
 
 The following code example explains how to modify an existing symbol.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -5663,17 +5652,17 @@ Dim document As New WordDocument("Sample.docx", FormatType.Docx)
 Dim textbody As WTextBody = document.Sections(0).Body
 'Iterates through the paragraphs
 For Each paragraph As WParagraph In textbody.Paragraphs
-	'Gets the symbol from the paragraph items
-	For Each item As ParagraphItem In paragraph.ChildEntities
-		If TypeOf item Is WSymbol Then
-			Dim symbol As WSymbol = TryCast(item, WSymbol)
-			If symbol.CharacterCode = 100 Then
-				'Modifies the character code
-				symbol.CharacterCode = 40
-				symbol.FontName = "Wingdings"
-			End If
-		End If
-	Next
+    'Gets the symbol from the paragraph items
+    For Each item As ParagraphItem In paragraph.ChildEntities
+        If TypeOf item Is WSymbol Then
+            Dim symbol As WSymbol = TryCast(item, WSymbol)
+            If symbol.CharacterCode = 100 Then
+                'Modifies the character code
+                symbol.CharacterCode = 40
+                symbol.FontName = "Wingdings"
+            End If
+        End If
+    Next
 Next
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -5759,7 +5748,6 @@ WordDocument document = new WordDocument(fileStream, FormatType.Docx);
 WTextBody textbody = document.Sections[0].Body;
 //Iterates through the paragraphs
 foreach (WParagraph paragraph in textbody.Paragraphs)
-
 {
     //Gets the symbol from the paragraph items
     foreach (ParagraphItem item in paragraph.ChildEntities)
@@ -5785,9 +5773,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Modify-an-existing-symbol).
 
@@ -5802,7 +5790,7 @@ Breaks allow the document contents to split into multiple parts to customize the
 
 The following code example explains how various types of breaks can be appended to the paragraphs.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -5969,9 +5957,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Append-breaks).
 
@@ -6103,7 +6091,7 @@ You can create and manipulate the OLE Objects of both Linked and Embedded types 
 
 The following code example explains how to add OLE objects to the document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -6222,9 +6210,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-ole-object).
 
@@ -6232,7 +6220,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example explains how to extract OLE objects from the document and save as separate file.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing document
@@ -6328,7 +6316,6 @@ End Using
 Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
     Dim oleObject As WOleObject = Nothing
     Dim oleIndex As Integer = -1
-
     ' Retrieving embedded object.
     For Each section As WSection In document.Sections
         For Each paragraph As WParagraph In section.Paragraphs
@@ -6341,7 +6328,6 @@ Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
                     oleIndex = paragraph.ChildEntities.IndexOf(oleObject)
                     'Gets ole type
                     Dim oleTypeStr As String = oleObject.ObjectType
-
                     ' Checks for Excel type so that file can be saved with proper extension.
                     If oleTypeStr.Contains("Excel 2003 Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.8") OrElse oleTypeStr.Contains("Excel Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.12") Then
                         If oleTypeStr.Contains("Excel Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.12") Then
@@ -6358,7 +6344,6 @@ Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
                             Exit For
                         End If
                     End If
-
                     'Checks for Word document embedded object and save them
                     If oleTypeStr.Contains("Word.Document") Then
                         If oleTypeStr.Contains("Word.Document.12") Then
@@ -6375,7 +6360,6 @@ Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
                             Exit For
                         End If
                     End If
-
                     'Checks for PDF embedded object and save them
                     If oleTypeStr.Contains("Acrobat Document") OrElse oleTypeStr.StartsWith("AcroExch.Document.7") OrElse oleTypeStr.Contains("AcroExch.Document.11") OrElse oleTypeStr.StartsWith("AcroExch.Document.DC") Then
                         Dim fstream As FileStream = New FileStream("Sample" & oleObject.OleStorageName & ".pdf", FileMode.Create)
@@ -6531,7 +6515,7 @@ using (FileStream inputStream = new FileStream(@"Template.docx", FileMode.Open, 
 {
     using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
     {
-	    // Extract the OLE object from the word document
+        // Extract the OLE object from the word document
         ExtractOLEObject(document);
     }
 }
@@ -6699,12 +6683,12 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Remove OLE Objects from Word document
   
-The following code example explains how to remove OLE objects from the document.  
+The following code example explains how to remove OLE objects from the document.
   
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Opens the source document 
+//Opens the source document
 WordDocument document = new WordDocument(@"Template.docx");
 //Remove OLE object from the document
 RemoveOLEObject(document);
@@ -6901,7 +6885,6 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.docx", "applica
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 
-
 private static void RemoveOLEObject(WordDocument document)
 {
     bool isFieldStart = false;
@@ -6936,9 +6919,9 @@ private static void RemoveOLEObject(WordDocument document)
         }
     }
 }
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
   
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Remove-ole-object).
 
@@ -6948,7 +6931,7 @@ Text box contains a group of textual and graphical contents. DocIO supports to c
 
 The following code example explains how to add new text box to the paragraph.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -7080,19 +7063,19 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-text-box).
 
-### Format and rotate text box  
+### Format and rotate text box
 
 Text box has its own formatting such as outline color, fill effects, text direction, wrap formats, and more. You can also rotate the text box and apply flipping (horizontal and vertical) to it.
 
 The following code example explains how to apply formatting and rotation for text box.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -7207,7 +7190,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-
 //Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -7293,12 +7275,11 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Format-and-rotate-text-box).
 
