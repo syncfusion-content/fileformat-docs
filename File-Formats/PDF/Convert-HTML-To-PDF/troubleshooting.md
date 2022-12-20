@@ -105,26 +105,26 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>Missing or mismatch of <a href="https://www.nuget.org/packages/Newtonsoft.Json/6.0.8">Newtonsoft.Json</a> package in the project.
+<td>Missing or mismatch of <a href="https://www.nuget.org/packages/Newtonsoft.Json/13.0.2">Newtonsoft.Json</a> package in the project.
 </td>
 </tr>
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>For converting HTML to PDF in Blink, you need to refer to the Newtonsoft.Json assembly or NuGet package with version 6.0.8 in the application, otherwise conversion will get failed.
+<td>For converting HTML to PDF in Blink, you need to refer to the Newtonsoft.Json assembly or NuGet package with current version 13.0.2 in the application, otherwise conversion will get failed.
 </td>
 </tr>
 
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The exception may occur if the Newtonsoft.Json assembly or NuGet package version is above 6.0.8.
+<td>The exception may occur if the Newtonsoft.Json assembly or NuGet package with current version is 13.0.2.
 </td>
 </tr>
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>The Newtonsoft.Json package version is above 6.0.8, then include the following assembly binding redirection in the app.config/web.config file.
+<td>The Newtonsoft.Json package with current version is 13.0.2, then include the following assembly binding redirection in the app.config/web.config file.
 <br><br/>
 {% highlight html %}
 
