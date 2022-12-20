@@ -236,7 +236,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The output screen-shot of the above code.
 
-![Create Excel](Getting-Started_images/Getting-Started_HelloWorld.jpeg)
+<img src="Getting-Started_images/Getting-Started_HelloWorld.jpeg" alt="Create Excel" width="100%" Height="Auto"/>
 
 ## Create a Simple Excel File
 
@@ -961,7 +961,7 @@ namespace ExcelCreation
 
 The screen-shot of the output for above code is given below.
 
-![Create Excel](Getting-Started_images/Getting-Started_img1.jpeg)
+<img src="Getting-Started_images/Getting-Started_img1.jpeg" alt="Create Excel" width="100%" Height="Auto"/>
 
 ## Export Data to Excel Worksheets
 
@@ -1600,7 +1600,7 @@ public class Sales
 
 The following screenshot shows the DataTable of previous code.
 
-![Excel to Data Table](Getting-Started_images/Getting-Started_img2.jpeg)
+<img src="Getting-Started_images/Getting-Started_img2.jpeg" alt="Excel to Data Table" width="100%" Height="Auto"/>
 
 You can refer various exporting options in the [Working with Data](https://help.syncfusion.com/file-formats/xlsio/working-with-data) section.
 
@@ -1633,7 +1633,7 @@ Find more details in [Template marker section for arguments](https://help.syncfu
 
 For example – let’s consider that you have a template document as shown below.
 
-![Template Marker](Getting-Started_images/Getting-Started_img3.jpeg)
+<img src="Getting-Started_images/Getting-Started_img3.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
 
 [Download input template](http://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
@@ -2038,6 +2038,6 @@ public class Report
 
 The resultant document looks as follows.
 
-![Template Marker](Getting-Started_images/Getting-Started_img4.jpeg)
+<img src="Getting-Started_images/Getting-Started_img4.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
 
 N> You can refer to our [.Net Excel Framework](https://www.syncfusion.com/excel-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

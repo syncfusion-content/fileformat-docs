@@ -15,15 +15,15 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 1. Create a new C# ASP.NET Core Web Application project.
 
-![Create ASP.NET Core web application in Visual Studio](ASP-NET-Core_images/ASP-NET-Core_images_img1.png)
+<img src="ASP-NET-Core_images/ASP-NET-Core_images_img1.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Select Web Application pattern (Model-View-Controller) for the project.
 
-![Select Web application pattern](ASP-NET-Core_images/ASP-NET-Core_images_img2.png)
+<img src="ASP-NET-Core_images/ASP-NET-Core_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
 3. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](ASP-NET-Core_images/ASP-NET-Core_images_img3.png)
+<img src="ASP-NET-Core_images/ASP-NET-Core_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 4. A default controller with named HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in the HomeController.cs file.
 {% capture codesnippet1 %}
@@ -444,7 +444,7 @@ End Using
 A complete working example of how to create an Excel file in ASP.NET Core in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-![Output File](ASP-NET-Core_images/ASP-NET-Core_images_img4.png)
+<img src="ASP-NET-Core_images/ASP-NET-Core_images_img4.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 

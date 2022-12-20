@@ -15,11 +15,11 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 
 1. Create a new ASP.NET MVC application project.
 
-![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/ASP-NET-MVC_images_img1.png)
+<img src="ASP-NET-MVC_images/ASP-NET-MVC_images_img1.png" alt="Create ASP.NET MVC application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](ASP-NET-MVC_images/ASP-NET-MVC_images_img2.png)
+<img src="ASP-NET-MVC_images/ASP-NET-MVC_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 3. A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
 {% capture codesnippet1 %}
@@ -415,7 +415,7 @@ End Using
 A complete working example of how to create an Excel file in ASP.NET MVC in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-![Output File](ASP-NET-MVC_images/ASP-NET-MVC_images_img3.png)
+<img src="ASP-NET-MVC_images/ASP-NET-MVC_images_img3.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 

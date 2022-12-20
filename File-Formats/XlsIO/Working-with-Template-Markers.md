@@ -81,7 +81,7 @@ An array of data can be binded to the marker in the template document.
 
 The following screenshot represents the input template which has a template marker.
 
-![Bind from Array Example](Working-with-Template-Markers_images/Template_Markers_in_Excel_Spreadsheet_Templates.jpeg)
+<img src="Working-with-Template-Markers_images/Template_Markers_in_Excel_Spreadsheet_Templates.jpeg" alt="Bind from Array Example" width="100%" Height="Auto"/>
 
 Following code example illustrates how to bind the data from an array to a marker.
 
@@ -257,7 +257,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following screenshot represents generated Excel file in which the array of data is bounded.
 
-![Bind from Array Example](Working-with-Template-Markers_images/Bind_data_from_Array_to_Excel_Spreadsheet_Template.jpeg)
+<img src="Working-with-Template-Markers_images/Bind_data_from_Array_to_Excel_Spreadsheet_Template.jpeg" alt="Bind from Array Example" width="100%" Height="Auto"/>
 
 You can also add or insert template markers using XlsIO APIs as follows.
 
@@ -475,7 +475,7 @@ By default, DataTable values will be filled in the worksheet as a string format.
 
 The following screenshot represents the input template which has a template marker.
 
-![Bind from DataTable Example](Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg)
+<img src="Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg" alt="Bind from DataTable Example" width="100%" Height="Auto"/>
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
@@ -591,7 +591,7 @@ A complete working example to bind data from data table to template marker in C#
 
 The following screenshot represents an Excel file in which the data type is detected and then number format is applied.
 
-![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg" alt="Bind from DataTable Example" width="100%" Height="Auto"/>
 
 ## Bind from Collection Objects with images
 
@@ -634,7 +634,7 @@ Image is positioned (top-left, top-center, etc.,) within the cell.<br/><br/></td
 </table>
 In the following example, a marker is added for merging images. Data source and property name is specified (%Reports.Image;) for image also. 
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 __Marker__ __added__ __for__ __merging__ __images__
 
@@ -648,51 +648,51 @@ The output of all the image insertion options with input templates are as follow
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **FitToCell** **attribute**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **Size**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **Position**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **position** **and** **size**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 You can also refer to the [Template based data filling using Template Markers](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet#template-based-data-filling-using-template-markers) section in [Getting Started](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet) for the sample regarding template marker with images.
 
@@ -1152,51 +1152,51 @@ The output of all the import data and group options with input templates are as 
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img20.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img20.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img21.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img21.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Merge** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img22.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img22.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img23.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img23.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Repeat** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img24.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img24.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img25.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img25.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Collapse** **group** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img26.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img26.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img27.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img27.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Expand** **group** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img28.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img28.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img29.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img29.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 ## Template marker with conditional formatting
 
@@ -1204,7 +1204,7 @@ You can create or apply conditional format to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-![Template marker with conditional formatting Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg" alt="emplate marker with conditional formatting Example" width="100%" Height="Auto"/>
 
 The following code sample illustrates how to create or apply conditional format to the marker.
 
@@ -1837,7 +1837,7 @@ A complete working example to import data to template marker with conditional fo
 
 The following screenshot represents generated Excel file in which the conditional format is applied.
 
-![Template marker with conditional formatting Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg" alt="Template marker with conditional formatting Example" width="100%" Height="Auto"/>
 
 ## Template marker with Hyperlink
 
@@ -1845,7 +1845,7 @@ You can add hyperlink to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-![Template marker with Hyperlink Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg" alt="Template marker with Hyperlink Example" width="100%" Height="Auto"/>
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
@@ -2287,6 +2287,6 @@ A complete working example to import data to template marker with hyperlink in C
 
 The following screenshot represents generated Excel file in which the hyperlink is added.
 
-![Template marker with Hyperlink Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg" alt="Template marker with Hyperlink Example" width="100%" Height="Auto"/>
 
 N> Explore our [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net) Feature Tour page and [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

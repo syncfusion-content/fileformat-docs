@@ -1785,7 +1785,7 @@ N> Here column and row indexes are "zero based".
 
 The screenshot of the output with SubTotal generated from the previous code.
 
-![Subtotal applied to the range](Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg)
+<img src="Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg" alt="Subtotal applied to the range" width="100%" Height="Auto"/>
 
 N> Summary of a group can be shown above the rows and left of the column using the [IsSummaryRowBelow](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPageSetup.html#Syncfusion_XlsIO_IPageSetup_IsSummaryRowBelow) and [IsSummaryColumnRight](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPageSetup.html#Syncfusion_XlsIO_IPageSetup_IsSummaryColumnRight) properties of [IPageSetup](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPageSetup.html) interface. By default, these properties are set to TRUE.
 

@@ -15,11 +15,11 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 1. Create a new C# Windows Forms Application project.
 
-![Create Windows Forms application in Visual Studio](Windows-Forms_images/Windows-Forms_images_img1.png)
+<img src="Windows-Forms_images/Windows-Forms_images_img1.png" alt="Create Windows Forms application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](Windows-Forms_images/Windows-Forms_images_img2.png)
+<img src="Windows-Forms_images/Windows-Forms_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 3. Include the following namespaces in the Form1.Designer.cs file.
 {% capture codesnippet1 %}
@@ -469,6 +469,7 @@ A complete working example to create an Excel file in Windows Forms in C# is pre
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Windows-Forms_images/Windows-Forms_images_img3.png)
+<img src="Windows-Forms_images/Windows-Forms_images_img3.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 

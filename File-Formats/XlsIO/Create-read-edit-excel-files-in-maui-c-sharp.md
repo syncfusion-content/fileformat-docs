@@ -19,15 +19,15 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 1. Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
 
-![Create .NET MAUI application in Visual Studio](MAUI_images/MAUI_images_img1.png)
+<img src="MAUI_images/MAUI_images_img1.png" alt="Create .NET MAUI application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Enter the project name and click **Create**.
 
-![Name the project](MAUI_images/MAUI_images_img2.png)
+<img src="MAUI_images/MAUI_images_img2.png" alt="Name the project" width="100%" Height="Auto"/>
 
 3. Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](MAUI_images/MAUI_images_img3.png)
+<img src="MAUI_images/MAUI_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 4. Add a new button to the **MainWindow.xaml** as shown below.
 {% capture codesnippet1 %}
@@ -624,7 +624,7 @@ A complete working example of creating an Excel document in the .NET MAUI applic
 
 By executing the program in windows, you will get the **Excel document** as follows.
 
-![.NET MAUI Desktop output Excel document](MAUI_images/MAUI_images_img4.png)
+<img src="MAUI_images/MAUI_images_img4.png" alt=".NET MAUI Desktop output Excel document" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 

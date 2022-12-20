@@ -15,17 +15,17 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 
 1. Create a new C# Xamarin.Forms application project.
 
-![Create ASP.NET Core web application in Visual Studio](XAMARIN_images/XAMARIAN_images_img1.png)
+<img src="XAMARIN_images/XAMARIAN_images_img1.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N>If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-![Select Web application pattern](XAMARIN_images/XAMARIAN_images_img2.png)
+<img src="XAMARIN_images/XAMARIAN_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
 3. Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](XAMARIN_images/XAMARIAN_images_img3.png)
+<img src="XAMARIN_images/XAMARIAN_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 4. Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 
@@ -562,7 +562,7 @@ Save implementation for WinRT device.
 A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
 
 By executing the program, you will get the Excel file as below.
-![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
+<img src="XAMARIN_images/XAMARIAN_images_img4.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 

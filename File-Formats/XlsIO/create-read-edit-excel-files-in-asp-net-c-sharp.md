@@ -15,11 +15,12 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 
 1. Create a new ASP.NET Web application project.
 
-![Create ASP.NET application in Visual Studio](ASP-NET_images/ASP-NET_images_img1.png)
+<img src="ASP-NET_images/ASP-NET_images_img1.png" alt="Create ASP.NET application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Install the [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET_images/ASP-NET_images_img2.png)
+<img src="ASP-NET_images/ASP-NET_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 3. Add a new Web Form in ASP .NET project. Right click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
 
@@ -420,7 +421,7 @@ End Using
 A complete working example of how to create an Excel file in ASP.NET in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20WebForms/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-![Output File](ASP-NET_images/ASP-NET_images_img3.png)
+<img src="ASP-NET_images/ASP-NET_images_img3.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 

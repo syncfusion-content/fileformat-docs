@@ -15,19 +15,19 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 
 1. Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
 
-![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Blazor_App.png)
+<img src="Blazor_images/Blazor_images_Blazor_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Server_ProjectName.png)
+<img src="Blazor_images/Blazor_images_Server_ProjectName.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
 3. Choose Blazor Server App and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
-![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Blazor_Server_App.png)
+<img src="Blazor_images/Blazor_images_Blazor_Server_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
 4. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](Blazor_images/Blazor_images_NuGet.png)
+<img src="Blazor_images/Blazor_images_NuGet.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 5. Create a razor file with name as ``Excel`` under ``Pages`` folder and include the following namespaces in the file.
 {% capture codesnippet1 %}
@@ -332,7 +332,7 @@ public static class FileUtils
 A complete working example of how to create an Excel file in Blazor Server-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Server%20Side/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-![Output File](Blazor_images/Blazor_images_Server_Output.png)
+<img src="Blazor_images/Blazor_images_Server_Output.png" alt="Output File" width="100%" Height="Auto"/>
 
 N> It is recommended to use Blazor Server-Side application to reduce the pay back load which is high in Blazor Client-Side.
 
@@ -384,19 +384,19 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 
 1. Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
 
-![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Blazor_App.png)
+<img src="Blazor_images/Blazor_images_Blazor_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_image_Client_ProjectName.png)
+<img src="Blazor_images/Blazor_image_Client_ProjectName.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
 3. Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
-![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_image_Blazor_Client_App.png)
+<img src="Blazor_images/Blazor_image_Blazor_Client_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
 4. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](Blazor_images/Blazor_images_NuGet.png)
+<img src="Blazor_images/Blazor_images_NuGet.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 5. Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following namespaces in the file.
 {% capture codesnippet8 %}
@@ -665,6 +665,6 @@ public static class FileUtils
 A complete working example of how to create an Excel file in Blazor Client-Side Application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-![Output File](Blazor_images/Blazor_images_Client_Output.png)
+<img src="Blazor_images/Blazor_images_Client_Output.png" alt="Output File" width="100%" Height="Auto"/>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Blazor Excel library demo](https://blazor.syncfusion.com/demos/xlsio/create-excel?theme=bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.

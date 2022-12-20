@@ -15,11 +15,11 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 1. Create a new C# WPF Application project.
 
-![Create WPF application in Visual Studio](Wpf_images/Wpf_images_img1.png)
+<img src="Wpf_images/Wpf_images_img1.png" alt="Create WPF application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Install the [Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](Wpf_images/Wpf_images_img2.png)
+<img src="Wpf_images/Wpf_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 3. Include the following code snippet in Add a new button in MainWindow.xaml file to add a button for the creation of Excel document.
 {% capture codesnippet1 %}
@@ -415,7 +415,7 @@ End Using
 A complete working example to create an Excel file in WPF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WPF/Create%20Excel). 
 
 By executing the program, you will get the Excel file as below.
-![Output File](Wpf_images/Wpf_images_img3.png)
+<img src="Wpf_images/Wpf_images_img3.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 

@@ -15,19 +15,20 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 1. Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
-![Create WinUI application in Visual Studio](WinUI_images/WinUI_images_img1.png)
+<img src="WinUI_images/WinUI_images_img1.png" alt="Create WinUI application in Visual Studio" width="100%" Height="Auto"/>
 
 2. Enter the project name and click **Create**.
 
-![Name the project](WinUI_images/WinUI_images_img2.png)
+<img src="WinUI_images/WinUI_images_img2.png" alt="Name the project" width="100%" Height="Auto"/>
 
 3. Select the target and minimum platform versions.
 
-![Target version](WinUI_images/WinUI_images_img3.png)
+<img src="WinUI_images/WinUI_images_img3.png" alt="Target version" width="100%" Height="Auto"/>
 
 4. Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](WinUI_images/WinUI_images_img4.png)
+<img src="WinUI_images/WinUI_images_img4.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 5. Add a new button to the **MainWindow.xaml** as shown below.
 {% capture codesnippet1 %}
@@ -300,7 +301,7 @@ async void Save(MemoryStream stream, string filename)
 A complete working example of how to create an Excel file in WinUI in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WinUI/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-![Output File](WinUI_images/WinUI_images_img5.png)
+<img src="WinUI_images/WinUI_images_img5.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 
