@@ -1,7 +1,7 @@
 ---
-title: Add and edit transitions in PowerPoint presentation slide
+title: Add and edit transitions in PowerPoint slides | Syncfusion |
 description: Code examples to create and edit PowerPoint slide transitions in .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
-platform: file-format, .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
+platform: file-formats
 control: Syncfusion PowerPoint presentation
 documentation: 
 keywords: PowerPoint, slide, format-table, pptx, transitions
@@ -27,144 +27,102 @@ The following code example demonstrates how to set a transition effect to a Powe
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type 
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect options
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Across;
-
 //Save the presentation
 pptxDoc.Save("Sample.pptx");
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
 
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
-
 'Add a blank slide to the presentation
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
 'Add a shape to the slide
 Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
 'Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard
-
 'Set the transition effect option
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Across
-
 'Save the presentation
 pptxDoc.Save("Sample.pptx")
-
 'Close the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type 
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect options
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Across;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Sample";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type 
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect options
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Across;
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type 
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect options
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Across;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -175,143 +133,102 @@ You can edit the transition effects that already applied to the PowerPoint slide
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 //Open an existing PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-
 //Retrieve the first slide from the presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Modify the transition effect applied to the slide
 slide.SlideTransition.TransitionEffect = TransitionEffect.Cover;
-
 //Set the transition subtype
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Right;
-
 //Save the presentation
 pptxDoc.Save("Transition.pptx");
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
 'Retrieve the first slide from the presentation
 Dim slide As ISlide = pptxDoc.Slides(0)
-
 'Modify the transition effect applied to the slide
 slide.SlideTransition.TransitionEffect = TransitionEffect.Cover
-
 'Set the transition subtype
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Right
-
 'Save the presentation
 pptxDoc.Save("Transition.pptx")
-
 'Close the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
 /Retrieve the first slide from the presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Modify the transition effect applied to the slide
 slide.SlideTransition.TransitionEffect = TransitionEffect.Cover;
-
 //Set the transition subtype
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Right;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Transition";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieve the first slide from the presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Modify the transition effect applied to the slide
 slide.SlideTransition.TransitionEffect = TransitionEffect.Cover;
-
 //Set the transition subtype
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Right;
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Transition.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.pptx");
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieve the first slide from the presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Modify the transition effect applied to the slide
 slide.SlideTransition.TransitionEffect = TransitionEffect.Cover;
-
 //Set the transition subtype
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Right;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Transition.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Transition.pptx"", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -322,145 +239,102 @@ You can set the transition duration value up to 59 seconds. This specifies the l
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 // Set the duration in seconds for the transition effect. Maximum duration value is 59 seconds
 slide.SlideTransition.Duration = 40;
-
 //Save the presentation
 pptxDoc.Save("Transition.pptx");
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
-
 'Add a blank slide to the presentation
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
 'Add a shape to the slide
 Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
 'Add a shape to the slide
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard
-
 'Set the duration value(sec) for the transition effect. Max duration value is 59 seconds
 slide.SlideTransition.Duration = 40
-
 'Save the presentation
 pptxDoc.Save("Transition.pptx")
-
 'Close the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 // Set the duration in seconds for the transition effect. Maximum duration value is 59 seconds
 slide.SlideTransition.Duration = 40;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Transition";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 // Set the duration in seconds for the transition effect. Maximum duration value is 59 seconds
 slide.SlideTransition.Duration = 40;
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Transition.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 // Set the duration in seconds for the transition effect. Maximum duration value is 59 seconds
 slide.SlideTransition.Duration = 40;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Transition.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Transition.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -471,159 +345,112 @@ You can set the transition delay in seconds. This delays the next transactions t
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Enable the transition time delay
 slide.SlideTransition.TriggerOnTimeDelay = true;
-
 //Assign the value for the advance time delay in seconds
 slide.SlideTransition.TimeDelay = 5;
-
 //Save the presentation
 pptxDoc.Save("Sample.pptx");
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
 
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
-
 'Add a blank slide to the presentation
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
 'Add a shape to the slide
 Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
 'Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard
-
 'Enable the transition time delay
 slide.SlideTransition.TriggerOnTimeDelay = True
-
 'Assign the value for the advance time delay in seconds
 slide.SlideTransition.TimeDelay = 5
-
 'Save the presentation
 pptxDoc.Save("Sample.pptx")
-
 'Close the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Enable the transition time delay
 slide.SlideTransition.TriggerOnTimeDelay = true;
-
 //Assign the value for the advance time delay in seconds
 slide.SlideTransition.TimeDelay = 5;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Sample";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Enable the transition time delay
 slide.SlideTransition.TriggerOnTimeDelay = true;
-
 //Assign the value for the advance time delay in seconds
 slide.SlideTransition.TimeDelay = 5;
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Enable the transition time delay
 slide.SlideTransition.TriggerOnTimeDelay = true;
-
 //Assign the value for the advance time delay in seconds
 slide.SlideTransition.TimeDelay = 5;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -639,144 +466,102 @@ Syncfusion PowerPoint library allows you to set both the previously given trigge
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set transition advance on click to true. This will enable the next transition after a click
 slide.SlideTransition.TriggerOnClick = true;
-
 //Save the presentation
 pptxDoc.Save("Sample.pptx");
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
 
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
-
 'Add a blank slide to the presentation
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
 'Add a shape to the slide
 Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
 'Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard
-
 'Set transition advance on click to true. This will enable the next transition after a click
 slide.SlideTransition.TriggerOnClick = True
-
 'Save the presentation
 pptxDoc.Save("Sample.pptx")
-
 'Close the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set transition advance on click to true. This will enable the next transition after a click
 slide.SlideTransition.TriggerOnClick = true;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Sample";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set transition advance on click to true. This will enable the next transition after a click
 slide.SlideTransition.TriggerOnClick = true;
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 //Close the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set transition advance on click to true. This will enable the next transition after a click
 slide.SlideTransition.TriggerOnClick = true;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -785,142 +570,103 @@ else
 
 The speed is the customized property provided by Syncfusion PowerPoint library to set the transition duration mentioned [above](/file-formats/presentation/create-edit-slide-transitions-in-powerpoint-presentation-slides-cs-vb-net#set-the-transition-duration) (in this page) to a customized enumeration values. By default, each transition will happen for 2 seconds. You can change the following enumeration values to change the duration of a slide transition:
 
-1. Default          - 2 seconds
-2. Fast               - 0.5 seconds
-3. Slow              - 1.0 seconds
+1. Default       - 2 seconds
+2. Fast          - 0.5 seconds
+3. Slow          - 1.0 seconds
 4. Medium        - 0.75 seconds
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect speed enumeration. This will reduce the transition duration to 0.75 seconds from the default 2 second
 slide.SlideTransition.Speed = TransitionSpeed.Medium;
-
 //Save the presentation
 pptxDoc.Save("Sample.pptx");
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
 
+{% highlight vb.net tabtitle="VB.NET" %}
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
-
 'Add a blank slide to the presentation
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
 'Add a shape to the slide
 Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
 'Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard
-
 'Set the transition effect speed enumeration. This will reduce the transition duration to 0.75 seconds from the default 2 seconds
 slide.SlideTransition.Speed = TransitionSpeed.Medium
-
 'Save the presentation
 pptxDoc.Save("Sample.pptx")
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect speed enumeration. This will reduce the transition duration to 0.75 seconds from the default 2 second
 slide.SlideTransition.Speed = TransitionSpeed.Medium;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Sample";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect speed enumeration. This will reduce the transition duration to 0.75 seconds from the default 2 second
 slide.SlideTransition.Speed = TransitionSpeed.Medium;
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add a shape to the slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Set the transition effect type
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
-
 //Set the transition effect speed enumeration. This will reduce the transition duration to 0.75 seconds from the default 2 second
 slide.SlideTransition.Speed = TransitionSpeed.Medium;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}

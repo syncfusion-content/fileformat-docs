@@ -1997,11 +1997,11 @@ Dim document As WordDocument = New WordDocument("Template.docx")
 Dim lastParagraph As WParagraph = document.LastParagraph
 'Iterates through the paragraph items to get the group shape
 For i As Integer = 0 To lastParagraph.ChildEntities.Count - 1
-	If TypeOf lastParagraph.ChildEntities(i) Is GroupShape Then
-		Dim groupShape As GroupShape = TryCast(lastParagraph.ChildEntities(i), GroupShape)
-		groupShape.Ungroup()
-		Exit For
-	End If
+    If TypeOf lastParagraph.ChildEntities(i) Is GroupShape Then
+        Dim groupShape As GroupShape = TryCast(lastParagraph.ChildEntities(i), GroupShape)
+        groupShape.Ungroup()
+        Exit For
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)

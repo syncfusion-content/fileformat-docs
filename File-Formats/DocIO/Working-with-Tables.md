@@ -20,7 +20,7 @@ The following image illustrates how a table in Word document is organized in Ess
 
 The following code example illustrates how to create a simple table with predefined number of rows and cells.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class 
@@ -269,15 +269,15 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Table.docx", "applicat
 document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-simple-table).
 
 The following code example illustrates how to create a simple table by dynamically adding rows.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -661,7 +661,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}  
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Dynamic-table-by-adding-rows).
 
@@ -913,52 +913,52 @@ The following code example illustrates how to align text within a table.
 {% highlight c# tabtitle="C#" %}
 private void AlignCellContent(WTableCell tableCell, VerticalAlignment verticalAlignment, HorizontalAlignment horizontalAlignment)
 {
-	//Sets vertical alignment to the cell.
-	tableCell.CellFormat.VerticalAlignment = verticalAlignment;
-	//Iterates body items in table cell and set horizontal alignment.
-	AlignCellContentForTextBody(tableCell, horizontalAlignment);
+    //Sets vertical alignment to the cell.
+    tableCell.CellFormat.VerticalAlignment = verticalAlignment;
+    //Iterates body items in table cell and set horizontal alignment.
+    AlignCellContentForTextBody(tableCell, horizontalAlignment);
 }
 private void AlignCellContentForTextBody(WTextBody textBody, HorizontalAlignment horizontalAlignment)
 {
-	for (int i = 0; i < textBody.ChildEntities.Count; i++)
-	{
-		//IEntity is the basic unit in DocIO DOM. 
-		//Accesses the body items as IEntity
-		IEntity bodyItemEntity = textBody.ChildEntities[i];
-		//A Text body has 3 types of elements - Paragraph, Table and Block Content Control
-		//Decides the element type by using EntityType
-		switch (bodyItemEntity.EntityType)
-		{
-			case EntityType.Paragraph:
-				WParagraph paragraph = bodyItemEntity as WParagraph;
-				//Sets horizontal alignment for paragraph.
-				paragraph.ParagraphFormat.HorizontalAlignment = horizontalAlignment;
-				break;
-			case EntityType.Table:
-				//Table is a collection of rows and cells
-				//Iterates through table's DOM and set horizontal alignment.
-				AlignCellContentForTable(bodyItemEntity as WTable, horizontalAlignment);
-				break;
-			case EntityType.BlockContentControl:
-				BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
-				//Iterates to the body items of Block Content Control and set horizontal alignment.
-				AlignCellContentForTextBody(blockContentControl.TextBody, horizontalAlignment);
-				break;
-		}
-	}
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Sets horizontal alignment for paragraph.
+                paragraph.ParagraphFormat.HorizontalAlignment = horizontalAlignment;
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM and set horizontal alignment.
+                AlignCellContentForTable(bodyItemEntity as WTable, horizontalAlignment);
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control and set horizontal alignment.
+                AlignCellContentForTextBody(blockContentControl.TextBody, horizontalAlignment);
+                break;
+        }
+    }
 }
 private void AlignCellContentForTable(WTable table, Syncfusion.DocIO.DLS.HorizontalAlignment horizontalAlignment)
 {
-	//Iterates the row collection in a table
-	foreach (WTableRow row in table.Rows)
-	{
-		//Iterates the cell collection in a table row
-		foreach (WTableCell cell in row.Cells)
-		{
-			//Iterate items in cell and set horizontal alignment
-			AlignCellContentForTextBody(cell, horizontalAlignment);
-		}
-	}
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Iterate items in cell and set horizontal alignment
+            AlignCellContentForTextBody(cell, horizontalAlignment);
+        }
+    }
 }
 {% endhighlight %}
 
@@ -970,7 +970,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can insert an image into the table cell by accessing the paragraph in that cell. The following code example illustrates how to insert an image into a table cell.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class.
@@ -1108,7 +1108,7 @@ N> 2. To hide border for a table or cell in the Word Document, you can set `Bord
 N> 3. To show/display border for a table or cell in the Word Document, you can set `BorderType` property with `BorderStyle` values (except `BorderStyle.None` and `BorderStyle.Cleared`).
 N> 4. As in the Microsoft Word, DocIO supports `RowFormat.Borders` in DOC format alone.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class (Empty Word Document)
@@ -1370,7 +1370,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-table-formatting).
 
@@ -1378,7 +1378,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
   
 The following code example illustrates how to load an existing document and apply cell formatting options such as VerticalAlignment, TextDirection, Paddings, Borders, etc.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -1657,9 +1657,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableCellFormatting.do
 document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-cell-formatting).
 
@@ -1671,8 +1671,7 @@ You can automatically resize the table cell to fit its contents based on the giv
 
 The following code example shows how to resize the table in a Word document. 
 
-
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class (Empty Word Document)*'| markdownify }}
@@ -1825,7 +1824,7 @@ N>  Essential DocIO currently provides support for table styles in DOCX and Word
 
 The following code example illustrates how to apply the built-in table styles to the table.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -1904,9 +1903,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableStyle.docx", "app
 document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}   
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-built-in-table-style).
 
@@ -1916,7 +1915,7 @@ Once you have applied a table style, you can enable or disable the special forma
 
 The following code example illustrates how to enable and disable the special table formatting options of the table styles
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -1992,7 +1991,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "TableStyle.docx");	
 document.Close();
-
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -2053,7 +2051,6 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableStyle.docx", "application/msword", stream);
 document.Close();
-
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -2066,7 +2063,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to apply a custom table style to table.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2166,7 +2163,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "TableStyle.docx");	
 document.Close();
-
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -2243,7 +2239,6 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableStyle.docx", "application/msword", stream);
 document.Close();
-
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -2258,7 +2253,7 @@ You can combine two or more table cells located in the same row or column into a
 
 The following code example illustrates how to apply horizontal merge to specified range of cells in a specified row.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2345,13 +2340,13 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-horizontal-merge-to-cells).
 
 The following code example illustrates how to apply vertical merge to specified range of rows in a specified column.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2436,15 +2431,15 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("VerticalMerge.docx", "
 document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-vertical-merge-to-cells).
 
 The following code example illustrate how to create a table that contains horizontal merged cells.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2576,13 +2571,13 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-horizontal-merged-cells).
 
 The following code example illustrates how to create a table with vertical merged cells.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2729,7 +2724,7 @@ N>  Heading rows do not have any effect with nested tables in Microsoft Word as 
 
 The following code example illustrates how to create a table with a single header row.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2745,10 +2740,10 @@ row.HeightType = TableRowHeightType.AtLeast;
 row.Cells[0].AddParagraph().AppendText("Header Row");
 for (int i = 1; i < 50; i++)
 {
-	row = table.Rows[i];
-	row.Height = 20;
-	row.HeightType = TableRowHeightType.AtLeast;
-	row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
+    row = table.Rows[i];
+    row.Height = 20;
+    row.HeightType = TableRowHeightType.AtLeast;
+    row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
 }
 //Saves and closes the document instance
 document.Save("TableWithHeaderRow.docx", FormatType.Docx);
@@ -2768,10 +2763,10 @@ row.Height = 20
 row.HeightType = TableRowHeightType.AtLeast
 row.Cells(0).AddParagraph().AppendText("Header Row")
 For i As Integer = 1 To 49
-	row = table.Rows(i)
-	row.Height = 20
-	row.HeightType = TableRowHeightType.AtLeast
-	row.Cells(0).AddParagraph().AppendText("Text in Row" + i.ToString())
+    row = table.Rows(i)
+    row.Height = 20
+    row.HeightType = TableRowHeightType.AtLeast
+    row.Cells(0).AddParagraph().AppendText("Text in Row" + i.ToString())
 Next
 'Saves and closes the document instance
 document.Save("TableWithHeaderRow.docx", FormatType.Docx)
@@ -2792,10 +2787,10 @@ row.HeightType = TableRowHeightType.AtLeast;
 row.Cells[0].AddParagraph().AppendText("Header Row");
 for (int i = 1; i < 50; i++)
 {
-	row = table.Rows[i];
-	row.Height = 20;
-	row.HeightType = TableRowHeightType.AtLeast;
-	row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
+    row = table.Rows[i];
+    row.Height = 20;
+    row.HeightType = TableRowHeightType.AtLeast;
+    row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2821,10 +2816,10 @@ row.HeightType = TableRowHeightType.AtLeast;
 row.Cells[0].AddParagraph().AppendText("Header Row");
 for (int i = 1; i < 50; i++)
 {
-	row = table.Rows[i];
-	row.Height = 20;
-	row.HeightType = TableRowHeightType.AtLeast;
-	row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
+    row = table.Rows[i];
+    row.Height = 20;
+    row.HeightType = TableRowHeightType.AtLeast;
+    row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2850,10 +2845,10 @@ row.HeightType = TableRowHeightType.AtLeast;
 row.Cells[0].AddParagraph().AppendText("Header Row");
 for (int i = 1; i < 50; i++)
 {
-	row = table.Rows[i];
-	row.Height = 20;
-	row.HeightType = TableRowHeightType.AtLeast;
-	row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
+    row = table.Rows[i];
+    row.Height = 20;
+    row.HeightType = TableRowHeightType.AtLeast;
+    row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2863,9 +2858,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableWithHeaderRow.doc
 document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-table-with-header-row).
 
@@ -2875,7 +2870,7 @@ You can enable or disable the table row content to split across multiple pages, 
 
 The following code example illustrates how to disable all the table rows from splitting across multiple pages.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2884,7 +2879,7 @@ WSection section = document.Sections[0];
 WTable table = section.Tables[0] as WTable;
 //Disables breaking across pages for all rows in the table.
 foreach (WTableRow row in table.Rows)
-	row.RowFormat.IsBreakAcrossPages = false;
+    row.RowFormat.IsBreakAcrossPages = false;
 //Saves and closes the document instance
 document.Save("Result.docx", FormatType.Docx);
 document.Close();
@@ -2897,7 +2892,7 @@ Dim section As WSection = document.Sections(0)
 Dim table As WTable = TryCast(section.Tables(0), WTable)
 'Disables breaking across pages for all rows in the table.
 For Each row As WTableRow In table.Rows
-	row.RowFormat.IsBreakAcrossPages = False
+    row.RowFormat.IsBreakAcrossPages = False
 Next
 'Saves and closes the document instance
 document.Save("Result.docx", FormatType.Docx)
@@ -2912,7 +2907,7 @@ WSection section = document.Sections[0];
 WTable table = section.Tables[0] as WTable;
 //Disables breaking across pages for all rows in the table.
 foreach (WTableRow row in table.Rows)
-	row.RowFormat.IsBreakAcrossPages = false;
+    row.RowFormat.IsBreakAcrossPages = false;
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -2931,7 +2926,7 @@ WSection section = document.Sections[0];
 WTable table = section.Tables[0] as WTable;
 //Disables breaking across pages for all rows in the table.
 foreach (WTableRow row in table.Rows)
-	row.RowFormat.IsBreakAcrossPages = false;
+    row.RowFormat.IsBreakAcrossPages = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -2950,7 +2945,7 @@ WSection section = document.Sections[0];
 WTable table = section.Tables[0] as WTable;
 //Disables breaking across pages for all rows in the table.
 foreach (WTableRow row in table.Rows)
-	row.RowFormat.IsBreakAcrossPages = false;
+    row.RowFormat.IsBreakAcrossPages = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -2959,9 +2954,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}  
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Disable-row-to-break-across-pages).
 
@@ -2969,7 +2964,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to iterate through the table and apply back color to a particular cell.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -2979,17 +2974,17 @@ WTable table = section.Tables[0] as WTable;
 //Iterates the rows of the table
 foreach (WTableRow row in table.Rows)
 {
-	//Iterates through the cells of rows
-	foreach (WTableCell cell in row.Cells)
-	{
-		//Iterates through the paragraphs of the cell
-		foreach (WParagraph paragraph in cell.Paragraphs)
-		{
-			//When the paragraph contains text Panda then apply green as back color to cell
-			if (paragraph.Text.Contains("panda"))
-				cell.CellFormat.BackColor = Color.Green;
-		}
-	}
+    //Iterates through the cells of rows
+    foreach (WTableCell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (WParagraph paragraph in cell.Paragraphs)
+        {
+            //When the paragraph contains text Panda then apply green as back color to cell
+            if (paragraph.Text.Contains("panda"))
+                cell.CellFormat.BackColor = Color.Green;
+        }
+    }
 }
 //Saves and closes the document instance
 document.Save("Sample.docx", FormatType.Docx);
@@ -3003,16 +2998,16 @@ Dim section As WSection = document.Sections(0)
 Dim table As WTable = TryCast(section.Tables(0), WTable)
 'Iterates the rows of the table
 For Each row As WTableRow In table.Rows
-	'Iterates through the cells of rows
-	For Each cell As WTableCell In row.Cells
-		'Iterates through the paragraphs of the cell
-		For Each paragraph As WParagraph In cell.Paragraphs
-			'When the paragraph contains text Panda then apply green as back color to cell
-			If paragraph.Text.Contains("panda") Then
-				cell.CellFormat.BackColor = Color.Green
-			End If
-		Next
-	Next
+    'Iterates through the cells of rows
+    For Each cell As WTableCell In row.Cells
+        'Iterates through the paragraphs of the cell
+        For Each paragraph As WParagraph In cell.Paragraphs
+            'When the paragraph contains text Panda then apply green as back color to cell
+            If paragraph.Text.Contains("panda") Then
+                cell.CellFormat.BackColor = Color.Green
+            End If
+        Next
+    Next
 Next
 'Saves and closes the document instance
 document.Save("Sample.docx", FormatType.Docx)
@@ -3028,17 +3023,17 @@ WTable table = section.Tables[0] as WTable;
 //Iterates the rows of the table
 foreach (WTableRow row in table.Rows)
 {
-	//Iterates through the cells of rows
-	foreach (WTableCell cell in row.Cells)
-	{
-		//Iterates through the paragraphs of the cell
-		foreach (WParagraph paragraph in cell.Paragraphs)
-		{
-			//When the paragraph contains text Panda then apply green as back color to cell
-			if (paragraph.Text.Contains("panda"))
-				cell.CellFormat.BackColor = Color.Green;
-		}
-	}
+    //Iterates through the cells of rows
+    foreach (WTableCell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (WParagraph paragraph in cell.Paragraphs)
+        {
+            //When the paragraph contains text Panda then apply green as back color to cell
+            if (paragraph.Text.Contains("panda"))
+                cell.CellFormat.BackColor = Color.Green;
+        }
+    }
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -3059,17 +3054,17 @@ WTable table = section.Tables[0] as WTable;
 //Iterates the rows of the table
 foreach (WTableRow row in table.Rows)
 {
-	//Iterates through the cells of rows
-	foreach (WTableCell cell in row.Cells)
-	{
-		//Iterates through the paragraphs of the cell
-		foreach (WParagraph paragraph in cell.Paragraphs)
-		{
-			//When the paragraph contains text Panda then apply green as back color to cell
-			if (paragraph.Text.Contains("panda"))
-				cell.CellFormat.BackColor = Color.Green;
-		}
-	}
+    //Iterates through the cells of rows
+    foreach (WTableCell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (WParagraph paragraph in cell.Paragraphs)
+        {
+            //When the paragraph contains text Panda then apply green as back color to cell
+            if (paragraph.Text.Contains("panda"))
+                cell.CellFormat.BackColor = Color.Green;
+        }
+    }
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -3090,17 +3085,17 @@ WTable table = section.Tables[0] as WTable;
 //Iterates the rows of the table
 foreach (WTableRow row in table.Rows)
 {
-	//Iterates through the cells of rows
-	foreach (WTableCell cell in row.Cells)
-	{
-		//Iterates through the paragraphs of the cell
-		foreach (WParagraph paragraph in cell.Paragraphs)
-		{
-			//When the paragraph contains text Panda then apply green as back color to cell
-			if (paragraph.Text.Contains("panda"))
-				cell.CellFormat.BackColor = Color.Green;
-		}
-	}
+    //Iterates through the cells of rows
+    foreach (WTableCell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (WParagraph paragraph in cell.Paragraphs)
+        {
+            //When the paragraph contains text Panda then apply green as back color to cell
+            if (paragraph.Text.Contains("panda"))
+                cell.CellFormat.BackColor = Color.Green;
+        }
+    }
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -3120,7 +3115,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can remove a table from a text body by its instance or by its index position in the text body item collection. The following code example shows how to remove a table in Word document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -3222,7 +3217,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can remove a particular table row from a table rows collection by its instance or by its index position in the collection. The following code example shows how to remove a particular row from table in the Word document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class

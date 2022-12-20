@@ -15,7 +15,7 @@ In Essential DocIO, bookmark is represented by Bookmark instance that is a pair 
 
 The following code example shows how to add a bookmark in Word document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class (Empty Word Document)
@@ -156,7 +156,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Bookmarks.docx", "appl
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Add-bookmark-in-Word-document).
 
@@ -164,7 +164,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example shows how to retrieve an instance of bookmark from a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
@@ -244,7 +244,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-an-instance-of-bookmark).
 
@@ -252,7 +252,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example shows how to remove a bookmark from Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
@@ -332,7 +332,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Remove-bookmark-from-Word-document).
 
@@ -347,7 +347,7 @@ You can get the content between bookmark start and bookmark end of the specified
 
 The following code example shows how to retrieve the specified bookmark content by using `GetBookmarkContent` method in a Word document.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -376,7 +376,7 @@ Dim part As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
 'Adds the retrieved content into another new section
 document.AddSection()
 For i As Integer = 0 To part.BodyItems.Count - 1
-	document.LastSection.Body.ChildEntities.Add(part.BodyItems(i))
+    document.LastSection.Body.ChildEntities.Add(part.BodyItems(i))
 Next
 document.Save("Result.docx", FormatType.Docx)
 document.Close()
@@ -395,7 +395,7 @@ TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 //Adds the retrieved content into another new section
 document.AddSection();
 for (int i = 0; i < part.BodyItems.Count; i++)
-	document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
+    document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -420,7 +420,7 @@ TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 //Adds the retrieved content into another new section
 document.AddSection();
 for (int i = 0; i < part.BodyItems.Count; i++)
-	document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
+    document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -444,7 +444,7 @@ TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 //Adds the retrieved content into another new section
 document.AddSection();
 for (int i = 0; i < part.BodyItems.Count; i++)
-	document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
+    document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -456,13 +456,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-as-body-part).
 
 The following code example shows how to retrieve the specified bookmark content by using `GetContent` method in a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
@@ -684,7 +684,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Result.docx");
 //Closes the document instance
 document.Close();
-
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -750,7 +749,6 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -759,218 +757,218 @@ document.Close();
 
 The following code example shows how to create table with bookmark.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 public IWTable CreateTable(WordDocument document)
 {
-//Adds a new table into Word document
-IWTable table = document.LastSection.AddTable();
-//Specifies the total number of rows & columns
-table.ResetCells(5, 5);
-//Accesses the instance of the cells and adds the content into cells
-table[0, 0].AddParagraph().AppendText("Supplier ID");
-table[0, 1].AddParagraph().AppendText("Company Name");
-IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
-//Appends a bookmark start in third cell of first row
-paragraph.AppendBookmarkStart("BkmkInTable");
-paragraph.AppendText("Contact Name");
-table[0, 3].AddParagraph().AppendText("Address");
-table[0, 4].AddParagraph().AppendText("City");
-table[1, 0].AddParagraph().AppendText("1");
-table[1, 1].AddParagraph().AppendText("Exotic Liquids");
-table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
-table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
-table[1, 4].AddParagraph().AppendText("London");
-table[2, 0].AddParagraph().AppendText("2");
-table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
-table[2, 2].AddParagraph().AppendText("Shelley Burke");
-table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
-table[2, 4].AddParagraph().AppendText("New Orleans");
-table[3, 0].AddParagraph().AppendText("3");
-table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
-table[3, 2].AddParagraph().AppendText("Regina Murphy");
-table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
-table[3, 4].AddParagraph().AppendText("Ann Arbor");
-table[4, 0].AddParagraph().AppendText("4");
-table[4, 1].AddParagraph().AppendText("Tokyo Traders");
-paragraph = table.Rows[4].Cells[2].AddParagraph();
-//Appends a bookmark end in third cell of last row
-paragraph.AppendBookmarkEnd("BkmkInTable");
-paragraph.AppendText("Yoshi Nagase");
-table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
-table[4, 4].AddParagraph().AppendText("Tokyo");
-return table;
+    //Adds a new table into Word document
+    IWTable table = document.LastSection.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(5, 5);
+    //Accesses the instance of the cells and adds the content into cells
+    table[0, 0].AddParagraph().AppendText("Supplier ID");
+    table[0, 1].AddParagraph().AppendText("Company Name");
+    IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
+    //Appends a bookmark start in third cell of first row
+    paragraph.AppendBookmarkStart("BkmkInTable");
+    paragraph.AppendText("Contact Name");
+    table[0, 3].AddParagraph().AppendText("Address");
+    table[0, 4].AddParagraph().AppendText("City");
+    table[1, 0].AddParagraph().AppendText("1");
+    table[1, 1].AddParagraph().AppendText("Exotic Liquids");
+    table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
+    table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
+    table[1, 4].AddParagraph().AppendText("London");
+    table[2, 0].AddParagraph().AppendText("2");
+    table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
+    table[2, 2].AddParagraph().AppendText("Shelley Burke");
+    table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
+    table[2, 4].AddParagraph().AppendText("New Orleans");
+    table[3, 0].AddParagraph().AppendText("3");
+    table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
+    table[3, 2].AddParagraph().AppendText("Regina Murphy");
+    table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
+    table[3, 4].AddParagraph().AppendText("Ann Arbor");
+    table[4, 0].AddParagraph().AppendText("4");
+    table[4, 1].AddParagraph().AppendText("Tokyo Traders");
+    paragraph = table.Rows[4].Cells[2].AddParagraph();
+    //Appends a bookmark end in third cell of last row
+    paragraph.AppendBookmarkEnd("BkmkInTable");
+    paragraph.AppendText("Yoshi Nagase");
+    table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
+    table[4, 4].AddParagraph().AppendText("Tokyo");
+    return table;
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateTable(document As WordDocument) As IWTable
-'Adds a new table into Word document
-Dim table As IWTable = document.LastSection.AddTable
-'Specifies the total number of rows & columns
-table.ResetCells(5, 5)
-'Accesses the instance of the cells and adds the content into cells
-table(0, 0).AddParagraph.AppendText("Supplier ID")
-table(0, 1).AddParagraph.AppendText("Company Name")
-Dim paragraph As IWParagraph = table.Rows(0).Cells(2).AddParagraph
-'Appends a bookmark start in third cell of first row paragraph.AppendBookmarkStart("BkmkInTable")
-paragraph.AppendText("Contact Name")
-table(0, 3).AddParagraph.AppendText("Address")
-table(0, 4).AddParagraph.AppendText("City")
-table(1, 0).AddParagraph.AppendText("1")
-table(1, 1).AddParagraph.AppendText("Exotic Liquids")
-table(1, 2).AddParagraph.AppendText("Charlotte Cooper")
-table(1, 3).AddParagraph.AppendText("49 Gilbert St.")
-table(1, 4).AddParagraph.AppendText("London")
-table(2, 0).AddParagraph.AppendText("2")
-table(2, 1).AddParagraph.AppendText("New Orleans Cajun Delights")
-table(2, 2).AddParagraph.AppendText("Shelley Burke")
-table(2, 3).AddParagraph.AppendText("P.O. Box 78934")
-table(2, 4).AddParagraph.AppendText("New Orleans")
-table(3, 0).AddParagraph.AppendText("3")
-table(3, 1).AddParagraph.AppendText("Grandma Kelly's Homestead")
-table(3, 2).AddParagraph.AppendText("Regina Murphy")
-table(3, 3).AddParagraph.AppendText("707 Oxford Rd.")
-table(3, 4).AddParagraph.AppendText("Ann Arbor")
-table(4, 0).AddParagraph.AppendText("4")
-table(4, 1).AddParagraph.AppendText("Tokyo Traders")
-'Appends a bookmark end in third cell of last row
-paragraph = table.Rows(4).Cells(2).AddParagraph
-paragraph.AppendBookmarkEnd("BkmkInTable")
-paragraph.AppendText("Yoshi Nagase")
-table(4, 3).AddParagraph.AppendText("9-8 Sekimai Musashino - shi")
-table(4, 4).AddParagraph.AppendText("Tokyo")
-Return table
+    'Adds a new table into Word document
+    Dim table As IWTable = document.LastSection.AddTable
+    'Specifies the total number of rows & columns
+    table.ResetCells(5, 5)
+    'Accesses the instance of the cells and adds the content into cells
+    table(0, 0).AddParagraph.AppendText("Supplier ID")
+    table(0, 1).AddParagraph.AppendText("Company Name")
+    Dim paragraph As IWParagraph = table.Rows(0).Cells(2).AddParagraph
+    'Appends a bookmark start in third cell of first row paragraph.AppendBookmarkStart("BkmkInTable")
+    paragraph.AppendText("Contact Name")
+    table(0, 3).AddParagraph.AppendText("Address")
+    table(0, 4).AddParagraph.AppendText("City")
+    table(1, 0).AddParagraph.AppendText("1")
+    table(1, 1).AddParagraph.AppendText("Exotic Liquids")
+    table(1, 2).AddParagraph.AppendText("Charlotte Cooper")
+    table(1, 3).AddParagraph.AppendText("49 Gilbert St.")
+    table(1, 4).AddParagraph.AppendText("London")
+    table(2, 0).AddParagraph.AppendText("2")
+    table(2, 1).AddParagraph.AppendText("New Orleans Cajun Delights")
+    table(2, 2).AddParagraph.AppendText("Shelley Burke")
+    table(2, 3).AddParagraph.AppendText("P.O. Box 78934")
+    table(2, 4).AddParagraph.AppendText("New Orleans")
+    table(3, 0).AddParagraph.AppendText("3")
+    table(3, 1).AddParagraph.AppendText("Grandma Kelly's Homestead")
+    table(3, 2).AddParagraph.AppendText("Regina Murphy")
+    table(3, 3).AddParagraph.AppendText("707 Oxford Rd.")
+    table(3, 4).AddParagraph.AppendText("Ann Arbor")
+    table(4, 0).AddParagraph.AppendText("4")
+    table(4, 1).AddParagraph.AppendText("Tokyo Traders")
+    'Appends a bookmark end in third cell of last row
+    paragraph = table.Rows(4).Cells(2).AddParagraph
+    paragraph.AppendBookmarkEnd("BkmkInTable")
+    paragraph.AppendText("Yoshi Nagase")
+    table(4, 3).AddParagraph.AppendText("9-8 Sekimai Musashino - shi")
+    table(4, 4).AddParagraph.AppendText("Tokyo")
+    Return table
 End Function
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 public IWTable CreateTable(WordDocument document)
 {
-//Adds a new table into Word document
-IWTable table = document.LastSection.AddTable();
-//Specifies the total number of rows & columns
-table.ResetCells(5, 5);
-//Accesses the instance of the cells and adds the content into cells
-table[0, 0].AddParagraph().AppendText("Supplier ID");
-table[0, 1].AddParagraph().AppendText("Company Name");
-IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
-//Appends a bookmark start in third cell of first row
-paragraph.AppendBookmarkStart("BkmkInTable");
-paragraph.AppendText("Contact Name");
-table[0, 3].AddParagraph().AppendText("Address");
-table[0, 4].AddParagraph().AppendText("City");
-table[1, 0].AddParagraph().AppendText("1");
-table[1, 1].AddParagraph().AppendText("Exotic Liquids");
-table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
-table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
-table[1, 4].AddParagraph().AppendText("London");
-table[2, 0].AddParagraph().AppendText("2");
-table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
-table[2, 2].AddParagraph().AppendText("Shelley Burke");
-table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
-table[2, 4].AddParagraph().AppendText("New Orleans");
-table[3, 0].AddParagraph().AppendText("3");
-table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
-table[3, 2].AddParagraph().AppendText("Regina Murphy");
-table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
-table[3, 4].AddParagraph().AppendText("Ann Arbor");
-table[4, 0].AddParagraph().AppendText("4");
-table[4, 1].AddParagraph().AppendText("Tokyo Traders");
-paragraph = table.Rows[4].Cells[2].AddParagraph();
-//Appends a bookmark end in third cell of last row
-paragraph.AppendBookmarkEnd("BkmkInTable");
-paragraph.AppendText("Yoshi Nagase");
-table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
-table[4, 4].AddParagraph().AppendText("Tokyo");
-return table;
+    //Adds a new table into Word document
+    IWTable table = document.LastSection.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(5, 5);
+    //Accesses the instance of the cells and adds the content into cells
+    table[0, 0].AddParagraph().AppendText("Supplier ID");
+    table[0, 1].AddParagraph().AppendText("Company Name");
+    IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
+    //Appends a bookmark start in third cell of first row
+    paragraph.AppendBookmarkStart("BkmkInTable");
+    paragraph.AppendText("Contact Name");
+    table[0, 3].AddParagraph().AppendText("Address");
+    table[0, 4].AddParagraph().AppendText("City");
+    table[1, 0].AddParagraph().AppendText("1");
+    table[1, 1].AddParagraph().AppendText("Exotic Liquids");
+    table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
+    table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
+    table[1, 4].AddParagraph().AppendText("London");
+    table[2, 0].AddParagraph().AppendText("2");
+    table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
+    table[2, 2].AddParagraph().AppendText("Shelley Burke");
+    table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
+    table[2, 4].AddParagraph().AppendText("New Orleans");
+    table[3, 0].AddParagraph().AppendText("3");
+    table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
+    table[3, 2].AddParagraph().AppendText("Regina Murphy");
+    table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
+    table[3, 4].AddParagraph().AppendText("Ann Arbor");
+    table[4, 0].AddParagraph().AppendText("4");
+    table[4, 1].AddParagraph().AppendText("Tokyo Traders");
+    paragraph = table.Rows[4].Cells[2].AddParagraph();
+    //Appends a bookmark end in third cell of last row
+    paragraph.AppendBookmarkEnd("BkmkInTable");
+    paragraph.AppendText("Yoshi Nagase");
+    table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
+    table[4, 4].AddParagraph().AppendText("Tokyo");
+    return table;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 public IWTable CreateTable(WordDocument document)
 {
-//Adds a new table into Word document
-IWTable table = document.LastSection.AddTable();
-//Specifies the total number of rows & columns
-table.ResetCells(5, 5);
-//Accesses the instance of the cells and adds the content into cells
-table[0, 0].AddParagraph().AppendText("Supplier ID");
-table[0, 1].AddParagraph().AppendText("Company Name");
-IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
-//Appends a bookmark start in third cell of first row
-paragraph.AppendBookmarkStart("BkmkInTable");
-paragraph.AppendText("Contact Name");
-table[0, 3].AddParagraph().AppendText("Address");
-table[0, 4].AddParagraph().AppendText("City");
-table[1, 0].AddParagraph().AppendText("1");
-table[1, 1].AddParagraph().AppendText("Exotic Liquids");
-table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
-table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
-table[1, 4].AddParagraph().AppendText("London");
-table[2, 0].AddParagraph().AppendText("2");
-table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
-table[2, 2].AddParagraph().AppendText("Shelley Burke");
-table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
-table[2, 4].AddParagraph().AppendText("New Orleans");
-table[3, 0].AddParagraph().AppendText("3");
-table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
-table[3, 2].AddParagraph().AppendText("Regina Murphy");
-table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
-table[3, 4].AddParagraph().AppendText("Ann Arbor");
-table[4, 0].AddParagraph().AppendText("4");
-table[4, 1].AddParagraph().AppendText("Tokyo Traders");
-paragraph = table.Rows[4].Cells[2].AddParagraph();
-//Appends a bookmark end in third cell of last row
-paragraph.AppendBookmarkEnd("BkmkInTable");
-paragraph.AppendText("Yoshi Nagase");
-table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
-table[4, 4].AddParagraph().AppendText("Tokyo");
-return table;
+    //Adds a new table into Word document
+    IWTable table = document.LastSection.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(5, 5);
+    //Accesses the instance of the cells and adds the content into cells
+    table[0, 0].AddParagraph().AppendText("Supplier ID");
+    table[0, 1].AddParagraph().AppendText("Company Name");
+    IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
+    //Appends a bookmark start in third cell of first row
+    paragraph.AppendBookmarkStart("BkmkInTable");
+    paragraph.AppendText("Contact Name");
+    table[0, 3].AddParagraph().AppendText("Address");
+    table[0, 4].AddParagraph().AppendText("City");
+    table[1, 0].AddParagraph().AppendText("1");
+    table[1, 1].AddParagraph().AppendText("Exotic Liquids");
+    table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
+    table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
+    table[1, 4].AddParagraph().AppendText("London");
+    table[2, 0].AddParagraph().AppendText("2");
+    table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
+    table[2, 2].AddParagraph().AppendText("Shelley Burke");
+    table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
+    table[2, 4].AddParagraph().AppendText("New Orleans");
+    table[3, 0].AddParagraph().AppendText("3");
+    table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
+    table[3, 2].AddParagraph().AppendText("Regina Murphy");
+    table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
+    table[3, 4].AddParagraph().AppendText("Ann Arbor");
+    table[4, 0].AddParagraph().AppendText("4");
+    table[4, 1].AddParagraph().AppendText("Tokyo Traders");
+    paragraph = table.Rows[4].Cells[2].AddParagraph();
+    //Appends a bookmark end in third cell of last row
+    paragraph.AppendBookmarkEnd("BkmkInTable");
+    paragraph.AppendText("Yoshi Nagase");
+    table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
+    table[4, 4].AddParagraph().AppendText("Tokyo");
+    return table;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 public IWTable CreateTable(WordDocument document)
 {
-//Adds a new table into Word document
-IWTable table = document.LastSection.AddTable();
-//Specifies the total number of rows & columns
-table.ResetCells(5, 5);
-//Accesses the instance of the cells and adds the content into cells
-table[0, 0].AddParagraph().AppendText("Supplier ID");
-table[0, 1].AddParagraph().AppendText("Company Name");
-IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
-//Appends a bookmark start in third cell of first row
-paragraph.AppendBookmarkStart("BkmkInTable");
-paragraph.AppendText("Contact Name");
-table[0, 3].AddParagraph().AppendText("Address");
-table[0, 4].AddParagraph().AppendText("City");
-table[1, 0].AddParagraph().AppendText("1");
-table[1, 1].AddParagraph().AppendText("Exotic Liquids");
-table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
-table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
-table[1, 4].AddParagraph().AppendText("London");
-table[2, 0].AddParagraph().AppendText("2");
-table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
-table[2, 2].AddParagraph().AppendText("Shelley Burke");
-table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
-table[2, 4].AddParagraph().AppendText("New Orleans");
-table[3, 0].AddParagraph().AppendText("3");
-table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
-table[3, 2].AddParagraph().AppendText("Regina Murphy");
-table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
-table[3, 4].AddParagraph().AppendText("Ann Arbor");
-table[4, 0].AddParagraph().AppendText("4");
-table[4, 1].AddParagraph().AppendText("Tokyo Traders");
-paragraph = table.Rows[4].Cells[2].AddParagraph();
-//Appends a bookmark end in third cell of last row
-paragraph.AppendBookmarkEnd("BkmkInTable");
-paragraph.AppendText("Yoshi Nagase");
-table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
-table[4, 4].AddParagraph().AppendText("Tokyo");
-return table;
+    //Adds a new table into Word document
+    IWTable table = document.LastSection.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(5, 5);
+    //Accesses the instance of the cells and adds the content into cells
+    table[0, 0].AddParagraph().AppendText("Supplier ID");
+    table[0, 1].AddParagraph().AppendText("Company Name");
+    IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
+    //Appends a bookmark start in third cell of first row
+    paragraph.AppendBookmarkStart("BkmkInTable");
+    paragraph.AppendText("Contact Name");
+    table[0, 3].AddParagraph().AppendText("Address");
+    table[0, 4].AddParagraph().AppendText("City");
+    table[1, 0].AddParagraph().AppendText("1");
+    table[1, 1].AddParagraph().AppendText("Exotic Liquids");
+    table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
+    table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
+    table[1, 4].AddParagraph().AppendText("London");
+    table[2, 0].AddParagraph().AppendText("2");
+    table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
+    table[2, 2].AddParagraph().AppendText("Shelley Burke");
+    table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
+    table[2, 4].AddParagraph().AppendText("New Orleans");
+    table[3, 0].AddParagraph().AppendText("3");
+    table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
+    table[3, 2].AddParagraph().AppendText("Regina Murphy");
+    table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
+    table[3, 4].AddParagraph().AppendText("Ann Arbor");
+    table[4, 0].AddParagraph().AppendText("4");
+    table[4, 1].AddParagraph().AppendText("Tokyo Traders");
+    paragraph = table.Rows[4].Cells[2].AddParagraph();
+    //Appends a bookmark end in third cell of last row
+    paragraph.AppendBookmarkEnd("BkmkInTable");
+    paragraph.AppendText("Yoshi Nagase");
+    table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
+    table[4, 4].AddParagraph().AppendText("Tokyo");
+    return table;
 }
 {% endhighlight %}
 
@@ -984,7 +982,7 @@ You can insert table, paragraph, simple text and paragraph item at the start or 
 
 The following code example shows how to insert a simple text by using BookmarkNavigator.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -1068,15 +1066,15 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 document.Close();
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-simple-text-into-bookmark).
 
 The following code example shows how to insert a paragraph item by using BookmarkNavigator.
 
-{% tabs %}    
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -1186,7 +1184,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example shows how to insert a paragraph by using BookmarkNavigator.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -1282,13 +1280,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-into-bookmark).
 
 The following code example shows how to insert a table by using BookmarkNavigator.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -1434,13 +1432,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-table-into-bookmark).
 
 The following code example shows how to insert a TextBodyPart by using BookmarkNavigator.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -1576,7 +1574,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-text-body-part-into-bookmark).
 
@@ -1586,7 +1584,7 @@ You can delete the contents between bookmark start and end of the specified book
 
 The following code example shows how to remove the contents of a specified bookmark from Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
@@ -1674,7 +1672,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Delete-bookmark-content).
 
@@ -1682,9 +1680,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can replace the contents of an existing bookmark with simple text, TextBodyPart, WordDocumentPart.
 
-N> 
-You cannot replace the multi section contents into a bookmark within table in Word documents. Use "for loop" instead of "foreach loop" to iterate through document elements when replacing the bookmark contents to avoid “collection modified exception”, as there is a chance for modification in the document elements on replacing the bookmark contents.
-
+N> You cannot replace the multi section contents into a bookmark within table in Word documents. Use "for loop" instead of "foreach loop" to iterate through document elements when replacing the bookmark contents to avoid “collection modified exception”, as there is a chance for modification in the document elements on replacing the bookmark contents.
 
 As per Microsoft Word behavior, you cannot replace the bookmark contents when the bookmark start and end is not in a same table as following cases:
 
@@ -1692,15 +1688,13 @@ Case 1
 
 ![Bookmark start and end present in different tables](WorkingwithBookmarks_images/WorkingwithBookmarks_img1.jpeg)
 
-
 Case 2
 
 ![Bookmark start placed outside table and end in table](WorkingwithBookmarks_images/WorkingwithBookmarks_img2.jpeg)
 
-
 The following code example shows how to replace a specified bookmark content by using `ReplaceBookmarkContent` method in Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -1836,13 +1830,13 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Replace-content-with-body-part).
 
 The following code example shows how to replace a specified bookmark content by using `ReplaceContent` method in Word document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
