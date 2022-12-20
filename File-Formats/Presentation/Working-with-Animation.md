@@ -1,5 +1,5 @@
 ---
-title: Working with Animations | PowerPoint Library | Syncfusion
+title: Working with Animations in PowerPoint presentation | Syncfusion
 description: Learn here all about working with animations of Syncfusion PowerPoint Presentation Library and more.
 platform: file-formats
 control: Essential Presentation
