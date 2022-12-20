@@ -1,7 +1,7 @@
 ---
-title: Add and edit transitions in PowerPoint presentation slide | Syncfusion |
+title: Add and edit transitions in PowerPoint slides | Syncfusion |
 description: Code examples to create and edit PowerPoint slide transitions in .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
-platform: file-format, .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
+platform: file-formats
 control: Syncfusion PowerPoint presentation
 documentation: 
 keywords: PowerPoint, slide, format-table, pptx, transitions
