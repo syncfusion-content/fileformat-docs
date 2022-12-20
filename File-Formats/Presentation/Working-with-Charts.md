@@ -1219,7 +1219,6 @@ chart.HasDataTable = true;
 //Formats Chart Area.
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 //Chart Area Border Settings
-
 //Style
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1281,7 +1280,6 @@ chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
 //Formats Chart Area.
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 //Chart Area Border Settings
-
 //Style
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -2246,10 +2244,8 @@ chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);
 chart.ChartData.SetValue(3, 2, 5);
 chart.ChartData.SetValue(4, 2, 1);
-
 //Apply chart elements
-
-//Set chart title  
+//Set chart title
 chart.ChartTitle = "Scatter Markers Chart";  
 //Set legend  
 chart.HasLegend = false;  
@@ -2320,13 +2316,12 @@ chart.ChartData.SetValue(1, 1, "X-Axis");
 chart.ChartData.SetValue(1, 2, "Y-Axis");  
 chart.ChartData.SetValue(2, 1, 1);  
 chart.ChartData.SetValue(3, 1, 5);  
-chart.ChartData.SetValue(4, 1, 10);                  
+chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);  
 chart.ChartData.SetValue(3, 2, 5);  
-chart.ChartData.SetValue(4, 2, 1);                  
+chart.ChartData.SetValue(4, 2, 1);
 
 //Apply chart elements
-
 //Set chart title  
 chart.ChartTitle = "Scatter Markers Chart";
 //Set legend  
@@ -2370,7 +2365,6 @@ chart.ChartData.SetValue(3, 2, 5);
 chart.ChartData.SetValue(4, 2, 1);
 
 //Apply chart elements
-
 //Set chart title
 chart.ChartTitle = "Scatter Markers Chart";  
 //Set legend
@@ -2410,7 +2404,6 @@ chart.ChartData.SetValue(3, 2, 5);
 chart.ChartData.SetValue(4, 2, 1);
 
 //Apply chart elements
-
 //Set chart title
 chart.ChartTitle = "Scatter Markers Chart";
 //Set legend  
