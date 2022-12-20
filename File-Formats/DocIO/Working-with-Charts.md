@@ -26,7 +26,7 @@ N> DocIO supports chart only in DOCX and WordML format documents.
 
 A new chart can be created or an existing chart can be modified by using the WChart instance. The following code example illustrates how to create a new chart.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document
@@ -196,8 +196,8 @@ using (WordDocument document = new WordDocument())
     //Saves the stream as Word file in local machine
     Save(stream, "Result.docx");
     document.Close();
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -316,14 +316,14 @@ using (WordDocument document = new WordDocument())
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-    //Closes the documents               
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Closes the documents
     document.Close();
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Create-chart-from-scratch).
 
@@ -333,7 +333,7 @@ The chart data can be set through the object array or can be loaded from the exc
 
 The following code example illustrates the chart data loaded from the excel file.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document
@@ -352,7 +352,7 @@ chart.ChartTitle = "Purchase Details";
 chart.ChartTitleArea.FontName = "Calibri";
 chart.ChartTitleArea.Size = 14;
 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;       
-//Sets name to chart series            
+//Sets name to chart series
 chart.Series[0].Name = "Sum of Purchases";
 chart.Series[1].Name = "Sum of Future Expenses";
 chart.PrimaryCategoryAxis.Title = "Products";
@@ -382,7 +382,7 @@ chart.ChartTitle = "Purchase Details"
 chart.ChartTitleArea.FontName = "Calibri"
 chart.ChartTitleArea.Size = 14
 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None
-'Sets name to chart series            
+'Sets name to chart series
 chart.Series(0).Name = "Sum of Purchases"
 chart.Series(1).Name = "Sum of Future Expenses"
 chart.PrimaryCategoryAxis.Title = "Products"
@@ -412,7 +412,7 @@ using (WordDocument document = new WordDocument())
     chart.ChartTitleArea.FontName = "Calibri";
     chart.ChartTitleArea.Size = 14;
     chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
-    //Sets name to chart series            
+    //Sets name to chart series
     chart.Series[0].Name = "Sum of Purchases";
     chart.Series[1].Name = "Sum of Future Expenses";
     chart.PrimaryCategoryAxis.Title = "Products";
@@ -425,8 +425,8 @@ using (WordDocument document = new WordDocument())
     //Saves the stream as Word file in local machine
     Save(stream, "Result.docx");
     document.Close();
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -448,7 +448,7 @@ using (WordDocument document = new WordDocument())
     chart.ChartTitleArea.FontName = "Calibri";
     chart.ChartTitleArea.Size = 14;
     chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
-    //Sets name to chart series            
+    //Sets name to chart series
     chart.Series[0].Name = "Sum of Purchases";
     chart.Series[1].Name = "Sum of Future Expenses";
     chart.PrimaryCategoryAxis.Title = "Products";
@@ -482,7 +482,7 @@ using (WordDocument document = new WordDocument())
     chart.ChartTitleArea.FontName = "Calibri";
     chart.ChartTitleArea.Size = 14;
     chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
-    //Sets name to chart series            
+    //Sets name to chart series
     chart.Series[0].Name = "Sum of Purchases";
     chart.Series[1].Name = "Sum of Future Expenses";
     chart.PrimaryCategoryAxis.Title = "Products";
@@ -493,13 +493,13 @@ using (WordDocument document = new WordDocument())
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-    //Closes the documents               
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Closes the documents
     document.Close();
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Create-chart-from-Excel-file).
 
@@ -570,7 +570,7 @@ Dim paragraph As IWParagraph = sec.AddParagraph()
 'Inputs data for chart
 Dim data As Object()() = New Object(5)() {}
 For i As Integer = 0 To 5
-	data(i) = New Object(2) {}
+    data(i) = New Object(2) {}
 Next
 data(0)(0) = ""
 data(1)(0) = "Camembert Pierrot"
@@ -659,8 +659,8 @@ using (WordDocument document = new WordDocument())
     //Saves the stream as Word file in local machine
     Save(stream, "Result.docx");
     document.Close();
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -765,14 +765,14 @@ using (WordDocument document = new WordDocument())
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     //Closes the documents               
     document.Close();
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Create-custom-chart).
 
@@ -782,7 +782,7 @@ The chart may not have the data in the referred excel file instead it may repres
 
 The following code example illustrates how to refresh the chart.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -816,8 +816,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
 {
     //Gets the last paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -831,8 +830,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     Save(stream, "Protection.docx");
     //Closes the Word document
     document.Close();
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -860,8 +859,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Docx))
 {
     //Gets the last paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -873,8 +871,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Protection.docx", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     //Closes the Word document
     document.Close();
 }
@@ -888,7 +886,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to modify an existing chart data.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -930,8 +928,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
 {
     //Gets the last paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -949,8 +946,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     Save(stream, "Result.docx");
     //Closes the Word document
     document.Close();
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -982,8 +979,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Docx))
 {
     //Gets the last paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -999,14 +995,14 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     //Closes the Word document
     document.Close();
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Modify-an-existing-chart-data).
 
@@ -1029,7 +1025,7 @@ A Chart is composed of various elements such as plot area, chart area, title are
 
 The following code example illustrates how to modify the appearance of an existing chart in the document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -1125,8 +1121,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
 {
     //Gets the paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -1171,8 +1166,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     Save(stream, "Result.docx");
     //Closes the Word document
     document.Close();
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -1231,8 +1226,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Docx))
 {
     //Gets the paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -1275,14 +1269,14 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     //Closes the Word document
     document.Close();
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Modify-appearance-of-existing-chart).
 
@@ -1290,7 +1284,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to modify the plot area and legend of the chart.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -1396,8 +1390,7 @@ document.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
 {
     //Gets the paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -1448,8 +1441,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     Save(stream, "Result.docx");
     //Closes the Word document
     document.Close();
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -1514,8 +1507,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Docx))
 {
     //Gets the paragraph
     WParagraph paragraph = document.LastParagraph;
@@ -1564,14 +1556,14 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Save(stream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     //Closes the Word document
     document.Close();
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Modify-plot-area-and-legend-of-chart).
 
@@ -1579,7 +1571,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to specify the position of the chart elements.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new word document
@@ -1817,242 +1809,242 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 document.Close();
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code example describes the BarChartData class.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 public class BarChartData
 {
-	string name;
-	int purchase;
-	int expense;
-	public string Name
-	{
-		get
-		{
-			return name;
-		}
-		set
-		{
-			name = value;
-		}
-	}
-	public int Purchase
-	{
-		get
-		{
-			return purchase;
-		}
-		set
-		{
-			purchase = value;
-		}
-	}
-	public int Expense
-	{
-		get
-		{
-			return expense;
-		}
-		set
-		{
-			expense = value;
-		}
-	}
-	public BarChartData(string name, int purchase, int expense)
-	{
-		Name = name;
-		Purchase = purchase;
-		Expense = expense;
-	}
+    string name;
+    int purchase;
+    int expense;
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+        set
+        {
+            name = value;
+        }
+    }
+    public int Purchase
+    {
+        get
+        {
+            return purchase;
+        }
+        set
+        {
+            purchase = value;
+        }
+    }
+    public int Expense
+    {
+        get
+        {
+            return expense;
+        }
+        set
+        {
+            expense = value;
+        }
+    }
+    public BarChartData(string name, int purchase, int expense)
+    {
+        Name = name;
+        Purchase = purchase;
+        Expense = expense;
+    }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Public Class BarChartData
-	Private m_name As String
-	Private m_purchase As Integer
-	Private m_expense As Integer
-	Public Property Name() As String
-		Get
-			Return m_name
-		End Get
-		Set(value As String)
-			m_name = value
-		End Set
-	End Property
-	Public Property Purchase() As Integer
-		Get
-			Return m_purchase
-		End Get
-		Set(value As Integer)
-			m_purchase = value
-		End Set
-	End Property
-	Public Property Expense() As Integer
-		Get
-			Return m_expense
-		End Get
-		Set(value As Integer)
-			m_expense = value
-		End Set
-	End Property
-	Public Sub New(name__1 As String, purchase__2 As Integer, expense__3 As Integer)
-		Name = name__1
-		Purchase = purchase__2
-		Expense = expense__3
-	End Sub
+    Private m_name As String
+    Private m_purchase As Integer
+    Private m_expense As Integer
+    Public Property Name() As String
+        Get
+            Return m_name
+        End Get
+        Set(value As String)
+            m_name = value
+        End Set
+    End Property
+    Public Property Purchase() As Integer
+        Get
+            Return m_purchase
+        End Get
+        Set(value As Integer)
+            m_purchase = value
+        End Set
+    End Property
+    Public Property Expense() As Integer
+        Get
+            Return m_expense
+        End Get
+        Set(value As Integer)
+            m_expense = value
+        End Set
+    End Property
+    Public Sub New(name__1 As String, purchase__2 As Integer, expense__3 As Integer)
+            Name = name__1
+        Purchase = purchase__2
+        Expense = expense__3
+    End Sub
 End Class
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 public class BarChartData
 {
-	string name;
-	int purchase;
-	int expense;
-	public string Name
-	{
-		get
-		{
-			return name;
-		}
-		set
-		{
-			name = value;
-		}
-	}
-	public int Purchase
-	{
-		get
-		{
-			return purchase;
-		}
-		set
-		{
-			purchase = value;
-		}
-	}
-	public int Expense
-	{
-		get
-		{
-			return expense;
-		}
-		set
-		{
-			expense = value;
-		}
-	}
-	public BarChartData(string name, int purchase, int expense)
-	{
-		Name = name;
-		Purchase = purchase;
-		Expense = expense;
-	}
+    string name;
+    int purchase;
+    int expense;
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+        set
+        {
+            name = value;
+        }
+    }
+    public int Purchase
+    {
+        get
+        {
+            return purchase;
+        }
+        set
+        {
+            purchase = value;
+        }
+    }
+    public int Expense
+    {
+        get
+        {
+            return expense;
+        }
+        set
+        {
+            expense = value;
+        }
+    }
+    public BarChartData(string name, int purchase, int expense)
+    {
+        Name = name;
+        Purchase = purchase;
+        Expense = expense;
+    }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 public class BarChartData
 {
-	string name;
-	int purchase;
-	int expense;
-	public string Name
-	{
-		get
-		{
-			return name;
-		}
-		set
-		{
-			name = value;
-		}
-	}
-	public int Purchase
-	{
-		get
-		{
-			return purchase;
-		}
-		set
-		{
-			purchase = value;
-		}
-	}
-	public int Expense
-	{
-		get
-		{
-			return expense;
-		}
-		set
-		{
-			expense = value;
-		}
-	}
-	public BarChartData(string name, int purchase, int expense)
-	{
-		Name = name;
-		Purchase = purchase;
-		Expense = expense;
-	}
+    string name;
+    int purchase;
+    int expense;
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+        set
+        {
+            name = value;
+        }
+    }
+    public int Purchase
+    {
+        get
+        {
+            return purchase;
+        }
+        set
+        {
+            purchase = value;
+        }
+    }
+    public int Expense
+    {
+        get
+        {
+            return expense;
+        }
+        set
+        {
+            expense = value;
+        }
+    }
+    public BarChartData(string name, int purchase, int expense)
+    {
+        Name = name;
+        Purchase = purchase;
+        Expense = expense;
+    }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 public class BarChartData
 {
-	string name;
-	int purchase;
-	int expense;
-	public string Name
-	{
-		get
-		{
-			return name;
-		}
-		set
-		{
-			name = value;
-		}
-	}
-	public int Purchase
-	{
-		get
-		{
-			return purchase;
-		}
-		set
-		{
-			purchase = value;
-		}
-	}
-	public int Expense
-	{
-		get
-		{
-			return expense;
-		}
-		set
-		{
-			expense = value;
-		}
-	}
-	public BarChartData(string name, int purchase, int expense)
-	{
-		Name = name;
-		Purchase = purchase;
-		Expense = expense;
-	}
+    string name;
+    int purchase;
+    int expense;
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+        set
+        {
+            name = value;
+        }
+    }
+    public int Purchase
+    {
+        get
+        {
+            return purchase;
+        }
+        set
+        {
+            purchase = value;
+        }
+    }
+    public int Expense
+    {
+        get
+        {
+            return expense;
+        }
+        set
+        {
+            expense = value;
+        }
+    }
+    public BarChartData(string name, int purchase, int expense)
+    {
+        Name = name;
+        Purchase = purchase;
+        Expense = expense;
+    }
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Positioning-chart-elements).
 
@@ -2060,7 +2052,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Essential DocIO allows to modify the side wall, back wall, floor of the 3D chart. The following code snippet illustrates how to apply properties for side wall, floor and back wall of a 3D chart.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document
@@ -2180,7 +2172,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Applying-3D-formats).
 
@@ -2188,7 +2180,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to remove the chart from the document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -2198,11 +2190,11 @@ WParagraph paragraph = document.LastParagraph;
 //Gets the chart entity and remove it from paragraph
 foreach (ParagraphItem item in paragraph.ChildEntities)
 {
-	if (item is WChart)
-	{
-		paragraph.ChildEntities.Remove(item);
-		break;
-	}
+    if (item is WChart)
+    {
+        paragraph.ChildEntities.Remove(item);
+        break;
+    }
 }
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
@@ -2235,11 +2227,11 @@ WParagraph paragraph = document.LastParagraph;
 //Gets the chart entity and remove it from paragraph
 foreach (ParagraphItem item in paragraph.ChildEntities)
 {
-	if (item is WChart)
-	{
-		paragraph.ChildEntities.Remove(item);
-		break;
-	}
+    if (item is WChart)
+    {
+        paragraph.ChildEntities.Remove(item);
+        break;
+    }
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2261,11 +2253,11 @@ WParagraph paragraph = document.LastParagraph;
 //Gets the chart entity and remove it from paragraph
 foreach (ParagraphItem item in paragraph.ChildEntities)
 {
-	if (item is WChart)
-	{
-		paragraph.ChildEntities.Remove(item);
-		break;
-	}
+    if (item is WChart)
+    {
+        paragraph.ChildEntities.Remove(item);
+        break;
+    }
 }
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2286,11 +2278,11 @@ WParagraph paragraph = document.LastParagraph;
 //Gets the chart entity and remove it from paragraph
 foreach (ParagraphItem item in paragraph.ChildEntities)
 {
-	if (item is WChart)
-	{
-		paragraph.ChildEntities.Remove(item);
-		break;
-	}
+    if (item is WChart)
+    {
+        paragraph.ChildEntities.Remove(item);
+        break;
+    }
 }
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -2303,7 +2295,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Remove-chart-from-Word-document).
 
@@ -2311,9 +2303,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can convert the chart in Word document as image using the `SaveAsImage` method in ChartToImageConverter.
 
-
 The following code example shows how to chart in the Word document as image.
-
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2393,6 +2383,7 @@ Essential DocIO supports creating and manipulating new and modern chart types su
 The following code example illustrates how to create a Waterfall chart.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document.
 using (WordDocument document = new WordDocument())
