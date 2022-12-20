@@ -240,8 +240,8 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Connect the beginning point of the connector with rectangle shape
     connector.BeginConnect(rectangle, 0);
     //Set the beginning cap of the connector as arrow
-   connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
-   //Change the connector color
+    connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
+    //Change the connector color
 
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
@@ -414,7 +414,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
     IShape triangle = slide.Shapes.AddShape(AutoShapeType.IsoscelesTriangle, 600, 500, 150, 150);
     //Declare the end connection site index
     int connectionSiteIndex = 4;
-   //Reconnect the end point of connector with triangle shape if its connection site count is greater than 4
+    //Reconnect the end point of connector with triangle shape if its connection site count is greater than 4
    if (connectionSiteIndex < triangle.ConnectionSiteCount)
         connector.EndConnect(triangle, connectionSiteIndex);
     //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
@@ -545,7 +545,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
     rectangle.Top = 200;
     //Update the connector to connect with previously updated shape
     connector.Update();
-   //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+    //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
         Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Connector.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
     else

@@ -322,7 +322,11 @@ pptxDoc.Save("Sections.PPTX");
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Loads a PowerPoint presentation
-Dim pptxDoc As IPresentatio
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
+'Moves the second section to third position within the PowerPoint presentation.
+pptxDoc.Sections(2).Move(3)
+'Saves the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -501,7 +505,7 @@ Dim slides As ISlides = pptxDoc.Sections(2).Clone()
 'Creates a destination PowerPoint presentation instance. Existing presentations can also be used here.
 pptxDoc = Presentation.Create()
 'Iterates the cloned slides and adds the slides to the destination presentation
-    For Each slide As ISlide In slides
+For Each slide As ISlide In slides
     pptxDoc.Slides.Add(slide)
 Next
 'Save the PowerPoint presentation
@@ -546,7 +550,7 @@ pptxDoc = Presentation.Create();
 //Iterates the cloned slides and adds the slides to the destination presentation
 foreach (ISlide slide in slides)
     pptxDoc.Slides.Add(slide);
-    //Save the PowerPoint Presentation as stream
+//Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 {% endhighlight %}
