@@ -135,6 +135,8 @@ By executing the program, you will get the PDF document as follows.
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS).
 
+## AWS Lambda with NET 6 container image
+
 **Steps to convert HTML to PDF in AWS Lambda with NET 6 container image**
 
 Step 1: Create a new AWS Lambda project with Tests as follows.
