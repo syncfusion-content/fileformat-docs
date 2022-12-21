@@ -68,12 +68,12 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Input.html")), FormatType.Html))
 {
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "HTMLtoWord.docx");
-	document.Close();
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine
+    Save(stream, "HTMLtoWord.docx");
+    document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
@@ -84,13 +84,13 @@ FileStream fileStreamPath = new FileStream("Input.html", FileMode.Open, FileAcce
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
 {
-     MemoryStream stream = new MemoryStream();
-     document.Save(stream, FormatType.docx);
-     //Closes the Word document
-     document.Close();
-     stream.Position = 0;
-     //Download Word document in the browser
-     return File(stream, "application/msword", "HTMLtoWord.docx");
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.docx);
+    //Closes the Word document
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "HTMLtoWord.docx");
 }
 {% endhighlight %}
 
@@ -113,7 +113,6 @@ using (WordDocument document = new WordDocument())
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HTMLtoWord.docx", "application/msword", stream);
 }
-
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -148,12 +147,12 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Html);
-	//Saves the stream as Word file in local machine
-	Save(stream, "WordToHtml.html");
-	document.Close();
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await document.SaveAsync(stream, FormatType.Html);
+    //Saves the stream as Word file in local machine
+    Save(stream, "WordToHtml.html");
+    document.Close();
 }
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
@@ -164,13 +163,13 @@ FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileA
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
-     MemoryStream stream = new MemoryStream();
-     document.Save(stream, FormatType.Html);
-     //Closes the Word document
-     document.Close();
-     stream.Position = 0;
-     //Download Word document in the browser
-     return File(stream, "application/chrome", "WordToHtml.html");
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Html);
+    //Closes the Word document
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/chrome", "WordToHtml.html");
 }
 {% endhighlight %}
 
@@ -228,10 +227,10 @@ bool isValidHtml = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValid
 //When the Html string passes validation, it is inserted to the document
 if (isValidHtml)
 {
-	//Appends Html string as first item of the second paragraph in the document
-	document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
-	//Appends the Html string to first paragraph in the document
-	document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
+    //Appends Html string as first item of the second paragraph in the document
+    document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
+    //Appends the Html string to first paragraph in the document
+    document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
 }
 //Saves and closes the document
 document.Save("Sample.docx");
@@ -247,15 +246,16 @@ Dim htmlstring As String = "<p><b>This text is inserted as HTML string.</b></p>"
 Dim isValidHtmlAs Boolean = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional)
 'When the Html string passes validation, it is inserted to document
 If isValidHtmlThen
-	'Appends Html string as first item of the second paragraph in the document
-	document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
-	'Appends the Html string to first paragraph in the document
-	document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
+    'Appends Html string as first item of the second paragraph in the document
+    document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
+    'Appends the Html string to first paragraph in the document
+    document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
 End If
 'Saves and closes the document
 document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-HTML-to-Word-conversion).
@@ -366,6 +366,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HtmlToWord.docx", "app
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
+
 {% endtabs %}
 
 The following code example shows how to read the image from the specified path when importing the HTML files.
@@ -415,6 +416,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
     args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets." +imagePath);
 }
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-image-data).
@@ -481,6 +483,7 @@ document.SaveOptions.HTMLExportImageAsBase64 = True
 export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-Word-to-HTML-conversion).

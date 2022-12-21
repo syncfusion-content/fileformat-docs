@@ -184,51 +184,52 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
 
 <b>Steps to convert HTML to PDF in .NET application</b>
 
-Create a new .NET console application.
-![Create .net core console sample](Convert-HTML-To-PDF/htmlconversion_images/createconsolesample1.png)
+Step 1: Create a new .NET console application.
+   <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample1.png" alt="Create .net core console sample" width="100%" Height="Auto"/>
 
+   <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample2.png" alt="Select target .net core version" width="100%" Height="Auto"/>
 
-![Select target .net core version](Convert-HTML-To-PDF/htmlconversion_images/createconsolesample2.png)
+Step 2: Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as a reference to your .NET application from [NuGet.org](https://www.nuget.org/). 
+   <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample3.png" alt="Install HTML to PDF converter .NET package" width="100%" Height="Auto"/>
 
-Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as a reference to your .NET application from [NuGet.org](https://www.nuget.org/). 
+Step 3: Include the following namespace in your class file. 
 
-![Install HTML to PDF converter .NET package](Convert-HTML-To-PDF/htmlconversion_images/createconsolesample3.png)
+   {% highlight c# tabtitle="C#" %}
 
-Include the following namespace in your class file. 
+   using Syncfusion.Pdf;
+   using Syncfusion.HtmlConverter;
 
-{% highlight c# tabtitle="C#" %}
+   {% endhighlight %}
 
-using Syncfusion.Pdf;
-using Syncfusion.HtmlConverter;
+Step 4: Use the following code sample to convert the URL to PDF in the program.cs.
 
-{% endhighlight %}
+   {% tabs %}
 
-Use the following code sample to convert the URL to PDF in the program.cs.
+   {% highlight c# tabtitle="C#" %}
 
-{% tabs %}
+   //Initialize HTML to PDF converter.
+   HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+   BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+   //Set Blink viewport size.
+   blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+   //Assign Blink converter settings to HTML converter.
+   htmlConverter.ConverterSettings = blinkConverterSettings;
+   //Convert URL to PDF document.
+   PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+   //Create a filestream.
+   FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+   //Save and close the PDF document.
+   document.Save(fileStream);
+   document.Close(true);
 
-{% highlight c# tabtitle="C#" %}
+   {% endhighlight %}
 
-//Initialize HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+   {% endtabs %}
 
-//Convert URL to PDF.
-PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+   By executing the program, you will get the PDF document as follows.
+   <img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="htmltopdfoutput" width="100%" Height="Auto"/>
 
-FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document.
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
-{% endtabs %}
-
-A complete working demo can be downloaded from [HTML-to-PDF.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTML-to-PDF-Demo-1725937239). By executing the program, you will get the PDF document as follows.
-
-![Install HTML to PDF converter .NET package](Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png)
-
+   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/.NET).
 
 ### Convert HTML to PDF in Linux
 
