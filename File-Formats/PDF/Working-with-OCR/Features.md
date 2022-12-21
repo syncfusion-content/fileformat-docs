@@ -7,7 +7,7 @@ documentation: UG
 keywords: Assemblies
 --- 
 
-# OCR Features 
+# OCR Processor Features 
 
 ## Performing OCR for an entire document
 

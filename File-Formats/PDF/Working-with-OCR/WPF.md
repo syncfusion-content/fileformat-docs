@@ -7,7 +7,7 @@ documentation: UG
 keywords: Assemblies
 --- 
 
-# Perform OCR on WPF 
+# Perform OCR in WPF (Windows Presentation Foundation)
 
 The Syncfusion .NET OCR library used to extract text from scanned PDFs and images in the WPF application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 

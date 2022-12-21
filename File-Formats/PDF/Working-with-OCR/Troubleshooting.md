@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting PDF OCR failures | Syncfusion
-description: Learn how to overcome PDF OCR failures using Syncfusion .NET OCR library.  
+description: Learn how to overcome OCR Processor failures using Syncfusion .NET OCR library with the help of Google's Tesseract Optical Character Recognition engine.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 --- 
 
-# Troubleshooting 
+# OCR Processor Troubleshooting 
 
 <table>
 <th style="font-size:14px">Exception</th>
