@@ -945,7 +945,7 @@ A complete working example to apply custom table style in C# is present on [this
 
 The following screenshot represents generated Excel file with custom table styles in XlsIO.
 
-![custom table style](Working-with-Pivot-Tables_images/Working-with-Tables_img1.jpg)
+<img src="Working-with-Pivot-Tables_images/Working-with-Tables_img1.jpg" alt="custom table style" width="100%" Height="Auto"/>
 
 ## Insert or remove columns in a table
 

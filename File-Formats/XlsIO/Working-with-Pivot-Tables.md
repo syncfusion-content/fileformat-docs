@@ -622,11 +622,11 @@ A complete working example to format a pivot cell in C# is present on [this GitH
 
 The following screenshot represents the input template of pivot table inline formatting.
 
-![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png" alt="Pivot Tables inline format" width="100%" Height="Auto"/>
 
 The following screenshot represents the generated Excel file with pivot table inline formatting in XlsIO.
 
-![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png" alt="Pivot Tables inline format" width="100%" Height="Auto"/>
 
 ## Refresh a pivot table
 When you update the pivot table data source, you should refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through IsRefreshOnLoad property of PivotCacheImpl.
@@ -1047,15 +1047,15 @@ The following screenshots represents the generated Excel file with pivot table l
 
 Compact layout:
 
-![Pivot Tables layout compact](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png" alt="Pivot Tables layout compact" width="100%" Height="Auto"/>
 
 Outline layout:
 
-![Pivot Tables layout outline](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png" alt="Pivot Tables layout outline" width="100%" Height="Auto"/>
 
 Tabular layout:
 
-![Pivot Tables layout tabular](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png" alt="Pivot Tables layout tabular" width="100%" Height="Auto"/>
 
 ### Pivot table row layout
 
@@ -1630,7 +1630,7 @@ pageField.Items[2].Visible = false;
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying page filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg" alt="Applying page filters" width="100%" Height="Auto"/>
 
 ### Applying row or column filters
 
@@ -1680,7 +1680,7 @@ rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying label filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg" alt="Applying label filters" width="100%" Height="Auto"/>
 
 **Value** **Filter** 
 
@@ -1722,7 +1722,7 @@ field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying value filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg" alt="Applying value filters" width="100%" Height="Auto"/>
 
 **Multiple** **filter**
 
