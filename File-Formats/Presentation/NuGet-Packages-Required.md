@@ -475,12 +475,12 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-* Install-package Syncfusion.PresentationRenderer.NET<br/>
-* Install-package Syncfusion.Presentation.NET
+* Install-package Syncfusion.Presentation.NET<br/>
+* Install-package Syncfusion.PresentationRenderer.NET
 </td>
 <td>
-* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies<br/>
-* Uninstall-package Syncfusion.Presentation.NET - RemoveDependencies
+* Uninstall-package Syncfusion.Presentation.NET - RemoveDependencies<br/>
+* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies
 </td>
 </tr>
 </table>
