@@ -10,8 +10,8 @@ documentation: UG
 The following are the important points to be remembered while iterating the document elements
 
 * Document consists of one or more sections.
-* Section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`.
-* `WTextBody` contains three type of elements – either paragraph, table or block content control.
+* Section contains the contents present in Headers, Footers and main document through the instances of [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html).
+* [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html) contains three type of elements – either paragraph, table or block content control.
 
 ## Remove paragraph with style
 

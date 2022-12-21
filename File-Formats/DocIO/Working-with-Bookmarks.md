@@ -342,10 +342,10 @@ BookmarkNavigator is used for navigating to a bookmark in a Word document. You c
 
 You can get the content between bookmark start and bookmark end of the specified bookmark in two ways: 
 
-1. You can use `GetBookmarkContent` method for retrieving content as collection of body items when the bookmark start and bookmark end are preserved in a single section.
-2. You can use `GetContent` method for retrieving content as collection of sections when the bookmark start and bookmark end are preserved in different sections. 
+1. You can use [GetBookmarkContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_GetBookmarkContent) method for retrieving content as collection of body items when the bookmark start and bookmark end are preserved in a single section.
+2. You can use [GetContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_GetContent) method for retrieving content as collection of sections when the bookmark start and bookmark end are preserved in different sections. 
 
-The following code example shows how to retrieve the specified bookmark content by using `GetBookmarkContent` method in a Word document.
+The following code example shows how to retrieve the specified bookmark content by using [GetBookmarkContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_GetBookmarkContent) method in a Word document.
 
 {% tabs %}
 
@@ -460,7 +460,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-as-body-part).
 
-The following code example shows how to retrieve the specified bookmark content by using `GetContent` method in a Word document.
+The following code example shows how to retrieve the specified bookmark content by using [GetContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_GetContent) method in a Word document.
 
 {% tabs %}
 
@@ -588,7 +588,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Retrieving bookmark contents within a table 
 
-You can select the column range for bookmarks inside the tables in Word documents by using `FirstColumn` and `LastColumn` properties.
+You can select the column range for bookmarks inside the tables in Word documents by using [FirstColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Bookmark.html#Syncfusion_DocIO_DLS_Bookmark_FirstColumn) and [LastColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Bookmark.html#Syncfusion_DocIO_DLS_Bookmark_LastColumn) properties.
 
 N> 1. `FirstColumn` and `LastColumn` properties are valid to select table cells, only when the respective bookmark end and start is present within the same row or next rows of the same table.
 N> 2. `FirstColumn` property denotes the top left corner cell and `LastColumn` property denotes the bottom right corner cell of rectangular selection region since you can only select the content as a rectangular selection by using bookmarks within the table.
@@ -1692,7 +1692,7 @@ Case 2
 
 ![Bookmark start placed outside table and end in table](WorkingwithBookmarks_images/WorkingwithBookmarks_img2.jpeg)
 
-The following code example shows how to replace a specified bookmark content by using `ReplaceBookmarkContent` method in Word document.
+The following code example shows how to replace a specified bookmark content by using [ReplaceBookmarkContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_ReplaceBookmarkContent_Syncfusion_DocIO_DLS_TextBodyPart_) method in Word document.
 
 {% tabs %}
 
@@ -1834,7 +1834,7 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Replace-content-with-body-part).
 
-The following code example shows how to replace a specified bookmark content by using `ReplaceContent` method in Word document.
+The following code example shows how to replace a specified bookmark content by using [ReplaceContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_ReplaceContent_Syncfusion_DocIO_DLS_WordDocumentPart_) method in Word document.
 
 {% tabs %}
 

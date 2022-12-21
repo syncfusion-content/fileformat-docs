@@ -7,10 +7,10 @@ documentation: UG
 ---
 # Working with Tables in Word document
 
-A table in Word document is used to arrange document content in rows and columns. `WTable` instance represents a table in Word document. A table must contain at least one row.
+A table in Word document is used to arrange document content in rows and columns. [WTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTable.html) instance represents a table in Word document. A table must contain at least one row.
 
-1. A row is a collection of cells and it is represented by an instance of `WTableRow`. Each row must contain at least one cell.
-2. A cell can contain one or more paragraphs and tables. An instance of `WTableCell` represents a table cell. Each table cell must contain at least one paragraph.
+1. A row is a collection of cells and it is represented by an instance of [WTableRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTableRow.html). Each row must contain at least one cell.
+2. A cell can contain one or more paragraphs and tables. An instance of [WTableCell](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTableCell.html) represents a table cell. Each table cell must contain at least one paragraph.
 
 N> Adding more than 63 columns not supported in Word document using Microsoft Word application. It shows alert when you attempt to insert table with more than 64 columns, which is a one of the behaviors of Microsoft Word and Essential DocIO does the same.
 
@@ -1665,7 +1665,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Resize table
 
-You can automatically resize the table cell to fit its contents based on the given **autofit options** such as `FitToContent`, `FitToWindow`, `FixedColumnWidth`. 
+You can automatically resize the table cell to fit its contents based on the given **autofit options** such as [FitToContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html), [FitToWindow](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html), [FixedColumnWidth](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html). 
 
 ![AutoFit options in Word document](WorkingwithTables_images/ResizeTable.png)
 
@@ -1818,7 +1818,7 @@ N> In ASP.NET Core, UWP, and Xamarin platforms, to apply autofit for table in a 
 
 ### Working with Table Style
 
-A table style defines a set of table, row, cell and paragraph level formatting that can be applied to a table. `WTableStyle` instance represents table style in a Word document.
+A table style defines a set of table, row, cell and paragraph level formatting that can be applied to a table. [WTableStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTableStyle.html) instance represents table style in a Word document.
 
 N>  Essential DocIO currently provides support for table styles in DOCX and WordML formats alone. The visual appearance is also preserved in Word to PDF, Word to Image, and Word to HTML conversions.
 
