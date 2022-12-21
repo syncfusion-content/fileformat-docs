@@ -149,8 +149,7 @@ ASP.NET MVC5
 UWP, ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -158,8 +157,7 @@ UWP, ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -238,8 +236,7 @@ UWP
 ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -247,8 +244,7 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -256,7 +252,7 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-Syncfusion.PresentationRenderer.NET.nupkg<br/>
+{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/>
 </td>
 </tr>
 </tbody>
@@ -328,8 +324,7 @@ UWP
 ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -337,8 +332,7 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/>
 </td>
 </tr>
 </table>
@@ -456,13 +450,11 @@ ASP.NET Core and Blazor
 </td>
 <td>
 * Install-package Syncfusion.Presentation.Net.Core<br/><br/>
-* Install-package Syncfusion.PresentationRenderer.Net.Core<br/><br/>
-* Install-package Syncfusion.SkiaSharpHelper.Net.Core
+* Install-package Syncfusion.PresentationRenderer.Net.Core
 </td>
 <td>
 * Uninstall-package Syncfusion.Presentation.Net.Core –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.PresentationRenderer.Net.Core - RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.SkiaSharpHelper.Net.Core – RemoveDependencies
+* Uninstall-package Syncfusion.PresentationRenderer.Net.Core - RemoveDependencies
 </td>
 </tr>
 <tr>
@@ -471,13 +463,11 @@ Xamarin
 </td>
 <td>
 * Install-package Syncfusion.Xamarin.Presentation<br/><br/>
-* Install-package Syncfusion.Xamarin.PresentationRenderer<br/><br/>
-* Install-package Syncfusion.Xamarin.SkiaSharpHelper
+* Install-package Syncfusion.Xamarin.PresentationRenderer
 </td>
 <td>
 * Uninstall-package Syncfusion.Xamarin.Presentation –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.Xamarin.SkiaSharpHelper - RemoveDependencies 
+* Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies
 </td>
 </tr>
 <tr>
@@ -485,9 +475,12 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-* Install-package Syncfusion.PresentationRenderer.NET<br/></td>
+* Install-package Syncfusion.Presentation.NET<br/>
+* Install-package Syncfusion.PresentationRenderer.NET
+</td>
 <td>
-* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies<br/> 
+* Uninstall-package Syncfusion.Presentation.NET - RemoveDependencies<br/>
+* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies
 </td>
 </tr>
 </table>
