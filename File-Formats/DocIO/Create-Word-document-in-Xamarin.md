@@ -63,12 +63,12 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
 {% highlight c# tabtitle="C#" %}
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GettingStarted. MainXamlPage">
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="GettingStarted. MainXamlPage">
 <StackLayout VerticalOptions="Center">
-  
+
 <Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
-  
+
 </StackLayout> </ContentPage>
 
 {% endhighlight %}
@@ -322,7 +322,7 @@ void OnButtonClicked(object sender, EventArgs args)
     section.AddParagraph();
 
     //Saves the Word document to MemoryStream
-	MemoryStream stream = new MemoryStream();
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
 
     //Save the stream as a file in the device and invoke it for viewing

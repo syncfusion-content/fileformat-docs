@@ -208,9 +208,9 @@ public static class FileUtils
 {
     public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
-           "saveAsFile",
-           filename,
-           Convert.ToBase64String(data));
+            "saveAsFile",
+            filename,
+            Convert.ToBase64String(data));
 }
 
 {% endhighlight %}
@@ -265,9 +265,9 @@ Step 12: Add the following code snippet in the razor file of Navigation menu in 
 {% highlight HTML %}
 
 <li class="nav-item px-3">
-     <NavLink class="nav-link" href="docio">
-         <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
-     </NavLink>
+    <NavLink class="nav-link" href="docio">
+        <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
+    </NavLink>
 </li>
 
 {% endhighlight %}
@@ -393,7 +393,7 @@ Step 7: Create a new async method with name as ``CreateWord`` and include the fo
         textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
         textRange.CharacterFormat.FontSize = 18f;
         textRange.CharacterFormat.FontName = "Calibri";
-	
+
         //Appends paragraph
         paragraph = section.AddParagraph();
         paragraph.ParagraphFormat.FirstLineIndent = 36;
@@ -438,9 +438,9 @@ public static class FileUtils
 {
     public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
-           "saveAsFile",
-           filename,
-           Convert.ToBase64String(data));
+            "saveAsFile",
+            filename,
+            Convert.ToBase64String(data));
 }
 
 {% endhighlight %}
@@ -495,9 +495,9 @@ Step 10: Add the following code snippet in the razor file of Navigation menu in 
 {% highlight HTML %}
 
 <li class="nav-item px-3">
-     <NavLink class="nav-link" href="docio">
-         <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
-     </NavLink>
+    <NavLink class="nav-link" href="docio">
+        <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
+    </NavLink>
 </li>
 
 {% endhighlight %}
