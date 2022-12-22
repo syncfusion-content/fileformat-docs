@@ -9,28 +9,28 @@ keywords: Assemblies
 
 # Perform OCR with AWS Textract 
 
-The Syncfusion .NET OCR library supports an external engine (This is, AWS Textract) to process the OCR on image and PDF documents. 
+The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) supports an external engine (AWS Textract) to process the OCR on image and PDF documents. 
 
 ## Steps to perform OCR with AWS Textract 
 
-1. Create a new .NET Console application project. 
+Step 1: Create a new .NET Console application project. 
 <img src="OCR-Images/.NET-sample-creation-step1.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
 <img src="OCR-Images/.NET-sample-creation-step2.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
 
-2. Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
+Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
 <img src="OCR-Images/.NET-sample-creation-step3.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
 <img src="OCR-Images/.NET-sample-creation-step4.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
 
-3. Include the following namespaces in the Program.cs file. 
+Step 3: Include the following namespaces in the Program.cs file. 
 
-```csharp
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.OCRProcessor;
 using Syncfusion.Pdf.Parsing;
-``` 
+{% endhighlight %}
 
-4. Use the following code sample to perform OCR on a PDF document with AWS Textract.
+Step 4: Use the following code sample to perform OCR on a PDF document with AWS Textract.
 
-```csharp
+{% highlight c# tabtitle="C#" %}
 //Initialize the OCR processor.
 using (OCRProcessor processor = new OCRProcessor())
 {
@@ -53,13 +53,13 @@ using (OCRProcessor processor = new OCRProcessor())
     stream.Dispose();
     fileStream.Dispose();
 }
-```
+{% endhighlight %}
 
-5. Create a new class named <b>AWSExternalOcrEngine</b> and implement the IOcrEngine interface. Get the image stream from the PerformOCR method and process it with an external OCR engine. This will return the OCRLayoutResult for the image.
+Step 5: Create a new class named <b>AWSExternalOcrEngine</b> and implement the IOcrEngine interface. Get the image stream from the PerformOCR method and process it with an external OCR engine. This will return the OCRLayoutResult for the image.
 
 N> Provide a valid Secret Access Key to work with AWS Textract. 
 
-```csharp
+{% highlight c# tabtitle="C#" %}
 
 class AWSExternalOcrEngine : IOcrEngine
 {
@@ -140,7 +140,9 @@ class AWSExternalOcrEngine : IOcrEngine
     }
 }
 
-```
+{% endhighlight %}
 
 By executing the program, you will get a PDF document as follows. 
 <img src="OCR-Images/Output.png" alt="Output PDF screenshot" width="100%" Height="Auto"/>
+
+A complete working sample can be downloaded from [Github]().

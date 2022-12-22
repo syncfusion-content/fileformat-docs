@@ -315,7 +315,7 @@ End Using
 
 ## Performing OCR on image
 
-To perform OCR on an image file, refer the below code snippets for the same.
+To perform OCR on an image file, refer the below code snippets.
 
 {% tabs %} 
 
@@ -399,7 +399,7 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 ## Performing OCR for large PDF documents
 
-To optimize the memory to perform OCR for large PDF documents by enabling the isMemoryOptimized property in [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_System_Boolean_) method of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. Optimization will be effective only with Multithreading environment or PDF document with more images. Refer the following code examples for more details. 
+To optimize the memory to perform OCR for large PDF documents by enabling the ``isMemoryOptimized`` property in [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_System_Boolean_) method of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. Optimization will be effective only with Multithreading environment or PDF document with more images. Refer the following code examples for more details. 
 
 N> Optimization of memory to perform OCR for large PDF documents is not supported in ASP.NET Core platform. 
 
@@ -464,7 +464,7 @@ End Using
 
 ## Performing OCR on rotated page of PDF document
 
-To perform OCR on the rotated page of a PDF document, refer to the following code snippet for the same. 
+To perform OCR on the rotated page of a PDF document, refer to the following code snippet. 
 
 {% tabs %} 
 

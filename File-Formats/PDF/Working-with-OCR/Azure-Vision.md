@@ -1,6 +1,6 @@
 ---
 title: Perform OCR on PDF and image files in Azure Vision | Syncfusion
-description: Learn how to perform OCR on scanned PDF documents and images in Azure Vision with different tesseract versions using Syncfusion .NET OCR library. 
+description: Learn how to perform OCR on scanned PDF documents and images in Azure Vision using Syncfusion .NET OCR library. 
 platform: file-formats
 control: PDF
 documentation: UG
@@ -12,31 +12,31 @@ keywords: Assemblies
 The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) supports external engines (Azure Computer Vision) to process the OCR on images and PDF documents.
 
 ## Steps to perform OCR with Azure Computer Vision 
-1. Create a new .NET Console application project. 
+Step 1: Create a new .NET Console application project. 
 <img src="OCR-Images/.NET-sample-Azure-step1.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
 <img src="OCR-Images/.NET-sample-Azure-step2.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
 
-2. Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
+Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
 
 <img src="OCR-Images/.NET-sample-Azure-step3.png" alt=".NET-sample-creation-step3" width="100%" Height="Auto"/>
 <img src="OCR-Images/.NET-sample-Azure-step4.png" alt=".NET-sample-creation-step4" width="100%" Height="Auto"/>
 
-3. Include the following namespaces in the Program.cs file. 
+Step 3: Include the following namespaces in the Program.cs file. 
 
-```csharp
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.OCRProcessor;
 using Syncfusion.Pdf.Parsing;
-``` 
+{% endhighlight %}
 
-4. Use the following code sample to perform OCR on a PDF document with Azure Vision in the Program.cs file. 
+Step 4: Use the following code sample to perform OCR on a PDF document with Azure Vision in the Program.cs file. 
 
-```csharp
+{% highlight c# tabtitle="C#" %}
 
 //Initialize the OCR processor.
 using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
-    FileStream stream = new FileStream("../../../Region.pdf", FileMode.Open);
+    FileStream stream = new FileStream("Input.pdf", FileMode.Open);
     PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
 
     //Set OCR language.
@@ -50,7 +50,7 @@ using (OCRProcessor processor = new OCRProcessor())
     processor.PerformOCR(lDoc);
 
     //Create file stream.
-    FileStream outputStream = new FileStream("../../../OCR.pdf", FileMode.CreateNew);
+    FileStream outputStream = new FileStream("OCR.pdf", FileMode.CreateNew);
 
     //Save the document into stream.
     lDoc.Save(outputStream);
@@ -63,13 +63,13 @@ using (OCRProcessor processor = new OCRProcessor())
     outputStream.Close();
 }
 
-``` 
+{% endhighlight %}
 
-5. Create a new class named <b>AzureExternalOcrEngine</b> to get the image stream from the PerformOCR method and process the image stream with an external engine. It returns the OCRLayoutResult for the image. 
+Step 5: Create a new class named <b>AzureExternalOcrEngine</b> to get the image stream from the PerformOCR method and process the image stream with an external engine. It returns the OCRLayoutResult for the image. 
 
 N> Provide a valid subscription key and endpoint to work with Azure computer vision.
 
-```csharp
+{% highlight c# tabtitle="C#" %}
 
 class AzureExternalOcrEngine : IOcrEngine
 {
@@ -193,8 +193,10 @@ class AzureExternalOcrEngine : IOcrEngine
     }
 }
 
-``` 
+{% endhighlight %}
 
 By executing the program, you will get a PDF document as follows. 
 <img src="OCR-Images/Output.png" alt="Output PDF screenshot" width="100%" Height="Auto"/>
+
+A complete working sample can be downloaded from [Github]().
 
