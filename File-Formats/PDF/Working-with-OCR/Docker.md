@@ -26,17 +26,17 @@ Step 5: Tesseract assemblies are not added as a reference. They must be kept in 
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
 
 {% endhighlight %}
 
 Step 6: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following this link.
 
-[Tesseract language data](https://github.com/tesseract-ocr/tessdata).
+[Tesseract language data](https://github.com/tesseract-ocr/tessdata)
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor("Tesseractbinaries\");
+OCRProcessor processor = new OCRProcessor("Tesseractbinaries/");
 processor.PerformOCR(loadedDocument, "tessdata/");
 
 {% endhighlight %}
