@@ -144,9 +144,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -254,7 +252,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -266,7 +263,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -306,7 +303,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -320,9 +316,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -386,7 +380,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -401,7 +394,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -444,7 +437,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -461,9 +453,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -521,7 +511,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -533,7 +522,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -573,7 +562,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -587,9 +575,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -654,7 +640,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -701,9 +687,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -765,7 +749,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IChart chart = workbook.Charts[0];
 
@@ -777,7 +760,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -818,7 +801,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IChart chart = workbook.Charts[0];
 
@@ -832,9 +814,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -894,7 +874,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -906,7 +885,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -947,7 +926,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -961,9 +939,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -1023,7 +999,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IChart chart = workbook.Charts[0];
 
@@ -1035,7 +1010,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -1076,7 +1051,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IChart chart = workbook.Charts[0];
 
@@ -1090,9 +1064,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -1133,7 +1105,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   application.DefaultVersion = ExcelVersion.Excel2013
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
-  
+
   'Unlocking a cell to edit in worksheet protection mode
   worksheet.Range("A1").CellStyle.Locked = False
 
@@ -1166,7 +1138,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-                
+
   //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
   var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -1207,7 +1179,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1221,9 +1192,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);

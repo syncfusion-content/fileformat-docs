@@ -27,7 +27,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
-
   IChart chart = worksheet.Charts[0];
 
   //Creating the memory stream for chart image
@@ -35,7 +34,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the chart as image
   chart.SaveAsImage(stream);
-
   Image image = Image.FromStream(stream);
 
   //Saving image stream to file
@@ -49,13 +47,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   application.DefaultVersion = ExcelVersion.Xlsx
 
   Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
-
   application.ChartToImageConverter = ChartToImageConverter
   application.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
   Dim chart As IChart = worksheet.Charts(0)
 
   'Creating the memory stream for chart image
@@ -63,7 +59,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Saving the chart as image
   chart.SaveAsImage(stream)
-
   Dim image As Image = Image.FromStream(stream)
 
   'Saving image stream to file
@@ -78,7 +73,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  
+
   //Initializing XlsIORenderer
   application.XlsIORenderer = new XlsIORenderer();
 
@@ -90,10 +85,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
-
   IChart chart = worksheet.Charts[0];  
 
   //Initializes FileSavePicker
@@ -122,13 +115,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   // Initialize XlsIORenderer
   application.XlsIORenderer = new XlsIORenderer();
-  
+
   //Set converter chart image format to PNG
   application.XlsIORenderer.ChartRenderingOptions.ImageFormat = ExportImageFormat.Png;
-  
+
   IWorkbook workbook = application.Workbooks.Open(File.OpenRead("Sample.xlsx"), ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
-
   IChart chart = worksheet.Charts[0];
 
   //Creating the memory stream for chart image
@@ -137,7 +129,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the chart as image
   chart.SaveAsImage(stream);
 
-   //Close and Dispose
+  //Close and Dispose
   workbook.Close();
   stream.Dispose();
 }
@@ -153,19 +145,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Set converter chart image format to PNG
   application.XlsIORenderer.ChartRenderingOptions.ImageFormat = ExportImageFormat.Png;
-  
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
   //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
-
   IChart chart = worksheet.Charts[0];  
   
-   //Creating the memory stream for chart image
+  //Creating the memory stream for chart image
   MemoryStream stream = new MemoryStream();
 
   //Saving the chart as image
@@ -174,13 +164,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      DependencyService.Get<ISaveWindowsPhone>()
-          .SaveAndView("Test.png", "image/png", stream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Test.png", "image/png", stream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
+  }
 }
 {% endhighlight %}
 {% endtabs %}  
@@ -325,7 +317,7 @@ N> Only embedded charts are supported in chart to image conversion. Chart sheets
 
 ## Supported chart elements
 XlsIO supports the following chart elements in image conversion:
-![chart elements](Working-With-Charts_images/chart-elements.jpeg)
+<img src="Working-With-Charts_images/chart-elements.jpeg" alt="chart elements" width="100%" Height="Auto"/>
 
 **Chart Elements:**
 1. Axis

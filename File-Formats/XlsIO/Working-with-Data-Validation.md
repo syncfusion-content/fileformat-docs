@@ -866,16 +866,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DataValidation.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DataValidation.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DataValidation.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DataValidation.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}

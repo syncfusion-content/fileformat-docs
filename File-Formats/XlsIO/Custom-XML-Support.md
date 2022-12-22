@@ -69,7 +69,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("CustomXml.Test.xml");
-
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -118,7 +117,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
-{				
+{
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
 
@@ -127,7 +126,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("CustomXml.Test.xml");
-
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -143,20 +141,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "CustomXml.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -182,7 +177,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Access XmlData from CustomXmlPart
   byte[] xmlData = customXmlPart.Data;
-
   System.Text.Encoding.Default.GetString(xmlData);
 
   workbook.SaveAs("CustomXml.xlsx");
@@ -201,7 +195,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Access XmlData from CustomXmlPart
   Dim xmlData As Byte() = customXmlPart.Data
-
   System.Text.Encoding.Default.GetString(xmlData)
 
   workbook.SaveAs("CustomXml.xlsx")
@@ -219,7 +212,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("CustomXml.CustomXml.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -228,7 +220,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Access XmlData from CustomXmlPart
   byte[] xmlData = customXmlPart.Data;
-
   System.Text.Encoding.UTF8.GetString(xmlData);
 
   //Initializes FileSavePicker
@@ -259,7 +250,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Access XmlData from CustomXmlPart
   byte[] xmlData = customXmlPart.Data;
-
   System.Text.Encoding.Default.GetString(xmlData);
 
   //Saving the workbook as stream
@@ -279,7 +269,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("CustomXml.CustomXml.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -288,7 +277,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Access XmlData from CustomXmlPart
   byte[] xmlData = customXmlPart.Data;
-
   System.Text.Encoding.UTF8.GetString(xmlData, 0, xmlData.Length);
 
   //Saving the workbook as stream
@@ -296,20 +284,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "CustomXml.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}

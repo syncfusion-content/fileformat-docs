@@ -38,10 +38,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   application.DefaultVersion = ExcelVersion.Excel2013
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-  ’Set IgnoreSheetNameException property as true
+  'Set IgnoreSheetNameException property as true
   application.IgnoreSheetNameException = true
-  
-  ‘Create worksheets with same name
+
+  'Create worksheets with same name
   Dim sheet_1 As IWorksheet = workbook.Worksheets.Create("Sheet")
   Dim sheet_2 As IWorksheet = workbook.Worksheets.Create("Sheet")
 
@@ -120,16 +120,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}

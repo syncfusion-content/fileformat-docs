@@ -11,50 +11,34 @@ documentation: UG
 You can compress the file using Syncfusion.Compression.Zip namespace. The following code illustrate this.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.Compression.Zip;
 
 ZipArchive zipArchive = new Syncfusion.Compression.Zip.ZipArchive();
-
 zipArchive.DefaultCompressionLevel = Syncfusion.Compression.CompressionLevel.Best;
 
 //Add the file you want to zip.
-
 zipArchive.AddFile("SampleFile.cs");
 
 //Zip file name and location.
-
 zipArchive.Save("SyncfusionCompressFileSample.zip");
-
 zipArchive.Close();
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Imports Syncfusion.Compression.Zip
 
 Dim zipArchive As ZipArchive = New Syncfusion.Compression.Zip.ZipArchive()
-
 zipArchive.DefaultCompressionLevel = Syncfusion.Compression.CompressionLevel.Best
 
 'Add the file you want to zip.
-
 zipArchive.AddFile("SampleFile.cs")
 
 'Zip file name and location.
-
 zipArchive.Save("SyncfusionCompressFileSample.zip")
-
 zipArchive.Close()
-
-
-
 {% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 T>You can use CompressionLevel to reduce the size of the file.  
 
@@ -63,55 +47,30 @@ For compressing directories, you can make use of the **AddDirectory** method whi
 The following code snippet illustrate how to add the file from the local drive.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 string fileName = @"SampleFile.cs";
-
 ZipArchive zipArchive = new Syncfusion.Compression.Zip.ZipArchive();
-
 zipArchive.DefaultCompressionLevel =CompressionLevel.Best;
-
 Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 FileAttributes attributes = File.GetAttributes(fileName);
-
 ZipArchiveItem item = new ZipArchiveItem(zipArchive, "SampleFile.cs", stream, true, attributes);
-
 zipArchive.AddItem(item);
-
 zipArchive.Save(@"SyncfusionCompressFileSample.zip");
-
 zipArchive.Close();
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Dim fileName As String = "SampleFile.cs"
-
 Dim zipArchive As ZipArchive = New Syncfusion.Compression.Zip.ZipArchive()
-
 zipArchive.DefaultCompressionLevel = CompressionLevel.Best
-
 Dim stream As Stream = New FileStream(fileName, FileMode.Open, FileAccess.Read)
-
 Dim attributes As FileAttributes = File.GetAttributes(fileName)
-
 Dim item As New ZipArchiveItem(zipArchive, "SampleFile.cs", stream, True, attributes)
-
 zipArchive.AddItem(item)
-
 zipArchive.Save("SyncfusionCompressFileSample.zip")
-
 zipArchive.Close()
-
-
-
 {% endhighlight %}
-
-  {% endtabs %}  
-
+{% endtabs %}  
  
 ## See Also
 
