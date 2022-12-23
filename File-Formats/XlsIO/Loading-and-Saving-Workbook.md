@@ -284,14 +284,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   outputStream.Position = 0;
 
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(outputFileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(outputFileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -549,7 +548,6 @@ workbook.SaveAs(outputStream);
 outputStream.Position = 0;
 
 //Save the document as file and view the saved document
-
 //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -683,6 +681,3 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 //Saving and sending the workbook to a client browser from a web site is suitable for web applications alone.
 {% endhighlight %}
 {% endtabs %}  
-
- 
-

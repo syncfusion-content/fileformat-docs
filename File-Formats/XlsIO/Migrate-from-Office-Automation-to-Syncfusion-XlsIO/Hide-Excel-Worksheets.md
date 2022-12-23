@@ -23,51 +23,51 @@ The following code shows how to hide Excel worksheets with Interop and XlsIO for
 {% highlight c# tabtitle="C#" %}
 private void HideWorksheet()
 {
-    //Instantiate the application object
-    var excelApp = new Microsoft.Office.Interop.Excel.Application();
+  //Instantiate the application object
+  var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
-    //Add a workbook
-    Workbook workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
+  //Add a workbook
+  Workbook workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
 
-    //Add a worksheet to the workbook
-    Worksheet newWorksheet = excelApp.Worksheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+  //Add a worksheet to the workbook
+  Worksheet newWorksheet = excelApp.Worksheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value);
 
-    //Get the first sheet
-    Worksheet worksheet = (Worksheet)workbook.Sheets["Sheet1"];
+  //Get the first sheet
+  Worksheet worksheet = (Worksheet)workbook.Sheets["Sheet1"];
 
-    //Hide the worksheet
-    worksheet.Visible = XlSheetVisibility.xlSheetHidden;
+  //Hide the worksheet
+  worksheet.Visible = XlSheetVisibility.xlSheetHidden;
 
-    //Save the file
-    workbook.SaveCopyAs("InteropOutput_HiddenWorksheet.xlsx");
+  //Save the file
+  workbook.SaveCopyAs("InteropOutput_HiddenWorksheet.xlsx");
 
-    //Quit the application
-    excelApp.Quit();
+  //Quit the application
+  excelApp.Quit();
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Sub HideWorksheet()
-    'Instantiate the application object
-    Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
+  'Instantiate the application object
+  Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
-    'Add a workbook
-    Dim workbook As Workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value)
+  'Add a workbook
+  Dim workbook As Workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value)
 
-    'Add a worksheet to the workbook
-    Dim newWorksheet As Worksheet = excelApp.Worksheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+  'Add a worksheet to the workbook
+  Dim newWorksheet As Worksheet = excelApp.Worksheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value)
 
-    'Get the first sheet
-    Dim worksheet As Worksheet = workbook.Sheets("Sheet1")
+  'Get the first sheet
+  Dim worksheet As Worksheet = workbook.Sheets("Sheet1")
 
-    'Hide the worksheet
-    worksheet.Visible = XlSheetVisibility.xlSheetHidden
+  'Hide the worksheet
+  worksheet.Visible = XlSheetVisibility.xlSheetHidden
 
-    'Save the file
-    workbook.SaveCopyAs("InteropOutput_HiddenWorksheet.xlsx")
+  'Save the file
+  workbook.SaveCopyAs("InteropOutput_HiddenWorksheet.xlsx")
 
-    'Quit the application
-    excelApp.Quit()
+  'Quit the application
+  excelApp.Quit()
 End Sub
 {% endhighlight %}
 {% endtabs %}
@@ -78,50 +78,50 @@ End Sub
 {% highlight c# tabtitle="C#" %}
 private void HideWorksheet()
 {
-    using (ExcelEngine excelEngine = new ExcelEngine())
-    {
-        //Instantiate the application object
-        IApplication application = excelEngine.Excel;
+  using (ExcelEngine excelEngine = new ExcelEngine())
+  {
+    //Instantiate the application object
+    IApplication application = excelEngine.Excel;
 
-        //Create a workbook
-        IWorkbook workbook = application.Workbooks.Create(1);
+    //Create a workbook
+    IWorkbook workbook = application.Workbooks.Create(1);
 
-        //Add a worksheet to the workbook
-        IWorksheet newWorksheet = workbook.Worksheets.Create();
+    //Add a worksheet to the workbook
+    IWorksheet newWorksheet = workbook.Worksheets.Create();
 
-        //Get the first sheet
-        IWorksheet worksheet = workbook.Worksheets[0];
+    //Get the first sheet
+    IWorksheet worksheet = workbook.Worksheets[0];
 
-        //Hide the worksheet
-        worksheet.Visibility = WorksheetVisibility.Hidden;
+    //Hide the worksheet
+    worksheet.Visibility = WorksheetVisibility.Hidden;
 
-        //Save the workbook
-        workbook.SaveAs("XlsIOOutput_HiddenWorksheet.xlsx");
-    }
+    //Save the workbook
+    workbook.SaveAs("XlsIOOutput_HiddenWorksheet.xlsx");
+  }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Sub HideWorksheet()
-    Using excelEngine As ExcelEngine = New ExcelEngine()
-        'Instantiate the application object
-        Dim application As IApplication = excelEngine.Excel
+  Using excelEngine As ExcelEngine = New ExcelEngine()
+    'Instantiate the application object
+    Dim application As IApplication = excelEngine.Excel
 
-        'Create a workbook
-        Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    'Create a workbook
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-        'Add a worksheet to the workbook
-        Dim newWorksheet As IWorksheet = workbook.Worksheets.Create()
+    'Add a worksheet to the workbook
+    Dim newWorksheet As IWorksheet = workbook.Worksheets.Create()
 
-        'Get the first sheet
-        Dim worksheet As IWorksheet = workbook.Worksheets(0)
+    'Get the first sheet
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-        'Hide the worksheet
-        worksheet.Visibility = WorksheetVisibility.Hidden
+    'Hide the worksheet
+    worksheet.Visibility = WorksheetVisibility.Hidden
 
-        'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_HiddenWorksheet.xlsx")
-    End Using
+    'Save as Excel file
+    workbook.SaveAs("XlsIOOutput_HiddenWorksheet.xlsx")
+  End Using
 End Sub
 {% endhighlight %}
 {% endtabs %}

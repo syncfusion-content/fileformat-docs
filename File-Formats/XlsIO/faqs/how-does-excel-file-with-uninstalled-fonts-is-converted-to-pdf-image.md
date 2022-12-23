@@ -68,87 +68,87 @@ End Sub
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
 
-    //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
-    application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+  //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+  application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
-    XlsIORenderer renderer = new XlsIORenderer();
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  XlsIORenderer renderer = new XlsIORenderer();
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    FileStream stream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);
+  FileStream stream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
 }
 
 private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Wingdings Regular")
-        args.AlternateFontName = "Bauhaus 93";
-    else
-        args.AlternateFontName = "Times New Roman";
+  //Sets the alternate font when a specified font is not installed in the production environment
+  if (args.OriginalFontName == "Wingdings Regular")
+    args.AlternateFontName = "Bauhaus 93";
+  else
+    args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
 
-    //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
-    application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+  //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+  application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
-    XlsIORenderer renderer = new XlsIORenderer();
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  XlsIORenderer renderer = new XlsIORenderer();
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    FileStream stream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);
+  FileStream stream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
 }
 
 private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Wingdings Regular")
-        args.AlternateFontName = "Bauhaus 93";
-    else
-        args.AlternateFontName = "Times New Roman";
+  //Sets the alternate font when a specified font is not installed in the production environment
+  if (args.OriginalFontName == "Wingdings Regular")
+    args.AlternateFontName = "Bauhaus 93";
+  else
+    args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IApplication application = excelEngine.Excel;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
 
-    //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
-    application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+  //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+  application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
-    XlsIORenderer renderer = new XlsIORenderer();
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  XlsIORenderer renderer = new XlsIORenderer();
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    MemoryStream stream = new MemoryStream();
-    pdfDocument.Save(stream);
+  MemoryStream stream = new MemoryStream();
+  pdfDocument.Save(stream);
 
-    stream.Position = 0;
+  stream.Position = 0;
 
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+  //Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 }
 
 private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Wingdings Regular")
-        args.AlternateFontName = "Bauhaus 93";
-    else
-        args.AlternateFontName = "Times New Roman";
+  //Sets the alternate font when a specified font is not installed in the production environment
+  if (args.OriginalFontName == "Wingdings Regular")
+    args.AlternateFontName = "Bauhaus 93";
+  else
+    args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 {% endtabs %}
