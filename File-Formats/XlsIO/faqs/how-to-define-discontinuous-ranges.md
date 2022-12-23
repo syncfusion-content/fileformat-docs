@@ -15,149 +15,118 @@ You can define a discontinuous range by adding different ranges to the Range col
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Create(1);
+  //Create Range collection.
+  IRanges rangeCollection = worksheet.CreateRangesCollection();
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Add different ranges to the Range collection.
+  rangeCollection.Add(worksheet.Range["D2:D3"]);
+  rangeCollection.Add(worksheet.Range["D10:D11"]);
+  rangeCollection.Text = "Welcome";
 
-    //Create Range collection.
-
-    IRanges rangeCollection = worksheet.CreateRangesCollection();
-
-    //Add different ranges to the Range collection.
-
-    rangeCollection.Add(worksheet.Range["D2:D3"]);
-
-    rangeCollection.Add(worksheet.Range["D10:D11"]);
-
-    rangeCollection.Text = "Welcome";
-
-    workbook.SaveAs("DiscontinuousRange.xlsx");
+  workbook.SaveAs("DiscontinuousRange.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Create Range collection.
+  Dim range As IRanges = worksheet.CreateRangesCollection()
 
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Add different ranges to the Range collection.
+  range.Add(worksheet.Range("D2:D3"))
+  range.Add(worksheet.Range("D10:D11"))
+  range.Text = "Welcome"
 
-    'Create Range collection.
-
-    Dim range As IRanges = worksheet.CreateRangesCollection()
-
-    'Add different ranges to the Range collection.
-
-    range.Add(worksheet.Range("D2:D3"))
-
-    range.Add(worksheet.Range("D10:D11"))
-
-    range.Text = "Welcome"
-
-    workbook.SaveAs("DiscontinuousRange.xlsx")
+  workbook.SaveAs("DiscontinuousRange.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = application.Workbooks.Create(1);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Create Range collection.
+  IRanges rangeCollection = worksheet.CreateRangesCollection();
 
-    //Create Range collection.
+  //Add different ranges to the Range collection.
+  rangeCollection.Add(worksheet.Range["D2:D3"]);
+  rangeCollection.Add(worksheet.Range["D10:D11"]);
+  rangeCollection.Text = "Welcome";
 
-    IRanges rangeCollection = worksheet.CreateRangesCollection();
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "DiscontinuousRange";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-    //Add different ranges to the Range collection.
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-    rangeCollection.Add(worksheet.Range["D2:D3"]);
-
-    rangeCollection.Add(worksheet.Range["D10:D11"]);
-
-    rangeCollection.Text = "Welcome";
-
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "DiscontinuousRange";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = application.Workbooks.Create(1);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Create Range collection.
+  IRanges rangeCollection = worksheet.CreateRangesCollection();
 
-    //Create Range collection.
+  //Add different ranges to the Range collection.
+  rangeCollection.Add(worksheet.Range["D2:D3"]);
+  rangeCollection.Add(worksheet.Range["D10:D11"]);
+  rangeCollection.Text = "Welcome";
 
-    IRanges rangeCollection = worksheet.CreateRangesCollection();
-
-    //Add different ranges to the Range collection.
-
-    rangeCollection.Add(worksheet.Range["D2:D3"]);
-
-    rangeCollection.Add(worksheet.Range["D10:D11"]);
-
-    rangeCollection.Text = "Welcome";
-
-    FileStream stream = new FileStream("DiscontinuousRange.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-
-    workbook.Close();
-    excelEngine.Dispose();
+  FileStream stream = new FileStream("DiscontinuousRange.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = application.Workbooks.Create(1);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Create Range collection.
+  IRanges rangeCollection = worksheet.CreateRangesCollection();
 
-    //Create Range collection.
+  //Add different ranges to the Range collection.
+  rangeCollection.Add(worksheet.Range["D2:D3"]);
+  rangeCollection.Add(worksheet.Range["D10:D11"]);
+  rangeCollection.Text = "Welcome";
 
-    IRanges rangeCollection = worksheet.CreateRangesCollection();
-
-    //Add different ranges to the Range collection.
-
-    rangeCollection.Add(worksheet.Range["D2:D3"]);
-
-    rangeCollection.Add(worksheet.Range["D10:D11"]);
-
-    rangeCollection.Text = "Welcome";
-
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    stream.Position = 0;
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DiscontinuousRange.xlsx", "application/msexcel", stream);
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  stream.Position = 0;
+  //Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DiscontinuousRange.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-
 {% endtabs %}  
 
 ## See Also

@@ -11,125 +11,114 @@ documentation: UG
 You can unfreeze rows and columns in XlsIO by using the RemovePanes method. The following code snippet illustrates this.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Freeze the panes
+  worksheet.Range[8, 1].FreezePanes();
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Unfreeze the panes
+  worksheet.RemovePanes();
 
-    //Freeze the panes
-    worksheet.Range[8, 1].FreezePanes();
-
-    //Unfreeze the panes
-    worksheet.RemovePanes();
-
-    workbook.SaveAs("Unfreeze.xlsx");
+  workbook.SaveAs("Unfreeze.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Freeze the panes
+  worksheet.Range(8, 1).FreezePanes()
 
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Unfreeze the panes
+  worksheet.RemovePanes()
 
-    'Freeze the panes
-    worksheet.Range(8, 1).FreezePanes()
-
-    'Unfreeze the panes
-    worksheet.RemovePanes()
-
-    workbook.SaveAs("Unfreeze.xlsx")
+  workbook.SaveAs("Unfreeze.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    Stream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IApplication application = excelEngine.Excel;
+  Stream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Freeze the panes
+  worksheet.Range[8, 1].FreezePanes();
 
-    //Freeze the panes
-    worksheet.Range[8, 1].FreezePanes();
+  //Unfreeze the panes
+  worksheet.RemovePanes();
 
-    //Unfreeze the panes
-    worksheet.RemovePanes();
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Unfreeze";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Unfreeze";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Freeze the panes
+  worksheet.Range[8, 1].FreezePanes();
 
-    //Freeze the panes
-    worksheet.Range[8, 1].FreezePanes();
+  //Unfreeze the panes
+  worksheet.RemovePanes();
 
-    //Unfreeze the panes
-    worksheet.RemovePanes();
-
-    FileStream stream = new FileStream("Unfreeze.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-
-    workbook.Close();
-    excelEngine.Dispose();
+  FileStream stream = new FileStream("Unfreeze.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IApplication application = excelEngine.Excel;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Freeze the panes
+  worksheet.Range[8, 1].FreezePanes();
 
-    //Freeze the panes
-    worksheet.Range[8, 1].FreezePanes();
+  //Unfreeze the panes
+  worksheet.RemovePanes();
 
-    //Unfreeze the panes
-    worksheet.RemovePanes();
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  stream.Position = 0;
 
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    stream.Position = 0;
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Unfreeze.xlsx", "application/msexcel", stream);
+  //Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Unfreeze.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 ## See Also
 

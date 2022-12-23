@@ -81,8 +81,7 @@ An array of data can be binded to the marker in the template document.
 
 The following screenshot represents the input template which has a template marker.
 
-![Bind from Array Example](Working-with-Template-Markers_images/Template_Markers_in_Excel_Spreadsheet_Templates.jpeg)
-
+<img src="Working-with-Template-Markers_images/Template_Markers_in_Excel_Spreadsheet_Templates.jpeg" alt="Bind from Array Example" width="100%" Height="Auto"/>
 
 Following code example illustrates how to bind the data from an array to a marker.
 
@@ -90,7 +89,6 @@ Following code example illustrates how to bind the data from an array to a marke
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  ExcelEngine excelEngine = new ExcelEngine();
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -111,9 +109,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.Version = ExcelVersion.Excel2013;
   workbook.SaveAs("TemplateMarker.xlsx");
 }
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -138,9 +133,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.Version = ExcelVersion.Excel2013
   workbook.SaveAs("TemplateMarker.xlsx")
 End Using
-
-
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -181,15 +173,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
 }
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -219,13 +209,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
+
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -249,26 +238,26 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   //Save the stream as Excel document and view the saved document
-  
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  }
   else
-    DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
   outputStream.Dispose();
 }
 {% endhighlight %}
-
 {% endtabs %}  
-
 
 The following screenshot represents generated Excel file in which the array of data is bounded.
 
-![Bind from Array Example](Working-with-Template-Markers_images/Bind_data_from_Array_to_Excel_Spreadsheet_Template.jpeg)
-
+<img src="Working-with-Template-Markers_images/Bind_data_from_Array_to_Excel_Spreadsheet_Template.jpeg" alt="Bind from Array Example" width="100%" Height="Auto"/>
 
 You can also add or insert template markers using XlsIO APIs as follows.
 
@@ -290,7 +279,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-  
+
   //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers");
   marker.AddVariable("Marker2", sheet.Range["B2"]);
@@ -301,10 +290,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   workbook.Version = ExcelVersion.Excel2013;
   workbook.SaveAs("TemplateMarker.xlsx");
-}   
-
-
-
+}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -323,7 +309,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Create Template Marker Processor
   Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
-  
+
   'Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers")
   marker.AddVariable("Marker2", sheet.Range("B2"))
@@ -335,9 +321,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.Version = ExcelVersion.Excel2013
   workbook.SaveAs("TemplateMarker.xlsx")
 End Using
-
-
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -348,7 +331,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -363,7 +345,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-  
+
   //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers");
   marker.AddVariable("Marker2", sheet.Range["B2"]);
@@ -386,16 +368,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
   FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -410,7 +389,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-  
+
   //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers");
   marker.AddVariable("Marker2", sheet.Range["B2"]);
@@ -425,20 +404,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(stream);
   stream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  
+
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-             
+
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[0];
 
@@ -467,22 +444,23 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAs(outputStream);
 
-  //Save the stream as Excel document and view the saved document  
-  
+  //Save the stream as Excel document and view the saved document    
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
   outputStream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}  
-
 
 ## Bind from DataTable
 
@@ -495,10 +473,9 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 </table>
 By default, DataTable values will be filled in the worksheet as a string format. You can detect data type and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
 
- The following screenshot represents the input template which has a template marker.
+The following screenshot represents the input template which has a template marker.
 
-![Bind from DataTable Example](Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg)
-
+<img src="Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg" alt="Bind from DataTable Example" width="100%" Height="Auto"/>
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
@@ -531,7 +508,6 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   workbook.Version = ExcelVersion.Excel2013;
   workbook.SaveAs("TemplateMarkerWithFormat.xlsx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -561,12 +537,12 @@ using excelEngine As ExcelEngine = new ExcelEngine()
   workbook.Version = ExcelVersion.Excel2013
   workbook.SaveAs("TemplateMarkerWithFormat.xlsx")
 End Using
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Binding data from data table is supported only from ASP.NET Core 2.0
@@ -588,7 +564,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   reports.Rows.Add("Karen Fillippelli", new DateTime(2014, 09, 15), new DateTime(2014, 09, 20));
   reports.Rows.Add("Phyllis Lapin", new DateTime(2014, 09, 21), new DateTime(2014, 09, 25));
   reports.Rows.Add("Stanley Hudson", new DateTime(2014, 09, 26), new DateTime(2014, 09, 30));
-  
+
   //Add collection to the marker variables where the name should match with input template  
   //Detects number format in DateTable values
   marker.AddVariable("Reports", reports, VariableTypeAction.DetectNumberFormat);
@@ -615,8 +591,7 @@ A complete working example to bind data from data table to template marker in C#
 
 The following screenshot represents an Excel file in which the data type is detected and then number format is applied.
 
-![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg" alt="Bind from DataTable Example" width="100%" Height="Auto"/>
 
 ## Bind from Collection Objects with images
 
@@ -659,8 +634,7 @@ Image is positioned (top-left, top-center, etc.,) within the cell.<br/><br/></td
 </table>
 In the following example, a marker is added for merging images. Data source and property name is specified (%Reports.Image;) for image also. 
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 __Marker__ __added__ __for__ __merging__ __images__
 
@@ -674,61 +648,51 @@ The output of all the image insertion options with input templates are as follow
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **FitToCell** **attribute**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **Size**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **Position**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 **Image** **with** **position** **and** **size**
 
 Input template
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
 
 You can also refer to the [Template based data filling using Template Markers](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet#template-based-data-filling-using-template-markers) section in [Getting Started](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet) for the sample regarding template marker with images.
 
@@ -753,19 +717,19 @@ The following code snippet illustrates how to import data from nested collection
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx")
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx")
 
-    //Create Template Marker Processor
-    ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+  //Create Template Marker Processor
+  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
-    //Add collection to the marker variables where the name should match with input template
-    marker.AddVariable("Customer", GetSalesReports());
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Customer", GetSalesReports());
 
-    //Process the markers in the template
-    marker.ApplyMarkers();
+  //Process the markers in the template
+  marker.ApplyMarkers();
 
-    workbook.SaveAs("TemplateMarkerNestedCollection.xlsx");
+  workbook.SaveAs("TemplateMarkerNestedCollection.xlsx");
 }
 {% endhighlight %}
 
@@ -775,7 +739,7 @@ using excelEngine As ExcelEngine = new ExcelEngine()
 
   'Create Template Marker Processor
   Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
- 
+
   'Add collection to the marker variables where the name should match with input template
    marker.AddVariable("Customer", GetSalesReports())
 
@@ -784,7 +748,6 @@ using excelEngine As ExcelEngine = new ExcelEngine()
 
   workbook.SaveAs("TemplateMarkerNestedCollection.xlsx");
 End Using
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -801,7 +764,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Opens the workbook
   IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-  
+
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
@@ -824,8 +787,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
-{% highlight c# tabtitle="ASP.NET Core" %}
 
+{% highlight c# tabtitle="ASP.NET Core" %}
 //Binding data from data table is supported only from ASP.NET Core 2.0
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -834,7 +797,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(fileStream);
 
   //Create Template Marker Processor
-    ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
   //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Customer", GetSalesReports());
@@ -843,12 +806,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   marker.ApplyMarkers();
 
   //Saving the workbook as stream
-
   FileStream stream = new FileStream("TemplateMarkerNestedCollection.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -876,16 +837,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerNestedCollection.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerNestedCollection.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerNestedCollection.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerNestedCollection.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -898,109 +857,112 @@ The following code snippet provides supporting methods and classes for the previ
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
-    List<Customer> reports = new List<Customer>();
+  List<Customer> reports = new List<Customer>();
 
-    List<Order> orders = new List<Order>();
-    orders.Add(new Order(1408, 451.75));
-    orders.Add(new Order(1278, 340.00));
-    orders.Add(new Order(1123, 290.50));
+  List<Order> orders = new List<Order>();
+  orders.Add(new Order(1408, 451.75));
+  orders.Add(new Order(1278, 340.00));
+  orders.Add(new Order(1123, 290.50));
 
-    Customer c1 = new Customer(002107, "Andy Bernard", 45);
-    c1.Orders = orders;
-    Customer c2 = new Customer(011564, "Jim Halpert", 34);
-    c2.Orders = orders;
-    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
-    c3.Orders = orders;
-    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
-    c4.Orders = orders;
-    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
-    c5.Orders = orders;
+  Customer c1 = new Customer(002107, "Andy Bernard", 45);
+  c1.Orders = orders;
+  Customer c2 = new Customer(011564, "Jim Halpert", 34);
+  c2.Orders = orders;
+  Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+  c3.Orders = orders;
+  Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+  c4.Orders = orders;
+  Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+  c5.Orders = orders;
 
-    reports.Add(c1);
-    reports.Add(c2);
-    reports.Add(c3);
-    reports.Add(c4);
-    reports.Add(c5);
+  reports.Add(c1);
+  reports.Add(c2);
+  reports.Add(c3);
+  reports.Add(c4);
+  reports.Add(c5);
 
-    return reports;
+  return reports;
 }
 
 //Customer details
 public partial class Customer
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public IList<Order> Orders { get; set; }
-    public Customer(int id, string name, int age)
-    {
-        Id = id;
-        Name = name;
-        Age = age;
-    }
+  public int Id { get; set; }
+  public string Name { get; set; }
+  public int Age { get; set; }
+  public IList<Order> Orders { get; set; }
+  public Customer(int id, string name, int age)
+  {
+    Id = id;
+    Name = name;
+    Age = age;
+  }
 }
 //Order details
 public partial class Order
 {
-    public int Order_Id { get; set; }
-    public double Price { get; set; }
+  public int Order_Id { get; set; }
+  public double Price { get; set; }
 
-    public Order(int id, double price)
-    {
-        Order_Id = id;
-        Price = price;
-    }
+  public Order(int id, double price)
+  {
+    Order_Id = id;
+    Price = price;
+  }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of sales reports
 Public Shared Function GetSalesReports() As List(Of Customer)
-    Dim reports As List(Of Customer) = New List(Of Customer)()
-    Dim orders As List(Of Order) = New List(Of Order)()
-    orders.Add(New Order(1408, 451.75))
-    orders.Add(New Order(1278, 340.00))
-    orders.Add(New Order(1123, 290.50))
-    Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
-    c1.Orders = orders
-    Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
-    c2.Orders = orders
-    Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
-    c3.Orders = orders
-    Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
-    c4.Orders = orders
-    Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
-    c5.Orders = orders
-    reports.Add(c1)
-    reports.Add(c2)
-    reports.Add(c3)
-    reports.Add(c4)
-    reports.Add(c5)
-    Return reports
+  Dim reports As List(Of Customer) = New List(Of Customer)()
+
+  Dim orders As List(Of Order) = New List(Of Order)()
+  orders.Add(New Order(1408, 451.75))
+  orders.Add(New Order(1278, 340.00))
+  orders.Add(New Order(1123, 290.50))
+  
+  Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
+  c1.Orders = orders
+  Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
+  c2.Orders = orders
+  Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
+  c3.Orders = orders
+  Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
+  c4.Orders = orders
+  Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
+  c5.Orders = orders
+  
+  reports.Add(c1)
+  reports.Add(c2)
+  reports.Add(c3)
+  reports.Add(c4)
+  reports.Add(c5)
+  Return reports
 End Function
 
 'Customer details
 Public Class Customer
-    Public Property Id As Integer
-    Public Property Name As String
-    Public Property Age As Integer
-    Public Property Orders As IList(Of Order)
+  Public Property Id As Integer
+  Public Property Name As String
+  Public Property Age As Integer
+  Public Property Orders As IList(Of Order)
 
-    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
-        Id = id
-        Name = name
-        Age = age
-    End Sub
+  Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
+    Id = id
+    Name = name
+    Age = age
+  End Sub
 End Class
 'Order details
 Public Class Order
-    Public Property Order_Id As Integer
-    Public Property Price As Double
+  Public Property Order_Id As Integer
+  Public Property Price As Double
 
-    Public Sub New(ByVal id As Integer, ByVal price As Double)
-        Order_Id = id
-        Price = price
-    End Sub
+  Public Sub New(ByVal id As Integer, ByVal price As Double)
+    Order_Id = id
+    Price = price
+  End Sub
 End Class
 {% endhighlight %}
 
@@ -1008,58 +970,58 @@ End Class
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
-    List<Customer> reports = new List<Customer>();
+  List<Customer> reports = new List<Customer>();
 
-    List<Order> orders = new List<Order>();
-    orders.Add(new Order(1408, 451.75));
-    orders.Add(new Order(1278, 340.00));
-    orders.Add(new Order(1123, 290.50));
+  List<Order> orders = new List<Order>();
+  orders.Add(new Order(1408, 451.75));
+  orders.Add(new Order(1278, 340.00));
+  orders.Add(new Order(1123, 290.50));
 
-    Customer c1 = new Customer(002107, "Andy Bernard", 45);
-    c1.Orders = orders;
-    Customer c2 = new Customer(011564, "Jim Halpert", 34);
-    c2.Orders = orders;
-    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
-    c3.Orders = orders;
-    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
-    c4.Orders = orders;
-    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
-    c5.Orders = orders;
+  Customer c1 = new Customer(002107, "Andy Bernard", 45);
+  c1.Orders = orders;
+  Customer c2 = new Customer(011564, "Jim Halpert", 34);
+  c2.Orders = orders;
+  Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+  c3.Orders = orders;
+  Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+  c4.Orders = orders;
+  Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+  c5.Orders = orders;
 
-    reports.Add(c1);
-    reports.Add(c2);
-    reports.Add(c3);
-    reports.Add(c4);
-    reports.Add(c5);
+  reports.Add(c1);
+  reports.Add(c2);
+  reports.Add(c3);
+  reports.Add(c4);
+  reports.Add(c5);
 
-    return reports;
+  return reports;
 }
 
 //Customer details
 public partial class Customer
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public IList<Order> Orders { get; set; }
-    public Customer(int id, string name, int age)
-    {
-        Id = id;
-        Name = name;
-        Age = age;
-    }
+  public int Id { get; set; }
+  public string Name { get; set; }
+  public int Age { get; set; }
+  public IList<Order> Orders { get; set; }
+  public Customer(int id, string name, int age)
+  {
+    Id = id;
+    Name = name;
+    Age = age;
+  }
 }
 //Order details
 public partial class Order
 {
-    public int Order_Id { get; set; }
-    public double Price { get; set; }
+  public int Order_Id { get; set; }
+  public double Price { get; set; }
 
-    public Order(int id, double price)
-    {
-        Order_Id = id;
-        Price = price;
-    }
+  public Order(int id, double price)
+  {
+    Order_Id = id;
+    Price = price;
+  }
 }
 {% endhighlight %}
 
@@ -1067,58 +1029,58 @@ public partial class Order
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
-    List<Customer> reports = new List<Customer>();
+  List<Customer> reports = new List<Customer>();
 
-    List<Order> orders = new List<Order>();
-    orders.Add(new Order(1408, 451.75));
-    orders.Add(new Order(1278, 340.00));
-    orders.Add(new Order(1123, 290.50));
+  List<Order> orders = new List<Order>();
+  orders.Add(new Order(1408, 451.75));
+  orders.Add(new Order(1278, 340.00));
+  orders.Add(new Order(1123, 290.50));
 
-    Customer c1 = new Customer(002107, "Andy Bernard", 45);
-    c1.Orders = orders;
-    Customer c2 = new Customer(011564, "Jim Halpert", 34);
-    c2.Orders = orders;
-    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
-    c3.Orders = orders;
-    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
-    c4.Orders = orders;
-    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
-    c5.Orders = orders;
+  Customer c1 = new Customer(002107, "Andy Bernard", 45);
+  c1.Orders = orders;
+  Customer c2 = new Customer(011564, "Jim Halpert", 34);
+  c2.Orders = orders;
+  Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+  c3.Orders = orders;
+  Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+  c4.Orders = orders;
+  Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+  c5.Orders = orders;
 
-    reports.Add(c1);
-    reports.Add(c2);
-    reports.Add(c3);
-    reports.Add(c4);
-    reports.Add(c5);
+  reports.Add(c1);
+  reports.Add(c2);
+  reports.Add(c3);
+  reports.Add(c4);
+  reports.Add(c5);
 
-    return reports;
+  return reports;
 }
 
 //Customer details
 public partial class Customer
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public IList<Order> Orders { get; set; }
-    public Customer(int id, string name, int age)
-    {
-        Id = id;
-        Name = name;
-        Age = age;
-    }
+  public int Id { get; set; }
+  public string Name { get; set; }
+  public int Age { get; set; }
+  public IList<Order> Orders { get; set; }
+  public Customer(int id, string name, int age)
+  {
+    Id = id;
+    Name = name;
+    Age = age;
+  }
 }
 //Order details
 public partial class Order
 {
-    public int Order_Id { get; set; }
-    public double Price { get; set; }
+  public int Order_Id { get; set; }
+  public double Price { get; set; }
 
-    public Order(int id, double price)
-    {
-        Order_Id = id;
-        Price = price;
-    }
+  public Order(int id, double price)
+  {
+    Order_Id = id;
+    Price = price;
+  }
 }
 {% endhighlight %}
 
@@ -1126,58 +1088,58 @@ public partial class Order
 //Gets a list of sales reports
 public static List<Customer> GetSalesReports()
 {
-    List<Customer> reports = new List<Customer>();
+  List<Customer> reports = new List<Customer>();
 
-    List<Order> orders = new List<Order>();
-    orders.Add(new Order(1408, 451.75));
-    orders.Add(new Order(1278, 340.00));
-    orders.Add(new Order(1123, 290.50));
+  List<Order> orders = new List<Order>();
+  orders.Add(new Order(1408, 451.75));
+  orders.Add(new Order(1278, 340.00));
+  orders.Add(new Order(1123, 290.50));
 
-    Customer c1 = new Customer(002107, "Andy Bernard", 45);
-    c1.Orders = orders;
-    Customer c2 = new Customer(011564, "Jim Halpert", 34);
-    c2.Orders = orders;
-    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
-    c3.Orders = orders;
-    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
-    c4.Orders = orders;
-    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
-    c5.Orders = orders;
+  Customer c1 = new Customer(002107, "Andy Bernard", 45);
+  c1.Orders = orders;
+  Customer c2 = new Customer(011564, "Jim Halpert", 34);
+  c2.Orders = orders;
+  Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+  c3.Orders = orders;
+  Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+  c4.Orders = orders;
+  Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+  c5.Orders = orders;
 
-    reports.Add(c1);
-    reports.Add(c2);
-    reports.Add(c3);
-    reports.Add(c4);
-    reports.Add(c5);
+  reports.Add(c1);
+  reports.Add(c2);
+  reports.Add(c3);
+  reports.Add(c4);
+  reports.Add(c5);
 
-    return reports;
+  return reports;
 }
 
 //Customer details
 public partial class Customer
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public IList<Order> Orders { get; set; }
-    public Customer(int id, string name, int age)
-    {
-        Id = id;
-        Name = name;
-        Age = age;
-    }
+  public int Id { get; set; }
+  public string Name { get; set; }
+  public int Age { get; set; }
+  public IList<Order> Orders { get; set; }
+  public Customer(int id, string name, int age)
+  {
+    Id = id;
+    Name = name;
+    Age = age;
+  }
 }
 //Order details
 public partial class Order
 {
-    public int Order_Id { get; set; }
-    public double Price { get; set; }
+  public int Order_Id { get; set; }
+  public double Price { get; set; }
 
-    public Order(int id, double price)
-    {
-        Order_Id = id;
-        Price = price;
-    }
+  public Order(int id, double price)
+  {
+    Order_Id = id;
+    Price = price;
+  }
 }
 {% endhighlight %}
 {% endtabs %} 
@@ -1190,61 +1152,51 @@ The output of all the import data and group options with input templates are as 
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img20.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img20.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img21.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img21.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Merge** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img22.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img22.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img23.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img23.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Repeat** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img24.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img24.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img25.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img25.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Collapse** **group** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img26.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img26.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img27.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img27.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 **Expand** **group** **option** **input** **and** **output**
 
 Input template
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img28.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img28.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 Generated output
 
-![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img29.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img29.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
 
 ## Template marker with conditional formatting
 
@@ -1252,8 +1204,7 @@ You can create or apply conditional format to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-![Template marker with conditional formatting Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg)
-
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg" alt="emplate marker with conditional formatting Example" width="100%" Height="Auto"/>
 
 The following code sample illustrates how to create or apply conditional format to the marker.
 
@@ -1261,21 +1212,12 @@ The following code sample illustrates how to create or apply conditional format 
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  #region Initialize Workbook
-
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  #endregion
-
-  #region Create Template Marker
-
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
   IConditionalFormats conditionalFormats = marker.CreateConditionalFormats(worksheet["C5"]);
-
-  #region Data Bar
 
   //Apply markers using Formula
   IConditionalFormat condition = conditionalFormats.AddCondition();
@@ -1283,7 +1225,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Set Data bar and icon set for the same cell
   //Set the format type
   condition.FormatType = ExcelCFType.DataBar;
-
   IDataBar dataBar = condition.DataBar;
 
   //Set the constraint
@@ -1298,13 +1239,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Hide the value in data bar
   dataBar.ShowValue = false;
 
-  #endregion
-
-  #region IconSet
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
-
   IIconSet iconSet = condition.IconSet;
   iconSet.IconSet = ExcelIconSetType.FourRating;
   iconSet.IconCriteria[0].Type = ConditionValueType.LowestValue;
@@ -1313,15 +1249,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   iconSet.IconCriteria[1].Value = "0";
   iconSet.ShowIconOnly = true;
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["D5"]);
-
-  #region Color Scale
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.ColorScale;
-
   IColorScale colorScale = condition.ColorScale;
 
   //Sets 3 - color scale
@@ -1339,15 +1269,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   colorScale.Criteria[2].Type = ConditionValueType.HighestValue;
   colorScale.Criteria[2].Value = "0";
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["E5"]);
-
-  #region IconSet
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
-
   iconSet = condition.IconSet;
   iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
 
@@ -1359,44 +1283,25 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   iconSet.ShowIconOnly = false;
 
-  #endregion
-
   //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
   //Process the markers in the template
   marker.ApplyMarkers();
 
-  #endregion
-
-  #region Save the Workbook
-
   workbook.Version = ExcelVersion.Excel2013;
   workbook.SaveAs("TemplateMarkerCF.xlsx");
-
-  #endregion
 }
-
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Region "Initialize Workbook"
-
 using excelEngine As ExcelEngine = new ExcelEngine()
   Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'End Region
-
-  'Region "Create Template Marker"
-
   'Create Template Marker Processor
   Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
-
   Dim conditionalFormats As IConditionalFormats = marker.CreateConditionalFormats(worksheet("C5"))
-
-  'Region "Data Bar"
 
   'Apply markers using Formula
   Dim condition As IConditionalFormat = conditionalFormats.AddCondition()
@@ -1404,7 +1309,6 @@ using excelEngine As ExcelEngine = new ExcelEngine()
   'Set Data bar and icon set for the same cell
   'Set the format type
   condition.FormatType = ExcelCFType.DataBar
-
   Dim dataBar As IDataBar = condition.DataBar
 
   'Set the constraint
@@ -1419,13 +1323,8 @@ using excelEngine As ExcelEngine = new ExcelEngine()
   'Hide the value in data bar
   dataBar.ShowValue = False
 
-  'End Region
-
-  'Region "IconSet"
-
   condition = conditionalFormats.AddCondition()
   condition.FormatType = ExcelCFType.IconSet
-
   Dim iconSet As IIconSet = condition.IconSet
   iconSet.IconSet = ExcelIconSetType.FourRating
 
@@ -1437,15 +1336,9 @@ using excelEngine As ExcelEngine = new ExcelEngine()
 
   iconSet.ShowIconOnly = True
 
-  'End Region
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet("D5"))
-
-  'Region "Color Scale"
-
   condition = conditionalFormats.AddCondition()
   condition.FormatType = ExcelCFType.ColorScale
-
   Dim colorScale As IColorScale = condition.ColorScale
 
   'Sets 3 - color scale
@@ -1463,12 +1356,7 @@ using excelEngine As ExcelEngine = new ExcelEngine()
   colorScale.Criteria(2).Type = ConditionValueType.HighestValue
   colorScale.Criteria(2).Value = "0"
 
-  'End Region
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet("E5"))
-
-  'Region "IconSet"
-
   condition = conditionalFormats.AddCondition()
   condition.FormatType = ExcelCFType.IconSet
 
@@ -1483,27 +1371,17 @@ using excelEngine As ExcelEngine = new ExcelEngine()
 
   iconSet.ShowIconOnly = False
 
-  'End Region
-
   'Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports())
 
   'Process the markers in the template
   marker.ApplyMarkers()
 
-  'End Region
-
-  'Region "Save the Workbook"
-
   workbook.Version = ExcelVersion.Excel2013
   workbook.SaveAs("TemplateMarkerCF.xlsx")
-
-  'End Region
 End Using
-
-
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1512,20 +1390,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("TemplateMarker.TemplateMarker.xlsx");
-
   IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  #endregion
-
-  #region Create Template Marker
-
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
   IConditionalFormats conditionalFormats = marker.CreateConditionalFormats(worksheet["C5"]);
-
-  #region Data Bar
 
   //Apply markers using Formula
   IConditionalFormat condition = conditionalFormats.AddCondition();
@@ -1533,7 +1403,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Set Data bar and icon set for the same cell
   //Set the format type
   condition.FormatType = ExcelCFType.DataBar;
-
   IDataBar dataBar = condition.DataBar;
 
   //Set the constraint
@@ -1548,13 +1417,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Hide the value in data bar
   dataBar.ShowValue = false;
 
-  #endregion
-
-  #region IconSet
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
-
   IIconSet iconSet = condition.IconSet;
   iconSet.IconSet = ExcelIconSetType.FourRating;
   iconSet.IconCriteria[0].Type = ConditionValueType.LowestValue;
@@ -1563,12 +1427,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   iconSet.IconCriteria[1].Value = "0";
   iconSet.ShowIconOnly = true;
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["D5"]);
-
-  #region Color Scale
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.ColorScale;
 
@@ -1589,12 +1448,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   colorScale.Criteria[2].Type = ConditionValueType.HighestValue;
   colorScale.Criteria[2].Value = "0";
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["E5"]);
-
-  #region IconSet
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
 
@@ -1609,17 +1463,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   iconSet.ShowIconOnly = false;
 
-  #endregion
-
   //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
   //Process the markers in the template
   marker.ApplyMarkers();
-
-  #endregion
-
-  #region Save the Workbook
 
   workbook.Version = ExcelVersion.Excel2013;
 
@@ -1634,34 +1482,19 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-
-  #endregion
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  #region Initialize Workbook
-
   FileStream fileStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  #endregion
-
-  #region Create Template Marker
-
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
   IConditionalFormats conditionalFormats = marker.CreateConditionalFormats(worksheet["C5"]);
-
-  #endregion
-
-  #region Data Bar
 
   //Apply markers using Formula
   IConditionalFormat condition = conditionalFormats.AddCondition();
@@ -1684,10 +1517,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Hide the value in data bar
   dataBar.ShowValue = false;
 
-  #endregion
-
-  #region IconSet
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
 
@@ -1702,15 +1531,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   iconSet.ShowIconOnly = true;
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["D5"]);
-
-  #region Color Scale
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.ColorScale;
-
   IColorScale colorScale = condition.ColorScale;
 
   //Sets 3 - color scale
@@ -1728,12 +1551,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   colorScale.Criteria[2].Type = ConditionValueType.HighestValue;
   colorScale.Criteria[2].Value = "0";
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["E5"]);
-
-  #region IconSet
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
 
@@ -1748,8 +1566,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   iconSet.ShowIconOnly = false;
 
-  #endregion
-
   //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
@@ -1762,35 +1578,22 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(stream);
   stream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  #region Initialize Workbook
-
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("TemplateMarker.xlsx");
-
   IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  #endregion
-
-  #region Create Template Marker
-
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
   IConditionalFormats conditionalFormats = marker.CreateConditionalFormats(worksheet["C5"]);
-
-  #endregion
-
-  #region Data Bar
 
   //Apply markers using Formula
   IConditionalFormat condition = conditionalFormats.AddCondition();
@@ -1798,7 +1601,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Set Data bar and icon set for the same cell
   //Set the format type
   condition.FormatType = ExcelCFType.DataBar;
-
   IDataBar dataBar = condition.DataBar;
 
   //Set the constraint
@@ -1809,10 +1611,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Hide the value in data bar
   dataBar.ShowValue = false;
-
-  #endregion
-
-  #region IconSet
 
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
@@ -1828,15 +1626,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   iconSet.ShowIconOnly = true;
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["D5"]);
-
-  #region Color Scale
 
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.ColorScale;
-
   IColorScale colorScale = condition.ColorScale;
 
   //Sets 3 - color scale
@@ -1854,12 +1647,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   colorScale.Criteria[2].Type = ConditionValueType.HighestValue;
   colorScale.Criteria[2].Value = "0";
 
-  #endregion
-
   conditionalFormats = marker.CreateConditionalFormats(worksheet["E5"]);
-
-  #region IconSet
-
   condition = conditionalFormats.AddCondition();
   condition.FormatType = ExcelCFType.IconSet;
 
@@ -1874,8 +1662,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   iconSet.ShowIconOnly = false;
 
-  #endregion
-
   //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
@@ -1887,13 +1673,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAs(outputStream);
 
-  //Save the stream as Excel document and view the saved document
-  
+  //Save the stream as Excel document and view the saved document  
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
+  }
 
   //Dispose the input and output stream instances
   inputStream.Dispose();
@@ -1909,38 +1698,33 @@ The following code snippet provides supporting method and class for the previous
 {% highlight c# tabtitle="C#" %}
 public IList<Sales> GetSalesReports()
 {
-    IList<Sales> sales = new List<Sales>();
-
-    sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
-
-    sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
-
-    sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
-
-    sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
-
-    sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
-
-    return sales;
+  IList<Sales> sales = new List<Sales>();
+  sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
+  sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
+  sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
+  sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
+  sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
+  return sales;
 }
 public class Sales
 {
-    public string SalesPerson { get; set; }
-    public int SalesJanJun { get; set; }
-    public int SalesJulDec { get; set; }
-    public int Change { get; set; }
+  public string SalesPerson { get; set; }
+  public int SalesJanJun { get; set; }
+  public int SalesJulDec { get; set; }
+  public int Change { get; set; }
 
-    public Sales(string name, int salesJanJun, int salesJulDec, int change)
-    {
-        SalesPerson = name;
-        SalesJanJun = salesJanJun;
-        SalesJulDec = salesJulDec;
-        Change = change;
-    }
+  public Sales(string name, int salesJanJun, int salesJulDec, int change)
+  {
+    SalesPerson = name;
+    SalesJanJun = salesJanJun;
+    SalesJulDec = salesJulDec;
+    Change = change;
+  }
 }
 {% endhighlight %}
+
 {% highlight vb.net tabtitle="VB.NET" %}
- Public Function GetSalesReports() As IList(Of Sales)
+Public Function GetSalesReports() As IList(Of Sales)
   Dim sales As IList(Of Sales) = New List(Of Sales)()
   sales.Add(New Sales("Andy Bernard", 45000, 58000, 29))
   sales.Add(New Sales("Jim Halpert", 34000, 65000, 91))
@@ -1962,105 +1746,89 @@ Public Class Sales
     change = change
   End Sub
 End Class
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 public IList<Sales> GetSalesReports()
 {
-    IList<Sales> sales = new List<Sales>();
-
-    sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
-
-    sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
-
-    sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
-
-    sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
-
-    sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
-
-    return sales;
+  IList<Sales> sales = new List<Sales>();
+  sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
+  sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
+  sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
+  sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
+  sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
+  return sales;
 }
 public class Sales
 {
-    public string SalesPerson { get; set; }
-    public int SalesJanJun { get; set; }
-    public int SalesJulDec { get; set; }
-    public int Change { get; set; }
+  public string SalesPerson { get; set; }
+  public int SalesJanJun { get; set; }
+  public int SalesJulDec { get; set; }
+  public int Change { get; set; }
 
-    public Sales(string name, int salesJanJun, int salesJulDec, int change)
-    {
-        SalesPerson = name;
-        SalesJanJun = salesJanJun;
-        SalesJulDec = salesJulDec;
-        Change = change;
-    }
+  public Sales(string name, int salesJanJun, int salesJulDec, int change)
+  {
+    SalesPerson = name;
+    SalesJanJun = salesJanJun;
+    SalesJulDec = salesJulDec;
+    Change = change;
+  }
 }
 {% endhighlight %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 public IList<Sales> GetSalesReports()
 {
-    IList<Sales> sales = new List<Sales>();
-
-    sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
-
-    sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
-
-    sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
-
-    sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
-
-    sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
-
-    return sales;
+  IList<Sales> sales = new List<Sales>();
+  sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
+  sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
+  sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
+  sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
+  sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
+  return sales;
 }
 public class Sales
 {
-    public string SalesPerson { get; set; }
-    public int SalesJanJun { get; set; }
-    public int SalesJulDec { get; set; }
-    public int Change { get; set; }
+  public string SalesPerson { get; set; }
+  public int SalesJanJun { get; set; }
+  public int SalesJulDec { get; set; }
+  public int Change { get; set; }
 
-    public Sales(string name, int salesJanJun, int salesJulDec, int change)
-    {
-        SalesPerson = name;
-        SalesJanJun = salesJanJun;
-        SalesJulDec = salesJulDec;
-        Change = change;
-    }
+  public Sales(string name, int salesJanJun, int salesJulDec, int change)
+  {
+    SalesPerson = name;
+    SalesJanJun = salesJanJun;
+    SalesJulDec = salesJulDec;
+    Change = change;
+  }
 }
 {% endhighlight %}
+
 {% highlight c# tabtitle="Xamarin" %}
 public IList<Sales> GetSalesReports()
 {
-    IList<Sales> sales = new List<Sales>();
-
-    sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
-
-    sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
-
-    sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
-
-    sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
-
-    sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
-
-    return sales;
+  IList<Sales> sales = new List<Sales>();
+  sales.Add(new Sales("Andy Bernard", 45000, 58000, 29));
+  sales.Add(new Sales("Jim Halpert", 34000, 65000, 91));
+  sales.Add(new Sales("Karen Fillippelli", 75000, 64000, -15));
+  sales.Add(new Sales("Phyllis Lapin", 56500, 33600, -40));
+  sales.Add(new Sales("Stanley Hudson", 46500, 52000, 12));
+  return sales;
 }
 public class Sales
 {
-    public string SalesPerson { get; set; }
-    public int SalesJanJun { get; set; }
-    public int SalesJulDec { get; set; }
-    public int Change { get; set; }
+  public string SalesPerson { get; set; }
+  public int SalesJanJun { get; set; }
+  public int SalesJulDec { get; set; }
+  public int Change { get; set; }
 
-    public Sales(string name, int salesJanJun, int salesJulDec, int change)
-    {
-        SalesPerson = name;
-        SalesJanJun = salesJanJun;
-        SalesJulDec = salesJulDec;
-        Change = change;
-    }
+  public Sales(string name, int salesJanJun, int salesJulDec, int change)
+  {
+    SalesPerson = name;
+    SalesJanJun = salesJanJun;
+    SalesJulDec = salesJulDec;
+    Change = change;
+  }
 }
 {% endhighlight %}
 {% endtabs %}
@@ -2069,7 +1837,7 @@ A complete working example to import data to template marker with conditional fo
 
 The following screenshot represents generated Excel file in which the conditional format is applied.
 
-![Template marker with conditional formatting Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg" alt="Template marker with conditional formatting Example" width="100%" Height="Auto"/>
 
 ## Template marker with Hyperlink
 
@@ -2077,7 +1845,7 @@ You can add hyperlink to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-![Template marker with Hyperlink Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg" alt="Template marker with Hyperlink Example" width="100%" Height="Auto"/>
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
@@ -2085,19 +1853,19 @@ The following code snippet illustrates how to detect data type and apply number 
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx")
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx")
 
-    //Create Template Marker Processor
-    ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+  //Create Template Marker Processor
+  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
-    //Add collection to the marker variables where the name should match with input template
-    marker.AddVariable("Company", GetCompanyDetails());
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Company", GetCompanyDetails());
 
-    //Process the markers in the template
-    marker.ApplyMarkers();
+  //Process the markers in the template
+  marker.ApplyMarkers();
 
-    workbook.SaveAs("TemplateMarkerHyperlink.xlsx");
+  workbook.SaveAs("TemplateMarkerHyperlink.xlsx");
 }
 {% endhighlight %}
 
@@ -2107,7 +1875,7 @@ using excelEngine As ExcelEngine = new ExcelEngine()
 
   'Create Template Marker Processor
   Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
- 
+
   'Add collection to the marker variables where the name should match with input template
    marker.AddVariable("Company", GetCompanyDetails());
 
@@ -2116,7 +1884,6 @@ using excelEngine As ExcelEngine = new ExcelEngine()
 
   workbook.SaveAs("TemplateMarkerHyperlink.xlsx");
 End Using
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -2133,7 +1900,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Opens the workbook
   IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-  
+
   //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
@@ -2180,7 +1947,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(stream);
   stream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -2208,16 +1974,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerHyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerHyperlink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerHyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerHyperlink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2230,172 +1994,173 @@ The following code snippet provides supporting methods and classes for the previ
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
-    List<Company> companyList = new List<Company>();
+  List<Company> companyList = new List<Company>();
 
-    Company company = new Company();
-    company.Name = "Syncfusion";
-    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  Company company = new Company();
+  company.Name = "Syncfusion";
+  Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Microsoft";
-    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Microsoft";
+  link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Google";
-    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Google";
+  link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    return companyList;
+  return companyList;
 }    
 public class Hyperlink : IHyperLink
 {
-    public IApplication Application { get; }
-    public object Parent { get;}
-    public string Address { get; set; }
-    public string Name { get; }
-    public IRange Range { get; }
-    public string ScreenTip { get; set; }
-    public string SubAddress { get; set; }
-    public string TextToDisplay { get; set; }
-    public ExcelHyperLinkType Type { get; set; }
-    public IShape Shape { get; }
-    public ExcelHyperlinkAttachedType AttachedType { get; }
-    public byte[] Image { get; set; }
+  public IApplication Application { get; }
+  public object Parent { get;}
+  public string Address { get; set; }
+  public string Name { get; }
+  public IRange Range { get; }
+  public string ScreenTip { get; set; }
+  public string SubAddress { get; set; }
+  public string TextToDisplay { get; set; }
+  public ExcelHyperLinkType Type { get; set; }
+  public IShape Shape { get; }
+  public ExcelHyperlinkAttachedType AttachedType { get; }
+  public byte[] Image { get; set; }
 
-    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
-    {
-        Address = address;
-        ScreenTip = screenTip;
-        SubAddress = subAddress;            
-        TextToDisplay = textToDisplay;
-        Type = type;
-        Image = image;
-    }
+  public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+  {
+    Address = address;
+    ScreenTip = screenTip;
+    SubAddress = subAddress;            
+    TextToDisplay = textToDisplay;
+    Type = type;
+    Image = image;
+  }
 }
 
 public class Company
 {
-    public string Name { get; set; }
-    public Hyperlink Link { get; set; }
+  public string Name { get; set; }
+  public Hyperlink Link { get; set; }
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Gets a list of company details
 Private Function GetCompanyDetails() As List(Of Company)
-    Dim companyList As List(Of Company) = New List(Of Company)()
-    Dim company As Company = New Company()
-    company.Name = "Syncfusion"
-    Dim link As Hyperlink = New Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, Nothing)
-    company.Link = link
-    companyList.Add(company)
-    company = New Company()
-    company.Name = "Microsoft"
-    link = New Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, Nothing)
-    company.Link = link
-    companyList.Add(company)
-    company = New Company()
-    company.Name = "Google"
-    link = New Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, Nothing)
-    company.Link = link
-    companyList.Add(company)
-    Return companyList
-End Function   
-Public Class Hyperlink
-    Inherits IHyperLink
+  Dim companyList As List(Of Company) = New List(Of Company)()
+  
+  Dim company As Company = New Company()
+  company.Name = "Syncfusion"
+  Dim link As Hyperlink = New Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, Nothing)
+  company.Link = link
+  companyList.Add(company)
+  
+  company = New Company()
+  company.Name = "Microsoft"
+  link = New Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, Nothing)
+  company.Link = link
+  companyList.Add(company)
+  
+  company = New Company()
+  company.Name = "Google"
+  link = New Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, Nothing)
+  company.Link = link
+  companyList.Add(company)
+  
+  Return companyList
+End Function 
+  
+Public Class Hyperlink Inherits IHyperLink
+  Public ReadOnly Property Application As IApplication
+  Public ReadOnly Property Parent As Object
+  Public Property Address As String
+  Public ReadOnly Property Name As String
+  Public ReadOnly Property Range As IRange
+  Public Property ScreenTip As String
+  Public Property SubAddress As String
+  Public Property TextToDisplay As String
+  Public Property Type As ExcelHyperLinkType
+  Public ReadOnly Property Shape As IShape
+  Public ReadOnly Property AttachedType As ExcelHyperlinkAttachedType
+  Public Property Image As Byte()
 
-    Public ReadOnly Property Application As IApplication
-    Public ReadOnly Property Parent As Object
-    Public Property Address As String
-    Public ReadOnly Property Name As String
-    Public ReadOnly Property Range As IRange
-    Public Property ScreenTip As String
-    Public Property SubAddress As String
-    Public Property TextToDisplay As String
-    Public Property Type As ExcelHyperLinkType
-    Public ReadOnly Property Shape As IShape
-    Public ReadOnly Property AttachedType As ExcelHyperlinkAttachedType
-    Public Property Image As Byte()
-
-    Public Sub New(ByVal address As String, ByVal subAddress As String, ByVal screenTip As String, ByVal textToDisplay As String, ByVal type As ExcelHyperLinkType, ByVal image As Byte())
-        Address = address
-        ScreenTip = screenTip
-        SubAddress = subAddress
-        TextToDisplay = textToDisplay
-        Type = type
-        Image = image
-    End Sub
+  Public Sub New(ByVal address As String, ByVal subAddress As String, ByVal screenTip As String, ByVal textToDisplay As String, ByVal type As ExcelHyperLinkType, ByVal image As Byte())
+    Address = address
+    ScreenTip = screenTip
+    SubAddress = subAddress
+    TextToDisplay = textToDisplay
+    Type = type
+    Image = image
+  End Sub
 End Class
 
 Public Class Company
-    Public Property Name As String
-    Public Property Link As Hyperlink
+  Public Property Name As String
+  Public Property Link As Hyperlink
 End Class
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
-    List<Company> companyList = new List<Company>();
+  List<Company> companyList = new List<Company>();
 
-    Company company = new Company();
-    company.Name = "Syncfusion";
-    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  Company company = new Company();
+  company.Name = "Syncfusion";
+  Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Microsoft";
-    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Microsoft";
+  link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Google";
-    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Google";
+  link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    return companyList;
+  return companyList;
 }    
 public class Hyperlink : IHyperLink
 {
-    public IApplication Application { get; }
-    public object Parent { get;}
-    public string Address { get; set; }
-    public string Name { get; }
-    public IRange Range { get; }
-    public string ScreenTip { get; set; }
-    public string SubAddress { get; set; }
-    public string TextToDisplay { get; set; }
-    public ExcelHyperLinkType Type { get; set; }
-    public IShape Shape { get; }
-    public ExcelHyperlinkAttachedType AttachedType { get; }
-    public byte[] Image { get; set; }
+  public IApplication Application { get; }
+  public object Parent { get;}
+  public string Address { get; set; }
+  public string Name { get; }
+  public IRange Range { get; }
+  public string ScreenTip { get; set; }
+  public string SubAddress { get; set; }
+  public string TextToDisplay { get; set; }
+  public ExcelHyperLinkType Type { get; set; }
+  public IShape Shape { get; }
+  public ExcelHyperlinkAttachedType AttachedType { get; }
+  public byte[] Image { get; set; }
 
-    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
-    {
-        Address = address;
-        ScreenTip = screenTip;
-        SubAddress = subAddress;            
-        TextToDisplay = textToDisplay;
-        Type = type;
-        Image = image;
-    }
+  public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+  {
+    Address = address;
+    ScreenTip = screenTip;
+    SubAddress = subAddress;            
+    TextToDisplay = textToDisplay;
+    Type = type;
+    Image = image;
+  }
 }
 
 public class Company
 {
-    public string Name { get; set; }
-    public Hyperlink Link { get; set; }
+  public string Name { get; set; }
+  public Hyperlink Link { get; set; }
 }
 {% endhighlight %}
 
@@ -2403,58 +2168,58 @@ public class Company
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
-    List<Company> companyList = new List<Company>();
+  List<Company> companyList = new List<Company>();
 
-    Company company = new Company();
-    company.Name = "Syncfusion";
-    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  Company company = new Company();
+  company.Name = "Syncfusion";
+  Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Microsoft";
-    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Microsoft";
+  link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Google";
-    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Google";
+  link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    return companyList;
+  return companyList;
 }    
 public class Hyperlink : IHyperLink
 {
-    public IApplication Application { get; }
-    public object Parent { get;}
-    public string Address { get; set; }
-    public string Name { get; }
-    public IRange Range { get; }
-    public string ScreenTip { get; set; }
-    public string SubAddress { get; set; }
-    public string TextToDisplay { get; set; }
-    public ExcelHyperLinkType Type { get; set; }
-    public IShape Shape { get; }
-    public ExcelHyperlinkAttachedType AttachedType { get; }
-    public byte[] Image { get; set; }
+  public IApplication Application { get; }
+  public object Parent { get;}
+  public string Address { get; set; }
+  public string Name { get; }
+  public IRange Range { get; }
+  public string ScreenTip { get; set; }
+  public string SubAddress { get; set; }
+  public string TextToDisplay { get; set; }
+  public ExcelHyperLinkType Type { get; set; }
+  public IShape Shape { get; }
+  public ExcelHyperlinkAttachedType AttachedType { get; }
+  public byte[] Image { get; set; }
 
-    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
-    {
-        Address = address;
-        ScreenTip = screenTip;
-        SubAddress = subAddress;            
-        TextToDisplay = textToDisplay;
-        Type = type;
-        Image = image;
-    }
+  public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+  {
+    Address = address;
+    ScreenTip = screenTip;
+    SubAddress = subAddress;            
+    TextToDisplay = textToDisplay;
+    Type = type;
+    Image = image;
+  }
 }
 
 public class Company
 {
-    public string Name { get; set; }
-    public Hyperlink Link { get; set; }
+  public string Name { get; set; }
+  public Hyperlink Link { get; set; }
 }
 {% endhighlight %}
 
@@ -2462,58 +2227,58 @@ public class Company
 //Gets a list of company details
 private List<Company> GetCompanyDetails()
 {
-    List<Company> companyList = new List<Company>();
+  List<Company> companyList = new List<Company>();
 
-    Company company = new Company();
-    company.Name = "Syncfusion";
-    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  Company company = new Company();
+  company.Name = "Syncfusion";
+  Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Microsoft";
-    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Microsoft";
+  link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    company = new Company();
-    company.Name = "Google";
-    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
-    company.Link = link;
-    companyList.Add(company);
+  company = new Company();
+  company.Name = "Google";
+  link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+  company.Link = link;
+  companyList.Add(company);
 
-    return companyList;
+  return companyList;
 }    
 public class Hyperlink : IHyperLink
 {
-    public IApplication Application { get; }
-    public object Parent { get;}
-    public string Address { get; set; }
-    public string Name { get; }
-    public IRange Range { get; }
-    public string ScreenTip { get; set; }
-    public string SubAddress { get; set; }
-    public string TextToDisplay { get; set; }
-    public ExcelHyperLinkType Type { get; set; }
-    public IShape Shape { get; }
-    public ExcelHyperlinkAttachedType AttachedType { get; }
-    public byte[] Image { get; set; }
+  public IApplication Application { get; }
+  public object Parent { get;}
+  public string Address { get; set; }
+  public string Name { get; }
+  public IRange Range { get; }
+  public string ScreenTip { get; set; }
+  public string SubAddress { get; set; }
+  public string TextToDisplay { get; set; }
+  public ExcelHyperLinkType Type { get; set; }
+  public IShape Shape { get; }
+  public ExcelHyperlinkAttachedType AttachedType { get; }
+  public byte[] Image { get; set; }
 
-    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
-    {
-        Address = address;
-        ScreenTip = screenTip;
-        SubAddress = subAddress;            
-        TextToDisplay = textToDisplay;
-        Type = type;
-        Image = image;
-    }
+  public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+  {
+    Address = address;
+    ScreenTip = screenTip;
+    SubAddress = subAddress;            
+    TextToDisplay = textToDisplay;
+    Type = type;
+    Image = image;
+  }
 }
 
 public class Company
 {
-    public string Name { get; set; }
-    public Hyperlink Link { get; set; }
+  public string Name { get; set; }
+  public Hyperlink Link { get; set; }
 }
 {% endhighlight %}
 {% endtabs %} 
@@ -2522,6 +2287,6 @@ A complete working example to import data to template marker with hyperlink in C
 
 The following screenshot represents generated Excel file in which the hyperlink is added.
 
-![Template marker with Hyperlink Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg)
+<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg" alt="Template marker with Hyperlink Example" width="100%" Height="Auto"/>
 
 N> Explore our [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net) Feature Tour page and [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

@@ -15,22 +15,22 @@ This section explains how to create a simple Excel file in C# and VB.NET using X
 <thead>
 <tr>
 <th>
-Assembly Name <br/><br/></th><th>
-Description<br/><br/></th></tr>
+Assembly Name<br/></th><th>
+Description<br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-Syncfusion.XlsIO.Base<br/><br/></td><td>
-This assembly contains the core features for creating, reading, and manipulating an Excel file.<br/><br/></td></tr>
+Syncfusion.XlsIO.Base<br/></td><td>
+This assembly contains the core features for creating, reading, and manipulating an Excel file.<br/></td></tr>
 <tr>
 <td>
-Syncfusion.Compression.Base<br/><br/></td><td>
-This assembly is used to package the Workbook contents.<br/><br/></td></tr>
+Syncfusion.Compression.Base<br/></td><td>
+This assembly is used to package the Workbook contents.<br/></td></tr>
 <tr>
 <td>
-Syncfusion.Licensing<br/><br/></td><td>
-Syncfusion licensing is a .NET library for validating the registered Syncfusion license in an application at runtime.<br/><br/></td></tr>
+Syncfusion.Licensing<br/></td><td>
+Syncfusion licensing is a .NET library for validating the registered Syncfusion license in an application at runtime.<br/></td></tr>
 </tbody>
 </table>
 
@@ -221,16 +221,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -238,7 +236,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The output screen-shot of the above code.
 
-![Create Excel](Getting-Started_images/Getting-Started_HelloWorld.jpeg)
+<img src="Getting-Started_images/Getting-Started_HelloWorld.jpeg" alt="Create Excel" width="100%" Height="Auto"/>
 
 ## Create a Simple Excel File
 
@@ -611,9 +609,7 @@ excelEngine.Dispose();
 stream.Position = 0;
 
 //Save the document as file and view the saved document
-
 //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
@@ -634,56 +630,56 @@ namespace ExcelCreation
 {
   class Program
   {
-	static void Main(string[] args)
-	{
-	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-	  //Instantiate the spreadsheet creation engine
-	  using (ExcelEngine excelEngine = new ExcelEngine())
-	  {
-		//Instantiate the Excel application object
-		IApplication application = excelEngine.Excel;
+    static void Main(string[] args)
+    {
+      //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+      //Instantiate the spreadsheet creation engine
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        //Instantiate the Excel application object
+        IApplication application = excelEngine.Excel;
 
-		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Xlsx;
+        //Assigns default application version
+        application.DefaultVersion = ExcelVersion.Xlsx;
 
-		//A new workbook is created equivalent to creating a new workbook in Excel
-		//Create a workbook with 1 worksheet
-		IWorkbook workbook = application.Workbooks.Create(1);
+        //A new workbook is created equivalent to creating a new workbook in Excel
+        //Create a workbook with 1 worksheet
+        IWorkbook workbook = application.Workbooks.Create(1);
 
-		//Access a worksheet from workbook
-		IWorksheet worksheet = workbook.Worksheets[0];
+        //Access a worksheet from workbook
+        IWorksheet worksheet = workbook.Worksheets[0];
 
-		//Adding text data
-		worksheet.Range["A1"].Text = "Month";
-		worksheet.Range["B1"].Text = "Sales";
-		worksheet.Range["A6"].Text = "Total";
+        //Adding text data
+        worksheet.Range["A1"].Text = "Month";
+        worksheet.Range["B1"].Text = "Sales";
+        worksheet.Range["A6"].Text = "Total";
 
-		//Adding DateTime data
-		worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-		worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-		worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+        //Adding DateTime data
+        worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+        worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+        worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-		//Applying number format for date value cells A2 to A4
-		worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+        //Applying number format for date value cells A2 to A4
+        worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-		//Auto-size the first column to fit the content
-		worksheet.AutofitColumn(1);
+        //Auto-size the first column to fit the content
+        worksheet.AutofitColumn(1);
 
-		//Adding numeric data
-		worksheet.Range["B2"].Number = 68878;
-		worksheet.Range["B3"].Number = 71550;
-		worksheet.Range["B4"].Number = 72808;
+        //Adding numeric data
+        worksheet.Range["B2"].Number = 68878;
+        worksheet.Range["B3"].Number = 71550;
+        worksheet.Range["B4"].Number = 72808;
 
-		//Adding formula
-		worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+        //Adding formula
+        worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-		//Inserting image
-		worksheet.Pictures.AddPicture(10, 2, "image.jpg");
+        //Inserting image
+        worksheet.Pictures.AddPicture(10, 2, "image.jpg");
 
-		//Saving the workbook to disk in XLSX format
-		workbook.SaveAs("Sample.xlsx");
-	  }
-	}
+        //Saving the workbook to disk in XLSX format
+        workbook.SaveAs("Sample.xlsx");
+      }
+    }
   }
 }
 {% endhighlight %}
@@ -692,54 +688,54 @@ namespace ExcelCreation
 Imports Syncfusion.XlsIO
 Namespace ExcelCreation
   Module Program
-	Sub Main(args As String())
-	  'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-	  'Instantiate the spreadsheet creation engine
-	  Using excelEngine As ExcelEngine = New ExcelEngine()
-		'Instantiate the Excel application object
-		Dim application As IApplication = excelEngine.Excel
+    Sub Main(args As String())
+      'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
+      'Instantiate the spreadsheet creation engine
+      Using excelEngine As ExcelEngine = New ExcelEngine()
+        'Instantiate the Excel application object
+        Dim application As IApplication = excelEngine.Excel
 
-		'Assigns default application version
-		application.DefaultVersion = ExcelVersion.Xlsx
+        'Assigns default application version
+        application.DefaultVersion = ExcelVersion.Xlsx
 
-		'A new workbook is created equivalent to creating a new workbook in Excel
-		'Create a workbook with 1 worksheet
-		Dim workbook As IWorkbook = application.Workbooks.Create(1)
+        'A new workbook is created equivalent to creating a new workbook in Excel
+        'Create a workbook with 1 worksheet
+        Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-		'Access a worksheet from workbook
-		Dim worksheet As IWorksheet = workbook.Worksheets(0)
+        'Access a worksheet from workbook
+        Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-		'Adding text data
-		worksheet.Range("A1").Text = "Month"
-		worksheet.Range("B1").Text = "Sales"
-		worksheet.Range("A6").Text = "Total"
+        'Adding text data
+        worksheet.Range("A1").Text = "Month"
+        worksheet.Range("B1").Text = "Sales"
+        worksheet.Range("A6").Text = "Total"
 
-		'Adding DateTime data
-		worksheet.Range("A2").DateTime = New DateTime(2015, 1, 10)
-		worksheet.Range("A3").DateTime = New DateTime(2015, 2, 10)
-		worksheet.Range("A4").DateTime = New DateTime(2015, 3, 10)
+        'Adding DateTime data
+        worksheet.Range("A2").DateTime = New DateTime(2015, 1, 10)
+        worksheet.Range("A3").DateTime = New DateTime(2015, 2, 10)
+        worksheet.Range("A4").DateTime = New DateTime(2015, 3, 10)
 
-		'Applying number format for date value cells A2 to A4
-		worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
+        'Applying number format for date value cells A2 to A4
+        worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
 
-		'Auto-size the first column to fit the content
-		worksheet.AutofitColumn(1)
+        'Auto-size the first column to fit the content
+        worksheet.AutofitColumn(1)
 
-		'Adding numeric data
-		worksheet.Range("B2").Number = 68878
-		worksheet.Range("B3").Number = 71550
-		worksheet.Range("B4").Number = 72808
+        'Adding numeric data
+        worksheet.Range("B2").Number = 68878
+        worksheet.Range("B3").Number = 71550
+        worksheet.Range("B4").Number = 72808
 
-		'Adding formula
-		worksheet.Range("B6").Formula = "SUM(B2:B4)"
+        'Adding formula
+        worksheet.Range("B6").Formula = "SUM(B2:B4)"
 
-		'Inserting image
-		worksheet.Pictures.AddPicture(10, 2, "image.jpg")
+        'Inserting image
+        worksheet.Pictures.AddPicture(10, 2, "image.jpg")
 
-		'Saving the workbook to disk in XLSX format
-		workbook.SaveAs("Sample.xlsx")
-	  End Using
-	End Sub
+        'Saving the workbook to disk in XLSX format
+        workbook.SaveAs("Sample.xlsx")
+      End Using
+    End Sub
   End Module
 End Namespace
 {% endhighlight %}
@@ -750,72 +746,72 @@ namespace ExcelCreation
 {
   public sealed partial class MainPage : Page
   {
-	public MainPage()
-	{
-	this.InitializeComponent();
-	}
-	private async void OnButtonClicked(object sender, RoutedEventArgs e)
-	{
-	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-	  //Instantiate the spreadsheet creation engine
-	  using (ExcelEngine excelEngine = new ExcelEngine())
-	  {
-		//Instantiate the Excel application object
-		IApplication application = excelEngine.Excel;
+    public MainPage()
+    {
+      this.InitializeComponent();
+    }
+    private async void OnButtonClicked(object sender, RoutedEventArgs e)
+    {
+      //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+      //Instantiate the spreadsheet creation engine
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        //Instantiate the Excel application object
+        IApplication application = excelEngine.Excel;
 
-		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Xlsx;
+        //Assigns default application version
+        application.DefaultVersion = ExcelVersion.Xlsx;
 
-		//A new workbook is created equivalent to creating a new workbook in Excel
-		//Create a workbook with 1 worksheet
-		IWorkbook workbook = application.Workbooks.Create(1);
+        //A new workbook is created equivalent to creating a new workbook in Excel
+        //Create a workbook with 1 worksheet
+        IWorkbook workbook = application.Workbooks.Create(1);
 
-		//Access a worksheet from workbook
-		IWorksheet worksheet = workbook.Worksheets[0];
+        //Access a worksheet from workbook
+        IWorksheet worksheet = workbook.Worksheets[0];
 
-		//Adding text data
-		worksheet.Range["A1"].Text = "Month";
-		worksheet.Range["B1"].Text = "Sales";
+        //Adding text data
+        worksheet.Range["A1"].Text = "Month";
+        worksheet.Range["B1"].Text = "Sales";
 		worksheet.Range["A6"].Text = "Total";
 
-		//Adding DateTime data
-		worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-		worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-		worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+        //Adding DateTime data
+        worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+        worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+        worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-		//Applying number format for date value cells A2 to A4
-		worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+        //Applying number format for date value cells A2 to A4
+        worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-		//Auto-size the first column to fit the content
-		worksheet.AutofitColumn(1);
+        //Auto-size the first column to fit the content
+        worksheet.AutofitColumn(1);
 
-		//Adding numeric data
-		worksheet.Range["B2"].Number = 68878;
-		worksheet.Range["B3"].Number = 71550;
-		worksheet.Range["B4"].Number = 72808;
+        //Adding numeric data
+        worksheet.Range["B2"].Number = 68878;
+        worksheet.Range["B3"].Number = 71550;
+        worksheet.Range["B4"].Number = 72808;
 
-		//Adding formula
-		worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+        //Adding formula
+        worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-		//Inserting image
-		//"App" is the class of Portable project
-		Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-		Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
-		worksheet.Pictures.AddPicture(10, 2, imageStream);
+        //Inserting image
+        //"App" is the class of Portable project
+        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+        Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
+        worksheet.Pictures.AddPicture(10, 2, imageStream);
 
-		//Initializes FileSavePicker
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-		savePicker.SuggestedFileName = "Sample";
-		savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+        //Initializes FileSavePicker
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+        savePicker.SuggestedFileName = "Sample";
+        savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-		//Creates a storage file from FileSavePicker
-		StorageFile storageFile = await savePicker.PickSaveFileAsync();
+        //Creates a storage file from FileSavePicker
+        StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-		//Saves changes to the specified storage file
-		await workbook.SaveAsAsync(storageFile);
-	  }
-	}
+        //Saves changes to the specified storage file
+        await workbook.SaveAsAsync(storageFile);
+      }
+    }
   }
 }
 {% endhighlight %}
@@ -826,61 +822,61 @@ namespace ExcelCreation
 {
   class Program
   {
-	static void Main(string[] args)
-	{
-	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-	  //Instantiate the spreadsheet creation engine
-	  using (ExcelEngine excelEngine = new ExcelEngine())
-	  {
-		//Instantiate the Excel application object
-		IApplication application = excelEngine.Excel;
+    static void Main(string[] args)
+    {
+      //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+      //Instantiate the spreadsheet creation engine
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        //Instantiate the Excel application object
+        IApplication application = excelEngine.Excel;
 
-		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Xlsx;
+        //Assigns default application version
+        application.DefaultVersion = ExcelVersion.Xlsx;
 
-		//A new workbook is created equivalent to creating a new workbook in Excel
-		//Create a workbook with 1 worksheet
-		IWorkbook workbook = application.Workbooks.Create(1);
+        //A new workbook is created equivalent to creating a new workbook in Excel
+        //Create a workbook with 1 worksheet
+        IWorkbook workbook = application.Workbooks.Create(1);
 
-		//Access a worksheet from workbook
-		IWorksheet worksheet = workbook.Worksheets[0];
+        //Access a worksheet from workbook
+        IWorksheet worksheet = workbook.Worksheets[0];
 
-		//Adding text data
-		worksheet.Range["A1"].Text = "Month";
-		worksheet.Range["B1"].Text = "Sales";
-		worksheet.Range["A6"].Text = "Total";
+        //Adding text data
+        worksheet.Range["A1"].Text = "Month";
+        worksheet.Range["B1"].Text = "Sales";
+        worksheet.Range["A6"].Text = "Total";
 
-		//Adding DateTime data
-		worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-		worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-		worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+        //Adding DateTime data
+        worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+        worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+        worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-		//Applying number format for date value cells A2 to A4
-		worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+        //Applying number format for date value cells A2 to A4
+        worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-		//Auto-size the first column to fit the content
-		worksheet.AutofitColumn(1);
+        //Auto-size the first column to fit the content
+        worksheet.AutofitColumn(1);
 
-		//Adding numeric data
-		worksheet.Range["B2"].Number = 68878;
-		worksheet.Range["B3"].Number = 71550;
-		worksheet.Range["B4"].Number = 72808;
+        //Adding numeric data
+        worksheet.Range["B2"].Number = 68878;
+        worksheet.Range["B3"].Number = 71550;
+        worksheet.Range["B4"].Number = 72808;
 
-		//Adding formula
-		worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+        //Adding formula
+        worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-		//Inserting image
-		FileStream imageStream = new FileStream("image.jpg", FileMode.Open, FileAccess.Read);
-		worksheet.Pictures.AddPicture(10, 2, imageStream);
+        //Inserting image
+        FileStream imageStream = new FileStream("image.jpg", FileMode.Open, FileAccess.Read);
+        worksheet.Pictures.AddPicture(10, 2, imageStream);
 
-		//Saving the workbook to disk in XLSX format
-		FileStream stream = new FileStream("Sample.xlsx", FileMode.Create, FileAccess.ReadWrite);
-		workbook.SaveAs(stream);
+        //Saving the workbook to disk in XLSX format
+        FileStream stream = new FileStream("Sample.xlsx", FileMode.Create, FileAccess.ReadWrite);
+        workbook.SaveAs(stream);
 
-		//Dispose stream
-		stream.Dispose();
-	  }
-	}
+        //Dispose stream
+        stream.Dispose();
+      }
+    }
   }
 }
 {% endhighlight %}
@@ -891,75 +887,73 @@ namespace ExcelCreation
 {
   class Program
   {
-	static void Main(string[] args)
-	{
-	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-	  //Instantiate the spreadsheet creation engine
-	  using (ExcelEngine excelEngine = new ExcelEngine())
-	  {
-		//Instantiate the Excel application object
-		IApplication application = excelEngine.Excel;
+    static void Main(string[] args)
+    {
+      //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+      //Instantiate the spreadsheet creation engine
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        //Instantiate the Excel application object
+        IApplication application = excelEngine.Excel;
 
-		//Assigns default application version
-		application.DefaultVersion = ExcelVersion.Xlsx;
+        //Assigns default application version
+        application.DefaultVersion = ExcelVersion.Xlsx;
 
-		//A new workbook is created equivalent to creating a new workbook in Excel
-		//Create a workbook with 1 worksheet
-		IWorkbook workbook = application.Workbooks.Create(1);
+        //A new workbook is created equivalent to creating a new workbook in Excel
+        //Create a workbook with 1 worksheet
+        IWorkbook workbook = application.Workbooks.Create(1);
 
-		//Access a worksheet from workbook
-		IWorksheet worksheet = workbook.Worksheets[0];
+        //Access a worksheet from workbook
+        IWorksheet worksheet = workbook.Worksheets[0];
 
-		//Adding text data
-		worksheet.Range["A1"].Text = "Month";
-		worksheet.Range["B1"].Text = "Sales";
-		worksheet.Range["A6"].Text = "Total";
+        //Adding text data
+        worksheet.Range["A1"].Text = "Month";
+        worksheet.Range["B1"].Text = "Sales";
+        worksheet.Range["A6"].Text = "Total";
 
-		//Adding DateTime data
-		worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-		worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-		worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+        //Adding DateTime data
+        worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+        worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+        worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-		//Applying number format for date value cells A2 to A4
-		worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+        //Applying number format for date value cells A2 to A4
+        worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-		//Auto-size the first column to fit the content
-		worksheet.AutofitColumn(1);
+        //Auto-size the first column to fit the content
+        worksheet.AutofitColumn(1);
 
-		//Adding numeric data
-		worksheet.Range["B2"].Number = 68878;
-		worksheet.Range["B3"].Number = 71550;
-		worksheet.Range["B4"].Number = 72808;
+        //Adding numeric data
+        worksheet.Range["B2"].Number = 68878;
+        worksheet.Range["B3"].Number = 71550;
+        worksheet.Range["B4"].Number = 72808;
 
-		//Adding formula
-		worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+        //Adding formula
+        worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-		//Inserting image
-		//"App" is the class of Portable project
-		Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-		Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.image.jpg");
-		worksheet.Pictures.AddPicture(10, 2, imageStream);
+        //Inserting image
+        //"App" is the class of Portable project
+        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+        Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.image.jpg");
+        worksheet.Pictures.AddPicture(10, 2, imageStream);
 
-		//Saving the workbook as stream
-		MemoryStream stream = new MemoryStream();
-		workbook.SaveAs(stream);
+        //Saving the workbook as stream
+        MemoryStream stream = new MemoryStream();
+        workbook.SaveAs(stream);
 
-		stream.Position = 0;
+        stream.Position = 0;
 
-		//Save the document as file and view the saved document
-
-		//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-		if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-		{
-		  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-		}
-		else
-		{
-		  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-		}
-	  }
-	}
+        //Save the document as file and view the saved document
+        //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+        if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+        {
+          Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+        }
+        else
+        {
+          Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+        }
+      }
+    }
   }
 }
 {% endhighlight %}
@@ -967,7 +961,7 @@ namespace ExcelCreation
 
 The screen-shot of the output for above code is given below.
 
-![Create Excel](Getting-Started_images/Getting-Started_img1.jpeg)
+<img src="Getting-Started_images/Getting-Started_img1.jpeg" alt="Create Excel" width="100%" Height="Auto"/>
 
 ## Export Data to Excel Worksheets
 
@@ -990,7 +984,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //GetCustomerAsObjects method returns list of customers
+  //GetEmployees method returns list of customers
   IList<Employee> employees = GetEmployees();
 
   //Import data to worksheet
@@ -1008,7 +1002,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'GetCustomerAsObjects method returns list of customers
+  'GetEmployees method returns list of customers
   Dim employees As IList(Of Employee) = GetEmployees()
 
   'Import data to worksheet
@@ -1027,7 +1021,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //GetCustomerAsObjects method returns list of customers
+  //GetEmployees method returns list of customers
   IList<Employee> employees = GetEmployees();
 
   //Import data to worksheet
@@ -1055,7 +1049,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //GetCustomerAsObjects method returns list of customers
+  //GetEmployees method returns list of customers
   IList<Employee> employees = GetEmployees();
 
   //Import data to worksheet
@@ -1076,7 +1070,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //GetCustomerAsObjects method returns list of customers
+  //GetEmployees method returns list of customers
   IList<Employee> employees = GetEmployees();
 
   //Import data to worksheet
@@ -1089,16 +1083,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1133,13 +1125,13 @@ public class Employee
   
   public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
   {
-	FirstName = firstName;
-	LastName = lastName;
-	Title = title;
-	Address = address;
-	City = city;
-	Region = region;
-	Country = country;
+    FirstName = firstName;
+    LastName = lastName;
+    Title = title;
+    Address = address;
+    City = city;
+    Region = region;
+    Country = country;
   }
 }
 {% endhighlight %}
@@ -1160,83 +1152,83 @@ End Function
 Public Class Employee
 
   Public Property FirstName() As String
-	Get
-	  Return m_FirstName
-	End Get
-	Set(value As String)
-	  m_FirstName = Value
-	End Set
+    Get
+      Return m_FirstName
+    End Get
+    Set(value As String)
+      m_FirstName = Value
+    End Set
   End Property
   Private m_FirstName As String
 
   Public Property LastName() As String
-	Get
-	  Return m_LastName
-	End Get
-	Set(value As String)
-	  m_LastName = Value
-	End Set
+    Get
+      Return m_LastName
+    End Get
+    Set(value As String)
+      m_LastName = Value
+    End Set
   End Property
   Private m_LastName As String
 
   Public Property Address() As String
-	Get
-	  Return m_Address
-	End Get
-	Set(value As String)
-	  m_Address = Value
-	End Set
+    Get
+      Return m_Address
+    End Get
+    Set(value As String)
+      m_Address = Value
+    End Set
   End Property
   Private m_Address As String
 
   Public Property City() As String
-	Get
-	  Return m_City
-	End Get
-	Set(value As String)
-	  m_City = Value
-	End Set
+    Get
+      Return m_City
+    End Get
+    Set(value As String)
+      m_City = Value
+    End Set
   End Property
   Private m_City As String
 
   Public Property Region() As String
-	Get
-	  Return m_Region
-	End Get
-	Set(value As String)
-	  m_Region = Value
-	End Set
+    Get
+      Return m_Region
+    End Get
+    Set(value As String)
+      m_Region = Value
+    End Set
   End Property
   Private m_Region As String
 
   Public Property Country() As String
-	Get
-	  Return m_Country
-	End Get
-	Set(value As String)
-	  m_Country = Value
-	End Set
+    Get
+      Return m_Country
+    End Get
+    Set(value As String)
+      m_Country = Value
+    End Set
   End Property
   Private m_Country As String
 
   Public Property Title() As String
-	Get
-	  Return m_Title
-	End Get
-	Set(value As String)
-	  m_Title = Value
-	End Set
+    Get
+      Return m_Title
+    End Get
+    Set(value As String)
+      m_Title = Value
+    End Set
   End Property
   Private m_Title As String
 
   Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
-	firstName = firstName
-	lastName = lastName
-	title = title
-	address = address
-	city = city
-	region = region
-	country = country
+    firstName = firstName
+    lastName = lastName
+    title = title
+    address = address
+    city = city
+    region = region
+    country = country
   End Sub
 End Class
 {% endhighlight %}
@@ -1267,13 +1259,13 @@ public class Employee
 
   public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
   {
-	FirstName = firstName;
-	LastName = lastName;
-	Title = title;
-	Address = address;
-	City = city;
-	Region = region;
-	Country = country;
+    FirstName = firstName;
+    LastName = lastName;
+    Title = title;
+    Address = address;
+    City = city;
+    Region = region;
+    Country = country;
   }
 }
 {% endhighlight %}
@@ -1304,13 +1296,13 @@ public class Employee
 
   public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
   {
-	FirstName = firstName;
-	LastName = lastName;
-	Title = title;
-	Address = address;
-	City = city;
-	Region = region;
-	Country = country;
+    FirstName = firstName;
+    LastName = lastName;
+    Title = title;
+    Address = address;
+    City = city;
+    Region = region;
+    Country = country;
   }
 }
 {% endhighlight %}
@@ -1341,13 +1333,13 @@ public class Employee
 
   public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
   {
-	FirstName = firstName;
-	LastName = lastName;
-	Title = title;
-	Address = address;
-	City = city;
-	Region = region;
-	Country = country;
+    FirstName = firstName;
+    LastName = lastName;
+    Title = title;
+    Address = address;
+    City = city;
+    Region = region;
+    Country = country;
   }
 }
 {% endhighlight %}
@@ -1401,7 +1393,6 @@ End Using
 //Exporting data from worksheet can be achieved using List as illustrated below.
 
 //To know more about exporting data from worksheet to various collection objects, please refer xlsio/working-with-data section.
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1444,50 +1435,50 @@ public class Sales
 
   public string SalesPerson
   {
-	get
-	{
-	  return salesPerson;
-	}
-	set
-	{
-	  salesPerson = value;
-	}
+    get
+    {
+      return salesPerson;
+    }
+    set
+    {
+      salesPerson = value;
+    }
   }
 
   public int SalesJanJune
   {
-	get
-	{
-	  return salesJanJune;
-	}
-	set
-	{
-	  salesJanJune = value;
-	}
+    get
+    {
+      return salesJanJune;
+    }
+    set
+    {
+      salesJanJune = value;
+    }
   }
 
   public int SalesJulyDec
   {
-	get
-	{
-	  return salesJulyDec;
-	}
-	set
-	{
-	  salesJulyDec = value;
-	}
+    get
+    {
+      return salesJulyDec;
+    }
+    set
+    {
+      salesJulyDec = value;
+    }
   }
 
   public int Change
   {
-	get
-	{
-	  return change;
-	}
-	set
-	{
-	  change = value;
-	}
+    get
+    {
+      return change;
+    }
+    set
+    {
+      change = value;
+    }
   }
 }
 {% endhighlight %}
@@ -1537,16 +1528,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 
@@ -1560,50 +1549,50 @@ public class Sales
 
   public string SalesPerson
   {
-	get
-	{
-	  return salesPerson;
-	}
-	set
-	{
-	  salesPerson = value;
-	}
+    get
+    {
+      return salesPerson;
+    }
+    set
+    {
+      salesPerson = value;
+    }
   }
 
   public int SalesJanJune
   {
-	get
-	{
-	  return salesJanJune;
-	}
-	set
-	{
-	  salesJanJune = value;
-	}
+    get
+    {
+      return salesJanJune;
+    }
+    set
+    {
+      salesJanJune = value;
+    }
   }
 
   public int SalesJulyDec
   {
-	get
-	{
-	  return salesJulyDec;
-	}
-	set
-	{
-	  salesJulyDec = value;
-	}
+    get
+    {
+      return salesJulyDec;
+    }
+    set
+    {
+      salesJulyDec = value;
+    }
   }
 
   public int Change
   {
-	get
-	{
-	  return change;
-	}
-	set
-	{
-	  change = value;
-	}
+    get
+    {
+      return change;
+    }
+    set
+    {
+      change = value;
+    }
   }
 }
 {% endhighlight %}
@@ -1611,7 +1600,7 @@ public class Sales
 
 The following screenshot shows the DataTable of previous code.
 
-![Excel to Data Table](Getting-Started_images/Getting-Started_img2.jpeg)
+<img src="Getting-Started_images/Getting-Started_img2.jpeg" alt="Excel to Data Table" width="100%" Height="Auto"/>
 
 You can refer various exporting options in the [Working with Data](https://help.syncfusion.com/file-formats/xlsio/working-with-data) section.
 
@@ -1644,7 +1633,7 @@ Find more details in [Template marker section for arguments](https://help.syncfu
 
 For example – let’s consider that you have a template document as shown below.
 
-![Template Marker](Getting-Started_images/Getting-Started_img3.jpeg)
+<img src="Getting-Started_images/Getting-Started_img3.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
 
 [Download input template](http://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
@@ -1803,16 +1792,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1845,11 +1832,11 @@ public class Report
 
   public Report(string name, string janToJun, string julToDec, int change, string imagePath)
   {
-	SalesPerson = name;
-	SalesJanJun = janToJun;
-	SalesJulDec = julToDec;
-	Change = change;
-	Image = File.ReadAllBytes(imagePath);
+    SalesPerson = name;
+    SalesJanJun = janToJun;
+    SalesJulDec = julToDec;
+    Change = change;
+    Image = File.ReadAllBytes(imagePath);
   }
 }
 {% endhighlight %}
@@ -1870,61 +1857,61 @@ End Function
 Public Class Report
 	
   Public Property SalesPerson() As String
-	Get
-	  Return m_SalesPerson
-	End Get
-	Set(value As String)
-	  m_SalesPerson = Value
-	End Set
+    Get
+      Return m_SalesPerson
+    End Get
+    Set(value As String)
+      m_SalesPerson = Value
+    End Set
   End Property
   Private m_SalesPerson As String
 
   Public Property SalesJanJun() As String
-	Get
-	  Return m_SalesJanJun
-	End Get
-	Set(value As String)
-	  m_SalesJanJun = Value
-	End Set
+    Get
+      Return m_SalesJanJun
+    End Get
+    Set(value As String)
+      m_SalesJanJun = Value
+    End Set
   End Property
   Private m_SalesJanJun As String
 
   Public Property SalesJulDec() As String
-	Get
-	  Return m_SalesJulDec
-	End Get
-	Set(value As String)
-	  m_SalesJulDec = Value
-	End Set
+    Get
+      Return m_SalesJulDec
+    End Get
+    Set(value As String)
+      m_SalesJulDec = Value
+    End Set
   End Property
   Private m_SalesJulDec As String
 
   Public Property Change() As Integer
-	Get
-	  Return m_Change
-	End Get
-	Set(value As Integer)
-	  m_Change = Value
-	End Set
+    Get
+      Return m_Change
+    End Get
+    Set(value As Integer)
+      m_Change = Value
+    End Set
   End Property
   Private m_Change As Integer
 
   Public Property Image() As Byte()
-	Get
-	  Return m_Image
-	End Get
-	Set(value As Byte())
-	  m_Image = Value
-	End Set
+    Get
+      Return m_Image
+    End Get
+    Set(value As Byte())
+      m_Image = Value
+    End Set
   End Property
   Private m_Image As Byte()
 
   Public Sub New(name As String, janToJun As String, julToDec As String, change As Integer, imagePath As String)
-	SalesPerson = name
-	SalesJanJun = janToJun
-	SalesJulDec = julToDec
-	change = change
-	Image = File.ReadAllBytes(imagePath)
+    SalesPerson = name
+    SalesJanJun = janToJun
+    SalesJulDec = julToDec
+    change = change
+    Image = File.ReadAllBytes(imagePath)
   End Sub
 End Class
 {% endhighlight %}
@@ -1953,21 +1940,21 @@ public class Report
 
   public Report(string name, string janToJun, string julToDec, int change, string imagePath)
   {
-	SalesPerson = name;
-	SalesJanJun = janToJun;
-	SalesJulDec = julToDec;
-	Change = change;
-	Image = GetImage(imagePath);			
+    SalesPerson = name;
+    SalesJanJun = janToJun;
+    SalesJulDec = julToDec;
+    Change = change;
+    Image = GetImage(imagePath);			
   }
 
   private byte[] GetImage(string imagePath)
   {
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
-	using (BinaryReader br = new BinaryReader(imageStream))
-	{
-	  return br.ReadBytes((int)imageStream.Length);
-	}
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
+    using (BinaryReader br = new BinaryReader(imageStream))
+    {
+      return br.ReadBytes((int)imageStream.Length);
+    }
   }
 }
 {% endhighlight %}
@@ -1996,11 +1983,11 @@ public class Report
   
   public Report(string name, string janToJun, string julToDec, int change, string imagePath)
   {
-	SalesPerson = name;
-	SalesJanJun = janToJun;
-	SalesJulDec = julToDec;
-	Change = change;
-	Image = File.ReadAllBytes(imagePath);
+    SalesPerson = name;
+    SalesJanJun = janToJun;
+    SalesJulDec = julToDec;
+    Change = change;
+    Image = File.ReadAllBytes(imagePath);
   }
 }
 {% endhighlight %}
@@ -2029,21 +2016,21 @@ public class Report
 
   public Report(string name, string janToJun, string julToDec, int change, string imagePath)
   {
-	SalesPerson = name;
-	SalesJanJun = janToJun;
-	SalesJulDec = julToDec;
-	Change = change;
-	Image = GetImage(imagePath);
+    SalesPerson = name;
+    SalesJanJun = janToJun;
+    SalesJulDec = julToDec;
+    Change = change;
+    Image = GetImage(imagePath);
   }
 
   private byte[] GetImage(string imagePath)
   {
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
-	using (BinaryReader reader = new BinaryReader(imageStream))
-	{
-	  return reader.ReadBytes((int)imageStream.Length);
-	}
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
+    using (BinaryReader reader = new BinaryReader(imageStream))
+    {
+      return reader.ReadBytes((int)imageStream.Length);
+    }
   }
 }
 {% endhighlight %}
@@ -2051,6 +2038,6 @@ public class Report
 
 The resultant document looks as follows.
 
-![Template Marker](Getting-Started_images/Getting-Started_img4.jpeg)
+<img src="Getting-Started_images/Getting-Started_img4.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
 
 N> You can refer to our [.Net Excel Framework](https://www.syncfusion.com/excel-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

@@ -16,26 +16,22 @@ OpenReadOnly method can be used in .NET Framework whereas FileShare.ReadWrite ov
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
-
-    IWorkbook workbook = application.Workbooks.OpenReadOnly("Template.xlsx");
-
-    workbook.SaveAs("Output.xlsx");
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.OpenReadOnly("Template.xlsx");
+  workbook.SaveAs("Output.xlsx");
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Excel2016;
-	
-	FileStream inputStream = new FileStream("Template.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-	IWorkbook workbook = application.Workbooks.Open(inputStream);
-	
-	FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-	workbook.SaveAs(outputStream);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;	
+  FileStream inputStream = new FileStream("Template.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);	
+  FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(outputStream);
 }
 {% endhighlight %}
 {% endtabs %}

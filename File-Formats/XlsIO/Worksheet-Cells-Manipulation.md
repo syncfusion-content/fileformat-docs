@@ -178,16 +178,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -366,16 +364,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -515,16 +511,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -549,13 +543,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Writing Data
   for (int row = 1; row <= migrantRange.LastRow; row++)
   {
-	for (int column = 1; column <= migrantRange.LastColumn; column++)
-	{
-	  //Writing values
-	  migrantRange.ResetRowColumn(row, column);
-	  migrantRange.Text = "Test";
-	}
-   }
+    for (int column = 1; column <= migrantRange.LastColumn; column++)
+    {
+      //Writing values
+      migrantRange.ResetRowColumn(row, column);
+      migrantRange.Text = "Test";
+    }
+  }
   
   workbook.SaveAs("Range.xlsx");
 }
@@ -572,12 +566,12 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Writing Data
   Dim row As Integer
   For row = 1 To migrantRange.LastRow Step row + 1
-	Dim column As Integer
-	For column = 1 To migrantRange.LastColumn Step column + 1
-	  'Writing values
-	  migrantRange.ResetRowColumn(row, column)
-	  migrantRange.Text = "Test"
-	Next
+    Dim column As Integer
+    For column = 1 To migrantRange.LastColumn Step column + 1
+      'Writing values
+      migrantRange.ResetRowColumn(row, column)
+      migrantRange.Text = "Test"
+    Next
   Next
 
   workbook.SaveAs("Range.xlsx")
@@ -596,12 +590,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Writing Data
   for (int row = 1; row <= migrantRange.LastRow; row++)
   {
-	for (int column = 1; column <= migrantRange.LastColumn; column++)
-	{
-	  //Writing values
-	  migrantRange.ResetRowColumn(row, column);
-	  migrantRange.Text = "Test";
-	}
+    for (int column = 1; column <= migrantRange.LastColumn; column++)
+    {
+      //Writing values
+      migrantRange.ResetRowColumn(row, column);
+      migrantRange.Text = "Test";
+    }
   }
 
   //Initializes FileSavePicker
@@ -630,12 +624,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Writing Data
   for (int row = 1; row <= migrantRange.LastRow; row++)
   {
-	for (int column = 1; column <= migrantRange.LastColumn; column++)
-	{
-	  //Writing values
-	  migrantRange.ResetRowColumn(row, column);
-	  migrantRange.Text = "Test";
-	}
+    for (int column = 1; column <= migrantRange.LastColumn; column++)
+    {
+      //Writing values
+      migrantRange.ResetRowColumn(row, column);
+      migrantRange.Text = "Test";
+    }
   }
 
   //Saving the workbook as stream
@@ -657,12 +651,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Writing Data
   for (int row = 1; row <= migrantRange.LastRow; row++)
   {
-	for (int column = 1; column <= migrantRange.LastColumn; column++)
-	{
-	  //Writing values
-	  migrantRange.ResetRowColumn(row, column);
-	  migrantRange.Text = "Test";
-	}
+    for (int column = 1; column <= migrantRange.LastColumn; column++)
+    {
+      //Writing values
+      migrantRange.ResetRowColumn(row, column);
+      migrantRange.Text = "Test";
+    }
   }
 
   //Saving the workbook as stream
@@ -672,16 +666,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -820,16 +812,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -967,16 +957,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Precedents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Precedents.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Precedents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Precedents.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1104,16 +1092,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Dependents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Dependents.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Dependents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Dependents.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1245,16 +1231,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DirectPrecedents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DirectPrecedents.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DirectPrecedents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DirectPrecedents.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1382,16 +1366,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DirectDependents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DirectDependents.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DirectDependents.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DirectDependents.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1509,16 +1491,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1645,16 +1625,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CopyRange.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CopyRange.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CopyRange.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CopyRange.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1779,16 +1757,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("MoveRange.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("MoveRange.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("MoveRange.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("MoveRange.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1915,16 +1891,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("PasteLink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("PasteLink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("PasteLink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("PasteLink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2064,11 +2038,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SkipBlank.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SkipBlank.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SkipBlank.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SkipBlank.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2266,16 +2240,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Find.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Find.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Find.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Find.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2458,16 +2430,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Replace.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Replace.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2650,16 +2620,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2864,16 +2832,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3076,16 +3042,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3261,16 +3225,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3440,16 +3402,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3614,16 +3574,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3768,16 +3726,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3922,16 +3878,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -4074,16 +4028,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -4228,16 +4180,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -4384,16 +4334,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -4419,42 +4367,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   switch (filter.FilterType)
   {
-	case ExcelFilterType.CombinationFilter:
-	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
-	  for (int index = 0; index < filterItems.Count; index++)
-	  {
-		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
-		{
-		  string textValue = (filterItems[index] as TextFilter).Text;
-		}
-		else
-		{
-		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
-		}
-	  }
-	  break;
+    case ExcelFilterType.CombinationFilter:
+      CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+      for (int index = 0; index < filterItems.Count; index++)
+      {
+        if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+        {
+          string textValue = (filterItems[index] as TextFilter).Text;
+        }
+        else
+        {
+          DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+        }
+      }
+      break;
 
-	case ExcelFilterType.DynamicFilter:
-	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
-	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
-	  break;
+    case ExcelFilterType.DynamicFilter:
+      DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+      DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+      break;
 
-	case ExcelFilterType.CustomFilter:
-	  IAutoFilterCondition firstCondition = filter.FirstCondition;
-	  ExcelFilterDataType types = firstCondition.DataType;
-	  break;
+    case ExcelFilterType.CustomFilter:
+      IAutoFilterCondition firstCondition = filter.FirstCondition;
+      ExcelFilterDataType types = firstCondition.DataType;
+      break;
 
-	case ExcelFilterType.ColorFilter:
-	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
-	  Color color = colorFilter.Color;
-	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
-	  break;
+    case ExcelFilterType.ColorFilter:
+      ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+      Color color = colorFilter.Color;
+      ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+      break;
 
-	case ExcelFilterType.IconFilter:
-	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
-	  int iconId = iconFilter.IconId;
-	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
-	  break;
+    case ExcelFilterType.IconFilter:
+      IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+      int iconId = iconFilter.IconId;
+      ExcelIconSetType iconSetType = iconFilter.IconSetType;
+      break;
   }
 
   workbook.SaveAs("Output.xlsx");
@@ -4473,37 +4421,37 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   Select Case filter.FilterType
     Case ExcelFilterType.CombinationFilter
-	  Dim filterItems As CombinationFilter = TryCast(filter.FilteredItems, CombinationFilter)
-	  For index As Integer = 0 To filterItems.Count - 1
-		If filterItems(index).CombinationFilterType = ExcelCombinationFilterType.TextFilter Then
-		  Dim textValue As String = TryCast(filterItems(index), TextFilter).Text
-		Else
-		  Dim groupType As DateTimeGroupingType = TryCast(filterItems(index), DateTimeFilter).GroupingType
-		End If
-	  Next
-	  Exit Select
+      Dim filterItems As CombinationFilter = TryCast(filter.FilteredItems, CombinationFilter)
+      For index As Integer = 0 To filterItems.Count - 1
+        If filterItems(index).CombinationFilterType = ExcelCombinationFilterType.TextFilter Then
+          Dim textValue As String = TryCast(filterItems(index), TextFilter).Text
+        Else
+          Dim groupType As DateTimeGroupingType = TryCast(filterItems(index), DateTimeFilter).GroupingType
+        End If
+      Next
+      Exit Select
 
-	Case ExcelFilterType.DynamicFilter
-	  Dim dateFilter As DynamicFilter = TryCast(filter.FilteredItems, DynamicFilter)
-	  Dim dynamicFilterType As DynamicFilterType = dateFilter.DateFilterType
-	  Exit Select
+    Case ExcelFilterType.DynamicFilter
+      Dim dateFilter As DynamicFilter = TryCast(filter.FilteredItems, DynamicFilter)
+      Dim dynamicFilterType As DynamicFilterType = dateFilter.DateFilterType
+      Exit Select
 
-	Case ExcelFilterType.CustomFilter
-	  Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
-	  Dim types As ExcelFilterDataType = firstCondition.DataType
-	  Exit Select
+    Case ExcelFilterType.CustomFilter
+      Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
+      Dim types As ExcelFilterDataType = firstCondition.DataType
+      Exit Select
 
-	Case ExcelFilterType.ColorFilter
-	  Dim colorFilter As ColorFilter = TryCast(filter.FilteredItems, ColorFilter)
-	  Dim color As Color = colorFilter.Color
-	  Dim filterType As ExcelColorFilterType = colorFilter.ColorFilterType
-	  Exit Select
+    Case ExcelFilterType.ColorFilter
+      Dim colorFilter As ColorFilter = TryCast(filter.FilteredItems, ColorFilter)
+      Dim color As Color = colorFilter.Color
+      Dim filterType As ExcelColorFilterType = colorFilter.ColorFilterType
+      Exit Select
 
-	Case ExcelFilterType.IconFilter
-	  Dim iconFilter As IconFilter = TryCast(filter.FilteredItems, IconFilter)
-	  Dim iconId As Int32 = iconFilter.IconId
-	  Dim iconSetType As ExcelIconSetType = iconFilter.IconSetType
-	  Exit Select
+    Case ExcelFilterType.IconFilter
+      Dim iconFilter As IconFilter = TryCast(filter.FilteredItems, IconFilter)
+      Dim iconId As Int32 = iconFilter.IconId
+      Dim iconSetType As ExcelIconSetType = iconFilter.IconSetType
+      Exit Select
   End Select
 
   workbook.SaveAs("Output.xlsx")
@@ -4532,42 +4480,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   switch (filter.FilterType)
   {
-	case ExcelFilterType.CombinationFilter:
-	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
-	  for (int index = 0; index < filterItems.Count; index++)
-	  {
-		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
-		{
-		  string textValue = (filterItems[index] as TextFilter).Text;
-		}
-		else
-		{
-		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
-		}
-	  }
-	  break;
+    case ExcelFilterType.CombinationFilter:
+      CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+      for (int index = 0; index < filterItems.Count; index++)
+      {
+        if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+        {
+          string textValue = (filterItems[index] as TextFilter).Text;
+        }
+        else
+        {
+          DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+        }
+      }
+      break;
 
-	case ExcelFilterType.DynamicFilter:
-	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
-	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
-	  break;
+    case ExcelFilterType.DynamicFilter:
+      DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+      DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+      break;
 
-	case ExcelFilterType.CustomFilter:
-	  IAutoFilterCondition firstCondition = filter.FirstCondition;
-	  ExcelFilterDataType types = firstCondition.DataType;
-	  break;
+    case ExcelFilterType.CustomFilter:
+      IAutoFilterCondition firstCondition = filter.FirstCondition;
+      ExcelFilterDataType types = firstCondition.DataType;
+      break;
 
-	case ExcelFilterType.ColorFilter:
-	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
-	  Color color = colorFilter.Color;
-	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
-	  break;
+    case ExcelFilterType.ColorFilter:
+      ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+      Color color = colorFilter.Color;
+      ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+      break;
 
-	case ExcelFilterType.IconFilter:
-	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
-	  int iconId = iconFilter.IconId;
-	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
-	  break;
+    case ExcelFilterType.IconFilter:
+      IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+      int iconId = iconFilter.IconId;
+      ExcelIconSetType iconSetType = iconFilter.IconSetType;
+      break;
   }
 
   //Initializes FileSavePicker
@@ -4598,42 +4546,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   switch (filter.FilterType)
   {
-	case ExcelFilterType.CombinationFilter:
-	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
-	  for (int index = 0; index < filterItems.Count; index++)
-	  {
-		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
-		{
-		  string textValue = (filterItems[index] as TextFilter).Text;
-		}
-		else
-		{
-		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
-		}
-	  }
-	  break;
+    case ExcelFilterType.CombinationFilter:
+      CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+      for (int index = 0; index < filterItems.Count; index++)
+      {
+        if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+        {
+          string textValue = (filterItems[index] as TextFilter).Text;
+        }
+        else
+        {
+          DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+        }
+      }
+      break;
 
-	case ExcelFilterType.DynamicFilter:
-	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
-	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
-	  break;
+    case ExcelFilterType.DynamicFilter:
+      DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+      DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+      break;
 
-	case ExcelFilterType.CustomFilter:
-	  IAutoFilterCondition firstCondition = filter.FirstCondition;
-	  ExcelFilterDataType types = firstCondition.DataType;
-	  break;
+    case ExcelFilterType.CustomFilter:
+      IAutoFilterCondition firstCondition = filter.FirstCondition;
+      ExcelFilterDataType types = firstCondition.DataType;
+      break;
 
-	case ExcelFilterType.ColorFilter:
-	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
-	  Color color = colorFilter.Color;
-	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
-	  break;
+    case ExcelFilterType.ColorFilter:
+      ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+      Color color = colorFilter.Color;
+      ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+      break;
 
-	case ExcelFilterType.IconFilter:
-	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
-	  int iconId = iconFilter.IconId;
-	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
-	  break;
+    case ExcelFilterType.IconFilter:
+      IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+      int iconId = iconFilter.IconId;
+      ExcelIconSetType iconSetType = iconFilter.IconSetType;
+      break;
   }
 
   //Saving the workbook as stream
@@ -4660,42 +4608,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   switch (filter.FilterType)
   {
-	case ExcelFilterType.CombinationFilter:
-	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
-	  for (int index = 0; index < filterItems.Count; index++)
-	  {
-		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
-	    {
-		  string textValue = (filterItems[index] as TextFilter).Text;
-		}
-		else
-		{
-		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
-		}
-	  }
-	  break;
+    case ExcelFilterType.CombinationFilter:
+      CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+      for (int index = 0; index < filterItems.Count; index++)
+      {
+        if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+        {
+          string textValue = (filterItems[index] as TextFilter).Text;
+        }
+        else
+        {
+          DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+        }
+      }
+      break;
 
     case ExcelFilterType.DynamicFilter:
-	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
-	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
-	  break;
+      DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+      DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+      break;
 
-	case ExcelFilterType.CustomFilter:
-	  IAutoFilterCondition firstCondition = filter.FirstCondition;
-	  ExcelFilterDataType types = firstCondition.DataType;
-	  break;
+    case ExcelFilterType.CustomFilter:
+      IAutoFilterCondition firstCondition = filter.FirstCondition;
+      ExcelFilterDataType types = firstCondition.DataType;
+      break;
 
-	case ExcelFilterType.ColorFilter:
-	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
-	  Syncfusion.Drawing.Color color = colorFilter.Color;
-	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
-	  break;
+    case ExcelFilterType.ColorFilter:
+      ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+      Syncfusion.Drawing.Color color = colorFilter.Color;
+      ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+      break;
 
     case ExcelFilterType.IconFilter:
-	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
-	  int iconId = iconFilter.IconId;
-	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
-	  break;
+      IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+      int iconId = iconFilter.IconId;
+      ExcelIconSetType iconSetType = iconFilter.IconSetType;
+      break;
   }
 
   //Saving the workbook as stream
@@ -4705,16 +4653,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -4974,16 +4920,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -5103,16 +5047,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -5227,16 +5169,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -5426,16 +5366,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -5577,16 +5515,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -5703,16 +5639,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}

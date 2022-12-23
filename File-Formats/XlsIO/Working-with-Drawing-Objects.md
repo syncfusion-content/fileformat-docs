@@ -198,16 +198,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TextBox.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TextBox.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TextBox.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TextBox.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -295,22 +293,22 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   {                    
     for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
     {
-        String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
+      String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
     }
   }
   
   //Creates a new text box in the chart 
   ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
   textbox.Text = "Text Box in the chart";
-  
+
   FileSavePicker savePicker = new FileSavePicker();
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-  
+
   //Creates a storage file from FileSavePicker
   StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
-  
+
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(outputStorageFile);
 
@@ -322,7 +320,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-
   FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -558,16 +555,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CheckBox.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CheckBox.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CheckBox.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CheckBox.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -800,16 +795,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ComboBox.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ComboBox.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ComboBox.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ComboBox.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1019,16 +1012,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("OptionButton.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("OptionButton.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("OptionButton.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("OptionButton.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1186,16 +1177,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Comments.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Comments.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Comments.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Comments.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1346,16 +1335,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("FormatComments.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("FormatComments.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("FormatComments.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("FormatComments.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1508,9 +1495,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -1632,16 +1617,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("RemoveComments.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("RemoveComments.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RemoveComments.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RemoveComments.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1828,16 +1811,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AutoShapes.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AutoShapes.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AutoShapes.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AutoShapes.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1857,102 +1838,71 @@ The shapes in the worksheet can be grouped into a single shape by creating group
 The following code example illustrates how to create a group shape.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("GroupShape.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Select the shapes you want to group	
-
 IShape[] groupItems = new IShape[] { shapes[0], shapes[1] };
 
 // Group the selected shapes
-
 IGroupShape GroupShape = shapes.Group(groupItems);
 
 workbook.SaveAs("GroupShape.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 Dim excelEngine As ExcelEngine = New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("GroupShape.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 	
 Dim shapes As IShapes = worksheet.Shapes
 
 ' Select the shapes you want to group	
-
 Dim groupItems As IShape() = New IShape() {shapes(0), shapes(1)}
 
 ' Group the selected shapes
-
 Dim GroupShape As IGroupShape = shapes.Group(groupItems)
 	
-workbook.SaveAs("GroupShape.xlsx")
-	
-workbook.Close()
-	
+workbook.SaveAs("GroupShape.xlsx")	
+workbook.Close()	
 excelEngine.Dispose()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
-
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 openPicker.FileTypeFilter.Add(".xlsx");
-
 openPicker.FileTypeFilter.Add(".xls");
-
 StorageFile openFile = await openPicker.PickSingleFileAsync();
 
 //Opens the workbook
 IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Select the shapes you want to group	
-
 IShape[] groupItems = new IShape[] { shapes[0], shapes[1] };
 
 // Group the selected shapes
-
 IGroupShape GroupShape = shapes.Group(groupItems);
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "GroupShape";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -1960,85 +1910,57 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await workbook.SaveAsAsync(storageFile);
-
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
-
 IWorkbook workbook = application.Workbooks.Open(inputStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
-// Select the shapes you want to group	
-
+// Select the shapes you want to group
 IShape[] groupItems = new IShape[] { shapes[0], shapes[1] };
 
 // Group the selected shapes
-
 IGroupShape GroupShape = shapes.Group(groupItems);
 
 FileStream file = new FileStream("GroupShape.xlsx", FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(file);
-
 file.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 Stream fileStream = assembly.GetManifestResourceStream("GroupShape.xlsx");
-
 IWorkbook workbook = application.Workbooks.Open(fileStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Select the shapes you want to group	
-
 IShape[] groupItems = new IShape[] { shapes[0], shapes[1] };
 
 // Group the selected shapes
-
 IGroupShape GroupShape = shapes.Group(groupItems);
 
 workbook.SaveAs("GroupShape.xlsx");
-
 MemoryStream stream = new MemoryStream();
-
 workbook.SaveAs(stream);
-
 workbook.Close();
 
 stream.Position = 0;
 
 //Save the document as file and view the saved document
-
 //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
@@ -2049,9 +1971,7 @@ else
 }
 
 excelEngine.Dispose();
-
 {% endhighlight %}
-
 {% endtabs %}  
 
 A complete working example to group shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Group%20Shapes). 
@@ -2063,90 +1983,62 @@ Group shape can be ungrouped, and its inner shapes are added to worksheet as an 
 The following code example illustrates how to ungroup the shape.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("GroupShape.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape
-
 shapes.Ungroup(shapes[0] as IGroupShape);
 
 workbook.SaveAs("GroupShape.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 Dim excelEngine As ExcelEngine = New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("GroupShape.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 	
 Dim shapes As IShapes = worksheet.Shapes
 
 ' Ungroup the selected specified group shape
-
 shapes.Ungroup(TryCast(shapes(0), IGroupShape))
 	
-workbook.SaveAs("GroupShape.xlsx")
-	
-workbook.Close()
-	
+workbook.SaveAs("GroupShape.xlsx")	
+workbook.Close()	
 excelEngine.Dispose()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
-
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 openPicker.FileTypeFilter.Add(".xlsx");
-
 openPicker.FileTypeFilter.Add(".xls");
-
 StorageFile openFile = await openPicker.PickSingleFileAsync();
 
 //Opens the workbook
 IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape
-
 shapes.Ungroup(shapes[0] as IGroupShape);
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "GroupShape";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -2156,75 +2048,49 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
-
 IWorkbook workbook = application.Workbooks.Open(inputStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape
-
 shapes.Ungroup(shapes[0] as IGroupShape);
 
 FileStream file = new FileStream("GroupShape.xlsx", FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(file);
-
 file.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 Stream fileStream = assembly.GetManifestResourceStream("GroupShape.xlsx");
-
 IWorkbook workbook = application.Workbooks.Open(fileStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape
-
 shapes.Ungroup(shapes[0] as IGroupShape);
 
 workbook.SaveAs("GroupShape.xlsx");
-
 MemoryStream stream = new MemoryStream();
-
 workbook.SaveAs(stream);
-
 workbook.Close();
-
 stream.Position = 0;
 
 //Save the document as file and view the saved document
-
 //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
@@ -2235,9 +2101,7 @@ else
 }
 
 excelEngine.Dispose();
-
 {% endhighlight %}
-
 {% endtabs %} 
 
 A complete working example to ungroup shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Ungroup%20Shapes). 
@@ -2250,90 +2114,62 @@ In Ungroup method, “isAll” boolean value indicates whether the group inner s
 The following code example illustrates how to ungroup the group shape and its inner shapes.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("GroupShape.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-
 shapes.Ungroup(shapes[0] as IGroupShape, true);
 
 workbook.SaveAs("GroupShape.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 Dim excelEngine As ExcelEngine = New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("GroupShape.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 	
 Dim shapes As IShapes = worksheet.Shapes
 
 ' Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-
 shapes.Ungroup(TryCast(shapes(0), IGroupShape), True)
 	
-workbook.SaveAs("GroupShape.xlsx")
-	
-workbook.Close()
-	
+workbook.SaveAs("GroupShape.xlsx")	
+workbook.Close()	
 excelEngine.Dispose()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
 
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
-
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 openPicker.FileTypeFilter.Add(".xlsx");
-
 openPicker.FileTypeFilter.Add(".xls");
-
 StorageFile openFile = await openPicker.PickSingleFileAsync();
 
 //Opens the workbook
 IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-
 shapes.Ungroup(shapes[0] as IGroupShape, true);
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "GroupShape";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -2343,75 +2179,49 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
-
 IWorkbook workbook = application.Workbooks.Open(inputStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-
 shapes.Ungroup(shapes[0] as IGroupShape, true);
 
 FileStream file = new FileStream("GroupShape.xlsx", FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(file);
-
 file.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 Stream fileStream = assembly.GetManifestResourceStream("GroupShape.xlsx");
-
 IWorkbook workbook = application.Workbooks.Open(fileStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
 
 // Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-
 shapes.Ungroup(shapes[0] as IGroupShape, true);
 
 workbook.SaveAs("GroupShape.xlsx");
-
 MemoryStream stream = new MemoryStream();
-
 workbook.SaveAs(stream);
-
 workbook.Close();
-
 stream.Position = 0;
 
 //Save the document as file and view the saved document
-
 //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
@@ -2422,9 +2232,7 @@ else
 }
 
 excelEngine.Dispose();
-
 {% endhighlight %}
-
 {% endtabs %} 
 
 A complete working example to ungroup all shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Ungroup%20All%20Shapes). 
@@ -2558,16 +2366,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("LinkedObjects.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("LinkedObjects.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("LinkedObjects.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("LinkedObjects.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2694,16 +2500,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("EmbeddedObjects.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("EmbeddedObjects.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EmbeddedObjects.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EmbeddedObjects.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2809,7 +2613,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Get image from stream
   Syncfusion.XlsIO.Image image = Syncfusion.XlsIO.Image.FromStream(imageStream);
-  
+
   //Add ole object
   IOleObject oleObject1 = worksheet.OleObjects.Add(inputStream1, image, OleObjectType.WordDocument);
   IOleObject oleObject2 = worksheet.OleObjects.Add(inputStream2, image, OleObjectType.WordDocument);
@@ -2939,16 +2743,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("OleObjects.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("OleObjects.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("OleObjects.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("OleObjects.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}

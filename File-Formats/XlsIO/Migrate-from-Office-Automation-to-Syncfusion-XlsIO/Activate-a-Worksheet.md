@@ -18,45 +18,45 @@ The following code shows how to activate a worksheet in workbook containing thre
 {% highlight c# tabtitle="C#" %}
 private void ActivateWorksheet()
 {
-    //Instantiate the application object
-    var excelApp = new Microsoft.Office.Interop.Excel.Application();
+  //Instantiate the application object
+  var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
-    //Specify the template Excel file path
-    string myPath = "Sample.xlsx";
+  //Specify the template Excel file path
+  string myPath = "Sample.xlsx";
 
-    //Open the Excel file
-    Workbook workbook = excelApp.Workbooks.Open(myPath);
+  //Open the Excel file
+  Workbook workbook = excelApp.Workbooks.Open(myPath);
 
-    //Activate the first worksheet by default
-    workbook.Sheets[1].Activate();
+  //Activate the first worksheet by default
+  workbook.Sheets[1].Activate();
 
-    //Save as Excel file
-    workbook.SaveCopyAs("InteropOutput_ActivateWorksheet.xlsx");
+  //Save as Excel file
+  workbook.SaveCopyAs("InteropOutput_ActivateWorksheet.xlsx");
 
-    //Quit the application
-    excelApp.Quit();
+  //Quit the application
+  excelApp.Quit();
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ActivateWorksheet()
-    'Instantiate the application object
-    Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
+  'Instantiate the application object
+  Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
-    'Specify the template Excel file path
-    Dim myPath As String = "Sample.xlsx"
+  'Specify the template Excel file path
+  Dim myPath As String = "Sample.xlsx"
 
-    'Open the Excel file
-    Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
+  'Open the Excel file
+  Dim workbook As Workbook = excelApp.Workbooks.Open(myPath)
 
-    'Activate the first worksheet by default
-    workbook.Sheets(1).Activate()
+  'Activate the first worksheet by default
+  workbook.Sheets(1).Activate()
 
-    'Save as Excel file
-    workbook.SaveCopyAs("InteropOutput_ActivateWorksheet.xlsx")
+  'Save as Excel file
+  workbook.SaveCopyAs("InteropOutput_ActivateWorksheet.xlsx")
 
-    'Quit the application
-    excelApp.Quit()
+  'Quit the application
+  excelApp.Quit()
 End Sub
 {% endhighlight %}
 {% endtabs %}
@@ -67,46 +67,46 @@ End Sub
 {% highlight c# tabtitle="C#" %}
 private void ActivateWorksheet()
 {
-    using (ExcelEngine excelEngine = new ExcelEngine())
-    {
-        //Instantiate the application object
-        IApplication application = excelEngine.Excel;
+  using (ExcelEngine excelEngine = new ExcelEngine())
+  {
+    //Instantiate the application object
+    IApplication application = excelEngine.Excel;
 
-        //Specify the template Excel file path
-        string myPath = "Sample.xlsx";
+    //Specify the template Excel file path
+    string myPath = "Sample.xlsx";
 
-        //Instantiate a new workbook
-        //Open the Excel file
-        IWorkbook workbook = application.Workbooks.Open(myPath);
+    //Instantiate a new workbook
+    //Open the Excel file
+    IWorkbook workbook = application.Workbooks.Open(myPath);
 
-        //Activate the first worksheet by default
-        workbook.Worksheets[0].Activate();
+    //Activate the first worksheet by default
+    workbook.Worksheets[0].Activate();
 
-        //Save as Excel file
-        workbook.SaveAs("XlsIOOutput_ActivateWorksheet.xlsx");
-    }
+    //Save as Excel file
+    workbook.SaveAs("XlsIOOutput_ActivateWorksheet.xlsx");
+  }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Sub ActivateWorksheet()
-    Using excelEngine As ExcelEngine = New ExcelEngine()
-        'Instantiate the application object
-        Dim application As IApplication = excelEngine.Excel
+  Using excelEngine As ExcelEngine = New ExcelEngine()
+    'Instantiate the application object
+    Dim application As IApplication = excelEngine.Excel
 
-        'Specify the template Excel file path
-        Dim myPath As String = "Sample.xlsx"
+    'Specify the template Excel file path
+    Dim myPath As String = "Sample.xlsx"
 
-        'Instantiate a new workbook
-        'Open the Excel file
-        Dim workbook As IWorkbook = application.Workbooks.Open(myPath)
+    'Instantiate a new workbook
+    'Open the Excel file
+    Dim workbook As IWorkbook = application.Workbooks.Open(myPath)
 
-        'Activate the first worksheet by default
-        workbook.Worksheets(0).Activate()
+    'Activate the first worksheet by default
+    workbook.Worksheets(0).Activate()
 
-        'Save as Excel file
-        workbook.SaveAs("XlsIOOutput_ActivateWorksheet.xlsx")
-    End Using
+    'Save as Excel file
+    workbook.SaveAs("XlsIOOutput_ActivateWorksheet.xlsx")
+  End Using
 End Sub
 {% endhighlight %}
 {% endtabs %}
