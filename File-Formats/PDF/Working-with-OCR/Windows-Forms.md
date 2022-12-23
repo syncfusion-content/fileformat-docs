@@ -8,7 +8,7 @@ keywords: Assemblies
 --- 
 
 # Perform OCR in Windows 
-The Syncfusion .NET OCR library used to extract text from scanned PDFs and images in Windows Forms application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
+The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) used to extract text from scanned PDFs and images in Windows Forms application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
 ## Steps to perform OCR on entire PDF document in Windows Forms 
 
@@ -25,16 +25,17 @@ Step 3: Tesseract assemblies are not added as a reference. They must be kept in 
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
 
 {% endhighlight %}
 
 Step 4: Place the Tesseract language data {e.g, eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
+
 [Tesseract language data](https://github.com/tesseract-ocr/tessdata)
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor("Tesseractbinaries\");
+OCRProcessor processor = new OCRProcessor("Tesseractbinaries/");
 processor.PerformOCR(loadedDocument, "tessdata/");
 
 {% endhighlight %}
@@ -111,4 +112,4 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 By executing the program, you will get a PDF document as follows.
 <img src="OCR-Images/Output.png" alt="Output screenshot" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from [GitHub]().
+A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Perform-OCR-WF).

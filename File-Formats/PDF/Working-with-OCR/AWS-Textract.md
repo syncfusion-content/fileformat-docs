@@ -15,6 +15,8 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 
 Step 1: Create a new .NET Console application project. 
 <img src="OCR-Images/.NET-sample-creation-step1.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
+
+In project configuration window, name your project and select Next. 
 <img src="OCR-Images/.NET-sample-creation-step2.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
 
 Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
@@ -63,8 +65,8 @@ N> Provide a valid Secret Access Key to work with AWS Textract.
 
 class AWSExternalOcrEngine : IOcrEngine
 {
-    private string awsAccessKeyId = "AKIASCRGFNWJEKPU5MPF";
-    private string awsSecretAccessKey = "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";
+    private string awsAccessKeyId = "AccessKey";
+    private string awsSecretAccessKey = "SecretAccessKey";
     private float imageHeight;
     private float imageWidth;
     public OCRLayoutResult PerformOCR(Stream stream)
@@ -145,4 +147,4 @@ class AWSExternalOcrEngine : IOcrEngine
 By executing the program, you will get a PDF document as follows. 
 <img src="OCR-Images/Output.png" alt="Output PDF screenshot" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from [Github]().
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Perform-OCR-AWS-Textract).

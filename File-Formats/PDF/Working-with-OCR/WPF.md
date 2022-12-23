@@ -1,6 +1,6 @@
 ---
 title: Perform OCR on PDF and image files in WPF | Syncfusion
-description: Learn how to perform OCR on scanned PDF documents and images with different tesseract version using Syncfusion .NET OCR library. 
+description: Learn how to perform OCR on scanned PDF documents and images in WPF with different tesseract version using Syncfusion .NET OCR library. 
 platform: file-formats
 control: PDF
 documentation: UG
@@ -9,7 +9,7 @@ keywords: Assemblies
 
 # Perform OCR in WPF (Windows Presentation Foundation)
 
-The Syncfusion .NET OCR library used to extract text from scanned PDFs and images in the WPF application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
+The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) used to extract text from scanned PDFs and images in the WPF application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
 ## Steps to perform OCR on entire PDF document in WPF
 
@@ -45,16 +45,17 @@ Step 5: Tesseract assemblies are not added as a reference. They must be kept in 
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\")
+OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
 
 {% endhighlight %}
 
-Step 6: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link,
+Step 6: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
+
 [Tesseract language data](https://github.com/tesseract-ocr/tessdata)
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor("Tesseractbinaries\");
+OCRProcessor processor = new OCRProcessor("Tesseractbinaries/");
 processor.PerformOCR(loadedDocument, "tessdata/");
 
 {% endhighlight %}
@@ -64,10 +65,10 @@ Step 6: Add the following code to a Button_Click to perform OCR on the entire PD
 {% highlight c# tabtitle="C#" %}
 
 //Initialize the OCR processor by providing the path of tesseract binaries.
-using (OCRProcessor processor = new OCRProcessor(@"../../TesseractBinaries/4.0/x86"))
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 {
     //Load an existing PDF document.
-    PdfLoadedDocument loadedDocument = new PdfLoadedDocument("../../Data/Input.pdf");
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
     //Set the tesseract version.
     processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
@@ -76,19 +77,17 @@ using (OCRProcessor processor = new OCRProcessor(@"../../TesseractBinaries/4.0/x
     processor.Settings.Language = Languages.English;
 
     //Process OCR by providing the PDF document and Tesseract data.
-    processor.PerformOCR(loadedDocument, @"../../Tessdata/");
+    processor.PerformOCR(loadedDocument, @"Tessdata/");
 
     //Save the OCR processed PDF document in the disk.
     loadedDocument.Save("OCR.pdf");
     loadedDocument.Close(true);
 }
-//This will open the PDF file so, the result will be seen in default PDF viewer.
-Process.Start("OCR.pdf");
 
 {% endhighlight %}
 
 By executing the program, you will get a PDF document as follows. 
 <img src="OCR-Images/Output.png" alt="Output document screenshot" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from [GitHub]().
+A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Perform_OCR_WPF).
 
