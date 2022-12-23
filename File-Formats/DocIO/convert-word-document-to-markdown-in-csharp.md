@@ -357,7 +357,7 @@ using (WordDocument document = new WordDocument())
     //Append text.
     textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
     //Save the document as a Markdown file.
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToMd.md", "application/msword", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToMd.md", "application/msword", stream);
 }
 //Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
@@ -502,10 +502,10 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {% highlight vb.net tabtitle="VB.NET" %}
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
-'Set images folder to export images. 
-document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
-'Save a document as a Markdown file.
-document.Save("WordtoMd.md", FormatType.Markdown)
+    'Set images folder to export images. 
+    document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
+    'Save a document as a Markdown file.
+    document.Save("WordtoMd.md", FormatType.Markdown)
 End Using
 {% endhighlight %}
 
@@ -522,7 +522,6 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
     {
         //Set images folder to export images. 
         document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
-
         //Save a Markdown file to the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Markdown);
@@ -559,10 +558,10 @@ using (WordDocument document = new WordDocument(@"Input.docx"))
 {% highlight vb.net tabtitle="VB.NET" %}
 'Open an existing Word document. 
 Using document As WordDocument = New WordDocument("Input.docx")
- 'Hook the event to customize the image. 
-document.SaveOptions.ImageNodeVisited += SaveImage
- 'Save a Word document as a Markdown file.
-document.Save("WordtoMd.md", FormatType.Markdown)
+    'Hook the event to customize the image. 
+    document.SaveOptions.ImageNodeVisited += SaveImage
+    'Save a Word document as a Markdown file.
+    ocument.Save("WordtoMd.md", FormatType.Markdown)
 End Using
 {% endhighlight %}
 
@@ -607,8 +606,8 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Save the stream as a file in the device and invoke it for viewing. 
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordtoMd.md", "application/msword", outputStream);
     }
-//Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}
@@ -618,25 +617,25 @@ The following code examples show the event handler to customize the image path a
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-        {
-            string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as a file. 
-            using (FileStream fileStreamOutput = File.Create(imagepath))
-                args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the image URI to be used in the output markdown.
-            args.Uri = imagepath;
-        }
+{
+    string imagepath = @"D:\Temp\Image1.png";
+    //Save the image stream as a file. 
+    using (FileStream fileStreamOutput = File.Create(imagepath))
+        args.ImageStream.CopyTo(fileStreamOutput);
+    //Set the image URI to be used in the output markdown.
+    args.Uri = imagepath;
+}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Shared Sub SaveImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
-Dim imagepath = "D:\Temp\Image1.png"
- 'Save the image stream as a file. 
-Using fileStreamOutput = File.Create(imagepath)
-   args.ImageStream.CopyTo(fileStreamOutput)
-End Using
-'Set the URI to be used for the image in the output markdown. 
-   args.Uri = imagepath
+    Dim imagepath = "D:\Temp\Image1.png"
+    'Save the image stream as a file. 
+    Using fileStreamOutput = File.Create(imagepath)
+        args.ImageStream.CopyTo(fileStreamOutput)
+    End Using
+    'Set the URI to be used for the image in the output markdown. 
+    args.Uri = imagepath
 End Sub
 {% endhighlight %}
 
@@ -646,26 +645,26 @@ End Sub
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-        {
-            string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as a file.
-            using (FileStream fileStreamOutput = File.Create(imagepath))
-                args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the URI to be used for the image in the output Markdown. 
-            args.Uri = imagepath;
-        }
+{
+    string imagepath = @"D:\Temp\Image1.png";
+    //Save the image stream as a file.
+    using (FileStream fileStreamOutput = File.Create(imagepath))
+        args.ImageStream.CopyTo(fileStreamOutput);
+    //Set the URI to be used for the image in the output Markdown. 
+    args.Uri = imagepath;
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-        {
-            string imagepath = @"D:\Temp\Image1.png";
-            //Save the image stream as a file. 
-            using (FileStream fileStreamOutput = File.Create(imagepath))
-                args.ImageStream.CopyTo(fileStreamOutput);
-            //Set the URI to be used for the image in the output markdown. 
-            args.Uri = imagepath;
-        }
+{
+    string imagepath = @"D:\Temp\Image1.png";
+    //Save the image stream as a file. 
+    using (FileStream fileStreamOutput = File.Create(imagepath))
+        args.ImageStream.CopyTo(fileStreamOutput);
+    //Set the URI to be used for the image in the output markdown. 
+    args.Uri = imagepath;
+}
 {% endhighlight %}
 {% endtabs %}
 

@@ -41,7 +41,6 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 <Window
     x:Class="CreateWordSample.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -55,7 +54,6 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
         <Button x:Name="button" Click="CreateDocument">Create Document</Button>
     </StackPanel>
 </Window>
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -69,11 +67,9 @@ Step 6: Include the following namespaces in the **MainWindow.xaml.cs** file.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -114,8 +110,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Get the image stream.
@@ -169,7 +165,6 @@ IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Append the paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -197,7 +192,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -252,7 +246,6 @@ paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.LineSpacing = 12f;
 //Append the picture to the paragraph.
 Stream image2 = assembly.GetManifestResourceStream("CreateWordSample.Assets.Mountain-300.jpg");
-
 picture = paragraph.AppendPicture(image2);
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
 picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -309,7 +302,6 @@ using MemoryStream outputStream = new();
 document.Save(outputStream, FormatType.Docx);
 //Save the stream as a Word document file in the local machine.
 Save(outputStream, "Sample.docx");
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -431,8 +423,8 @@ using (WordDocument document = new WordDocument())
     style.ParagraphFormat.Keep = true;
     style.ParagraphFormat.KeepFollow = true;
     style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
     //Append the picture.
     IWPicture picture = paragraph.AppendPicture(assembly.GetManifestResourceStream("CreateWordSample.Assets.AdventureCycle.jpg"));
     picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -484,7 +476,6 @@ using (WordDocument document = new WordDocument())
     table.ResetCells(3, 2);
     table.TableFormat.Borders.BorderType = BorderStyle.None;
     table.TableFormat.IsAutoResized = true;
-
     //Append the paragraph.
     paragraph = table[0, 0].AddParagraph();
     paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -511,7 +502,6 @@ using (WordDocument document = new WordDocument())
     paragraph.ParagraphFormat.LineSpacing = 12f;
     paragraph.BreakCharacterFormat.FontSize = 12f;
     paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
     textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
     textRange.CharacterFormat.FontSize = 12f;
     textRange.CharacterFormat.FontName = "Times New Roman";

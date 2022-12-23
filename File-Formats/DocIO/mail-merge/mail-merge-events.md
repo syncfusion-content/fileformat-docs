@@ -24,7 +24,7 @@ You can apply formatting to the merged text or customize the merged text during 
 
 The following code example shows how to use the `MergeField` event during Mail merge process.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
@@ -89,9 +89,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code example shows how to set text color to the alternate Mail merge record by using MergeFieldEventHandler.
 
@@ -229,7 +229,7 @@ You can format the merged image like resizing the image and more during mail mer
 
 The following code example shows how to use the `MergeImageField` event during Mail merge process.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document
@@ -506,7 +506,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -540,7 +539,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
         string unmergedFieldName = args.FieldName;
         //Sets error message for unmerged fields, which is not found in data source
         args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " is not found in the data source.";
-	}
+    }
 }
 {% endhighlight %}
 

@@ -352,7 +352,7 @@ Mail merge operation automatically removes the unmerged merge fields since the d
 T> 1.Set `ClearFields` property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
 T> 2.Modify the `ClearFields` property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
 T> 3.Order the mail merge executions with the `ClearFields` property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
-T> 4.You can get the unmerged fields in your document, customize the mail merge process using the BeforeClearField Event. For further information, click [here] (https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
+T> 4.You can get the unmerged fields in your document, customize the mail merge process using the BeforeClearField Event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
 
 The following code example shows how to keep the unmerged merge fields in the generated Word document.
  
