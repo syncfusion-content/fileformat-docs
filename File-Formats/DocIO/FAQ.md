@@ -1133,7 +1133,7 @@ DocIO performs Mail merge by using the following methods:
 * ExecuteGroup
 * ExecuteNestedGroup
 
-The following code example performs Mail merge by using the `Execute` method.
+The following code example performs Mail merge by using the [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_) method.
 
 {% tabs %}
 
@@ -1386,7 +1386,7 @@ wordApp.Quit()
 
 ### Using DocIO
 
-The following code example illustrates how to insert the bookmark by using DocIO. Here, the `AppendBookmarkStart()` and `AppendBookmarkEnd()` methods are used to add the bookmark.
+The following code example illustrates how to insert the bookmark by using DocIO. Here, the [AppendBookmarkStart()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendBookmarkStart_System_String_) and [AppendBookmarkEnd()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendBookmarkEnd_System_String_) methods are used to add the bookmark.
 
 {% tabs %}
 
@@ -1760,7 +1760,7 @@ wordApp.Quit()
 
 ### Using DocIO
 
-You can set the header and footer by using the HeadersFooters property in the Word document section. To access a particular header/footer, you can use the following properties of `WHeadersFooters` class:
+You can set the header and footer by using the HeadersFooters property in the Word document section. To access a particular header/footer, you can use the following properties of [WHeadersFooters](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html) class:
 
 * FirstPageHeader
 * FirstPageFooter
@@ -1956,7 +1956,7 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 ### Using DocIO
 
-The following code example shows how to insert an empty table to a Word document. The `ResetCells()` method is used to specify the number of rows and columns in a table.
+The following code example shows how to insert an empty table to a Word document. The [ResetCells()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWTable.html#Syncfusion_DocIO_DLS_IWTable_ResetCells_System_Int32_System_Int32_) method is used to specify the number of rows and columns in a table.
 
 {% tabs %}
 
@@ -2476,7 +2476,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to check whether a Word document contains tracked changes or not? 
 
-You can check whether a Word document contains tracked changes by using `HasChanges` property in Essential DocIO.
+You can check whether a Word document contains tracked changes by using [HasChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_HasChanges) property in Essential DocIO.
 
 The following code example shows how to check whether a Word document contains tracked changes.
 

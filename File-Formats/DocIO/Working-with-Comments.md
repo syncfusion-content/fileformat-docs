@@ -7,13 +7,13 @@ documentation: UG
 ---
 # Working with Comments
 
-A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with `WComment` instance.
+A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with [WComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WComment.html) instance.
 
 N> The comment start and end ranges and dates can be preserved only on processing an existing document that already contains these information for each comment.
 
 ## Adding a Comment
 
-You can add a new comment to the Word document by using `AppendComment` method of `WParagraph` class. 
+You can add a new comment to the Word document by using [AppendComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendComment_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class. 
 
 The following code illustrates how to add a new comment to the document:
 
@@ -391,7 +391,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Accessing parent comment
 
-You can access the parent comment of a particular comment (reply) in a Word document using `Ancestor` API. The ancestor for parent comment returns `null` as default.
+You can access the parent comment of a particular comment (reply) in a Word document using [Ancestor](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WComment.html#Syncfusion_DocIO_DLS_WComment_Ancestor) API. The ancestor for parent comment returns `null` as default.
 
 The following code examples show how to access the parent comment of a particular comment in a Word document.
 

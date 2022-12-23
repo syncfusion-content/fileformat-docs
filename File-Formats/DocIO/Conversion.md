@@ -62,7 +62,7 @@ Kindly refer the [here](https://help.syncfusion.com/file-formats/docio/word-to-p
 
 ## Rendering / Converting Word document to Image
 
-Essential DocIO supports to convert the Word document to images using `RenderAsImages` method. For further information kindly refer [here](https://help.syncfusion.com/file-formats/docio/word-to-image#).
+Essential DocIO supports to convert the Word document to images using [RenderAsImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_RenderAsImages_Syncfusion_DocIO_DLS_ImageType_) method. For further information kindly refer [here](https://help.syncfusion.com/file-formats/docio/word-to-image#).
 
 
 ## RTF conversion 
