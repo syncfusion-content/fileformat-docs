@@ -1103,10 +1103,10 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to load an existing document and apply table formatting options such as Borders, LeftIndent, Paddings, IsAutoResize, etc.
 
-N> 1. `BorderStyle.None` is the default value of `BorderType` property in `Borders` class which will not show borders for the table or cell. It is equivalent to border style not defined and borders can be inherited from style or parent formats.
-N> 2. To hide border for a table or cell in the Word Document, you can set `BorderType` property with `BorderStyle.Cleared`. It means border style defined as no border (Don’t show border) and shouldn’t inherit from style or parent formats.
-N> 3. To show/display border for a table or cell in the Word Document, you can set `BorderType` property with `BorderStyle` values (except `BorderStyle.None` and `BorderStyle.Cleared`).
-N> 4. As in the Microsoft Word, DocIO supports `RowFormat.Borders` in DOC format alone.
+N> 1. [BorderStyle.None](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html) is the default value of [BorderType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html#Syncfusion_DocIO_DLS_Borders_BorderType) property in [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html) class which will not show borders for the table or cell. It is equivalent to border style not defined and borders can be inherited from style or parent formats.
+N> 2. To hide border for a table or cell in the Word Document, you can set [BorderType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html#Syncfusion_DocIO_DLS_Borders_BorderType) property with [BorderStyle.Cleared](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html). It means border style defined as no border (Don’t show border) and shouldn’t inherit from style or parent formats.
+N> 3. To show/display border for a table or cell in the Word Document, you can set [BorderType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html#Syncfusion_DocIO_DLS_Borders_BorderType) property with [BorderStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html) values (except [BorderStyle.None](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html) and [BorderStyle.Cleared](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html)).
+N> 4. As in the Microsoft Word, DocIO supports [RowFormat.Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RowFormat.html#Syncfusion_DocIO_DLS_RowFormat_Borders) in DOC format alone.
 
 {% tabs %}
 

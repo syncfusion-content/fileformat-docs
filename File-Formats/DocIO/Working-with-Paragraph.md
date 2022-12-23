@@ -271,7 +271,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow, and more. The following code example explains how to apply formatting to a paragraph.
 
-N>The `FirstLineIndent` can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
+N> The [FirstLineIndent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraphFormat.html#Syncfusion_DocIO_DLS_WParagraphFormat_FirstLineIndent) can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
 
 {% tabs %}
 
@@ -4104,7 +4104,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example explains how to create numbered list with prefix from previous level.
 
-N> The `NumberPrefix` value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
+N> The [NumberPrefix](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WListLevel.html#Syncfusion_DocIO_DLS_WListLevel_NumberPrefix) value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
 
 {% tabs %}
 
@@ -4743,7 +4743,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Get-list-value).
 
-N> For a picture bulleted list, the `ListString` API is not valid and it will return an empty string.
+N> For a picture bulleted list, the [ListString](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_ListString) API is not valid and it will return an empty string.
 
 ## Working with hyperlinks
 
