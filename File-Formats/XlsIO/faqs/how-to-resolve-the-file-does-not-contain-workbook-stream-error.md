@@ -14,28 +14,20 @@ XlsIO does not support files generated prior to 97-2003 version. Hence the excep
 
 {% highlight c# tabtitle="C#" %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
 
 //To check whether the file is supported
-
 var isSupported = application.IsSupported("Sample.xls");
-
 excelEngine.Dispose();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
 
 'To check whether the file is supported
-
 Dim isSupported = application.IsSupported("Sample.xls")
-
 excelEngine.Dispose()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -45,7 +37,6 @@ IApplication application = excelEngine.Excel;
 //To check whether the file is supported
 FileStream stream = new FileStream("Sample.xls", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 var isSupported = application.IsSupported(stream);
-
 excelEngine.Dispose();
 {% endhighlight %}
 
@@ -56,7 +47,6 @@ IApplication application = excelEngine.Excel;
 //To check whether the file is supported
 FileStream stream = new FileStream("Sample.xls", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 var isSupported = application.IsSupported(stream);
-
 excelEngine.Dispose();
 {% endhighlight %}
 
@@ -67,10 +57,8 @@ IApplication application = excelEngine.Excel;
 //To check whether the file is supported
 FileStream stream = new FileStream("Sample.xls", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 var isSupported = application.IsSupported(stream);
-
 excelEngine.Dispose();
 {% endhighlight %}
-
 {% endtabs %}  
 
 N> This method is available from 12.4 version onwards.

@@ -15,146 +15,122 @@ However, there is often a need to protect only certain cells in a worksheet. In 
 The following code snippet illustrate this.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Sample data
+  worksheet.Range["A1:K20"].Text = "Locked";
 
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Sample data
-
-    worksheet.Range["A1:K20"].Text = "Locked";
-
-    //A1:A10 will not be protected, hence it is editable.
-
-    worksheet.Range["A1:A10"].CellStyle.Locked = false;
-
-    worksheet.Range["A1:A10"].Text = "UnLocked";
-
-    worksheet.Protect("syncfusion", ExcelSheetProtection.All);
-
-    workbook.SaveAs("ProtectCells.xlsx");
+  //A1:A10 will not be protected, hence it is editable.
+  worksheet.Range["A1:A10"].CellStyle.Locked = false;
+  worksheet.Range["A1:A10"].Text = "UnLocked";
+  worksheet.Protect("syncfusion", ExcelSheetProtection.All);
+  workbook.SaveAs("ProtectCells.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Sample data
+  worksheet.Range("A1:K20").Text = "Locked"
 
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-    'Sample data
-
-    worksheet.Range("A1:K20").Text = "Locked"
-
-    'A1:A10 will not be protected.
-
-    worksheet.Range("A1:A10").CellStyle.Locked = False
-
-    worksheet.Range("A1:A10").Text = "UnLocked"
-
-    worksheet.Protect("syncfusion", ExcelSheetProtection.All)
-
-    workbook.SaveAs("ProtectCells.xlsx")
+  'A1:A10 will not be protected.
+  worksheet.Range("A1:A10").CellStyle.Locked = False
+  worksheet.Range("A1:A10").Text = "UnLocked"
+  worksheet.Protect("syncfusion", ExcelSheetProtection.All)
+  workbook.SaveAs("ProtectCells.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    Stream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IApplication application = excelEngine.Excel;
+  Stream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Sample data
+  worksheet.Range["A1:K20"].Text = "Locked";
 
-    //Sample data
-    worksheet.Range["A1:K20"].Text = "Locked";
+  //A1:A10 will not be protected, hence it is editable.
+  worksheet.Range["A1:A10"].CellStyle.Locked = false;
+  worksheet.Range["A1:A10"].Text = "UnLocked";
+  worksheet.Protect("syncfusion", ExcelSheetProtection.All);
 
-    //A1:A10 will not be protected, hence it is editable.
-    worksheet.Range["A1:A10"].CellStyle.Locked = false;
-    worksheet.Range["A1:A10"].Text = "UnLocked";
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "ProtectCells";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-    worksheet.Protect("syncfusion", ExcelSheetProtection.All);
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "ProtectCells";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Sample data
+  worksheet.Range["A1:K20"].Text = "Locked";
 
-    //Sample data
-    worksheet.Range["A1:K20"].Text = "Locked";
+  //A1:A10 will not be protected, hence it is editable.
+  worksheet.Range["A1:A10"].CellStyle.Locked = false;
+  worksheet.Range["A1:A10"].Text = "UnLocked";
+  worksheet.Protect("syncfusion", ExcelSheetProtection.All);
 
-    //A1:A10 will not be protected, hence it is editable.
-    worksheet.Range["A1:A10"].CellStyle.Locked = false;
-    worksheet.Range["A1:A10"].Text = "UnLocked";
-
-    worksheet.Protect("syncfusion", ExcelSheetProtection.All);
-
-    FileStream stream = new FileStream("ProtectCells.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-
-    workbook.Close();
-    excelEngine.Dispose();
+  FileStream stream = new FileStream("ProtectCells.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IApplication application = excelEngine.Excel;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Sample data
+  worksheet.Range["A1:K20"].Text = "Locked";
 
-    //Sample data
-    worksheet.Range["A1:K20"].Text = "Locked";
+  //A1:A10 will not be protected, hence it is editable.
+  worksheet.Range["A1:A10"].CellStyle.Locked = false;
+  worksheet.Range["A1:A10"].Text = "UnLocked";
+  worksheet.Protect("syncfusion", ExcelSheetProtection.All);
 
-    //A1:A10 will not be protected, hence it is editable.
-    worksheet.Range["A1:A10"].CellStyle.Locked = false;
-    worksheet.Range["A1:A10"].Text = "UnLocked";
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  stream.Position = 0;
 
-    worksheet.Protect("syncfusion", ExcelSheetProtection.All);
-
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    stream.Position = 0;
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ProtectCells.xlsx", "application/msexcel", stream);
+  //Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ProtectCells.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 N> Locking/Unlocking cells in an unprotected worksheet has no effect.
 

@@ -10,8 +10,7 @@ documentation: UG
 
 The merged cells in an Excel worksheet can be detected through [MergedCells](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_MergedCells) of IWorksheet. The following complete code snippet explains this.
 
-{% tabs %}  
-
+{% tabs %} 
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -56,7 +55,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   workbook.SaveAs("Output.xlsx")
 End Using
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -100,7 +98,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -129,7 +126,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(stream);
   stream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -163,9 +159,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);

@@ -105,16 +105,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -262,16 +260,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AddingImage.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -289,10 +285,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  
+
   //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
   IWorkbook workbook = application.Workbooks.Create(1);
-                
+
   //The first worksheet object in the worksheets collection is accessed.
   IWorksheet worksheet = workbook.Worksheets[0];
   int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
@@ -300,7 +296,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Insert Image to B1
   worksheet.Pictures.AddPicture(1, 2, "image.png", scaleWidth, scaleHeight);
-         
+
   //Resize B1 RowHeight & ColumnWidth
   worksheet.Range["B1"].RowHeight = 155;
   worksheet.Range["B1"].ColumnWidth = 10;
@@ -341,7 +337,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
   IWorkbook workbook = application.Workbooks.Create(1);
-  
+
   //The first worksheet object in the worksheets collection is accessed.
   IWorksheet worksheet = workbook.Worksheets[0];
   int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
@@ -357,7 +353,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Resize B1 RowHeight & ColumnWidth
   worksheet.Range["B1"].RowHeight = 155;
   worksheet.Range["B1"].ColumnWidth = 10; 
-  
+
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -379,16 +375,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   application.DefaultVersion = ExcelVersion.Xlsx;
   //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
   IWorkbook workbook = application.Workbooks.Create(1);
-  
+
   //The first worksheet object in the worksheets collection is accessed.
   IWorksheet worksheet = workbook.Worksheets[0];
   int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
   int scaleHeight = (int)application.ConvertUnits((int)worksheet["B1"].RowHeight, MeasureUnits.Millimeter, MeasureUnits.Pixel);
 
-  
   //Adding a picture
   FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.Read);
-  
+
   //Insert Image to B1
   worksheet.Pictures.AddPicture(1, 2, imageStream, scaleWidth, scaleHeight);
 
@@ -411,16 +406,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //A new workbook is created.[Equivalent to creating a new workbook in MS Excel]            
   IWorkbook workbook = application.Workbooks.Create(1);
-  
+
   //The first worksheet object in the worksheets collection is accessed.
   IWorksheet worksheet = workbook.Worksheets[0];
   int scaleWidth = (int)application.ConvertUnits((int)worksheet["B1"].ColumnWidth, MeasureUnits.Millimeter, MeasureUnits.Pixel);
   int scaleHeight = (int)application.ConvertUnits((int)worksheet["B1"].RowHeight, MeasureUnits.Millimeter, MeasureUnits.Pixel);
-  
+
   //Adding a picture
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
   Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.png");
-  
+
   //Insert Image to B1
   worksheet.Pictures.AddPicture(1, 2, imageStream, scaleWidth, scaleHeight);
 
@@ -435,9 +430,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -458,211 +451,214 @@ The following code snippet explains how to add images into merged regions.
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    IWorkbook workbook = application.Workbooks.Open(InputTemplate.xlsx);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  IWorkbook workbook = application.Workbooks.Open(InputTemplate.xlsx);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Get the merged cells
-    IRange[] range = new IRange[3];
-    range[0] = worksheet.MergedCells[0];
-    range[1] = worksheet.MergedCells[1];
-    range[2] = worksheet.MergedCells[2];
+  //Get the merged cells
+  IRange[] range = new IRange[3];
+  range[0] = worksheet.MergedCells[0];
+  range[1] = worksheet.MergedCells[1];
+  range[2] = worksheet.MergedCells[2];
 
-    //Get the images
-    string[] image = new string[3];
-    image[0] = "Picture1.png";
-    image[1] = "Picture2.png";
-    image[2] = "Picture3.png";
+  //Get the images
+  string[] image = new string[3];
+  image[0] = "Picture1.png";
+  image[1] = "Picture2.png";
+  image[2] = "Picture3.png";
 
-    //Insert images
-    int count = 0;
-    foreach (IRange cell in range)
-    {
-        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
-        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
-        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
-        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        count++;
-        imageStream.Dispose();
-    }
+  //Insert images
+  int count = 0;
+  foreach (IRange cell in range)
+  {
+    FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
+    IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+    (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+    (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+    count++;
+    imageStream.Dispose();
+  }
 
-    workbook.SaveAs("Output.xlsx");
+  workbook.SaveAs("Output.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-    Dim range() As IRange = New IRange((3) - 1) {}
-    range(0) = worksheet.MergedCells(0)
-    range(1) = worksheet.MergedCells(1)
-    range(2) = worksheet.MergedCells(2)
-    Dim image() As String = New String((3) - 1) {}
-    image(0) = "Picture1.png"
-    image(1) = "Picture2.png"
-    image(2) = "Picture3.png"
-    Dim count As Integer = 0
-    For Each cell As IRange In range
-        Dim imageStream As FileStream = New FileStream(image(count), FileMode.Open, FileAccess.Read)
-        Dim shape As IPictureShape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream)
-        CType(shape, ShapeImpl).BottomRow = cell.MergeArea.LastRow
-        CType(shape, ShapeImpl).RightColumn = cell.MergeArea.LastColumn
-        count = (count + 1)
-        imageStream.Dispose
-    Next
-    workbook.SaveAs("Output.xlsx")
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim range() As IRange = New IRange((3) - 1) {}
+  range(0) = worksheet.MergedCells(0)
+  range(1) = worksheet.MergedCells(1)
+  range(2) = worksheet.MergedCells(2)
+
+  Dim image() As String = New String((3) - 1) {}
+  image(0) = "Picture1.png"
+  image(1) = "Picture2.png"
+  image(2) = "Picture3.png"
+
+  Dim count As Integer = 0
+  For Each cell As IRange In range
+    Dim imageStream As FileStream = New FileStream(image(count), FileMode.Open, FileAccess.Read)
+    Dim shape As IPictureShape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream)
+    CType(shape, ShapeImpl).BottomRow = cell.MergeArea.LastRow
+    CType(shape, ShapeImpl).RightColumn = cell.MergeArea.LastColumn
+    count = (count + 1)
+    imageStream.Dispose
+  Next
+
+  workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
-	//Instantiates the File Picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile file = await openPicker.PickSingleFileAsync();
-    IWorkbook workbook = application.Workbooks.Open(file);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+  IWorkbook workbook = application.Workbooks.Open(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Get the merged cells
-    IRange[] range = new IRange[3];
-    range[0] = worksheet.MergedCells[0];
-    range[1] = worksheet.MergedCells[1];
-    range[2] = worksheet.MergedCells[2];
+  //Get the merged cells
+  IRange[] range = new IRange[3];
+  range[0] = worksheet.MergedCells[0];
+  range[1] = worksheet.MergedCells[1];
+  range[2] = worksheet.MergedCells[2];
 
-    //Get the images
-    string[] image = new string[3];
-    image[0] = "Picture1.png";
-    image[1] = "Picture2.png";
-    image[2] = "Picture3.png";
+  //Get the images
+  string[] image = new string[3];
+  image[0] = "Picture1.png";
+  image[1] = "Picture2.png";
+  image[2] = "Picture3.png";
 
-    //Insert images
-    int count = 0;
-    foreach (IRange cell in range)
-    {
-        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
-        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
-        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
-        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        count++;
-        imageStream.Dispose();
-    }
+  //Insert images
+  int count = 0;
+  foreach (IRange cell in range)
+  {
+    FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
+    IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+    (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+    (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+    count++;
+    imageStream.Dispose();
+  }
 
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-	FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Get the merged cells
-    IRange[] range = new IRange[3];
-    range[0] = worksheet.MergedCells[0];
-    range[1] = worksheet.MergedCells[1];
-    range[2] = worksheet.MergedCells[2];
+  //Get the merged cells
+  IRange[] range = new IRange[3];
+  range[0] = worksheet.MergedCells[0];
+  range[1] = worksheet.MergedCells[1];
+  range[2] = worksheet.MergedCells[2];
 
-    //Get the images
-    string[] image = new string[3];
-    image[0] = "Picture1.png";
-    image[1] = "Picture2.png";
-    image[2] = "Picture3.png";
+  //Get the images
+  string[] image = new string[3];
+  image[0] = "Picture1.png";
+  image[1] = "Picture2.png";
+  image[2] = "Picture3.png";
 
-    //Insert images
-    int count = 0;
-    foreach (IRange cell in range)
-    {
-        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
-        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
-        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
-        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        count++;
-        imageStream.Dispose();
-    }
+  //Insert images
+  int count = 0;
+  foreach (IRange cell in range)
+  {
+    FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
+    IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+    (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+    (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+    count++;
+    imageStream.Dispose();
+  }
 
-    //Saving the workbook as stream
-    FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-    stream.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-	//"App" is the class of Portable project
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream inputStream = assembly.GetManifestResourceStream("Pictures.InputTemplate.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(inputStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("Pictures.InputTemplate.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Get the merged cells
-    IRange[] range = new IRange[3];
-    range[0] = worksheet.MergedCells[0];
-    range[1] = worksheet.MergedCells[1];
-    range[2] = worksheet.MergedCells[2];
+  //Get the merged cells
+  IRange[] range = new IRange[3];
+  range[0] = worksheet.MergedCells[0];
+  range[1] = worksheet.MergedCells[1];
+  range[2] = worksheet.MergedCells[2];
 
-    //Get the images
-    string[] image = new string[3];
-    image[0] = "Picture1.png";
-    image[1] = "Picture2.png";
-    image[2] = "Picture3.png";
+  //Get the images
+  string[] image = new string[3];
+  image[0] = "Picture1.png";
+  image[1] = "Picture2.png";
+  image[2] = "Picture3.png";
 
-    //Insert images
-    int count = 0;
-    foreach (IRange cell in range)
-    {
-        FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
-        IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
-        (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
-        (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
-        count++;
-        imageStream.Dispose();
-    }
+  //Insert images
+  int count = 0;
+  foreach (IRange cell in range)
+  {
+    FileStream imageStream = new FileStream(image[count], FileMode.Open, FileAccess.Read);
+    IPictureShape shape = worksheet.Pictures.AddPicture(cell.Row, cell.Column, imageStream);
+    (shape as ShapeImpl).BottomRow = cell.MergeArea.LastRow;
+    (shape as ShapeImpl).RightColumn = cell.MergeArea.LastColumn;
+    count++;
+    imageStream.Dispose();
+  }
 
-    //Saving the workbook as stream
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-	
-    stream.Position = 0;
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
 
-    //Save the document as file and view the saved document
-    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  stream.Position = 0;
 
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-	    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-    }
-    else
-    {
-	    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-    }
+  //Save the document as file and view the saved document
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
 }
 {% endhighlight %}
 {% endtabs %}
@@ -766,16 +762,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ExternalImage.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ExternalImage.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExternalImage.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExternalImage.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -899,16 +893,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Svg.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Svg.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Svg.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Svg.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
