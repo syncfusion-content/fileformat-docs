@@ -22,7 +22,7 @@ The following Linux dependencies should be installed where the conversion takes 
 {% endhighlight %}
 
 
-## Steps to convert HTML to PDF in .NET Core application on Linux.
+## Steps to convert HTML to PDF in .NET Core application on Linux
 
 Step 1: Execute the following command in the Linux terminal to create a new .NET Core Console application.
 
@@ -63,7 +63,7 @@ processor.PerformOCR(loadedDocument, "tessdata/");
 
 {% endhighlight %}
 
-Step 5: Include the following namespaces.
+Step 5: Include the following namespaces in Program.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -73,7 +73,7 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 6:  Add code samples to Program.cs file.
+Step 6: Add code sample to perform OCR on entire PDF document in Program.cs file.
 
 {% highlight c# tabtitle="C#" %}
  
