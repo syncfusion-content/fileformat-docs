@@ -135,4 +135,4 @@ By executing the program, you will get the PDF document as follows. The output w
 <img src="OCR-Images/OCR-output-image.png" alt="OCR Linux Output" width="100%" Height="Auto"/>
 
 
-A complete working sample can be downloaded from Github
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/blob/master/Perform_OCR_Linux).
