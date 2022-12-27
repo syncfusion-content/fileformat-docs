@@ -1278,33 +1278,22 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
 //Disable the incremental update
-
 loadedDocument.FileStructure.IncrementalUpdate = false;
-
 //Set the compression level
-
 loadedDocument.Compression = PdfCompressionLevel.Best;
 
 //Save the document into stream.
-
 MemoryStream stream = new MemoryStream();
-
 loadedDocument.Save(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
 
 //Save the stream into pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
