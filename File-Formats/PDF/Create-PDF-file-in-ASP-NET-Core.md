@@ -15,16 +15,16 @@ To include the .NET Core PDF library into your ASP.NET Core application, please 
 
 ## Steps to create PDF document in ASP.NET Core
 
-Create a new C# ASP.NET Core Web Application project.
-![Generate ASP.NET Core project using Visual Studio](Asp.Net.Core_images/Creation1.jpg)
+Step 1: Create a new C# ASP.NET Core Web Application project.
+<img src="Asp.Net.Core_images/Creation1.jpg" alt="ASP.NET Core sample creation step1" width="100%" Height="Auto"/>
 
-Select Web Application pattern (Model-View-Controller) for the project.
-![.NET Core PDF generator](Asp.Net.Core_images/Creation2.jpg)
+Step 2: Select Web Application pattern (Model-View-Controller) for the project.
+<img src="Asp.Net.Core_images/Creation2.jpg" alt="ASP.NET Core sample creation step1" width="100%" Height="Auto"/>
 
-Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your ASP.NET Core applications from [NuGet.org](https://www.nuget.org/).
-![Include dotnet core PDF generator NuGet](Asp.Net.Core_images/Creation3.jpg)
+Step 3: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your ASP.NET Core applications from [NuGet.org](https://www.nuget.org/).
+<img src="Asp.Net.Core_images/Creation3.jpg" alt="ASP.NET Core sample NuGet installation" width="100%" Height="Auto"/>
 
-A default controller with name HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
+Step 4: A default controller with name HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -35,9 +35,7 @@ using System.IO;
 
 {% endhighlight %}
 
-A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
-
-Add a new button in the Index.cshtml as shown below.
+Step 5: A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml. Add a new button in the Index.cshtml as shown below.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -51,7 +49,7 @@ Html.EndForm();
 }
 {% endhighlight %}
 
-Add a new action method CreatePDFDocument in HomeController.cs and include the below code snippet to generate a PDF file and download it from a ASP.NET Core application.
+Step 6: Add a new action method named CreatePDFDocument in HomeController.cs file and include the below code example to generate a PDF document using [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) class. Then use the [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) object to draw the text on PDF page.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -72,33 +70,27 @@ graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
   
 //Saving the PDF to the MemoryStream
 MemoryStream stream = new MemoryStream();
-  
 document.Save(stream);
-  
 //Set the position as '0'.
 stream.Position = 0;
   
 //Download the PDF document in the browser
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
-  
 fileStreamResult.FileDownloadName = "Sample.pdf";
-  
 return fileStreamResult;
 
 {% endhighlight %}
 
-A complete work sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfFile_CoreWeb-983162689 )
-
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-new-PDF-document).
 
 By executing the program, you will get the PDF document as follows.
-![ASP.NET Core PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+<img src="GettingStarted_images/pdf-generation-output.jpg" alt="Output screenshot" width="100%" Height="Auto"/>
 
 N> The WinForms and WPF controls support in .NET Core 3.0 have been provided. To run this application, please install the [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common) NuGet package as a dependent package. 
 
 ## Creating a PDF document with image
 
-The following code example shows how to create a PDF document with an image.
+You can load image stream from local files on disk and draw the images through [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGrphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The following code example shows how to create a PDF document with an image.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -133,7 +125,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Creating a PDF document with table
 
-The following code example shows how to create a PDF document with a simple table.
+The [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create a table from a [DataSource](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_DataSource) (data set, data table, arrays, or IEnumerable object) in PDF document.The following code example shows how to create a PDF document with a simple table.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -217,7 +209,7 @@ page.Graphics.DrawImage(image, bounds);
 
 The following methods can be used to add text to a PDF document.
 
-1. [DrawString()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html)
+1. [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html)
 2. [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) class.
 
 The ```PdfTextElement``` provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. This is not available in the ```DrawString``` method. 
@@ -325,9 +317,9 @@ The following screenshot shows the invoice PDF document created by using Essenti
 
 ## Filling forms
 
-An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) or [existing PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
-.NET Core PDF library allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+.NET Core PDF library allows you to [create and manipulate existing form](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-form-fields) in PDF document using [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html) class. The [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class represents the entire field collection of the loaded form. To work with existing form documents, the following namespaces are required.
 
 1. Syncfusion.Pdf
 2. Syncfusion.Pdf.Parsing
@@ -335,7 +327,6 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 The following guide shows how to fill a sample PDF form as shown.
 
 ![Filling ASP.NET Core PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
-
 
 .NET Core PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -383,7 +374,7 @@ The filled form is shown in adobe reader application as follows.
 
 ## Merge PDF Documents
 
-.NET Core PDF library supports merging multiple PDF documents from stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method.
+The .NET Core PDF library supports [merging multiple PDF documents](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/merge-pdf) from stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method of [PdfDocumentBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html) class.
 
 You can merge the PDF document streams by using the following code example.
 
