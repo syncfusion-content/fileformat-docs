@@ -1825,7 +1825,7 @@ loadedDocument.Close(True)
 
 {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Digitally sign a PDF document using Windows certificate store only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+//Essential PDF supports Digitally sign a PDF document using Windows certificate store only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
