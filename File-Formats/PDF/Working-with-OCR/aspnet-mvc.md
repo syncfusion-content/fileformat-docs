@@ -70,27 +70,22 @@ Step 8: Add a new action method named PerformOCR in the HomeController.cs file a
 
 {% highlight c# tabtitle="C#" %}
 
-string tesseract = Server.MapPath("~/TesseractBinaries/3.05/x86/");
 //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll).
-using (OCRProcessor processor = new OCRProcessor(tesseract))
+using (OCRProcessor processor = new OCRProcessor("TesseractBinaries/3.05/x86/"))
 {
-   FileStream fileStream = new FileStream(Server.MapPath("~/Data/Input.pdf"), FileMode.Open, FileAccess.Read);
+   FileStream fileStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
    //Load a PDF document.
    PdfLoadedDocument lDoc = new PdfLoadedDocument(fileStream);
    //Set OCR language to process.
    processor.Settings.Language = Languages.English;
    processor.Settings.TesseractVersion = TesseractVersion.Version3_05;
-   string tessData = Server.MapPath("~/LanguagePack/");
    //Process OCR by providing the PDF document and Tesseract data.
-   processor.PerformOCR(lDoc, tessData);
-   //Create memory stream.
-   MemoryStream stream = new MemoryStream();
-   //Save the document to memory stream.
-   lDoc.Save(stream);
-   lDoc.Close();
-   //Set the position as '0'
-   stream.Position = 0;
-   return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "PerformOCR_Output.pdf");
+   processor.PerformOCR(lDoc, "Tessdata/");
+   //Open the document in browser after saving it.
+   lDoc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, Syncfusion.Pdf.HttpReadType.Save);
+   //Close the document.
+   lDoc.Close(true);
+   return View();
 }
 
 {% endhighlight %}
