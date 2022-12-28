@@ -12,18 +12,18 @@ To get all the slides in same format, you should perform those changes in the Sl
 
 The [Syncfusion PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net) supports the following:
 <ol>
-<li>Access the <b>MasterSlide</b> in PowerPoint file.</li>
-<li>Add <b>LayoutSlide</b> to the <b>MasterSlide</b>.</li>
-<li>Customize the <b>LayoutSlide</b>.</li>
+<li>Access the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) in PowerPoint file.</li>
+<li>Add [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html) to the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html).</li>
+<li>Customize the [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html).</li>
 <li>Create a slide with 9 pre-defined layout slides.</li>
 <li>Customize the layout slides to fit your own scenarios.</li>
 </ol>
 
 ## Access the MasterSlide
 
-In PowerPoint presentation, the **MasterSlide** is the top slide that controls all information about the theme, layout, background, color, fonts, and positioning of all slides. Using this MasterSlide, you can easily adjust the look of an existing theme or make overall changes to all your slides.
+In PowerPoint presentation, the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) is the top slide that controls all information about the theme, layout, background, color, fonts, and positioning of all slides. Using this MasterSlide, you can easily adjust the look of an existing theme or make overall changes to all your slides.
 
-The following code example demonstrates how to access the **MasterSlide** in a PowerPoint presentation.
+The following code example demonstrates how to access the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) in a PowerPoint presentation.
 
 {% tabs %}
 
