@@ -9,8 +9,7 @@ documentation: UG
 
 It is used to keep track of the changes made to a Word document. It helps to maintain the record of author, name and time for every insertion, deletion, or modification in a document. This can be enabled by using the TrackChanges property of the Word document.
 
-N> 
-With this support, the changes made in the Word document by DocIO library cannot be tracked.
+N> With this support, the changes made in the Word document by DocIO library cannot be tracked.
 
 The following code example illustrates how to enable track changes of the document.
 
@@ -143,7 +142,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Accept all changes
 
-You can **accept all track changes in Word document** using [AcceptAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RevisionCollection.html#Syncfusion_DocIO_DLS_RevisionCollection_AcceptAll)method.
+You can **accept all track changes in Word document** using [AcceptAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RevisionCollection.html#Syncfusion_DocIO_DLS_RevisionCollection_AcceptAll) method.
 
 The following code example shows how to accept all the tracked changes.
 

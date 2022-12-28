@@ -11,7 +11,7 @@ documentation: UG
 
 The following namespaces of Essential DocIO need to be included in your application to load and save the Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.DocIO;
@@ -42,9 +42,9 @@ using Syncfusion.DocIO.DLS;
 
 ## Opening an existing document
 
-You can open an existing Word document by using either the [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class
+You can open an existing Word document by using either the [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_String_) class
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing document from file system through constructor of WordDocument class
@@ -129,7 +129,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Opening an existing document from Stream
 
-You can open an existing document from stream by using either the overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_Syncfusion_DocIO_FormatType_) methods or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class
+You can open an existing document from stream by using either the overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_IO_Stream_Syncfusion_DocIO_FormatType_) methods or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_IO_Stream_Syncfusion_DocIO_FormatType_) class
 
 {% tabs %}
 

@@ -18,7 +18,7 @@ Paragraph is the basic element in a Word document that contains a textual and gr
 * OLE Object: Represented by an instance of [WOleObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html). 
 * Shapes:  Represented by an instance of [Shape](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Shape.html). 
 * TextBox: Represented by an instance of [WTextBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBox.html). 
-* Chart: Represented by an instance of [WChart[(https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WChart.html).
+* Chart: Represented by an instance of [WChart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WChart.html).
 * Fields: Represented by an instance of [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html).
 * Form Fields: Represented by an instance of [WFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFormField.html).
 * Bookmarks: Represented by instances of [BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html). 
