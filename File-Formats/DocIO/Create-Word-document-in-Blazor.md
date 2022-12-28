@@ -80,7 +80,6 @@ Step 7: Add the following code in **DocIO.razor** file to create and download th
 {% highlight c# tabtitle="C#" %}
 @code {
     MemoryStream documentStream;
-
     /// <summary>
     /// Create and download the Word document
     /// </summary>
@@ -102,11 +101,9 @@ Step 8: Create a new cs file with name as **WordService** under Data folder and 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -150,8 +147,8 @@ public MemoryStream CreateWord()
     style.ParagraphFormat.Keep = true;
     style.ParagraphFormat.KeepFollow = true;
     style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
     paragraph.ApplyStyle("Normal");
     paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
     WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
@@ -187,7 +184,6 @@ public MemoryStream CreateWord()
     //Closes the Word document
     document.Close();
     stream.Position = 0;
-
     return stream;
 }
 {% endhighlight %}
@@ -212,7 +208,6 @@ public static class FileUtils
             filename,
             Convert.ToBase64String(data));
 }
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -347,7 +342,6 @@ Step 7: Create a new async method with name as ``CreateWord`` and include the fo
 {% highlight c# tabtitle="C#" %}
 
 @functions {
-
     async void CreateWord()
     {
         //Creating a new document
@@ -377,8 +371,8 @@ Step 7: Create a new async method with name as ``CreateWord`` and include the fo
         style.ParagraphFormat.Keep = true;
         style.ParagraphFormat.KeepFollow = true;
         style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-        IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+        IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
         paragraph.ApplyStyle("Normal");
         paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
         WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
@@ -414,12 +408,10 @@ Step 7: Create a new async method with name as ``CreateWord`` and include the fo
         //Closes the Word document
         document.Close();
         stream.Position = 0;
-
         //Download the Word document in the browser
         JS.SaveAs("Sample.docx", stream.ToArray());
     }
 }
-
 {% endhighlight %}
 
 {% endtabs %}

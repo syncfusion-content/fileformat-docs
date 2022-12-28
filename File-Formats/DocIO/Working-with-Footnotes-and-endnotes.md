@@ -1237,7 +1237,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
@@ -1364,7 +1363,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
@@ -1435,7 +1433,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
@@ -1508,7 +1505,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.

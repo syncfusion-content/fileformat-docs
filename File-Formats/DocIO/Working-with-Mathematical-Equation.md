@@ -1874,21 +1874,18 @@ mathMatrix.HidePlaceHolders = true;
 mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
-
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
@@ -1899,14 +1896,12 @@ officeMath = mathMatrix.Rows[0].Arguments[1];
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
-
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
 //Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
-
 //Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
 //Sets text for argument in second cell in second row
@@ -1943,21 +1938,18 @@ mathMatrix.HidePlaceHolders = True
 mathMatrix.RowSpacingRule = SpacingRule.Double
 'Sets row spacing value.
 mathMatrix.RowSpacing = 2
-
 'Adds a new column
 mathMatrix.Columns.Add()
 'Adds a new row
 mathMatrix.Rows.Add()
 'Sets horizontal alignment for column
 mathMatrix.Columns(0).HorizontalAlignment = MathHorizontalAlignment.Left
-
 'Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows(0).Arguments(0)
 'Sets text for argument in first cell in first row
 Dim officeMathRunElement As IOfficeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "1"
-
 'Adds a new column
 mathMatrix.Columns.Add()
 'Adds a new row
@@ -1968,14 +1960,12 @@ officeMath = mathMatrix.Rows(0).Arguments(1)
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "2"
-
 'Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows(1).Arguments(0)
 'Sets text for argument in first cell in second row
 officeMathRunElement = CType(officeMath.Functions.Add(MathFunctionType.RunElement), IOfficeMathRunElement)
 officeMathRunElement.Item = New WTextRange(document)
 CType(officeMathRunElement.Item, WTextRange).Text = "3"
-
 'Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows(1).Arguments(1)
 'Sets text for argument in second cell in second row
@@ -2012,21 +2002,18 @@ mathMatrix.HidePlaceHolders = true;
 mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
-
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
@@ -2037,14 +2024,12 @@ officeMath = mathMatrix.Rows[0].Arguments[1];
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
-
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
 //Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
-
 //Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
 //Sets text for argument in second cell in second row
@@ -2085,21 +2070,18 @@ mathMatrix.HidePlaceHolders = true;
 mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
-
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
@@ -2110,14 +2092,12 @@ officeMath = mathMatrix.Rows[0].Arguments[1];
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
-
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
 //Sets text for argument in first cell in seond row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
-
 //Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
 //Sets text for argument in second cell in second row
@@ -2158,21 +2138,18 @@ mathMatrix.HidePlaceHolders = true;
 mathMatrix.RowSpacingRule = SpacingRule.Double;
 //Sets row spacing value.
 mathMatrix.RowSpacing = 2;
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
 mathMatrix.Rows.Add();
 //Sets horizontal alignment for column
 mathMatrix.Columns[0].HorizontalAlignment = MathHorizontalAlignment.Left;
-
 //Gets an argument in first cell in first row
 officeMath = mathMatrix.Rows[0].Arguments[0];
 //Sets text for argument in first cell in first row
 IOfficeMathRunElement officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "1";
-
 //Adds a new column
 mathMatrix.Columns.Add();
 //Adds a new row
@@ -2183,14 +2160,12 @@ officeMath = mathMatrix.Rows[0].Arguments[1];
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "2";
-
 //Gets an argument in first cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[0];
 //Sets text for argument in first cell in second row
 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
 officeMathRunElement.Item = new WTextRange(document);
 (officeMathRunElement.Item as WTextRange).Text = "3";
-
 //Gets an argument in second cell in second row
 officeMath = mathMatrix.Rows[1].Arguments[1];
 //Sets text for argument in second cell in second row
