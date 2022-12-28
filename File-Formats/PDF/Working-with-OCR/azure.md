@@ -75,28 +75,16 @@ Step 8: Add the code samples for performing OCR to a PDF document in Azure.
 
 {% highlight c# tabtitle="C#" %}
 
-//To get content root path of the project
-private readonly IHostingEnvironment _hostingEnvironment;
-public HomeController(IHostingEnvironment hostingEnvironment)
-{
-    _hostingEnvironment = hostingEnvironment;
-}
-
 public IActionResult PerformOCR()
 {
-    //Initialize the OCR processor with tesseract binaries folder path
-    string binaries = Path.Combine(_hostingEnvironment.ContentRootPath, "Tesseractbinaries", "Windows");
-    OCRProcessor processor = new OCRProcessor(binaries);
-    //Set custom temp file path location
-    processor.Settings.TempFolder = Path.Combine(_hostingEnvironment.ContentRootPath, "Data");
-    //Load a PDF document
-    FileStream stream1 = new FileStream(Path.Combine(_hostingEnvironment.ContentRootPath, "Data", "Input.pdf"), FileMode.Open);
-    PdfLoadedDocument lDoc = new PdfLoadedDocument(stream1);
-    //Set OCR language to process
+    //Initialize the OCR processor with tesseract binaries folder path.
+    OCRProcessor processor = new OCRProcessor("Tesseractbinaries/Windows/");
+    //Load a PDF document.
+    PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
+    //Set OCR language to process.
     processor.Settings.Language = Languages.English;
-    //Perform OCR with input document and tessdata (Language packs)
-    string tessdataPath = Path.Combine(_hostingEnvironment.ContentRootPath, "tessdata");
-    string ocr = processor.PerformOCR(lDoc, tessdataPath);
+    //Perform OCR with input document and tessdata (Language packs).
+    string ocr = processor.PerformOCR(lDoc, "Tessdata/");
     //Save the document. 
     MemoryStream stream = new MemoryStream();
     lDoc.Save(stream);
@@ -197,29 +185,29 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
         string path = Path.GetFullPath(Path.Combine(executionContext.FunctionAppDirectory, "bin\\Tesseractbinaries\\Windows"));
         OCRProcessor processor = new OCRProcessor(path);
         FileStream stream = new FileStream(Path.Combine(executionContext.FunctionAppDirectory, "Data", "Input.pdf"), FileMode.Open);
-        //Load a PDF document
+        //Load a PDF document.
         PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
-        //Set OCR language to process
+        //Set OCR language to process.
         processor.Settings.Language = Languages.English;
-        //Perform OCR with input document and tessdata (Language packs)
+        //Perform OCR with input document and tessdata (Language packs).
         string ocr = processor.PerformOCR(lDoc, Path.Combine(executionContext.FunctionAppDirectory, "tessdata"));            
-        //Save the PDF document  
+        //Save the PDF document.  
         lDoc.Save(ms);
         ms.Position = 0;
     }
     catch (Exception ex)
     {
-        //Add a page to the document
+        //Add a page to the document.
         PdfDocument document = new PdfDocument();
         PdfPage page = document.Pages.Add();
-        //Create PDF graphics for the page
+        //Create PDF graphics for the page.
         PdfGraphics graphics = page.Graphics;
-        //Set the standard font
+        //Set the standard font.
         PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 6);
-        //Draw the text
+        //Draw the text.
         graphics.DrawString(ex.ToString(), font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
         ms = new MemoryStream();
-        //Save the PDF document  
+        //Save the PDF document.  
         document.Save(ms);
     }
     HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
