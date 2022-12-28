@@ -1,5 +1,5 @@
 ---
-title: Conversion
+title: Conversion | Syncfusion
 description: This section illustrates how to convert a Word document into other supported file formats
 platform: file-formats
 control: DocIO
