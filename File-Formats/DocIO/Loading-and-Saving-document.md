@@ -11,7 +11,7 @@ documentation: UG
 
 The following namespaces of Essential DocIO need to be included in your application to load and save the Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.DocIO;
@@ -42,9 +42,9 @@ using Syncfusion.DocIO.DLS;
 
 ## Opening an existing document
 
-You can open an existing Word document by using either the `Open` method or the constructor of `WordDocument` class
+You can open an existing Word document by using either the [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_String_) class
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing document from file system through constructor of WordDocument class
@@ -129,7 +129,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Opening an existing document from Stream
 
-You can open an existing document from stream by using either the overloads of `Open` methods or the constructor of `WordDocument` class
+You can open an existing document from stream by using either the overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_IO_Stream_Syncfusion_DocIO_FormatType_) methods or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_IO_Stream_Syncfusion_DocIO_FormatType_) class
 
 {% tabs %}
 
@@ -375,7 +375,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Saving a Word document to file system
 
-You can save the created or manipulated Word document to file system using `Save` method of `WordDocument` class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
+You can save the created or manipulated Word document to file system using [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
 
 {% tabs %}
 
@@ -462,7 +462,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Saving a Word document to Stream
 
-You can also save the created or manipulated word document to stream by using overloads of `Save` methods
+You can also save the created or manipulated word document to stream by using overloads of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_IO_Stream_Syncfusion_DocIO_FormatType_) methods
 
 {% tabs %}
 
@@ -566,7 +566,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Sending to a client browser
 
-You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of `Save` method.  This method explicitly makes use of an instance of [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
+You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_System_Web_HttpResponse_Syncfusion_DocIO_HttpContentDisposition_) method.  This method explicitly makes use of an instance of [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
 
 {% tabs %}  
 
@@ -628,7 +628,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Closing a document
 
-Once the document manipulation and save operation are completed, you should close the instance of `WordDocument`, in order to release all the memory consumed by DocIO’s DOM. The following code example illustrates how to close a WordDocument instance.
+Once the document manipulation and save operation are completed, you should close the instance of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html), in order to release all the memory consumed by DocIO’s DOM. The following code example illustrates how to close a WordDocument instance.
 
 {% tabs %}
 

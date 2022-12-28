@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Sections
 
-A section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`. A section also has a specific set of properties used to define the page settings, number of columns, headers and footers and so on that decide how the text appears. `WTextBody` represents group of paragraphs and tables etc. 
+A section contains the contents present in Headers, Footers and main document through the instances of [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html). A section also has a specific set of properties used to define the page settings, number of columns, headers and footers and so on that decide how the text appears. [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html) represents group of paragraphs and tables etc. 
 
 {% tabs %}
 
@@ -101,7 +101,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add the multiple sections into the document. When you add more than one section into the word document, the section starts from the next page by default.
 
-You can also add a new section that starts on a same page by specifying the `BreakCode` as shown in following code example.
+You can also add a new section that starts on a same page by specifying the [BreakCode](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSection.html#Syncfusion_DocIO_DLS_WSection_BreakCode) as shown in following code example.
 
 {% tabs %}
 
@@ -1356,7 +1356,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Odd-and-even-page-header-footer).
 
-You can use the previous section header and footer for the current section by using `LinkToPrevious` property.
+You can use the previous section header and footer for the current section by using [LinkToPrevious](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_LinkToPrevious) property.
 
 The following code example shows how to link the previous section header and footer for the current section.
 

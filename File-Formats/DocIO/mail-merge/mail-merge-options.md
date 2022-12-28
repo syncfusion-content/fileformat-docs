@@ -8,11 +8,11 @@ documentation: UG
 
 # Mail merge options in Word Library
 
-The `MailMerge` class allows you to customize the Mail merge process with the following options.
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class allows you to customize the Mail merge process with the following options.
 
 ## Field Mapping
 
-The `MailMerge` class can automatically **maps the merge field names with data source column names** during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using `MappedFields` collection.
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class can automatically **maps the merge field names with data source column names** during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using [MappedFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_MappedFields) collection.
 
 The following code example shows how to add mapping when a merge field name in a document and column name in data source have different names.
 
@@ -339,7 +339,7 @@ N>If any white space or line break exists in the merge field's parent paragraph,
 
 ## Remove empty merge fields
 
-Essential DocIO removes or keeps the unmerged merge fields in the output document based on the `ClearFields` property on each mail merge execution.
+Essential DocIO removes or keeps the unmerged merge fields in the output document based on the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property on each mail merge execution.
 
 When a merge field is considered as unmerged during mail merge process?
 
@@ -347,11 +347,11 @@ When a merge field is considered as unmerged during mail merge process?
 
 2. The merge field has mapping field in data source, but the data is null or string.Empty.
 
-Mail merge operation automatically removes the unmerged merge fields since the default value of `ClearFields` property is true.
+Mail merge operation automatically removes the unmerged merge fields since the default value of [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property is true.
 
-T> 1. Set `ClearFields` property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
-T> 2. Modify the `ClearFields` property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
-T> 3. Order the mail merge executions with the `ClearFields` property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
+T> 1. Set [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
+T> 2. Modify the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
+T> 3. Order the mail merge executions with the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
 T> 4. You can get the unmerged fields in your document, customize the mail merge process using the BeforeClearField Event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
 
 The following code example shows how to keep the unmerged merge fields in the generated Word document.
@@ -664,7 +664,7 @@ Public Class Employees
         Me.Customers = customers
     End Sub
 End Class
- 
+
 Public Class CustomerDetails
     Public Property ContactName() As String
     Public Property CompanyName() As String
@@ -1481,7 +1481,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Start At New Page
 
-You can start a new page for each group of records while performing a mail merge in Word documents by enabling the `StartAtNewPage` property.
+You can start a new page for each group of records while performing a mail merge in Word documents by enabling the [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property.
 
 The following code example illustrates how to start a new page for each group of records during the mail merge process.
 
@@ -3275,7 +3275,7 @@ By executing the above code example, it generates the resultant Word document as
 ![Output Word document of start at new page](../MailMerge_images/StartAtNewPage_output.png)
 
 N> 
-This `StartAtNewPage` property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This `StartAtNewPage` property is not valid when the group start and group end are present in the table, headers, and footers.
+This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This `StartAtNewPage` property is not valid when the group start and group end are present in the table, headers, and footers.
 
 ## Remove mail merge settings
 

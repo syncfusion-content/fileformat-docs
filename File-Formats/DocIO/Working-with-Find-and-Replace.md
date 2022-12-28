@@ -11,7 +11,7 @@ You can search a particular text you like to change and replace it with another 
 
 ## Finding contents in a Word document
 
-You can find the first occurrence of a particular text within a single paragraph in the document by using `Find` method and its next occurrence by using `FindNext` method. You can also find a particular text pattern in the document.
+You can find the first occurrence of a particular text within a single paragraph in the document by using [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Find_System_String_System_Boolean_System_Boolean_) method and its next occurrence by using [FindNext](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindNext_Syncfusion_DocIO_DLS_TextBodyItem_System_String_System_Boolean_System_Boolean_) method. You can also find a particular text pattern in the document.
 
 The following code example illustrates how to find a particular text and its next occurrence in the document.
 
@@ -151,7 +151,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-find-next).
 
-You can find all the occurrence of a particular text within a single paragraph in the document by using `FindAll` method. 
+You can find all the occurrence of a particular text within a single paragraph in the document by using [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindAll_System_String_System_Boolean_System_Boolean_) method. 
 
 The following code example illustrates how to find all the occurrences of a particular text in the document.
 
@@ -260,7 +260,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
-You can find the first occurrence of a particular text extended to several paragraphs in the document by using `FindSingleLine` method and its next occurrence by using `FindNextSingleLine` method.
+You can find the first occurrence of a particular text extended to several paragraphs in the document by using [FindSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindSingleLine_System_String_System_Boolean_System_Boolean_) method and its next occurrence by using [FindNextSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindNextSingleLine_Syncfusion_DocIO_DLS_TextBodyItem_System_String_System_Boolean_System_Boolean_) method.
 
 The following code example illustrates how to find a particular text extended to several paragraphs in the Word document.
 
@@ -420,7 +420,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Replacing the Search results
 
-You can replace a particular text with another text, part of a document or entire document by using `Replace` method. 
+You can replace a particular text with another text, part of a document or entire document by using [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Replace_System_String_Syncfusion_DocIO_DLS_TextBodyPart_System_Boolean_System_Boolean_System_Boolean_) method. 
 
 The following code example illustrates how to replace a particular text.
 
@@ -520,7 +520,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "applic
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-text-with-body-part).
 
-You can specify to replace only the first occurrence of the specified text by setting `ReplaceFirst` property of `WordDocument` class to true. 
+You can specify to replace only the first occurrence of the specified text by setting [ReplaceFirst](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceFirst) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class to true. 
 
 The following code example illustrates how to replace the first occurrence of a particular text.
 
@@ -719,7 +719,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-text-with-Word-document).
 
-You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using `ReplaceSingleLine` method.
+You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using [ReplaceSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceSingleLine_System_String_System_String_System_Boolean_System_Boolean_) method.
 
 The following code example illustrates how to replace the text extended to several paragraphs with simple text.
 
@@ -800,7 +800,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "applic
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-paragraphs-with-text).
 
 ## Find next and replace with formatted text
-You can find the next occurrence of a text using the `FindNext` method. You can also replace the text that extends to two paragraphs using `ReplaceSingleline` method.
+You can find the next occurrence of a text using the [FindNext](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindNext_Syncfusion_DocIO_DLS_TextBodyItem_System_Text_RegularExpressions_Regex_) method. You can also replace the text that extends to two paragraphs using [ReplaceSingleline](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceSingleLine_System_String_Syncfusion_DocIO_DLS_TextSelection_System_Boolean_System_Boolean_) method.
 
 The following code example illustrates how to replace the text extended to several paragraphs with a particular text in the document.
 
@@ -912,7 +912,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace text with other text
 
-You can find text in a Word document and replace it with other text. Unlike the `Find` method, the Replace method replaces all occurrences of the text. You can customize it to replace only the first occurrence of a text by setting the `ReplaceFirst` property of the WordDocument class to true.
+You can find text in a Word document and replace it with other text. Unlike the [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Find_System_String_System_Boolean_System_Boolean_) method, the Replace method replaces all occurrences of the text. You can customize it to replace only the first occurrence of a text by setting the [ReplaceFirst](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceFirst) property of the WordDocument class to true.
 
 The following code example illustrates how to replace all occurrences of a misspelled word with the correctly spelled word.
 
@@ -994,7 +994,7 @@ document.Close();
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Replace-misspelled-word).
 
 ## Find and replace non-breaking spaces with regular spaces
-You can find non-breaking spaces used in a Word document and replace them with regular spaces using `Replace` method.
+You can find non-breaking spaces used in a Word document and replace them with regular spaces using [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Replace_System_String_System_String_System_Boolean_System_Boolean_) method.
 
 The following code example illustrates how to find and replace non-breaking spaces with regular spaces in a Word document.
 
@@ -2131,7 +2131,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace text extending to several paragraphs
 
-Apart from finding text in a paragraph, you can also find and replace text that extends to several paragraphs in a Word document. You can find the first occurrence of the text that extends to several paragraphs by using the `FindSingleLine` method. Find the next occurrences of the text by using the `FindNextSingleLine` method. Similarly, you can replace text that extends to several paragraphs by using `ReplaceSingleLine` method.
+Apart from finding text in a paragraph, you can also find and replace text that extends to several paragraphs in a Word document. You can find the first occurrence of the text that extends to several paragraphs by using the [FindSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindSingleLine_System_String_System_Boolean_System_Boolean_) method. Find the next occurrences of the text by using the [FindNextSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindNextSingleLine_Syncfusion_DocIO_DLS_TextBodyItem_System_String_System_Boolean_System_Boolean_) method. Similarly, you can replace text that extends to several paragraphs by using [ReplaceSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceSingleLine_System_String_Syncfusion_DocIO_DLS_TextBodyPart_System_Boolean_System_Boolean_) method.
 
 The following code example illustrates how to replace text that extends to several paragraphs.
 
@@ -2254,7 +2254,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find text in a Word document and format 
 
-You can find text in a Word document and format or highlight it .You can find the first occurrence of text using the `Find` method. Find the next occurrences of the text using the `FindNext` method.
+You can find text in a Word document and format or highlight it .You can find the first occurrence of text using the [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindAll_System_String_System_Boolean_System_Boolean_) method. Find the next occurrences of the text using the [FindNext](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindNext_Syncfusion_DocIO_DLS_TextBodyItem_System_String_System_Boolean_System_Boolean_) method.
 
 The following code example illustrates how to find all occurrences of a length of text and highlight it.
 
@@ -2360,7 +2360,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace the pattern of text with normal text
 
-You can find the pattern of text using Regex and replace it with normal text in a Word document using the `Replace` method.
+You can find the pattern of text using Regex and replace it with normal text in a Word document using the [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Replace_System_Text_RegularExpressions_Regex_System_String_) method.
 
 The following code example illustrates how to replace the pattern of text with normal text in the Word document.
 
@@ -2452,7 +2452,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace a pattern of multiline text
 
-You can find a pattern of text which extends to several paragraphs using Regex and replace it with normal text in a Word document using the `ReplaceSingleLine` method.
+You can find a pattern of text which extends to several paragraphs using Regex and replace it with normal text in a Word document using the [ReplaceSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceSingleLine_System_Text_RegularExpressions_Regex_System_String_) method.
 
 The following code example illustrates how to replace a pattern of multiline text with a single line in a Word document.
 
@@ -2544,7 +2544,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace text with formatted text
 
-You can select a text using the `Find` method and replace text in a Word document with that selected text along with formatting (bold, italic, and so on).
+You can select a text using the [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Find_System_Text_RegularExpressions_Regex_) method and replace text in a Word document with that selected text along with formatting (bold, italic, and so on).
 
 The following code example illustrates how to find and replace text with the formatted text in the Word document.
 
@@ -2646,7 +2646,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace the text extended to several paragraphs
 
-You can select a text which extends to several paragraphs using the `FindSingleLine` method and replace text in the Word document with that selected text.
+You can select a text which extends to several paragraphs using the [FindSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindSingleLine_System_Text_RegularExpressions_Regex_) method and replace text in the Word document with that selected text.
 
 The following code example illustrates how to find and replace the text extended to several paragraphs in the Word document.
 
@@ -2748,7 +2748,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find next multiline text and replace with selected text
 
-You can select the next occurrence of a text which extends to several paragraphs using the `FindNextSingleLine` method and replace text in the Word document with that selected text.
+You can select the next occurrence of a text which extends to several paragraphs using the [FindNextSingleLine](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindNextSingleLine_Syncfusion_DocIO_DLS_TextBodyItem_System_Text_RegularExpressions_Regex_) method and replace text in the Word document with that selected text.
 
 The following code example illustrates how to find the next occurrence of text extended to several paragraphs and replace the particular text with selected text in the Word document.
 

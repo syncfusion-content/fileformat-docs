@@ -7,23 +7,23 @@ documentation: UG
 ---
 # Working with Paragraph
 
-Paragraph is the basic element in a Word document that contains a textual and graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation, and more. Within a paragraph, the contents are represented by one or more child elements such as `WTextRange`, `WPicture`, and `Hyperlink` and more. The `ParagraphItem` is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
+Paragraph is the basic element in a Word document that contains a textual and graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation, and more. Within a paragraph, the contents are represented by one or more child elements such as [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html), [WPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPicture.html), and [Hyperlink](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyperlink.html) and more. The [ParagraphItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ParagraphItem.html) is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
 
-* Text: Represented by an instance of `WTextRange`.
-* Image: Represented by an instance of `WPicture`. 
-* Comments: Represented by an instance of `WComment`.
-* Hyperlink: Represented by an instance of `Hyperlink`. 
-* Symbols: Represented by an instance of `WSymbol`. 
-* Breaks: Represented by an instance of `Break`. 
-* OLE Object: Represented by an instance of `WOleObject`. 
-* Shapes:  Represented by an instance of `Shape`. 
-* TextBox: Represented by an instance of `WTextBox`. 
-* Chart: Represented by an instance of `WChart`.
-* Fields: Represented by an instance of `WField`.
-* Form Fields: Represented by an instance of `WFormField`.
-* Bookmarks: Represented by instances of `BookmarkStart` and `BookmarkEnd`. 
+* Text: Represented by an instance of [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html).
+* Image: Represented by an instance of [WPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPicture.html). 
+* Comments: Represented by an instance of [WComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WComment.html).
+* Hyperlink: Represented by an instance of [Hyperlink](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyperlink.html). 
+* Symbols: Represented by an instance of [WSymbol](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSymbol.html). 
+* Breaks: Represented by an instance of [Break](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Break.html). 
+* OLE Object: Represented by an instance of [WOleObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html). 
+* Shapes:  Represented by an instance of [Shape](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Shape.html). 
+* TextBox: Represented by an instance of [WTextBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBox.html). 
+* Chart: Represented by an instance of [WChart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WChart.html).
+* Fields: Represented by an instance of [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html).
+* Form Fields: Represented by an instance of [WFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFormField.html).
+* Bookmarks: Represented by instances of [BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html). 
 * Absolute Tab: Represented by an instance of `WAbsoluteTab`.
-* Footnotes and Endnotes: Represented by an instance of `WFootnote`.
+* Footnotes and Endnotes: Represented by an instance of [WFootnote](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFootnote.html).
 
 The following code example explains how to add a new paragraph.
 
@@ -271,7 +271,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow, and more. The following code example explains how to apply formatting to a paragraph.
 
-N>The `FirstLineIndent` can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
+N> The [FirstLineIndent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraphFormat.html#Syncfusion_DocIO_DLS_WParagraphFormat_FirstLineIndent) can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
 
 {% tabs %}
 
@@ -928,7 +928,7 @@ A style is a predefined set of table, numbering, paragraph, and character proper
 
 ### Access Styles
 
-Paragraph and character styles present in the existing document are accessible through the `Styles` property of `WordDocument` class. 
+Paragraph and character styles present in the existing document are accessible through the [Styles](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Styles) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class. 
 
 This following code example demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
 
@@ -1043,7 +1043,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Creating a new Paragraph Style
 
-You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class.
+You can create a new paragraph style by using [WordDocument.AddParagraphStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_AddParagraphStyle_System_String_) method and apply it by using [ApplyStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_ApplyStyle_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 {% tabs %}
 
@@ -1256,7 +1256,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Remove Styles
 
-You can remove the styles present in the existing document using the `Remove` method.
+You can remove the styles present in the existing document using the [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Style.html#Syncfusion_DocIO_DLS_Style_Remove) method.
 
 The following code example explains how to remove the style from the word document.
 
@@ -1358,7 +1358,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Working with Text 
 
-Text within a paragraph is represented by one or more instances of the `WTextRange`. Each `WTextRange` instance can have its own font (text) formatting.  
+Text within a paragraph is represented by one or more instances of the [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html). Each [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html) instance can have its own font (text) formatting.  
 
 The following code example explains how to append text to the paragraph.
 
@@ -2707,7 +2707,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Add Image caption
 
-You can add caption to an image and update the caption numbers (Sequence fields) using `AddCaption` method.
+You can add caption to an image and update the caption numbers (Sequence fields) using [AddCaption](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPicture.html#Syncfusion_DocIO_DLS_WPicture_AddCaption_System_String_Syncfusion_DocIO_CaptionNumberingFormat_Syncfusion_DocIO_CaptionPosition_) method.
 
 The following code example shows how to add caption to an image.
 
@@ -3653,7 +3653,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Multilevel-numbered-list).
 
-The list levels can be incremented or decremented by using the `IncreaseIndentLevel` and `DecreaseIndentLevel` methods respectively. The following code example explains how to increase or decrease the list indent levels.
+The list levels can be incremented or decremented by using the [IncreaseIndentLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WListFormat.html#Syncfusion_DocIO_DLS_WListFormat_IncreaseIndentLevel) and [DecreaseIndentLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WListFormat.html#Syncfusion_DocIO_DLS_WListFormat_DecreaseIndentLevel) methods respectively. The following code example explains how to increase or decrease the list indent levels.
 
 {% tabs %}
 
@@ -4104,7 +4104,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example explains how to create numbered list with prefix from previous level.
 
-N> The `NumberPrefix` value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
+N> The [NumberPrefix](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WListLevel.html#Syncfusion_DocIO_DLS_WListLevel_NumberPrefix) value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
 
 {% tabs %}
 
@@ -4650,9 +4650,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Get list value
 
-You can get the string that represents the appearance of **list value of the paragraph** in the Word document using the `ListString` API. 
+You can get the string that represents the appearance of **list value of the paragraph** in the Word document using the [ListString](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_ListString) API. 
 
-This API holds the static string of the list value recently calculated while saving the document as Text. It is not updated automatically for each modification done in the Word document. Hence, you should either invoke the `GetText()` method of `WordDocument` or save the Word document as Text to get the actual list value from this API.
+This API holds the static string of the list value recently calculated while saving the document as Text. It is not updated automatically for each modification done in the Word document. Hence, you should either invoke the [GetText()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_GetText) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) or save the Word document as Text to get the actual list value from this API.
 
 The following example shows how to **get a string that represents the appearance of list value of the paragraph**.
 
@@ -4743,7 +4743,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Get-list-value).
 
-N> For a picture bulleted list, the `ListString` API is not valid and it will return an empty string.
+N> For a picture bulleted list, the [ListString](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_ListString) API is not valid and it will return an empty string.
 
 ## Working with hyperlinks
 
@@ -5511,7 +5511,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Working with symbols
 
-Symbols are used to add contents such as currencies, numbers, punctuations, etc. DocIO represents symbols with `WSymbol` instance. Each symbol can be identified with their character codes.
+Symbols are used to add contents such as currencies, numbers, punctuations, etc. DocIO represents symbols with [WSymbol](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSymbol.html) instance. Each symbol can be identified with their character codes.
 
 The following code example explains how to add new symbol to the document.
 
@@ -6085,7 +6085,7 @@ OLE (Object Linking and Embedding) objects allow embedding and linking to docume
 * Linked: The content is linked to the source file
 * Embedded: The content is copied to the Word document and is not linked to the source file 
 
-You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using `WOleObject` instance.
+You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using [WOleObject]{https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html} instance.
 
 ### Add OLE Objects in Word document
 
@@ -6927,7 +6927,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Working with Text Box
 
-Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using the `WTextBox` instance.
+Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using the [WTextBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBox.html) instance.
 
 The following code example explains how to add new text box to the paragraph.
 
