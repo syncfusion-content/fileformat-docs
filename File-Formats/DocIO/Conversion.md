@@ -1,11 +1,11 @@
 ---
-title: Conversion | Syncfusion
-description: This section illustrates how to convert a Word document into other supported file formats
+title: Conversion | DocIO | Syncfusion
+description: This section illustrates how to convert a Word document into other supported file formats using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Conversion
+# Conversion in Word Library
 
 ## Working with Document Conversions
 
