@@ -74,7 +74,6 @@ Step 6: Include the below code snippet in the click event of the button in **Mai
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 // Creating a new document.
 WordDocument document = new WordDocument();
 //Adding a new section to the document.
@@ -102,8 +101,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 IWPicture picture = paragraph.AppendPicture(new Bitmap("AdventureCycle.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -149,12 +148,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -181,7 +180,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -248,7 +246,6 @@ picture.HeightScale = 75;
 paragraph = table[2, 0].AddParagraph();
 paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.LineSpacing = 12f;
-	
 //Appends picture to the paragraph.
 picture = paragraph.AppendPicture(new Bitmap("Road-550-W.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -288,7 +285,6 @@ section.AddParagraph();
 
 //Saves the Word document to disk in DOCX format
 document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, HttpContentDisposition.Attachment);
-
 {% endhighlight %}
 
 {% endtabs %}
