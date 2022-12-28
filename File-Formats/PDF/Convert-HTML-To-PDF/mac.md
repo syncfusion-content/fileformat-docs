@@ -19,7 +19,7 @@ Step 2: Select the Target Framework of your project.
 <img src="htmlconversion_images/mac_step2.png" alt="Mac_step2" width="100%" Height="Auto"/>
 
 Step 3: Configure your application and click Create.
-<img src="htmlconversion_images/mac_step3.png" alt="Mac_step3" width="100%" Height="Auto"/>)
+<img src="htmlconversion_images/mac_step3.png" alt="Mac_step3" width="100%" Height="Auto"/>
 
 Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Mac](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 <img src="htmlconversion_images/mac_step4.png" alt="Mac_step4" width="100%" Height="Auto"/>
