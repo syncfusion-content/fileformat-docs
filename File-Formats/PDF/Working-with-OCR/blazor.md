@@ -178,5 +178,5 @@ You will get the following output in the browser by executing the program.
 Click the button and get a PDF document with the following output.
 <img src="OCR-Images/OCR-output-image.png" alt="Convert OCR Blazor output" width="100%" Height="Auto"/>
     
-A complete working sample can be downloaded from Github.
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Perform_OCR_Blazor).
     

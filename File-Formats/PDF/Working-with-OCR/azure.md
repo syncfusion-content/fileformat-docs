@@ -104,7 +104,7 @@ Step 2: Create a new profile in the publish target window.
 <img src="OCR-Images/azure_step6.png" alt="Convert OCR Azure NetCore Step6" width="100%" Height="Auto"/>
 <img src="OCR-Images/azure_step7.png" alt="Convert OCR Azure NetCore Step7" width="100%" Height="Auto"/> 
 
-Step 3: Create an App Service using an Azure subscription and select a hosting plan.
+Step 3: Create an App Service using an Azure subscription and select a hosting plan based on the environment.
 <img src="OCR-Images/azure_step8.png" alt="Convert OCR Azure NetCore Step8" width="100%" Height="Auto"/> 
 
 Step 4: Configure the Hosting plan.
@@ -113,11 +113,11 @@ Step 4: Configure the Hosting plan.
 Step 5: After creating a profile, click Publish.
 <img src="OCR-Images/azure_step10.png" alt="Convert OCR Azure NetCore Step10" width="100%" Height="Auto"/> 
 
-Now, the published webpage will open in the browser. Perform OCR for a PDF document.
+Now, the published webpage will open in the browser, then click the **Perform OCR** button then perform OCR on a PDF document.
 <img src="OCR-Images/azure_step11.png" alt="Convert OCR Azure NetCore Step11" width="100%" Height="Auto"/>
 <img src="OCR-Images/OCR-output-image.png" alt="Convert OCR Azure NetCore Step11" width="100%" Height="Auto"/> 
 
-A complete work sample for performing OCR on a PDF document in Azure App Service on Windows can be downloaded from GitHub.
+A complete work sample for performing OCR on a PDF document in Azure App Service on Windows can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Azure/Azure%20App%20Services).
 
 ## Azure Functions
 
@@ -237,4 +237,4 @@ Step 2: After creating the profile, click Publish.
 Step 3: Now, go to the Azure portal and select the Functions Apps. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get a PDF document as follows.
 <img src="OCR-Images/OCR-output-image.png" alt="Convert OCR Azure Functions Step9" width="100%" Height="Auto"/> 
 
-A complete working sample can be downloaded from Github.
+A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Azure/Azure%20Function).
