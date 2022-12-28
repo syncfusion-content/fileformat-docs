@@ -1233,154 +1233,89 @@ Please refer the below code snippet for adding the list box field in new PDF doc
 {% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(page, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 2;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 document.Form.Fields.Add(listBoxField);
 
 //Save the document.
-
 document.Save("Form.pdf");
-
-//close the document
-
+//close the document.
 document.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
  
-
 'Create a new PDF document.
-
 Dim document As New PdfDocument()
-
 'Add a new page to PDF document.
-
 Dim page As PdfPage = document.Pages.Add()
 
 'Create list box.
-
 Dim listBoxField As New PdfListBoxField(page, "list1")
-
 'Set the properties.
-
 listBoxField.Bounds = New RectangleF(100, 60, 100, 50)
-
 'Add the items to the list box.
-
 listBoxField.Items.Add(New PdfListFieldItem("English", "English"))
-
 listBoxField.Items.Add(New PdfListFieldItem("French", "French"))
-
 listBoxField.Items.Add(New PdfListFieldItem("German", "German"))
-
 'Select the item.
-
 listBoxField.SelectedIndex = 2
-
 'Set the multi select option.
-
 listBoxField.MultiSelect = True
-
-'Add the list box into PDF document
-
+'Add the list box into PDF document.
 document.Form.Fields.Add(listBoxField)
 
 'Save the document.
-
 document.Save("Form.pdf")
-
-'close the document
-
+'close the document.
 document.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(page, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 2;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 document.Form.Fields.Add(listBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await document.SaveAsync(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
@@ -1388,67 +1323,38 @@ Save(stream, "Form.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(page, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 0;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 document.Form.Fields.Add(listBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 document.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -1456,62 +1362,39 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(page, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 2;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 document.Form.Fields.Add(listBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document.
-
 document.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
@@ -1526,339 +1409,195 @@ Please refer the below code snippet for adding the list box field in existing PD
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Load the existing PDF document.
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if(loadedDocument.Form==null)
-
-loadedDocument.CreateForm();
-
-//Load the page
-
+  loadedDocument.CreateForm();
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(loadedPage, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 2;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 loadedDocument.Form.Fields.Add(listBoxField);
 
 //Save the document.
-
 loadedDocument.Save("Form.pdf");
-
-//close the document
-
+//close the document.
 loadedDocument.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
 'Load the existing PDF document.
-
 Dim loadedDocument As New PdfLoadedDocument(fileName)
-
-'Create the form if the form does not exist in the loaded document
-
+'Create the form if the form does not exist in the loaded document.
 If loadedDocument.Form Is Nothing Then
-
 loadedDocument.CreateForm()
-
 End If
-
-'Load the page
-
+'Load the page.
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
 'Create list box.
-
 Dim listBoxField As New PdfListBoxField(loadedPage, "list1")
-
 'Set the properties.
-
 listBoxField.Bounds = New RectangleF(100, 60, 100, 50)
-
 'Add the items to the list box.
-
 listBoxField.Items.Add(New PdfListFieldItem("English", "English"))
-
 listBoxField.Items.Add(New PdfListFieldItem("French", "French"))
-
 listBoxField.Items.Add(New PdfListFieldItem("German", "German"))
-
 'Select the item.
-
 listBoxField.SelectedIndex = 2
-
 'Set the multi select option.
-
 listBoxField.MultiSelect = True
-
-'Add the list box into PDF document
-
+'Add the list box into PDF document.
 loadedDocument.Form.Fields.Add(listBoxField)
 
 'Save the document.
-
 loadedDocument.Save("Form.pdf")
-
-'close the document
-
+'close the document.
 loadedDocument.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//Create the file open picker
-
+//Create the file open picker.
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
-//Browse and chose the file
-
+//Browse and chose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
 await loadedDocument.OpenAsync(file);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
-    loadedDocument.CreateForm();
-
-//Load the page
-
+  loadedDocument.CreateForm();
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(loadedPage, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 2;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 loadedDocument.Form.Fields.Add(listBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await loadedDocument.SaveAsync(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PDF document
-
+//Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(loadedPage, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 2;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 loadedDocument.Form.Fields.Add(listBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 loadedDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the file as stream
-
+//Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create list box.
-
 PdfListBoxField listBoxField = new PdfListBoxField(loadedPage, "list1");
-
 //Set the properties.
-
 listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
-
 //Add the items to the list box.
-
 listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
-
 listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
-
 listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
-
 //Select the item.
-
 listBoxField.SelectedIndex = 2;
-
 //Set the multi select option.
-
 listBoxField.MultiSelect = true;
-
-//Add the list box into PDF document
-
+//Add the list box into PDF document.
 loadedDocument.Form.Fields.Add(listBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 loadedDocument.Save(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
-
 
 {% endhighlight %}
 
@@ -1876,112 +1615,69 @@ Please refer the below code snippet for adding the check box field in new PDF do
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(page, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new RectangleF(0, 20, 10, 10);
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(checkBoxField);
 
 //Save the document.
-
 document.Save("Form.pdf");
-
-//close the document
-
+//close the document.
 document.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
   
-
 'Create a new PDF document.
-
 Dim document As New PdfDocument()
-
 'Add a new page to PDF document.
-
 Dim page As PdfPage = document.Pages.Add()
 
 'Create Check Box field.
-
 Dim checkBoxField As New PdfCheckBoxField(page, "CheckBox")
-
 'Set check box properties.
-
 checkBoxField.ToolTip = "Check Box"
-
 checkBoxField.Bounds = New RectangleF(0, 20, 10, 10)
-
 'Add the form field to the document.
-
 document.Form.Fields.Add(checkBoxField)
 
 'Save the document.
-
 document.Save("Form.pdf")
-
-'close the document
-
+'close the document.
 document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(page, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new RectangleF(0, 20, 10, 10);
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(checkBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await document.SaveAsync(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
@@ -1989,53 +1685,31 @@ Save(stream, "Form.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(page, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(checkBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 document.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -2043,50 +1717,33 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(page, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(checkBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document.
-
 document.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
-
 
 {% endhighlight %}
 
@@ -2100,267 +1757,159 @@ Please refer the below code snippet for adding the check box field in existing P
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Load the existing PDF document.
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if(loadedDocument.Form==null)
-
-loadedDocument.CreateForm();
-
-//Load the page
-
+  loadedDocument.CreateForm();
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(loadedPage, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new RectangleF(0, 20, 10, 10);
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(checkBoxField);
 
 //Save the document.
-
 loadedDocument.Save("Form.pdf");
-
-//close the document
-
+//close the document.
 loadedDocument.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
 'Load the existing PDF document.
-
 Dim loadedDocument As New PdfLoadedDocument(fileName)
-
-'Create the form if the form does not exist in the loaded document
-
+'Create the form if the form does not exist in the loaded document.
 If loadedDocument.Form Is Nothing Then
-
 loadedDocument.CreateForm()
-
 End If
-
-'Load the page
-
+'Load the page.
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
 'Create Check Box field.
-
 Dim checkBoxField As New PdfCheckBoxField(loadedPage, "CheckBox")
-
 'Set check box properties.
-
 checkBoxField.ToolTip = "Check Box"
-
 checkBoxField.Bounds = New RectangleF(0, 20, 10, 10)
-
 'Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(checkBoxField)
 
 'Save the document.
-
 loadedDocument.Save("Form.pdf")
-
-'close the document
-
+'close the document.
 loadedDocument.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//Create the file open picker
-
+//Create the file open picker.
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
-//Browse and chose the file
-
+//Browse and chose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
 await loadedDocument.OpenAsync(file);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(loadedPage, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new RectangleF(0, 20, 10, 10);
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(checkBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await loadedDocument.SaveAsync(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PDF document
-
+//Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(loadedPage, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(checkBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 loadedDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the file as stream
-
+//Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
   loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create Check Box field.
-
 PdfCheckBoxField checkBoxField = new PdfCheckBoxField(loadedPage, "CheckBox");
-
 //Set check box properties.
-
 checkBoxField.ToolTip = "Check Box";
-
 checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(checkBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 loadedDocument.Save(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
@@ -2379,116 +1928,69 @@ Please refer the below code snippet for adding the signature field in new PDF do
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(page, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(signatureField);
 
 //Save the document.
-
 document.Save("Form.pdf");
-
-//Close the document
-
+//Close the document.
 document.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
 'Create a new PDF document.
-
 Dim document As New PdfDocument()
-
 'Add a new page to PDF document.
-
 Dim page As PdfPage = document.Pages.Add()
 
 'Create PDF Signature field.
-
 Dim signatureField As New PdfSignatureField(page, "Signature")
-
 'Set properties to the signature field.
-
 signatureField.Bounds = New RectangleF(0, 400, 90, 20)
-
 signatureField.ToolTip = "Signature"
-
 'Add the form field to the document.
-
 document.Form.Fields.Add(signatureField)
 
 'Save the document.
-
 document.Save("Form.pdf")
-
-'Close the document
-
+'Close the document.
 document.Close(True)
-
-
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(page, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(signatureField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await document.SaveAsync(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
@@ -2496,53 +1998,31 @@ Save(stream, "Form.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(page, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(signatureField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 document.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -2550,50 +2030,33 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(page, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(signatureField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document.
-
 document.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
-
 
 {% endhighlight %}
 
@@ -2607,267 +2070,159 @@ Please refer the below code snippet for adding the signature field in existing P
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Load the existing PDF document.
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if(loadedDocument.Form==null)
-
-loadedDocument.CreateForm();
-
-//Load the page
-
+  loadedDocument.CreateForm();
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(loadedPage, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(signatureField);
 
 //Save the document.
-
 loadedDocument.Save("Form.pdf");
-
-//Close the document
-
+//Close the document.
 loadedDocument.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
 'Load the existing PDF document.
-
 Dim loadedDocument As New PdfLoadedDocument(fileName)
-
-'Create the form if the form does not exist in the loaded document
-
+'Create the form if the form does not exist in the loaded document.
 If loadedDocument.Form Is Nothing Then
-
-loadedDocument.CreateForm()
-
+  loadedDocument.CreateForm()
 End If
-
-'Load the page
-
+'Load the page.
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
 'Create PDF Signature field.
-
 Dim signatureField As New PdfSignatureField(loadedPage, "Signature")
-
 'Set properties to the signature field.
-
 signatureField.Bounds = New RectangleF(0, 400, 90, 20)
-
 signatureField.ToolTip = "Signature"
-
 'Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(signatureField)
 
 'Save the document.
-
 loadedDocument.Save("Form.pdf")
-
-'Close the document
-
+'Close the document.
 loadedDocument.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//Create the file open picker
-
+//Create the file open picker.
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
-//Browse and chose the file
-
+//Browse and chose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
 await loadedDocument.OpenAsync(file);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
-    loadedDocument.CreateForm();
-
-//Load the page
-
+  loadedDocument.CreateForm();
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(loadedPage, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(signatureField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await loadedDocument.SaveAsync(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PDF document
-
+//Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
-    loadedDocument.CreateForm();
-
-//Load the page
-
+  loadedDocument.CreateForm();
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(loadedPage, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(signatureField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 loadedDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the file as stream
-
+//Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
-    loadedDocument.CreateForm();
-
-//Load the page
-
+  loadedDocument.CreateForm();
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create PDF Signature field.
-
 PdfSignatureField signatureField = new PdfSignatureField(loadedPage, "Signature");
-
 //Set properties to the signature field.
-
 signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
-
 signatureField.ToolTip = "Signature";
-
 //Add the form field to the existing document.
-
 loadedDocument.Form.Fields.Add(signatureField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 loadedDocument.Save(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
