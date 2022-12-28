@@ -589,7 +589,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -717,7 +716,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
