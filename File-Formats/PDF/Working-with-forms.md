@@ -23,105 +23,66 @@ The below code snippet illustrates how to add a textbox field to a new PDF docum
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to the PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
-
 textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(textBoxField);
 
 //Save the document.
-
 document.Save("Form.pdf");
-
-//close the document
-
+//close the document.
 document.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Create a new PDF document.
-
+'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument()
-
-'Add a new page to the PDF document.
-
+'Add a new page to the PDF document
 Dim page As PdfPage = document.Pages.Add()
 
-'Create a textbox field and add the properties.
-
+'Create a textbox field and add the properties
 Dim textBoxField As PdfTextBoxField = New PdfTextBoxField(page, "FirstName")
-
 textBoxField.Bounds = New RectangleF(0, 0, 100, 20)
-
 textBoxField.ToolTip = "First Name"
-
-'Add the form field to the document.
-
+'Add the form field to the document
 document.Form.Fields.Add(textBoxField)
 
-'Save the document.
-
+'Save the document
 document.Save("Form.pdf")
-
 'close the document
-
 document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to the PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
-
 textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(textBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await document.SaveAsync(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
@@ -129,51 +90,30 @@ Save(stream, "Form.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to the PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
-
 textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(textBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the document as stream
-
+//Save the document as stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 document.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -181,46 +121,31 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to the PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
-
 textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the document.
-
 document.Form.Fields.Add(textBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document.
-
 document.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
@@ -235,259 +160,155 @@ The below code snippet illustrates how to add the textbox to an existing PDF doc
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Load the existing PDF document.
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if(loadedDocument.Form==null)
-
 loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(loadedPage, "FirstName");
-
 textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the existing PDF document.
-
 loadedDocument.Form.Fields.Add(textBoxField);
 
 //Save the document.
-
 loadedDocument.Save("Form.pdf");
-
-//close the document
-
+//close the document.
 loadedDocument.Close(true);
-
-
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
-'Load the existing PDF document.
-
+'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument(fileName)
-
 'Create the form if the form does not exist in the loaded document
-
 If loadedDocument.Form Is Nothing Then
-
 loadedDocument.CreateForm()
-
 End If
-
 'Load the page
-
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Create a text box field and add the properties.
-
+'Create a text box field and add the properties
 Dim textBoxField As New PdfTextBoxField(loadedPage, "FirstName")
-
 textBoxField.Bounds = New RectangleF(0, 0, 100, 20)
-
 textBoxField.ToolTip = "First Name"
-
-'Add the form field to the existing PDF document.
-
+'Add the form field to the existing PDF document
 loadedDocument.Form.Fields.Add(textBoxField)
 
-'Save the document.
-
+'Save the document
 loadedDocument.Save("Form.pdf")
-
 'close the document
-
 loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//Create the file open picker
-
+//Create the file open picker.
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
-//Browse and chose the file
-
+//Browse and chose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
 await loadedDocument.OpenAsync(file);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(loadedPage, "FirstName");
-
 textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the existing PDF document.
-
 loadedDocument.Form.Fields.Add(textBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await loadedDocument.SaveAsync(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PDF document
-
+//Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(loadedPage, "FirstName");
-
 textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the existing PDF document.
-
 loadedDocument.Form.Fields.Add(textBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the document as stream
-
+//Save the document as stream.
 loadedDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the file as stream
-
+//Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a textbox field and add the properties.
-
 PdfTextBoxField textBoxField = new PdfTextBoxField(loadedPage, "FirstName");
-
 textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
-
 textBoxField.ToolTip = "First Name";
-
 //Add the form field to the existing PDF document.
-
 loadedDocument.Form.Fields.Add(textBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 loadedDocument.Save(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
-
 
 {% endhighlight %}
 
@@ -505,144 +326,84 @@ Please refer the below code snippet for adding the combo box in new PDF document
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(page, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 document.Form.Fields.Add(comboBoxField);
 
 //Save the document.
-
 document.Save("Form.pdf");
-
 //Close the document.
-
 document.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
      
-
-'Create a new PDF document.
-
+'Create a new PDF document
 Dim document As New PdfDocument()
-
-'Add a new page to PDF document.
-
+'Add a new page to PDF document
 Dim page As PdfPage = document.Pages.Add()
 
-'Create a combo box for the first page.
-
+'Create a combo box for the first page
 Dim comboBoxField As New PdfComboBoxField(page, "JobTitle")
-
-'Set the combo box properties.
-
+'Set the combo box properties
 comboBoxField.Bounds = New RectangleF(0, 40, 100, 20)
-
 'Set tooltip
-
 comboBoxField.ToolTip = "Job Title"
-
-'Add list items.
-
+'Add list items
 comboBoxField.Items.Add(New PdfListFieldItem("Development", "accounts"))
-
 comboBoxField.Items.Add(New PdfListFieldItem("Support", "advertise"))
-
 comboBoxField.Items.Add(New PdfListFieldItem("Documentation", "content"))
-
-'Add combo box to the form.
-
+'Add combo box to the form
 document.Form.Fields.Add(comboBoxField)
 
-'Save the PDF document.
-
+'Save the PDF document
 document.Save("Form.pdf")
-
 'Close the document                       
-
 document.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(page, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 document.Form.Fields.Add(comboBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await document.SaveAsync(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
@@ -650,63 +411,36 @@ Save(stream, "Form.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(page, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 document.Form.Fields.Add(comboBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the document as stream
-
+//Save the document as stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 document.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -714,60 +448,38 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(page, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 document.Form.Fields.Add(comboBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document.
-
 document.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
-
 
 {% endhighlight %}
 
@@ -781,319 +493,184 @@ Please refer the below code snippet for adding the combo box in existing PDF doc
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Load the existing PDF document.
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if(loadedDocument.Form==null)
-
 loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(loadedPage, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 loadedDocument.Form.Fields.Add(comboBoxField);
 
 //Save the document.
-
 loadedDocument.Save("Form.pdf");
-
 //Close the document.
-
 loadedDocument.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
-'Load the existing PDF document.
-
+'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument(fileName)
-
 'Create the form if the form does not exist in the loaded document
-
 If loadedDocument.Form Is Nothing Then
-
 loadedDocument.CreateForm()
-
 End If
-
 'Load the page
-
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
 'Create a combo box for the first page.
-
 Dim comboBoxField As New PdfComboBoxField(loadedPage, "JobTitle")
-
-'Set the combo box properties.
-
+'Set the combo box properties
 comboBoxField.Bounds = New RectangleF(0, 40, 100, 20)
-
-'Set tooltip.
-
+'Set tooltip
 comboBoxField.ToolTip = "Job Title"
-
-'Add list items.
-
+'Add list items
 comboBoxField.Items.Add(New PdfListFieldItem("Development", "accounts"))
-
 comboBoxField.Items.Add(New PdfListFieldItem("Support", "advertise"))
-
 comboBoxField.Items.Add(New PdfListFieldItem("Documentation", "content"))
-
-'Add combo box to the form.
-
+'Add combo box to the form
 loadedDocument.Form.Fields.Add(comboBoxField)
 
-'Save the document.
-
+'Save the document
 loadedDocument.Save("Form.pdf")
-
-'Close the document.
-
+'Close the document
 loadedDocument.Close(True)
-
-
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//Create the file open picker
-
+//Create the file open picker.
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
-//Browse and chose the file
-
+//Browse and chose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
 await loadedDocument.OpenAsync(file);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(loadedPage, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 loadedDocument.Form.Fields.Add(comboBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await loadedDocument.SaveAsync(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PDF document
-
+//Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(loadedPage, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 loadedDocument.Form.Fields.Add(comboBoxField);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 loadedDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the file as stream
-
+//Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a combo box for the first page.
-
 PdfComboBoxField comboBoxField = new PdfComboBoxField(loadedPage, "JobTitle");
-
 //Set the combo box properties.
-
 comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
-
 //Set tooltip.
-
 comboBoxField.ToolTip = "Job Title";
-
 //Add list items.
-
 comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
-
 comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
-
 //Add combo box to the form.
-
 loadedDocument.Form.Fields.Add(comboBoxField);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 loadedDocument.Save(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
@@ -1112,144 +689,84 @@ Please refer the below code snippet for adding the radio button in new PDF docum
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(page, "employeesRadioList");
-
 //Add the radio button into form
-
 document.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
 //Save the document.
-
 document.Save("Form.pdf");
-
-//Close the document
-
+//Close the document.
 document.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
    
-
-'Create a new PDF document.
-
+'Create a new PDF document
 Dim document As New PdfDocument()
-
-'Add a new page to PDF document.
-
+'Add a new page to PDF document
 Dim page As PdfPage = document.Pages.Add()
 
-'Create a Radio button.
-
+'Create a Radio button
 Dim employeesRadioList As New PdfRadioButtonListField(page, "employeesRadioList")
-
 'Add the radio button into form
-
 document.Form.Fields.Add(employeesRadioList)
-
-'Create radio button items.
-
+'Create radio button items
 Dim radioItem1 As New PdfRadioButtonListItem("1-9")
-
 radioItem1.Bounds = New RectangleF(100, 140, 20, 20)
-
 Dim radioItem2 As New PdfRadioButtonListItem("10-49")
-
 radioItem2.Bounds = New RectangleF(100, 170, 20, 20)
-
-'Add the items to radio button group.
-
+'Add the items to radio button group
 employeesRadioList.Items.Add(radioItem1)
-
 employeesRadioList.Items.Add(radioItem2)
 
-'Save the PDF document.
-
+'Save the PDF document
 document.Save("Form.pdf")
-
 'close the document
-
 document.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(page, "employeesRadioList");
-
-//Add the radio button into form
-
+//Add the radio button into form.
 document.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await document.SaveAsync(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
@@ -1257,63 +774,36 @@ Save(stream, "Form.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(page, "employeesRadioList");
-
-//Add the radio button into form
-
+//Add the radio button into form.
 document.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 document.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -1321,58 +811,37 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Add a new page to PDF document.
-
 PdfPage page = document.Pages.Add();
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(page, "employeesRadioList");
-
-//Add the radio button into form
-
+//Add the radio button into form.
 document.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document.
-
 document.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
@@ -1387,317 +856,185 @@ The below code snippet illustrates how to add the radio button in existing PDF d
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Load the existing PDF document.
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if(loadedDocument.Form==null)
-
 loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(loadedPage, "employeesRadioList");
-
-//Add the radio button into loaded document
-
+//Add the radio button into loaded document.
 loadedDocument.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
 //Save the document.
-
 loadedDocument.Save("Form.pdf");
-
-//Close the document
-
+//Close the document.
 loadedDocument.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
-'Load the existing PDF document.
-
+'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument(fileName)
-
 'Create the form if the form does not exist in the loaded document
-
 If loadedDocument.Form Is Nothing Then
-
 loadedDocument.CreateForm()
-
 End If
-
 'Load the page
-
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Create a Radio button.
-
+'Create a Radio button
 Dim employeesRadioList As New PdfRadioButtonListField(loadedPage, "employeesRadioList")
-
 'Add the radio button into loaded document
-
 loadedDocument.Form.Fields.Add(employeesRadioList)
-
-'Create radio button items.
-
+'Create radio button items
 Dim radioButtonItem1 As New PdfRadioButtonListItem("1-9")
-
 radioButtonItem1.Bounds = New RectangleF(100, 140, 20, 20)
-
 Dim radioButtonItem2 As New PdfRadioButtonListItem("10-49")
-
 radioButtonItem2.Bounds = New RectangleF(100, 170, 20, 20)
-
-'Add the items to radio button group.
-
+'Add the items to radio button group
 employeesRadioList.Items.Add(radioButtonItem1)
-
 employeesRadioList.Items.Add(radioButtonItem2)
 
-'Save the document.
-
+'Save the document
 loadedDocument.Save("Form.pdf")
-
 'Close the document
-
 loadedDocument.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//Create the file open picker
-
+//Create the file open picker.
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
-//Browse and chose the file
-
+//Browse and chose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
 await loadedDocument.OpenAsync(file);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(loadedPage, "employeesRadioList");
-
-//Add the radio button into loaded document
-
+//Add the radio button into loaded document.
 loadedDocument.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await loadedDocument.SaveAsync(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PDF document
-
+//Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(loadedPage, "employeesRadioList");
-
-//Add the radio button into loaded document
-
+//Add the radio button into loaded document.
 loadedDocument.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
-//Creating the stream object
-
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 loadedDocument.Save(stream);
 
 //If the position is not set to '0' then the PDF will be empty.
-
 stream.Position = 0;
-
 //Close the document.
-
 loadedDocument.Close(true);
-
 //Defining the ContentType for pdf file.
-
 string contentType = "application/pdf";
-
 //Define the file name.
-
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//Load the file as stream
-
+//Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Create the form if the form does not exist in the loaded document
-
+//Create the form if the form does not exist in the loaded document.
 if (loadedDocument.Form == null)
-
     loadedDocument.CreateForm();
-
-//Load the page
-
+//Load the page.
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a Radio button.
-
 PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(loadedPage, "employeesRadioList");
-
-//Add the radio button into loaded document
-
+//Add the radio button into loaded document.
 loadedDocument.Form.Fields.Add(employeesRadioList);
-
 //Create radio button items.
-
 PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
-
 radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
-
 PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
-
 radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
-
 //Add the items to radio button group.
-
 employeesRadioList.Items.Add(radioButtonItem1);
-
 employeesRadioList.Items.Add(radioButtonItem2);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 loadedDocument.Save(stream);
-
 //Close the document.
-
 loadedDocument.Close(true);
-
-//Save the stream into pdf file
-
+//Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
 else
 {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
@@ -1716,298 +1053,168 @@ The following code example illustrates how to get option values from acroform ra
 
 {% highlight c# tabtitle="C#" %}
 
-
-//Load an existing document
-
+//Load an existing document.
 PdfLoadedDocument doc = new PdfLoadedDocument("SourceForm.pdf");
-
-//Gets the loaded form
-
+//Gets the loaded form.
 PdfLoadedForm form = doc.Form;
-
-//Set default appearance to false
-
+//Set default appearance to false.
 form.SetDefaultAppearance(false);
 
-//Gets the 'Gender' radio button field   
-
+//Gets the 'Gender' radio button field.
 PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
-
-//Select the item that contains option value as "Male"
-
+//Select the item that contains option value as "Male".
 foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
-
 {
-
-//Gets an option value of the item
-
-if (item.OptionValue == "Male")
-
-{
-
-item.Selected = true;
-
+  //Gets an option value of the item.
+  if (item.OptionValue == "Male")
+  {
+    item.Selected = true;
+  }
 }
 
-}
-
-//Save and close the PDF document
-
+//Save and close the PDF document.
 doc.Save("Form.pdf");
-
 doc.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
 'Load an existing document
-
 Dim doc As New PdfLoadedDocument("SourceForm.pdf")
-
 'Gets the loaded form
-
 Dim form As PdfLoadedForm = doc.Form
-
 'Set default appearance to false
-
 form.SetDefaultAppearance(False)
 
 'Gets the 'Gender' radio button field   
-
 Dim radioButtonField As PdfLoadedRadioButtonListField = TryCast(form.Fields("Gender"), PdfLoadedRadioButtonListField)
-
 'Select the item that contains option value as "Male"
-
 For Each item As PdfLoadedRadioButtonItem In radioButtonField.Items
-
 'Gets an option value of the item
-
 If item.OptionValue = "Male" Then
-
 item.Selected = True
-
 End If
-
 Next
 
 'Save and close the PDF document
-
 doc.Save("Form.pdf")
-
 doc.Close(True)
-
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-
-//Create the file open picker
-
+//Create the file open picker.
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
-//Browse and choose the file
-
+//Browse and choose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument doc = new PdfLoadedDocument();
-
-//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
-
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class.
 await doc.OpenAsync(file);
-
-//Gets the loaded form
-
-
+//Gets the loaded form.
 PdfLoadedForm form = doc.Form;
-
-//Set default appearance to false
-
+//Set default appearance to false.
 form.SetDefaultAppearance(false);
 
-//Gets the 'Gender' radio button field   
-
+//Gets the 'Gender' radio button field.
 PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
-
-//Select the item that contains option value as "Male"
-
+//Select the item that contains option value as "Male".
 foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
-
 {
-
-//Gets an option value of the item
-
-if (item.OptionValue == "Male")
-
-{
-
-item.Selected = true;
-
+  //Gets an option value of the item.
+  if (item.OptionValue == "Male")
+  {
+    item.Selected = true;
+  }
 }
 
-}
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
-
 await doc.SaveAsync(stream);
-
-//Close the document
-
+//Close the document.
 doc.Close(true);
-
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples.
 Save(stream, "Form.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Load the PDF document
-
+//Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
-
-//Gets the loaded form
-
+//Gets the loaded form.
 PdfLoadedForm form = doc.Form;
-
-//Set default appearance to false
-
+//Set default appearance to false.
 form.SetDefaultAppearance(false);
 
-//Gets the 'Gender' radio button field   
-
+//Gets the 'Gender' radio button field.
 PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
-
-//Select the item that contains option value as "Male"
-
+//Select the item that contains option value as "Male".
 foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
-
 {
-
-//Gets an option value of the item
-
-if (item.OptionValue == "Male")
-
-{
-
-item.Selected = true;
-
+  //Gets an option value of the item.
+  if (item.OptionValue == "Male")
+  {
+    item.Selected = true;
+  }
 }
 
-}
-
-//Save the document into stream
-
+//Save the document into stream.
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 stream.Position = 0;
-
-//Close the document
-
+//Close the document.
 doc.Close(true);
-
-//Defining the ContentType for PDF file
-
+//Defining the ContentType for PDF file.
 string contentType = "application/pdf";
-
-//Define the file name
-
+//Define the file name.
 string fileName = "Form.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
-
 return File(stream, contentType, fileName);
-
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-
-//Load the file as stream
-
+//Load the file as stream.
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-
 PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
-
-//Get the loaded form
-
+//Get the loaded form.
 PdfLoadedForm form = doc.Form;
-
-//Set default appearance to false
-
+//Set default appearance to false.
 form.SetDefaultAppearance(false);
 
-//Gets the 'Gender' radio button field   
-
+//Gets the 'Gender' radio button field.
 PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
-
-//Select the item that contains option value as "Male"
-
+//Select the item that contains option value as "Male".
 foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
-
 {
-
-//Gets an option value of the item
-
-if (item.OptionValue == "Male")
-
-{
-
-item.Selected = true;
-
+  //Gets an option value of the item.
+  if (item.OptionValue == "Male")
+  {
+    item.Selected = true;
+  }
 }
 
-}
-
-//Save the PDF document to stream
-
+//Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
-//Close the document
-
+//Close the document.
 doc.Close(true);
-
-//Save the stream into PDF file
-
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-
+//Save the stream into PDF file.
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-
 {
-
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
-
+  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
 }
-
 else
-
 {
-
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
-
+  Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
 }
-
-
 
 {% endhighlight %}
 
@@ -2024,7 +1231,6 @@ Please refer the below code snippet for adding the list box field in new PDF doc
 {% tabs %}  
 
 {% highlight c# tabtitle="C#" %}
-
 
 //Create a new PDF document.
 
