@@ -342,7 +342,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Set Footnotes and Endnotes position
 
-Footnotes are typically located at the bottom of a page or beneath the text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. This can be done using `FootnotePosition` API and `EndnotePosition` API.
+Footnotes are typically located at the bottom of a page or beneath the text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. This can be done using [FootnotePosition](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FootnotePosition) API and [EndnotePosition](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_EndnotePosition) API.
 
 The following code example illustrates how to set positions for footnotes and endnotes:
 
@@ -1237,7 +1237,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
@@ -1364,7 +1363,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
@@ -1435,7 +1433,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.
@@ -1508,7 +1505,6 @@ private static void RemoveFootNoteEndNote(WTextBody textBody)
         }
     }
 }
-
 private static void RemoveFootNoteEndNote(WTable table)
 {
     //Iterates the row collection in a table.

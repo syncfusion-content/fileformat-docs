@@ -8,23 +8,23 @@ documentation: UG
 
 # Event support for Mail merge
 
-The `MailMerge` class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
 
-* `MergeField`- occurs when a **Mail merge field** except image Mail merge field is encountered.
+* [MergeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html)- occurs when a **Mail merge field** except image Mail merge field is encountered.
 
-* `MergeImageField`- occurs when an **image Mail merge field** is encountered.
+* [MergeImageField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeImageFieldEventHandler.html)- occurs when an **image Mail merge field** is encountered.
 
-* `BeforeClearField`- occurs when an **unmerged field** is encountered.
+* [BeforeClearField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearFieldEventHandler.html)- occurs when an **unmerged field** is encountered.
 
-* `BeforeClearGroupField`- occurs when an **unmerged group field** is encountered.
+* [BeforeClearGroupField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearGroupFieldEventHandler.html)- occurs when an **unmerged group field** is encountered.
 
 ## MergeField Event
 
-You can apply formatting to the merged text or customize the merged text during mail merge process using the `MergeField` Event.
+You can apply formatting to the merged text or customize the merged text during mail merge process using the [MergeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html) Event.
 
-The following code example shows how to use the `MergeField` event during Mail merge process.
+The following code example shows how to use the [MergeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html) event during Mail merge process.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
@@ -89,9 +89,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code example shows how to set text color to the alternate Mail merge record by using MergeFieldEventHandler.
 
@@ -225,11 +225,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## MergeImageField Event
 
-You can format the merged image like resizing the image and more during mail merge process using the `MergeImageField` Event. 
+You can format the merged image like resizing the image and more during mail merge process using the [MergeImageField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeImageFieldEventHandler.html) Event. 
 
-The following code example shows how to use the `MergeImageField` event during Mail merge process.
+The following code example shows how to use the [MergeImageField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeImageFieldEventHandler.html) event during Mail merge process.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document
@@ -431,9 +431,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## BeforeClearField Event
 
-You can get the unmerged fields in a Word document during mail merge process using the `BeforeClearField` Event.
+You can get the unmerged fields in a Word document during mail merge process using the [BeforeClearField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearFieldEventHandler.html) Event.
 
-The following code example shows how to use the `BeforeClearField` event during Mail merge process.
+The following code example shows how to use the [BeforeClearField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearFieldEventHandler.html) event during Mail merge process.
 
 {% tabs %}
 
@@ -506,7 +506,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -540,7 +539,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
         string unmergedFieldName = args.FieldName;
         //Sets error message for unmerged fields, which is not found in data source
         args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " is not found in the data source.";
-	}
+    }
 }
 {% endhighlight %}
 
@@ -742,9 +741,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## BeforeClearGroupField Event
 
-You can get the unmerged group fields in a Word document during mail merge process using the `BeforeClearGroupField` event.
+You can get the unmerged group fields in a Word document during mail merge process using the [BeforeClearGroupField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearGroupFieldEventHandler.html) event.
 
-The following code example shows how to use the `BeforeClearGroupField` event during Mail merge process.
+The following code example shows how to use the [BeforeClearGroupField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearGroupFieldEventHandler.html) event during Mail merge process.
 
 {% tabs %}  
 
@@ -1105,7 +1104,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1117,6 +1115,7 @@ public class Employees
         Customers = customers;
     }
 }
+
 public class CustomerDetails
 {
     public string ContactName { get; set; }
@@ -1124,7 +1123,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1134,13 +1132,13 @@ public class CustomerDetails
         Orders = orders;
     }
 }
+
 public class OrderDetails
 {
     public string OrderID { get; set; }
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -1149,6 +1147,7 @@ public class OrderDetails
         RequiredDate = requiredDate;
     }
 }
+
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -1160,7 +1159,6 @@ Public Class Employees
     Public Property City As String
     Public Property Country As String
     Public Property Customers As List(Of CustomerDetails)
-
     Public Sub New(ByVal firstName As String, ByVal lastName As String, ByVal employeeId As String, ByVal address As String, ByVal city As String, ByVal country As String, ByVal customers As List(Of CustomerDetails))
         Me.FirstName = firstName
         Me.LastName = lastName
@@ -1171,13 +1169,13 @@ Public Class Employees
         Me.Customers = customers
     End Sub
 End Class
+
 Public Class CustomerDetails
     Public Property ContactName As String
     Public Property CompanyName As String
     Public Property City As String
     Public Property Country As String
     Public Property Orders As List(Of OrderDetails)
-
     Public Sub New(ByVal contactName As String, ByVal companyName As String, ByVal city As String, ByVal country As String, ByVal orders As List(Of OrderDetails))
         Me.ContactName = contactName
         Me.CompanyName = companyName
@@ -1186,12 +1184,12 @@ Public Class CustomerDetails
         Me.Orders = orders
     End Sub
 End Class
+
 Public Class OrderDetails
     Public Property OrderID As String
     Public Property OrderDate As DateTime
     Public Property ShippedDate As DateTime
     Public Property RequiredDate As DateTime
-
     Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
         Me.OrderID = orderId
         Me.OrderDate = orderDate
@@ -1211,7 +1209,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1223,6 +1220,7 @@ public class Employees
         Customers = customers;
     }
 }
+
 public class CustomerDetails
 {
     public string ContactName { get; set; }
@@ -1230,7 +1228,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1240,13 +1237,13 @@ public class CustomerDetails
         Orders = orders;
     }
 }
+
 public class OrderDetails
 {
     public string OrderID { get; set; }
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -1267,7 +1264,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1287,7 +1283,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1304,7 +1299,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -1327,7 +1321,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1347,7 +1340,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1364,7 +1356,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
