@@ -77,7 +77,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="Xamarin" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}

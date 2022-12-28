@@ -13,7 +13,7 @@ The frequently asked questions in Essential DocIO are listed below.
 
 The following code illustrates how to modify the built-in style while creating new Word document.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -67,7 +67,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 A document can be opened as stream by using HttpWebResponse. This stream does not support seek operation and so the contents should be read manually to get the position and length of the stream. The following code illustrates how to load the document from stream.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Gets the document as stream
@@ -111,11 +111,11 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code illustrates the method used to read the stream and convert the stream to bytes.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 public static byte[] ReadFully(Stream stream, int initialLength)
@@ -141,14 +141,12 @@ public static byte[] ReadFully(Stream stream, int initialLength)
             Array.Copy(buffer, newBuffer, buffer.Length);
             newBuffer[read] = (byte)nextByte;
             buffer = newBuffer;
-
             read++;
         }
     }
     //Buffer is now too big. Shrink it.
     byte[] ret = new byte[read];
     Array.Copy(buffer, ret, read);
-
     return ret;
 }
 {% endhighlight %}
@@ -173,19 +171,17 @@ Public Shared Function ReadFully(stream As Stream, initialLength As Integer) As 
             Array.Copy(buffer, newBuffer, buffer.Length)
             newBuffer(read) = CByte(nextByte)
             buffer = newBuffer
-
             read += 1
         End If
     End While
     'Buffer is now too big. Shrink it.
     Dim ret As Byte() = New Byte(read - 1) {}
     Array.Copy(buffer, ret, read)
-
     Return ret
 End Function
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-Word-document-from-url).
 
@@ -631,7 +627,7 @@ Private Sub GetDataTable(dataset As DataSet)
 End Sub
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Insert-data-table-in-Word-document).
 
@@ -639,7 +635,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 An HTML string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the HTML string.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -667,9 +663,9 @@ textbody.InsertXHTML(htmlString)
 'Saves and closes the document
 document.Save("Sample.docx")
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Insert-table-from-html-string).
 
@@ -677,7 +673,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Each cell in the table can have its own width. The following code illustrates how to set the width of the cell.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates new word document
@@ -732,7 +728,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Set-table-cell-width).
 
@@ -740,7 +736,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can position a table in a Word document by setting position properties. The following code illustrates how to set position properties for a table.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -820,9 +816,9 @@ Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Set-text-direction-to-table). 
 
@@ -830,7 +826,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code illustrates how to extract the images in the document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -919,7 +915,7 @@ export.SaveAsXhtml(document, "Template.html")
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Extract-images-from-Word-document).
 
@@ -927,7 +923,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code illustrates how to remove the header contents from the document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -1181,9 +1177,7 @@ doc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-using-OleDbConnection).
 
-N>
-For more information on Mail merge using DocIO, you can refer to online documentation link:
-[MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
+N> For more information on Mail merge using DocIO, you can refer to online documentation link: [MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
 
 ### Find and Replace
 
@@ -1307,8 +1301,7 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Find-and-replace-text-using-regex).
 
-N>  For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
-[Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
+N> For more information on performing the find and replace operation using DocIO, you can refer to online documentation link: [Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
 
 ### Bookmarks
 
@@ -1444,7 +1437,7 @@ Using Microsoft Office Automation
 
 The following code example illustrates how page numbers can be inserted to the footer of the Word document by adding a page number field.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 using word = Microsoft.Office.Interop.Word;
@@ -1676,8 +1669,7 @@ doc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Watermark/Add-picture-watermark).
 
-N>  For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
-[Applying Watermark](/file-formats/docio/applying-watermark)
+N> For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link: [Applying Watermark](/file-formats/docio/applying-watermark)
 
 ### Headers and Footers
 
@@ -1898,7 +1890,7 @@ Using Microsoft Office Automation
 
 The following code example illustrates how to insert a table to a Word document, where the table contains three rows and two columns.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 using word = Microsoft.Office.Interop.Word;
@@ -1990,9 +1982,7 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Insert-empty-table).
 
-N>  For more information on creating tables using DocIO, refer to online documentation link:
-[Working with Tables](/file-formats/docio/working-with-tables)
-
+N> For more information on creating tables using DocIO, refer to online documentation link: [Working with Tables](/file-formats/docio/working-with-tables)
 
 ### Comments 
 
@@ -2099,8 +2089,7 @@ doc.Save("Sample.doc", FormatType.Doc)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
 
-N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
-[Working with Comments](/file-formats/docio/working-with-comments) 
+N> For more information on working with the comments using DocIO, you can refer to the online documentation link: [Working with Comments](/file-formats/docio/working-with-comments)
 
 ### Document Protection
 
@@ -2160,7 +2149,7 @@ document.Close(nullobject, nullobject, nullobject)
 wordApp.Quit(nullobject, nullobject, nullobject)
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ### Using DocIO
 
@@ -2858,28 +2847,28 @@ In addition to the previous NuGet packages, SkiaSharp.Linux helper NuGet package
 2. Create a folder and name it as SkiaSharp.Linux and place the downloaded file in the folder structure "SkiaSharp.Linux\runtimes\linux-x64\native"
 3. Create a nuspec file with name SkiaSharp.Linux.nuspec using the following metadata information and place it inside SkiaSharp.Linux folder. The nuspec file can be customized.
 
-    {% tabs %}
-    {% highlight XML %}
-    <?xml version="1.0" encoding="utf-8"?>
-    <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-        <metadata>
-            <id>SkiaSharp.Linux</id>
-            <version>1.59.3</version>
-            <title>SkiaSharp for Linux</title>
-            <authors>Syncfusion Inc.</authors>
-            <owners>Syncfusion Inc.</owners>
-            <requireLicenseAcceptance>false</requireLicenseAcceptance>
-            <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
-            <tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
-            <dependencies>
-                <group targetFramework=".NETStandard1.4">
-                    <dependency id="SkiaSharp" version="1.59.3" />
-                </group>
-            </dependencies>
-        </metadata>
-    </package>
-    {% endhighlight %}
-    {% endtabs %}
+{% tabs %}
+{% highlight XML %}
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>SkiaSharp.Linux</id>
+        <version>1.59.3</version>
+        <title>SkiaSharp for Linux</title>
+        <authors>Syncfusion Inc.</authors>
+        <owners>Syncfusion Inc.</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
+        <tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
+        <dependencies>
+            <group targetFramework=".NETStandard1.4">
+                <dependency id="SkiaSharp" version="1.59.3" />
+            </group>
+        </dependencies>
+    </metadata>
+</package>
+{% endhighlight %}
+{% endtabs %}
 
 4. Make sure that the nuget.exe file is present along with SkiaSharp.Linux folder (in the parent folder of SkiaSharp.Linux folder). If not, download it from [here](https://www.nuget.org/downloads#).
 5. Open a command prompt and navigate to SkiaSharp.Linux folder.

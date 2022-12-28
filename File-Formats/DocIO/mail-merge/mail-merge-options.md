@@ -349,10 +349,10 @@ When a merge field is considered as unmerged during mail merge process?
 
 Mail merge operation automatically removes the unmerged merge fields since the default value of [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property is true.
 
-T> 1.Set [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
-T> 2.Modify the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
-T> 3.Order the mail merge executions with the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
-T> 4.You can get the unmerged fields in your document, customize the mail merge process using the BeforeClearField Event. For further information, click [here] (https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
+T> 1. Set [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
+T> 2. Modify the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
+T> 3. Order the mail merge executions with the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
+T> 4. You can get the unmerged fields in your document, customize the mail merge process using the BeforeClearField Event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
 
 The following code example shows how to keep the unmerged merge fields in the generated Word document.
  
@@ -609,7 +609,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -626,7 +625,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -648,7 +646,7 @@ Public Function GetEmployees() As List(Of Employees)
     employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers))
     Return employees
 End Function
- 
+
 Public Class Employees
     Public Property FirstName() As String
     Public Property LastName() As String
@@ -657,7 +655,6 @@ Public Class Employees
     Public Property City() As String
     Public Property Country() As String
     Public Property Customers() As List(Of CustomerDetails)
-    
     Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, customers As List(Of CustomerDetails))
         Me.FirstName = firstName
         Me.LastName = lastName
@@ -668,14 +665,13 @@ Public Class Employees
         Me.Customers = customers
     End Sub
 End Class
- 
+
 Public Class CustomerDetails
     Public Property ContactName() As String
     Public Property CompanyName() As String
     Public Property City() As String
     Public Property Country() As String
     Public Property Orders() As List(Of OrderDetails)
-
     Public Sub New(contactName As String, companyName As String, city As String, country As String, orders As List(Of OrderDetails))
         Me.ContactName = contactName
         Me.CompanyName = companyName
@@ -690,7 +686,6 @@ Public Class OrderDetails
     Public Property OrderDate() As DateTime
     Public Property ShippedDate() As DateTime	 
     Public Property RequiredDate() As DateTime
-
     Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
         Me.OrderID = orderId
         Me.OrderDate = orderDate
@@ -742,7 +737,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -759,7 +753,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -792,7 +785,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -812,7 +804,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -829,7 +820,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -862,7 +852,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -882,7 +871,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -899,7 +887,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
