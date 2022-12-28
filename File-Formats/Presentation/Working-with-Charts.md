@@ -1721,7 +1721,6 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 IPresentationChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
 //Sets the data range of chart
 chart.DataRange = chart.ChartData[1, 2, 4, 3];
-
 //Sets data to the chart- RowIndex, columnIndex and data
 chart.ChartData.SetValue(1, 2, "2012");
 chart.ChartData.SetValue(2, 2, 330);
@@ -1734,7 +1733,6 @@ chart.ChartType = OfficeChartType.Area;
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -1758,7 +1756,6 @@ Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 Dim chart As IPresentationChart = slide.Shapes.AddChart(100, 120, 500, 300)
 'Sets the data range of chart
 chart.DataRange = chart.ChartData(1, 2, 4, 3)
-
 'Sets data to the chart- RowIndex, columnIndex, and data
 chart.ChartData.SetValue(1, 2, "2012")
 chart.ChartData.SetValue(2, 2, 330)
@@ -1767,12 +1764,10 @@ chart.ChartData.SetValue(4, 2, 700)
 chart.ChartType = OfficeChartType.Area
 
 'Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
 'Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto
 chart.PlotArea.Layout.TopMode = LayoutModes.factor
 'Value in points should not be negative value, when LayoutMode is Edge
-
 'It can be negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10
 chart.ChartTitleArea.Layout.Top = 100
@@ -1802,13 +1797,12 @@ chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -1843,13 +1837,12 @@ chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -1880,13 +1873,12 @@ chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -2234,7 +2226,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data  
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");  
 chart.ChartData.SetValue(1, 2, "Y-Axis");  
@@ -2271,7 +2262,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers
 'Assign data  
 chart.DataRange = chart.ChartData[1, 1, 4, 2]  
 chart.IsSeriesInRows = false  
-
 'Set data to the chart RowIndex, columnIndex, and data
 chart.ChartData.SetValue(1, 1, "X-Axis")  
 chart.ChartData.SetValue(1, 2, "Y-Axis")  
@@ -2281,7 +2271,6 @@ chart.ChartData.SetValue(4, 1, 10)
 chart.ChartData.SetValue(2, 2, 10)
 chart.ChartData.SetValue(3, 2, 5)
 chart.ChartData.SetValue(4, 2, 1)
-
 'Apply chart elements
 'Set chart title
 chart.ChartTitle = "Scatter Markers Chart"
@@ -2309,7 +2298,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data  
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");  
 chart.ChartData.SetValue(1, 2, "Y-Axis");  
@@ -2319,7 +2307,6 @@ chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);  
 chart.ChartData.SetValue(3, 2, 5);  
 chart.ChartData.SetValue(4, 2, 1);
-
 //Apply chart elements
 //Set chart title  
 chart.ChartTitle = "Scatter Markers Chart";
@@ -2352,7 +2339,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");
 chart.ChartData.SetValue(1, 2, "Y-Axis");
@@ -2362,7 +2348,6 @@ chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);
 chart.ChartData.SetValue(3, 2, 5);
 chart.ChartData.SetValue(4, 2, 1);
-
 //Apply chart elements
 //Set chart title
 chart.ChartTitle = "Scatter Markers Chart";  
@@ -2391,7 +2376,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;  
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");
 chart.ChartData.SetValue(1, 2, "Y-Axis");
@@ -2401,7 +2385,6 @@ chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);
 chart.ChartData.SetValue(3, 2, 5);
 chart.ChartData.SetValue(4, 2, 1);
-
 //Apply chart elements
 //Set chart title
 chart.ChartTitle = "Scatter Markers Chart";
@@ -2449,7 +2432,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Assign data
     chart.DataRange = chart.ChartData[1, 1, 6, 2];
     chart.IsSeriesInRows = false;
-
     //Set data
     chart.ChartData.SetValue(1, 1, "Web sales");
     chart.ChartData.SetValue(1, 2, "Users count");
@@ -2463,13 +2445,11 @@ using (IPresentation pptxDoc = Presentation.Create())
     chart.ChartData.SetValue(5, 2, "2000");
     chart.ChartData.SetValue(6, 1, "Finalized");
     chart.ChartData.SetValue(6, 2, "1000");
-
     //Formatting the legend and data label option
     chart.HasLegend = false;
     IOfficeChartSerie serie = chart.Series[0];
     chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
     chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
     //Save and close the presentation
     pptxDoc.Save("FunnelChart.pptx");
     pptxDoc.Close();
@@ -2489,7 +2469,6 @@ chart.ChartTitle = "Funnel"
 'Assign data
 chart.DataRange = chart.ChartData(1, 1, 6, 2)
 chart.IsSeriesInRows = False
-
 'Set data
 chart.ChartData.SetValue(1, 1, "Web sales")
 chart.ChartData.SetValue(1, 2, "Users count")
@@ -2503,13 +2482,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent")
 chart.ChartData.SetValue(5, 2, "2000")
 chart.ChartData.SetValue(6, 1, "Finalized")
 chart.ChartData.SetValue(6, 2, "1000")
-
 'Formatting the legend and data label option
 chart.HasLegend = False
 Dim serie As IOfficeChartSerie = chart.Series(0)
 chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
-
 'Save and close the presentation
 pptxDoc.Save("FunnelChart.pptx")
 pptxDoc.Close()
@@ -2529,7 +2506,6 @@ chart.ChartTitle = "Funnel";
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 6, 2];
 chart.IsSeriesInRows = false;
-
 //Set data
 chart.ChartData.SetValue(1, 1, "Web sales");
 chart.ChartData.SetValue(1, 2, "Users count");
@@ -2543,13 +2519,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent");
 chart.ChartData.SetValue(5, 2, "2000");
 chart.ChartData.SetValue(6, 1, "Finalized");
 chart.ChartData.SetValue(6, 2, "1000");
-
 //Formatting the legend and data label option
 chart.HasLegend = false;
 IOfficeChartSerie serie = chart.Series[0];
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -2575,7 +2549,6 @@ chart.ChartTitle = "Funnel";
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 6, 2];
 chart.IsSeriesInRows = false;
-
 //Set data
 chart.ChartData.SetValue(1, 1, "Web sales");
 chart.ChartData.SetValue(1, 2, "Users count");
@@ -2589,13 +2562,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent");
 chart.ChartData.SetValue(5, 2, "2000");
 chart.ChartData.SetValue(6, 1, "Finalized");
 chart.ChartData.SetValue(6, 2, "1000");
-
 //Formatting the legend and data label option
 chart.HasLegend = false;
 IOfficeChartSerie serie = chart.Series[0];
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
 //Save and close the presentation
 pptxDoc.Save("FunnelChart.pptx");
 pptxDoc.Close();
@@ -2615,7 +2586,6 @@ chart.ChartTitle = "Funnel";
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 6, 2];
 chart.IsSeriesInRows = false;
-
 //Set data
 chart.ChartData.SetValue(1, 1, "Web sales");
 chart.ChartData.SetValue(1, 2, "Users count");
@@ -2629,13 +2599,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent");
 chart.ChartData.SetValue(5, 2, "2000");
 chart.ChartData.SetValue(6, 1, "Finalized");
 chart.ChartData.SetValue(6, 2, "1000");
-
 //Formatting the legend and data label option
 chart.HasLegend = false;
 IOfficeChartSerie serie = chart.Series[0];
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.
@@ -2706,7 +2674,6 @@ private static void TestBox_Whisker()
         pptxDoc.Close();
     }
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>
@@ -2837,7 +2804,6 @@ Sub TestBoxAndWhiskerChart()
     pptxDoc.Save("BoxAndWhisker.pptx")
     pptxDoc.Close()
 End Sub
-
 ''' <summary>
 ''' Set the values for the chart
 ''' </summary>
@@ -2977,7 +2943,6 @@ private static void TestBox_Whisker()
     //Saves changes to the specified storage file
     await pptxDoc.SaveAsync(storageFile);
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>
@@ -3110,7 +3075,6 @@ private static void TestBox_Whisker()
         pptxDoc.Close();
     }
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>
@@ -3252,7 +3216,6 @@ private static void TestBox_Whisker()
             Xamarin.Forms.DependencyService.Get<ISave>().Save("BoxAndWhisker.pptx.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
     }
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>

@@ -170,7 +170,6 @@ Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 
 'Saves the Presentation in file system
 pptxDoc.Save("Output.pptx")
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -193,7 +192,6 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -362,7 +360,6 @@ MemoryStream stream = new MemoryStream();
 pptxDoc.Save(stream);
 //Closes the Presentation instance and free the memory consumed.
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -387,10 +384,8 @@ openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-
 //MemoryStream outputStream = new MemoryStream();
 //await pptxDoc.SaveAsync(outputStream);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;

@@ -135,7 +135,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
@@ -159,7 +158,6 @@ Using pptxDoc As IPresentation = Presentation.Create
     'Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow
     'Change the connector color
-
     'Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid
     'Set the connector solid fill as black
@@ -184,7 +182,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
@@ -216,7 +213,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
@@ -242,7 +238,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
