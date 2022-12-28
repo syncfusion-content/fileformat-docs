@@ -293,15 +293,15 @@ You can restrict a Word document from editing either by providing a password or 
 
 The following are the types of protection:
 
-1. `AllowOnlyComments`: You can add/modify only the comments in the Word document.
+1. [AllowOnlyComments](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): You can add/modify only the comments in the Word document.
 
-2. `AllowOnlyFormFields`: You can modify the form field values in the Word document.
+2. [AllowOnlyFormFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): You can modify the form field values in the Word document.
 
-3. `AllowOnlyRevisions`: Allow only revisions to be made to existing content. After enabling this flag, accept and reject changes options in Microsoft Word application are disabled.
+3. [AllowOnlyRevisions](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Allow only revisions to be made to existing content. After enabling this flag, accept and reject changes options in Microsoft Word application are disabled.
 
-4. `AllowOnlyReading`: You can only view the content in the Word document.
+4. [AllowOnlyReading](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): You can only view the content in the Word document.
 
-5. `NoProtection`: You can access/edit the Word document contents as normally.
+5. [NoProtection](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): You can access/edit the Word document contents as normally.
 
 The following code example shows how to restrict editing to modify only form fields in a Word document.
 
