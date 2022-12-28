@@ -1177,7 +1177,7 @@ doc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-using-OleDbConnection).
 
-N> For more information on Mail merge using DocIO, you can refer to online documentation link:[MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
+N> For more information on Mail merge using DocIO, you can refer to online documentation link: [MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
 
 ### Find and Replace
 
@@ -1301,7 +1301,7 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Find-and-replace-text-using-regex).
 
-N> For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:[Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
+N> For more information on performing the find and replace operation using DocIO, you can refer to online documentation link: [Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
 
 ### Bookmarks
 
@@ -1669,7 +1669,7 @@ doc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Watermark/Add-picture-watermark).
 
-N> For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:[Applying Watermark](/file-formats/docio/applying-watermark)
+N> For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link: [Applying Watermark](/file-formats/docio/applying-watermark)
 
 ### Headers and Footers
 
@@ -1982,7 +1982,7 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Insert-empty-table).
 
-N> For more information on creating tables using DocIO, refer to online documentation link:[Working with Tables](/file-formats/docio/working-with-tables)
+N> For more information on creating tables using DocIO, refer to online documentation link: [Working with Tables](/file-formats/docio/working-with-tables)
 
 ### Comments 
 
@@ -2089,7 +2089,7 @@ doc.Save("Sample.doc", FormatType.Doc)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
 
-N> For more information on working with the comments using DocIO, you can refer to the online documentation link:[Working with Comments](/file-formats/docio/working-with-comments)
+N> For more information on working with the comments using DocIO, you can refer to the online documentation link: [Working with Comments](/file-formats/docio/working-with-comments)
 
 ### Document Protection
 
@@ -2847,28 +2847,28 @@ In addition to the previous NuGet packages, SkiaSharp.Linux helper NuGet package
 2. Create a folder and name it as SkiaSharp.Linux and place the downloaded file in the folder structure "SkiaSharp.Linux\runtimes\linux-x64\native"
 3. Create a nuspec file with name SkiaSharp.Linux.nuspec using the following metadata information and place it inside SkiaSharp.Linux folder. The nuspec file can be customized.
 
-    {% tabs %}
-    {% highlight XML %}
-    <?xml version="1.0" encoding="utf-8"?>
-    <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-        <metadata>
-            <id>SkiaSharp.Linux</id>
-            <version>1.59.3</version>
-            <title>SkiaSharp for Linux</title>
-            <authors>Syncfusion Inc.</authors>
-            <owners>Syncfusion Inc.</owners>
-            <requireLicenseAcceptance>false</requireLicenseAcceptance>
-            <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
-            <tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
-            <dependencies>
-                <group targetFramework=".NETStandard1.4">
-                    <dependency id="SkiaSharp" version="1.59.3" />
-                </group>
-            </dependencies>
-        </metadata>
-    </package>
-    {% endhighlight %}
-    {% endtabs %}
+{% tabs %}
+{% highlight XML %}
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>SkiaSharp.Linux</id>
+        <version>1.59.3</version>
+        <title>SkiaSharp for Linux</title>
+        <authors>Syncfusion Inc.</authors>
+        <owners>Syncfusion Inc.</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
+        <tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
+        <dependencies>
+            <group targetFramework=".NETStandard1.4">
+                <dependency id="SkiaSharp" version="1.59.3" />
+            </group>
+        </dependencies>
+    </metadata>
+</package>
+{% endhighlight %}
+{% endtabs %}
 
 4. Make sure that the nuget.exe file is present along with SkiaSharp.Linux folder (in the parent folder of SkiaSharp.Linux folder). If not, download it from [here](https://www.nuget.org/downloads#).
 5. Open a command prompt and navigate to SkiaSharp.Linux folder.

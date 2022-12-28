@@ -1104,7 +1104,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1116,6 +1115,7 @@ public class Employees
         Customers = customers;
     }
 }
+
 public class CustomerDetails
 {
     public string ContactName { get; set; }
@@ -1123,7 +1123,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1133,13 +1132,13 @@ public class CustomerDetails
         Orders = orders;
     }
 }
+
 public class OrderDetails
 {
     public string OrderID { get; set; }
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -1148,6 +1147,7 @@ public class OrderDetails
         RequiredDate = requiredDate;
     }
 }
+
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -1159,7 +1159,6 @@ Public Class Employees
     Public Property City As String
     Public Property Country As String
     Public Property Customers As List(Of CustomerDetails)
-
     Public Sub New(ByVal firstName As String, ByVal lastName As String, ByVal employeeId As String, ByVal address As String, ByVal city As String, ByVal country As String, ByVal customers As List(Of CustomerDetails))
         Me.FirstName = firstName
         Me.LastName = lastName
@@ -1170,13 +1169,13 @@ Public Class Employees
         Me.Customers = customers
     End Sub
 End Class
+
 Public Class CustomerDetails
     Public Property ContactName As String
     Public Property CompanyName As String
     Public Property City As String
     Public Property Country As String
     Public Property Orders As List(Of OrderDetails)
-
     Public Sub New(ByVal contactName As String, ByVal companyName As String, ByVal city As String, ByVal country As String, ByVal orders As List(Of OrderDetails))
         Me.ContactName = contactName
         Me.CompanyName = companyName
@@ -1185,12 +1184,12 @@ Public Class CustomerDetails
         Me.Orders = orders
     End Sub
 End Class
+
 Public Class OrderDetails
     Public Property OrderID As String
     Public Property OrderDate As DateTime
     Public Property ShippedDate As DateTime
     Public Property RequiredDate As DateTime
-
     Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
         Me.OrderID = orderId
         Me.OrderDate = orderDate
@@ -1210,7 +1209,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1222,6 +1220,7 @@ public class Employees
         Customers = customers;
     }
 }
+
 public class CustomerDetails
 {
     public string ContactName { get; set; }
@@ -1229,7 +1228,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1239,13 +1237,13 @@ public class CustomerDetails
         Orders = orders;
     }
 }
+
 public class OrderDetails
 {
     public string OrderID { get; set; }
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -1266,7 +1264,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1286,7 +1283,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1303,7 +1299,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;
@@ -1326,7 +1321,6 @@ public class Employees
     public string City { get; set; }
     public string Country { get; set; }
     public List<CustomerDetails> Customers { get; set; }
-
     public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
     {
         FirstName = firstName;
@@ -1346,7 +1340,6 @@ public class CustomerDetails
     public string City { get; set; }
     public string Country { get; set; }
     public List<OrderDetails> Orders { get; set; }
-
     public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
     {
         ContactName = contactName;
@@ -1363,7 +1356,6 @@ public class OrderDetails
     public DateTime OrderDate { get; set; }
     public DateTime ShippedDate { get; set; }
     public DateTime RequiredDate { get; set; }
-
     public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
     {
         OrderID = orderId;

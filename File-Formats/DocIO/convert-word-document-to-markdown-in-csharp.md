@@ -561,7 +561,7 @@ Using document As WordDocument = New WordDocument("Input.docx")
     'Hook the event to customize the image. 
     document.SaveOptions.ImageNodeVisited += SaveImage
     'Save a Word document as a Markdown file.
-    ocument.Save("WordtoMd.md", FormatType.Markdown)
+    document.Save("WordtoMd.md", FormatType.Markdown)
 End Using
 {% endhighlight %}
 
@@ -780,8 +780,10 @@ The following table shows the list of Word document elements supported in Word t
 <tr>
 <td style="width: 318.625px;">List</td>
 <td style="width: 424.375px;">
-<p>Numbered and bulleted lists are supported.</p>
-<p>To restart numbering for the continuous list in the output markdown syntax, you should specify a non-empty paragraph in between the two lists in a Word document.</p>
+<ul>
+<li>Numbered and bulleted lists are supported.</li>
+<li>To restart numbering for the continuous list in the output markdown syntax, you should specify a non-empty paragraph in between the two lists in a Word document.</li>
+</ul>
 </td>
 </tr>
 </tbody>
