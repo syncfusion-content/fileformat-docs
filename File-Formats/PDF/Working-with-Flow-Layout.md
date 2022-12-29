@@ -863,6 +863,7 @@ PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Wid
 };
 //Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult.
 layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
 //Initialize PdfGrid for drawing the table.
 PdfGrid grid = new PdfGrid();
 //Create a DataTable.
@@ -921,6 +922,7 @@ layoutResult = textElement.Draw(page, New PointF(0, (layoutResult.Bounds.Bottom 
 Dim line As PdfLine = New PdfLine(New PointF(0, 0), New PointF(page.GetClientSize.Width, 0))
 'Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult
 layoutResult = line.Draw(page, New PointF(0, (layoutResult.Bounds.Bottom + 5)))
+
 'Initialize PdfGrid for drawing the table
 Dim grid As PdfGrid = New PdfGrid
 'Create a DataTable
@@ -983,6 +985,7 @@ PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Wid
 };
 //Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult.
 layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
 //Initialize PdfGrid for drawing the table.
 PdfGrid grid = new PdfGrid();
 //Add values to list.
@@ -1049,6 +1052,7 @@ PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Wid
 };
 //Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult.
 layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
 //Initialize PdfGrid for drawing the table.
 PdfGrid grid = new PdfGrid();
 //Add values to list.
@@ -1116,6 +1120,7 @@ PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Wid
 };
 //Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult.
 layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
 //Initialize PdfGrid for drawing the table.
 PdfGrid grid = new PdfGrid();
 //Add values to list.

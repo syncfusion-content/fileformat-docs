@@ -2541,7 +2541,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Set appearance to the PDF form fields
 
-After filling the form fields in the PDF document, it may appear empty due to the absence of the appearance dictionary. By setting false to the [SetDefaultAppearance] (https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html#Syncfusion_Pdf_Interactive_PdfForm_SetDefaultAppearance_System_Boolean_) method in [PdfForm](https://help.syncfusion.com/cr/aspnetmvc/Syncfusion.Pdf.Interactive.PdfForm.html) class, you can create the appearance dictionary. By this, the text will be visible in all PDF Viewers.
+After filling the form fields in the PDF document, it may appear empty due to the absence of the appearance dictionary. By setting false to the [SetDefaultAppearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html#Syncfusion_Pdf_Interactive_PdfForm_SetDefaultAppearance_System_Boolean_) method in [PdfForm](https://help.syncfusion.com/cr/aspnetmvc/Syncfusion.Pdf.Interactive.PdfForm.html) class, you can create the appearance dictionary. By this, the text will be visible in all PDF Viewers.
 
 The following code snippet explains how to set appearance to the PDF form fields.
 
@@ -2837,7 +2837,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Retrieving/Modifying the fore and back color of an existing form fields
 
-You can retrieve/modify the fore and background color of existing form fields in a PDF document by using ```ForeColor``` and ```BackColor``` properties of the respective form fields. The following code snippet illustrate this. 
+You can retrieve/modify the fore and background color of existing form fields in a PDF document by using [ForeColor](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html#Syncfusion_Pdf_Parsing_PdfLoadedTextBoxField_ForeColor) and [BackColor](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html#Syncfusion_Pdf_Parsing_PdfLoadedTextBoxField_BackColor) properties of the respective form fields. The following code snippet illustrate this. 
 
 {% tabs %}  
 
@@ -4017,7 +4017,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 To get a form field from an existing document using the field name, you can use the [TryGetField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedFormFieldCollection_TryGetField_System_String_Syncfusion_Pdf_Parsing_PdfLoadedField__) method in the [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class. It specifies whether the particular field is available in the form or not by returning a boolean value.
 
-The below code snippet explains how to get the field from collection using ```TryGetField``` method.
+The below code snippet explains how to get the field from collection using [TryGetField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedFormFieldCollection_TryGetField_System_String_Syncfusion_Pdf_Parsing_PdfLoadedField__) method.
 
 {% tabs %} 
 
@@ -4172,7 +4172,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 To get the field value from the given field name, you can use [TryGetValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedFormFieldCollection_TryGetValue_System_String_System_String__) method in [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class. It specifies whether the particular field is available in the form or not by returning a boolean value.
 
-Please refer the below code snippet to get the field value from collection using ```TryGetValue``` method.
+Please refer the below code snippet to get the field value from collection using [TryGetValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedFormFieldCollection_TryGetValue_System_String_System_String__) method.
 
 {% tabs %} 
 
@@ -4855,7 +4855,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 To prevent the user from changing the form field content, you can also use [Readonly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfField.html#Syncfusion_Pdf_Interactive_PdfField_ReadOnly) property.
 
-The below code snippet illustrates how to set the ``ReadOnly`` property to a new PDF document.
+The below code snippet illustrates how to set the [ReadOnly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfField.html#Syncfusion_Pdf_Interactive_PdfField_ReadOnly) property to a new PDF document.
 
 {% tabs %} 
 
@@ -5015,7 +5015,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Set-readonly-property-to-a-new-PDF-document).
 
-The below code snippet illustrates how to set the ``ReadOnly`` property to an existing PDF document.
+The below code snippet illustrates how to set the [ReadOnly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfField.html#Syncfusion_Pdf_Interactive_PdfField_ReadOnly) property to an existing PDF document.
 
 {% tabs %}  
 
@@ -6095,7 +6095,7 @@ N> Essential PDF allows users to preserve the extended rights for form filling a
 
 The Essential PDF provides support to automatically resize the text of text box field based on the field width and height. You can auto resize the text box text by using the [AutoResizeText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html#Syncfusion_Pdf_Parsing_PdfLoadedTextBoxField_AutoResizeText) property available in [PdfLoadedTextBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html) instance.
 
-The following code illustrates how to set ```AutoResizeText``` in an existing PDF text box field. 
+The following code illustrates how to set [AutoResizeText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html#Syncfusion_Pdf_Parsing_PdfLoadedTextBoxField_AutoResizeText) in an existing PDF text box field. 
 
 {% tabs %}  
 
