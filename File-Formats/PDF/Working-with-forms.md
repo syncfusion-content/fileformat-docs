@@ -154,7 +154,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-a-textbox-field-to-a-new-PDF-document).
 
-The below code snippet illustrates how to add the textbox to an existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the textbox using [PdfTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextBoxField.html) class. The following code snippet explain this.
 
 {% tabs %}  
 
@@ -487,7 +487,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-combo-box-in-the-new-PDF-document).
 
-Please refer the below code snippet for adding the combo box in existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the combo box using [PdfComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfComboBoxField.html) class. The following code snippet explain this.
 
 {% tabs %} 
 
@@ -850,7 +850,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-radio-button-in-new-PDF-document).
 
-The below code snippet illustrates how to add the radio button in existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the radio button using [PdfRadioButtonListField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRadioButtonListField.html) class. The following code snippet explain this.
 
 {% tabs %}  
 
@@ -1403,7 +1403,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-listbox-field-in-new-PDF-document).
 
-Please refer the below code snippet for adding the list box field in existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the list box field using [PdfListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfListBoxField.html) class. The following code snippet explain this.
 
 {% tabs %} 
 
@@ -1751,7 +1751,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-checkbox-field-in-new-PDF-document).
 
-Please refer the below code snippet for adding the check box field in existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the check box field using [PdfCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfCheckBoxField.html) class. The following code snippet explain this.
 
 {% tabs %}
 
@@ -2064,7 +2064,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-signature-field-in-a-new-PDF-document).
 
-Please refer the below code snippet for adding the signature field in existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the signature field using [PdfSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSignatureField.html) class. The following code snippet explain this.
 
 {% tabs %} 
 
@@ -2377,7 +2377,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-the-button-field-in-a-new-PDF-document).
 
-Please refer the below code snippet for adding the button field in existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the button field using [PdfButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfButtonField.html) class. The following code snippet explain this.
 
 {% tabs %}  
 
@@ -4589,7 +4589,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Removing-editing-capability-of-form-fields).
 
-Please refer the sample for flattening the form fields in existing PDF document.
+Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to flatten the form fields using [PdfLoadedTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html) class. The following code snippet explain this.
 
 {% tabs %}  
 
@@ -5566,7 +5566,7 @@ Supported form fields:
 * List box field
 * Button field
 
-The following code example illustrates how to add complex script support for all the supported fields in PDF document.
+The following code example illustrates how to add [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextBoxField.html#Syncfusion_Pdf_Interactive_PdfTextBoxField_ComplexScript) support for all the supported fields in PDF document.
 
 {% tabs %}
 
@@ -5752,7 +5752,7 @@ else
 
 {% endtabs %}
 
-You can also flatten the existing form fields with complex script layout by using the following code snippet.
+You can also flatten the existing form fields with [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextBoxField.html#Syncfusion_Pdf_Interactive_PdfTextBoxField_ComplexScript) layout by using the following code snippet.
 
 {% tabs %}
 
