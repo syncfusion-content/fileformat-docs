@@ -9,7 +9,7 @@ documentation: UG
 
 ## Creating a Chart from scratch
 
-An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint Presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
+An instance of [IOfficeChart](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeChart.html) can be used to create or modify the charts in PowerPoint Presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
 
 {% tabs %}
 
