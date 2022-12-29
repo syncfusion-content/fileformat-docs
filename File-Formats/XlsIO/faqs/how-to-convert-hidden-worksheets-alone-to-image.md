@@ -10,6 +10,8 @@ documentation: UG
 
 Worksheet hiding and unhiding can be achieved easily through [Visibility](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITabSheet.html#Syncfusion_XlsIO_ITabSheet_Visibility) property of IWorksheet interface. Essential XlsIO also supports strong hidden, which makes the worksheet very hidden and cannot be unhidden easily. To know more about strong hidden, please see [documentation](https://www.syncfusion.com/kb/4878/how-to-set-worksheet-visibility-to-very-hidden).
 
+Conversion of only hidden worksheets to image can be achieved using condition check for worksheet visibility. The following complete code example illustrates how to convert hidden worksheets alone to image.
+
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
