@@ -10,21 +10,17 @@ documentation: UG
 
 The Syncfusion [UWP PDF library](https://www.syncfusion.com/document-processing/pdf-framework/uwp/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
-In your UWP application, add the following assembly to use PDF.
-
-* Syncfusion.Pdf.UWP
-
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
+To include the UWP PDF library into your UWP application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## Steps to create PDF document in UWP
 
-Create a new UWP application project. 
-![Creation1](UWP_images/Creation1.jpg)
+Step 1: Create a new UWP application project. 
+<img src="UWP_images/Creation1.jpg" alt="UWP sample creation step1" width="100%" Height="Auto"/>
 
-Install the [Syncfusion.Pdf.UWP](https://www.nuget.org/packages/Syncfusion.Pdf.UWP/) NuGet package as reference to your UWP applications from [NuGet.org](https://www.nuget.org/).
-![Creation1](UWP_images/Creation2.jpeg)
+Step 2: Install the [Syncfusion.Pdf.UWP](https://www.nuget.org/packages/Syncfusion.Pdf.UWP/) NuGet package as reference to your UWP applications from [NuGet.org](https://www.nuget.org/).
+<img src="UWP_images/Creation2.jpeg" alt="UWP sample creation step2" width="100%" Height="Auto"/>
 
-Create button in MainPage.Xaml page using below code snippet and create Button_Click event.
+Step 3: Create button in *MainPage.Xaml* page using below code example and create *Button_Click* event.
 {% highlight c# tabtitle="C#" %}
 
 <Grid>
@@ -33,7 +29,7 @@ Create button in MainPage.Xaml page using below code snippet and create Button_C
 
 {% endhighlight %}
 
-Include the following namespaces in the MainPage.xaml.cs file.
+Step 4: Include the following namespaces in the *MainPage.xaml.cs* file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -51,38 +47,33 @@ using Windows.UI.Xaml.Controls;
 
 {% endhighlight %}
 
-Include the following code snippet in the click event of the button in MainPage.xaml.cs to Create PDF and save it in a stream.
+Step 5: Include the following code example in the click event of the button in *MainPage.xaml.cs* file to create PDF document using the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) class. Then use the [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) object to draw the text on the PDF page.
 
 {% highlight c# tabtitle="C#" %}
 
+//Create a PDF document. 
 using (PdfDocument document = new PdfDocument())
 {
-//Add a page to the document
+//Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
-
-//Set the standard font
+//Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-
-//Draw the text
+//Draw the text.
 graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
-
-//Create memory stream
+//Create memory stream.
 MemoryStream ms = new MemoryStream();
-
-// Open the document in browser after saving it
+//Open the document in browser after saving it.
 document.Save(ms);
-
-//Close the document
+//Close the document.
 document.Close(true);
-
 Save(ms, "Sample.pdf");
 }
+
 {% endhighlight %}
 
-Use the following helper method to save the stream as a physical file and open the file for viewing.
+Step 6: Use the following helper method to save the stream as a physical file and open the file for viewing.
 {% highlight c# tabtitle="C#" %}
 
 #region Helper Methods
@@ -121,7 +112,7 @@ if (stFile != null)
     IUICommand cmd = await msgDialog.ShowAsync(); 
     if (cmd == yesCmd) 
     { 
-        // Launch the retrieved file 
+        //Launch the retrieved file.
         bool success = await Windows.System.Launcher.LaunchFileAsync(stFile); 
     } 
 } 
@@ -130,14 +121,14 @@ if (stFile != null)
 
 {% endhighlight %}
 
-A complete working sample can be downloaded from [Create PDF file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/UWP_Sample1746484692 )
+A complete working sample can be downloaded from [Create PDF file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/UWP_Sample1746484692).
 
 By executing the program, you will get the PDF document as follows.
-![UWP PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+![UWP PDF Generation output](GettingStarted_images/pdf-generation-output.png)
 
 ## Creating a PDF document with image
 
-The following code example shows how to create a PDF document with an image.
+Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGrphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The following code example shows how to create a PDF document with an image.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -145,19 +136,19 @@ The following code example shows how to create a PDF document with an image.
 PdfDocument doc = new PdfDocument();
 //Add a page to the document.
 PdfPage page = doc.Pages.Add();
-//Create PDF graphics for the page
+//Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
-//Load the image as stream
+//Load the image as stream.
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
 //Load the image from the disk.
 PdfBitmap image = new PdfBitmap(imageStream);
-//Draw the image
+//Draw the image.
 graphics.DrawImage(image, 0, 0);
-//Create memory stream
+//Create memory stream.
 MemoryStream ms = new MemoryStream();
-//Open the document in browser after saving it
+//Open the document in browser after saving it.
 doc.Save(ms);
-//Close the document
+//Close the document.
 doc.Close(true);
 Save(ms, "Sample.pdf");
 
@@ -205,12 +196,12 @@ The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Pdf
 
 {% highlight c# tabtitle="C#" %}
 
-//Creates a new PDF document
+//Creates a new PDF document.
 PdfDocument document = new PdfDocument();
-//Adds page settings
+//Adds page settings.
 document.PageSettings.Orientation = PdfPageOrientation.Landscape;
 document.PageSettings.Margins.All = 50;
-//Adds a page to the document
+//Adds a page to the document.
 PdfPage page = document.Pages.Add();
 PdfGraphics graphics = page.Graphics;
 
@@ -224,12 +215,12 @@ PdfGraphics graphics = page.Graphics;
 The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
 {% highlight c# tabtitle="C#" %}
 
-//Load the image as stream
+//Load the image as stream.
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.AdventureCycle.jpg");
 //Load the image from the stream.
 PdfImage image = PdfImage.FromStream(imageStream);
 RectangleF bounds = new RectangleF(176, 0, 390, 130);
-//Draws the image to the PDF page
+//Draws the image to the PDF page.
 page.Graphics.DrawImage(image, bounds);
 
 {% endhighlight %}
@@ -248,19 +239,19 @@ PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
 bounds = new RectangleF(0, bounds.Bottom + 90, graphics.ClientSize.Width, 30);
 //Draws a rectangle to place the heading in that region.
 graphics.DrawRectangle(solidBrush, bounds);
-//Creates a font for adding the heading in the page
+//Creates a font for adding the heading in the page.
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
-//Creates a text element to add the invoice number
+//Creates a text element to add the invoice number.
 PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
 element.Brush = PdfBrushes.White;
 
-//Draws the heading on the page
+//Draws the heading on the page.
 PdfLayoutResult result = element.Draw(page, new PointF(10, bounds.Top + 8));
 string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
-//Measures the width of the text to place it in the correct location
+//Measures the width of the text to place it in the correct location.
 SizeF textSize = subHeadingFont.MeasureString(currentDate);
 PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
-//Draws the date by using DrawString method
+//Draws the date by using DrawString method.
 graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
 PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
 //Creates text elements to add the address and draw it to the page.
@@ -270,7 +261,7 @@ result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
 PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
 PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
-//Draws a line at the bottom of the address
+//Draws a line at the bottom of the address.
 graphics.DrawLine(linePen, startPoint, endPoint);
 
 {% endhighlight %}
@@ -282,24 +273,24 @@ Since the invoice document requires only simple cell customizations, the given c
 
 {% highlight c# tabtitle="C#" %}
 
-//Creates the datasource for the table
+//Creates the datasource for the table.
 DataTable invoiceDetails = GetProductDetailsAsDataTable();
-//Creates a PDF grid
+//Creates a PDF grid.
 PdfGrid grid = new PdfGrid();
-//Adds the data source
+//Adds the data source.
 grid.DataSource = invoiceDetails;
-//Creates the grid cell styles
+//Creates the grid cell styles.
 PdfGridCellStyle cellStyle = new PdfGridCellStyle();
 cellStyle.Borders.All = PdfPens.White;
 PdfGridRow header = grid.Headers[0];
-//Creates the header style
+//Creates the header style.
 PdfGridCellStyle headerStyle = new PdfGridCellStyle();
 headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
 headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
 headerStyle.TextBrush = PdfBrushes.White;
 headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
 
-//Adds cell customizations
+//Adds cell customizations.
 for (int i = 0; i < header.Cells.Count; i++)
 {
 if (i == 0 || i == 1)
@@ -308,14 +299,14 @@ else
 header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 }
 
-//Applies the header style
+//Applies the header style.
 header.ApplyStyle(headerStyle);
 cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
 cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
 cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
-//Creates the layout format for grid
+//Creates the layout format for grid.
 PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
-// Creates layout format settings to allow the table pagination
+//Creates layout format settings to allow the table pagination.
 layoutFormat.Layout = PdfLayoutType.Paginate;
 //Draws the grid to the PDF page.
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
@@ -336,18 +327,18 @@ Save(stream, "Sample.pdf");
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Create-PDF-document-with-basic-elements).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-![UWP PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
+![UWP PDF Invoices](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
-An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A PDF document can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+An interactive form sometimes referred to as an AcroForm, is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) or [existing PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) contain any number of fields appearing in any combination of pages, all that make a single, globally interactive form spanning the entire document.
 
-Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+Essential PDF allows you to [create and manipulate existing form](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-form-fields) in a PDF document using the [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html) class. The [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class represents the entire field collection of the loaded form. To work with existing form documents, the following namespaces are required.
 
 1. Syncfusion.Pdf
 2. Syncfusion.Pdf.Parsing
 
-The following guide shows how to fill a sample PDF form as shown.
+The following guide shows how to fill out a sample PDF form.
 
 ![Filling UWP PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
 
@@ -355,29 +346,29 @@ Essential PDF allows you to fill the form fields by using [PdfLoadedField](https
 
 {% highlight c# tabtitle="C#" %}
 
-//Create the file open picker
+//Create the file open picker.
 var picker = new FileOpenPicker();
 picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
+//Browse and chose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
+//Creates an empty PDF loaded document instance.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
 await loadedDocument.OpenAsync(file);
-//Loads the form
+//Loads the form.
 PdfLoadedForm form = loadedDocument.Form;
-//Fills the textbox field by using index
+//Fills the textbox field by using index.
 (form.Fields[0] as PdfLoadedTextBoxField).Text = "John";
-//Fills the textbox fields by using field name
+//Fills the textbox fields by using field name.
 (form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
 (form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
-//Loads the radio button group
+//Loads the radio button group.
 PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
-//Checks the 'Male' option
+//Checks the 'Male' option.
 radioButtonCollection[0].Checked = true;
-//Checks the 'business' checkbox field
+//Checks the 'business' checkbox field.
 (form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
-//Checks the 'retiree' checkbox field
+//Checks the 'retiree' checkbox field.
 (form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
@@ -392,8 +383,7 @@ Save(stream, "output.pdf");
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Fill-form-in-a-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-
-![Filled UWP PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
+<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled form screenshot" width="100%" Height="Auto"/>
 
 
 
