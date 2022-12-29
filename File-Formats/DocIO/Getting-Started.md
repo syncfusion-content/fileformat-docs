@@ -45,7 +45,6 @@ Include the following namespaces in your .cs or .vb file
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
@@ -53,7 +52,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.DocIO
-
 Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
@@ -61,7 +59,6 @@ Imports Syncfusion.DocIO.DLS
 {% highlight c# tabtitle="UWP" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -69,7 +66,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 

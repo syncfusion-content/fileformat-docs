@@ -158,7 +158,6 @@ You can save the created or manipulated PowerPoint Presentation to file system b
 //Opens an existing PowerPoint Presentation 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Saves the Presentation in file system
 pptxDoc.Save("Output.pptx");
 {% endhighlight %}
@@ -167,7 +166,6 @@ pptxDoc.Save("Output.pptx");
 'Opens an existing PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Saves the Presentation in file system
 pptxDoc.Save("Output.pptx")
 {% endhighlight %}
@@ -182,7 +180,6 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 //To-Do some manipulation
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -198,7 +195,6 @@ await pptxDoc.SaveAsync(storageFile);
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(fileName, FileMode.Open);
 //To-Do some manipulation
-
 FileStream outputStream = new FileStream("output.pptx", FileMode.Create);
 pptxDoc.SaveAs(outputStream);
 {% endhighlight %}
@@ -210,7 +206,6 @@ Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.
@@ -237,7 +232,6 @@ You can save the created or manipulated PowerPoint Presentation to stream by usi
 //Opens an existing PowerPoint Presentation 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Creates an instance of memory stream
 MemoryStream stream = new MemoryStream();
 //Saves the Presentation to stream
@@ -248,7 +242,6 @@ pptxDoc.Save(stream);
 'Opens an existing PowerPoint Presentation 
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Creates an instance of memory stream
 Dim stream As New MemoryStream()
 'Saves the Presentation to stream
@@ -265,7 +258,6 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 //To-Do some manipulation
-
 //Saves changes to the specified storage file
 MemoryStream outputStream = new MemoryStream();
 await pptxDoc.SaveAsync(outputStream);
@@ -275,7 +267,6 @@ await pptxDoc.SaveAsync(outputStream);
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 //To-Do some manipulation
-
 FileStream outputStream = new FileStream(outputFileName, FileMode.Create);
 pptxDoc.SaveAs(outputStream);
 {% endhighlight %}
@@ -287,7 +278,6 @@ Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 MemoryStream outputStream = new MemoryStream();
 pptxDoc.Save(outputStream);
 {% endhighlight %}
@@ -304,7 +294,6 @@ You can save and send the Presentation to a client browser from a website or web
 //Opens an existing PowerPoint Presentation 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Saves the Presentation to the client browser
 pptxDoc.Save("Output.pptx", FormatType.Pptx, Response);
 {% endhighlight %}
@@ -313,7 +302,6 @@ pptxDoc.Save("Output.pptx", FormatType.Pptx, Response);
 'Opens an existing PowerPoint Presentation 
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Saves the Presentation to the client browser
 pptxDoc.Save("Output.pptx", FormatType.Pptx, Response)
 {% endhighlight %}
@@ -326,7 +314,6 @@ pptxDoc.Save("Output.pptx", FormatType.Pptx, Response)
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 //To-Do some manipulation
-
 //Initialize content type
 string ContentType = null;
 //Save the PowerPoint Presentation to stream
@@ -353,7 +340,6 @@ When you are done with the Presentation instance, you should close the instance 
 //Opens an existing Presentation from file system 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Creates an instance of memory stream
 MemoryStream stream = new MemoryStream();
 //Saves the Presentation to stream
@@ -366,7 +352,6 @@ pptxDoc.Close();
 'Opens an existing Presentation from file system 
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Creates an instance of memory stream
 Dim stream As New MemoryStream()
 'Saves the Presentation to stream
@@ -404,7 +389,6 @@ pptxDoc.Close();
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -419,7 +403,6 @@ Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.

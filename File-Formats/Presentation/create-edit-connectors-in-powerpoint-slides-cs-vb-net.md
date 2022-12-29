@@ -261,7 +261,6 @@ The following code example demonstrates how to edit an existing connector in a P
 {% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint file
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
     //Get the first slide of a PowerPoint file
@@ -410,7 +409,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
     //Declare the end connection site index
     int connectionSiteIndex = 4;
     //Reconnect the end point of connector with triangle shape if its connection site count is greater than 4
-   if (connectionSiteIndex < triangle.ConnectionSiteCount)
+    if (connectionSiteIndex < triangle.ConnectionSiteCount)
         connector.EndConnect(triangle, connectionSiteIndex);
     //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)

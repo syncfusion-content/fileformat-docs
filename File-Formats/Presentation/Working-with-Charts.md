@@ -1038,7 +1038,6 @@ chartArea.Border.LineColor = Color.Blue;
 //Weight
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 //Chart Area Settings
-
 //Fill Effects
 chartArea.Fill.FillType = OfficeFillType.Gradient;
 //Two Color
@@ -1049,7 +1048,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1090,18 +1088,14 @@ chart__2.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNon
 chart__2.HasDataTable = True
 'Formats Chart Area.
 Dim chartArea As IOfficeChartFrameFormat = chart__2.ChartArea
-
 'Chart Area Border Settings
-
 'Style
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid
 'Color
 chartArea.Border.LineColor = Color.Blue
 'Weight
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline
-
 'Chart Area Settings
-
 'Fill Effects
 chartArea.Fill.FillType = OfficeFillType.Gradient
 'Two Color
@@ -1153,7 +1147,6 @@ chart.HasDataTable = true;
 //Formats Chart Area.
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 //Chart Area Border Settings
-
 //Style
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1171,7 +1164,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1236,7 +1228,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1297,7 +1288,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1727,7 +1717,6 @@ chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
@@ -1762,7 +1751,6 @@ chart.ChartData.SetValue(2, 2, 330)
 chart.ChartData.SetValue(3, 2, 490)
 chart.ChartData.SetValue(4, 2, 700)
 chart.ChartType = OfficeChartType.Area
-
 'Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 'Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto
@@ -1797,7 +1785,6 @@ chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
@@ -1837,7 +1824,6 @@ chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
@@ -1873,7 +1859,6 @@ chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
@@ -2937,7 +2922,6 @@ private static void TestBox_Whisker()
     savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
     savePicker.SuggestedFileName = "BoxAndWhisker";
     savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
     //Creates a storage file from FileSavePicker
     StorageFile storageFile = await savePicker.PickSaveFileAsync();
     //Saves changes to the specified storage file
