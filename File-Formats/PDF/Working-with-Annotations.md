@@ -5547,15 +5547,10 @@ To export annotation data to the JSON file from PDF document, you can use the [E
 {% highlight c# tabtitle="C#" %}
 
 //Loads the document 
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
-
 //Export the annotation data to the JSON file 
-
 lDoc.ExportAnnotations("Annotations.Json", AnnotationDataFormat.Json); 
-
 //Close the document 
-
 lDoc.Close(true);
 
 {% endhighlight %}
@@ -5563,53 +5558,32 @@ lDoc.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Loads the document 
-
 Dim lDoc As New PdfLoadedDocument("input.pdf") 
-
 'Export the annotation data to the JSON file 
-
 lDoc.ExportAnnotations("Annotations.Json", AnnotationDataFormat.Json) 
-
 'Close the document 
-
 lDoc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker 
-
 var picker = new FileOpenPicker(); 
-
 picker.FileTypeFilter.Add(".pdf"); 
-
 //Browse and choose the file 
-
 StorageFile file = await picker.PickSingleFileAsync(); 
-
 //Creates an empty PDF loaded document instance 
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(); 
-
 //Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class 
-
 await lDoc.OpenAsync(file); 
-
 //Load the JSON file stream from the disk 
-
 Stream jsonStream = new MemoryStream(); 
-
 //Export the annotation data from the JSON stream 
-
 lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json) 
-
 //Save the jsonStream as a JSON document file in the local machine. Refer to the PDF/UWP section for the respective code samples 
-
 Save(jsonStream, "Annotations.Json"); 
-
 //Close the document 
-
 lDoc.Close(true);
 
 {% endhighlight %}
@@ -5617,33 +5591,19 @@ lDoc.Close(true);
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document 
-
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read); 
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream); 
-
 //Export the annotation data from the JSON stream 
-
 Stream jsonStream = new MemoryStream(); 
-
 lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json) 
-
 //Close the document 
-
 lDoc.Close(true); 
-
 jsonStream.Position = 0; 
-
 //Defining the ContentType for Json file 
-
 string contentType = "application/Json"; 
-
 //Define the file name 
-
 string fileName = "Annotations.Json"; 
-
 //Creates a FileContentResult object by using the file contents, content type, and file name 
-
 return File(jsonStream, contentType, fileName);
 
 {% endhighlight %}
@@ -5651,27 +5611,17 @@ return File(jsonStream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as a stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-
 //Export the annotation data from the JSON stream
-
 Stream jsonStream = new MemoryStream();
-
 lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json);
 
 //Save the document into the stream
-
 MemoryStream stream = new MemoryStream();
-
 lDoc.Save(stream);
-
 //Close the document
-
 lDoc.Close(true);
-
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExportAnnotation.pdf", "application/pdf", stream);
 
 {% endhighlight %}
@@ -5695,61 +5645,36 @@ The following code example explains how to add comments to the PDF annotation.
 {% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new comment annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set comment text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comments to the annotation
-
 rectangleAnnotation.Comments.Add(comment);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Save the document to disk
-
 document.Save("Output.pdf");
-
 //Close the document
-
 document.Close(true);
 
 {% endhighlight %}
@@ -5757,208 +5682,122 @@ document.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
-
 Dim document As PdfDocument = New PdfDocument
-
 'Create a new page
-
 Dim page As PdfPage = document.Pages.Add
 
 'Create new rectangle annotation
-
 Dim rectangleAnnotation As PdfRectangleAnnotation = New PdfRectangleAnnotation(New RectangleF(0, 0, 100, 50), "Rectangle Annotation")
-
 'Set author
-
 rectangleAnnotation.Author = "Syncfusion"
-
 rectangleAnnotation.Border.BorderWidth = 1
-
 rectangleAnnotation.Color = Color.Red
-
 rectangleAnnotation.ModifiedDate = DateTime.Now
 
+'Create a new comment annotation
 Dim comment As PdfPopupAnnotation = New PdfPopupAnnotation
-
 'Set author
-
 comment.Author = "John"
-
 'Set Text
-
 comment.Text = "This is first comment"
-
 'Set modification date.
-
 comment.ModifiedDate = DateTime.Now
-
 'Set subject
-
 comment.Subject = "Annotation Comments"
-
 'Add the  comment to the annotation.
-
 rectangleAnnotation.Comments.Add(comment)
-
 'Add the annotation to the PDF page.
-
 page.Annotations.Add(rectangleAnnotation)
 
 'Save the document to disk.
-
 document.Save("Output.pdf")
-
 'Close the document
-
 document.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new comment annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set Text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comment to the annotation
-
 rectangleAnnotation.Comments.Add(comment);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Saves the document
-
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream
-
 document.Save(stream);
-
 //Close the document
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new comment annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set Text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comment to the annotation
-
 rectangleAnnotation.Comments.Add(comment);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 document.Close(true);
-
 //Defining the ContentType for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -5966,68 +5805,40 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new comments annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set Text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comment to the annotation
-
 rectangleAnnotation.Comments.Add(comment);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document
-
 document.Close(true);
-
 //Save the stream into pdf file
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -6050,51 +5861,30 @@ The following code example explains how to add comments to the existing PDF anno
 {% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing PDF annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new comment annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set Text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comment to the annotation
-
 loadedRectangleAnnotation.Comments.Add(comment);
 
 //Save the document
-
 ldoc.Save("Output.pdf");
-
 //Close the document
-
 ldoc.Close(true);
 
 {% endhighlight %}
@@ -6102,124 +5892,71 @@ ldoc.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document
-
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-
 'Get the existing PDF page
-
 Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
-
 'Get the existing annotations
-
 Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
-
 'Get the existing rectangle annotation
-
 Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
 
 'Get the existing rectangle annotation
-
 Dim comment As PdfPopupAnnotation = New PdfPopupAnnotation
-
 'Set author
-
 comment.Author = "John"
-
 'Set Text
-
 comment.Text = "This is first comment"
-
 'Set modification date
-
 comment.ModifiedDate = DateTime.Now
-
 'Set subject
-
 comment.Subject = "Annotation Comments"
-
 'Add the comment to the annotation.
-
 loadedRectangleAnnotation.Comments.Add(comment)
 
 'Save the document
-
 ldoc.Save("Output.pdf")
-
 'Close the document
-
 ldoc.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
-
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and chose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
-
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await lDoc.OpenAsync(file);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new comment annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set Text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comments to the annotation
-
 loadedRectangleAnnotation.Comments.Add(comment);
 
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await lDoc.SaveAsync(stream);
-
 //Close the document
-
 lDoc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -6227,132 +5964,75 @@ Save(stream, "Output.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
-
 FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new comment annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set Text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comments to the annotation
-
 loadedRectangleAnnotation.Comments.Add(comment);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 lDoc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 lDoc.Close(true);
-
 //Defining the Content Type for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new comment annotation
-
 PdfPopupAnnotation comment = new PdfPopupAnnotation();
-
 //Set author
-
 comment.Author = "John";
-
 //Set Text
-
 comment.Text = "This is first comment";
-
 //Set modification date
-
 comment.ModifiedDate = DateTime.Now;
-
 //Set subject
-
 comment.Subject = "Annotation Comments";
-
 //Add the comment to the annotation
-
 loadedRectangleAnnotation.Comments.Add(comment);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 lDoc.Save(stream);
-
 //Close the document
-
 lDoc.Close(true);
-
 //Save the stream into pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -6376,195 +6056,115 @@ The following code example explains how to add a review status in a newly create
 
 {% highlight c# tabtitle="C#" %}
 
-
 //Create a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 rectangleAnnotation.ReviewHistory.Add(review);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Save the document to disk
-
 document.Save("Output.pdf");
-
 //Close the document
-
 document.Close(true);
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Create a new PDF document
-
 Dim document As PdfDocument = New PdfDocument
-
 'Create a new page
-
 Dim page As PdfPage = document.Pages.Add
 
 'Create new rectangle annotation
-
 Dim rectangleAnnotation As PdfRectangleAnnotation = New PdfRectangleAnnotation(New RectangleF(0, 0, 100, 50), "Rectangle Annotation")
-
 'Set author
-
 rectangleAnnotation.Author = "Syncfusion"
-
 rectangleAnnotation.Border.BorderWidth = 1
-
 rectangleAnnotation.Color = Color.Red
-
 rectangleAnnotation.ModifiedDate = DateTime.Now
 
+'Create a new review annotation
 Dim review As PdfPopupAnnotation = New PdfPopupAnnotation
-
 'Set author
-
 review.Author = "John"
-
 'Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review
-
 'Set review state
-
 review.State = PdfAnnotationState.Accepted
-
 'Set modification date.
-
 review.ModifiedDate = DateTime.Now
-
 'Add the review to the annotation.
-
 rectangleAnnotation.ReviewHistory.Add(review)
-
 'Add the annotation to the PDF page.
-
 page.Annotations.Add(rectangleAnnotation)
 
 'Save the document to disk.
-
 document.Save("Output.pdf")
-
 'Close the document
-
 document.Close(true)
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document 
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 rectangleAnnotation.ReviewHistory.Add(review);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Save the document
-
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream
-
 document.Save(stream);
-
 //Close the document
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples 
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -6572,77 +6172,44 @@ Save(stream, "Output.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Create a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 rectangleAnnotation.ReviewHistory.Add(review);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 document.Close(true);
-
 //Defining the Content Type for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "PopupAnnotation.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -6650,68 +6217,40 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page
-
 PdfPage page = document.Pages.Add();
 
 //Create new rectangle annotation
-
 PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-
 //Set author
-
 rectangleAnnotation.Author = "Syncfusion";
-
 rectangleAnnotation.Border.BorderWidth = 1;
-
 rectangleAnnotation.Color = Color.Red;
-
 rectangleAnnotation.ModifiedDate = DateTime.Now;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 rectangleAnnotation.ReviewHistory.Add(review);
-
 //Add the annotation to the PDF page
-
 page.Annotations.Add(rectangleAnnotation);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document
-
 document.Close(true);
-
 //Save the stream into pdf file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -6734,51 +6273,30 @@ The following code example explains how to add the review status to the existing
 {% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 loadedRectangleAnnotation.ReviewHistory.Add(review);
 
 //Save the document
-
 ldoc.Save("Output.pdf");
-
 //Close the document
-
 ldoc.Close(true);
 
 {% endhighlight %}
@@ -6786,125 +6304,70 @@ ldoc.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the existing PDF document
-
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-
 'Get the existing PDF page
-
 Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
-
 'Get the existing annotations
-
 Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
-
 'Get the existing rectangle annotation
-
 Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
 
 'Get the existing rectangle annotation
-
 Dim review As PdfPopupAnnotation = New PdfPopupAnnotation
-
 'Set author
-
 review.Author = "John"
-
 'Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review
-
 'Set review state
-
 review.State = PdfAnnotationState.Accepted
-
 'Set modification date
-
 review.ModifiedDate = DateTime.Now
-
 'Add the review to the annotation.
-
 loadedRectangleAnnotation.ReviewHistory.Add(review)
 
 'Save the document
-
 ldoc.Save("Output.pdf")
-
 'Close the document
-
 ldoc.Close(true)
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
-
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
-
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await lDoc.OpenAsync(file);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 loadedRectangleAnnotation.ReviewHistory.Add(review);
-
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await lDoc.SaveAsync(stream);
-
 //Close the document
-
 lDoc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -6912,69 +6375,39 @@ Save(stream, "Output.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
-
 FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 loadedRectangleAnnotation.ReviewHistory.Add(review);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 lDoc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 lDoc.Close(true);
-
 //Defining the Content Type for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -6982,61 +6415,35 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
 
 //Create a new review annotation
-
 PdfPopupAnnotation review = new PdfPopupAnnotation();
-
 //Set author
-
 review.Author = "John";
-
 //Set review state model
-
 review.StateModel = PdfAnnotationStateModel.Review;
-
 //Set review state
-
 review.State = PdfAnnotationState.Accepted;
-
 //Set modification date
-
 review.ModifiedDate = DateTime.Now;
-
 //Add the review to the annotation
-
 loadedRectangleAnnotation.ReviewHistory.Add(review);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 lDoc.Save(stream);
-
 //Close the document
-
 lDoc.Close(true);
-
 //Save the stream into pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -7063,131 +6470,76 @@ The following code example explains how to remove comments from the existing PDF
 {% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation comments collection
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 // Remove comments by index 
-
 commentsCollection.RemoveAt(0);
 
 //Save the document
-
 ldoc.Save("Output.pdf");
-
 //Close the document
-
 ldoc.Close(true);
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document
-
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")'Load the PDF page
-
 'Get the existing PDF page
-
 Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
-
 'Get the existing annotations 
-
 Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
-
 'Get the existing rectangle annotation
-
 Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation =CType(annots(0),PdfLoadedRectangleAnnotation)
-
 'Get the annotation comments collection
-
 Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.Comments
-
 ' Remove comments by index 
-
 commentsCollection.RemoveAt(0)
 
 'Save the document
-
 ldoc.Save("Output.pdf")
-
 'Close the document
-
 ldoc.Close(true)
-
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
-
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
 
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await ldoc.OpenAsync(file);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation comments collection
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 // Remove comments by index 
-
 commentsCollection.RemoveAt(0);
 
-
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await ldoc.SaveAsync(stream);
-
 //Close the document
-
 ldoc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -7195,53 +6547,30 @@ Save(stream, "Output.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
-
 FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation comments collection
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 // Remove comments by index 
-
 commentsCollection.RemoveAt(0);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 ldoc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 ldoc.Close(true);
-
 //Defining the ContentType for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -7249,35 +6578,21 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation comments collection
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 // Remove comments by index 
-
 commentsCollection.RemoveAt(0);
 
 //Save the stream into pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -7301,33 +6616,21 @@ The following code example explains how to remove review status to the existing 
 {% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation review collection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 // Remove review status by index 
-
 reviewCollection.RemoveAt(0);
 
+//Save the document
 ldoc.Save("Output.pdf");
-
 //Close the document
-
 ldoc.Close(true);
 
 {% endhighlight %}
@@ -7335,90 +6638,53 @@ ldoc.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Loaded the PDF document
-
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-
 'Get the existing PDF page
-
 Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
-
 'Get the existing annotations 
-
 Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
-
 'Get the existing rectangle annotation
-
 Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
-
 'Get the annotation review collection
-
 Dim reviewCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.ReviewHistory
-
 ' Remove review status by index 
-
 reviewCollection.RemoveAt(0)
 
 ldoc.Save("Output.pdf")
-
 'Close the document
-
 ldoc.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
-
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and chose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
 
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await ldoc.OpenAsync(file);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 // Get the annotation review collection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 //Remove review status by index 
-
 reviewCollection.RemoveAt(0);
 
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await ldoc.SaveAsync(stream);
-
 //Close the document
-
 ldoc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -7428,51 +6694,29 @@ Save(stream, "Output.pdf");
 //Load the PDF document
 
 FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation  reviewcollection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 //Remove review status by index 
-
 reviewCollection.RemoveAt(0);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 lDoc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 ldoc.Close(true);
-
 //Defining the Content Type for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -7480,35 +6724,21 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation review collection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 //Remove review status by index 
-
 reviewCollection.RemoveAt(0);
 
 //Save the stream into pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -7535,39 +6765,23 @@ The following code example explains how to modify comments in the existing PDF a
 {% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation comments collection
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 //Get the modified comments
-
 PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
-
 //Modify the comments Text
-
 loadedComments.Text = "This is the modified comment";
 
 //Save the document
-
 ldoc.Save("Output.pdf");
-
 //Close the document
-
 ldoc.Close(true);
 
 {% endhighlight %}
@@ -7575,195 +6789,113 @@ ldoc.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the PDF document
-
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-
 'Get the existing PDF page
-
 Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
-
 'Get the existing annotations
-
 Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
-
 'Get the existing rectangle annotation
-
 Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
-
 'Get the annotation comments collection
-
 Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.Comments
-
 'Get the modified comment
-
 Dim loadedComments As PdfLoadedPopupAnnotation = commentsCollection(0)
-
 ' Modify the comment Text
-
 loadedComments.Text = "This is the modified comment"
 
 'Save the document
-
 ldoc.Save("Output.pdf")
-
 'Close the document
-
 ldoc.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
 
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await ldoc.OpenAsync(file);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Load the annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the existing rectangle annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 // Get the modified comment
-
 PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
-
 // Modify the comment Text
-
 loadedComments.Text = "This is the modified comment";
 
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await ldoc.SaveAsync(stream);
-
 //Close the document
-
 ldoc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
-
 FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Load the PDF document page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Load the annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation comments collection
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 //Get the modified comment
-
 PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
-
 //Modify the comment Text
-
 loadedComments.Text = "This is the modified comments";
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 ldoc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 ldoc.Close(true);
-
 //Defining the Content Type for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-
 //Load the file as stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Load the PDF document page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Load the annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation comments collection
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-
 //Get the modified comment
-
 PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
-
 //Modify the comments Text
-
 loadedComments.Text = "This is Modify comments";
 
 //Save the stream into pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -7786,39 +6918,23 @@ The following code example explains how to modify review status to the existing 
 {% highlight c# tabtitle="C#" %}
 
 //Load the PDF document
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation review collection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 // Get the modified review state
-
 PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
-
 // Modify the review State
-
 loadedReview.State = PdfAnnotationState.Rejected;
 
 //Save the document
-
 ldoc.Save("Output.pdf");
-
 //Close the document
-
 ldoc.Close(true);
 
 {% endhighlight %}
@@ -7826,97 +6942,57 @@ ldoc.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Loaded the PDF document
-
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-
 'Get the existing PDF page
-
 Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
-
 'Get the existing annotations
-
 Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
-
 'Get the existing rectangle annotation
-
 Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
-
 'Get annotation review collection
-
 Dim reviewCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.ReviewHistory
-
 Dim loadedReview As PdfLoadedPopupAnnotation = reviewCollection(0)
-
 ' Modify the review State
-
 loadedReview.State = PdfAnnotationState.Rejected
 
 'Save the document
-
 ldoc.Save("Output.pdf")
-
 'Close the document
-
 ldoc.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
 
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await ldoc.OpenAsync(file);
-
 //Get the existing annotations
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing PDF page
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation review collection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 // Get the modified review state
-
 PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
-
 // Modify the review State
-
 loadedReview.State = PdfAnnotationState.Rejected;
 
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await ldoc.SaveAsync(stream);
-
 //Close the document
-
 ldoc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -7924,57 +7000,32 @@ Save(stream, "Output.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
-
 FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation review collection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 // Get the modified review state
-
 PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
-
 // Modify the review State
-
 loadedReview.State = PdfAnnotationState.Rejected;
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 lDoc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 ldoc.Close(true);
-
 //Defining the Content Type for pdf file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -7982,39 +7033,23 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the file as stream
-
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-
 PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-
 //Get the existing annotations
-
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
-
 //Get the existing rectangle annotation
-
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
 //Get the annotation review collection
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-
 // Get the modified review state
-
 PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
-
 // Modify the review State
-
 loadedReview.State = PdfAnnotationState.Rejected;
 
 //Save the stream into pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8045,177 +7080,100 @@ You can retrieve the annotation review history from the existing PDF document an
 {% highlight c# tabtitle="C#" %}
 
 //Load the existing PDF document
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the review history collection for the annotation
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
-
 //Get annotation state
-
 PdfAnnotationState state = reviewCollection[0].State;
-
 //Get annotation state model
-
 PdfAnnotationStateModel model = reviewCollection[0].StateModel;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Get the review history of the comment
-
 PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
-
 //Close the PDF document
-
 loadedDocument.Close(true);
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the existing PDF document
-
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-
 'Get the existing PDF page
-
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
-
 'Get the annotation
-
 Dim loadedMarkup As PdfLoadedTextMarkupAnnotation = TryCast(loadedPage.Annotations(0), PdfLoadedTextMarkupAnnotation)
-
 'Get the review history collection for the annotation
-
 Dim reviewCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.ReviewHistory
-
 'Get annotation state
-
 Dim state As PdfAnnotationState = reviewCollection(0).State
-
 'Get annotation state model
-
 Dim model As PdfAnnotationStateModel = reviewCollection(0).StateModel
-
 'Get the comments of the annotation
-
 Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.Comments
-
 'Get the review history of the comment
-
 Dim reviewCollection1 As PdfLoadedPopupAnnotationCollection = commentsCollection(0).ReviewHistory
-
 'Close the PDF document
-
 loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
 
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await loadedDocument.OpenAsync(file);
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the review history collection for the annotation
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
-
 //Get annotation state
-
 PdfAnnotationState state = reviewCollection[0].State;
-
 //Get annotation state model
-
 PdfAnnotationStateModel model = reviewCollection[0].StateModel;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Get the review history of the comment
-
 PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
-
 //Close the document
-
 loadedDocument.Close(true);
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
-
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the review history collection for the annotation
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
-
 //Get annotation state
-
 PdfAnnotationState state = reviewCollection[0].State;
-
 //Get annotation state model
-
 PdfAnnotationStateModel model = reviewCollection[0].StateModel;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Get the review history of the comment
-
 PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
-
 //Closes the document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -8223,39 +7181,22 @@ loadedDocument.Close(true);
 {% highlight c# tabtitle="Xamarin" %}
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the review history collection for the annotation
-
 PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
-
 //Get annotation state
-
 PdfAnnotationState state = reviewCollection[0].State;
-
 //Get annotation state model
-
 PdfAnnotationStateModel model = reviewCollection[0].StateModel;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Get the review history of the comment
-
 PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
-
 //Closes the document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -8273,23 +7214,14 @@ The following code example explains how to retrieve the annotation comments from
 {% highlight c# tabtitle="C#" %}
 
 //Load the existing PDF document
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Close the PDF document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -8297,61 +7229,37 @@ loadedDocument.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Load the existing PDF document
-
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-
 'Get the existing PDF page
-
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
-
 'Get the annotation
-
 Dim loadedMarkup As PdfLoadedTextMarkupAnnotation = TryCast(loadedPage.Annotations(0), PdfLoadedTextMarkupAnnotation)
-
 'Get the comments of the annotation
-
 Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.Comments
-
 'Close the PDF document
-
 loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
 
 //Creates an empty PDF loaded document instance
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
 await loadedDocument.OpenAsync(file);
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Close the document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -8359,25 +7267,15 @@ loadedDocument.Close(true);
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load the PDF document
-
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Closes the document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -8385,23 +7283,14 @@ loadedDocument.Close(true);
 {% highlight c# tabtitle="Xamarin" %}
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
 //Get the existing PDF page
-
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-
 //Get the annotation
-
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-
 //Get the comments of the annotation
-
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-
 //Closes the document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -8421,37 +7310,22 @@ The following code example illustrates how to print annotation in the PDF docume
 {% highlight c# tabtitle="C#" %}
 
 //Creates a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Creates a new page 
-
 PdfPage page = document.Pages.Add();
-
 //Creates a new PDF rubber stamp annotation
-
 RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-
 rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Set the AnnotationFlags to print 
-
 rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
-
 //Adds annotation to the page 
-
 page.Annotations.Add(rubberStampAnnotation);
 
 //Saves the document
-
 document.Save("RubberStamp.pdf");
-
 //Close the document
-
 document.Close(true);
 
 {% endhighlight %}
@@ -8459,82 +7333,49 @@ document.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates a new PDF document
-
 Dim document As PdfDocument = New PdfDocument()
-
 'Creates a new page 
-
 Dim page As PdfPage = document.Pages.Add()
-
 'Creates a new PDF rubber stamp annotation
-
 Dim rectangle As RectangleF = New RectangleF(40, 60, 80, 20)
-
 Dim rubberStampAnnotation As PdfRubberStampAnnotation = New 
-
 PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation")
-
 rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft
-
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation"
-
 'Set the AnnotationFlags to print 
-
 rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print
-
 'Adds annotation to the page 
-
 page.Annotations.Add(rubberStampAnnotation)
 
 'Saves the document
-
 document.Save("RubberStamp.pdf")
-
 'Close the document
-
 document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Creates a new page 
-
 PdfPage page = document.Pages.Add();
-
 //Creates a new PDF rubber stamp annotation
-
 RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-
 rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Set the AnnotationFlags to print 
-
 rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
-
 //Adds annotation to the page 
-
 page.Annotations.Add(rubberStampAnnotation);
 
 //Saves the document
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document
-
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -8542,53 +7383,30 @@ Save(stream, "Output.pdf");
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Creates a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Creates a new page 
-
 PdfPage page = document.Pages.Add();
-
 //Creates a new PDF rubber stamp annotation
-
 RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-
 rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Set the AnnotationFlags to print 
-
 rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
-
 //Adds annotation to the page 
-
 page.Annotations.Add(rubberStampAnnotation);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 document.Close(true);
-
 //Defining the ContentType for PDF file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "RubberStamp.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -8596,41 +7414,24 @@ return File(stream, contentType, fileName);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Creates a new PDF document
-
 PdfDocument document = new PdfDocument();
-
 //Creates a new page 
-
 PdfPage page = document.Pages.Add();
-
 //Creates a new PDF rubber stamp annotation
-
 RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-
 rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Set the AnnotationFlags to print 
-
 rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
-
 //Adds annotation to the page 
-
 page.Annotations.Add(rubberStampAnnotation);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document
-
 document.Close(true);
-
 //Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -8710,33 +7511,27 @@ The following code snippet explains how to add custom stamp in an existing PDF d
 {% highlight c# tabtitle="C#" %}
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
-
 //Get the page from loaded PDF document
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a new pdf rubber stamp annotation
 RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
-
 //Custom stamp the rubber stamp annotation
 PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.LightBlue));
 PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
-
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
-
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Add annotation to the page
 loadedPage.Annotations.Add(rubberStampAnnotation);
 
 //Save the PDF document
 loadedDocument.Save("Output.pdf");
-
 //Close the instance of PdfLoadedDocument
 loadedDocument.Close(true);
 
@@ -8746,31 +7541,25 @@ public static PdfPath RoundedRect(RectangleF bounds, int radius)
     SizeF size = new SizeF(diameter, diameter);
     RectangleF arc = new RectangleF(bounds.Location, size);
     PdfPath path = new PdfPath();
-
     if (radius == 0)
     {
         path.AddRectangle(bounds);
         return path;
     }
-
     //Draw the top left arc  
     path.AddArc(arc, 180, 90);
-
     //Draw the top right arc  
     arc.X = bounds.Right - diameter;
     path.AddArc(arc, 270, 90);
-
     //Draw the bottom right arc  
     arc.Y = bounds.Bottom - diameter;
     path.AddArc(arc, 0, 90);
-
     //Draw the bottom left arc 
     arc.X = bounds.Left;
     path.AddArc(arc, 90, 90);
 
     //Close the figure
     path.CloseFigure();
-
     //Return the path
     return path;
 }
@@ -8779,33 +7568,27 @@ public static PdfPath RoundedRect(RectangleF bounds, int radius)
 {% highlight vb.net tabtitle="VB.NET" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-
 'Get the page from loaded PDF document
 Dim loadedPage As PdfLoadedPage = CType(loadedDocument.Pages(0), PdfLoadedPage)
 
 'Create a new pdf rubber stamp annotation
 Dim rectangleF As RectangleF = New RectangleF(350, 20, 200, 80)
 Dim rubberStampAnnotation As PdfRubberStampAnnotation = New PdfRubberStampAnnotation(rectangleF)
-
 'Custom stamp the rubber stamp annotation
 Dim brush As PdfSolidBrush = New PdfSolidBrush(New PdfColor(Color.LightBlue))
 Dim path As PdfPath = RoundedRect(New RectangleF(0, 0, 200, 80), 20)
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path)
-
 'Add text in rubber stamp annotation
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold)
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, New PointF(10, 20))
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, New PointF(10, 40))
-
 'Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation"
-
 'Adds annotation to the page
 loadedPage.Annotations.Add(rubberStampAnnotation)
 
 'Save the PDF document
 loadedDocument.Save("Output.pdf")
-
 'Close the instance of PdfLoadedDocument
 loadedDocument.Close(True)
 
@@ -8818,67 +7601,54 @@ Private Function RoundedRect(bounds As RectangleF, radius As Integer) As PdfPath
         path.AddRectangle(bounds)
         Return path
     End If
-
     'Draw the top left arc  
     path.AddArc(arc, 180, 90)
-
     'Draw the top right arc  
     arc.X = (bounds.Right - diameter)
     path.AddArc(arc, 270, 90)
-
     'Draw the bottom right arc  
     arc.Y = (bounds.Bottom - diameter)
     path.AddArc(arc, 0, 90)
-
     'Draw the bottom left arc 
     arc.X = bounds.Left
     path.AddArc(arc, 90, 90)
 
     'Close the figure
     path.CloseFigure()
-
     'Return the path
     Return path
 End Function
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 //Load an existing PDF document
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-
 //Get the page from loaded PDF document
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a new pdf rubber stamp annotation
 RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
-
 //Custom stamp the rubber stamp annotation
 PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.FromArgb(255, 173, 216, 230)));
 PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
-
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
-
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Add annotation to the page
 loadedPage.Annotations.Add(rubberStampAnnotation);
 
 //Create memory stream
 MemoryStream ms = new MemoryStream();
-
 //Open the document in browser after saving it
 loadedDocument.Save(ms);
-
 //Close the document
 loadedDocument.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code sample
 Save(ms, "Output.pdf");
 
@@ -8888,31 +7658,25 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
     SizeF size = new SizeF(diameter, diameter);
     RectangleF arc = new RectangleF(bounds.Location, size);
     PdfPath path = new PdfPath();
-
     if (radius == 0)
     {
         path.AddRectangle(bounds);
         return path;
     }
-
     //Draw the top left arc  
     path.AddArc(arc, 180, 90);
-
     //Draw the top right arc  
     arc.X = bounds.Right - diameter;
     path.AddArc(arc, 270, 90);
-
     //Draw the bottom right arc  
     arc.Y = bounds.Bottom - diameter;
     path.AddArc(arc, 0, 90);
-
     //Draw the bottom left arc 
     arc.X = bounds.Left;
     path.AddArc(arc, 90, 90);
 
     //Close the figure
     path.CloseFigure();
-
     //Return the path
     return path;
 }
@@ -8922,37 +7686,30 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
 //Load an existing PDF document
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-
 //Get the page from loaded PDF document
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a new pdf rubber stamp annotation
 RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
-
 //Custom stamp the rubber stamp annotation
 PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.FromArgb(255, 173, 216, 230)));
 PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
-
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
-
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Add annotation to the page
 loadedPage.Annotations.Add(rubberStampAnnotation);
 
 //Saving the PDF to the MemoryStream
 MemoryStream stream = new MemoryStream();
 loadedDocument.Save(stream);
-
 //Set the position as '0'
 stream.Position = 0;
-
 //Download the PDF document in the browser
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -8964,31 +7721,25 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
     SizeF size = new SizeF(diameter, diameter);
     RectangleF arc = new RectangleF(bounds.Location, size);
     PdfPath path = new PdfPath();
-
     if (radius == 0)
     {
         path.AddRectangle(bounds);
         return path;
     }
-
     //Draw the top left arc  
     path.AddArc(arc, 180, 90);
-
     //Draw the top right arc  
     arc.X = bounds.Right - diameter;
     path.AddArc(arc, 270, 90);
-
     //Draw the bottom right arc  
     arc.Y = bounds.Bottom - diameter;
     path.AddArc(arc, 0, 90);
-
     //Draw the bottom left arc 
     arc.X = bounds.Left;
     path.AddArc(arc, 90, 90);
 
     //Close the figure
     path.CloseFigure();
-
     //Return the path
     return path;
 }
@@ -8998,37 +7749,30 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
 //Load an existing PDF document
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-
 //Get the page from loaded PDF document
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Create a new pdf rubber stamp annotation
 RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
 PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
-
 //Custom stamp the rubber stamp annotation
 PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Syncfusion.Drawing.Color.FromArgb(255, 173, 216, 230)));
 PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
-
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
-
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-
 //Add annotation to the page
 loadedPage.Annotations.Add(rubberStampAnnotation);
 
 //Save the document to the stream
 MemoryStream stream = new MemoryStream();
 loadedDocument.Save(stream);
-
 //Close the document
 loadedDocument.Close(true);
-
 //Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -9046,31 +7790,25 @@ private PdfPath RoundedRect(RectangleF bounds, int radius)
     SizeF size = new SizeF(diameter, diameter);
     RectangleF arc = new RectangleF(bounds.Location, size);
     PdfPath path = new PdfPath();
-
     if (radius == 0)
     {
         path.AddRectangle(bounds);
         return path;
     }
-
     //Draw the top left arc  
     path.AddArc(arc, 180, 90);
-
     //Draw the top right arc  
     arc.X = bounds.Right - diameter;
     path.AddArc(arc, 270, 90);
-
     //Draw the bottom right arc  
     arc.Y = bounds.Bottom - diameter;
     path.AddArc(arc, 0, 90);
-
     //Draw the bottom left arc 
     arc.X = bounds.Left;
     path.AddArc(arc, 90, 90);
 
     //Close the figure
     path.CloseFigure();
-
     //Return the path
     return path;
 }
@@ -9091,14 +7829,11 @@ You can highlight the Markup Text using the [PdfTextMarkupAnnotationType](https:
 PdfDocument document = new PdfDocument();
 //Create a new page.
 PdfPage page = document.Pages.Add();
-
 //Create a PDF font and font style.
 Font font = new Font("Calibri", 10, FontStyle.Bold);
 PdfFont pdfFont = new PdfTrueTypeFont(font, false);
-
 //Create a new PDF brush.
 PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
-
 //Draw text in the new page.
 page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
 string markupText = "Text Markup";
@@ -9110,7 +7845,6 @@ page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
-
 //Add this annotation to a new page.
 page.Annotations.Add(markupAnnotation);
 
@@ -9124,17 +7858,13 @@ document.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 'Create a new PDF document.
 Dim document As New PdfDocument()
-
 'Create a new page.
 Dim page As PdfPage = document.Pages.Add()
-
 'Create a pdf font and pdf font style.
 Dim font As New Font("Calibri", 10, FontStyle.Bold)
 Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, False)
-
 'Create a new PdfBrush.
 Dim pdfBrush As PdfBrush = New PdfSolidBrush(Color.Black)
-
 'Draw text in the new page.
 page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, New PointF(150, 10))
 Dim markupText As String = "Text Markup"
@@ -9146,13 +7876,11 @@ page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle)
 Dim markupAnnotation As New PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, New PointF(175, 40), pdfFont)
 markupAnnotation.TextMarkupColor = New PdfColor(Color.BlueViolet)
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight
-
 'Add this annotation to a new page.
 page.Annotations.Add(markupAnnotation)
 
 'Save the document to disk.
 document.Save("Output.pdf")
-
 'close the document.
 document.Close(True)
 
@@ -9160,20 +7888,14 @@ document.Close(True)
 
 {% highlight c# tabtitle="UWP" %}
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page. 
-
 PdfPage page = document.Pages.Add();
-
 //Create a PDF font and font style.
 Font font = new Font("Calibri", 10, FontStyle.Bold);
 PdfFont pdfFont = new PdfTrueTypeFont(font, false);
-
 //Create a new PDF brush.
 PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
-
 //Draw text in the new page.
 page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
 string markupText = "Text Markup";
@@ -9185,22 +7907,15 @@ page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
-
 //Add this annotation to a new page.
 page.Annotations.Add(markupAnnotation);
 
 //Save the PDF document to stream.
-
 MemoryStream stream = new MemoryStream();
-
 await document.SaveAsync(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for respected code samples.
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -9209,16 +7924,12 @@ Save(stream, "Output.pdf");
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
-
 //Create a new page.
 PdfPage page = document.Pages.Add();
 FileStream fontStream = new FileStream("arial.ttf", FileMode.Open, FileAccess.Read);
-
 PdfFont pdfFont = new PdfTrueTypeFont(fontStream, 14);
-
 //Create a new PDF brush.
 PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
-
 //Draw text in the new page.
 page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
 string markupText = "Text Markup";
@@ -9230,7 +7941,6 @@ page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
-
 //Add this annotation to a new page.
 page.Annotations.Add(markupAnnotation);
 
@@ -9244,20 +7954,14 @@ document.Close(true);
 {% highlight c# tabtitle="Xamarin" %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
-
 //Create a new page. 
-
 PdfPage page = document.Pages.Add();
-
 //Create a PDF font and font style .
 Font font = new Font("Calibri", 10, FontStyle.Bold);
 PdfFont pdfFont = new PdfTrueTypeFont(font, false);
-
 //Create a new PDF brush.
 PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
-
 //Draw text in the new page.
 page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
 string markupText = "Text Markup";
@@ -9269,20 +7973,14 @@ page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
 PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
 markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
 markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
-
 //Add this annotation to a new page.
 page.Annotations.Add(markupAnnotation);
 
 //Save the document into stream.
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream);
-
 //Close the document.
-
 document.Close(true);
-
 //Save the stream into pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -9305,7 +8003,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 <th style="font-size:14px">Annotations are sometimes missing in the acrobat and the other Pdf Viewer applications.
 </th>
 
-
 <table>
 <tr>
 <th style="font-size:14px">Reason
@@ -9317,7 +8014,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>By enabling the appearance [Graphical representation] for the annotation by using the “SetAppearance” method as below, PDF Annotations will be preserved properly on saving the file.
+<td>By enabling the appearance [Graphical representation] for the annotation by using the [SetAppearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotation.html#Syncfusion_Pdf_Interactive_PdfAnnotation_SetAppearance_System_Boolean_) method as below, PDF Annotations will be preserved properly on saving the file.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}

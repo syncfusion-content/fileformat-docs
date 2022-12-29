@@ -79,7 +79,7 @@ N> The HTML to PDF converter library internally uses the Blink rendering engine 
 </tr>
 <tr>
 <td>
-(.NET Core, .NET 5, .NET 6) Aws
+(.NET Core, .NET 5, .NET 6) AWS
 </td>
 <td>
 {{'[Syncfusion.HtmlToPdfConverter.Net.Aws.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/)'| markdownify }}
