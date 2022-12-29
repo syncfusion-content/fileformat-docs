@@ -63,11 +63,9 @@ Step 5: Include the following namespaces in the **MainPage.xaml.cs** file.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.Presentation;
 using System.IO;
 using System.Reflection;
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -79,7 +77,6 @@ Step 6: Add a new action method **CreatePresentation** in MainPage.xaml.cs and i
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Creates a new instance of the PowerPoint Presentation file.
 using IPresentation pptxDoc = Presentation.Create();
 //Adds a new slide to the file and apply background color.
@@ -131,7 +128,6 @@ stream.Position = 0;
 //Saves the memory stream as file.
 SaveService saveService = new();
 saveService.SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -155,13 +151,10 @@ You can edit an existing PowerPoint file using this library. The below code snip
 Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
 //Opens an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Sample.pptx"));
-
 //Gets the first slide from the PowerPoint presentation.
 ISlide slide = pptxDoc.Slides[0];
-
 //Gets the first shape of the slide.
 IShape shape = slide.Shapes[0] as IShape;
-
 //Modifies the text of the shape.
 if (shape.TextBody.Text == "Company History")
     shape.TextBody.Text = "Company Profile";
