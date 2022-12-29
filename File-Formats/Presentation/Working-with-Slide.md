@@ -504,12 +504,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-	//Check if the layout slide has desired custom layout name
-	if (layout.Name == "CustomSlideLayout")
-	{
-		slideLayout = layout;
-		break;
-	}
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
@@ -527,11 +527,11 @@ Dim layoutSlides As ILayoutSlides = pptxDoc.Masters(0).LayoutSlides
 Dim slideLayout As ILayoutSlide = Nothing
 'Get each layout slide from the collection
 For Each layout As ILayoutSlide In layoutSlides
-	'Check if the layout slide has desired custom layout name
-	If layout.Name = "CustomSlideLayout" Then
-		slideLayout = layout
-		Exit For
-	End If
+    'Check if the layout slide has desired custom layout name
+    If layout.Name = "CustomSlideLayout" Then
+        slideLayout = layout
+        Exit For
+    End If
 Next
 'Add slide with the desired layout.
 Dim slide As ISlide = pptxDoc.Slides.Add(slideLayout)
@@ -558,12 +558,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-   //Check if the layout slide has desired custom layout name
-   if (layout.Name == "CustomSlideLayout")
-   {
-      slideLayout = layout;
-	  break;
-   }
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
@@ -588,12 +588,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-	//Check if the layout slide has desired custom layout name
-	if (layout.Name == "CustomSlideLayout")
-	{
-		slideLayout = layout;
-		break;
-	}
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
@@ -618,12 +618,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-	//Check if the layout slide has desired custom layout name
-	if (layout.Name == "CustomSlideLayout")
-	{
-		slideLayout = layout;
-		break;
-	}
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
