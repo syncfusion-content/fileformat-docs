@@ -38,7 +38,6 @@ In App class of <b>portable project</b> (App.cs), replace the existing construct
 </li>
 </ul>
 
-{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -50,12 +49,9 @@ public App()
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 5: In the MainXamlPage.xaml add new button as shown below.
 
-{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -63,21 +59,18 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         x:Class="GettingStarted. MainXamlPage">
-<StackLayout VerticalOptions="Center">
 
-<Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
-
-</StackLayout> </ContentPage>
+    <StackLayout VerticalOptions="Center">
+        <Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+    </StackLayout>
+</ContentPage>
 
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
 
-{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -88,12 +81,9 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create Word document and save it in a stream.
 
-{% capture codesnippet4 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -324,8 +314,6 @@ void OnButtonClicked(object sender, EventArgs args)
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
 ## Helper files for Xamarin
 

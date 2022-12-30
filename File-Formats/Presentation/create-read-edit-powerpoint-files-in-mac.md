@@ -27,7 +27,7 @@ Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/pac
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
 Step 4: Include the following Namespaces in the Program.cs file.
-{% capture codesnippet1 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -36,11 +36,9 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 5: Add the following code snippet in Program.cs file.
-{% capture codesnippet2 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -90,8 +88,6 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 The output of the above code example will generate the below PowerPoint slide. The output will be saved in bin folder.
 

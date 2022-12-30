@@ -36,8 +36,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 
-{% capture codesnippet1 %}
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -57,12 +55,8 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 6: Include the following namespaces in the **MainWindow.xaml.cs** file.
-
-{% capture codesnippet2 %}
 
 {% tabs %}
 
@@ -73,12 +67,8 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 7: Add a new action method **CreateDocument** in MainWindow.xaml.cs and include the below code snippet to **create a Word document**.
-
-{% capture codesnippet3 %}
 
 {% tabs %}
 
@@ -305,8 +295,6 @@ Save(outputStream, "Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WinUI/WinUI-Desktop-app).
 
@@ -338,8 +326,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 5: Add a new button in the **MainPage.xaml** as shown below.
 
-{% capture codesnippet4 %}
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -362,12 +348,8 @@ Step 5: Add a new button in the **MainPage.xaml** as shown below.
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
 Step 6: Include the following namespaces in the **MainPage.xaml.cs** file.
-
-{% capture codesnippet5 %}
 
 {% tabs %}
 
@@ -383,12 +365,8 @@ using Windows.Storage.Pickers;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
 Step 7: Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
-
-{% capture codesnippet6 %}
 
 {% tabs %}
 
@@ -616,8 +594,6 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet6 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WinUI/WinUI-UWP-app).
 

@@ -24,7 +24,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 3: Add a new button in the MainPage.xaml as shown below.
 
-{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -46,12 +45,9 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 4: Include the following namespaces in the MainPage.xaml.cs file.
 
-{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -64,12 +60,9 @@ using System.Reflection;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 5: Include the below code snippet in the click event of the button in MainPage.xaml.cs, to **create a Word document** and save the **Word** document as a physical file and open the file for viewing.
 
-{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -297,8 +290,6 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 ## Save Word document in UWP
 
