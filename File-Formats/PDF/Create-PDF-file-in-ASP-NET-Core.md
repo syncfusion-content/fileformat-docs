@@ -85,7 +85,7 @@ N> The WinForms and WPF controls support in .NET Core 3.0 have been provided. To
 
 ## Creating a PDF document with image
 
-Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGrphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The following code example shows how to create a PDF document with an image.
+Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The following code example shows how to create a PDF document with an image.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -304,7 +304,6 @@ document.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-PDF-document-with-basic-elements).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-
 <img src="GettingStarted_images/pdf-invoice.png" alt="ASP.NET Core PDF invoice output" width="100%" Height="Auto"/>
 
 ## Filling forms
@@ -317,7 +316,6 @@ The .NET Core PDF library allows you to [create and manipulate existing form](ht
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-
 <img src="GettingStarted_images/fill-pdf-forms.png" alt="ASP.NET Core PDF form template" width="100%" Height="Auto"/>
 
 The .NET Core PDF library allows you to fill the form fields by using the [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. Get the form field either by using its field name or field index.
@@ -361,7 +359,6 @@ return File(stream, contentType, fileName);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Fill-form-in-an-existing-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-
 <img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="ASP.NET Core PDF form filling" width="100%" Height="Auto"/>
 
 ## Merge PDF Documents

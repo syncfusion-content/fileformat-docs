@@ -69,11 +69,11 @@ document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadTy
 A complete working sample for generate PDF file in ASP.NET MVC can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1076048215.zip).
 
 By executing the program, you will get the PDF document as follows.
-![MVC PDF Generation output](GettingStarted_images/pdf-generation-output.png)
+<img src="GettingStarted_images/pdf-generation-output.png" alt="Simple PDF output" width="100%" Height="Auto"/>
 
 ## Creating a PDF document with image
 
-Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGrphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The following code example shows how to create a PDF document with an image.
+Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The following code example shows how to create a PDF document with an image.
  
 {% highlight c# tabtitle="C#" %}
 
@@ -267,8 +267,7 @@ document.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-PDF-document-with-basic-elements).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-
-![MVC PDF Invoices](GettingStarted_images/pdf-invoice.png)
+<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
 
 ## Filling forms
 
@@ -280,8 +279,7 @@ The Essential PDF allows you to [create and manipulate existing form](https://ww
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-
-![Filling MVC PDF forms](GettingStarted_images/fill-pdf-forms.png)
+<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
 
 The .NET Core PDF library allows you to fill the form fields by using the [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. Get the form field either by using its field name or field index.
 
@@ -313,8 +311,7 @@ loadedDocument.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Fill-form-in-an-existing-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-
-![Filled MVC PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
+<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form" width="100%" Height="Auto"/>
 
 ## Merge PDF Documents
 
