@@ -31,7 +31,7 @@ Step 3: After installing the **Syncfusion.Presentation.Wpf** nuget package, the 
 </ul>
 
 Step 4: Add a new button in the **MainWindow.xaml** as shown below.
-{% capture codesnippet1 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -52,11 +52,9 @@ Step 4: Add a new button in the **MainWindow.xaml** as shown below.
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 5: Include the following namespaces in the **MainWindow.xaml.cs** file.
-{% capture codesnippet2 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -65,8 +63,6 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 6: Include the below code snippet in the click event of the button in MainWindow.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
 

@@ -21,7 +21,7 @@ Step 2: Install the [Syncfusion.Presentation.UWP](https://www.nuget.org/packages
 ![Install UWP Nuget](Workingwith_UWP/Install_Nuget.png)
 
 Step 3: Add a new button in the MainPage.xaml as shown below.
-{% capture codesnippet1 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -42,11 +42,9 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 4: Include the following namespaces in the MainPage.xaml.cs file.
-{% capture codesnippet2 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -56,8 +54,6 @@ using Windows.Storage;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 5: Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
 
