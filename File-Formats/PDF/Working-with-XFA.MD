@@ -342,7 +342,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Create-a-new-PDF-document-with-XFA-page-size).
 
-You can create a custom page size to the PDF document by using [PdfXfaPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaPageSettings.html) class. The below code snippet explains this.
+You can create a custom page size to the PDF document by using following code snippet.
  
 {% tabs %}  
 
@@ -510,7 +510,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Create-a-custom-page-size-to-the-PDF-document).
 
-You can change page orientation using [PdfXfaPageOrientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaPageOrientation.html) Enum from portrait to landscape by using the following code snippet.
+You can change page orientation from portrait to landscape by using [PdfXfaPageOrientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaPageOrientation.html) Enum. The below code snippet explains this.
 
 {% tabs %}  
 
@@ -690,7 +690,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Creating dynamic XFA forms
 
-The below sample illustrates how to create a dynamic XFA forms and save the dynamic form document using [PdfXfaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaType.html) Enum.
+To create a dynamic XFA forms using [PdfXfaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaType.html) Enum and save the dynamic form document using below example code.
 
 {% tabs %}  
 
@@ -860,7 +860,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Creating static XFA forms
 
-The below sample illustrates how to create a static XFA forms and save the static form document using [PdfXfaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaType.html) Enum.
+To create a static XFA forms using [PdfXfaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaType.html) Enum and save the static form document using below example code.
 
 {% tabs %}  
 
@@ -1200,7 +1200,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-textbox-field-to-a-new-PDF-document).
 
-The below code snippet illustrates how to add a textbox field to an existing PDF document
+The below code snippet illustrates how to add a textbox field to an existing PDF document.
 
 {% tabs %}  
 
