@@ -667,8 +667,6 @@ A complete working example of how to create an Excel file in Blazor Client-Side 
 By executing the program, you will get the Excel file as below.
 <img src="Blazor_images/Blazor_images_Client_Output.png" alt="Output File" width="100%" Height="Auto"/>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Blazor Excel library demo](https://blazor.syncfusion.com/demos/xlsio/create-excel?theme=bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.
-
 ## Read and Edit Excel file in Blazor Client-Side application
 
 The below code snippet illustrates how to read and edit an Excel file in Blazor Client-Side application.
@@ -709,3 +707,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Blazor Excel library demo](https://blazor.syncfusion.com/demos/xlsio/create-excel?theme=bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.
