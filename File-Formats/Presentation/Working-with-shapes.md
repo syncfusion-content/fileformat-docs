@@ -9,7 +9,7 @@ documentation: UG
 
 ## Adding shapes to a slide
 
-In every slide, there is a shape collection that can contain any form of graphical objects such as AutoShape, chart, text, or picture.  You can add any shape element to this collection. The IShape is the base type for the shape elements.
+In every slide, there is a shape collection that can contain any form of graphical objects such as AutoShape, chart, text, or picture.  You can add any shape element to this collection. The [IShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IShape.html) is the base type for the shape elements.
 
 The following code example demonstrates how to add an AutoShape and image to the shape collection of a slide.
 
@@ -530,7 +530,7 @@ else
 
 ### Creating a GroupShape
 
-The shapes in a slide can be grouped into a single shape. The following code snippet demonstrates how to group different slide items into a single GroupShape.
+The shapes in a slide can be grouped into a single shape. The following code snippet demonstrates how to group different slide items into a single [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html).
 
 {% tabs %}
 
@@ -660,7 +660,7 @@ else
 
 ### Iterating and modifying a particular GroupShape
 
-You can iterate through the shape collection of a GroupShape. Below code snippet demonstrates how to iterate through the shapes of a GroupShape to modify it by removing a specific shape.
+You can iterate through the shape collection of a [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html). Below code snippet demonstrates how to iterate through the shapes of a [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html) to modify it by removing a specific shape.
 
 {% tabs %}
 
@@ -810,7 +810,7 @@ else
 
 ###  Removing a GroupShape
 
-GroupShape can be removed from a slide using its instance or by its index position in the GroupShape collection of the slide. Below code snippet explains how to remove a GroupShape from a slide.
+[GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html) can be removed from a slide using its instance or by its index position in the [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html) collection of the slide. Below code snippet explains how to remove a [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html) from a slide.
 
 {% tabs %}
 

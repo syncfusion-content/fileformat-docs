@@ -29,7 +29,7 @@ Step 4: Add new Forms XAML page in portable project If there is no XAML page is 
 <li>To add the new XAML page, right click on the project and select <b>Add > New Item</b> and add a Forms XAML Page from the list. Name it as MainXamlPage.</li>
 <li>In App class of <b>portable project</b> (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the <b>MainXamlPage</b>.</li>
 </ul>
-{% capture codesnippet1 %}	 
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -41,31 +41,26 @@ public App()
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_2 }}
 
 Step 5: In the MainXamlPage.xaml add new button as shown below.
-{% capture codesnippet2 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
- xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
- x:Class="GettingStarted. MainXamlPage">
-<StackLayout VerticalOptions="Center">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GettingStarted.MainXamlPage">
 
-<Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
-
-</StackLayout>
+    <StackLayout VerticalOptions="Center">
+        <Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+    </StackLayout>
 </ContentPage>
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
-{% capture codesnippet3 %}
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -73,8 +68,6 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PowerPoint file and save it in a stream.
 
