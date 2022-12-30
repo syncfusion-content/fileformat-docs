@@ -172,7 +172,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-popup-annotation-to-the-PDF-document).
 
-Load a existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add annotation using [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class.The following code snippet explain this.
+To add [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -617,7 +617,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-the-specific-annotaiton-in-the-PDF-document).
 
-Load a existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to flatten pop-up annotation using [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class.The following code snippet explain this.
+To flatten pop-up annotation [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedAnnotationCollection_Flatten) property to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -790,7 +790,7 @@ Annotations can be flattened by removing the existing annotation and replacing i
 
 This can be achieved by calling the [FlattenAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations) method. Please refer to the sample for flattening all the annotations in the PDF document without calling the [save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Save) method
 
-Load a existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to flatten the annotation without pop-ups using [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations) method.The following code snippet explain this.
+To flatten the annotation without pop-ups [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations) method to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -901,8 +901,8 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flattening-annotations-without-calling-save-method).
 
-To flatten the annotation with pop-ups in the PDF document, use the code example below:
-Load a existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to flatten the annotation with pop-ups using [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations_System_Boolean_) method.The following code snippet explain this.
+To flatten the annotation with pop-ups [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations_System_Boolean_) method to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -1337,7 +1337,7 @@ The following rich media types are supported:
 
 2. Sound
 
-The following code examples explain how to add a rich media annotation in a PDF document using the [PdfRichMediaAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRichMediaAnnotation.html) class.
+The following code examples explain how to add a rich media annotation in a PDF document using the [PdfRichMediaAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRichMediaAnnotation.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1509,7 +1509,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Free Text Annotation
 
-Free text annotation enables you to display the text directly on the page. When you want to add a comment directly without placing it on a pop-up window, [PdfFreeTextAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFreeTextAnnotation.html) class can be used.
+Free text annotation enables you to display the text directly on the page. When you want to add a comment directly without placing it on a pop-up window, [PdfFreeTextAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFreeTextAnnotation.html) can be used.
 
 The following code example explains how to add a free text annotation in the PDF document.
 
@@ -1702,7 +1702,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Line annotation displays a single straight line on the page. When you open it, it displays a pop-up window containing text of the associated note.
 
-[PdfLineAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineAnnotation.html) class is used to create and set the properties of the Line annotation.
+[PdfLineAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineAnnotation.html) is used to create and set the properties of the Line annotation.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -1935,7 +1935,7 @@ Rubber stamp annotation displays text or graphics intended to look like it is st
 
 When opened, it displays a pop-up window containing the text of the associated note.
 
-[PdfRubberStampAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRubberStampAnnotation.html) class is used to create rubber stamp annotation.
+[PdfRubberStampAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRubberStampAnnotation.html) is used to create rubber stamp annotation.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2078,7 +2078,7 @@ Ink annotation represents freehand “scribble” comprising one or more disjoin
 
 When you open it, it displays a pop-up window containing text of the associated note.
 
-[PdfInkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfInkAnnotation.html) class is used to create ink annotation in a PDF document.
+[PdfInkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfInkAnnotation.html) is used to create ink annotation in a PDF document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2367,7 +2367,7 @@ Pop-up annotation displays text in a pop-up window for entry and editing.
 
 It typically does not appear alone, but is associated with markup annotation, its parent annotation.
 
-[PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class is used to add pop-up annotation in a PDF document.
+[PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) is used to add pop-up annotation in a PDF document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2528,7 +2528,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 File attachment annotation contains reference to a file that typically is embedded in the PDF file.
 
-[PdfAttachmentAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachmentAnnotation.html) class is used to add a file attachment annotation in a PDF document.
+[PdfAttachmentAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachmentAnnotation.html) is used to add a file attachment annotation in a PDF document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2680,7 +2680,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Sound annotation is used to play the sound clip in the PDF Document.
 
-The following code example explains how to add a sound annotation in a PDF document using [PdfSoundAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSoundAnnotation.html) class.
+The following code example explains how to add a sound annotation in a PDF document using [PdfSoundAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSoundAnnotation.html).
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -2823,7 +2823,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 URI annotation is used to navigate to a particular web URI
 
-The following code example explains how to add URI annotation in a PDF document using [PdfUriAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfUriAnnotation.html) class.
+The following code example explains how to add URI annotation in a PDF document using [PdfUriAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfUriAnnotation.html).
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -2968,7 +2968,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 This annotation is used to navigate to a specific destination within the document.
 
-[PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) class is used to add a document link annotation in PDF document.
+[PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) is used to add a document link annotation in PDF document.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -3739,7 +3739,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Watermark Annotation
 
-A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page. [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) class can be used.
+A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page. [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) can be used.
 The following code example explains how to add a watermark annotation in the PDF document
 
 {% tabs %}
@@ -3899,7 +3899,7 @@ The following measurement annotation types are supported in Essential PDF:
 
 The line measurement annotation is displayed as the straight line in the page. The distance of the line is measured automatically when you change the position of the line and is displayed in the pop-up window.
 
-[PdfLineMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineMeasurementAnnotation.html) class to add a line measurement annotation to the page.
+[PdfLineMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineMeasurementAnnotation.html) to add a line measurement annotation to the page.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -4100,7 +4100,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The square measurement annotation is displayed as square shape in the page. The area of the square is measured when you change the square bound and is displayed in the pop-up window.
 
-[PdfSquareMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSquareMeasurementAnnotation.html) class is used to add a square measurement annotation to the page.
+[PdfSquareMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSquareMeasurementAnnotation.html) is used to add a square measurement annotation to the page.
 
 {% tabs %}
 
@@ -4272,7 +4272,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The circle measurement annotation is displayed as circle shape in the page. The radius or diameter distance of the circle is measured and the value is displayed in the pop-up window.
 
-[PdfCircleMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfCircleMeasurementAnnotation.html) class is used to add a circle measurement annotation to the page.
+[PdfCircleMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfCircleMeasurementAnnotation.html) is used to add a circle measurement annotation to the page.
 
 {% tabs %}
 
@@ -4455,7 +4455,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The angle measurement annotation calculates the angle between three points and draws arc between three points. The angle of the annotation is displayed in the pop-up window.
 
-[PdfAngleMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAngleMeasurementAnnotation.html) class helps you to add angle measurement annotation to the page.
+[PdfAngleMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAngleMeasurementAnnotation.html) helps you to add angle measurement annotation to the page.
 
 {% tabs %}
 
@@ -4886,7 +4886,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Removing annotations from an existing PDF 
 
-You can remove the annotation from the annotation collection, represented by the [PdfLoadedAnnotationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html) class of the loaded page. The following code illustrates this.
+You can remove the annotation from the annotation collection, represented by the [PdfLoadedAnnotationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html) of the loaded page. The following code illustrates this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -5846,7 +5846,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-comments-to-the-PDF-annotation).
 
-Load a existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add comments using [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class.The following code snippet explain this.
+To add comments [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -6256,7 +6257,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-review-status-in-a-newly-created-PDF-annotation).
 
-Load a existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the review status to the existing PDF annotation using  [PdfAnnotationState](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotationState.html) Enum.The following code snippet explain this.
+To add the review status  [PdfAnnotationState](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotationState.html) Enum to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -6598,7 +6599,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Remove-commets-from-the-existing-PDF-annotation).
 
-Load a existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to remove review status using [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedPageCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedPageCollection_RemoveAt_System_Int32_) method.The following code snippet explain this.
+To remove review status [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedPageCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedPageCollection_RemoveAt_System_Int32_) method to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code example explain this.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -6899,8 +6900,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modify-comments-in-the-existing-PDF-annotation).
 
-The following code example explains how to modify review status to the existing PDF annotation.
-Load a existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to modify review status to the existing PDF annotation using [PdfAnnotationState](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotationState.html) Enum.The following code snippet explain this.
+To modify review status [PdfAnnotationState](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotationState.html) Enum to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.  The following code example explain this.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -7195,8 +7195,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Retrieve comments from PDF annotation
 
-The following code example explains how to retrieve the annotation comments from the existing PDF document annotations using []().
-Load a existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to retrieve the annotation comments from the existing PDF document annotations using  [Comments](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedTextMarkupAnnotation.html#Syncfusion_Pdf_Interactive_PdfLoadedTextMarkupAnnotation_Comments) property.The following code snippet explain this.
+The following code example explains how to retrieve the annotation comments from the existing PDF document annotations using [Comments](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedTextMarkupAnnotation.html#Syncfusion_Pdf_Interactive_PdfLoadedTextMarkupAnnotation_Comments) property.
+
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}

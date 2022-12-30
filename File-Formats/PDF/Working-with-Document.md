@@ -161,7 +161,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create-a-PDF-document-with-standard-page-size/). 
 
-You can create a PDF document with custom page size by using the following code snippet.
+You can create a PDF document with custom page size in [PdfPageSettings Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html#Syncfusion_Pdf_PdfPageSettings_Size) property by using the following code snippet.
 
 {% tabs %}
 
@@ -1033,7 +1033,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Add_PDF_document_properties/). 
 
-The following code snippet shows how to read and modify the document properties of an existing PDF document.
+To read and modify the document [DocumentInformation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_DocumentInformation) property to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 
 {% tabs %}
 
@@ -1709,8 +1709,7 @@ End Sub
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Create-a-PDF-in-multi-threading-environment). 
 
-You can also modify the existing PDF document in multi-threading environment by using the following code snippet.
-
+To modify the existing PDF document in multi-threading environment [EnableThreadSafe](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html#Syncfusion_Pdf_PdfDocument_EnableThreadSafe) property to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code example explain this.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
