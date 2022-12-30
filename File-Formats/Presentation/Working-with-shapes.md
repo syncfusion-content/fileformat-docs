@@ -9,7 +9,7 @@ documentation: UG
 
 ## Adding shapes to a slide
 
-In every slide, there is a shape collection that can contain any form of graphical objects such as AutoShape, chart, text, or picture.  You can add any shape element to this collection. The [IShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IShape.html) is the base type for the shape elements.
+In every slide, there is a shape collection that can contain any form of graphical objects such as AutoShape, chart, text, or picture.  You can add any shape element to this collection. The [IShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IShape.html) is the base type for the shape elements.
 
 The following code example demonstrates how to add an AutoShape and image to the shape collection of a slide.
 
