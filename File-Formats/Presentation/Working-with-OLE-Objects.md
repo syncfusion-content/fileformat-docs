@@ -27,13 +27,11 @@ Stream excelStream = File.Open("OleTemplate.xlsx", FileMode.Open);
 Stream imageStream = File.Open("OlePicture.png", FileMode.Open);
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream);
-
 //Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Save the presentation
 pptxDoc.Save("OleObjectSample.pptx");
 //Close the presentation
@@ -51,13 +49,11 @@ Dim excelStream As Stream = File.Open("OleTemplate.xlsx", FileMode.Open)
 Dim imageStream As Stream = File.Open("OlePicture.png", FileMode.Open)
 'Add an OLE object to the slide
 Dim oleObject As IOleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream)
-
 'Set size and position of the OLE object
 oleObject.Left = 10
 oleObject.Top = 10
 oleObject.Width = 400
 oleObject.Height = 300
-
 'Save the presentation
 pptxDoc.Save("OleObjectSample.pptx")
 'Close the presentation
@@ -76,13 +72,11 @@ Stream excelStream = assembly.GetManifestResourceStream("UWP.Data.OleTemplate.xl
 Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.OlePicture.png");
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream);
-
 //Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -105,13 +99,11 @@ FileStream excelStream = new FileStream("OleTemplate.xlsx", FileMode.Open);
 FileStream imageStream = new FileStream("OlePicture.png", FileMode.Open);
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream);
-
 //Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("OleObjectSample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -132,13 +124,11 @@ Stream excelStream = assembly.GetManifestResourceStream("OleTemplate.xlsx");
 Stream imageStream = assembly.GetManifestResourceStream("OlePicture.png");
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream);
-
 //Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.
@@ -172,13 +162,11 @@ Stream wordDocumentStream = File.Open("OleTemplate.docx", FileMode.Open);
 Stream imageStream = File.Open("OlePicture.png", FileMode.Open);
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
-
 //Set size and position of the OLE objectwordStream
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Set DisplayAsIcon as true, to open the embedded document in separate (default) application.
 oleObject.DisplayAsIcon = true;
 //Save the presentation
@@ -198,13 +186,11 @@ Dim wordDocumentStream As Stream = File.Open("OleTemplate.docx", FileMode.Open)
 Dim imageStream As Stream = File.Open("OlePicture.png", FileMode.Open)
 'Add an OLE object to the slide
 Dim oleObject As IOleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream)
-
 'Set size and position of the OLE object
 oleObject.Left = 10
 oleObject.Top = 10
 oleObject.Width = 400
 oleObject.Height = 300
-
 'Set DisplayAsIcon as true, to open the embedded document in separate (default) application.
 oleObject.DisplayAsIcon = True
 'Save the presentation
@@ -225,13 +211,11 @@ Stream wordDocumentStream = assembly.GetManifestResourceStream("UWP.Data.OleTemp
 Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.OlePicture.png");
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
-
 //Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Set DisplayAsIcon as true, to open the embedded document in separate (default) application.
 oleObject.DisplayAsIcon = true;
 //Initializes FileSavePicker
@@ -256,13 +240,11 @@ FileStream wordDocumentStream = new FileStream("OleTemplate.docx", FileMode.Open
 FileStream imageStream = new FileStream("OlePicture.png", FileMode.Open);
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
-
 //Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Set DisplayAsIcon as true, to open the embedded document in separate (default) application.
 oleObject.DisplayAsIcon = true;
 //Save the PowerPoint Presentation as stream
@@ -285,13 +267,11 @@ Stream wordDocumentStream = assembly.GetManifestResourceStream("OleTemplate.docx
 Stream imageStream = assembly.GetManifestResourceStream("OlePicture.png");
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Word.Document.12", wordDocumentStream);
-
 //Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
 oleObject.Height = 300;
-
 //Set DisplayAsIcon as true, to open the embedded document in separate (default) application.
 oleObject.DisplayAsIcon = true;
 //Create new memory stream to save Presentation.

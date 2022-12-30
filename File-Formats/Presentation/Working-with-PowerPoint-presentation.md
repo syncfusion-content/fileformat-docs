@@ -182,50 +182,49 @@ if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
     //Checks whether the selected page range is valid or not
     if (printDialog.PrinterSettings.FromPage > 0 && printDialog.PrinterSettings.ToPage <= images.Length)
     {
-	    //Updates the start page of the document to print.
-	    startPageIndex = printDialog.PrinterSettings.FromPage - 1;
-	    //Updates the end page of the document to print.
-	    endPageIndex = printDialog.PrinterSettings.ToPage;
-	    //Hooks the PrintPage event to handle be drawing pages for printing.
-	    printDialog.Document.PrintPage += new PrintPageEventHandler(PrintPageMethod);
-	    //Prints the document.
-	    printDialog.Document.Print();
+        //Updates the start page of the document to print.
+        startPageIndex = printDialog.PrinterSettings.FromPage - 1;
+        //Updates the end page of the document to print.
+        endPageIndex = printDialog.PrinterSettings.ToPage;
+        //Hooks the PrintPage event to handle be drawing pages for printing.
+        printDialog.Document.PrintPage += new PrintPageEventHandler(PrintPageMethod);
+        //Prints the document.
+        printDialog.Document.Print();
     }
 }
 private void PrintPageMethod (object sender, PrintPageEventArgs e)
 {
-	//Gets the print start page width.
-	int currentPageWidth = images[startPageIndex].Width;
-	//Gets the print start page height.
-	int currentPageHeight = images[startPageIndex].Height;
-	//Gets the visible bounds width for print.
-	int visibleClipBoundsWidth = (int)e.Graphics.VisibleClipBounds.Width;
-	//Gets the visible bounds height for print.
-	int visibleClipBoundsHeight = (int)e.Graphics.VisibleClipBounds.Height;
-	//Checks whether the page layout is landscape or portrait.
-	if (currentPageWidth > currentPageHeight)
-	{
-		//Translates the position.
-		e.Graphics.TranslateTransform(0, visibleClipBoundsHeight);
-		//Rotates the object at 270 degrees
-		e.Graphics.RotateTransform(270.0f);
-		//Draws the current page image.
-		e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight));
-	}
-	else
-		//Draws the current page image.
-		e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight));
-	//Disposes the current page image after drawing.
-	images[startPageIndex].Dispose();
-	//Increments the start page index.
-	startPageIndex++;
-	//Updates whether the document contains more pages to print or not.
-	if (startPageIndex < endPageIndex)
-		e.HasMorePages = true;
-	else
-		startPageIndex = 0;
+    //Gets the print start page width.
+    int currentPageWidth = images[startPageIndex].Width;
+    //Gets the print start page height.
+    int currentPageHeight = images[startPageIndex].Height;
+    //Gets the visible bounds width for print.
+    int visibleClipBoundsWidth = (int)e.Graphics.VisibleClipBounds.Width;
+    //Gets the visible bounds height for print.
+    int visibleClipBoundsHeight = (int)e.Graphics.VisibleClipBounds.Height;
+    //Checks whether the page layout is landscape or portrait.
+    if (currentPageWidth > currentPageHeight)
+    {
+        //Translates the position.
+        e.Graphics.TranslateTransform(0, visibleClipBoundsHeight);
+        //Rotates the object at 270 degrees
+        e.Graphics.RotateTransform(270.0f);
+        //Draws the current page image.
+        e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight));
+    }
+    else
+        //Draws the current page image.
+        e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight));
+    //Disposes the current page image after drawing.
+    images[startPageIndex].Dispose();
+    //Increments the start page index.
+    startPageIndex++;
+    //Updates whether the document contains more pages to print or not.
+    if (startPageIndex < endPageIndex)
+        e.HasMorePages = true;
+    else
+        startPageIndex = 0;
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -255,40 +254,38 @@ If printDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
         printDialog.Document.Print()
     End If
 End If
-
 Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
-'Gets the print start page width.
-Dim currentPageWidth As Integer = images(startPageIndex).Width
-'Gets the print start page height.
-Dim currentPageHeight As Integer = images(startPageIndex).Height
-'Gets the visible bounds width for print.
-Dim visibleClipBoundsWidth As Integer = CInt(e.Graphics.VisibleClipBounds.Width)
-'Gets the visible bounds height for print.
-Dim visibleClipBoundsHeight As Integer = CInt(e.Graphics.VisibleClipBounds.Height)
-'Checks whether the page layout is landscape or portrait.
-If currentPageWidth > currentPageHeight Then
-    'Translates the position.
-    e.Graphics.TranslateTransform(0, visibleClipBoundsHeight)
-    'Rotates the object at 270 degrees.
-    e.Graphics.RotateTransform(270.0F)
-    'Draws the current page image.
-    e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle (0, 0, currentPageWidth, currentPageHeight))
-Else
-    'Draws the current page image.
-    e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle (0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight))
-End If
-'Disposes the current page image after drawing.
-images(startPageIndex).Dispose()
-'Increments the start page index.
-startPageIndex += 1
-'Updates whether the document contains more pages to print or not.
-If startPageIndex < endPageIndex Then
-    e.HasMorePages = True
-Else
-    startPageIndex = 0
-End If
+    'Gets the print start page width.
+    Dim currentPageWidth As Integer = images(startPageIndex).Width
+    'Gets the print start page height.
+    Dim currentPageHeight As Integer = images(startPageIndex).Height
+    'Gets the visible bounds width for print.
+    Dim visibleClipBoundsWidth As Integer = CInt(e.Graphics.VisibleClipBounds.Width)
+    'Gets the visible bounds height for print.
+    Dim visibleClipBoundsHeight As Integer = CInt(e.Graphics.VisibleClipBounds.Height)
+    'Checks whether the page layout is landscape or portrait.
+    If currentPageWidth > currentPageHeight Then
+        'Translates the position.
+        e.Graphics.TranslateTransform(0, visibleClipBoundsHeight)
+        'Rotates the object at 270 degrees.
+        e.Graphics.RotateTransform(270.0F)
+        'Draws the current page image.
+        e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle (0, 0, currentPageWidth, currentPageHeight))
+    Else
+        'Draws the current page image.
+        e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle (0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight))
+    End If
+    'Disposes the current page image after drawing.
+    images(startPageIndex).Dispose()
+    'Increments the start page index.
+    startPageIndex += 1
+    'Updates whether the document contains more pages to print or not.
+    If startPageIndex < endPageIndex Then
+        e.HasMorePages = True
+    Else
+        startPageIndex = 0
+    End If
 End Sub
-
 {% endhighlight %}
 
 {% endtabs %}
