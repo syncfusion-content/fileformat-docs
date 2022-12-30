@@ -154,7 +154,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-a-textbox-field-to-a-new-PDF-document).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the textbox using [PdfTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextBoxField.html) class. The following code snippet explain this.
+The below code snippet illustrates how to add the textbox to an existing PDF document.
 
 {% tabs %}  
 
@@ -487,7 +487,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-combo-box-in-the-new-PDF-document).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the combo box using [PdfComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfComboBoxField.html) class. The following code snippet explain this.
+Please refer the below code snippet for adding the combo box in existing PDF document.
 
 {% tabs %} 
 
@@ -850,7 +850,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Adding-radio-button-in-new-PDF-document).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the radio button using [PdfRadioButtonListField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRadioButtonListField.html) class. The following code snippet explain this.
+The below code snippet illustrates how to add the radio button in existing PDF document.
 
 {% tabs %}  
 
@@ -1403,7 +1403,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-listbox-field-in-new-PDF-document).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the list box field using [PdfListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfListBoxField.html) class. The following code snippet explain this.
+Please refer the below code snippet for adding the list box field in existing PDF document.
 
 {% tabs %} 
 
@@ -1751,7 +1751,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-checkbox-field-in-new-PDF-document).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the check box field using [PdfCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfCheckBoxField.html) class. The following code snippet explain this.
+Please refer the below code snippet for adding the check box field in existing PDF document.
 
 {% tabs %}
 
@@ -2064,7 +2064,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-signature-field-in-a-new-PDF-document).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the signature field using [PdfSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSignatureField.html) class. The following code snippet explain this.
+Please refer the below code snippet for adding the signature field in existing PDF document.
 
 {% tabs %} 
 
@@ -2377,7 +2377,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Add-the-button-field-in-a-new-PDF-document).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to add the button field using [PdfButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfButtonField.html) class. The following code snippet explain this.
+Please refer the below code snippet for adding the button field in existing PDF document.
 
 {% tabs %}  
 
@@ -4315,7 +4315,7 @@ The static XFA document contains both the XFA and Acroform.
  
 The Essential PDF supports filling both the XFA and Acroform in a same instance (Fills the XFA form via Acroform instance) by enabling the [EnableXfaFormFill](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html#Syncfusion_Pdf_Parsing_PdfLoadedForm_EnableXfaFormFill) property available in the [PdfLoadedForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class.
 
-The following code snippet illustrates how to fill XFA forms via Acroform API
+The following code snippet illustrates how to fill XFA forms via Acroform API.
 
 {% tabs %}  
 
@@ -4589,7 +4589,7 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Forms/Removing-editing-capability-of-form-fields).
 
-Load an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class, to flatten the form fields using [PdfLoadedTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html) class. The following code snippet explain this.
+Please refer the sample for flattening the form fields in existing PDF document.
 
 {% tabs %}  
 
@@ -4728,9 +4728,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 N> The form fields will be flattened only after the PDF document is saved. 
 
-You can also flatten the form fields before saving the PDF document
+PDF provides support to Flatten a form fields before saving the PDF document using the [FlattenFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedForm.html#Syncfusion_Pdf_Parsing_PdfLoadedForm_FlattenFields).
 
-Please refer the code sample to flatten the form fields before saving the PDF document
+Please refer the code sample to flatten the form fields before saving the PDF document.
 
 {% tabs %}  
 
@@ -5566,7 +5566,7 @@ Supported form fields:
 * List box field
 * Button field
 
-The following code example illustrates how to add [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextBoxField.html#Syncfusion_Pdf_Interactive_PdfTextBoxField_ComplexScript) support for all the supported fields in PDF document.
+The following code example illustrates how to add complex script support for all the supported fields in PDF document.
 
 {% tabs %}
 
@@ -5752,7 +5752,7 @@ else
 
 {% endtabs %}
 
-You can also flatten the existing form fields with [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfTextBoxField.html#Syncfusion_Pdf_Interactive_PdfTextBoxField_ComplexScript) layout by using the following code snippet.
+You can also flatten the existing form fields with complex script layout by using the following code snippet.
 
 {% tabs %}
 
@@ -6087,7 +6087,7 @@ The following screenshot shows the enabling and disabling of form fields auto na
 
 ## Adding actions to form fields 
 
-Please refer to the [actions](/file-formats/pdf/working-with-action#adding-an-action-to-the-form-field "Working with action") section for more details
+Please refer to the [actions](/file-formats/pdf/working-with-action#adding-an-action-to-the-form-field "Working with action") section for more details.
 
 N> Essential PDF allows users to preserve the extended rights for form filling alone.
 
