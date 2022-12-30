@@ -299,7 +299,7 @@ Document properties, also known as meta data, are details about a file that desc
 
 **Built****-****in** **Document** **Properties**
 
-You can access and modify the built in document properties of a PowerPoint presentation with Essential Presentation library. The Built-in document properties of a PowerPoint presentation is represented by **IBuiltInDocumentProperties** type.
+You can access and modify the built in document properties of a PowerPoint presentation with Essential Presentation library. The Built-in document properties of a PowerPoint presentation is represented by [IBuiltInDocumentProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IBuiltInDocumentProperties.html) type.
 
 **Accessing** **and** **Modifying** **Built****-****in** **Document** **Properties**
 
@@ -421,7 +421,7 @@ else
 
 ## Custom Document properties
 
-You can create and modify the custom document properties of a PowerPoint presentation with Essential Presentation library. The collection of custom document properties in a PowerPoint presentation is represented by **ICustomDocumentProperties** object. 
+You can create and modify the custom document properties of a PowerPoint presentation with Essential Presentation library. The collection of custom document properties in a PowerPoint presentation is represented by [ICustomDocumentProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ICustomDocumentProperties.html) object. 
 
 ### Adding Custom Document properties
 
