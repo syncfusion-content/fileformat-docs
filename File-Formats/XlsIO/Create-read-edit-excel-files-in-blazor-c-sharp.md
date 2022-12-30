@@ -668,3 +668,44 @@ By executing the program, you will get the Excel file as below.
 <img src="Blazor_images/Blazor_images_Client_Output.png" alt="Output File" width="100%" Height="Auto"/>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Blazor Excel library demo](https://blazor.syncfusion.com/demos/xlsio/create-excel?theme=bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.
+
+## Read and Edit Excel file in Blazor Client-Side application
+
+The below code snippet illustrates how to read and edit an Excel file in Blazor Client-Side application.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+//Create an instance of ExcelEngine
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Instantiate the Excel application object
+  IApplication application = excelEngine.Excel;
+
+  //Set the default application version
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  //Load the existing Excel workbook into IWorkbook
+  Stream inputStream = await client.GetStreamAsync("sample-data/Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+  //Get the first worksheet in the workbook into IWorksheet
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Assign some text in a cell
+  worksheet.Range["A3"].Text = "Hello World";
+
+  //Access a cell value from Excel
+  var value = worksheet.Range["A1"].Value;
+
+  //Save the document as a stream and retrun the stream.
+  using (MemoryStream stream = new MemoryStream())
+  {
+    //Save the created Excel document to MemoryStream
+    workbook.SaveAs(stream);
+
+    //Download the excel file
+    await JS.SaveAs("Output.xlsx", stream.ToArray());
+  }
+}
+{% endhighlight %}
+{% endtabs %}
