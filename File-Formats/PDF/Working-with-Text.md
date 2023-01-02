@@ -19,9 +19,9 @@ You can add text in the new PDF document by using [DrawString](https://help.sync
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -40,7 +40,6 @@ document.Close(true);
 Dim document As New PdfDocument()
 'Add a page to the document.
 Dim page As PdfPage = document.Pages.Add()
-
 'Create PDF graphics for the page.
 Dim graphics As PdfGraphics = page.Graphics
 
@@ -62,9 +61,9 @@ document.Close(True)
 PdfDocument document = new PdfDocument()
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -87,9 +86,9 @@ Save(stream, "Output.pdf");
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -119,9 +118,9 @@ return File(stream, contentType, fileName);
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -162,9 +161,9 @@ The following code snippet illustrates how to add text in the existing PDF docum
 PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
 //Get first page from document
 PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
-
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -183,9 +182,9 @@ doc.Close(true);
 Dim doc As New PdfLoadedDocument("input.pdf")
 'Get first page from document
 Dim page As PdfLoadedPage = TryCast(doc.Pages(0), PdfLoadedPage)
-
 'Create PDF graphics for the page
 Dim graphics As PdfGraphics = page.Graphics
+
 'Set the standard font.
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
 'Draw the text.
@@ -212,9 +211,9 @@ PdfLoadedDocument doc = new PdfLoadedDocument();
 await doc.OpenAsync(file);
 //Get first page from document
 PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
-
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -237,9 +236,9 @@ FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Rea
 PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
 //Get first page from document
 PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
-
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -271,9 +270,9 @@ Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream(
 PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
 //Get first page from document
 PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
-
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
+
 //Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
@@ -3277,7 +3276,7 @@ PdfPage page = document.Pages.Add();
 
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
- //Create a new PDF standard font instance.
+//Create a new PDF standard font instance.
 PdfStandardFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
 //Set the text encoding.
 font.SetTextEncoding(Encoding.GetEncoding("Windows-1250"));

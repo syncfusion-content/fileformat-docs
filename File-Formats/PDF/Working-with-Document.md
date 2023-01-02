@@ -554,7 +554,6 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream);
 //Close the document.
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
 Save(stream, "Output.pdf");
 
@@ -590,7 +589,6 @@ document.Close(true);
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
-
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
@@ -620,7 +618,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream);
 //Close the document.
 document.Close(true);
-
 //Save the stream into pdf file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -711,7 +708,6 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream);
 //Close the document.
 document.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
 Save(stream, "Output.pdf");
 
@@ -867,7 +863,6 @@ document.DocumentInformation.Title = "Essential PDF Sample";
 
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Set the font.
@@ -897,7 +892,6 @@ document.DocumentInformation.Title = "Essential PDF Sample"
 
 'Add a page to the document.
 Dim page As PdfPage = document.Pages.Add()
-
 'Create PDF graphics for the page.
 Dim graphics As PdfGraphics = page.Graphics
 'Set the font.
@@ -928,7 +922,6 @@ document.DocumentInformation.Title = "Essential PDF Sample";
 
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Set the font.
@@ -962,7 +955,6 @@ document.DocumentInformation.Title = "Essential PDF Sample";
 
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Set the font.
@@ -1002,7 +994,6 @@ document.DocumentInformation.Title = "Essential PDF Sample";
 
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Set the font.
@@ -2152,10 +2143,9 @@ End If
 analyzer.Close()
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 //Load the PDF document as stream 
-Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");                                                                                                               
-             
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");            
 //Create a new instance for the PDF analyzer
 PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer(pdfStream);
 
@@ -2183,7 +2173,6 @@ analyzer.Close();
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Load the PDF document 
 FileStream  docStream = new  FileStream("Input.pdf", FileMode.Open, FileAccess.Read); 
-
 //Create a new instance for the PDF analyzer
 PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer(docStream);
 
@@ -2212,7 +2201,6 @@ analyzer.Close();
 {% highlight c# tabtitle="Xamarin" %}
 //Load the PDF document as stream 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-
 //Create a new instance for the PDF analyzer
 PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer(docStream);
 

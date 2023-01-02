@@ -1313,4 +1313,4 @@ return File(stream, contentType, fileName);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Remove-images-from-PDF-document). 
 
-N> 1. Essential PDF supports remove image from the existing PDF document with Syncfusion.Pdf.Imaging.Portable assembly reference in ASP.NET Core.
+N> 1. Essential PDF supports remove image from the existing PDF document with [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in ASP.NET Core.

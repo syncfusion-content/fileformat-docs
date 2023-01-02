@@ -1401,11 +1401,8 @@ PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
 //Create the PDF richmedia annotation.
 PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
 //Set properties to the annotation.
-
 richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
-
 richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
-
 //Set the richmedia content.
 Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
 PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
