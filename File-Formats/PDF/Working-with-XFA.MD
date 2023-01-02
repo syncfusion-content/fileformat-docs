@@ -1,11 +1,11 @@
 ---
 title: Working with XFA Forms | Syncfusion
-description: This section explains how to create, fill, edit and modify the forms fields in the XFA document
+description: This section explains how to create, fill, edit and modify the forms fields in the XFA document using Syncfusion .NET PDF library
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with XFA
+# Working with XFA Forms
 
 XFA stands for XML Forms Architecture, dynamic forms are based on a XML specification. Essential PDF supports both the dynamic and static XFA forms.
 
