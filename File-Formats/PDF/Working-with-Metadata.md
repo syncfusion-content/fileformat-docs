@@ -2056,21 +2056,15 @@ Refer to the following code example to extract the image metadata from a PDF ima
 
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-
 //Load the first page
-
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
 //Extracts all the images info from first page
-
 PdfImageInfo[] imagesInfo= pageBase.ImagesInfo;
-
 //Extracts the XMP metadata from PDF image
-
 XmpMetadata metadata = imagesInfo[0].XmpMetadata;
 
 //Close the document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -2078,23 +2072,16 @@ loadedDocument.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Load an existing PDF
-
 Dim loadedDocument As New PdfLoadedDocument(fileName)
-
 'Load the first page
-
 Dim pageBase As PdfPageBase = loadedDocument.Pages(0)
 
 'Extracts all the images info from first page
-
 Dim imagesInfo As PdfImageInfo[] = pageBase.ImagesInfo
-
 'Extracts the XMP metadata from PDF image
-
 XmpMetadata metadata = imagesInfo[0].XmpMetadata;
 
 'Close the document
-
 loadedDocument.Close(True)
 
 {% endhighlight %}
@@ -2108,25 +2095,17 @@ loadedDocument.Close(True)
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Load an existing PDF
-
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
 //Load the first page
-
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
 //Extracts all the images info from first page
-
 PdfImageInfo[] imagesInfo= pageBase.GetImagesInfo();
-
 //Extracts the XMP metadata from PDF image
-
 XmpMetadata metadata = imagesInfo[0].XmpMetadata;
 
 //Close the document
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
