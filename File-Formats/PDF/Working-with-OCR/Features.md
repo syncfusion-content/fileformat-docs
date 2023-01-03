@@ -248,7 +248,7 @@ End Using
 
 The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html#Syncfusion_OCRProcessor_OCRSettings_TesseractVersion) property is used to switch the tesseract version to 4.0. By default, OCR will be performed with tesseract version 3.02.
 
-N> In ASP.NET Core platform, the default and starting supported version of tesserct is 4.0. So we did not have the property called ``TesseractVersion`` in ASP.NET Core platform. 
+N> In ASP.NET Core platform, the default and starting supported version of tesseract is 4.0. So we did not have the property called ``TesseractVersion`` in ASP.NET Core platform. 
 
 The following code sample explains the OCR processor with Tesseract version 4.0 for PDF documents.
  
