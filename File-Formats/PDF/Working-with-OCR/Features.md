@@ -175,7 +175,7 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 
 The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html#Syncfusion_OCRProcessor_OCRSettings_TesseractVersion) property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
 
-N> The starting supported version of Tesserct in ASP.NET Core is 4.0. So the lower tesseract versions 3.02 and 3.05 are not supported and we don't have the property called ``TesseractVersion`` in ASP.NET Core platform.
+N> The starting supported version of tesseract in ASP.NET Core is 4.0. So the lower tesseract versions 3.02 and 3.05 are not supported and we don't have the property called ``TesseractVersion`` in ASP.NET Core platform.
 
 The following code sample demonstrates the OCR processor with Tesseract version 3.05 for PDF documents.
  
@@ -633,7 +633,7 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 
 Enabling native calls will not launch any temporary process for OCR processing; instead, it will invoke the native calls.
 
-N> The starting supported version of tesserct in ASP.NET Core is 4.0. So, the lower tesseract versions 3.02 and 3.05 are not supported and we don't have the property called ``TesseractVersion`` in ASP.NET Core platform. 
+N> The starting supported version of tesseract in ASP.NET Core is 4.0. So, the lower tesseract versions 3.02 and 3.05 are not supported and we don't have the property called ``TesseractVersion`` in ASP.NET Core platform. 
 
 ### Tesseract 3.02
 
