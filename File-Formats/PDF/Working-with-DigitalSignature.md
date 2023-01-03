@@ -1799,33 +1799,33 @@ loadedDocument.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-//Initialize the Windows store.
+'Initialize the Windows store.
 Dim store As X509Store = New X509Store("MY", StoreLocation.CurrentUser)
 store.Open(OpenFlags.[ReadOnly] Or OpenFlags.OpenExistingOnly)
-//Find the certificate using thumb print.
+'Find the certificate using thumb print.
 Dim collection As X509Certificate2Collection = CType(store.Certificates, X509Certificate2Collection)
 Dim fcollection As X509Certificate2Collection = CType(collection.Find(X509FindType.FindByThumbprint, "F85E1C5D93115CA3F969DA3ABC8E0E9547FCCF5A", True), X509Certificate2Collection)
 Dim digitalID As X509Certificate2 = fcollection(0)
 
-//Load existing PDF document.
+'Load existing PDF document.
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
-//Load X509Certificate2.
+'Load X509Certificate2.
 Dim certificate As PdfCertificate = New PdfCertificate(digitalID)
-//Create a Revision 2 signature with loaded digital ID.
+'Create a Revision 2 signature with loaded digital ID.
 Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedDocument.Pages(0), certificate, "DigitalSignature")
-//Changing the digital signature standard and hashing algorithm.
+'Changing the digital signature standard and hashing algorithm.
 signature.Settings.CryptographicStandard = CryptographicStandard.CADES
 signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA512
 
-//Save the PDF document
+'Save the PDF document
 loadedDocument.Save("WindowsStore.pdf")
-//Close the document.
+'Close the document.
 loadedDocument.Close(True)
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 
-//Essential PDF supports Digitally sign a PDF document using Windows certificate store only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+//Essential PDF supports Digitally sign a PDF document using Windows certificate store only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
 {% endhighlight %}
 

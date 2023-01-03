@@ -11,7 +11,6 @@ The HTML to PDF converter is a .NET library for converting webpages, SVG, MHTML,
 
 Syncfusion HTML-to-PDF converter will work seamlessly in various platforms like Azure Cloud or web apps, Azure Functions, Amazon Web Service (AWS), Docker, WinForms, WPF, ASP.NET MVC, ASP.NET Core with Windows, Linux, and macOS.
 
-
 ## Key features for HTML Converter
 
 * Converts any [webpage to PDF](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-pdf).
@@ -25,7 +24,7 @@ Syncfusion HTML-to-PDF converter will work seamlessly in various platforms like 
 * Supports HTML5, CSS3, SVG, and Web fonts.
 * Converts any [HTML to an image](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-image).
 * Converts any [SVG to image](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-image).
-* Supports accessing HTML pages using both {HTTP POST and GET](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#http-get-and-post) methods.
+* Supports accessing HTML pages using both [HTTP POST and GET](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#http-get-and-post) methods.
 * Supports [HTTP cookies](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#form-authentication).
 * Supports [cookies-based form authentication](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#form-authentication).
 * Thread safe.
@@ -40,7 +39,6 @@ Syncfusion HTML-to-PDF converter will work seamlessly in various platforms like 
 Include the HTML to PDF converter in your project using two approaches. 
 * NuGet packages (Recommended)
 * Assemblies.  
-
 
 ### NuGet Packages Required (Recommended)
 
@@ -81,7 +79,7 @@ N> The HTML to PDF converter library internally uses the Blink rendering engine 
 </tr>
 <tr>
 <td>
-(.NET Core, .NET 5, .NET 6) Aws
+(.NET Core, .NET 5, .NET 6) AWS
 </td>
 <td>
 {{'[Syncfusion.HtmlToPdfConverter.Net.Aws.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/)'| markdownify }}
@@ -185,51 +183,51 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
 <b>Steps to convert HTML to PDF in .NET application</b>
 
 Step 1: Create a new .NET console application.
-   <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample1.png" alt="Create .net core console sample" width="100%" Height="Auto"/>
+<img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample1.png" alt="Create .net core console sample" width="100%" Height="Auto"/>
 
-   <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample2.png" alt="Select target .net core version" width="100%" Height="Auto"/>
+<img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample2.png" alt="Select target .net core version" width="100%" Height="Auto"/>
 
 Step 2: Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as a reference to your .NET application from [NuGet.org](https://www.nuget.org/). 
-   <img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample3.png" alt="Install HTML to PDF converter .NET package" width="100%" Height="Auto"/>
+<img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample3.png" alt="Install HTML to PDF converter .NET package" width="100%" Height="Auto"/>
 
 Step 3: Include the following namespace in your class file. 
 
-   {% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C#" %}
 
-   using Syncfusion.Pdf;
-   using Syncfusion.HtmlConverter;
+using Syncfusion.Pdf;
+using Syncfusion.HtmlConverter;
 
-   {% endhighlight %}
+{% endhighlight %}
 
 Step 4: Use the following code sample to convert the URL to PDF in the program.cs.
 
-   {% tabs %}
+{% tabs %}
 
-   {% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C#" %}
 
-   //Initialize HTML to PDF converter.
-   HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-   BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-   //Set Blink viewport size.
-   blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
-   //Assign Blink converter settings to HTML converter.
-   htmlConverter.ConverterSettings = blinkConverterSettings;
-   //Convert URL to PDF document.
-   PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
-   //Create a filestream.
-   FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-   //Save and close the PDF document.
-   document.Save(fileStream);
-   document.Close(true);
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+//Create a filestream.
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
 
-   {% endhighlight %}
+{% endhighlight %}
 
-   {% endtabs %}
+{% endtabs %}
 
-   By executing the program, you will get the PDF document as follows.
-   <img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="htmltopdfoutput" width="100%" Height="Auto"/>
+By executing the program, you will get the PDF document as follows.
+<img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="htmltopdfoutput" width="100%" Height="Auto"/>
 
-   A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/.NET).
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/.NET).
 
 ### Convert HTML to PDF in Linux
 
@@ -271,7 +269,7 @@ Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting) section f
 
 By default, the PDF document generated with the WebKit rendering engine comes with the following warning message.
 
-![WebKit Warning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/WebKitWarning.png)
+<img src="Convert-HTML-To-PDF/htmlconversion_images/WebKitWarning.png" alt="WebKitWarning" width="100%" Height="Auto"/>
 
 Please refer to the below code snippet to use the DisableWebKitWarning API to remove the default WebKit warning message from the PDF document.
 
@@ -281,24 +279,18 @@ Please refer to the below code snippet to use the DisableWebKitWarning API to re
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-
 //Initialize the WebKit converter settings
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
 //Disable WebKit warning message
 settings.DisableWebKitWarning = true;
-
 //Assign WebKit settings to HTML converter
 htmlConverter.ConverterSettings = settings;
-
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
 FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
 //Save and close the PDF document 
 document.Save(fileStream);
-
 document.Close(true);
 
 {% endhighlight %}
@@ -306,21 +298,16 @@ document.Close(true);
 {% highlight vb.net tabtitle="VB.NET" %}
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-
 Dim settings As New WebKitConverterSettings()
-
 'Disable Default WebKit Warning Message
 settings.DisableWebKitWarning = true
-
 'Assign WebKit settings to HTML converter
 htmlConverter.ConverterSettings = settings
-
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 
 'Save and close the PDF document 
 document.Save("Output.pdf")
-
 document.Close(True)
 
 {% endhighlight %}
@@ -337,8 +324,7 @@ N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-ht
 
 By default, the PDF document generated with the IE rendering engine comes with the following warning message.
 
-![IEWarning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png)
-
+<img src="Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png" alt="IEWarning" width="100%" Height="Auto"/>
 Please refer to the below code snippet to use the DisableIEWarning API to remove the default IE warning from the PDF document.
 
 {% tabs %}
@@ -347,46 +333,34 @@ Please refer to the below code snippet to use the DisableIEWarning API to remove
 
 //Initialize the HTML to PDF converter 
  HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.IE);
-
 IEConverterSettings settings = new IEConverterSettings();
-
 //Disable Default IE warning message.
-settings.DisableIEWarning = true;
-            
+settings.DisableIEWarning = true;      
 //Assign IE settings to HTML converter
 htmlConverter.ConverterSettings = settings;
-
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document 
 document.Save("Output.pdf");
-
 document.Close(true);
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
-
 Dim settings As New IEConverterSettings()
-
 'Disable Default IE Warning Message
 settings.DisableIEWarning = true
-
 'Assign IE settings to HTML converter
 htmlConverter.ConverterSettings = settings
-
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 
 'Save and close the PDF document 
 document.Save("Output.pdf")
-
 document.Close(True)
-
 
 {% endhighlight %}
 
