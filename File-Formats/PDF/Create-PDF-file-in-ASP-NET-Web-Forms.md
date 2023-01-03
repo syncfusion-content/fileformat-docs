@@ -71,7 +71,7 @@ document.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
 
 {% endhighlight %}
 
-A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1393143578.zip )
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET/Create-a-new-DPF-document).
 
 By executing the program, you will get the PDF document as follows.
 <img src="GettingStarted_images/pdf-generation-output.png" alt="Getting started PDF output" width="100%" Height="Auto"/>

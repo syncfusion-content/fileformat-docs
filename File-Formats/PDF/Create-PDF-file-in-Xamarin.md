@@ -134,7 +134,7 @@ Step 8: Download the helper files from this [link](https://www.syncfusion.com/do
 
 Step 9: Compile and execute the application. This will creates a simple PDF document.
 
-Download the complete working sample from [Create-PDF-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1091535413)
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreatePDFDocument).
 
 By executing the program, you will get the PDF document as follows.
 <img src="GettingStarted_images/pdf-generation-output.png" alt="Xamarin PDF output" width="100%" Height="Auto"/>

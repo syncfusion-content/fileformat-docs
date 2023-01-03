@@ -84,7 +84,7 @@ using (PdfDocument document = new PdfDocument())
 
 {% endhighlight %}
 
-A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-123272332).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Create-new-PDF-document).
 
 By executing the program, you will get the PDF document as follows.
 <img src="GettingStarted_images/pdf-generation-output.png" alt="Output document screenshot" width="100%" Height="Auto"/>
