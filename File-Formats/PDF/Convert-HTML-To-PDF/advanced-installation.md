@@ -16,17 +16,15 @@ You can download and install the HTML to PDF converter for Windows, Linux and Ma
 
 Get the required assemblies and demos for converting HTML to PDF by installing the HTML converter installer for windows. 
 
-![HTML to PDF converter for Windows download in add-on section](htmlconversion_images/windowshtmlconverteraddon.png)
-
+<img src="htmlconversion_images/windowshtmlconverteraddon.png" alt="HTML to PDF converter for Windows download in add-on section" width="100%" Height="Auto"/>
 ## Linux
 
 Get the required assemblies and demos for converting HTML to PDF by installing the HTML converter installer for Linux. 
 
-![HTML to PDF converter for Linux download in add-on section](htmlconversion_images/linuxhtmlconverteraddon.png)
-
+<img src="htmlconversion_images/linuxhtmlconverteraddon.png" alt="HTML to PDF converter for Linux download in add-on section" width="100%" Height="Auto"/>
 
 ## Mac
 
 Get the required assemblies and demos for converting HTML to PDF by installing the HTML converter installer for Mac. 
 
-![HTML to PDF converter for Mac download in add-on section](htmlconversion_images/machtmlconverteraddon.png)
+<img src="htmlconversion_images/machtmlconverteraddon.png" alt="HTML to PDF converter for Mac download in add-on section" width="100%" Height="Auto"/>
