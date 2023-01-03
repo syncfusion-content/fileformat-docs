@@ -8,7 +8,7 @@ keywords: PowerPoint, slide, table, format-table, rows, columns, pptx
 ---
 # Working with PowerPoint Tables
 
-A [table](https://www.syncfusion.com/powerpoint-framework/net/powerpoint-library/powerpoint-tables) in PowerPoint presentation is used to arrange document content in rows and columns. `ITable` instance represents a table in PowerPoint presentation. A table must contain at least one row.
+A [table](https://www.syncfusion.com/powerpoint-framework/net/powerpoint-library/powerpoint-tables) in PowerPoint presentation is used to arrange document content in rows and columns. [ITable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ITable.html) instance represents a table in PowerPoint presentation. A table must contain at least one row.
 
 N> Adding more than 75 rows/columns not supported in the PowerPoint presentation using Microsoft PowerPoint application. It shows alert when you attempt to insert a table with more than 75 rows/columns, which is one of the behaviors of Microsoft PowerPoint and Essential Presentation does the same.
 

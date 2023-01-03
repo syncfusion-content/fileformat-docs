@@ -24,55 +24,43 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
 
-{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO.DLS;
 using System;
 using System.ComponentModel;
 using System.Windows;
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 4: Add a new button in **MainWindow.xaml** to create Word file as follows.
 
-{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 <Button Click="btnCreate_Click" Margin="0,0,10,12" VerticalAlignment="Bottom" Height="30" BorderBrush="LightBlue" HorizontalAlignment="Right" Width="180">
-<Button.Background>
-    <LinearGradientBrush EndPoint="0.5,-0.04" StartPoint="0.5,1.04">
-        <GradientStop Color="#FFD9E9F7" Offset="0"/>
-        <GradientStop Color="#FFEFF8FF" Offset="1"/>
-    </LinearGradientBrush>
-</Button.Background>
-<StackPanel Orientation="Horizontal" Height="23" Margin="0,0,0,-2.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100">
-    <Image Name="image2" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-    <TextBlock Text="Create Document" Height="15.96" Width="126" Margin="0,4,0,3" />
-</StackPanel>
+    <Button.Background>
+        <LinearGradientBrush EndPoint="0.5,-0.04" StartPoint="0.5,1.04">
+            <GradientStop Color="#FFD9E9F7" Offset="0"/>
+            <GradientStop Color="#FFEFF8FF" Offset="1"/>
+        </LinearGradientBrush>
+    </Button.Background>
+    <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,0,-2.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100">
+        <Image Name="image2" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Text="Create Document" Height="15.96" Width="126" Margin="0,4,0,3" />
+    </StackPanel>
 </Button>
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 5: Add the following code in **btnCreate_Click** to **create Word document** with simple text.
 
-{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 // Creating a new document.
 WordDocument document = new WordDocument();
 //Adding a new section to the document.
@@ -100,8 +88,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 IWPicture picture = paragraph.AppendPicture(new Bitmap("AdventureCycle.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -147,12 +135,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalA
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -179,7 +167,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -232,7 +219,6 @@ paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph = table[1, 1].AddParagraph();
 paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.LineSpacing = 12f;
-
 //Appends picture to the paragraph.
 picture = paragraph.AppendPicture(new Bitmap("Mountain-300.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -286,12 +272,9 @@ section.AddParagraph();
 
 //Saves the Word document
 document.Save("Sample.docx");
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WPF).
 

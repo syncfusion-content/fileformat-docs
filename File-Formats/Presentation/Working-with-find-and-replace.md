@@ -21,39 +21,39 @@ You can find text in a PowerPoint presentation and replace it with other text.
 
 The following code example illustrates how to find all occurrences of a particular text and replace it with other text in a PowerPoint presentation.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	//Finds all the occurrences of a particular text in the PowerPoint presentation
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the Presentation	
-	pptxDoc.Save("Output.pptx");
+    //Finds all the occurrences of a particular text in the PowerPoint presentation
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the Presentation	
+    pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	'Finds all the occurrences of a particular text in the PowerPoint presentation
-	Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", False, False)
-	For Each textSelection As ITextSelection In textSelections
-		'Gets the found text as a single text part
-		Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
-		'Replaces the text
-		textPart.Text = "Service"
-	Next
-	'Saves the Presentation	
-	pptxDoc.Save("Output.pptx")
+    'Finds all the occurrences of a particular text in the PowerPoint presentation
+    Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", False, False)
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text as a single text part
+        Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
+        'Replaces the text
+        textPart.Text = "Service"
+    Next
+    'Saves the Presentation	
+    pptxDoc.Save("Output.pptx")
 End Using
 {% endhighlight %}
 
@@ -70,10 +70,10 @@ IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -91,22 +91,22 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	//Finds all the occurrences of a particular text in the PowerPoint presentation
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the PowerPoint Presentation as a stream
-	FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-	pptxDoc.Save(outputStream);
-	//Releases all resources of the stream
-	outputStream.Dispose();
-	//Closes the Presentation instance
-	pptxDoc.Close();
+    //Finds all the occurrences of a particular text in the PowerPoint presentation
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the PowerPoint Presentation as a stream
+    FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+    pptxDoc.Save(outputStream);
+    //Releases all resources of the stream
+    outputStream.Dispose();
+    //Closes the Presentation instance
+    pptxDoc.Close();
 }
 {% endhighlight %}
 
@@ -120,10 +120,10 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Creates a new memory stream to save a Presentation.
 MemoryStream stream = new MemoryStream();
@@ -134,12 +134,12 @@ pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ### Match case
 
@@ -147,43 +147,43 @@ You can find and replace the text by matching the case also.
 
 The following code example illustrates how to find all occurrences of a particular text by matching the case.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	bool matchCase = true;
-	bool wholeWord = false;
-	//Finds all the occurrences of a particular text which matches the given casing
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the Presentation	
-	pptxDoc.Save("Output.pptx");
+    bool matchCase = true;
+    bool wholeWord = false;
+    //Finds all the occurrences of a particular text which matches the given casing
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the Presentation	
+    pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	Dim matchCase = True
-	Dim wholeWord = False
-	'Finds all the occurrences of a particular text which matches the given casing
-	Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", matchCase, wholeWord)
-	For Each textSelection As ITextSelection In textSelections
-		'Gets the found text as a single text part
-		Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
-		'Replaces the text
-		textPart.Text = "Service"
-	Next
-	'Saves the Presentation	
-	pptxDoc.Save("Output.pptx")
+    Dim matchCase = True
+    Dim wholeWord = False
+    'Finds all the occurrences of a particular text which matches the given casing
+    Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", matchCase, wholeWord)
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text as a single text part
+        Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
+        'Replaces the text
+        textPart.Text = "Service"
+    Next
+    'Saves the Presentation	
+    pptxDoc.Save("Output.pptx")
 End Using
 {% endhighlight %}
 
@@ -202,10 +202,10 @@ bool wholeWord = false;
 ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -223,24 +223,24 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	bool matchCase = true;
-	bool wholeWord = false;
-	//Finds all the occurrences of a particular text which matches the given casing
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the PowerPoint Presentation as a stream
-	FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-	pptxDoc.Save(outputStream);
-	//Releases all resources of the stream
-	outputStream.Dispose();
-	//Closes the Presentation instance
-	pptxDoc.Close();
+    bool matchCase = true;
+    bool wholeWord = false;
+    //Finds all the occurrences of a particular text which matches the given casing
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the PowerPoint Presentation as a stream
+    FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+    pptxDoc.Save(outputStream);
+    //Releases all resources of the stream
+    outputStream.Dispose();
+    //Closes the Presentation instance
+    pptxDoc.Close();
 }
 {% endhighlight %}
 
@@ -256,10 +256,10 @@ bool wholeWord = false;
 ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Creates a new memory stream to save a Presentation.
 MemoryStream stream = new MemoryStream();
@@ -270,12 +270,12 @@ pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ### Whole words only
 
@@ -289,37 +289,37 @@ The following code example illustrates how to find all occurrences of a particul
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	bool matchCase = false;
-	bool wholeWord = true;
-	//Finds all the occurrences of a given whole word
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the Presentation	
-	pptxDoc.Save("Output.pptx");
+    bool matchCase = false;
+    bool wholeWord = true;
+    //Finds all the occurrences of a given whole word
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the Presentation
+    pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	Dim matchCase = False
-	Dim wholeWord = True
-	'Finds all the occurrences of a given whole word
-	Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", matchCase, wholeWord)
-	For Each textSelection As ITextSelection In textSelections
-		'Gets the found text as a single text part
-		Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
-		'Replaces the text
-		textPart.Text = "Service"
-	Next
-	'Saves the Presentation	
-	pptxDoc.Save("Output.pptx")
+    Dim matchCase = False
+    Dim wholeWord = True
+    'Finds all the occurrences of a given whole word
+    Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", matchCase, wholeWord)
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text as a single text part
+        Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
+        'Replaces the text
+        textPart.Text = "Service"
+    Next
+    'Saves the Presentation
+    pptxDoc.Save("Output.pptx")
 End Using
 {% endhighlight %}
 
@@ -338,10 +338,10 @@ bool wholeWord = true;
 ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -359,24 +359,24 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	bool matchCase = false;
-	bool wholeWord = true;
-	//Finds all the occurrences of a given whole word
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the PowerPoint Presentation as a stream
-	FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-	pptxDoc.Save(outputStream);
-	//Releases all resources of the stream
-	outputStream.Dispose();
-	//Closes the Presentation instance
-	pptxDoc.Close();
+    bool matchCase = false;
+    bool wholeWord = true;
+    //Finds all the occurrences of a given whole word
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the PowerPoint Presentation as a stream
+    FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+    pptxDoc.Save(outputStream);
+    //Releases all resources of the stream
+    outputStream.Dispose();
+    //Closes the Presentation instance
+    pptxDoc.Close();
 }
 {% endhighlight %}
 
@@ -392,10 +392,10 @@ bool wholeWord = true;
 ITextSelection[] textSelections = pptxDoc.FindAll("product", matchCase, wholeWord);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Creates a new memory stream to save a Presentation.
 MemoryStream stream = new MemoryStream();
@@ -406,12 +406,12 @@ pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ### Find and replace the first occurrence
 
@@ -419,34 +419,34 @@ You can find only the first occurrence of the text and replace it with other tex
 
 The following code example illustrates how to find the first occurrence of particular text and replace it with other text.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	//Finds the first occurrence of a particular text in the PowerPoint presentation
-	ITextSelection textSelection = pptxDoc.Find("product", false, false);
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
-	//Saves the Presentation	
-	pptxDoc.Save("Output.pptx");
+    //Finds the first occurrence of a particular text in the PowerPoint presentation
+    ITextSelection textSelection = pptxDoc.Find("product", false, false);
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
+    //Saves the Presentation	
+    pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	'Finds the first occurrence of a particular text in the PowerPoint presentation
-	Dim textSelection As ITextSelection = pptxDoc.Find("product", False, False)
-	'Gets the found text as a single text part
-	Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
-	'Replaces the text
-	textPart.Text = "Service"
-	'Saves the Presentation	
-	pptxDoc.Save("Output.pptx")
+    'Finds the first occurrence of a particular text in the PowerPoint presentation
+    Dim textSelection As ITextSelection = pptxDoc.Find("product", False, False)
+    'Gets the found text as a single text part
+    Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
+    'Replaces the text
+    textPart.Text = "Service"
+    'Saves the Presentation	
+    pptxDoc.Save("Output.pptx")
 End Using
 {% endhighlight %}
 
@@ -481,19 +481,19 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	//Finds the first occurrence of a particular text in the PowerPoint presentation
-	ITextSelection textSelection = pptxDoc.Find("product", false, false);
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
-	//Saves the PowerPoint Presentation as a stream
-	FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-	pptxDoc.Save(outputStream);
-	//Releases all resources of the stream
-	outputStream.Dispose();
-	//Closes the Presentation instance
-	pptxDoc.Close();
+    //Finds the first occurrence of a particular text in the PowerPoint presentation
+    ITextSelection textSelection = pptxDoc.Find("product", false, false);
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
+    //Saves the PowerPoint Presentation as a stream
+    FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+    pptxDoc.Save(outputStream);
+    //Releases all resources of the stream
+    outputStream.Dispose();
+    //Closes the Presentation instance
+    pptxDoc.Close();
 }
 {% endhighlight %}
 
@@ -518,12 +518,12 @@ pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ## Find and replace in specific slide
 
@@ -531,41 +531,41 @@ You can find all occurrences of a text in a specific PowerPoint slide (slide, no
 
 The following code example illustrates how to find all occurrences of a particular text and replace them with other text in a specific slide.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	ISlide slide = pptxDoc.Slides[0];
-	//Finds all the occurrences of a particular text in the specific slide
-	ITextSelection[] textSelections = slide.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the Presentation	
-	pptxDoc.Save("Output.pptx");
+    ISlide slide = pptxDoc.Slides[0];
+    //Finds all the occurrences of a particular text in the specific slide
+    ITextSelection[] textSelections = slide.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the Presentation	
+    pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	Dim slide As ISlide = pptxDoc.Slides(0)
-	'Finds all the occurrences of a particular text in the specific slide
-	Dim textSelections As ITextSelection() = slide.FindAll("product", False, False)
-	For Each textSelection As ITextSelection In textSelections
-		'Gets the found text as a single text part
-		Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
-		'Replaces the text
-		textPart.Text = "Service"
-	Next
-	'Saves the Presentation	
-	pptxDoc.Save("Output.pptx")
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    'Finds all the occurrences of a particular text in the specific slide
+    Dim textSelections As ITextSelection() = slide.FindAll("product", False, False)
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text as a single text part
+        Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
+        'Replaces the text
+        textPart.Text = "Service"
+    Next
+    'Saves the Presentation	
+    pptxDoc.Save("Output.pptx")
 End Using
 {% endhighlight %}
 
@@ -583,10 +583,10 @@ ISlide slide = pptxDoc.Slides[0];
 ITextSelection[] textSelections = slide.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -604,23 +604,23 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	ISlide slide = pptxDoc.Slides[0];
-	//Finds all the occurrences of a particular text in the specific slide
-	ITextSelection[] textSelections = slide.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text as a single text part
-		ITextPart textPart = textSelection.GetAsOneTextPart();
-		//Replaces the text
-		textPart.Text = "Service";
-	}
-	//Saves the PowerPoint Presentation as a stream
-	FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-	pptxDoc.Save(outputStream);
-	//Releases all resources of the stream
-	outputStream.Dispose();
-	//Closes the Presentation instance
-	pptxDoc.Close();
+    ISlide slide = pptxDoc.Slides[0];
+    //Finds all the occurrences of a particular text in the specific slide
+    ITextSelection[] textSelections = slide.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text
+        textPart.Text = "Service";
+    }
+    //Saves the PowerPoint Presentation as a stream
+    FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+    pptxDoc.Save(outputStream);
+    //Releases all resources of the stream
+    outputStream.Dispose();
+    //Closes the Presentation instance
+    pptxDoc.Close();
 }
 {% endhighlight %}
 
@@ -635,10 +635,10 @@ ISlide slide = pptxDoc.Slides[0];
 ITextSelection[] textSelections = slide.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text as a single text part
-	ITextPart textPart = textSelection.GetAsOneTextPart();
-	//Replaces the text
-	textPart.Text = "Service";
+    //Gets the found text as a single text part
+    ITextPart textPart = textSelection.GetAsOneTextPart();
+    //Replaces the text
+    textPart.Text = "Service";
 }
 //Creates a new memory stream to save a Presentation.
 MemoryStream stream = new MemoryStream();
@@ -654,7 +654,7 @@ else
 	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ## Find and highlight in PowerPoint presentation
 
@@ -662,42 +662,42 @@ else
 
 The following code example illustrates how to find all the occurrences of a particular text and highlight it.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	//Finds all the occurrences of a particular text in the PowerPoint presentation
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text containing text parts
-		foreach (ITextPart textPart in textSelection.GetTextParts())
-		{
-			//Sets highlight color
-			textPart.Font.HighlightColor = ColorObject.Yellow;
-		}
-	}
-	//Saves the Presentation	
-	pptxDoc.Save("Output.pptx");
+    //Finds all the occurrences of a particular text in the PowerPoint presentation
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text containing text parts
+        foreach (ITextPart textPart in textSelection.GetTextParts())
+        {
+            //Sets highlight color
+            textPart.Font.HighlightColor = ColorObject.Yellow;
+        }
+    }
+    //Saves the Presentation	
+    pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	'Finds all the occurrences of a particular text in the PowerPoint presentation
-	Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", False, False)
-	For Each textSelection As ITextSelection In textSelections
-		'Gets the found text containing text parts
-		For Each textPart As ITextPart In textSelection.GetTextParts()
-			'Sets highlight color
-			textPart.Font.HighlightColor = ColorObject.Yellow
-		Next
-	Next
-	'Saves the Presentation	
-	pptxDoc.Save("Output.pptx")
+    'Finds all the occurrences of a particular text in the PowerPoint presentation
+    Dim textSelections As ITextSelection() = pptxDoc.FindAll("product", False, False)
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text containing text parts
+        For Each textPart As ITextPart In textSelection.GetTextParts()
+            'Sets highlight color
+            textPart.Font.HighlightColor = ColorObject.Yellow
+        Next
+    Next
+    'Saves the Presentation	
+    pptxDoc.Save("Output.pptx")
 End Using
 {% endhighlight %}
 
@@ -714,12 +714,12 @@ IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text containing text parts
-	foreach (ITextPart textPart in textSelection.GetTextParts())
-	{
-		//Sets highlight color
-		textPart.Font.HighlightColor = ColorObject.Yellow;
-	}
+    //Gets the found text containing text parts
+    foreach (ITextPart textPart in textSelection.GetTextParts())
+    {
+        //Sets highlight color
+        textPart.Font.HighlightColor = ColorObject.Yellow;
+    }
 }
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -737,24 +737,24 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	//Finds all the occurrences of a particular text in the PowerPoint presentation
-	ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text containing text parts
-		foreach (ITextPart textPart in textSelection.GetTextParts())
-		{
-			//Sets highlight color
-			textPart.Font.HighlightColor = ColorObject.Yellow;
-		}
-	}
-	//Saves the PowerPoint Presentation as a stream
-	FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-	pptxDoc.Save(outputStream);
-	//Releases all resources of the stream
-	outputStream.Dispose();
-	//Closes the Presentation instance
-	pptxDoc.Close();
+    //Finds all the occurrences of a particular text in the PowerPoint presentation
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text containing text parts
+        foreach (ITextPart textPart in textSelection.GetTextParts())
+        {
+            //Sets highlight color
+            textPart.Font.HighlightColor = ColorObject.Yellow;
+        }
+    }
+    //Saves the PowerPoint Presentation as a stream
+    FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+    pptxDoc.Save(outputStream);
+    //Releases all resources of the stream
+    outputStream.Dispose();
+    //Closes the Presentation instance
+    pptxDoc.Close();
 }
 {% endhighlight %}
 
@@ -768,12 +768,12 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text containing text parts
-	foreach (ITextPart textPart in textSelection.GetTextParts())
-	{
-		//Sets highlight color
-		textPart.Font.HighlightColor = ColorObject.Yellow;
-	}
+    //Gets the found text containing text parts
+    foreach (ITextPart textPart in textSelection.GetTextParts())
+    {
+        //Sets highlight color
+        textPart.Font.HighlightColor = ColorObject.Yellow;
+    }
 }
 //Creates a new memory stream to save a Presentation.
 MemoryStream stream = new MemoryStream();
@@ -784,12 +784,12 @@ pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ## Find and highlight in a specific slide
 
@@ -797,44 +797,44 @@ You can find all the occurrences of a text in a specific PowerPoint slide (slide
 
 The following code example illustrates how to find all the occurrences of a particular text and highlight it in specific slide.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	ISlide slide = pptxDoc.Slides[0];
-	//Finds all the occurrences of a particular text in the specific slide
-	ITextSelection[] textSelections = slide.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text containing text parts
-		foreach (ITextPart textPart in textSelection.GetTextParts())
-		{
-			//Sets highlight color
-			textPart.Font.HighlightColor = ColorObject.Yellow;
-		}
-	}
-	//Saves the Presentation	
-	pptxDoc.Save("Output.pptx");
+    ISlide slide = pptxDoc.Slides[0];
+    //Finds all the occurrences of a particular text in the specific slide
+    ITextSelection[] textSelections = slide.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text containing text parts
+        foreach (ITextPart textPart in textSelection.GetTextParts())
+        {
+            //Sets highlight color
+            textPart.Font.HighlightColor = ColorObject.Yellow;
+        }
+    }
+    //Saves the Presentation	
+    pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-	Dim slide As ISlide = pptxDoc.Slides(0)
-	'Finds all the occurrences of a particular text in the specific slide
-	Dim textSelections As ITextSelection() = slide.FindAll("product", False, False)
-	For Each textSelection As ITextSelection In textSelections
-		'Gets the found text containing text parts
-		For Each textPart As ITextPart In textSelection.GetTextParts()
-			'Sets highlight color
-			textPart.Font.HighlightColor = ColorObject.Yellow
-		Next
-	Next
-	'Saves the Presentation	
-	pptxDoc.Save("Output.pptx")
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    'Finds all the occurrences of a particular text in the specific slide
+    Dim textSelections As ITextSelection() = slide.FindAll("product", False, False)
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text containing text parts
+        For Each textPart As ITextPart In textSelection.GetTextParts()
+            'Sets highlight color
+            textPart.Font.HighlightColor = ColorObject.Yellow
+        Next
+    Next
+    'Saves the Presentation	
+    pptxDoc.Save("Output.pptx")
 End Using
 {% endhighlight %}
 
@@ -852,12 +852,12 @@ ISlide slide = pptxDoc.Slides[0];
 ITextSelection[] textSelections = slide.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text containing text parts
-	foreach (ITextPart textPart in textSelection.GetTextParts())
-	{
-		//Sets highlight color
-		textPart.Font.HighlightColor = ColorObject.Yellow;
-	}
+    //Gets the found text containing text parts
+    foreach (ITextPart textPart in textSelection.GetTextParts())
+    {
+        //Sets highlight color
+        textPart.Font.HighlightColor = ColorObject.Yellow;
+    }
 }
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -875,25 +875,25 @@ await pptxDoc.SaveAsync(storageFile);
 FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
 using (IPresentation pptxDoc = Presentation.Open(inputStream))
 {
-	ISlide slide = pptxDoc.Slides[0];
-	//Finds all the occurrences of a particular text in the specific slide
-	ITextSelection[] textSelections = slide.FindAll("product", false, false);
-	foreach (ITextSelection textSelection in textSelections)
-	{
-		//Gets the found text containing text parts
-		foreach (ITextPart textPart in textSelection.GetTextParts())
-		{
-			//Sets highlight color
-			textPart.Font.HighlightColor = ColorObject.Yellow;
-		}
-	}
-	//Saves the PowerPoint Presentation as a stream
-	FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-	pptxDoc.Save(outputStream);
-	//Releases all resources of the stream
-	outputStream.Dispose();
-	//Closes the Presentation instance
-	pptxDoc.Close();
+    ISlide slide = pptxDoc.Slides[0];
+    //Finds all the occurrences of a particular text in the specific slide
+    ITextSelection[] textSelections = slide.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text containing text parts
+        foreach (ITextPart textPart in textSelection.GetTextParts())
+        {
+            //Sets highlight color
+            textPart.Font.HighlightColor = ColorObject.Yellow;
+        }
+    }
+    //Saves the PowerPoint Presentation as a stream
+    FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+    pptxDoc.Save(outputStream);
+    //Releases all resources of the stream
+    outputStream.Dispose();
+    //Closes the Presentation instance
+    pptxDoc.Close();
 }
 {% endhighlight %}
 
@@ -908,12 +908,12 @@ ISlide slide = pptxDoc.Slides[0];
 ITextSelection[] textSelections = slide.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
 {
-	//Gets the found text containing text parts
-	foreach (ITextPart textPart in textSelection.GetTextParts())
-	{
-		//Sets highlight color
-		textPart.Font.HighlightColor = ColorObject.Yellow;
-	}
+    //Gets the found text containing text parts
+    foreach (ITextPart textPart in textSelection.GetTextParts())
+    {
+        //Sets highlight color
+        textPart.Font.HighlightColor = ColorObject.Yellow;
+    }
 }
 //Creates a new memory stream to save a Presentation.
 MemoryStream stream = new MemoryStream();
@@ -924,9 +924,9 @@ pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
 {% endtabs %}
