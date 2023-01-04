@@ -15,89 +15,87 @@ You can open and save an Excel 2013 Macro Enabled Template to XLSM (Excel 2013 M
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-    //Open an existing XLTM file
-    IWorkbook workbook = application.Workbooks.Open("Sample.xltm", ExcelOpenType.Automatic);
+  //Open an existing XLTM file
+  IWorkbook workbook = application.Workbooks.Open("Sample.xltm", ExcelOpenType.Automatic);
 
-    //Save the file as XLSM
-    workbook.SaveAs("Output.xlsm");
+  //Save the file as XLSM
+  workbook.SaveAs("Output.xlsm");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-    'Open an existing XLTM file
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xltm", ExcelOpenType.Automatic)
+  'Open an existing XLTM file
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xltm", ExcelOpenType.Automatic)
 
-    'Save the file as XLSM
-    workbook.SaveAs("Output.xlsm")
+  'Save the file as XLSM
+  workbook.SaveAs("Output.xlsm")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    
-    //Open an existing XLTM file
-    Stream inputStream = new FileStream("Sample.xltm", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IApplication application = excelEngine.Excel;
 
-    //Save the file as XLSM
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-    await workbook.SaveAsAsync(storageFile);
+  //Open an existing XLTM file
+  Stream inputStream = new FileStream("Sample.xltm", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+
+  //Save the file as XLSM
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
+  IApplication application = excelEngine.Excel;
 
-    //Open an existing XLTM file
-    FileStream inputStream = new FileStream("Sample.xltm", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  //Open an existing XLTM file
+  FileStream inputStream = new FileStream("Sample.xltm", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
 
-    //Save the file as XLSM
-    FileStream outputStream = new FileStream("Output.xlsm", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(outputStream);
-
-    workbook.Close();
-    excelEngine.Dispose();
+  //Save the file as XLSM
+  FileStream outputStream = new FileStream("Output.xlsm", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(outputStream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
+  IApplication application = excelEngine.Excel;
 
-    //Open an existing XLTM file
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xltm");
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
+  //Open an existing XLTM file
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xltm");
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
 
-    //Save the file as XLSM
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
+  //Save the file as XLSM
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
 
-    stream.Position = 0;
+  stream.Position = 0;
 
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsm", "application/vnd.ms-excel.sheet.macroEnabled.12", stream);
+  //Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsm", "application/vnd.ms-excel.sheet.macroEnabled.12", stream);
 }
 {% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 ## See Also
 

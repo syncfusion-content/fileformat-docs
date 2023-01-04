@@ -2301,7 +2301,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Convert chart to image
 
-You can convert the chart in Word document as image using the `SaveAsImage` method in ChartToImageConverter.
+You can convert the chart in Word document as image using the [SaveAsImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_SaveAsImage_Syncfusion_OfficeChart_IOfficeChart_System_IO_Stream_) method in ChartToImageConverter.
 
 The following code example shows how to chart in the Word document as image.
 

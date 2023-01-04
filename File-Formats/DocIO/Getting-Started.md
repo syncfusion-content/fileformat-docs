@@ -45,7 +45,6 @@ Include the following namespaces in your .cs or .vb file
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
@@ -53,7 +52,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.DocIO
-
 Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
@@ -61,7 +59,6 @@ Imports Syncfusion.DocIO.DLS
 {% highlight c# tabtitle="UWP" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -69,7 +66,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -77,7 +73,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="Xamarin" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
@@ -175,7 +170,7 @@ An entire Word document is represented by an instance of WordDocument and it is 
 
 A section represents group of paragraphs, tables etc., that have a specific set of properties used to define the pages, number of columns, headers and footers and so on that decides how the text appears. A section should contain at least one paragraph in this body.
 
-The following code example explains how to add a section into a `WordDocument` instance.
+The following code example explains how to add a section into a [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) instance.
 
 {% tabs %}  
 
@@ -966,7 +961,7 @@ Essential DocIO allows you to manipulate an existing Word document, RTF, WordML,
 
 Here, you can see how an existing Word document is loaded into DocIO’s DOM, replaces an existing content with another and finally saves the Word document.
 
-You can open an existing Word document either by using constructor of `WordDocument` class or by using `Open` method of `WordDocument` class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
+You can open an existing Word document either by using constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_String_) class or by using [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
 
 {% tabs %}
 
@@ -1170,7 +1165,7 @@ Let’s consider that you have a template Word document with merge fields as sho
 
 ![Performing Mail merge input document](GettingStarted_images/GettingStarted_img2.jpeg)
 
-The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class provides various overloads for [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_String___System_String___) method to perform Mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to perform simple Mail merge by using string array.
 
@@ -1670,7 +1665,7 @@ For converting a word document to PDF in Xamarin, UWP and ASP.NET Core platform,
 * Syncfusion.Pdf.Portable
 * Syncfusion.DocIORenderer.Portable
 
-`DocToPDFConverter` class is responsible for converting a Word document into PDF. 
+[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a Word document into PDF. 
 
 In portable projects, `DocIORenderer` is responsible for converting a Word document into PDF.
 

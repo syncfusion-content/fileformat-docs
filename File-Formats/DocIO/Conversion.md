@@ -1,12 +1,11 @@
 ---
-title: Conversion
-description: This section illustrates how to convert a Word document into other supported file formats
+title: Conversion | DocIO | Syncfusion
+description: This section illustrates how to convert a Word document into other supported file formats using Syncfusion Word library (Essential DocIO)
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-
-# Conversion
+# Conversion in Word Library
 
 ## Working with Document Conversions
 
@@ -62,7 +61,7 @@ Kindly refer the [here](https://help.syncfusion.com/file-formats/docio/word-to-p
 
 ## Rendering / Converting Word document to Image
 
-Essential DocIO supports to convert the Word document to images using `RenderAsImages` method. For further information kindly refer [here](https://help.syncfusion.com/file-formats/docio/word-to-image#).
+Essential DocIO supports to convert the Word document to images using [RenderAsImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_RenderAsImages_Syncfusion_DocIO_DLS_ImageType_) method. For further information kindly refer [here](https://help.syncfusion.com/file-formats/docio/word-to-image#).
 
 
 ## RTF conversion 

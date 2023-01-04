@@ -11,7 +11,7 @@ documentation: UG
 
 ### Add Footer to a Slide in PowerPoint
 
-Essential Presentation library facilitates adding Footer in a slide of the PowerPoint Presentation. Footers are useful in providing quick information about your document or data. 
+Essential Presentation library facilitates adding [Footer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IHeadersFooters.html#Syncfusion_Presentation_IHeadersFooters_Footer) in a slide of the PowerPoint Presentation. Footers are useful in providing quick information about your document or data. 
 
 The following code example demonstrates how to add a footer to the presentation.
 
@@ -795,9 +795,9 @@ By executing the program, you will get the PowerPoint Notes slide as follows.
 
 ### Edit Footer text of an existing Slide
 
-Essential Presentation library facilitates editing the Footer text of an existing slide in the PowerPoint Presentation. 
+Essential Presentation library facilitates editing the [Footer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IHeadersFooters.html#Syncfusion_Presentation_IHeadersFooters_Footer) text of an existing slide in the PowerPoint Presentation. 
 
-The following code example demonstrates how to edit Footer text of an existing slide in the presentation.
+The following code example demonstrates how to edit [Footer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IHeadersFooters.html#Syncfusion_Presentation_IHeadersFooters_Footer) text of an existing slide in the presentation.
 
 {% tabs %}
 
@@ -1103,9 +1103,9 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ### Modify font of the Footer text
 
-Essential Presentation library facilitates editing font of the Footer content in slide of the PowerPoint Presentation. 
+Essential Presentation library facilitates editing font of the [Footer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IHeadersFooters.html#Syncfusion_Presentation_IHeadersFooters_Footer) content in slide of the PowerPoint Presentation. 
 
-The following code example demonstrates how to edit font of the Footer content in slide of the presentation.
+The following code example demonstrates how to edit font of the [Footer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IHeadersFooters.html#Syncfusion_Presentation_IHeadersFooters_Footer) content in slide of the presentation.
 
 {% tabs %}
 

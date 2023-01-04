@@ -31,15 +31,12 @@ Step 3: Include the following namespaces in the Program.cs file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 using System.IO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 using Syncfusion.Pdf;
-
 {% endhighlight %}
 {% endtabs %}
-
 
 Step 4: Add the following code snippet in Program.cs file.
 

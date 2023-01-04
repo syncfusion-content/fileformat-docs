@@ -206,7 +206,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   sheet.ConvertToImage(1, 1, 10, 20, stream);
   await file.FlushAsync();
   stream.Dispose();
-}  
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -219,7 +219,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Initialize XlsIORenderer
   application.XlsIORenderer = new XlsIORenderer();  
-  
+
   //Converts and save as stream
   MemoryStream stream = new MemoryStream();
   sheet.ConvertToImage(1, 1, 10, 20, stream);
@@ -257,10 +257,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      DependencyService.Get<ISaveWindowsPhone>()
-          .SaveAndView("Test.png", "image/png", stream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Test.png", "image/png", stream);
+  }
   else
-      DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
+  }
 }
 {% endhighlight %}
 {% endtabs %} 

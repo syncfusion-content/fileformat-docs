@@ -11,147 +11,121 @@ documentation: UG
 You can copy and paste the values of the cell which contain only formula using CopyTo method by specifying the ExcelCopyRangeOptions as None. The following code snippet illustrates this.
 
 {% tabs %}  
-
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Create(1);
+  //Assigning formula to a cell
+  worksheet.Range["A3"].Formula="SUM(1+1)";
+  IRange sourceRange = worksheet.Range["A3"];
+  IRange destinationRange = worksheet.Range["B1"];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Copy and paste the values using ExcelCopyRangeOption
+  sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
 
-    //Assigning formula to a cell
-
-    worksheet.Range["A3"].Formula="SUM(1+1)";
-
-    IRange sourceRange = worksheet.Range["A3"];
-
-    IRange destinationRange = worksheet.Range["B1"];
-
-    //Copy and paste the values using ExcelCopyRangeOption
-
-    sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
-
-    workbook.SaveAs("Output.xlsx");
+  workbook.SaveAs("Output.xlsx");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Assigning formula to a cell
+  worksheet.Range("A3").Formula = "SUM(1+1)"
+  Dim sourceRange As IRange = worksheet.Range("A3")
+  Dim destinationRange As IRange = worksheet.Range("B1")
 
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Copy and paste the values using ExcelCopyRangeOption
+  sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None)
 
-    'Assigning formula to a cell
-
-    worksheet.Range("A3").Formula = "SUM(1+1)"
-
-    Dim sourceRange As IRange = worksheet.Range("A3")
-
-    Dim destinationRange As IRange = worksheet.Range("B1")
-
-    'Copy and paste the values using ExcelCopyRangeOption
-
-    sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None)
-
-    workbook.SaveAs("Output.xlsx")
+  workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = application.Workbooks.Create(1);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Assigning formula to a cell
+  worksheet.Range["A3"].Formula = "SUM(1+1)";
+  IRange sourceRange = worksheet.Range["A3"];
+  IRange destinationRange = worksheet.Range["B1"];
 
-    //Assigning formula to a cell
-    worksheet.Range["A3"].Formula = "SUM(1+1)";
+  //Copy and paste the values using ExcelCopyRangeOption
+  sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
 
-    IRange sourceRange = worksheet.Range["A3"];
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-    IRange destinationRange = worksheet.Range["B1"];
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-    //Copy and paste the values using ExcelCopyRangeOption
-    sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
-
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = application.Workbooks.Create(1);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Assigning formula to a cell
+  worksheet.Range["A3"].Formula = "SUM(1+1)";
+  IRange sourceRange = worksheet.Range["A3"];
+  IRange destinationRange = worksheet.Range["B1"];
 
-    //Assigning formula to a cell
-    worksheet.Range["A3"].Formula = "SUM(1+1)";
+  //Copy and paste the values using ExcelCopyRangeOption
+  sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
 
-    IRange sourceRange = worksheet.Range["A3"];
-
-    IRange destinationRange = worksheet.Range["B1"];
-
-    //Copy and paste the values using ExcelCopyRangeOption
-    sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
-
-    FileStream stream = new FileStream("Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-
-    workbook.Close();
-    excelEngine.Dispose();
+  FileStream stream = new FileStream("Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-    IWorkbook workbook = application.Workbooks.Create(1);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Assigning formula to a cell
+  worksheet.Range["A3"].Formula = "SUM(1+1)";
+  IRange sourceRange = worksheet.Range["A3"];
+  IRange destinationRange = worksheet.Range["B1"];
 
-    //Assigning formula to a cell
-    worksheet.Range["A3"].Formula = "SUM(1+1)";
+  //Copy and paste the values using ExcelCopyRangeOption
+  sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
 
-    IRange sourceRange = worksheet.Range["A3"];
-
-    IRange destinationRange = worksheet.Range["B1"];
-
-    //Copy and paste the values using ExcelCopyRangeOption
-    sourceRange.CopyTo(destinationRange, ExcelCopyRangeOptions.None);
-
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    stream.Position = 0;
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  stream.Position = 0;
+  //Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-
 {% endtabs %}  
 
 ## See Also

@@ -345,8 +345,8 @@ pptxDoc.Close();
 {% endtabs %}
 
 N> 1. PowerPoint Presentation to image conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application. 
-N> 2. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
-N> 3. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
+N> 2. Instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
+N> 3. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onward
 N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
 N> 5. EMF images in the PowerPoint slides will not be converted in UWP due to platform limitation.
 N> 6. Radial gradient, rectangular gradient and path gradient brushes are not supported in UWP due to platform limitation. These brushes are rendered as linear gradient brush in our UWP slide to image conversion.

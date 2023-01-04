@@ -39,7 +39,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Create a chart
   Dim chart As IChartShape = sheet.Charts(0)
-  
+
   'Changing first data point label color
   chart.Series(0).DataPoints(0).DataLabels.IsValue = true
   chart.Series(0).DataPoints(0).DataLabels.RGBColor = Color.Green
@@ -135,16 +135,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}

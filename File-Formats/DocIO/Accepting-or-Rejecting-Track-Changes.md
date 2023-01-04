@@ -9,8 +9,7 @@ documentation: UG
 
 It is used to keep track of the changes made to a Word document. It helps to maintain the record of author, name and time for every insertion, deletion, or modification in a document. This can be enabled by using the TrackChanges property of the Word document.
 
-N> 
-With this support, the changes made in the Word document by DocIO library cannot be tracked.
+N> With this support, the changes made in the Word document by DocIO library cannot be tracked.
 
 The following code example illustrates how to enable track changes of the document.
 
@@ -143,7 +142,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Accept all changes
 
-You can **accept all track changes in Word document** using `AcceptAll`method.
+You can **accept all track changes in Word document** using [AcceptAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RevisionCollection.html#Syncfusion_DocIO_DLS_RevisionCollection_AcceptAll) method.
 
 The following code example shows how to accept all the tracked changes.
 
@@ -240,7 +239,7 @@ By executing the above code example, it generates output Word document as follow
 
 ## Reject all changes
 
-You can **reject all track changes in Word document** using `RejectAll` method.
+You can **reject all track changes in Word document** using [RejectAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RevisionCollection.html#Syncfusion_DocIO_DLS_RevisionCollection_RejectAll) method.
 
 The following code example shows how to reject all the tracked changes.
 
@@ -336,7 +335,7 @@ By executing the above code example, it generates output Word document as follow
 
 ## Accept all changes by a particular reviewer
 
-You can **accept all changes made by the author** in the Word document using `Accept`  method.
+You can **accept all changes made by the author** in the Word document using [Accept](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Revision.html#Syncfusion_DocIO_DLS_Revision_Accept) method.
 
 The following code example shows how to accept the tracked changes made by the author.
 
@@ -463,7 +462,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Reject all changes by particular reviewer
 
-You can **reject all changes made by the author** in the Word document using `Reject` method.
+You can **reject all changes made by the author** in the Word document using [Reject](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Revision.html#Syncfusion_DocIO_DLS_Revision_Reject) method.
 
 The following code example shows how to reject the tracked changes made by the author.
 

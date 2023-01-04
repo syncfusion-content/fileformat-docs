@@ -7,27 +7,27 @@ documentation: UG
 ---
 # Working with document Fields
 
-Fields in a Word document are placeholders for data that might change on field update. Fields are represented by the `WField` and `WFieldMark` instances in DocIO. A field in a Word document contains field codes, field separator, field result, and field end.
+Fields in a Word document are placeholders for data that might change on field update. Fields are represented by the [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html) and [WFieldMark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFieldMark.html) instances in DocIO. A field in a Word document contains field codes, field separator, field result, and field end.
 
 To learn various types of Microsoft Word supported fields and their syntax,refer to the [MSDN article](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
 
 From v16.1.0.24, the entire field code is included in Document Object Model(DOM). Hence, adding a field will automatically include the following elements in DOM:
 
-1. `WField`: Represents the starting of a Field.
+1. [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html): Represents the starting of a Field.
 
-2. `ParagraphItem`: Represents the Field code.
+2. [ParagraphItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ParagraphItem.html): Represents the Field code.
 
-3. `WFieldMark`: Represents the Field separator.
+3. [WFieldMark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFieldMark.html): Represents the Field separator.
 
-4. `ParagraphItem`: Represents the Field result.
+4. [ParagraphItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ParagraphItem.html): Represents the Field result.
 
-5. `WFieldMark`: Represents the end of a Field.
+5. [WFieldMark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFieldMark.html): Represents the end of a Field.
 
 Find more information about migration changes [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24)
 
 ## Adding fields
 
-You can add a field to a Word document by using the `AppendField` method of `WParagraph` class.
+You can add a field to a Word document by using the [AppendField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendField_System_String_Syncfusion_DocIO_FieldType_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code example explains how to add a field to the Word document.
 
@@ -555,7 +555,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Document variables
 
-The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using the `Variables` property of `WordDocument` class.
+The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using the [Variables](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Variables) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class.
 
 The following code example explains how to add a DocVariable field to a Word document.
 
@@ -698,7 +698,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Cross reference
 
-A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using the `AppendCrossReference` method of `WParagraph` class.
+A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using the [AppendCrossReference](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendCrossReference_Syncfusion_DocIO_ReferenceType_Syncfusion_DocIO_ReferenceKind_Syncfusion_DocIO_DLS_Entity_System_Boolean_System_Boolean_System_Boolean_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 N> The Essential DocIO supports creating and updating the cross-reference fields only for bookmarks in a document.
 
@@ -863,7 +863,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Unlink fields
 
-You can replace the field with its most recent result in the Word document by unlinking the field using the `Unlink` API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
+You can replace the field with its most recent result in the Word document by unlinking the field using the [Unlink](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html#Syncfusion_DocIO_DLS_WField_Unlink) API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
 
 The following code example shows how to unlink the fields in Word document.
 
@@ -1003,7 +1003,7 @@ You can format the SEQ field using below switches.
 \s -- Resets the sequence number at the heading level following the "s".
 
 ### Apply Number format
-You can apply the number format for the sequence field using `NumberFormat` property.
+You can apply the number format for the sequence field using [NumberFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_NumberFormat) property.
 
 The following code example shows how to apply the number format for sequence field.
 
@@ -1275,7 +1275,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output document after applied Number format for SEQ field](WorkingWithFields_images/SEQField_NumberFormat.png)
 
 ### Refer Bookmark
-You can refer the sequence field elsewhere in the document by including bookmark name through `BookmarkName` property. The referred sequence field may be present anywhere in the Word document, but not beyond the respective bookmark end.
+You can refer the sequence field elsewhere in the document by including bookmark name through [BookmarkName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_BookmarkName) property. The referred sequence field may be present anywhere in the Word document, but not beyond the respective bookmark end.
 
 For example, you can refer the image caption numbers in sentence by including the bookmark name in sequence field.
 
@@ -1414,7 +1414,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output document of Bookmark referred in SEQ field](WorkingWithFields_images/SEQField_Bookmark.png)
 
 ### Reset numbering 
-You can reset the numbering for sequence field (\r) using `ResetNumber` property and reset the numbering based on heading level (\s) in the Word document using `ResetHeadingLevel` property. 
+You can reset the numbering for sequence field (\r) using [ResetNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_ResetNumber) property and reset the numbering based on heading level (\s) in the Word document using [ResetHeadingLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_ResetHeadingLevel) property. 
 
 The following code example shows how to reset the numbering for sequence field.
 
@@ -2060,7 +2060,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output of reset numbering in SEQ field](WorkingWithFields_images/SEQField_ResetNumbering.png)
 
 ### Repeat nearest number 
-You can insert the closest preceding sequence number (\c) using `RepeatNearestNumber` property.
+You can insert the closest preceding sequence number (\c) using [RepeatNearestNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_RepeatNearestNumber) property.
 
 For example, if you need to display total number of products in a page, you can repeat the closest preceding sequence number which referred for products.
 
@@ -2464,7 +2464,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output of repeating Nearest number of SEQ field](WorkingWithFields_images/SEQField_RepeatNearestNumber.png)
 
 ### Hide
-You can hide the field result of the sequence field using `HideResult` property.
+You can hide the field result of the sequence field using [HideResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_HideResult) property.
 
 For example, if you need to consider the sequence numbering for list of products, but not need to print the numbering for retired products, then you can hide those sequence fields alone.
 
@@ -2855,7 +2855,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output after hiding the sequence field](WorkingWithFields_images/SEQField_Hide.png)
 
 ### Next Sequence number
-You can insert the next sequence number for the specified items using `InsertNextNumber` property. This is the default.
+You can insert the next sequence number for the specified items using [InsertNextNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_InsertNextNumber) property. This is the default.
 
 The following code example shows how to insert the next sequence number for the specified item.
 

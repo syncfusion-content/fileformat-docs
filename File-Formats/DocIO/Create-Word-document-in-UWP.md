@@ -24,7 +24,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 3: Add a new button in the MainPage.xaml as shown below.
 
-{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -46,32 +45,24 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 4: Include the following namespaces in the MainPage.xaml.cs file.
 
-{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using System.Reflection;
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 5: Include the below code snippet in the click event of the button in MainPage.xaml.cs, to **create a Word document** and save the **Word** document as a physical file and open the file for viewing.
 
-{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -104,8 +95,8 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
     style.ParagraphFormat.Keep = true;
     style.ParagraphFormat.KeepFollow = true;
     style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
     //Gets the image stream
     Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets.AdventureCycle.jpg");
     IWPicture picture = paragraph.AppendPicture(imageStream);
@@ -152,12 +143,12 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
     textRange = paragraph.AppendText("Product Overview") as WTextRange;
     textRange.CharacterFormat.FontSize = 16f;
     textRange.CharacterFormat.FontName = "Calibri";
+
     //Appends table
     IWTable table = section.AddTable();
     table.ResetCells(3, 2);
     table.TableFormat.Borders.BorderType = BorderStyle.None;
     table.TableFormat.IsAutoResized = true;
-
     //Appends paragraph
     paragraph = table[0, 0].AddParagraph();
     paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -185,7 +176,6 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
     paragraph.ParagraphFormat.LineSpacing = 12f;
     paragraph.BreakCharacterFormat.FontSize = 12f;
     paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
     textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
     textRange.CharacterFormat.FontSize = 12f;
     textRange.CharacterFormat.FontName = "Times New Roman";
@@ -300,8 +290,6 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 ## Save Word document in UWP
 

@@ -19,8 +19,7 @@ N> Excel to PDF conversion works proper in Blazor server-side alone and not in c
 
 The following code illustrates how to convert an entire Excel workbook to PDF.
 
-{% tabs %}  
-
+{% tabs %} 
 {% highlight c# tabtitle="C#" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -40,7 +39,6 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   //Save the PDF file
   pdfDocument.Save("ExcelToPDF.pdf");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -69,30 +67,30 @@ End Using
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-	
-    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");	
+  IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    await doc.SaveAsync(stream);
-    Save(stream, "ExcelToPDF.pdf");
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
 
-    excelStream.Dispose();
-    stream.Dispose();
+  await doc.SaveAsync(stream);
+  Save(stream, "ExcelToPDF.pdf");
+
+  excelStream.Dispose();
+  stream.Dispose();
 }
 #endregion
 
@@ -101,31 +99,31 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
@@ -155,46 +153,43 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+  doc.Save(stream);
+  stream.Position = 0;
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
-    doc.Save(stream);
+  //Save the stream into pdf file
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
 
-    stream.Position = 0;
-
-    //Save the stream into pdf file
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    else
-    {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-
-    excelStream.Dispose();
-    stream.Dispose();
+  excelStream.Dispose();
+  stream.Dispose();
 }
 {% endhighlight %}
-
 {% endtabs %}
 
-A complete working example for converting entire Excel workbook to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Workbook%20to%20PDF).      
+A complete working example for converting entire Excel workbook to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Workbook%20to%20PDF).    
 
 To learn more about different conversion settings in Excel To PDF conversion, refer the [Excel to PDF conversion settings](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-converter-settings). 
 
@@ -217,7 +212,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
   PdfDocument pdfDocument= new PdfDocument();
   pdfDocument = converter.Convert();
-  pdfDocument.Save("ExcelToPDF.pdf");       
+  pdfDocument.Save("ExcelToPDF.pdf");     
 }
 
 {% endhighlight %}
@@ -247,31 +242,28 @@ End Using
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-	
-    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-	IWorksheet worksheet = workbook.Worksheets[0];
-	
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");	
+  IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
-    await doc.SaveAsync(stream);
-    Save(stream, "ExcelToPDF.pdf");
-
-    excelStream.Dispose();
-    stream.Dispose();
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+  await doc.SaveAsync(stream);
+  Save(stream, "ExcelToPDF.pdf");
+  excelStream.Dispose();
+  stream.Dispose();
 }
 #endregion
 
@@ -280,101 +272,94 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-   IApplication application = excelEngine.Excel;
-   application.DefaultVersion = ExcelVersion.Xlsx;
-   FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-   IWorkbook workbook = application.Workbooks.Open(excelStream);
-   IWorksheet worksheet = workbook.Worksheets[0];
-   
-   //Initialize XlsIO renderer.
-   XlsIORenderer renderer = new XlsIORenderer();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-   //Convert Excel document into PDF document 
-   PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-   pdfDocument.Save(stream);
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
-   excelStream.Dispose();
-   stream.Dispose();
+  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
+  excelStream.Dispose();
+  stream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+  doc.Save(stream);
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
-    doc.Save(stream);
+  stream.Position = 0;
 
-    stream.Position = 0;
-
-    //Save the stream into pdf file
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    else
-    {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-
-    excelStream.Dispose();
-    stream.Dispose();
+  //Save the stream into pdf file
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  excelStream.Dispose();
+  stream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -431,32 +416,30 @@ End Using
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-	
-    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-	
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
-	PdfDocument pdfDocument = new PdfDocument();     
-    	
-    foreach (IWorksheet sheet in workbook.Worksheets)
-    {
-      pdfDocument = renderer.ConvertToPDF(sheet);
-    
-	  //Save the PDF file
-	  MemoryStream stream = new MemoryStream();
-	  await doc.SaveAsync(stream);
-      Save(stream, sheet.Name+".pdf");
-	  stream.Dispose();
-    }
-	
-    excelStream.Dispose();
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");	
+  IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
+  PdfDocument pdfDocument = new PdfDocument();   
+
+  foreach (IWorksheet sheet in workbook.Worksheets)
+  {
+    pdfDocument = renderer.ConvertToPDF(sheet);
+
+    //Save the PDF file
+    MemoryStream stream = new MemoryStream();
+    await doc.SaveAsync(stream);
+    Save(stream, sheet.Name+".pdf");
+    stream.Dispose();
+  }
+  excelStream.Dispose();
 }
 #endregion
 
@@ -465,104 +448,96 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-   IApplication application = excelEngine.Excel;
-   applicatin.DefaultVersion = ExcelVersion.Xlsx;
-   FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-   IWorkbook workbook = application.Workbooks.Open(excelStream);
-   
-   //Initialize XlsIO renderer.
-   XlsIORenderer renderer = new XlsIORenderer();
-   PdfDocument pdfDocument = new PdfDocument();     
-    	
-   foreach (IWorksheet sheet in workbook.Worksheets)
-   {
-     pdfDocument = renderer.ConvertToPDF(sheet);
-   
-     //Save the PDF file
-     Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
-     pdfDocument.Save(stream);
-     stream.Dispose();
-   }
+  IApplication application = excelEngine.Excel;
+  applicatin.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-   excelStream.Dispose();
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
+  PdfDocument pdfDocument = new PdfDocument();   
+
+  foreach (IWorksheet sheet in workbook.Worksheets)
+  {
+    pdfDocument = renderer.ConvertToPDF(sheet);
+    //Save the PDF file
+    Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);
+    stream.Dispose();
+  }
+  excelStream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
+  PdfDocument pdfDocument = new PdfDocument();     
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
-    PdfDocument pdfDocument = new PdfDocument();     
-     	
-    foreach (IWorksheet sheet in workbook.Worksheets)
+  foreach (IWorksheet sheet in workbook.Worksheets)
+  {
+    pdfDocument = renderer.ConvertToPDF(sheet);
+
+    //Save the PDF file
+    Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);
+    stream.Position = 0;
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     {
-      pdfDocument = renderer.ConvertToPDF(sheet);
-    
-      //Save the PDF file
-      Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
-      pdfDocument.Save(stream);
-	  
-	  stream.Position = 0;
-	  //Save the stream into pdf file
-      if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-      {
-          Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-      }
-      else
-      {
-          Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-      }
-      stream.Dispose();
-    }    
-    excelStream.Dispose();
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    stream.Dispose();
+  }    
+  excelStream.Dispose();
 }
-
 {% endhighlight %}
 {% endtabs %}
 
@@ -588,17 +563,14 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
   //Tuning chart image quality
   application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
-
   IWorkbook workbook = application.Workbooks.Open("chart.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
 
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-
   PdfDocument pdfDocument = new PdfDocument();
   pdfDocument = converter.Convert();
   pdfDocument.Save("ExcelToPDF.pdf");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -614,9 +586,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   Dim workbook As IWorkbook = application.Workbooks.Open("chart.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  Dim converter As New ExcelToPdfConverter(workbook)
-  
+  Dim converter As New ExcelToPdfConverter(workbook)  
   Dim pdfDocument As New PdfDocument()
   pdfDocument = converter.Convert()
   pdfDocument.Save("ExcelToPDF.pdf")
@@ -629,30 +599,28 @@ End Using
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-	//Initializing XlsIORenderer
-	XlsIORenderer renderer = new XlsIORenderer();
-	
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Initializing XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
-	
-    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-	    
-	//Convert Excel document with charts into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);	
-	
-	//Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    await doc.SaveAsync(stream);
-    Save(stream, "ExcelToPDF.pdf");
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
+  IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 
-    excelStream.Dispose();
-    stream.Dispose();
+  //Convert Excel document with charts into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);	
+
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+
+  await doc.SaveAsync(stream);
+  Save(stream, "ExcelToPDF.pdf");
+  excelStream.Dispose();
+  stream.Dispose();
 }
 #endregion
 
@@ -661,97 +629,90 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-    stream.Position = 0;
+  stream.Position = 0;
 
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
 }
 #endregion
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-   IApplication application = excelEngine.Excel;
-   application.DefaultVersion = ExcelVersion.Xlsx;
-   //Initialize XlsIO renderer.
-   XlsIORenderer renderer = new XlsIORenderer();
-   
-   FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
-   IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
-   //Convert Excel document with charts into PDF document 
-   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-   pdfDocument.Save(stream);
+  FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-   excelStream.Dispose();
-   stream.Dispose();
+  //Convert Excel document with charts into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
+  excelStream.Dispose();
+  stream.Dispose();
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-	//Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
-	
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
-    doc.Save(stream);
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    stream.Position = 0;
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+  doc.Save(stream);
+  stream.Position = 0;
 
-    //Save the stream into pdf file
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    else
-    {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-
-    excelStream.Dispose();
-    stream.Dispose();
+  //Save the stream into pdf file
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  excelStream.Dispose();
+  stream.Dispose();
 }
 
 {% endhighlight %}
@@ -775,49 +736,48 @@ Comments (notes) will be rendered in the output PDF document as displayed in the
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-	worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
-    ExcelToPdfConverter converter = new ExcelToPdfConverter(worksheet);
-	
-    //Initialize PDF document
-    PdfDocument pdfDocument = new PdfDocument();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(worksheet);
 
-    //Convert Excel document into PDF document
-    pdfDocument = converter.Convert();
+  //Initialize PDF document
+  PdfDocument pdfDocument = new PdfDocument();
 
-    //Save the PDF file
-    pdfDocument.Save("ExcelToPDF.pdf");
-    System.Diagnostics.Process.Start("ExcelToPDF.pdf");
+  //Convert Excel document into PDF document
+  pdfDocument = converter.Convert();
+
+  //Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf");
+  System.Diagnostics.Process.Start("ExcelToPDF.pdf");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-	Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    'Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace
+  'Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace
 
-	'Open the Excel document to convert
-    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+  'Open the Excel document to convert
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-    'Initialize the PDF document
-    Dim pdfDocument As PdfDocument = New PdfDocument()
+  'Initialize the PDF document
+  Dim pdfDocument As PdfDocument = New PdfDocument()
 
-    'Convert Excel document into PDF document
-    pdfDocument = converter.Convert()
+  'Convert Excel document into PDF document
+  pdfDocument = converter.Convert()
 
-    'Save the PDF file
-    pdfDocument.Save("ExcelToPDF.pdf")
+  'Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
 
@@ -825,32 +785,32 @@ End Using
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
-    //Get assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  //Get assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Get input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
+  //Get input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initialize XlsIORenderer
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
 
-    //Convert the Excel document to PDF with renderer settings
-    PdfDocument document = renderer.ConvertToPDF(workbook);
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Save the PDF document
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream);
-    Save(stream, "ExcelToPDF.pdf");
+  //Convert the Excel document to PDF with renderer settings
+  PdfDocument document = renderer.ConvertToPDF(workbook);
 
-    excelStream.Dispose();
+  //Save the PDF document
+  MemoryStream stream = new MemoryStream();
+  document.Save(stream);
+  Save(stream, "ExcelToPDF.pdf");
+
+  excelStream.Dispose();
 }
 #endregion
 
@@ -858,31 +818,31 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-	stream.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-		FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
-    stream.Dispose();
+  stream.Position = 0;
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
+  stream.Dispose();
 }
 #endregion
 {% endhighlight %}
@@ -890,82 +850,78 @@ async void Save(Stream stream, string filename)
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Xlsx;
-    FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-	worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
 
-    excelStream.Dispose();
-    stream.Dispose();
+  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
+  excelStream.Dispose();
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-	IWorksheet worksheet = workbook.Worksheets[0];
-	
-	//Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintInPlace;
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
-    doc.Save(stream);
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+  doc.Save(stream);
+  stream.Position = 0;
 
-    stream.Position = 0;
+  //Save the stream into pdf file
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
 
-    //Save the stream into pdf file
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    else
-    {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-
-    excelStream.Dispose();
-    stream.Dispose();
+  excelStream.Dispose();
+  stream.Dispose();
 }
 {% endhighlight %}
-
 {% endtabs %}
 
 A complete working example to convert Excel with comments to PDF and render comments in place in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20in%20Place%20to%20PDF).
 
 The following screenshot represents the input Excel file with notes
-![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png" alt="input excel file" width="100%" Height="Auto"/>
 
 The following screenshot represents the output pdf file generated by the XlsIO using **PrintInPlace** option
-![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img3.png)
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img3.png" alt="output pdf file" width="100%" Height="Auto"/>
 
 ### Convert comments at the end of the sheet
 Comments (notes) will be rendered in the output PDF document at the end of the each sheet which contains the comments (notes), when the **PrintSheetEnd** option is selected. The following code illustrates this. 
@@ -974,50 +930,48 @@ Comments (notes) will be rendered in the output PDF document at the end of the e
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-	worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
-    
-    ExcelToPdfConverter converter = new ExcelToPdfConverter(worksheet);
-	
-    //Initialize PDF document
-    PdfDocument pdfDocument = new PdfDocument();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(worksheet);
 
-    //Convert Excel document into PDF document
-    pdfDocument = converter.Convert();
+  //Initialize PDF document
+  PdfDocument pdfDocument = new PdfDocument();
 
-    //Save the PDF file
-    pdfDocument.Save("ExcelToPDF.pdf");
-    System.Diagnostics.Process.Start("ExcelToPDF.pdf");
+  //Convert Excel document into PDF document
+  pdfDocument = converter.Convert();
+
+  //Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf");
+  System.Diagnostics.Process.Start("ExcelToPDF.pdf");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-	Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    'Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd
+  'Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd
 
-	'Open the Excel document to convert
-    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+  'Open the Excel document to convert
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-    'Initialize the PDF document
-    Dim pdfDocument As PdfDocument = New PdfDocument()
+  'Initialize the PDF document
+  Dim pdfDocument As PdfDocument = New PdfDocument()
 
-    'Convert Excel document into PDF document
-    pdfDocument = converter.Convert()
+  'Convert Excel document into PDF document
+  pdfDocument = converter.Convert()
 
-    'Save the PDF file
-    pdfDocument.Save("ExcelToPDF.pdf")
+  'Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
 
@@ -1025,63 +979,62 @@ End Using
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
-    //Get assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  //Get assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Get input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
+  //Get input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initialize XlsIORenderer
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
 
-    //Convert the Excel document to PDF with renderer settings
-    PdfDocument document = renderer.ConvertToPDF(workbook);
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Save the PDF document
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream);
-    Save(stream, "ExcelToPDF.pdf");
+  //Convert the Excel document to PDF with renderer settings
+  PdfDocument document = renderer.ConvertToPDF(workbook);
 
-    excelStream.Dispose();
+  //Save the PDF document
+  MemoryStream stream = new MemoryStream();
+  document.Save(stream);
+  Save(stream, "ExcelToPDF.pdf");
+  excelStream.Dispose();
 }
 #endregion
 //Save the workbook stream as a file.
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-	stream.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-		FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
-    stream.Dispose();
+  stream.Position = 0;
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
+  stream.Dispose();
 }
 #endregion
 {% endhighlight %}
@@ -1089,70 +1042,65 @@ async void Save(Stream stream, string filename)
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Xlsx;
-    FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);
-
-    excelStream.Dispose();
-    stream.Dispose();
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
+  excelStream.Dispose();
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-	IWorksheet worksheet = workbook.Worksheets[0];
-	
-	//Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
-    doc.Save(stream);
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+  doc.Save(stream);
+  stream.Position = 0;
 
-    stream.Position = 0;
-
-    //Save the stream into pdf file
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    else
-    {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-
-    excelStream.Dispose();
-    stream.Dispose();
+  //Save the stream into pdf file
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  excelStream.Dispose();
+  stream.Dispose();
 }
 {% endhighlight %}
 
@@ -1161,11 +1109,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to convert Excel with comments to PDF and render comments at the end in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Comments%20to%20PDF%20at%20End).
 
 The following screenshot represents the input Excel file with notes
-![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img4.png)
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img4.png" alt="input excel file" width="100%" Height="Auto"/>
 
 The following screenshot represents the output pdf file generated by the XlsIO using **PrintSheetEnd** option
-![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img5.png)
-![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img6.png)
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img5.png" alt="output pdf file" width="100%" Height="Auto"/>
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img6.png" alt="output pdf file" width="100%" Height="Auto"/>
 
 ### Convert without comments
 Comments (notes) will not be displayed in the output PDF document, if the **PrintNoComments** option is selected. The following code illustrates this. 
@@ -1174,50 +1122,48 @@ Comments (notes) will not be displayed in the output PDF document, if the **Prin
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-	worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
-    
-    ExcelToPdfConverter converter = new ExcelToPdfConverter(worksheet);
-	
-    //Initialize PDF document
-    PdfDocument pdfDocument = new PdfDocument();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(worksheet);
 
-    //Convert Excel document into PDF document
-    pdfDocument = converter.Convert();
+  //Initialize PDF document
+  PdfDocument pdfDocument = new PdfDocument();
 
-    //Save the PDF file
-    pdfDocument.Save("ExcelToPDF.pdf");
-    System.Diagnostics.Process.Start("ExcelToPDF.pdf");
+  //Convert Excel document into PDF document
+  pdfDocument = converter.Convert();
+
+  //Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf");
+  System.Diagnostics.Process.Start("ExcelToPDF.pdf");
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-	Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    'Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments
+  'Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments
 
-	'Open the Excel document to convert
-    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+  'Open the Excel document to convert
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-    'Initialize the PDF document
-    Dim pdfDocument As PdfDocument = New PdfDocument()
+  'Initialize the PDF document
+  Dim pdfDocument As PdfDocument = New PdfDocument()
 
-    'Convert Excel document into PDF document
-    pdfDocument = converter.Convert()
+  'Convert Excel document into PDF document
+  pdfDocument = converter.Convert()
 
-    'Save the PDF file
-    pdfDocument.Save("ExcelToPDF.pdf")
+  'Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
 
@@ -1225,63 +1171,62 @@ End Using
 #region Excel To PDF
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
 
-    //Get assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  //Get assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Get input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
+  //Get input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initialize XlsIORenderer
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
 
-    //Convert the Excel document to PDF with renderer settings
-    PdfDocument document = renderer.ConvertToPDF(workbook);
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Save the PDF document
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream);
-    Save(stream, "ExcelToPDF.pdf");
+  //Convert the Excel document to PDF with renderer settings
+  PdfDocument document = renderer.ConvertToPDF(workbook);
 
-    excelStream.Dispose();
+  //Save the PDF document
+  MemoryStream stream = new MemoryStream();
+  document.Save(stream);
+  Save(stream, "ExcelToPDF.pdf");
+  excelStream.Dispose();
 }
 #endregion
 //Save the workbook stream as a file.
 #region Setting output location
 async void Save(Stream stream, string filename)
 {
-	stream.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-		FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-    }
-    stream.Dispose();
+  stream.Position = 0;
+  StorageFile stFile;
+  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+  {
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.DefaultFileExtension = ".pdf";
+    savePicker.SuggestedFileName = filename;
+    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+    stFile = await savePicker.PickSaveFileAsync();
+  }
+  else
+  {
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+  }
+  if (stFile != null)
+  {
+    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+    Stream st = fileStream.AsStreamForWrite();
+    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+    st.Flush();
+    st.Dispose();
+    fileStream.Dispose();
+  }
+  stream.Dispose();
 }
 #endregion
 {% endhighlight %}
@@ -1289,82 +1234,77 @@ async void Save(Stream stream, string filename)
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Xlsx;
-    FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-    IWorksheet worksheet = workbook.Worksheets[0];
-    
-    //Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);
-
-    excelStream.Dispose();
-    stream.Dispose();
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
+  excelStream.Dispose();
+  stream.Dispose();
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Gets assembly
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-    //Gets input Excel document from an embedded resource collection
-    Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  //Gets input Excel document from an embedded resource collection
+  Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-	IWorksheet worksheet = workbook.Worksheets[0];
-	
-	//Set print location to comments
-    worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
+  //Set print location to comments
+  worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintNoComments;
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
-    doc.Save(stream);
+  //Save the PDF document to stream.
+  MemoryStream stream = new MemoryStream();
+  doc.Save(stream);
+  stream.Position = 0;
 
-    stream.Position = 0;
+  //Save the stream into pdf file
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+  }
 
-    //Save the stream into pdf file
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    else
-    {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-
-    excelStream.Dispose();
-    stream.Dispose();
+  excelStream.Dispose();
+  stream.Dispose();
 }
 {% endhighlight %}
-
 {% endtabs %}
 
 A complete working example to convert Excel with comments to PDF ignoring the comments in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Comments%20in%20PDF).
 
 The following screenshot represents the input Excel file with notes
-![input excel file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png)
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img2.png" alt="input excel file" width="100%" Height="Auto"/>
 
 The following screenshot represents the output pdf file generated by the XlsIO using **PrintNoComments** option
-![output pdf file](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img7.png)
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img7.png" alt="output pdf file" width="100%" Height="Auto"/>
 
 
 ## Substitute Font in Excel-to-PDF Conversion
@@ -1387,50 +1327,49 @@ using System.Reflection;
 
 namespace FontSubstitution
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Xlsx;
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        IApplication application = excelEngine.Excel;
+        application.DefaultVersion = ExcelVersion.Xlsx;
 
-                //Initializes the SubstituteFont event to perform font substitution in Excel-to-PDF conversion.
-                application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+        //Initializes the SubstituteFont event to perform font substitution in Excel-to-PDF conversion.
+        application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
-                IWorkbook workbook = application.Workbooks.Open("Template.xlsx");
-                IWorksheet worksheet = workbook.Worksheets[0];
+        IWorkbook workbook = application.Workbooks.Open("Template.xlsx");
+        IWorksheet worksheet = workbook.Worksheets[0];
+        ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-                ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-
-                PdfDocument pdfDocument = new PdfDocument();
-                pdfDocument = converter.Convert();
-                pdfDocument.Save("ExcelToPDF.pdf");
-            }
-        }
-
-        private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
-        {
-            //Substitute a font if the specified font is not installed in the machine.
-            if (args.OriginalFontName == "Arial Unicode MS")
-            {
-                //Substitute by font name.
-                args.AlternateFontName = "Arial";
-            }
-            else if (args.OriginalFontName == "Homizio")
-            {
-                //Substitute by font stream.
-                var assembly = Assembly.GetExecutingAssembly();
-                var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
-                Stream fileStream = assembly.GetManifestResourceStream(resourceName);
-                MemoryStream memoryStream = new MemoryStream();
-                fileStream.CopyTo(memoryStream);
-                fileStream.Close();
-                args.AlternateFontStream = memoryStream;
-            }
-        }
+        PdfDocument pdfDocument = new PdfDocument();
+        pdfDocument = converter.Convert();
+        pdfDocument.Save("ExcelToPDF.pdf");
+      }
     }
+
+    private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+    {
+      //Substitute a font if the specified font is not installed in the machine.
+      if (args.OriginalFontName == "Arial Unicode MS")
+      {
+        //Substitute by font name.
+        args.AlternateFontName = "Arial";
+      }
+      else if (args.OriginalFontName == "Homizio")
+      {
+        //Substitute by font stream.
+        var assembly = Assembly.GetExecutingAssembly();
+        var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
+        Stream fileStream = assembly.GetManifestResourceStream(resourceName);
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+      }
+    }
+  }
 }
 {% endhighlight %}
 
@@ -1443,41 +1382,43 @@ Imports System.IO
 Imports System.Reflection
 
 Namespace FontSubstitution
+  
+  Class Program
     
-    Class Program
-        
-        Private Shared Sub Main(ByVal args() As String)
-            Dim excelEngine As ExcelEngine = New ExcelEngine
-            Dim application As IApplication = excelEngine.Excel
-            application.DefaultVersion = ExcelVersion.Xlsx
-            'Initializes the SubstituteFont event to perform font substitution in Excel-to-PDF conversion.
-            AddHandler application.SubstituteFont, AddressOf Me.SubstituteFont
-            Dim workbook As IWorkbook = application.Workbooks.Open("Template.xlsx")
-            Dim worksheet As IWorksheet = workbook.Worksheets(0)
-            Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
-            Dim pdfDocument As PdfDocument = New PdfDocument
-            pdfDocument = converter.Convert
-            pdfDocument.Save("ExcelToPDF.pdf")
-        End Sub
-        
-        Private Shared Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-            'Substitute a font if the specified font is not installed in the machine.
-            If (args.OriginalFontName = "Arial Unicode MS") Then
-                'Substitute by font name.
-                args.AlternateFontName = "Arial"
-            ElseIf (args.OriginalFontName = "Homizio") Then
-                'Substitute by font stream.
-                Dim assembly = Assembly.GetExecutingAssembly
-                Dim resourceName = "ExceltoPDF.Fonts.Homizio.ttf"
-                Dim fileStream As Stream = assembly.GetManifestResourceStream(resourceName)
-                Dim memoryStream As MemoryStream = New MemoryStream
-                fileStream.CopyTo(memoryStream)
-                fileStream.Close
-                args.AlternateFontStream = memoryStream
-            End If
-            
-        End Sub
-    End Class
+    Private Shared Sub Main(ByVal args() As String)
+      Dim excelEngine As ExcelEngine = New ExcelEngine
+      Dim application As IApplication = excelEngine.Excel
+      application.DefaultVersion = ExcelVersion.Xlsx
+
+      'Initializes the SubstituteFont event to perform font substitution in Excel-to-PDF conversion.
+      AddHandler application.SubstituteFont, AddressOf Me.SubstituteFont
+
+      Dim workbook As IWorkbook = application.Workbooks.Open("Template.xlsx")
+      Dim worksheet As IWorksheet = workbook.Worksheets(0)
+      Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+      Dim pdfDocument As PdfDocument = New PdfDocument
+      pdfDocument = converter.Convert
+      pdfDocument.Save("ExcelToPDF.pdf")
+    End Sub
+    
+    Private Shared Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+      'Substitute a font if the specified font is not installed in the machine.
+      If (args.OriginalFontName = "Arial Unicode MS") Then
+        'Substitute by font name.
+        args.AlternateFontName = "Arial"
+      ElseIf (args.OriginalFontName = "Homizio") Then
+        'Substitute by font stream.
+        Dim assembly = Assembly.GetExecutingAssembly
+        Dim resourceName = "ExceltoPDF.Fonts.Homizio.ttf"
+        Dim fileStream As Stream = assembly.GetManifestResourceStream(resourceName)
+        Dim memoryStream As MemoryStream = New MemoryStream
+        fileStream.CopyTo(memoryStream)
+        fileStream.Close
+        args.AlternateFontStream = memoryStream
+      End If
+      
+    End Sub
+  End Class
 End Namespace
 {% endhighlight %}
 
@@ -1499,100 +1440,97 @@ using Syncfusion.XlsIO.Implementation;
 
 namespace FontSubstitution
 {
-    public sealed partial class MainPage : Page
+  public sealed partial class MainPage : Page
+  {
+    public MainPage()
     {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
-
-        private async void button_Click(object sender, RoutedEventArgs e)
-        {
-            #region Excel To PDF
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Xlsx;
-                //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
-                application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
-
-                //Initializing XlsIORenderer
-                XlsIORenderer renderer = new XlsIORenderer();
-
-                //Gets assembly
-                Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-                //Gets input Excel document from an embedded resource collection
-                Stream excelStream = assembly.GetManifestResourceStream("Template.xlsx");
-
-                IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-
-                //Convert Excel document with charts into PDF document 
-                PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
-
-                //Save the PDF document to stream.
-                MemoryStream stream = new MemoryStream();
-
-                await pdfDocument.SaveAsync(stream);
-                Save(stream, "ExcelToPDF.pdf");
-
-                excelStream.Dispose();
-                stream.Dispose();
-            }
-            #endregion
-        }
-
-        #region Excel To PDF
-        private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
-        {
-            //Substitute a font if the specified font is not installed in the machine.
-            if (args.OriginalFontName == "Arial Unicode MS")
-                args.AlternateFontName = "Arial";
-            else if (args.OriginalFontName == "Homizio")
-            {
-                //Substitute by font stream.
-                Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-                Stream fileStream = assembly.GetManifestResourceStream("Homizio.ttf");
-                MemoryStream memoryStream = new MemoryStream();
-                fileStream.CopyTo(memoryStream);
-                fileStream.Close();
-                args.AlternateFontStream = memoryStream;
-            }
-        }
-        #endregion
-
-        //Save the workbook stream as a file.
-        #region Setting output location
-        async void Save(Stream stream, string filename)
-        {
-            stream.Position = 0;
-
-            StorageFile stFile;
-            if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-            {
-                FileSavePicker savePicker = new FileSavePicker();
-                savePicker.DefaultFileExtension = ".pdf";
-                savePicker.SuggestedFileName = filename;
-                savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-                stFile = await savePicker.PickSaveFileAsync();
-            }
-            else
-            {
-                StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-                stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-            }
-            if (stFile != null)
-            {
-                Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-                Stream st = fileStream.AsStreamForWrite();
-                st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-                st.Flush();
-                st.Dispose();
-                fileStream.Dispose();
-            }
-        }
-        #endregion
+      this.InitializeComponent();
     }
+
+    private async void button_Click(object sender, RoutedEventArgs e)
+    {
+      #region Excel To PDF
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        IApplication application = excelEngine.Excel;
+        application.DefaultVersion = ExcelVersion.Xlsx;
+        //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
+        application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+
+        //Initializing XlsIORenderer
+        XlsIORenderer renderer = new XlsIORenderer();
+
+        //Gets assembly
+        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+        //Gets input Excel document from an embedded resource collection
+        Stream excelStream = assembly.GetManifestResourceStream("Template.xlsx");
+        IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+
+        //Convert Excel document with charts into PDF document 
+        PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+        //Save the PDF document to stream.
+        MemoryStream stream = new MemoryStream();
+        await pdfDocument.SaveAsync(stream);
+        Save(stream, "ExcelToPDF.pdf");
+        excelStream.Dispose();
+        stream.Dispose();
+      }
+      #endregion
+    }
+
+    #region Excel To PDF
+    private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+    {
+      //Substitute a font if the specified font is not installed in the machine.
+      if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+      else if (args.OriginalFontName == "Homizio")
+      {
+        //Substitute by font stream.
+        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+        Stream fileStream = assembly.GetManifestResourceStream("Homizio.ttf");
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+      }
+    }
+    #endregion
+
+    //Save the workbook stream as a file.
+    #region Setting output location
+    async void Save(Stream stream, string filename)
+    {
+      stream.Position = 0;
+
+      StorageFile stFile;
+      if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+      {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+      }
+      else
+      {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+      }
+      if (stFile != null)
+      {
+        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+        Stream st = fileStream.AsStreamForWrite();
+        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+        st.Flush();
+        st.Dispose();
+        fileStream.Dispose();
+      }
+    }
+    #endregion
+  }
 }
 {% endhighlight %}
 
@@ -1607,52 +1545,52 @@ using System.Reflection;
 
 namespace FontSubstitution
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Xlsx;
-                //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
-                application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        IApplication application = excelEngine.Excel;
+        application.DefaultVersion = ExcelVersion.Xlsx;
+        //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
+        application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
-                //Initialize XlsIO renderer.
-                XlsIORenderer renderer = new XlsIORenderer();
+        //Initialize XlsIO renderer.
+        XlsIORenderer renderer = new XlsIORenderer();
 
-                FileStream excelStream = new FileStream("Template.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(excelStream);
+        FileStream excelStream = new FileStream("Template.xlsx", FileMode.Open, FileAccess.Read);
+        IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-                //Convert Excel document with charts into PDF document 
-                PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+        //Convert Excel document with charts into PDF document 
+        PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-                Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-                pdfDocument.Save(stream);
+        Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+        pdfDocument.Save(stream);
 
-                excelStream.Dispose();
-                stream.Dispose();
-            }
-        }
-
-        private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
-        {
-            //Substitute a font if the specified font is not installed in the machine.
-            if (args.OriginalFontName == "Arial Unicode MS")
-                args.AlternateFontName = "Arial";
-            else if (args.OriginalFontName == "Homizio")
-            {
-                //Substitute by font stream.
-                var assembly = Assembly.GetExecutingAssembly();
-                var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
-                Stream fileStream = assembly.GetManifestResourceStream(resourceName);
-                MemoryStream memoryStream = new MemoryStream();
-                fileStream.CopyTo(memoryStream);
-                fileStream.Close();
-                args.AlternateFontStream = memoryStream;
-            }
-        }
+        excelStream.Dispose();
+        stream.Dispose();
+      }
     }
+
+    private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+    {
+      //Substitute a font if the specified font is not installed in the machine.
+      if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+      else if (args.OriginalFontName == "Homizio")
+      {
+        //Substitute by font stream.
+        var assembly = Assembly.GetExecutingAssembly();
+        var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
+        Stream fileStream = assembly.GetManifestResourceStream(resourceName);
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+      }
+    }
+  }
 }
 
 {% endhighlight %}
@@ -1670,73 +1608,73 @@ using System.Reflection;
 
 namespace FontSubstitution
 {
-	public partial class MainPage : ContentPage
-	{
-		public MainPage()
-		{
-			InitializeComponent();
-		}
-
-        void OnButtonClicked(object sender, EventArgs args)
-        {
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Xlsx;
-                //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
-                application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
-
-                //Initialize XlsIO renderer.
-                XlsIORenderer renderer = new XlsIORenderer();
-
-                //Gets assembly
-                Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-                //Gets input Excel document from an embedded resource collection
-                Stream excelStream = assembly.GetManifestResourceStream("Template.xlsx");
-
-                IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-                //Convert Excel document into PDF document 
-                PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
-
-                //Save the PDF document to stream.
-                MemoryStream stream = new MemoryStream();
-                pdfDocument.Save(stream);
-
-                stream.Position = 0;
-
-                //Save the stream into pdf file
-                if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-                {
-                    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-                }
-                else
-                {
-                    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-                }
-
-                excelStream.Dispose();
-                stream.Dispose();
-            }
-        }
-		
-        private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
-        {
-            //Substitute a font if the specified font is not installed in the machine.
-            if (args.OriginalFontName == "Arial Unicode MS")
-                args.AlternateFontName = "Arial";
-            else if (args.OriginalFontName == "Homizio")
-            {
-                //Substitute by font stream.
-                Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("ExceltoPDF.Fonts.Homizio.ttf");
-                MemoryStream memoryStream = new MemoryStream();
-                fileStream.CopyTo(memoryStream);
-                fileStream.Close();
-                args.AlternateFontStream = memoryStream;
-            }
-        }
+  public partial class MainPage : ContentPage
+  {
+    public MainPage()
+    {
+      InitializeComponent();
     }
+
+    void OnButtonClicked(object sender, EventArgs args)
+    {
+      using (ExcelEngine excelEngine = new ExcelEngine())
+      {
+        IApplication application = excelEngine.Excel;
+        application.DefaultVersion = ExcelVersion.Xlsx;
+        //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
+        application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+
+        //Initialize XlsIO renderer.
+        XlsIORenderer renderer = new XlsIORenderer();
+
+        //Gets assembly
+        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+        //Gets input Excel document from an embedded resource collection
+        Stream excelStream = assembly.GetManifestResourceStream("Template.xlsx");
+
+        IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+        //Convert Excel document into PDF document 
+        PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+        //Save the PDF document to stream.
+        MemoryStream stream = new MemoryStream();
+        pdfDocument.Save(stream);
+
+        stream.Position = 0;
+
+        //Save the stream into pdf file
+        if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+        {
+          Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+        }
+        else
+        {
+          Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+        }
+
+        excelStream.Dispose();
+        stream.Dispose();
+      }
+    }
+
+    private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+    {
+      //Substitute a font if the specified font is not installed in the machine.
+      if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+      else if (args.OriginalFontName == "Homizio")
+      {
+        //Substitute by font stream.
+        Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("ExceltoPDF.Fonts.Homizio.ttf");
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+      }
+    }
+  }
 }
 
 {% endhighlight %}
@@ -1753,28 +1691,28 @@ In addition to the previous NuGet packages, SkiaSharp.Linux helper NuGet package
 2. Create a folder and name it as SkiaSharp.Linux and place the downloaded file in the folder structure "SkiaSharp.Linux\runtimes\linux-x64\native"
 3. Create a nuspec file with name SkiaSharp.Linux.nuspec using the following metadata information and place it inside SkiaSharp.Linux folder. The nuspec file can be customized.
 
-	{% tabs %}
-	{% highlight XML %}
-	<?xml version="1.0" encoding="utf-8"?>
-	<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-		<metadata>
-			<id>SkiaSharp.Linux</id>
-			<version>1.59.3</version>
-			<title>SkiaSharp for Linux</title>
-			<authors>Syncfusion Inc.</authors>
-			<owners>Syncfusion Inc.</owners>
-			<requireLicenseAcceptance>false</requireLicenseAcceptance>
-			<description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
-			<tags>linux,cross-platform,skiasharp,net-standard,net-core,excel-to-pdf</tags>
-			<dependencies>
-				<group targetFramework=".NETStandard1.4">
-					<dependency id="SkiaSharp" version="1.59.3" />
-				</group>
-			</dependencies>
-		</metadata>
-	</package>
-	{% endhighlight %}
-	{% endtabs %}
+{% tabs %}
+{% highlight XML %}
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SkiaSharp.Linux</id>
+    <version>1.59.3</version>
+    <title>SkiaSharp for Linux</title>
+    <authors>Syncfusion Inc.</authors>
+    <owners>Syncfusion Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
+    <tags>linux,cross-platform,skiasharp,net-standard,net-core,excel-to-pdf</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard1.4">
+        <dependency id="SkiaSharp" version="1.59.3" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
+{% endhighlight %}
+{% endtabs %}
 
 4. Make sure that the nuget.exe file is present along with SkiaSharp.Linux folder (in the parent folder of SkiaSharp.Linux folder). If not, download it from [here](https://www.nuget.org/downloads#).
 5. Open a command prompt and navigate to SkiaSharp.Linux folder.
@@ -1794,7 +1732,7 @@ XlsIO supports Excel printing option by converting Excel To PDF and printing tha
 
 The following printer settings can be applied to print Excel in XlsIO. 
 
-![printer settings](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img1.jpg)
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img1.jpg" alt="printer settings" width="100%" Height="Auto"/>
  
 ### Print Excel document 
 

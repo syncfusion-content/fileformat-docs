@@ -13,7 +13,6 @@ Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.
 **Prerequisites:**
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
 
-
 ## Steps to create Word document programmatically in .NET MAUI
 
 Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
@@ -32,19 +31,16 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 4: Add a new button to the **MainPage.xaml** as shown below.
 
-{% capture codesnippet1 %}
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CreateWordSample.MainPage"
-             BackgroundColor="{DynamicResource SecondaryColor}">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="CreateWordSample.MainPage"
+            BackgroundColor="{DynamicResource SecondaryColor}">
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+            Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
                 Text="Create Document"
                 FontAttributes="Bold"
@@ -55,35 +51,24 @@ Step 4: Add a new button to the **MainPage.xaml** as shown below.
         </Grid>
     </ScrollView>
 </ContentPage>
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 5: Include the following namespaces in the **MainPage.xaml.cs** file.
-
-{% capture codesnippet2 %}
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
 using System.Reflection;
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 6: Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
-
-{% capture codesnippet3 %}
 
 {% tabs %}
 
@@ -115,8 +100,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
 string resourcePath = "CreateWordSample.Resources.DocIO.AdventureCycle.jpg";
 //Gets the image stream.
@@ -170,7 +155,6 @@ IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends the paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -199,7 +183,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -255,7 +238,6 @@ paragraph.ParagraphFormat.LineSpacing = 12f;
 //Appends the picture to the paragraph.
 resourcePath = "CreateWordSample.Resources.DocIO.Mountain-300.jpg";
 imageStream = assembly.GetManifestResourceStream(resourcePath);
-
 picture = paragraph.AppendPicture(imageStream);
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
 picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -315,12 +297,9 @@ ms.Position = 0;
 //Saves the memory stream as file.
 SaveService saveService = new();
 saveService.SaveAndView("Sample.docx", "application/msword", ms);
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET-MAUI).
 

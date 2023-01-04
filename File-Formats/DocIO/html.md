@@ -10,7 +10,7 @@ documentation: UG
 
 The Essential DocIO converts the HTML file into Word document and vice versa. You can also convert the Word document (DOC, DOCX, RTF, DOT, DOTX, DOCM, and DOTM) into HTML format. 
 
-In Word library (DocIO) we use [XmlReader](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader?view=netframework-4.8) for parsing the content from input HTML. So, the input HTML should meet XML standard (have proper open and close tags), even if you specify `XHTMLValidationType` parameter as `XHTMLValidationType.None`.
+In Word library (DocIO) we use [XmlReader](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader?view=netframework-4.8) for parsing the content from input HTML. So, the input HTML should meet XML standard (have proper open and close tags), even if you specify [XHTMLValidationType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.XHTMLValidationType.html) parameter as [XHTMLValidationType.None](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.XHTMLValidationType.html).
 
 ## XHTML Validation
 
@@ -267,7 +267,7 @@ N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and
 
 ### Customize image data
 
-The Essential DocIO provides an `ImageNodeVisited` event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this `ImageNodeVisited` event.
+The Essential DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.HTMLImportSettings.html#Syncfusion_DocIO_DLS_HTMLImportSettings_ImageNodeVisited) event, which is used to customize image data while importing and exporting HTML files. You can implement logic to customize the image data by using this [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.HTMLImportSettings.html#Syncfusion_DocIO_DLS_HTMLImportSettings_ImageNodeVisited) event.
 
 The following code example shows how to load image data based on image source path when importing the HTML files.
 
