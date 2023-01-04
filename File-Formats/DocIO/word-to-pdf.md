@@ -1406,7 +1406,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 This setting allows you to set the PDF conformance level.
 
-The following code sample shows how to set the PdfConformanceLevel while converting Word to PDF.
+The following code sample shows how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html) while converting Word to PDF.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2346,7 +2346,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 #### Show or Hide Revisions in Balloons
 
-The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling ShowMarkup property. However, you can hide revisions in balloons by using following code example.
+The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling [ShowMarkup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RevisionOptions.html#Syncfusion_DocIO_DLS_RevisionOptions_ShowMarkup) property. However, you can hide revisions in balloons by using following code example.
 
 {% tabs %}
 
@@ -2740,7 +2740,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Restrict all permission in a PDF document
 
-you can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html)
+You can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html)
 
 The below code example shows how to restrict Copying and Printing permission of the PDF document.
 
@@ -2921,7 +2921,7 @@ To avoid this, the Essential DocIO library allows you to set an alternate font f
 
 You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using the [SubstituteFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.FontSettings.html) event.
 
-The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font not installed in the machine. 
+The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font is not installed in the machine. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
