@@ -112,4 +112,4 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 By executing the program, you will get a PDF document as follows.
 <img src="OCR-Images/Output.png" alt="Output screenshot" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Perform-OCR-WF).
+A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Windows%20Forms).

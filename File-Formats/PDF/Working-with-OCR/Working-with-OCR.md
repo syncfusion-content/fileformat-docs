@@ -323,7 +323,7 @@ using (OCRProcessor processor = new OCRProcessor("TesseractBinaries/Windows/"))
 By executing the program, you will get the PDF document as follows.
 <img src="OCR-Images/Output.png" alt="Output screenshot" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Perform_OCR_NET).
+A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/.NET).
 
 ### Perform OCR in Linux 
 
