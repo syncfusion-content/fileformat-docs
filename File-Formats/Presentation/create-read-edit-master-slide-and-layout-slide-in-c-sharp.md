@@ -14,7 +14,7 @@ The [Syncfusion PowerPoint library](https://www.syncfusion.com/powerpoint-framew
 
 1. Access the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) in PowerPoint file.
 2. Add [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html) to the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html).
-3. li>Customize the [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html).
+3. Customize the [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html).
 4. Create a slide with 9 pre-defined layout slides.
 5. Customize the layout slides to fit your own scenarios.
 

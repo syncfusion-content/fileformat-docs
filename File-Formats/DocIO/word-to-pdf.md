@@ -1406,7 +1406,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 This setting allows you to set the PDF conformance level.
 
-The following code sample shows how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html) while converting Word to PDF.
+The following code sample shows how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_PdfConformanceLevel) while converting Word to PDF.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

@@ -2704,7 +2704,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to enable track changes for Word document?
 
-[TrackChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_TrackChanges) is used to keep track of the changes made to a Word document. This can be enabled by using the [TrackChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_TrackChanges) property of the Word document.
+TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the [TrackChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_TrackChanges) property of the Word document.
 
 The following code example shows how to enable track changes of the document.
 
