@@ -8,7 +8,7 @@ documentation: UG
 
 # Word to Markdown Conversion
 
-Markdown is a lightweight markup language that adds formatting elements to plaintext text documents. The .NET Word (DocIO) library supports the conversion of a Word document to a Markdown file, which mostly follows the CommonMark specification and GitHub-flavored syntax.
+Markdown is a lightweight markup language that adds formatting elements to plain text documents. The .NET Word (DocIO) library supports the conversion of a Word document to a Markdown file, which mostly follows the CommonMark specification and GitHub-flavored syntax.
 
 ## Convert Word to Markdown
 
@@ -160,7 +160,7 @@ The following table illustrates the supported Markdown elements in Word to Markd
 <td style="width: 557.014px;">Apply numbered or bulleted list format to paragraphs.&nbsp;</td>
 </tr>
 <tr>
-<td style="width: 182.986px;">Codespan</td>
+<td style="width: 182.986px;">Code span</td>
 <td style="width: 557.014px;">Set &ldquo;InlineCode&rdquo; character style for text.</td>
 </tr>
 <tr>
@@ -690,7 +690,7 @@ The following table shows the list of Word document elements supported in Word t
 <td style="width: 269.931px; height: 13px;">Table</td>
 <td style="width: 465.069px; height: 13px;">
 <ul>
-<li>Preserves as per GitHub flavoured Markdown syntax.</li>
+<li>Preserves as per GitHub flavored Markdown syntax.</li>
 <li>Column alignment is based on alignment of first paragraph in cells of row.</li>
 <li>Nested tables are not supported in Markdown, and they are merged with contents of parent cell.</li>
 </ul>
