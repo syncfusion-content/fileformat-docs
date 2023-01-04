@@ -11,7 +11,7 @@ keywords: Assemblies
 
 ## Performing OCR for an entire document
 
-To perform OCR on a PDF document using [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class, refer to the following code snippet. 
+To perform OCR on a PDF document using [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class, refer to the following code example. 
 
 {% tabs %}   
 
