@@ -98,6 +98,5 @@ using (OCRProcessor processor = new OCRProcessor("Tesseractbinaries/Windows"))
 By executing the program, you will get a PDF document as follows.
 <img src="OCR-Images/OCR-output-image.png" alt="Convert OCR ASP.NET_Core output" width="100%" Height="Auto"/>
  
-A complete working sample can be downloaded from the [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Perform_OCR_NET_Core).
-   
+A complete working sample can be downloaded from the [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/ASP.NET%20Core).   
    
