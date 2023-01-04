@@ -212,7 +212,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Link Paragraph and Character Style
 
-You can link character styles with paragraph and vice versa in a Word document using LinkedStyleName property.
+You can link character styles with paragraph and vice versa in a Word document using [LinkedStyleName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Style.html#Syncfusion_DocIO_DLS_Style_LinkedStyleName) property.
 
 The following code example explains how to link character and paragraph style.
 
