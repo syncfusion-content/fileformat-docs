@@ -2680,7 +2680,7 @@ The [PdfSignatureSettings](https://help.syncfusion.com/cr/file-formats/Syncfusio
 
 As per the PDF specification 2.0, now Syncfusion PDF library supports digital signature based on CAdES (CMS Advanced Electronics Signature). The CAdES based digital signature can remain valid for long periods, even if underlying cryptographic algorithms are broken. Using the API [CryptographicStandard](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_CryptographicStandard), you can change the standard between CMS (Cryptographic Message Syntax) and CAdES.
 
-The following code example explains how to add a digital signature with [cryptographic standard](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_CryptographicStandard) as CAdES through [CryptographicStandard](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_CryptographicStandard) Enum when creating the PDF document.
+The following code example explains how to add a digital signature with [cryptographic standard](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_CryptographicStandard) as CAdES through [CryptographicStandard](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.CryptographicStandard.html) Enum when creating the PDF document.
 
 {% tabs %}
 
@@ -2890,14 +2890,13 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 In addition, you can now set the different message digest algorithm to sign PDF document using the [DigestAlgorithm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_DigestAlgorithm) enum available in the class [PdfSignatureSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html). 
 
 The following message digest algorithms are now supported:
-
 * SHA1
 * SHA256
 * SHA384
 * SHA512
 * RIPEMD160
 
-The following code example explains how to add a digital signature with various digest algorithms to the PDF document by specifying the [DigestAlgorithm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_DigestAlgorithm) property as **SHA256** through [DigestAlgorithm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_DigestAlgorithm) enum in [PdfSignatureSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html) class.
+The following code example explains how to add a digital signature with various digest algorithms to the PDF document by specifying the [DigestAlgorithm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html#Syncfusion_Pdf_Security_PdfSignatureSettings_DigestAlgorithm) property as **SHA256** through [DigestAlgorithm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.DigestAlgorithm.html) enum in [PdfSignatureSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignatureSettings.html) class.
 
 {% tabs %}
 
