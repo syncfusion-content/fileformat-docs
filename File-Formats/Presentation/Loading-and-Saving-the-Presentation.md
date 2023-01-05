@@ -51,6 +51,8 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
+
 ## Opening an existing Presentation from stream
 
 You can open an existing PowerPoint Presentation from stream by using the overloads of Open method.
@@ -89,6 +91,8 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
 
 ## Opening an encrypted Presentation
 
@@ -147,6 +151,8 @@ IPresentation pptxDoc = Presentation.OpenAsync(fileName, password);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-encrypted-PowerPoint).
 
 ## Saving a PowerPoint Presentation to file system
 
@@ -222,6 +228,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
+
 ## Saving a PowerPoint Presentation to stream
 
 You can save the created or manipulated PowerPoint Presentation to stream by using overloads of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Save_System_IO_Stream_) method.
@@ -284,6 +292,8 @@ pptxDoc.Save(outputStream);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
+
 ## Sending to a client browser
 
 You can save and send the Presentation to a client browser from a website or web application by invoking the overload of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Save_System_String_Syncfusion_Presentation_FormatType_System_Web_HttpResponse_) method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://docs.microsoft.com/en-us/previous-versions/gg145018(v=vs.110)) assembly.
@@ -329,6 +339,8 @@ return File(outputStream, ContentType, outputFileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Send-PowerPoint-to-client-browser).
 
 ## Closing a PowerPoint Presentation
 
@@ -419,3 +431,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
