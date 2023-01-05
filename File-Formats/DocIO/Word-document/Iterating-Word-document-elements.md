@@ -419,7 +419,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Modify Hyperlink Uri
 
-The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink)Uri and specific text (WTextRange)with another.
+The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink) Uri and specific text (WTextRange) with another.
 
 {% tabs %}
 

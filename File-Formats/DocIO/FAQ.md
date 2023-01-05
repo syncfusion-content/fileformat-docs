@@ -2153,13 +2153,13 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 ### Using DocIO
 
-DocIO uses ProtectionType property to specify the protection type of the Word document. This property uses the following values:
+DocIO uses [ProtectionType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ProtectionType) property to specify the protection type of the Word document. This property uses the following values:
 
-* AllowOnlyComments: Allows only comments to be added to the document.
-* AllowOnlyFormFields: Allows content to be added to the document through form fields only.
-* AllowOnlyRevisions: Allows only revisions to be made to the existing content.
-* AllowOnlyReading: All kinds of editing are restricted here and it makes the Word document as read-only document.
-* NoProtection: Does not protect the document.
+* [AllowOnlyComments](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Allows only comments to be added to the document.
+* [AllowOnlyFormFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Allows content to be added to the document through form fields only.
+* [AllowOnlyRevisions](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Allows only revisions to be made to the existing content.
+* [AllowOnlyReading](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): All kinds of editing are restricted here and it makes the Word document as read-only document.
+* [NoProtection](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Does not protect the document.
 
 {% tabs %}
 
@@ -2301,7 +2301,7 @@ Refer to the online documentation link for more information about adding the tab
 
 ## How to copy necessary fonts to Linux containers
 
-The fonts present in the location(in Docker container) "/usr/local/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the container.
+The fonts present in the location (in Docker container) "/usr/local/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the container.
 
 You should copy necessary fonts to this location "/usr/local/share/fonts/" before conversion.
 
@@ -2319,7 +2319,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to copy necessary Microsoft compatible fonts to Linux
 
-The fonts present in the location(in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
+The fonts present in the location (in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
 
 Use the following code example to install the Microsoft compatible fonts to Linux.
 
@@ -2704,7 +2704,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to enable track changes for Word document?
 
-TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the TrackChanges property of the Word document.
+TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the [TrackChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_TrackChanges) property of the Word document.
 
 The following code example shows how to enable track changes of the document.
 
@@ -2892,7 +2892,7 @@ We have found metafile images (*.emf, *.wmf) that are not supported in Azure App
 
 To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Word to PDF conversion.
 
-Otherwise, you can use the[WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/docio/word-to-pdf) code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages have limitations.
+Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/docio/word-to-pdf) code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages have limitations.
 
 ## What are the NuGet packages to be installed to perform Word to PDF conversion in Linux OS?
 In Linux OS, you can perform Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) applications with Word to PDF conversion capabilities.

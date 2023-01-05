@@ -2568,8 +2568,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Phantom
 
-You can create a phantom equation to add the spacing of the phantom
-without displaying that base and suppressing part of the glyph from spacing considerations. The following code example shows how to create a phantom equation.
+You can create a phantom equation to add the spacing of the phantom without displaying that base and suppressing part of the glyph from spacing considerations. The following code example shows how to create a phantom equation.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document
