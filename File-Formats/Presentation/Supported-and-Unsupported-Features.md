@@ -617,7 +617,7 @@ Yes
 Yes
 </td>
 <td>
-No
+Yes
 </td>
 <td>
 Yes
@@ -649,7 +649,7 @@ Yes
 Yes
 </td>
 <td>
-No
+Yes
 </td>
 <td>
 Yes
