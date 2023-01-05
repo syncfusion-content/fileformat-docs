@@ -88,6 +88,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-PowerPoint-slide).
+
 ## Create a slide with predefined LayoutSlide
 
 The Syncfusion PowerPoint library supports the following predefined slide layout types to create a slide as equivalent to Microsoft PowerPoint:
@@ -182,6 +184,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-predefined-blank-slide-layout-type).
 
 The following code example demonstrates how to add a slide with all other predefined slide layout types.
 
@@ -360,6 +364,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-all-predefined-slide-layout-types).
+
 ## Adding Custom layout slide
 
 The slide layout are template design for the PowerPoint slides. Slide layout can contains formatting, positioning, and placeholders for a slide. There are 9 predefined layouts and custom slide layouts can also be designed.
@@ -490,6 +496,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Create-and-use-custom-layout-slide).
 
 The following code example demonstrates how to add a slide with an existing slide’s layout.
 
@@ -643,6 +651,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-slide-with-existing-slide-layout).
+
 ## Cloning slide
 
 You can create a deep copy of a slide by cloning the slide. The cloned slide is an independent copy of its source slide. This means the changes made in the cloned slide do not affect the source slide.
@@ -772,6 +782,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Clone-PowerPoint-slide).
+
 ## Merging slide
 
 The Essential Presentation provides ability to clone slides from one Presentation to another Presentation. With this ability, you can split a large Presentation into small ones and also merge multiple presentations to one Presentation. You can choose the theme for the cloned slide by using the enum [PasteOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.PasteOptions.html).
@@ -890,6 +902,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Merge-PowerPoint-slide).
+
 ## Removing slide
 
 The Essential Presentation provides the ability to delete a slide by its instance or by its index position in slide collection. The following code demonstrates how to delete a slide from a presentation. 
@@ -998,6 +1012,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Remove-PowerPoint-slide).
 
 ## Converting to image
 
@@ -1204,3 +1220,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Change-PowerPoint-slide-background).

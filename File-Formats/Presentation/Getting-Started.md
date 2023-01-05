@@ -450,6 +450,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Create-PowerPoint-with-basic-elements).
+
 The resultant PowerPoint Presentation looks as follows.
 
 ![GettingStarted Image](GettingStarted_images/GettingStarted_img1.JPG)
