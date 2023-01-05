@@ -1472,7 +1472,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Set user password using event when accessing the attachment
 
-The following code example illustrates how to provide the password when accessing attachments from encrypt-only-attachment document using the OnPdfPassword event.
+The following code example illustrates how to provide the password when accessing attachments from encrypt-only-attachment document using OnPdfPasswordEventArgs class.
 
 {% tabs %}
 
@@ -1609,7 +1609,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Protect attachments in existing PDF document
 
-The Syncfusion PDF Library supports encrypting only the attachment files in an existing PDF document using the EncryptOnlyAttachments encryption option. Refer to the following code snippet.
+The Syncfusion PDF Library supports encrypting only the attachment files in an existing PDF document  by specifying the [EncryptionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_EncryptionOptions) property as **EncryptOnlyAttachments** option through [PdfEncryptionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfEncryptionOptions.html) Enum in [PdfSecurity](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html) class. Refer to the following code snippet.
 
 N> [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_UserPassword) is mandatory for this encryption option.
 
@@ -2256,7 +2256,10 @@ try
 }
 catch (PdfDocumentException exception)
 {
-    
+  if (exception.Message == "Can't open an encrypted document. The password is invalid.")
+	{
+		MessageBox.Show("Cannot open an encrypted document without password");
+	}
 }
 
 {% endhighlight %}
@@ -2271,7 +2274,10 @@ try
 }
 catch (PdfDocumentException exception)
 {
-  
+  if (exception.Message == "Can't open an encrypted document. The password is invalid.")
+	{
+		MessageBox.Show("Cannot open an encrypted document without password");
+	}
 }
 
 {% endhighlight %}
@@ -2286,7 +2292,10 @@ try
 }
 catch (PdfDocumentException exception)
 {
-   
+  if (exception.Message == "Can't open an encrypted document. The password is invalid.")
+	{
+		MessageBox.Show("Cannot open an encrypted document without password");
+	}
 }
 
 {% endhighlight %}
