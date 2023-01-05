@@ -166,7 +166,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Creating a new Word document from scratch with basic elements
 
-An entire Word document is represented by an instance of WordDocument and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
+An entire Word document is represented by an instance of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
 
 A section represents group of paragraphs, tables etc., that have a specific set of properties used to define the pages, number of columns, headers and footers and so on that decides how the text appears. A section should contain at least one paragraph in this body.
 

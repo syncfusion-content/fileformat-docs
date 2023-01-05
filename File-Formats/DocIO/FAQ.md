@@ -187,7 +187,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to set OpenType Font Features?
 
-The Open type features provide special effects for the text. This feature is specific to Word 2010 and later version documents. The OpenType features includes the following:
+The Open type features provide special effects for the text. This feature is specific to Word 2010 and later version documents.
+
+The OpenType features includes the following:
 
 * Ligatures – combination of characters, written as glyph
 * Use Contextual Alternates – combination of letters based on surrounding characters
@@ -1125,9 +1127,9 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 DocIO performs Mail merge by using the following methods:
 
-* Execute
-* ExecuteGroup
-* ExecuteNestedGroup
+* [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_)
+* [ExecuteGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataTable_)
+* [ExecuteNestedGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_Syncfusion_DocIO_DLS_MailMergeDataTable_)
 
 The following code example performs Mail merge by using the [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_) method.
 
@@ -1752,14 +1754,14 @@ wordApp.Quit()
 
 ### Using DocIO
 
-You can set the header and footer by using the HeadersFooters property in the Word document section. To access a particular header/footer, you can use the following properties of [WHeadersFooters](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html) class:
+You can set the header and footer by using the [HeadersFooters](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSection.html#Syncfusion_DocIO_DLS_WSection_HeadersFooters) property in the Word document section. To access a particular header/footer, you can use the following properties of [WHeadersFooters](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html) class:
 
-* FirstPageHeader
-* FirstPageFooter
-* OddHeader
-* OddFooter
-* EvenHeader
-* EvenFooter
+* [FirstPageHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageHeader)
+* [FirstPageFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageFooter)
+* [OddHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddHeader)
+* [OddFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddFooter)
+* [EvenHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenHeader)
+* [EvenFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenFooter)
 
 {% tabs %}
 
