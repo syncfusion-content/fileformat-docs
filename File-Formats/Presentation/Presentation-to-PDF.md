@@ -128,11 +128,10 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
-N> 1. PowerPoint Presentation to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application. 
-N> 2. Creating an instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
-N> 3. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
-N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS (Federal Information Processing Standard) algorithm policy.
-N> 5. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
+N> 1. Creating an instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
+N> 2. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
+N> 3. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS (Federal Information Processing Standard) algorithm policy.
+N> 4. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
 
 N> 1. To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Presentation to PDF conversion.
 N> 2. Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) Forms platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) code examples for it. But in Mac and Linux environment, using the WPF or Windows Forms platform NuGet packages have limitations.
