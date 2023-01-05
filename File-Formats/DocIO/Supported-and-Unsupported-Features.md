@@ -1238,6 +1238,11 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
+<td>Word to Image<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
 <td>RTF to Word<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
