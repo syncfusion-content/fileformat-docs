@@ -6085,7 +6085,7 @@ OLE (Object Linking and Embedding) objects allow embedding and linking to docume
 * Linked: The content is linked to the source file
 * Embedded: The content is copied to the Word document and is not linked to the source file 
 
-You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using [WOleObject]{https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html} instance.
+You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using [WOleObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html) instance.
 
 ### Add OLE Objects in Word document
 

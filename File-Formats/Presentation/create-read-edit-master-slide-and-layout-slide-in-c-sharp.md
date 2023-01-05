@@ -11,13 +11,12 @@ documentation: UG
 To get all the slides in same format, you should perform those changes in the Slide Master or Layout Master. The changes will be applied to all the slides, which inherits the master slide or layout slide.
 
 The [Syncfusion PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net) supports the following:
-<ol>
-<li>Access the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) in PowerPoint file.</li>
-<li>Add [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html) to the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html).</li>
-<li>Customize the [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html).</li>
-<li>Create a slide with 9 pre-defined layout slides.</li>
-<li>Customize the layout slides to fit your own scenarios.</li>
-</ol>
+
+1. Access the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) in PowerPoint file.
+2. Add [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html) to the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html).
+3. Customize the [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html).
+4. Create a slide with 9 pre-defined layout slides.
+5. Customize the layout slides to fit your own scenarios.
 
 ## Access the MasterSlide
 

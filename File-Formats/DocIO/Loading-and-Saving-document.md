@@ -307,7 +307,7 @@ You can download a complete working sample from Stream from [GitHub](https://git
 
 ## Opening the read only Word document
 
-You can open the ready only documents or read only streams using the OpenReadOnly method. If the Word document for reading is opened by any other application such as Microsoft Word, then the same document can be opened using DocIO in ReadOnly mode. The following code sample demonstrates the same.
+You can open the ready only documents or read only streams using the [OpenReadOnly](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_OpenReadOnly_System_String_Syncfusion_DocIO_FormatType_) method. If the Word document for reading is opened by any other application such as Microsoft Word, then the same document can be opened using DocIO in ReadOnly mode. The following code sample demonstrates the same.
 
 {% tabs %}
   
