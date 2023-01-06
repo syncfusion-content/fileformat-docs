@@ -738,7 +738,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 6. Add the below code snippet in button click.
 
 {% tabs %}
-{% highlight C# %}
+{% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
