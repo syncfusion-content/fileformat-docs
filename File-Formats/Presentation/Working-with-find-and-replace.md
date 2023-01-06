@@ -141,6 +141,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-Replace-in-PowerPoint).
+
 ### Match case
 
 You can find and replace the text by matching the case also.
@@ -276,6 +278,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Match-case).
 
 ### Whole words only
 
@@ -413,6 +417,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Whole-word-only).
+
 ### Find and replace the first occurrence
 
 You can find only the first occurrence of the text and replace it with other text.
@@ -524,6 +530,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-first-occurance).
 
 ## Find and replace in specific slide
 
@@ -649,12 +657,14 @@ pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-replace-in-slide).
 
 ## Find and highlight in PowerPoint presentation
 
@@ -790,6 +800,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-highlight-in-PowerPoint).
 
 ## Find and highlight in a specific slide
 
@@ -930,3 +942,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-highlight-in-slide).

@@ -161,6 +161,8 @@ pptxDoc.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET-Core/Create-PowerPoint-presentation).
+
 The output of the above code example will generate the below PowerPoint slide.
 
 ![ASP.Net Core PowerPoint Library Output](Workingwith_Core/GettingStartedSample.png)
@@ -194,5 +196,7 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET-Core/Read-and-edit-PowerPoint-presentation).
 
 N> You can also explore our [.NET Core PowerPoint library demo](https://ej2.syncfusion.com/aspnetcore/Presentation/Default#/bootstrap5) that shows how to create and modify PowerPoint files from C# with just five lines of code.

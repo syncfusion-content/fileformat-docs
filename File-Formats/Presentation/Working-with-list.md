@@ -294,6 +294,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Lists/Create-numbered-list).
+
 ### Bulleted list
 
 The following code example demonstrates how to create a simple bulleted list.
@@ -593,6 +595,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Lists/Create-bulleted-list).
+
 ### Picture List
 
 The following code example demonstrates how to create a simple picture list.
@@ -801,6 +805,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Lists/Create-picture-list).
 
 ## Creating a Multilevel List
 
@@ -1095,6 +1101,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Lists/Create-multilevel-list).
 
 The above code example generates a multi-level list in Presentation as follows.
 

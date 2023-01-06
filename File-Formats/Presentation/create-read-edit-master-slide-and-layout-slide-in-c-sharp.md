@@ -54,6 +54,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Master-and-Layout-slides/Access-PowerPoint-master-slide).
+
 ## Change background of Master slide
 
 You can change the background of the master slide, all slides in the presentation would receive the same background settings. The following code example demonstrates how to set the background for a master slide.
@@ -174,6 +176,8 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Master-and-Layout-slides/Modify-PowerPoint-master-slide-background).
+
 ## Create a custom LayoutSlide
 
 The real-world scenarios always require more predefined templates. The Syncfusion PowerPoint library lets you build your own custom layout designs and use them to create individual slides.
@@ -213,3 +217,5 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Master-and-Layout-slides/Create-custom-layout-slide).
