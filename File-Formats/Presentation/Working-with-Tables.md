@@ -161,6 +161,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Create-PowerPoint-table-with-rows).
+
 ## Create a table by adding columns
 
 The following code example demonstrates how to create a simple table in a PowerPoint slide by adding columns.
@@ -310,6 +312,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Create-PowerPoint-table-with-columns).
+
 ## Append a new row at the end of table
 
 You can append new rows at the end of an existing PowerPoint table. Refer to the following code sample.
@@ -427,6 +431,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Add-new-row-to-the-table-end).
+
 ## Copy an existing row to the end of table
 
 You can copy an existing row to the end of a table. Refer to the following code example.
@@ -520,6 +526,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Copy-existing-row-to-the-table-end).
 
 ## Insert a row in table
 
@@ -615,6 +623,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Insert-row-in-table).
 
 ## Append a new column at the end table
 
@@ -735,6 +745,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Add-new-column-to-the-table-end).
+
 ## Copy an existing column to the end of table
 
 You can copy an existing column and append it to the end of table. Refer to the following code example.
@@ -829,6 +841,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Copy-existing-column-to-the-table-end).
 
 ## Insert a column to a table
 
@@ -925,6 +939,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Insert-column-in-table).
+
 ## Get the actual height of the table
 
 The table height expands with the content added to it. The Essential Presentation library allows you to get this actual height or rendered height of the table. This property is a calculated value based on the content added to the table cells.
@@ -1012,6 +1028,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Get-actual-table-height).
 
 N> Getting the actual height of the table is not supported in UWP platform.
 
@@ -1327,6 +1345,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Apply-table-formatting).
+
 ## Applying table styles
 
 You can format a table by applying pre-defined table styles. The following code example demonstrates how to apply predefined styles to a table.
@@ -1569,6 +1589,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Apply-table-styles).
+
 ## Modifying the table
 
 The following code example demonstrates how to modify the table in existing PowerPoint Presentation
@@ -1694,6 +1716,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Modify-existing-table).
 
 ## Merging the cells
 
@@ -1862,6 +1886,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Merge-table-cells).
+
 ## Removing the table
 
 You can remove a table from a slide by its instance or by its index position in the shape collection. The following code example demonstrates removing a table in a slide.
@@ -1967,6 +1993,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Remove-table).
 
 ## Editing the table content
 
@@ -2145,3 +2173,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Edit-table-contents).

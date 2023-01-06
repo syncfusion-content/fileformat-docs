@@ -125,6 +125,8 @@ imageStream.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Add-PowerPoint-shape).
+
 ## Iterating through shapes
 
 You can iterate through the shapes in a PowerPoint slide. The following code example demonstrates how to iterate through the shapes present in a slide for modifying its properties.
@@ -241,6 +243,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Iterate-through-shapes).
 
 ## Specifying shape properties
 
@@ -419,6 +423,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Apply-shape-properties).
+
 ## Removing the shapes
 
 The shapes can be removed from a slide by its instance or by its index position in the shape collection. The following code example demonstrates how to remove the shapes from a slide. 
@@ -525,6 +531,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Remove-shape).
 
 ## Working with GroupShape
 
@@ -657,6 +665,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Create-PowerPoint-groupshape).
 
 ### Iterating and modifying a particular GroupShape
 
@@ -808,6 +818,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Iterate-groupshape-and-modify-a-shape).
+
 ###  Removing a GroupShape
 
 [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html) can be removed from a slide using its instance or by its index position in the [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html) collection of the slide. Below code snippet explains how to remove a [GroupShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IGroupShape.html) from a slide.
@@ -914,5 +926,7 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Remove-groupshape).
 
 N> The Presentation library do not have support for converting the auto-shapes with modified adjustment values in PowerPoint presentation to image or PDF conversion. To know more about adjustment values in PowerPoint shapes please click [here](https://msdn.microsoft.com/en-us/library/office/aa220882(v=office.11).aspx).
