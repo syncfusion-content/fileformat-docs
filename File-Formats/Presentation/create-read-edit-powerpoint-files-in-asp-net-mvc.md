@@ -159,6 +159,8 @@ pptxDoc.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET-MVC/Create-PowerPoint-presentation).
+
 The output of the above code example will generate the below PowerPoint slide.
 
 ![ASP.Net MVC Output](Workingwith_MVC/GettingStartedSample.png)
@@ -188,3 +190,5 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET-MVC/Read-and-edit-PowerPoint-presentation).

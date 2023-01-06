@@ -304,6 +304,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-PowerPoint-chart).
+
 ## Creating charts from excel sheet
 
 You can also create a chart with the data from an existing excel worksheet. The following code example demonstrates the same.
@@ -402,6 +404,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-chart-from-excel-sheet).
 
 ## Creating Custom Charts 
 
@@ -719,6 +723,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-customized-chart).
+
 The above code example creates a chart in the following screenshot.
 
 ![PowerPoint Example Chart1](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
@@ -825,6 +831,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Refresh-PowerPoint-chart).
 
 ## Editing the Chart Data
 
@@ -986,6 +994,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Edit-chart-data).
 
 ## Customizing the chart
 
@@ -1316,6 +1326,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Modify-chart-appearance).
 
 ### Modifying the Plot and Legends of chart
 
@@ -1698,6 +1710,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Modify-chart-legend-and-plot-areas).
+
 ### Positioning Chart Elements
 
 The following code examples illustrate how to position the different chart elements.
@@ -1890,6 +1904,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Positioning-chart-elements).
+
 ## Applying 3D Formats
 
 Essential Presentation allows you to modify side wall, back wall, and floor settings of a 3-D chart. The following code example explains how to apply these settings to a 3-D chart.
@@ -2027,6 +2043,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Apply-chart-3D-formats).
+
 ## Chart to Image conversion
 
 The following code example demonstrates how to convert the charts in a Presentation slide to image.
@@ -2085,6 +2103,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Convert-chart-to-image).
 
 ## Removing the chart from slide
 
@@ -2192,6 +2212,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Remove-existing-chart).
 
 ## Creating a Scatter chart
 
@@ -2394,6 +2416,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-scatter-chart).
 
 ## PowerPoint 2016 Charts
 
@@ -2604,6 +2628,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-funnel-chart).
 
 The following screenshot shows the output of previous code.
 
@@ -3290,6 +3316,8 @@ private static void SetChartData(IPresentationChart chart)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Box-And-Whisker-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint Box And Whisker Chart](WorkingwithCharts_images/BoxAndWhisker.png)
@@ -3540,6 +3568,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Waterfall-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint WaterFall Chart](WorkingwithCharts_images/WaterFall.png)
@@ -3762,6 +3792,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Histogram-chart).
 
 The following screenshot shows the output of previous code.
 
@@ -3994,11 +4026,13 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Pareto-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint Pareto Chart](WorkingwithCharts_images/Pareto.png)
 
-N>These charts are supported only in PowerPoint 2016 and are not supported in the previous versions.
+N> These charts are supported only in PowerPoint 2016 and are not supported in the previous versions.
 
 ## Supported Chart Types 
 
