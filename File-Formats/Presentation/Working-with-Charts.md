@@ -411,7 +411,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Essential Presentation facilitates you to create custom charts by adding different charts series for a single chart. 
 
-For example, you can use a Bar- clustered chart for the first data series and a scatter- line- marker chart for the second series. As a result, you can have a Bar-clustered chart combined with a scatter-line-marker chart.
+For example, you can use a Bar-clustered chart for the first data series and a scatter-line-marker chart for the second series. As a result, you can have a Bar-clustered chart combined with a scatter-line-marker chart.
 
 The following code example demonstrates how to create custom charts.
 
@@ -2425,7 +2425,7 @@ Essential Presentation supports creating and manipulating new and modern chart t
 
 ### Funnel
 
-[Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process. Refer to the following code example to create a Funnel chart.
+[Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process. Refer to the following code example to create a [Funnel](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2637,7 +2637,7 @@ The following screenshot shows the output of previous code.
 
 ### Box and Whisker
 
-[Box and Whisker](https://support.office.com/en-us/article/Create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d#) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis. Refer to the following code example to create the Box and Whisker chart.
+[Box and Whisker](https://support.office.com/en-us/article/Create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d#) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis. Refer to the following code example to create the [Box and Whisker](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 
@@ -3324,7 +3324,7 @@ The following screenshot shows the output of previous code.
 
 ### Waterfall
 
-[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart. Refer to the following code to create a Waterfall chart.
+[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart. Refer to the following code to create a [Waterfall](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 
@@ -3576,7 +3576,7 @@ The following screenshot shows the output of previous code.
 
 ### Histogram
 
-[Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data. Refer to the following code example to create a Histogram.
+[Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data. Refer to the following code example to create a [Histogram](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html).
 
 {% tabs %}
 
@@ -3801,7 +3801,7 @@ The following screenshot shows the output of previous code.
 
 ### Pareto
 
-[Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram in which the columns sorted in descending order and a line representing the cumulative total percentage. . Refer to the following code example to create a Pareto chart.
+[Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram in which the columns sorted in descending order and a line representing the cumulative total percentage. . Refer to the following code example to create a [Pareto](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 
