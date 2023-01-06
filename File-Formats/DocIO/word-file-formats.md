@@ -883,10 +883,10 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Open a Word (*.doc) document containing incremental save information
 
-Essential DocIO process the content that are preserved in the last complete save operation alone from a Word (.doc) document and it doesn't process the incremental save information. 
-Hence it throws "Complex format is not supported" exception when attempting to open a Word (.doc) document containing incremental save information.
+Essential DocIO process the content that are preserved in the last complete save operation alone from a Word (.doc) document and it doesn't process the incremental save information. Hence it throws "Complex format is not supported" exception when attempting to open a Word (.doc) document containing incremental save information.
 
-You can open the Word (*.doc) documents containing incremental save information without exception by setting SkipIncrementalSaveValidation property of Settings class as true. 
+You can open the Word (*.doc) documents containing incremental save information without exception by setting [SkipIncrementalSaveValidation](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Settings.html#Syncfusion_DocIO_DLS_Settings_SkipIncrementalSaveValidation) property of Settings class as true.
+
 Whereas the recent changes saved as incremental save information using older Microsoft Word application can't be preserved.
 
 The following code example shows how to open a Word (*.doc) document containing incremental save information without exception.

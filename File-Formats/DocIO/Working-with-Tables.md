@@ -1101,7 +1101,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Apply formatting to Table, Row and Cell
 
-The following code example illustrates how to load an existing document and apply table formatting options such as Borders, LeftIndent, Paddings, IsAutoResize, etc.
+The following code example illustrates how to load an existing document and apply table formatting options such as [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RowFormat.html#Syncfusion_DocIO_DLS_RowFormat_Borders), [IndentFromLeft](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RowFormat.html#Syncfusion_DocIO_DLS_RowFormat_LeftIndent), [Paddings](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RowFormat.html#Syncfusion_DocIO_DLS_RowFormat_Paddings), [IsAutoResized](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RowFormat.html#Syncfusion_DocIO_DLS_RowFormat_IsAutoResized), etc.
 
 N> 1. [BorderStyle.None](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html) is the default value of [BorderType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html#Syncfusion_DocIO_DLS_Borders_BorderType) property in [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html) class which will not show borders for the table or cell. It is equivalent to border style not defined and borders can be inherited from style or parent formats.
 N> 2. To hide border for a table or cell in the Word Document, you can set [BorderType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html#Syncfusion_DocIO_DLS_Borders_BorderType) property with [BorderStyle.Cleared](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html). It means border style defined as no border (Don’t show border) and shouldn’t inherit from style or parent formats.
@@ -1376,7 +1376,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Applying cell formatting
   
-The following code example illustrates how to load an existing document and apply cell formatting options such as VerticalAlignment, TextDirection, Paddings, Borders, etc.
+The following code example illustrates how to load an existing document and apply cell formatting options such as [VerticalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_VerticalAlignment), [TextDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_TextDirection), [Paddings](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_Paddings), [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_Borders), etc.
 
 {% tabs %}
 

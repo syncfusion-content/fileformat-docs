@@ -1194,6 +1194,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ### Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images present in the Word document during PDF conversion.
+
 This property is recommended to resolve the scaling problem of nested metafile images by regenerating the nested metafile images present in the Word document.
 
 The following code sample shows how to use this property to regenerate the nested EMF images present in the Word document during PDF conversion.
@@ -1751,7 +1752,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
     //Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
-	docIORenderer.Settings.AutoDetectComplexScript = true;
+    docIORenderer.Settings.AutoDetectComplexScript = true;
     //Converts Word document into PDF document
     PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
     //Save the document into stream.
@@ -1849,7 +1850,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
 
-N> If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument.Properties.Hyphenation.AutoHyphenation of DocIO.
+N> If automatic hyphenation is not enabled in the Word document, you can enable it by using [WordDocument.Properties.Hyphenation.AutoHyphenation](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyphenation.html#Syncfusion_DocIO_DLS_Hyphenation_AutoHyphenation) of DocIO.
 
 The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
 {% tabs %}

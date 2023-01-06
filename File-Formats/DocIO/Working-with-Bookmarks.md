@@ -9,7 +9,9 @@ documentation: UG
 
 A bookmark identifies a location or a selection of text within a document that you can name and identify for future reference.
 
-In Essential DocIO, bookmark is represented by Bookmark instance that is a pair of BookmarkStart and BookmarkEnd. BookmarkStart represents start point of a bookmark and BookmarkEnd represents end point of a bookmark. Every Word document contains a collection of bookmarks that are accessible through the Bookmarks property of WordDocument class.
+In Essential DocIO, bookmark is represented by [Bookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Bookmark.html) instance that is a pair of [BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html).
+
+[BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) represents start point of a bookmark and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html) represents end point of a bookmark. Every Word document contains a collection of bookmarks that are accessible through the [Bookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Bookmarks) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class.
 
 ## Adding a bookmark
 
@@ -338,7 +340,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Retrieving contents within a bookmark 
 
-BookmarkNavigator is used for navigating to a bookmark in a Word document. You can retrieve, replace and delete the content of a specified bookmark by using BookmarkNavigator.
+[BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html) is used for navigating to a bookmark in a Word document. You can retrieve, replace and delete the content of a specified bookmark by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 You can get the content between bookmark start and bookmark end of the specified bookmark in two ways: 
 
@@ -980,7 +982,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can insert table, paragraph, simple text and paragraph item at the start or end location of the current bookmark by using bookmark navigator.
 
-The following code example shows how to insert a simple text by using BookmarkNavigator.
+The following code example shows how to insert a simple text by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
 
@@ -1072,7 +1074,7 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-simple-text-into-bookmark).
 
-The following code example shows how to insert a paragraph item by using BookmarkNavigator.
+The following code example shows how to insert a paragraph item by using [BookmarkNavigato](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
 
@@ -1182,7 +1184,7 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-item-into-bookmark).
 
-The following code example shows how to insert a paragraph by using BookmarkNavigator.
+The following code example shows how to insert a paragraph by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
 
@@ -1284,7 +1286,7 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-into-bookmark).
 
-The following code example shows how to insert a table by using BookmarkNavigator.
+The following code example shows how to insert a table by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
 
@@ -1361,7 +1363,7 @@ bookmarkNavigator.InsertTable(table);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine	
+//Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
 document.Close();
 //Please refer the below link to save Word document in UWP platform
@@ -1436,7 +1438,7 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-table-into-bookmark).
 
-The following code example shows how to insert a TextBodyPart by using BookmarkNavigator.
+The following code example shows how to insert a [TextBodyPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.TextBodyPart.html) by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
 
@@ -1678,7 +1680,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Replacing content in a bookmark
 
-You can replace the contents of an existing bookmark with simple text, TextBodyPart, WordDocumentPart.
+You can replace the contents of an existing bookmark with simple text, [TextBodyPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.TextBodyPart.html), [WordDocumentPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocumentPart.html).
 
 N> You cannot replace the multi section contents into a bookmark within table in Word documents. Use "for loop" instead of "foreach loop" to iterate through document elements when replacing the bookmark contents to avoid “collection modified exception”, as there is a chance for modification in the document elements on replacing the bookmark contents.
 

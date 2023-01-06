@@ -1801,8 +1801,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "applicat
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
 
-N> 1. When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
-N> 2. ChartToImageConverter is supported from .NET Framework 4.0 onwards
+N> 1. When the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
+N> 2. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
 
 ## See Also
 
