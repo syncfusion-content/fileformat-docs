@@ -638,6 +638,6 @@ The list of supported and non-supported Excel features in Blazor platform is giv
 	<td>N/A</td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
 	<td>N/A</td>
-	<td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>	
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>	
   </tr>
 </table>
