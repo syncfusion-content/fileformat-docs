@@ -8,7 +8,7 @@ documentation: UG
 
 # Working with .NET PDF Tables using PdfLightTable model
 
-The Syncfusion .NET PDF library supports creating PDF tables or grids. The PDF table displays data from data sources or directly binding data in a tabular format. Here, you will see the creation of a PDF table using the Table** model.  
+The [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net) supports creating [PDF tables](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-tables). The PDF table displays data from data sources or directly binding data in a tabular format. Here, you will see the creation of a PDF table using the **LightTable** model.  
 
 ## Creating a simple table 
 
@@ -18,7 +18,7 @@ N> In Silverlight, Windows store apps and Xamarin only strongly typed IEnumerabl
 
 ### Create a simple table from a data source 
 
-The following code sample illustrates how to create a simple table from a data source.
+The following code sample illustrates how to create a simple table from a data source using the ``PdfLightTable``.
 
 {% tabs %}
 
@@ -231,7 +231,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Create a simple table directly without setting any data source 
 
-Directly add rows and columns instead of a data source, by setting the [DataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html#Syncfusion_Pdf_Tables_PdfLightTable_DataSourceType) property to **TableDirect** of [PdfLightTableDataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTableDataSourceType.html) Enum. 
+Directly add rows and columns instead of a data source, by setting the [DataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html#Syncfusion_Pdf_Tables_PdfLightTable_DataSourceType) property to ``TableDirect`` of [PdfLightTableDataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTableDataSourceType.html) Enum. 
 
 The following code illustrates how to add the data directly into the [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html). 
 
@@ -698,7 +698,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Support for cell customization 
 
-[PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html) allows users to customize cell font, background, border, etc. using [PdfCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfCellStyle.html).
+The [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfLightTable.html) allows users to customize cell font, background, border, etc. using [PdfCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Tables.PdfCellStyle.html).
 
 The following code sample illustrates how to customize the cell properties in ``PdfLightTable``.
 
