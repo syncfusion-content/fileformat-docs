@@ -10,7 +10,7 @@ documentation: UG
 In this page, you can see how to create a simple Word document by using Essential DocIO’s API. For creating and manipulating a Word document, the following assemblies are required to be referenced in your application.
 
 <table>
-<thead>  
+<thead>
 <tr>
 <th>Assembly<br/><br/></th>
 <th>Short description<br/><br/></th>
@@ -40,12 +40,11 @@ N> You can also explore our [.NET Word Library](https://www.syncfusion.com/demos
 
 Include the following namespaces in your .cs or .vb file
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
@@ -53,7 +52,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.DocIO
-
 Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
@@ -61,7 +59,6 @@ Imports Syncfusion.DocIO.DLS
 {% highlight c# tabtitle="UWP" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -69,7 +66,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -77,10 +73,9 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="Xamarin" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -88,7 +83,7 @@ using Syncfusion.DocIO.DLS;
 
 The following code example explains how to create a new Word document with few lines of code
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
@@ -171,11 +166,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Creating a new Word document from scratch with basic elements
 
-An entire Word document is represented by an instance of WordDocument and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
+An entire Word document is represented by an instance of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
 
 A section represents group of paragraphs, tables etc., that have a specific set of properties used to define the pages, number of columns, headers and footers and so on that decides how the text appears. A section should contain at least one paragraph in this body.
 
-The following code example explains how to add a section into a `WordDocument` instance.
+The following code example explains how to add a section into a [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) instance.
 
 {% tabs %}  
 
@@ -224,13 +219,13 @@ IWSection section = document.AddSection();
 section.PageSetup.Margins.All = 50f;
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
 
 All the textual contents in a Word document is represented by Paragraphs. Within the paragraph, textual contents are grouped into one or more child elements such as TextRange, field etc. Each TextRange represents a region of text with a common set of rich text formatting.
 
 The following code example explains how to add a Paragraph into a Word document
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Adds a new simple paragraph into the section
@@ -320,13 +315,13 @@ IWTextRange secondTextRange = firstParagraph.AppendText(" the fictitious company
 //sets the font formatting of the text range
 secondTextRange.CharacterFormat.FontName = "Calibri";
 secondTextRange.CharacterFormat.FontSize = 11;
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code example shows how to add an image into the Word document. 
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Adds another paragraph and aligns it as center
@@ -398,13 +393,13 @@ IWPicture picture = paragraph.AppendPicture(imageStream1);
 //Specify the size of the picture
 picture.Height = 100;
 picture.Width = 100;
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 Table is another important element in Word that contains a set of paragraphs arranged in rows and columns. You can create simple as well as complex table by using Essential DocIO’s API. The following code example creates a simple table and adds contents into it. Each table cell must contain at least one paragraph.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Adds a table into the Word document
@@ -572,13 +567,13 @@ secondCell = table.Rows[1].Cells[1];
 secondCell.Width = 330;
 paragraph = secondCell.AddParagraph();
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 Essential DocIO allow you to create simple and multi-level lists. The following code snippet explains about how to create a numbered and bulleted list.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Writes default numbered list. 
@@ -898,13 +893,13 @@ paragraph.ListFormat.CurrentListLevel.ParagraphFormat.LeftIndent = 36;
 paragraph.ListFormat.CurrentListLevel.ParagraphFormat.FirstLineIndent = -18;
 paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left;
 section.AddParagraph();
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 Finally, save the document in file system and close its instance.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Saves the document in the given name and format
@@ -950,9 +945,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Create-Word-with-basic-elements).
 
@@ -966,9 +961,9 @@ Essential DocIO allows you to manipulate an existing Word document, RTF, WordML,
 
 Here, you can see how an existing Word document is loaded into DocIO’s DOM, replaces an existing content with another and finally saves the Word document.
 
-You can open an existing Word document either by using constructor of `WordDocument` class or by using `Open` method of `WordDocument` class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
+You can open an existing Word document either by using constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_String_) class or by using [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
@@ -1039,15 +1034,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-replace-all).
 
 The following code example explains how to search a particular text and highlight it.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance
@@ -1057,8 +1052,8 @@ TextSelection[] textSelection = document.FindAll("panda", false, true);
 //Iterates through each occurrence and highlights it
 foreach (TextSelection selection in textSelection)
 {
-	IWTextRange textRange = selection.GetAsOneRange();
-	textRange.CharacterFormat.HighlightColor = Color.Yellow;
+    IWTextRange textRange = selection.GetAsOneRange();
+    textRange.CharacterFormat.HighlightColor = Color.Yellow;
 }
 //Saves and closes the document
 document.Save("Result.docx");
@@ -1072,12 +1067,12 @@ Dim document As New WordDocument("../../Data/Giant Panda.docx")
 Dim textSelection As TextSelection() = document.FindAll("panda", False, True)
 'Iterates through each occurrence and highlights it.
 For Each selection As TextSelection In textSelection
-	Dim textRange As IWTextRange = selection.GetAsOneRange()
-	textRange.CharacterFormat.HighlightColor = Color.Yellow
+    Dim textRange As IWTextRange = selection.GetAsOneRange()
+    textRange.CharacterFormat.HighlightColor = Color.Yellow
 Next
 document.Save("Result.docx")
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1089,8 +1084,8 @@ TextSelection[] textSelection = document.FindAll("panda", false, true);
 //Iterates through each occurrence and highlights it
 foreach (TextSelection selection in textSelection)
 {
-	IWTextRange textRange = selection.GetAsOneRange();
-	textRange.CharacterFormat.HighlightColor = Color.Yellow;
+    IWTextRange textRange = selection.GetAsOneRange();
+    textRange.CharacterFormat.HighlightColor = Color.Yellow;
 }
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
@@ -1100,7 +1095,7 @@ document.Close();
 Save(stream, "Sample.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"Test.docx",FileMode.Open,FileAccess.ReadWrite);
@@ -1111,8 +1106,8 @@ TextSelection[] textSelection = document.FindAll("panda", false, true);
 //Iterates through each occurrence and highlights it
 foreach (TextSelection selection in textSelection)
 {
-	IWTextRange textRange = selection.GetAsOneRange();
-	textRange.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.Yellow;
+    IWTextRange textRange = selection.GetAsOneRange();
+    textRange.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.Yellow;
 }
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -1121,7 +1116,7 @@ stream.Position = 0;
 document.Close();
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1133,8 +1128,8 @@ TextSelection[] textSelection = document.FindAll("panda", false, true);
 //Iterates through each occurrence and highlights it
 foreach (TextSelection selection in textSelection)
 {
-	IWTextRange textRange = selection.GetAsOneRange();
-	textRange.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.Yellow;
+    IWTextRange textRange = selection.GetAsOneRange();
+    textRange.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.Yellow;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -1145,9 +1140,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
@@ -1170,11 +1165,11 @@ Let’s consider that you have a template Word document with merge fields as sho
 
 ![Performing Mail merge input document](GettingStarted_images/GettingStarted_img2.jpeg)
 
-The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class provides various overloads for [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_String___System_String___) method to perform Mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to perform simple Mail merge by using string array.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document with required merge fields
@@ -1263,9 +1258,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-string-arrays).
 
@@ -1294,7 +1289,7 @@ For example: the merge field name should be like “<<Image:Photo>>”(<<Image:M
 
 The following code example shows how to perform Mail merge with objects.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -1322,7 +1317,7 @@ document.MailMerge.ExecuteGroup(dataSource)
 'Saves and closes the document
 document.Save("Result.docx")
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1343,7 +1338,7 @@ document.Close();
 Save(stream, "Result.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
@@ -1363,7 +1358,7 @@ document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1385,59 +1380,59 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code example provides supporting methods and class for the above code
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 public List<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+    employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+    return employees;
 }
 
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
-	public Image Photo { get; set; }
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-		Photo = Image.FromFile(photoFilePath);
-	}
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public Image Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        Photo = Image.FromFile(photoFilePath);
+    }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Public Function GetEmployees() As List(Of Employee)
-	Dim employees As New List(Of Employee)()
-	employees.Add(New Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
-	employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
-	employees.Add(New Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"))
-	employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
-	employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
-	Return employees
+    Dim employees As New List(Of Employee)()
+    employees.Add(New Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
+    employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
+    employees.Add(New Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"))
+    employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
+    employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
+    Return employees
 End Function
 
 Public Class Employee
@@ -1530,124 +1525,123 @@ End Class
 {% highlight c# tabtitle="UWP" %}
 public List<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+    employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+    return employees;
 }
 
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
-	public Syncfusion.Drawing.Image Photo { get; set; }
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-		Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets." + photoFilePath);
-		Photo = Syncfusion.Drawing.Image.FromStream(stream);
-	}    
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public Syncfusion.Drawing.Image Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets." + photoFilePath);
+        Photo = Syncfusion.Drawing.Image.FromStream(stream);
+    }
 }
 {% endhighlight %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 public List<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+    employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+    return employees;
 }
 
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
-	public Syncfusion.Drawing.Image Photo { get; set; }
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-		FileStream imageStream = new FileStream(photoFilePath, FileMode.Open, FileAccess.ReadWrite);
-		Photo = Syncfusion.Drawing.Image.FromStream(imageStream);
-		imageStream.Dispose();
-		imageStream.Close();
-	}
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public Syncfusion.Drawing.Image Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        FileStream imageStream = new FileStream(photoFilePath, FileMode.Open, FileAccess.ReadWrite);
+        Photo = Syncfusion.Drawing.Image.FromStream(imageStream);
+        imageStream.Dispose();
+        imageStream.Close();
+    }
 }
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
 public List<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+    employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+    return employees;
 }
 
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
-	public Syncfusion.Drawing.Image Photo { get; set; }
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-		Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets." + photoFilePath);
-		Photo = Syncfusion.Drawing.Image.FromStream(stream);
-	}     
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public Syncfusion.Drawing.Image Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets." + photoFilePath);
+        Photo = Syncfusion.Drawing.Image.FromStream(stream);
+    }
 }
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
 
 The resultant document looks as follows.
 
 ![Simple Mail merge with Group output document](GettingStarted_images/GettingStarted_img5.jpeg)
-
 
 ## Converting Word document to PDF
 
@@ -1671,13 +1665,13 @@ For converting a word document to PDF in Xamarin, UWP and ASP.NET Core platform,
 * Syncfusion.Pdf.Portable
 * Syncfusion.DocIORenderer.Portable
 
-`DocToPDFConverter` class is responsible for converting a Word document into PDF. 
+[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a Word document into PDF. 
 
 In portable projects, `DocIORenderer` is responsible for converting a Word document into PDF.
 
 The following code example illustrates how to convert a Word document into PDF document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -1711,7 +1705,7 @@ pdfDocument.Save("Sample.pdf")
 'closes the instance of document objects
 pdfDocument.Close()
 wordDocument.Close()
-{% endhighlight %}  
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1733,38 +1727,38 @@ Save(outputStream, "Output.pdf");
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".pdf";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("PDF Documents", new List<string>() { ".pdf" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("PDF Documents", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
@@ -1801,15 +1795,14 @@ wordDocument.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "application/pdf", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
 
-N> 
-When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
-ChartToImageConverter is supported from .NET Framework 4.0 onwards
+N> 1. When the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
+N> 2. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
 
 ## See Also
 

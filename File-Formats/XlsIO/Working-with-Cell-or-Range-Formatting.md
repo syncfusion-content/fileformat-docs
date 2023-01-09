@@ -124,16 +124,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Style.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Style.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Style.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Style.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -144,7 +142,6 @@ A complete working example to create style in C# is present on [this GitHub page
 ## Set Default Style for row or column
 
 It is the recommended and optimized approach to format entire row or column with same styles instead of formatting each and every cell individually. Use the following code to set default style.
-
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -277,16 +274,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DefaultStyles.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DefaultStyles.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DefaultStyles.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DefaultStyles.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -637,16 +632,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GlobalStyles.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GlobalStyles.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GlobalStyles.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GlobalStyles.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -654,7 +647,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to apply global style in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Global%20Style).
 
-![Excel document with global styles](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img1.jpeg)
+<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img1.jpeg" alt="Excel document with global styles" width="100%" Height="Auto"/>
 
 
 __Excel__ __document__ __with__ __Global__ __Styles__
@@ -1224,16 +1217,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("NumberFormats.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("NumberFormats.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("NumberFormats.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("NumberFormats.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1243,8 +1234,7 @@ The screenshot of the previous code is shown as follows:
 
 A complete working example to apply number formats in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Number%20Format).
 
-![Excel document with number formats](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg)
-
+<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg" alt="Excel document with number formats" width="100%" Height="Auto"/>
 
 **Access** **number** **format** **applied** **results** **at** **runtime**
 
@@ -1373,16 +1363,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to he xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -1525,9 +1513,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -1990,16 +1976,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Book1.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Book1.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Book1.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Book1.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2009,7 +1993,7 @@ A complete working example to apply cell text alignment in C# is present on [thi
 
 The following screenshot is the output of previous code:
 
-![Excel document with different alignment options](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg)
+<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg" alt="Excel document with different alignment options" width="100%" Height="Auto"/>
 
 
 ## Merging and Un-Merging Cells
@@ -2175,16 +2159,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("MergingUnMerging.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("MergingUnMerging.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("MergingUnMerging.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("MergingUnMerging.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2309,22 +2291,46 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("WrapText.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("WrapText.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WrapText.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WrapText.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
 {% endtabs %}
 
 A complete working example to apply wrap text in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Wrap%20Text).
+
+## Unwrap Text
+
+Similarly, the wrapped text can be unwrapped by disabling the WrapText property. The following code explains this.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+worksheet.Range("A2:C2").WrapText = False
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+worksheet.Range["A2:C2"].WrapText = false;
+{% endhighlight %}
+{% endtabs %}
 
 ## Auto-Fit Rows or Columns
 
@@ -2453,16 +2459,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AutoFit.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AutoFit.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AutoFit.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AutoFit.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2700,16 +2704,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("FontSettings.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("FontSettings.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("FontSettings.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("FontSettings.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -2719,7 +2721,7 @@ A complete working example to apply different font settings in C# is present on 
 
 The output of the previous code is shown as follows.
 
-![Excel document with different font settings](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg)
+<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg" alt="Excel document with different font settings" width="100%" Height="Auto"/>
 
 
 ## Apply Color Settings
@@ -2857,13 +2859,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   workbook.SaveAs("BorderSettings.xlsx");
 }
@@ -2899,13 +2905,17 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.Range("E10").CellStyle.Borders(ExcelBordersIndex.DiagonalUp).LineStyle = ExcelLineStyle.Thin
   'DiagonalDown Border
   worksheet.Range("E12").CellStyle.Borders(ExcelBordersIndex.DiagonalDown).LineStyle = ExcelLineStyle.Dotted
-
+  'Inside Horizontal Border
+  worksheet.Range("G2:I5").CellStyle.Borders(ExcelBordersIndex.InsideHorizontal).LineStyle = ExcelLineStyle.Thick
+  'Inside Vertical Border
+  worksheet.Range("G6:I8").CellStyle.Borders(ExcelBordersIndex.InsideVertical).LineStyle = ExcelLineStyle.Thick
+  
   'Apply border color
   worksheet.Range("A2").CellStyle.Borders.Color = ExcelKnownColors.Blue
 
   'Setting the Border as Range
-  worksheet.Range("G2:I8").BorderAround()
-  worksheet.Range("G2:I8").BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red)
+  worksheet.Range("G10:I16").BorderAround()
+  worksheet.Range("G10:I16").BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red)
 
   workbook.SaveAs("BorderSettings.xlsx")
 End Using
@@ -2942,13 +2952,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
@@ -2995,13 +3009,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("BorderSettings.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -3041,13 +3059,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
   //DiagonalDown Border
   worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+  //Inside Horizontal Border
+  worksheet.Range["G2:I5"].CellStyle.Borders[ExcelBordersIndex.InsideHorizontal].LineStyle = ExcelLineStyle.Thick;
+  //Inside Vertical Border
+  worksheet.Range["G6:I8"].CellStyle.Borders[ExcelBordersIndex.InsideVertical].LineStyle = ExcelLineStyle.Thick;
 
   //Apply border color
   worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
   //Setting the Border as Range
-  worksheet.Range["G2:I8"].BorderAround();
-  worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+  worksheet.Range["G10:I16"].BorderAround();
+  worksheet.Range["G10:I16"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
@@ -3056,16 +3078,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("BorderSettings.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("BorderSettings.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("BorderSettings.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("BorderSettings.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3075,7 +3095,7 @@ A complete working example to apply different border settings in C# is present o
 
 The output of the previous code is shown in the following screenshot:
 
-![Excel document with different border settings](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
+<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg" alt="Excel document with different border settings" width="100%" Height="Auto"/>
 
 
 ## HTML String Formatting
@@ -3340,16 +3360,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("RichText.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("RichText.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RichText.xlsx", "application/msexcel", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RichText.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -3359,6 +3377,6 @@ A complete working example to apply rich text formatting in C# is present on [th
 
 The output of the previous code is shown as follows:
 
-![Excel document with rich-text formatting](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg)
+<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg" alt="Excel document with rich-text formatting" width="100%" Height="Auto"/>
 
 

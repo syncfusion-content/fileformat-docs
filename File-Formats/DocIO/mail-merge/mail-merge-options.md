@@ -8,22 +8,21 @@ documentation: UG
 
 # Mail merge options in Word Library
 
-The `MailMerge` class allows you to customize the Mail merge process with the following options.
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class allows you to customize the Mail merge process with the following options.
 
 ## Field Mapping
 
-The `MailMerge` class can automatically **maps the merge field names with data source column names** during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using `MappedFields` collection.
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class can automatically **maps the merge field names with data source column names** during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using [MappedFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_MappedFields) collection.
 
 The following code example shows how to add mapping when a merge field name in a document and column name in data source have different names.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates data source
-string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource",
-    "Phone_InDataSource", "City_InDataSource" };
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
 string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 //Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
@@ -41,8 +40,7 @@ document.Close();
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Creates data source
-Dim fieldNames As String() = New String() {"Employee_Id_InDataSource", "Name_InDataSource", 
-    "Phone_InDataSource", "City_InDataSource"}
+Dim fieldNames As String() = New String() {"Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource"}
 Dim fieldValues As String() = New String() {"101", "John", "+122-2000466", "Houston"}
 'Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource")
@@ -62,8 +60,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument();
 document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Creates data source
-string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", 
-    "Phone_InDataSource", "City_InDataSource" };
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
 string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 //Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
@@ -79,7 +76,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -89,8 +85,7 @@ Save(stream, "Sample.docx");
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Creates data source
-string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", 
-    "Phone_InDataSource", "City_InDataSource" };
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
 string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 //Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
@@ -114,8 +109,7 @@ return File(stream, "application/msword", "Sample.docx");
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Creates data source
-string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", 
-    "Phone_InDataSource", "City_InDataSource" };
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
 string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 //Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
@@ -131,12 +125,11 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mapping-field-names-with-column-names).
 
@@ -146,7 +139,7 @@ You can retrieve the merge field names and also merge field group names in the W
 
 The following code example shows how to retrieve the merge field names in the Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Gets the merge field names from the document
@@ -173,11 +166,11 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
  
 The following code example shows how to retrieve the merge field group names in the Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Gets the merge field group names from the document
@@ -204,11 +197,11 @@ string[] groupNames = document.MailMerge.GetMergeGroupNames();
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code example shows how to retrieve the merge field names for a specific group in the Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Gets the fields from the specified groups 
@@ -235,7 +228,7 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Retrieve-merge-field-names).
 
@@ -245,7 +238,7 @@ You can remove the empty paragraphs when the paragraph has only a merge field it
 
 The following code example shows how to remove the empty paragraphs during Mail merge process.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
@@ -293,7 +286,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -335,12 +327,11 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Remove-empty-paragraphs).
 
@@ -348,7 +339,7 @@ N>If any white space or line break exists in the merge field's parent paragraph,
 
 ## Remove empty merge fields
 
-Essential DocIO removes or keeps the unmerged merge fields in the output document based on the `ClearFields` property on each mail merge execution.
+Essential DocIO removes or keeps the unmerged merge fields in the output document based on the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property on each mail merge execution.
 
 When a merge field is considered as unmerged during mail merge process?
 
@@ -356,16 +347,16 @@ When a merge field is considered as unmerged during mail merge process?
 
 2. The merge field has mapping field in data source, but the data is null or string.Empty.
 
-Mail merge operation automatically removes the unmerged merge fields since the default value of `ClearFields` property is true.
+Mail merge operation automatically removes the unmerged merge fields since the default value of [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property is true.
 
-T> 1.Set `ClearFields` property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
-T> 2.Modify the `ClearFields` property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
-T> 3.Order the mail merge executions with the `ClearFields` property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
-T> 4.You can get the unmerged fields in your document, customize the mail merge process using the BeforeClearField Event. For further information, click [here] (https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
+T> 1. Set [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
+T> 2. Modify the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
+T> 3. Order the mail merge executions with the [ClearFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ClearFields) property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
+T> 4. You can get the unmerged fields in your document, customize the mail merge process using the BeforeClearField Event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
 
 The following code example shows how to keep the unmerged merge fields in the generated Word document.
  
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
@@ -413,7 +404,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -455,7 +445,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -469,7 +458,7 @@ You can remove the empty merge field groups which contains unmerged merge fields
 
 The following code example shows how to remove empty merge field group during mail merge process in a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
@@ -523,7 +512,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -569,7 +557,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -578,492 +565,333 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 The following code example shows GetEmployees method which is used to get data for mail merge.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 public static List<Employees> GetEmployees()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-	return employees;
+    List<OrderDetails> orders = new List<OrderDetails>();
+    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+    List<Employees> employees = new List<Employees>();
+    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+    return employees;
 }
-        
+
 public class Employees
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string EmployeeID { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<CustomerDetails> Customers { get; set; }
+    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Address = address;
+        EmployeeID = employeeId;
+        City = city;
+        Country = country;
+        Customers = customers;
+    }
 }
 
 public class CustomerDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string ContactName { get; set; }
+    public string CompanyName { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<OrderDetails> Orders { get; set; }
+    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+    {
+        ContactName = contactName;
+        CompanyName = companyName;
+        City = city;
+        Country = country;
+        Orders = orders;
+    }
 }
 
 public class OrderDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string OrderID { get; set; }
+    public DateTime OrderDate { get; set; }
+    public DateTime ShippedDate { get; set; }
+    public DateTime RequiredDate { get; set; }
+    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+    {
+        OrderID = orderId;
+        OrderDate = orderDate;
+        ShippedDate = shippedDate;
+        RequiredDate = requiredDate;
+    }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Public Function GetEmployees() As List(Of Employees)
-	Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)
-	orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
-	Dim customers As List(Of CustomerDetails) = New List(Of CustomerDetails) 
-	customers.Add(New CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders))
-	customers.Add(New CustomerDetails("Andy", "Bernard", "Berlin", "Germany", Nothing))
-	Dim employees As List(Of Employees) = New List(Of Employees) 
-	employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers))
-	Return employees
+    Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)
+    orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
+    Dim customers As List(Of CustomerDetails) = New List(Of CustomerDetails) 
+    customers.Add(New CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders))
+    customers.Add(New CustomerDetails("Andy", "Bernard", "Berlin", "Germany", Nothing))
+    Dim employees As List(Of Employees) = New List(Of Employees) 
+    employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers))
+    Return employees
 End Function
- 
+
 Public Class Employees
-	Public Property FirstName() As String
-	Public Property LastName() As String
-	Public Property EmployeeID() As String
-	Public Property Address() As String
-	Public Property City() As String
-	Public Property Country() As String
-	Public Property Customers() As List(Of CustomerDetails)
-	 
-	Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, customers As List(Of CustomerDetails))
-		Me.FirstName = firstName
-		Me.LastName = lastName
-		Me.Address = address
-		Me.EmployeeID = employeeId
-		Me.City = city
-		Me.Country = country
-		Me.Customers = customers
-	End Sub
+    Public Property FirstName() As String
+    Public Property LastName() As String
+    Public Property EmployeeID() As String
+    Public Property Address() As String
+    Public Property City() As String
+    Public Property Country() As String
+    Public Property Customers() As List(Of CustomerDetails)
+    Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, customers As List(Of CustomerDetails))
+        Me.FirstName = firstName
+        Me.LastName = lastName
+        Me.Address = address
+        Me.EmployeeID = employeeId
+        Me.City = city
+        Me.Country = country
+        Me.Customers = customers
+    End Sub
 End Class
- 
+
 Public Class CustomerDetails
-	Public Property ContactName() As String
-	Public Property CompanyName() As String
-	Public Property City() As String
-	Public Property Country() As String
-	Public Property Orders() As List(Of OrderDetails)
-	 
-	Public Sub New(contactName As String, companyName As String, city As String, country As String, orders As List(Of OrderDetails))
-		Me.ContactName = contactName
-		Me.CompanyName = companyName
-		Me.City = city
-		Me.Country = counTry
-		Me.Orders = orders
-	End Sub
+    Public Property ContactName() As String
+    Public Property CompanyName() As String
+    Public Property City() As String
+    Public Property Country() As String
+    Public Property Orders() As List(Of OrderDetails)
+    Public Sub New(contactName As String, companyName As String, city As String, country As String, orders As List(Of OrderDetails))
+        Me.ContactName = contactName
+        Me.CompanyName = companyName
+        Me.City = city
+        Me.Country = counTry
+        Me.Orders = orders
+    End Sub
 End Class
  
 Public Class OrderDetails
-	Public Property OrderID() As String
-	Public Property OrderDate() As DateTime
-	Public Property ShippedDate() As DateTime	 
-	Public Property RequiredDate() As DateTime
-	
-	Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
-		Me.OrderID = orderId
-		Me.OrderDate = orderDate
-		Me.ShippedDate = shippedDate
-		Me.RequiredDate = requiredDate
-	End Sub
+    Public Property OrderID() As String
+    Public Property OrderDate() As DateTime
+    Public Property ShippedDate() As DateTime	 
+    Public Property RequiredDate() As DateTime
+    Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
+        Me.OrderID = orderId
+        Me.OrderDate = orderDate
+        Me.ShippedDate = shippedDate
+        Me.RequiredDate = requiredDate
+    End Sub
 End Class
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 public static List<Employees> GetEmployees()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-	return employees;
+    List<OrderDetails> orders = new List<OrderDetails>();
+    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+    List<Employees> employees = new List<Employees>();
+    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+    return employees;
 }
-        
+
 public class Employees
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string EmployeeID { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<CustomerDetails> Customers { get; set; }
+    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Address = address;
+        EmployeeID = employeeId;
+        City = city;
+        Country = country;
+        Customers = customers;
+    }
 }
 
 public class CustomerDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string ContactName { get; set; }
+    public string CompanyName { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<OrderDetails> Orders { get; set; }
+    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+    {
+        ContactName = contactName;
+        CompanyName = companyName;
+        City = city;
+        Country = country;
+        Orders = orders;
+    }
 }
 
 public class OrderDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string OrderID { get; set; }
+    public DateTime OrderDate { get; set; }
+    public DateTime ShippedDate { get; set; }
+    public DateTime RequiredDate { get; set; }
+    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+    {
+        OrderID = orderId;
+        OrderDate = orderDate;
+        ShippedDate = shippedDate;
+        RequiredDate = requiredDate;
+    }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 public static List<Employees> GetEmployees()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-	return employees;
+    List<OrderDetails> orders = new List<OrderDetails>();
+    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+    List<Employees> employees = new List<Employees>();
+    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+    return employees;
 }
-        
+
 public class Employees
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string EmployeeID { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<CustomerDetails> Customers { get; set; }
+    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Address = address;
+        EmployeeID = employeeId;
+        City = city;
+        Country = country;
+        Customers = customers;
+    }
 }
 
 public class CustomerDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string ContactName { get; set; }
+    public string CompanyName { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<OrderDetails> Orders { get; set; }
+    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+    {
+        ContactName = contactName;
+        CompanyName = companyName;
+        City = city;
+        Country = country;
+        Orders = orders;
+    }
 }
 
 public class OrderDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string OrderID { get; set; }
+    public DateTime OrderDate { get; set; }
+    public DateTime ShippedDate { get; set; }
+    public DateTime RequiredDate { get; set; }
+    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+    {
+        OrderID = orderId;
+        OrderDate = orderDate;
+        ShippedDate = shippedDate;
+        RequiredDate = requiredDate;
+    }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 public static List<Employees> GetEmployees()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-	return employees;
+    List<OrderDetails> orders = new List<OrderDetails>();
+    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+    List<Employees> employees = new List<Employees>();
+    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+    return employees;
 }
-        
+
 public class Employees
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string EmployeeID { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<CustomerDetails> Customers { get; set; }
+    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Address = address;
+        EmployeeID = employeeId;
+        City = city;
+        Country = country;
+        Customers = customers;
+    }
 }
 
 public class CustomerDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string ContactName { get; set; }
+    public string CompanyName { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<OrderDetails> Orders { get; set; }
+    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+    {
+        ContactName = contactName;
+        CompanyName = companyName;
+        City = city;
+        Country = country;
+        Orders = orders;
+    }
 }
 
 public class OrderDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-   
-public static List<Employees> GetEmployees()
-{
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-	return employees;
-}
-        
-public class Employees
-{
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
-}
-
-public class CustomerDetails
-{
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
-}
-
-public class OrderDetails
-{
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-  
-public static List<Employees> GetEmployees()
-{
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-	return employees;
-}
-        
-public class Employees
-{
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
-}
-
-public class CustomerDetails
-{
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
-}
-
-public class OrderDetails
-{
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string OrderID { get; set; }
+    public DateTime OrderDate { get; set; }
+    public DateTime ShippedDate { get; set; }
+    public DateTime RequiredDate { get; set; }
+    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+    {
+        OrderID = orderId;
+        OrderDate = orderDate;
+        ShippedDate = shippedDate;
+        RequiredDate = requiredDate;
+    }
 }
 {% endhighlight %}
 
@@ -1077,7 +905,7 @@ You can restart the list numbering for each records while performing mail merge 
 
 The following code example shows how to restart the list numbering in a Word documents while performing mail merge.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -1142,7 +970,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1195,7 +1022,6 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1203,7 +1029,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 The following code example shows Employee class.
 
-{% tabs %}  
+{% tabs %}
 {% highlight c# tabtitle="C#" %}
 public class Employee
 {
@@ -1211,14 +1037,14 @@ public class Employee
     public string EmployeeName { get; set; }
     public string Location { get; set; }
     /// <summary>
-	/// Represents a constructor to create value for merge fields
-	/// </summary>    
-	public Employee(string employeeId, string employeeName, string location)
+    /// Represents a constructor to create value for merge fields
+    /// </summary>
+    public Employee(string employeeId, string employeeName, string location)
     {
         EmployeeID = employeeId;
         EmployeeName = employeeName;
         Location = location;
-	}
+    }
 }
 {% endhighlight %}
 
@@ -1259,7 +1085,7 @@ Public Class Employee
         m_EmployeeID = employeeId
         m_EmployeeName = employeeName
         m_Location = location
-	End Sub
+    End Sub
 End Class
 {% endhighlight %}
 
@@ -1270,14 +1096,14 @@ public class Employee
     public string EmployeeName { get; set; }
     public string Location { get; set; }
     /// <summary>
-	/// Represents a constructor to create value for merge fields
-	/// </summary>    
-	public Employee(string employeeId, string employeeName, string location)
+    /// Represents a constructor to create value for merge fields
+    /// </summary>
+    public Employee(string employeeId, string employeeName, string location)
     {
         EmployeeID = employeeId;
         EmployeeName = employeeName;
         Location = location;
-	}
+    }
 }
 {% endhighlight %}
 
@@ -1288,32 +1114,32 @@ public class Employee
     public string EmployeeName { get; set; }
     public string Location { get; set; }
     /// <summary>
-	/// Represents a constructor to create value for merge fields
-	/// </summary>    
-	public Employee(string employeeId, string employeeName, string location)
+    /// Represents a constructor to create value for merge fields
+    /// </summary>
+    public Employee(string employeeId, string employeeName, string location)
     {
         EmployeeID = employeeId;
         EmployeeName = employeeName;
         Location = location;
-	}
+    }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 public class Employee
 {
-	public string EmployeeID { get; set; }	
-	public string EmployeeName { get; set; }	
-	public string Location { get; set; }	
-	/// <summary>	
-	/// Represents a constructor to create value for merge fields	
-	/// </summary>    	
-	public Employee(string employeeId, string employeeName, string location)	
-	{
-		EmployeeID = employeeId;	
-		EmployeeName = employeeName;	
-		Location = location;
-	}
+    public string EmployeeID { get; set; }
+    public string EmployeeName { get; set; }
+    public string Location { get; set; }
+    /// <summary>
+    /// Represents a constructor to create value for merge fields	
+    /// </summary>
+    public Employee(string employeeId, string employeeName, string location)	
+    {
+        EmployeeID = employeeId;
+        EmployeeName = employeeName;
+        Location = location;
+    }
 }
 {% endhighlight %}
 {% endtabs %}
@@ -1326,7 +1152,7 @@ You can add each record as new row inside table when the row group contains only
 
 The following code example shows how to insert each record as new row in single cell table during mail merge process. 
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the template document 
@@ -1380,11 +1206,11 @@ row("WordVersion") = "Microsoft Word 2013"
 table.Rows.Add(row)
 row = table.NewRow()
 row("WordVersion") = "Microsoft Word 2019"
-table.Rows.Add(row)		
+table.Rows.Add(row)
 'Enable the flag to insert a new row for every group in a table
-document.MailMerge.InsertAsNewRow = True		
+document.MailMerge.InsertAsNewRow = True
 'Execute mail merge
-document.MailMerge.ExecuteGroup(table)		
+document.MailMerge.ExecuteGroup(table)
 'Saves and closes the WordDocument instance
 document.Save("Sample.docx")
 document.Close()
@@ -1416,9 +1242,9 @@ row["WordVersion"] = "Microsoft Word 2013";
 table.Rows.Add(row);
 row = table.NewRow();
 row["WordVersion"] = "Microsoft Word 2019";
-table.Rows.Add(row);			
+table.Rows.Add(row);
 //Enable the flag to insert a new row for every group in a table
-document.MailMerge.InsertAsNewRow = true;			
+document.MailMerge.InsertAsNewRow = true;
 //Execute mail merge
 document.MailMerge.ExecuteGroup(table);
 MemoryStream stream = new MemoryStream();
@@ -1465,7 +1291,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1480,7 +1305,7 @@ You can skip to merge particular image while performing mail merge in Word docum
 
 The following code example shows how to skip merging particular image during mail merge process.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
@@ -1496,13 +1321,11 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves and closes the Word document instance
 document.Save("Sample.docx");
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
-'Opens the template document  
-Dim document As WordDocument =  New WordDocument("Template.docx")  
+'Opens the template document
+Dim document As WordDocument = New WordDocument("Template.docx")  
 'Uses the mail merge events to perform the conditional formatting during runtime 
 AddHandler document.MailMerge.MergeImageField, AddressOf MergeEmployeePhoto 
 'Executes Mail Merge with groups 
@@ -1513,7 +1336,6 @@ document.MailMerge.Execute(fieldNames, fieldValues)
 'Saves and closes the Word document instance 
 document.Save("Sample.docx") 
 document.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -1534,7 +1356,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
 document.Close();
-
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1578,7 +1399,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1587,82 +1407,72 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 The following code example shows how to skip merging particular image during mail merge process using MergeImageFieldEventHandler.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
-	//Skip to merge particular image
-	if (args.FieldName == "Andrew")
-		args.Skip = true;
-	//Sets image
-	args.ImageFileName = args.FieldValue.ToString();
-}  
-
+    //Skip to merge particular image
+    if (args.FieldName == "Andrew")
+        args.Skip = true;
+    //Sets image
+    args.ImageFileName = args.FieldValue.ToString();
+}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 Private Sub MergeEmployeePhoto(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs) 
-	'Skip to merge particular image 
-	If args.FieldName = "Andrew" Then 
-		args.Skip = True
-	End If 
-	'Sets image 
-	Dim ProductFileName As String = args.FieldValue.ToString()	
-	args.Image = Image.FromFile("Data/" + ProductFileName) 
+    'Skip to merge particular image 
+    If args.FieldName = "Andrew" Then 
+        args.Skip = True
+    End If 
+    'Sets image 
+    Dim ProductFileName As String = args.FieldValue.ToString()
+    args.Image = Image.FromFile("Data/" + ProductFileName) 
 End Sub
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
-	//Skip to merge particular image
-	if (args.FieldName == "Andrew")
-		args.Skip = true;
-	//Sets image
-	args.ImageFileName = args.FieldValue.ToString();
+    //Skip to merge particular image
+    if (args.FieldName == "Andrew")
+        args.Skip = true;
+    //Sets image
+    args.ImageFileName = args.FieldValue.ToString();
 }  
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
-	//Skip to merge particular image
-	if (args.FieldName == "Andrew")
-		args.Skip = true;
-	//Sets image
-	string ProductFileName = args.FieldValue.ToString();	
-	FileStream imageStream = new FileStream(ProductFileName, FileMode.Open, FileAccess.Read);	
-	args.ImageStream = imageStream;
-	WPicture picture = args.Picture;	
-	picture.Height = 100;	
-	picture.Width = 100;
-}  
-
+    //Skip to merge particular image
+    if (args.FieldName == "Andrew")
+        args.Skip = true;
+    //Sets image
+    string ProductFileName = args.FieldValue.ToString();
+    FileStream imageStream = new FileStream(ProductFileName, FileMode.Open, FileAccess.Read);
+    args.ImageStream = imageStream;
+    WPicture picture = args.Picture;
+    picture.Height = 100;
+    picture.Width = 100;
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
-	//Skip to merge particular image
-	if (args.FieldName == "Andrew")
-		args.Skip = true;
-	//Sets image
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream imageStream = assembly.GetManifestResourceStream(args.FieldValue.ToString());
-	args.ImageStream = imageStream;
-	WPicture picture = args.Picture;
-	picture.Height = 100;
-	picture.Width = 100;
-}  
-
+    //Skip to merge particular image
+    if (args.FieldName == "Andrew")
+        args.Skip = true;
+    //Sets image
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream imageStream = assembly.GetManifestResourceStream(args.FieldValue.ToString());
+    args.ImageStream = imageStream;
+    WPicture picture = args.Picture;
+    picture.Height = 100;
+    picture.Width = 100;
+}
 {% endhighlight %}
 
 {% endtabs %}
@@ -1671,14 +1481,13 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Start At New Page
 
-You can start a new page for each group of records while performing a mail merge in Word documents by enabling the `StartAtNewPage` property.
+You can start a new page for each group of records while performing a mail merge in Word documents by enabling the [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property.
 
 The following code example illustrates how to start a new page for each group of records during the mail merge process.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Opens the template Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1693,11 +1502,9 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
     //Saves the WordDocument instance.
     document.Save("Sample.docx", FormatType.Docx);
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Opens the template Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Gets the invoice details as “IEnumerable” collection.
@@ -1711,11 +1518,9 @@ Using document As WordDocument = New WordDocument("Template.docx", FormatType.Do
     'Saves the WordDocument instance.
     document.Save("Sample.docx", FormatType.Docx)
 End Using
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 //Opens the file as Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
@@ -1739,11 +1544,9 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 //Opens the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -1766,11 +1569,9 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
         return File(outputStream, "application/msword", "Sample.docx");
     }
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 //Opens the file as Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx"))
 {
@@ -1794,17 +1595,15 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     }
 }
-
 {% endhighlight %}
 
 {% endtabs %}
 
 The following code example shows GetInvoice method, which is used to get data for mail merge.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 public static List<Invoice> GetInvoice()
 {
     //Creates invoice details.
@@ -1848,11 +1647,9 @@ public static List<Invoice> GetInvoice()
 
     return invoices;
 }
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 Public Function GetInvoice() As List(Of Invoice)
     'Creates invoice details.
     Dim invoices As List(Of Invoice) = New List(Of Invoice)()
@@ -1895,11 +1692,9 @@ Public Function GetInvoice() As List(Of Invoice)
 
     Return invoices
 End Function
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 public List<Invoice> GetInvoice()
 {
     //Creates invoice details.
@@ -1943,11 +1738,9 @@ public List<Invoice> GetInvoice()
 
     return invoices;
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-
 public List<Invoice> GetInvoice()
 {
     //Creates invoice details.
@@ -1991,11 +1784,9 @@ public List<Invoice> GetInvoice()
 
     return invoices;
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-
 public List<Invoice> GetInvoice()
 {
     //Creates invoice details.
@@ -2039,17 +1830,15 @@ public List<Invoice> GetInvoice()
 
     return invoices;
 }
-
 {% endhighlight %}
 
 {% endtabs %}
 
 The following code example shows Invoice, Orders, Order and OrderTotals classes.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 public class Invoice
 {
     #region Fields
@@ -2663,11 +2452,9 @@ End Class
     End Sub
     #End Region
 End Class
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-
 public class Invoice
 {
     #region Fields
@@ -3466,7 +3253,7 @@ public class OrderTotals
         set { m_total = value; }
     }
     #endregion
-	
+
     #region Constructor       
     public OrderTotals(string subTotal, string freight, string total)
     {
@@ -3487,8 +3274,7 @@ By executing the above code example, it generates the resultant Word document as
 
 ![Output Word document of start at new page](../MailMerge_images/StartAtNewPage_output.png)
 
-N> 
-This `StartAtNewPage` property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This `StartAtNewPage` property is not valid when the group start and group end are present in the table, headers, and footers.
+N> This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is not valid when the group start and group end are present in the table, headers, and footers.
 
 ## Remove mail merge settings
 
@@ -3590,7 +3376,7 @@ You can change the linked **data source file path from a Word mail merge main do
 The following code example shows how to change the data source file path in the template Word document. 
 
 {% tabs %}
-  
+
 {% highlight c# tabtitle="C#" %}
 //Opens the template document Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);

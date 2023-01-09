@@ -127,6 +127,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document).
+
 ## Optimizing embedded font
 
 You can optimize the embedded fonts in an existing PDF document by enabling the [OptimizeFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html#Syncfusion_Pdf_PdfCompressionOptions_OptimizeFont) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html) class. This technique reduces the font file size by removing all the unused glyph data.
@@ -218,6 +220,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Optimize-embedded-font-in-an-existing-PDF-document).
 
 N> The font compression support only in TrueType and Type2 embedded fonts.
 
@@ -313,6 +317,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Optimize-page-contents-in-an-existing-PDF-document).
+
 ## Remove metadata information
 
 You can reduce the PDF file size by removing the PDF document metadata information. This can be achieved by enabling the [RemoveMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html#Syncfusion_Pdf_PdfCompressionOptions_RemoveMetadata) property available in the [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html) class.
@@ -399,6 +405,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Reduce-PDF-file-size-by-removing-PDF-metadata).
 
 ## Compressing the PDF content
 
@@ -573,6 +581,8 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-content-of-the-PDF-document).
+
 ## Compressing images
 
 Essential PDF allows you to compress/change the quality of the image in the PDF document by using the following code snippet.
@@ -631,6 +641,8 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-quality-of-image-in-PDF-document).
 
 You can compress the images in the existing PDF document by using the following code snippet.
 
@@ -706,3 +718,5 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-and-replace-image-in-a-PDF-document).

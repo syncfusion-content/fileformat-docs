@@ -8,13 +8,13 @@ documentation: UG
 
 # Applying Watermark in Word (DocIO) Library
 
-Watermarks are text or pictures that appear behind the document text. You can access the watermark in the document by using the `Watermark` property of `WordDocument` class.
+Watermarks are text or pictures that appear behind the document text. You can access the watermark in the document by using the [Watermark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Watermark) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class.
 
 There are two types of watermarks: Text and Picture.
 
 ## Text Watermark
 
-You can add or modify text watermark in the Word document. `TextWatermark` class represents text watermark in the Word document.
+You can add or modify text watermark in the Word document. [TextWatermark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.TextWatermark.html) class represents text watermark in the Word document.
 
 The following code example illustrates how to add a text watermark to the Word document.
 
@@ -162,7 +162,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Picture Watermark
 
-You can add or modify picture watermark in the Word document. `PictureWatermark` class represents picture watermark in the Word document.
+You can add or modify picture watermark in the Word document. [PictureWatermark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.PictureWatermark.html) class represents picture watermark in the Word document.
 
 The following code example illustrates how to add a picture watermark to the Word document.
 

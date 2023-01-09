@@ -133,6 +133,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Removing-sensitive-content-from-the-PDF-document/).
+
 ## Display text on the redacted area
 
 You can draw overlay text on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction_Appearance) property available in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class, and customize the overlay text with different font, style, color and brushes.
@@ -282,6 +284,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Display-text-on-the-redacted-area/).
+
 ## Drawing image on the redacted area
 
 You can draw the image on the redacted area using the [Appearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction_Appearance) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
@@ -424,6 +428,8 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Draw-image-on-the-redacted-area-in-PDF-document/).
 
 ## Drawing pattern on the redacted area
 
@@ -685,6 +691,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Draw-pattern-on-the-redacted-area-in-PDF-document/).
+
 ## Fill color on the redacted area
 
 You can draw the filled rectangle on the redacted bounds using the [FillColor](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction_FillColor) property in [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class.
@@ -821,6 +829,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Fill-color-on-the-redacted-area-in-a-PDF/).
+
 ## Redaction without fill color and appearance
 
 You can redact PDF without drawing the filled rectangle or text on the redacted bounds.
@@ -946,6 +956,8 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Redaction-without-fill-color-and-appearance/).
 
 ## Get redaction progress 
 
@@ -1216,3 +1228,5 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Get-the-result-of-redaction-with-other-information/).

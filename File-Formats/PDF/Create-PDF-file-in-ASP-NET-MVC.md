@@ -8,19 +8,19 @@ keywords: mvc create pdf, mvc generate pdf, edit pdf, merge, pdf form, fill form
 ---
 # Create or Generate PDF file in ASP.NET MVC
 
-The Syncfusion [.NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms and secure PDF files. 
+The Syncfusion [.NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms and secure PDF files. 
 
 To include the .NET PDF library into your ASP.NET MVC application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation. 
 
 ## Steps to create PDF document in ASP.NET MVC
 
-Create a new ASP.NET MVC application project.
-![Generate ASP.NET MVC project using Visual Studio](MVC_images/Creation1.jpg)
+Step 1: Create a new ASP.NET MVC application project.
+<img src="MVC_images/Creation1.png" alt="ASP.NET MVC sample creation step1" width="100%" Height="Auto"/>
 
-Install the [Syncfusion.Pdf.AspNet.Mvc](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your ASP.NET MVC applications from [NuGet.org](https://www.nuget.org/).
-![Include asp.net mvc PDF generator NuGet](MVC_images/Creation2.jpg)
+Step 2: Install the [Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your ASP.NET MVC applications from [NuGet.org](https://www.nuget.org/).
+<img src="MVC_images/Creation2.png" alt="ASP.NET MVC sample NuGet installation" width="100%" Height="Auto"/>
 
-A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
+Step 3: A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that ``HomeController.cs`` file.
  
 {% highlight c# tabtitle="C#" %}
 
@@ -30,56 +30,50 @@ using System.Drawing;
 
 {% endhighlight %}
 
-A default action method named Index will be present in HomeController.cs. Right-click on this action method and select Go To View, where you will be directed to its associated view page Index.cshtml.
-
-Add a new button in the Index.cshtml as follows.
+Step 4: A default action method named Index will be present in HomeController.cs. Right-click on this Index method and select Go To View where you will be directed to its associated view page Index.cshtml. Add a new button in the ``Index.cshtml`` as follows.
 
 {% highlight c# tabtitle="C#" %}
 
 @{Html.BeginForm("CreatePDFDocument", "Home", FormMethod.Get);
-{
-<div>
-    <input type="submit" value="Generate PDF Document" style="width:150px;height:27px" />
-</div>
-}
-Html.EndForm();
+    {
+        <div>
+            <input type="submit" value="Generate PDF Document" style="width:150px;height:27px" />
+        </div>
+    }
+    Html.EndForm();
 }
 
 {% endhighlight %}
 
-Add a new action method named CreatePDFDocument in HomeController.cs and include the following code snippet to generate a PDF file and download it from ASP.NET MVC application.
+Step 5: Add a new action method named ``CreatePDFDocument`` in HomeController.cs and include the below code example to generate a PDF document using the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) class. Then use the [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) object to draw the text on the PDF page and download the output PDF from ASP.NET MVC application.
 
 {% highlight c# tabtitle="C#" %}
 
 //Create an instance of PdfDocument.
 using (PdfDocument document = new PdfDocument())
 {
-//Add a page to the document
+//Add a page to the document.
 PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page
+//Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
-
-//Set the standard font
+//Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-
-//Draw the text
+//Draw the text.
 graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
-
-// Open the document in browser after saving it
+//Open the document in browser after saving it. 
 document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
 }
 
 {% endhighlight %} 
 
-A complete working sample for generate PDF file in ASP.NET MVC can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1076048215.zip )
+By executing the program, you will get the PDF document as follows.
+<img src="GettingStarted_images/pdf-generation-output.png" alt="Simple PDF output" width="100%" Height="Auto"/>
 
-By executing the program, you will get the PDF file as follows.
-![MVC PDF Generation output](GettingStarted_images/pdf-generation-output.jpg)
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-a-new-PDF-document).
 
 ## Creating a PDF document with image
 
-The following code example shows how to generate a PDF document with an image.
+Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The following code example shows how to create a PDF document with an image.
  
 {% highlight c# tabtitle="C#" %}
 
@@ -87,22 +81,24 @@ The following code example shows how to generate a PDF document with an image.
 PdfDocument doc = new PdfDocument();
 //Add a page to the document.
 PdfPage page = doc.Pages.Add();
-//Create PDF graphics for the page
+//Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Load the image from the disk.
 PdfBitmap image = new PdfBitmap(Server.MapPath("~/Autumn Leaves.jpg"));
-//Draw the image
+//Draw the image.
 graphics.DrawImage(image, 0, 0);
-// Open the document in browser after saving it
+//Open the document in browser after saving it.
 doc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
 //Close the document.
 doc.Close(true);
 
 {% endhighlight %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-a-PDF-document-with-image).
+
 ## Creating a PDF document with table
 
-The following code example shows how to generate a PDF document with a simple table.
+The [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create a table from a [DataSource](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_DataSource) (data set, data table, arrays, or IEnumerable object) in a PDF document.The following code example shows how to create a PDF document with a simple table.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -114,7 +110,7 @@ PdfPage page = doc.Pages.Add();
 PdfGrid pdfGrid = new PdfGrid();
 //Create a DataTable.
 DataTable dataTable = new DataTable();
-//Add columns to the DataTable
+//Add columns to the DataTable.
 dataTable.Columns.Add("ID");
 dataTable.Columns.Add("Name");
 //Add rows to the DataTable.
@@ -127,24 +123,26 @@ dataTable.Rows.Add(new object[] { "E05", "Gary" });
 pdfGrid.DataSource = dataTable;
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new PointF(10, 10));
-// Open the document in browser after saving it
+//Open the document in browser after saving it.
 doc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
-//close the document
+//Close the document.
 doc.Close(true);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-a-PDF-document-with-table).
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
  
 {% highlight c# tabtitle="C#" %}
 
-//Generate a new PDF document
+//Generate a new PDF document.
 PdfDocument document = new PdfDocument();
-//Adds page settings
+//Adds page settings.
 document.PageSettings.Orientation = PdfPageOrientation.Landscape;
 document.PageSettings.Margins.All = 50;
-//Adds a page to the document
+//Adds a page to the document.
 PdfPage page = document.Pages.Add();
 PdfGraphics graphics = page.Graphics;
 
@@ -159,12 +157,11 @@ The following code example explains how to add an image from disk to a PDF docum
  
 {% highlight c# tabtitle="C#" %}
 
-//Loads the image from disk
+//Loads the image from disk.
 PdfImage image = PdfImage.FromFile(Server.MapPath("~/AdventureCycle.jpg"));
 RectangleF bounds = new RectangleF(176, 0, 390, 130);
-//Draws the image to the PDF page
+//Draws the image to the PDF page.
 page.Graphics.DrawImage(image, bounds);
-
 
 {% endhighlight %}
 
@@ -243,14 +240,14 @@ for (int i = 0; i < header.Cells.Count; i++)
     header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 }
 
-//Applies the header style
+//Applies the header style.
 header.ApplyStyle(headerStyle);
 cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
 cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
 cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
-//Creates the layout format for grid
+//Creates the layout format for grid.
 PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
-// Creates layout format settings to allow the table pagination
+//Creates layout format settings to allow the table pagination.
 layoutFormat.Layout = PdfLayoutType.Paginate;
 //Draws the grid to the PDF page.
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
@@ -261,97 +258,99 @@ The following code example shows how to save the invoice document to disk and di
 
 {% highlight c# tabtitle="C#" %}
 
-// Open the document in browser after saving it
+//Open the document in browser after saving it.
 document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
-
 document.Close(true);
 
 {% endhighlight %}
 
-The following screenshot shows the invoice PDF document created by using Essential PDF.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-PDF-document-with-basic-elements).
 
-![MVC PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
+The following screenshot shows the invoice PDF document created by using Essential PDF.
+<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
 
 ## Filling forms
 
-An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A PDF document can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+An interactive form, sometimes referred to as an AcroForm, is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) or [existing PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) contain any number of fields appearing in any combination of pages, all that make a single, globally interactive form spanning the entire document.
 
-Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+The Essential PDF allows you to [create and manipulate existing form](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-form-fields) in PDF document using the [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html) class. The [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class represents the entire field collection of the loaded form.. To work with existing form documents, the following namespaces are required.
 
 1. Syncfusion.Pdf
 2. Syncfusion.Pdf.Parsing
 
-The following guide shows how to fill a sample PDF form as shown.
+The following guide shows how to fill out a sample PDF form.
+<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
 
-![Filling MVC PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
-
-Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
+The .NET Core PDF library allows you to fill the form fields by using the [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. Get the form field either by using its field name or field index.
 
 {% highlight c# tabtitle="C#" %}
 
-//Loads the PDF form.
+//Loads the PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(Server.MapPath("~/JobApplication.pdf"));
-//Loads the form
+//Loads the form.
 PdfLoadedForm form = loadedDocument.Form;
-//Fills the textbox field by using index
+//Fills the textbox field by using index.
 (form.Fields[0] as PdfLoadedTextBoxField).Text = "John";
-//Fills the textbox fields by using field name
+//Fills the textbox fields by using field name.
 (form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
 (form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
-//Loads the radio button group
+//Loads the radio button group.
 PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
-//Checks the 'Male' option
+//Checks the 'Male' option.
 radioButtonCollection[0].Checked = true;
-//Checks the 'business' checkbox field
+//Checks the 'business' checkbox field.
 (form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
-//Checks the 'retiree' checkbox field
+//Checks the 'retiree' checkbox field.
 (form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
-// Open the document in browser after saving it
+// Open the document in browser after saving it.
 loadedDocument.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
 loadedDocument.Close(true);
 
 {% endhighlight %}
 
-The filled form is shown in adobe reader application as follows.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Fill-form-in-an-existing-PDF-document).
 
-![Filled MVC PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
+The filled form is shown in adobe reader application as follows.
+<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form" width="100%" Height="Auto"/>
 
 ## Merge PDF Documents
 
-Essential PDF supports merging multiple PDF documents from disk and stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method. You can merge the multiple PDF documents from disk by specifying the path of the documents in a string array.
+The Essential PDF supports merging multiple PDF documents from disk and stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method of the [PdfDocumentBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html) class. You can merge the multiple PDF documents from disk by specifying the path of the documents in a string array.
 
 Refer to the following code example to merge multiple documents from disk.
 
 {% highlight c# tabtitle="C#" %}
 
-//Creates the new PDF document
+//Creates the new PDF document.
 PdfDocument finalDoc = new PdfDocument();
-// Creates a string array of source files to be merged.
+//Creates a string array of source files to be merged.
 string[] source = System.IO.Directory.GetFiles(Server.MapPath("~/DataFolder"),"*.pdf");
-// Merges PDFDocument.
+//Merges PDFDocument.
 PdfDocument.Merge(finalDoc, source);
-// Open the document in browser after saving it
+//Open the document in browser after saving it.
 finalDoc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
-//closes the document
+//Closes the document.
 finalDoc.Close(true);
 
 {% endhighlight %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Merge-multiple-PDF-documents-from-disk).
 
 You can merge the PDF document streams by using the following code example.
 
 {% highlight c# tabtitle="C#" %}
 
-//Creates the destination document
+//Creates the destination document.
 PdfDocument finalDoc = new PdfDocument();
 Stream stream1 = System.IO.File.OpenRead(Server.MapPath("~/file1.pdf"));
 Stream stream2 = System.IO.File.OpenRead(Server.MapPath("~/file2.pdf"));
-// Creates a PDF stream for merging.
+//Creates a PDF stream for merging.
 Stream[] streams = { stream1, stream2 };
-// Merges PDFDocument.
+//Merges PDFDocument.
 PdfDocumentBase.Merge(finalDoc, streams);
-//Open the document in browser after saving it
+//Open the document in browser after saving it.
 finalDoc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
-//closes the document
+//Closes the document.
 finalDoc.Close(true);
 
 {% endhighlight %}

@@ -15,146 +15,143 @@ The filtered rows in an Excel document can be read through RowHeight property. T
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    //Open an existing Excel file
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  //Open an existing Excel file
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 	
-    IRange usedRange = worksheet.UsedRange;
-    string[] rowValues = new string[usedRange.Columns.Length];
+  IRange usedRange = worksheet.UsedRange;
+  string[] rowValues = new string[usedRange.Columns.Length];
 
-    for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
+  for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
+  {
+    //Validated the row is filtered or not
+    if (worksheet.Rows[row-1].RowHeight != 0)
     {
-         //Validated the row is filtered or not
-         if (worksheet.Rows[row-1].RowHeight != 0)
-         {
-              for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
-              {
-                   rowValues.SetValue(worksheet.Range[row , column].Value, column-1);
-              }
-         }
+      for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
+      {
+        rowValues.SetValue(worksheet.Range[row , column].Value, column-1);
+      }
     }
+  }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim usedRange As IRange = worksheet.UsedRange
 
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
-    Dim usedRange As IRange = worksheet.UsedRange
+  Dim rowValues(3) As String
+  Dim row As Integer
+  Dim column As Integer
 
-    Dim rowValues(3) As String
-    Dim row As Integer
-    Dim column As Integer
-
-    For row = usedRange.Row To usedRange.LastRow Step row + 1
-         If worksheet.Rows(row - 1).RowHeight <> 0 Then
-              For column = usedRange.Column To usedRange.LastColumn
-                   rowValues(column - 1) = worksheet.Range(row, column).Value
-              Next
-         End If
-    Next
-
+  For row = usedRange.Row To usedRange.LastRow Step row + 1
+    If worksheet.Rows(row - 1).RowHeight <> 0 Then
+      For column = usedRange.Column To usedRange.LastColumn
+        rowValues(column - 1) = worksheet.Range(row, column).Value
+      Next
+    End If
+  Next
 End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;    
-    //Instantiates the File Picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;    
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
 
-    //Creates a storage file from FileOpenPicker
-    StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-    //Loads or open an existing workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStorageFile);
-    //Access first worksheet from the workbook instance.
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Creates a storage file from FileOpenPicker
+  StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+  //Loads or open an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStorageFile);
+  //Access first worksheet from the workbook instance.
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IRange usedRange = worksheet.UsedRange;
-    string[] rowValues = new string[usedRange.Columns.Length];
+  IRange usedRange = worksheet.UsedRange;
+  string[] rowValues = new string[usedRange.Columns.Length];
 
-    for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
+  for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
+  {
+    //Validated the row is filtered or not
+    if (worksheet.Rows[row-1].RowHeight != 0)
     {
-         //Validated the row is filtered or not
-         if (worksheet.Rows[row-1].RowHeight != 0)
-         {
-              for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
-              {
-                   rowValues.SetValue(worksheet.Range[row , column ].Value, column-1);
-              }
-         }
+      for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
+      {
+        rowValues.SetValue(worksheet.Range[row , column ].Value, column-1);
+      }
     }
+  }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-    IWorksheet worksheet = workbook.Worksheets[0];
-	
-    IRange usedRange = worksheet.UsedRange;
-    string[] rowValues = new string[usedRange.Columns.Length];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
+  IRange usedRange = worksheet.UsedRange;
+  string[] rowValues = new string[usedRange.Columns.Length];
+
+  for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
+  {
+    //Validated the row is filtered or not
+    if (worksheet.Rows[row-1].RowHeight != 0)
     {
-         //Validated the row is filtered or not
-         if (worksheet.Rows[row-1].RowHeight != 0)
-         {
-              for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
-              {
-                   rowValues.SetValue(worksheet.Range[row, column].Value, column-1);
-              }
-         }
+      for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
+      {
+        rowValues.SetValue(worksheet.Range[row, column].Value, column-1);
+      }
     }
+  }
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Xlsx;
-    string resourcePath = "GettingStarted.Sample.xlsx";
-    //"App" is the class of Portable project.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-	
-    //Opens the workbook 
-    IWorkbook workbook = application.Workbooks.Open(fileStream);                        
-    //Access first worksheet from the workbook instance.
-    IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  string resourcePath = "GettingStarted.Sample.xlsx";
+  //"App" is the class of Portable project.
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
 
-    IRange usedRange = worksheet.UsedRange;
-    string[] rowValues = new string[usedRange.Columns.Length];
+  //Opens the workbook 
+  IWorkbook workbook = application.Workbooks.Open(fileStream);                        
+  //Access first worksheet from the workbook instance.
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
-         {
-              //Validated the row is filtered or not
-              if (worksheet.Rows[row-1].RowHeight != 0)
-              {
-                   for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
-                   {
-                        rowValues.SetValue(worksheet.Range[row, column].Value, column-1);                        
-                   }
-              }
-         }
+  IRange usedRange = worksheet.UsedRange;
+  string[] rowValues = new string[usedRange.Columns.Length];
+
+  for (int row = usedRange.Row; row <= usedRange.LastRow; row++)
+  {
+    //Validated the row is filtered or not
+    if (worksheet.Rows[row-1].RowHeight != 0)
+    {
+      for (int column = usedRange.Column; column <= usedRange.LastColumn; column++)
+      {
+        rowValues.SetValue(worksheet.Range[row, column].Value, column-1);                        
+      }
+    }
+  }
 }
 {% endhighlight %}
-
 {% endtabs %}  
 
 ## See Also

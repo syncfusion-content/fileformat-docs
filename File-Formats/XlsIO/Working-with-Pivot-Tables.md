@@ -217,7 +217,7 @@ End Using
 
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
-{  	
+{
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
 
@@ -226,7 +226,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
   IWorksheet pivotSheet = workbook.Worksheets[1];
@@ -303,7 +302,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
   IWorksheet pivotSheet = workbook.Worksheets[1];
@@ -329,20 +327,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTable.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -366,7 +361,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -385,7 +379,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
-
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(1)
   Dim pivotTable As IPivotTable = sheet.PivotTables(0)
@@ -411,7 +404,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -439,7 +431,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
   FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -467,7 +458,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -480,20 +470,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTable_Style.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -549,7 +536,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -603,7 +589,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -617,20 +602,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotFormat.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -640,17 +622,16 @@ A complete working example to format a pivot cell in C# is present on [this GitH
 
 The following screenshot represents the input template of pivot table inline formatting.
 
-![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png" alt="Pivot Tables inline format" width="100%" Height="Auto"/>
 
 The following screenshot represents the generated Excel file with pivot table inline formatting in XlsIO.
 
-![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png" alt="Pivot Tables inline format" width="100%" Height="Auto"/>
 
 ## Refresh a pivot table
 When you update the pivot table data source, you should refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through IsRefreshOnLoad property of PivotCacheImpl.
 
 The following code shows how to dynamically refresh the data in a pivot table. In prior:
-
 
 * Create the pivot table using Excel GUI.
 * Specify the named range to be the data source of the pivot table.
@@ -698,7 +679,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet pivotSheet = workbook.Worksheets[0];
 
@@ -750,7 +730,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet pivotSheet = workbook.Worksheets[0];
 
@@ -762,20 +741,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTable_DynamicRange.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -925,9 +901,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -955,7 +929,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
   IWorksheet worksheet = workbook.Worksheets[1];
-  
+
   IPivotTable pivotTable = worksheet.PivotTables[0];
   //Layout the pivot table.
   pivotTable.Layout();
@@ -988,7 +962,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1040,7 +1013,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -1053,20 +1025,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTable_Layout.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -1078,15 +1047,15 @@ The following screenshots represents the generated Excel file with pivot table l
 
 Compact layout:
 
-![Pivot Tables layout compact](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png" alt="Pivot Tables layout compact" width="100%" Height="Auto"/>
 
 Outline layout:
 
-![Pivot Tables layout outline](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png" alt="Pivot Tables layout outline" width="100%" Height="Auto"/>
 
 Tabular layout:
 
-![Pivot Tables layout tabular](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png" alt="Pivot Tables layout tabular" width="100%" Height="Auto"/>
 
 ### Pivot table row layout
 
@@ -1137,7 +1106,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -1165,7 +1133,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
   FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -1193,7 +1160,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -1206,20 +1172,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTable_RowLayout.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -1242,7 +1205,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Set PivotTableRowLayout
   pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
-  
+
   //Set classic layout
   (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
 
@@ -1264,7 +1227,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Set PivotTableRowLayout
   pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular
-  
+
   'Set classic layout
   (TryCast(pivotTable.Options, PivotTableOptions)).ShowGridDropZone = True
 
@@ -1283,14 +1246,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
 
   //Set PivotTableRowLayout
   pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
-  
+
   //Set classic layout
   (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
 
@@ -1314,14 +1276,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
   FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
 
   //Set PivotTableRowLayout
   pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
-  
+
   //Set classic layout
   (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
 
@@ -1345,14 +1306,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[1];
   IPivotTable pivotTable = worksheet.PivotTables[0];
 
   //Set PivotTableRowLayout
   pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
-  
+
   //Set classic layout
   (pivotTable.Options as PivotTableOptions).ShowGridDropZone = true; 
 
@@ -1361,20 +1321,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTable_ClassicLayout.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -1588,9 +1545,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   stream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
@@ -1675,8 +1630,7 @@ pageField.Items[2].Visible = false;
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying page filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
-
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg" alt="Applying page filters" width="100%" Height="Auto"/>
 
 ### Applying row or column filters
 
@@ -1726,7 +1680,7 @@ rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying label filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg" alt="Applying label filters" width="100%" Height="Auto"/>
 
 **Value** **Filter** 
 
@@ -1768,7 +1722,7 @@ field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying value filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg)
+<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg" alt="Applying value filters" width="100%" Height="Auto"/>
 
 **Multiple** **filter**
 
@@ -1778,13 +1732,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
   IWorksheet pivotSheet = workbook.Worksheets[1];
 
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
-
   IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
@@ -1798,7 +1750,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
   IPivotField pageField = pivotTable.Fields[4];
-
   pageField.Items[1].Visible = false;
   pageField.Items[2].Visible = false;
 
@@ -1829,13 +1780,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
-
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
   Dim pivotSheet As IWorksheet = workbook.Worksheets(1)
 
   Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
-
   Dim pivotTable As IPivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A1"), cache)
   pivotTable.Fields(4).Axis = PivotAxisTypes.Page
   pivotTable.Fields(2).Axis = PivotAxisTypes.Row
@@ -1849,7 +1798,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   pivotTable.Fields(4).Axis = PivotAxisTypes.Page
 
   Dim pageField As IPivotField = pivotTable.Fields(4)
-
   pageField.Items(1).Visible = False
   pageField.Items(2).Visible = False
 
@@ -1887,13 +1835,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
-  
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
   IWorksheet pivotSheet = workbook.Worksheets[1];
 
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
-
   IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
@@ -1907,7 +1853,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
   IPivotField pageField = pivotTable.Fields[4];
-
   pageField.Items[1].Visible = false;
   pageField.Items[2].Visible = false;
 
@@ -1946,13 +1891,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   FileStream fileStream = new FileStream("PivotData.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
   IWorksheet pivotSheet = workbook.Worksheets[1];
 
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
-
   IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
@@ -1966,7 +1909,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
   IPivotField pageField = pivotTable.Fields[4];
-
   pageField.Items[1].Visible = false;
   pageField.Items[2].Visible = false;
 
@@ -2006,13 +1948,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
-    
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
   IWorksheet pivotSheet = workbook.Worksheets[1];
 
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
-
   IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
@@ -2026,7 +1966,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
   IPivotField pageField = pivotTable.Fields[4];
-
   pageField.Items[1].Visible = false;
   pageField.Items[2].Visible = false;
 
@@ -2044,7 +1983,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 
   pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
-
   pivotSheet.Activate();
 
   //Saving the workbook as stream
@@ -2052,20 +1990,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTable.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -2306,8 +2241,7 @@ pivotTable.RepeatItemsOnEachPrintedPage = true;
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
-{% endtabs %}  
-
+{% endtabs %} 
 
 ### Repeat Labels
 
@@ -2342,10 +2276,8 @@ pivotTable.Fields[0].RepeatLabels = true;
 //Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
+{% endtabs %}  
 
-{% endtabs %}
-  
-  
 **All Pivot Fields**
 
 The following code illustrates how to set the repeat labels option to all the pivot fields.
@@ -2374,7 +2306,6 @@ pivotTable.Options.RepeatAllLabels(true);
 //Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
-
 {% endtabs %}
 
 ## Sort by value in Pivot Table
@@ -2394,7 +2325,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2412,7 +2342,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
-
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(1)
   Dim pivotTable As IPivotTable = sheet.PivotTables(0)
@@ -2437,7 +2366,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2465,9 +2393,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2496,7 +2422,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2510,20 +2435,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotFieldAutoSort.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -2541,7 +2463,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2559,7 +2480,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
-
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(1)
   Dim pivotTable As IPivotTable = sheet.PivotTables(0)
@@ -2584,7 +2504,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2612,9 +2531,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2643,7 +2560,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2657,20 +2573,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotFieldAutoSort.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -2700,7 +2613,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2717,7 +2629,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
-
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(1)
   Dim pivotTable As IPivotTable = sheet.PivotTables(0)
@@ -2741,7 +2652,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2768,9 +2678,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2798,7 +2706,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2811,20 +2718,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTableCalculate.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}
@@ -2838,7 +2742,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2858,7 +2761,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
-
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
   Dim pivotTable As IPivotTable = sheet.PivotTables(0)
@@ -2884,7 +2786,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2914,9 +2815,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2947,7 +2846,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Gets input Excel document from embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
-
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet sheet = workbook.Worksheets[1];
   IPivotTable pivotTable = sheet.PivotTables[0];
@@ -2963,20 +2861,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   string fileName = "PivotTableCalculate.xlsx";
-
   outputStream.Position = 0;
 
   //Save the document as file and view the saved document
-
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
   else
   {
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
   }
 }
 {% endhighlight %}

@@ -17,9 +17,9 @@ You can save the resultant document as a Word document (DOCX, WordML, DOC), PDF,
 
 The following code example illustrates how to split the Word document by sections.
 
-{% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
 
+{% highlight c# tabtitle="C#" %}
 //Load the template document
 using (WordDocument document = new WordDocument(@"Template.docx"))
 {
@@ -37,30 +37,27 @@ using (WordDocument document = new WordDocument(@"Template.docx"))
         i++;
     }
 }
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
 
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load the template document
 Using document As WordDocument = New WordDocument("Template.docx")
     Dim i As Integer = 0
     'Iterate each section from Word document
     For Each section As WSection In document.Sections
-		'Create new Word document
+        'Create new Word document
         Dim newDocument As WordDocument = New WordDocument()
-		'Add cloned section into new Word document
+        'Add cloned section into new Word document
         newDocument.Sections.Add(section.Clone())
-		'Save and close the new Word documet
+        'Save and close the new Word documet
         newDocument.Save("Section" & i & ".docx")
         newDocument.Close()
         i += 1
     Next
 End Using
-
-
 {% endhighlight %}
-{% highlight c# tabtitle="UWP" %}
 
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -68,7 +65,7 @@ Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.
 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 {
     int i = 0;
-	//Iterate each section from Word document
+    //Iterate each section from Word document
     foreach (WSection section in document.Sections)
     {
         //Create new Word document
@@ -86,15 +83,14 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
-
 {% endhighlight %}
-{% highlight c# tabtitle="ASP.NET Core" %}
 
+{% highlight c# tabtitle="ASP.NET Core" %}
 FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Load the template document as stream
 using(WordDocument document = new WordDocument(inputStream, FormatType.Docx))
 {
-	inputStream.Dispose();
+    inputStream.Dispose();
     int i = 0;
     //Iterate each section from Word document
     foreach (WSection section in document.Sections)
@@ -104,19 +100,17 @@ using(WordDocument document = new WordDocument(inputStream, FormatType.Docx))
         //Add cloned section into new Word document
         newDocument.Sections.Add(section.Clone());
         //Saves the Word document to  MemoryStream
-		FileStream outputStream = new FileStream("Section" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-		newDocument.Save(outputStream, FormatType.Docx);
-		//Closes the document
-		newDocument.Close();
-		outputStream.Dispose();
+        FileStream outputStream = new FileStream("Section" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        newDocument.Save(outputStream, FormatType.Docx);
+        //Closes the document
+        newDocument.Close();
+        outputStream.Dispose();
         i++;
     }
 }
-
-
 {% endhighlight %}
-{% highlight c# tabtitle="Xamarin" %}
 
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
 //Loads the template document as stream
@@ -142,8 +136,8 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     }
 }
-
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-section).
@@ -152,9 +146,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to split the Word document by using headings.
 
-{% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
 
+{% highlight c# tabtitle="C#" %}
 //Load the template document
 using (WordDocument doc = new WordDocument(@"Template.docx"))
 {
@@ -240,10 +234,9 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
     newDocument.Close();
     newDocument = null;
 }
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
 
+{% highlight vb.net tabtitle="VB.NET" %}
 'Load the template document
 Using doc As WordDocument = New WordDocument("Template.docx")
     Dim newDocument As WordDocument = Nothing
@@ -309,10 +302,9 @@ Private Sub SaveWordDocument(ByVal newDocument As WordDocument, ByVal fileName A
     newDocument.Close()
     newDocument = Nothing
 End Sub
-		
 {% endhighlight %}
-{% highlight c# tabtitle="UWP" %}
 
+{% highlight c# tabtitle="UWP" %}
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
@@ -402,11 +394,9 @@ private async void SaveWordDocument(WordDocument newDocument, string fileName)
     //Please refer the below link to save Word document in UWP platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
-
-
 {% endhighlight %}
-{% highlight c# tabtitle="ASP.NET Core" %}
 
+{% highlight c# tabtitle="ASP.NET Core" %}
 using (FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the template document as stream
@@ -479,13 +469,13 @@ private static WSection AddSection(WordDocument newDocument, WSection section)
     newDocument.Sections.Add(newSection);
     return newSection;
 }
- 
+
 private static void AddEntity(WSection newSection, Entity entity)
 {
     //Add cloned item into the newly created section
     newSection.Body.ChildEntities.Add(entity.Clone());
 }
-   
+
 private static void SaveWordDocument(WordDocument newDocument, string fileName)
 {
     using (FileStream outputStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
@@ -497,10 +487,9 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
         newDocument = null;
     }
 }
-
 {% endhighlight %}
-{% highlight c# tabtitle="Xamarin" %}
 
+{% highlight c# tabtitle="Xamarin" %}
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream fileStream = assembly.GetManifestResourceStream("XamarinAPp.Data.Adventure.docx");
 //Loads the template document as stream
@@ -592,8 +581,8 @@ private void SaveWordDocument(WordDocument newDocument, string fileName)
     //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
-
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Split-by-heading).
@@ -602,7 +591,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to split the Word document using bookmarks.
 
-{% tabs %} 
+{% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
@@ -625,7 +614,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
             newDocument.LastSection.Body.ChildEntities.Add(part.BodyItems[i].Clone());
         //Save the Word document.
         newDocument.Save(@"Result"+ bookmark.Name + ".docx", FormatType.Docx);
-		newDocument.Close();
+        newDocument.Close();
     }
 }
 {% endhighlight %}
@@ -651,7 +640,7 @@ Using document As WordDocument = New WordDocument("Template.docx", FormatType.Do
         Next
         'Save the Word document
         newDocument.Save("Result" & bookmark.Name & ".docx", FormatType.Docx)
-		newDocument.Close()
+        newDocument.Close()
     Next
 End Using
 {% endhighlight %}
@@ -684,7 +673,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
         await newDocument.SaveAsync(stream, FormatType.Docx);
         //Save the stream as Word document file in the local machine.
         Save(stream, "Result" + bookmark.Name + ".docx");
-		//Please refer to the below link to save the Word document in the UWP platform
+        //Please refer to the below link to save the Word document in the UWP platform
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
@@ -759,7 +748,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to split the Word document using the placeholder text.
 
-{% tabs %} 
+{% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Load an existing Word document into DocIO instance.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
@@ -785,7 +774,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
             newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities[j].Clone());
         //Save the Word document.
         newDocument.Save("Result" + i + ".docx", FormatType.Docx);
-		newDocument.Close();
+        newDocument.Close();
     }
 }
 {% endhighlight %}
@@ -795,26 +784,26 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     Dim findPlaceHolderWord As String() = New String() {"[First Content Start]", "[Second Content Start]", "[Third Content Start]"}
     For i As Integer = 0 To findPlaceHolderWord.Length - 1
-	   'Get the start placeholder paragraph in the document.
-       Dim startParagraph As WParagraph = document.Find(findPlaceHolderWord(i), True, True).GetAsOneRange().OwnerParagraph
-	   'Get the end placeholder paragraph in the document.
-       Dim endParagraph As WParagraph = document.Find(findPlaceHolderWord(i).Replace("Start", "End"), True, True).GetAsOneRange().OwnerParagraph
-	   'Get the text body.
-       Dim textBody As WTextBody = startParagraph.OwnerTextBody
-	   'Get the start PlaceHolder index.
-       Dim startPlaceHolderIndex As Integer = textBody.ChildEntities.IndexOf(startParagraph)
-	   'Get the end PlaceHolder index.
-       Dim endPlaceHolderIndex As Integer = textBody.ChildEntities.IndexOf(endParagraph)
-	   'Create a new Word document.
-       Dim newDocument As WordDocument = New WordDocument()
-       newDocument.AddSection()
-	   'Add the retrieved content to another new document.
-       For j As Integer = startPlaceHolderIndex + 1 To endPlaceHolderIndex - 1
+        'Get the start placeholder paragraph in the document.
+        Dim startParagraph As WParagraph = document.Find(findPlaceHolderWord(i), True, True).GetAsOneRange().OwnerParagraph
+        'Get the end placeholder paragraph in the document.
+        Dim endParagraph As WParagraph = document.Find(findPlaceHolderWord(i).Replace("Start", "End"), True, True).GetAsOneRange().OwnerParagraph
+        'Get the text body.
+        Dim textBody As WTextBody = startParagraph.OwnerTextBody
+        'Get the start PlaceHolder index.
+        Dim startPlaceHolderIndex As Integer = textBody.ChildEntities.IndexOf(startParagraph)
+        'Get the end PlaceHolder index.
+        Dim endPlaceHolderIndex As Integer = textBody.ChildEntities.IndexOf(endParagraph)
+        'Create a new Word document.
+        Dim newDocument As WordDocument = New WordDocument()
+        newDocument.AddSection()
+        'Add the retrieved content to another new document.
+        For j As Integer = startPlaceHolderIndex + 1 To endPlaceHolderIndex - 1
             newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities(j).Clone())
-       Next
-	   'Save the Word document.
-       newDocument.Save("Result" & i & ".docx", FormatType.Docx) 
-       newDocument.Close();	   
+        Next
+        'Save the Word document.
+        newDocument.Save("Result" & i & ".docx", FormatType.Docx) 
+        newDocument.Close();	   
     Next
 End Using
 {% endhighlight %}
@@ -850,7 +839,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
         await newDocument.SaveAsync(stream, FormatType.Docx);
         //Save the stream as Word document file in the local machine.
         Save(stream, "Result" + i + ".docx");
-		//Please refer to the below link to save Word document in the UWP platform
+        //Please refer to the below link to save Word document in the UWP platform
         //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
     }
 }
@@ -914,7 +903,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
         //Add the retrieved content into another new document.
         for (int j = startPlaceHolderIndex + 1; j < endPlaceHolderIndex; j++)
             newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities[j].Clone());
-	    MemoryStream stream = new MemoryStream();         
+        MemoryStream stream = new MemoryStream();         
         //Saves the Word document to file stream.
         newDocument.Save(stream, FormatType.Docx);
         //Save the stream as a file in the device and invoke it for viewing.

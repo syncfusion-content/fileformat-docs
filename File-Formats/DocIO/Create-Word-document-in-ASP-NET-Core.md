@@ -12,21 +12,21 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Steps to create Word document programmatically:
 
-1.Create a new ASP.NET Core Web application project.
+Step 1: Create a new ASP.NET Core Web application project.
 
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProject.png)
 
-2.Select Web Application pattern (Model-View-Controller) for the project.
+Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
 ![Select Web Application pattern](ASP-NET-Core_images/SelectWebMVC.png)
 
-3.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO .NET Core NuGet package](ASP-NET-Core_images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-4.Include the following namespaces in the HomeController.cs file.
+Step 4: Include the following namespaces in the HomeController.cs file.
 
 {% tabs %}
 
@@ -40,9 +40,9 @@ using System.IO;
 
 {% endtabs %}
 
-5.A default action method named Index will be present in HomeController.cs. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
+Step 5: A default action method named Index will be present in HomeController.cs. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
-6.Add a new button in the Index.cshtml as shown below.
+Step 6: Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}
 
@@ -61,7 +61,7 @@ Html.EndForm();
 
 {% endtabs %}
 
-7.Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
+Step 7: Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
 
 {% tabs %}
 
@@ -94,8 +94,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
 IWPicture picture = paragraph.AppendPicture(imageStream);
@@ -142,12 +142,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -175,7 +175,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -285,7 +284,6 @@ section.AddParagraph();
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 

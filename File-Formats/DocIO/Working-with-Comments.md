@@ -7,17 +7,17 @@ documentation: UG
 ---
 # Working with Comments
 
-A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with `WComment` instance.
+A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with [WComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WComment.html) instance.
 
-N>  The comment start and end ranges and dates can be preserved only on processing an existing document that already contains these information for each comment.
+N> The comment start and end ranges and dates can be preserved only on processing an existing document that already contains these information for each comment.
 
 ## Adding a Comment
 
-You can add a new comment to the Word document by using `AppendComment` method of `WParagraph` class. 
+You can add a new comment to the Word document by using [AppendComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendComment_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class. 
 
 The following code illustrates how to add a new comment to the document:
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document
@@ -137,9 +137,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
 
@@ -166,10 +166,10 @@ document.Close();
 Dim document As New WordDocument("Comment.docx")
 'Iterates the comments in the Word document
 For Each comment As WComment In document.Comments
-	'Modifies the last paragraph text of an existing comment when it is added by "Peter"
-	If comment.Format.User = "Peter" Then
-		comment.TextBody.LastParagraph.Text = "Modified Comment Content"
-	End If
+    'Modifies the last paragraph text of an existing comment when it is added by "Peter"
+    If comment.Format.User = "Peter" Then
+        comment.TextBody.LastParagraph.Text = "Modified Comment Content"
+    End If
 Next
 document.Save("ModifiedComment.docx", FormatType.Docx)
 document.Close()
@@ -237,7 +237,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ModifiedComment.docx",
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Modify-text-of-an-existing-comment).
 
@@ -247,7 +247,7 @@ You can either remove all the comments or a particular comment from the Word doc
 
 The following code illustrates how to remove all the comments in Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Comment.docx");
@@ -312,13 +312,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Remove-all-comments-in-Word-document).
 
 The following code illustrates how to remove a particular comment from Word document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 WordDocument document = new WordDocument("Comment.docx");
@@ -391,11 +391,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Accessing parent comment
 
-You can access the parent comment of a particular comment (reply) in a Word document using `Ancestor` API. The ancestor for parent comment returns `null` as default.
+You can access the parent comment of a particular comment (reply) in a Word document using [Ancestor](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WComment.html#Syncfusion_DocIO_DLS_WComment_Ancestor) API. The ancestor for parent comment returns `null` as default.
 
 The following code examples show how to access the parent comment of a particular comment in a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Load an existing Word document into DocIO instance.
@@ -473,33 +473,31 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example illustrates how to get the paragraph item where it exists in the commented region based on the existing comment in the Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# %}
 using(WordDocument document = new WordDocument("Comment.docx"))
 {
-   //Iterate the comments in the Word document.
-   foreach (WComment comment in document.Comments)
-   {
-      //Get the commented word or part of a particular comment.
-      if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
-      {
-          ParagraphItemCollection paragraphItem = comment.CommentedItems;
-      }           
-   }
-   document.Save("Result.docx", FormatType.Docx);
+    //Iterate the comments in the Word document.
+    foreach (WComment comment in document.Comments)
+    {
+        //Get the commented word or part of a particular comment.
+        if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
+            ParagraphItemCollection paragraphItem = comment.CommentedItems;
+    }
+    document.Save("Result.docx", FormatType.Docx);
 }
 {% endhighlight %}
 
 {% highlight vb.net %}
 Using document As New WordDocument("Comment.docx")
-   'Iterate the comments in the Word document.
-   For Each comment As WComment In document.Comments
-       If comment.TextBody.LastParagraph.Text = "This is the second comment." Then
-          Dim paragraphItem As ParagraphItemCollection = comment.CommentedItems
-       End If
-   Next
-document.Save("Result.docx", FormatType.Docx)
+    'Iterate the comments in the Word document.
+    For Each comment As WComment In document.Comments
+        If comment.TextBody.LastParagraph.Text = "This is the second comment." Then
+            Dim paragraphItem As ParagraphItemCollection = comment.CommentedItems
+        End If
+    Next
+    document.Save("Result.docx", FormatType.Docx)
 End Using
 {% endhighlight %}
 
@@ -507,22 +505,20 @@ End Using
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using(WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Comment.docx"), FormatType.Docx))
 {
-   //Iterate the comments in the Word document.
-   foreach (WComment comment in document.Comments)
-   {
-      //Get the commented word or part of a particular comment.
-      if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
-      {
-          ParagraphItemCollection paragraphItem = comment.CommentedItems;
-      }           
-   }
-   //Save the Word file to MemoryStream.
-   MemoryStream stream = new MemoryStream();
-   await document.SaveAsync(stream, FormatType.Docx);
-   //Save the stream as Word file in the local machine.
-   Save(stream, "Result.docx");
-   //Please refer to the below link to save a Word document in the UWP platform.
-   //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    //Iterate the comments in the Word document.
+    foreach (WComment comment in document.Comments)
+    {
+        //Get the commented word or part of a particular comment.
+        if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
+            ParagraphItemCollection paragraphItem = comment.CommentedItems;
+    }
+    //Save the Word file to MemoryStream.
+    MemoryStream stream = new MemoryStream();
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Save the stream as Word file in the local machine.
+    Save(stream, "Result.docx");
+    //Please refer to the below link to save a Word document in the UWP platform.
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
 
@@ -530,21 +526,19 @@ using(WordDocument document = new WordDocument(assembly.GetManifestResourceStrea
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
-   //Iterate the comments in the Word document.
-   foreach (WComment comment in document.Comments)
-   {
-      //Get the commented word or part of a particular comment.
-      if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
-      {
-          ParagraphItemCollection paragraphItem = comment.CommentedItems;
-      }           
-   }
-   //Save the Word document to MemoryStream.
-   MemoryStream stream = new MemoryStream();
-   document.Save(stream, FormatType.Docx);
-   stream.Position = 0;
-   //Download the Word document in the browser.
-   return File(stream, "application/msword", "Result.docx");
+    //Iterate the comments in the Word document.
+    foreach (WComment comment in document.Comments)
+    {
+        //Get the commented word or part of a particular comment.
+        if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
+            ParagraphItemCollection paragraphItem = comment.CommentedItems;
+    }
+    //Save the Word document to MemoryStream.
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    stream.Position = 0;
+    //Download the Word document in the browser.
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -552,25 +546,23 @@ using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using(WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Comment.docx"), FormatType.Docx))
 {
-   //Iterate the comments in the Word document.
-   foreach (WComment comment in document.Comments)
-   {
-      //Get the commented word or part of a particular comment.
-      if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
-      {
-          ParagraphItemCollection paragraphItem = comment.CommentedItems;
-      }          
-   }
-   //Save the Word document to MemoryStream.
-   MemoryStream stream = new MemoryStream();
-   document.Save(stream, FormatType.Docx);
-   //Save the stream as a file in the device and invoke it for viewing.
-   Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-   //Please download the helper files from the below link to save the stream as file and open the file for viewing in the Xamarin platform.
-   //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Iterate the comments in the Word document.
+    foreach (WComment comment in document.Comments)
+    {
+        //Get the commented word or part of a particular comment.
+        if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
+            ParagraphItemCollection paragraphItem = comment.CommentedItems;
+    }
+    //Save the Word document to MemoryStream.
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing.
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in the Xamarin platform.
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Retrieve-commented-word).

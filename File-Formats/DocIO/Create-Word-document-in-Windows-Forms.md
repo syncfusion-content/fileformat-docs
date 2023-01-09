@@ -12,17 +12,17 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/w
 
 ## Steps to create Word document programmatically:
 
-1.Create a new Windows Forms application project.
+Step 1: Create a new Windows Forms application project.
 
 ![Create Windows Forms application in Visual Studio](Windows-Forms_images/Create_Project.jpg)
 
-2.Install [Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
+Step 2: Install [Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO Windows Forms NuGet package](Windows-Forms_images/Install_Nuget.jpg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-3.Include the following namespaces in the **Form1.Designer.cs** file.
+Step 3: Include the following namespaces in the **Form1.Designer.cs** file.
 
 {% tabs %}
 
@@ -38,7 +38,7 @@ using System.Windows.Forms;
 
 {% endtabs %}
 
-4.Add a new button in **Form1.Designer.cs** to create Word file as follows.
+Step 4: Add a new button in **Form1.Designer.cs** to create Word file as follows.
 
 {% tabs %}
 
@@ -51,7 +51,6 @@ private void InitializeComponent()
 {
     label = new Label();
     btnCreate = new Button();
-  
     //Label
     label.Location = new System.Drawing.Point(0, 40);
     label.Size = new System.Drawing.Size(426, 35);
@@ -70,12 +69,11 @@ private void InitializeComponent()
     Controls.Add(btnCreate);
     Text = "Create Word";
 }
-
 {% endhighlight %}
 
 {% endtabs %}
 
-5.Add the following code in **btnCreate_Click** to **create Word document** with simple text.
+Step 5: Add the following code in **btnCreate_Click** to **create Word document** with simple text.
 
 {% tabs %}
 
@@ -107,8 +105,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 IWPicture picture = paragraph.AppendPicture(new Bitmap("AdventureCycle.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -154,12 +152,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalA
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -186,7 +184,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -269,7 +266,6 @@ paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.AppendText("Road-150 ");
-
 //Appends paragraph.
 paragraph = table[2, 1].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -293,7 +289,6 @@ section.AddParagraph();
 
 //Saves the Word document
 document.Save("Sample.docx");
-
 {% endhighlight %}
 
 {% endtabs %}

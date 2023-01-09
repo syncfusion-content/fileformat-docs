@@ -7,27 +7,27 @@ documentation: UG
 ---
 # Working with document Fields
 
-Fields in a Word document are placeholders for data that might change on field update. Fields are represented by the `WField` and `WFieldMark` instances in DocIO. A field in a Word document contains field codes, field separator, field result, and field end.
+Fields in a Word document are placeholders for data that might change on field update. Fields are represented by the [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html) and [WFieldMark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFieldMark.html) instances in DocIO. A field in a Word document contains field codes, field separator, field result, and field end.
 
 To learn various types of Microsoft Word supported fields and their syntax,refer to the [MSDN article](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
 
 From v16.1.0.24, the entire field code is included in Document Object Model(DOM). Hence, adding a field will automatically include the following elements in DOM:
 
-1. `WField`: Represents the starting of a Field.
+1. [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html): Represents the starting of a Field.
 
-2. `ParagraphItem`: Represents the Field code.
+2. [ParagraphItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ParagraphItem.html): Represents the Field code.
 
-3. `WFieldMark`: Represents the Field separator.
+3. [WFieldMark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFieldMark.html): Represents the Field separator.
 
-4. `ParagraphItem`: Represents the Field result.
+4. [ParagraphItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ParagraphItem.html): Represents the Field result.
 
-5. `WFieldMark`: Represents the end of a Field.
+5. [WFieldMark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFieldMark.html): Represents the end of a Field.
 
 Find more information about migration changes [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24)
 
 ## Adding fields
 
-You can add a field to a Word document by using the `AppendField` method of `WParagraph` class.
+You can add a field to a Word document by using the [AppendField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendField_System_String_Syncfusion_DocIO_FieldType_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code example explains how to add a field to the Word document.
 
@@ -137,7 +137,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Add-field-in-Word-document).
 
@@ -160,13 +160,13 @@ IEntity entity = field;
 //Iterates to sibling items until Field End 
 while (entity.NextSibling != null)
 {
-	if (entity is WTextRange)
-		//Sets character format for text ranges
-		(entity as WTextRange).CharacterFormat.FontSize = 6;
-	else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-		break;
-	//Gets next sibling item
-	entity = entity.NextSibling;
+    if (entity is WTextRange)
+        //Sets character format for text ranges
+        (entity as WTextRange).CharacterFormat.FontSize = 6;
+    else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+        break;
+    //Gets next sibling item
+    entity = entity.NextSibling;
 }
 //Saves and closes the WordDocument instance
 document.Save("Template.docx", FormatType.Docx);
@@ -183,14 +183,14 @@ Dim field As IWField = document.LastParagraph.AppendField("Page", FieldType.Fiel
 Dim entity As IEntity = field
 'Iterates to sibling items until Field End 
 While (Not (entity.NextSibling) Is Nothing)
-	'Sets character format for text ranges
-	If (TypeOf entity Is WTextRange) Then
-		CType(entity, WTextRange).CharacterFormat.FontSize = 6
-	ElseIf ((TypeOf entity Is WFieldMark) AndAlso (CType(entity, WFieldMark).Type = FieldMarkType.FieldEnd)) Then
-		Exit While
-	End If
-	'Gets next sibling item
-	entity = entity.NextSibling
+    'Sets character format for text ranges
+    If (TypeOf entity Is WTextRange) Then
+        CType(entity, WTextRange).CharacterFormat.FontSize = 6
+    ElseIf ((TypeOf entity Is WFieldMark) AndAlso (CType(entity, WFieldMark).Type = FieldMarkType.FieldEnd)) Then
+        Exit While
+    End If
+    'Gets next sibling item
+    entity = entity.NextSibling
 End While
 'Saves and closes the WordDocument instance
 document.Save("Template.docx", FormatType.Docx)
@@ -208,13 +208,13 @@ IEntity entity = field;
 //Iterates to sibling items until Field End 
 while (entity.NextSibling != null)
 {
-	if (entity is WTextRange)
-		//Sets character format for text ranges
-		(entity as WTextRange).CharacterFormat.FontSize = 6;
-	else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-		break;
-	//Gets next sibling item.
-	entity = entity.NextSibling;
+    if (entity is WTextRange)
+        //Sets character format for text ranges
+        (entity as WTextRange).CharacterFormat.FontSize = 6;
+    else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+        break;
+    //Gets next sibling item.
+    entity = entity.NextSibling;
 }
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -238,13 +238,13 @@ IEntity entity = field;
 //Iterates to sibling items until Field End 
 while (entity.NextSibling != null)
 {
-	if (entity is WTextRange)
-		//Sets character format for text ranges 
-		(entity as WTextRange).CharacterFormat.FontSize = 6;
-	else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-		break;
-	//Gets next sibling item.
-	entity = entity.NextSibling;
+    if (entity is WTextRange)
+        //Sets character format for text ranges 
+        (entity as WTextRange).CharacterFormat.FontSize = 6;
+    else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+        break;
+    //Gets next sibling item.
+    entity = entity.NextSibling;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -267,13 +267,13 @@ IEntity entity = field;
 //Iterates to sibling items until Field End 
 while (entity.NextSibling != null)
 {
-	if (entity is WTextRange)
-		//Sets character format for text ranges
-		(entity as WTextRange).CharacterFormat.FontSize = 6;
-	else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-		break;
-	//Gets next sibling item
-	entity = entity.NextSibling;
+    if (entity is WTextRange)
+        //Sets character format for text ranges
+        (entity as WTextRange).CharacterFormat.FontSize = 6;
+    else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+        break;
+    //Gets next sibling item
+    entity = entity.NextSibling;
 }
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -319,7 +319,7 @@ N> In ASP.NET Core, Blazor, and Xamarin platforms, to update fields (including P
 
 The following code example explains how to update the fields present in Word document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document into DocIO instance 
@@ -389,7 +389,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Update-fields-in-document).
 
@@ -549,17 +549,17 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/IF-field).
 
 ## Document variables
 
-The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using the `Variables` property of `WordDocument` class.
+The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using the [Variables](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Variables) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class.
 
 The following code example explains how to add a DocVariable field to a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
@@ -698,13 +698,13 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Cross reference
 
-A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using the `AppendCrossReference` method of `WParagraph` class.
+A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using the [AppendCrossReference](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendCrossReference_Syncfusion_DocIO_ReferenceType_Syncfusion_DocIO_ReferenceKind_Syncfusion_DocIO_DLS_Entity_System_Boolean_System_Boolean_System_Boolean_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
-N>  The Essential DocIO supports creating and updating the cross-reference fields only for bookmarks in a document.
+N> The Essential DocIO supports creating and updating the cross-reference fields only for bookmarks in a document.
 
 The following code example explains how to append cross reference for bookmark in a Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of a WordDocument 
@@ -857,18 +857,17 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Cross-reference).
 
 ## Unlink fields
 
-You can replace the field with its most recent result in the Word document by unlinking the field using the `Unlink` API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
-
+You can replace the field with its most recent result in the Word document by unlinking the field using the [Unlink](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html#Syncfusion_DocIO_DLS_WField_Unlink) API. When you unlink a field, its current result is converted to text or a graphic and can no longer be updated automatically.
 
 The following code example shows how to unlink the fields in Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an instance of WordDocument class
@@ -1004,11 +1003,11 @@ You can format the SEQ field using below switches.
 \s -- Resets the sequence number at the heading level following the "s".
 
 ### Apply Number format
-You can apply the number format for the sequence field using `NumberFormat` property. 
+You can apply the number format for the sequence field using [NumberFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_NumberFormat) property.
 
 The following code example shows how to apply the number format for sequence field.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new document
@@ -1078,7 +1077,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
-            
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1134,7 +1132,6 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1143,129 +1140,129 @@ document.Close();
 
 The following code example provides supporting methods for the above code.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item1");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item2");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item3");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item1");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item2");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item3");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
-	'Creates a new word document
-	Dim document As WordDocument = New WordDocument
-	'Adds a new section to the document
-	Dim section As IWSection = document.AddSection
-	'Sets margin of the section
-	section.PageSetup.Margins.All = 72
-	'Adds a paragraph to the section
-	Dim paragraph As IWParagraph = section.AddParagraph
-	paragraph.AppendField("List", FieldType.FieldSequence)
-	paragraph.AppendText(".Item1")
-	'Adds a paragraph to the section
-	paragraph = section.AddParagraph
-	paragraph.AppendField("List", FieldType.FieldSequence)
-	paragraph.AppendText(".Item2")
-	'Adds a paragraph to the section
-	paragraph = section.AddParagraph
-	paragraph.AppendField("List", FieldType.FieldSequence)
-	paragraph.AppendText(".Item3")
-	Return document
+    'Creates a new word document
+    Dim document As WordDocument = New WordDocument
+    'Adds a new section to the document
+    Dim section As IWSection = document.AddSection
+    'Sets margin of the section
+    section.PageSetup.Margins.All = 72
+    'Adds a paragraph to the section
+    Dim paragraph As IWParagraph = section.AddParagraph
+    paragraph.AppendField("List", FieldType.FieldSequence)
+    paragraph.AppendText(".Item1")
+    'Adds a paragraph to the section
+    paragraph = section.AddParagraph
+    paragraph.AppendField("List", FieldType.FieldSequence)
+    paragraph.AppendText(".Item2")
+    'Adds a paragraph to the section
+    paragraph = section.AddParagraph
+    paragraph.AppendField("List", FieldType.FieldSequence)
+    paragraph.AppendText(".Item3")
+    Return document
 End Function
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item1");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item2");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item3");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item1");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item2");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item3");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item1");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item2");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item3");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item1");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item2");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item3");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item1");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item2");
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendField("List", FieldType.FieldSequence);
-	paragraph.AppendText(".Item3");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item1");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item2");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item3");
+    return document;
 }
 {% endhighlight %}
 
@@ -1278,7 +1275,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output document after applied Number format for SEQ field](WorkingWithFields_images/SEQField_NumberFormat.png)
 
 ### Refer Bookmark
-You can refer the sequence field elsewhere in the document by including bookmark name through `BookmarkName` property. The referred sequence field may be present anywhere in the Word document, but not beyond the respective bookmark end.
+You can refer the sequence field elsewhere in the document by including bookmark name through [BookmarkName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_BookmarkName) property. The referred sequence field may be present anywhere in the Word document, but not beyond the respective bookmark end.
 
 For example, you can refer the image caption numbers in sentence by including the bookmark name in sequence field.
 
@@ -1350,7 +1347,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
-            
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1405,7 +1401,6 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1419,11 +1414,11 @@ By executing the above code example, it generates output Word document as follow
 ![Output document of Bookmark referred in SEQ field](WorkingWithFields_images/SEQField_Bookmark.png)
 
 ### Reset numbering 
-You can reset the numbering for sequence field (\r) using `ResetNumber` property and reset the numbering based on heading level (\s) in the Word document using `ResetHeadingLevel` property. 
+You can reset the numbering for sequence field (\r) using [ResetNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_ResetNumber) property and reset the numbering based on heading level (\s) in the Word document using [ResetHeadingLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_ResetHeadingLevel) property. 
 
 The following code example shows how to reset the numbering for sequence field.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a Word document
@@ -1511,7 +1506,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
-            
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1579,7 +1573,6 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1588,473 +1581,473 @@ document.Close();
 
 The following code example provides supporting methods for the above code.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new word document
-	WordDocument document = new WordDocument();
-	//Adds new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds new paragraph to the section
-	IWParagraph paragraph = section.AddParagraph() as WParagraph;
-	//Adds text range
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//First row
-	table[0, 0].AddParagraph().AppendPicture(Image.FromFile("Nancy.png"));
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Employee Id: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
-	table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
-	table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
-	//Second row
-	table[1, 0].AddParagraph().AppendPicture(Image.FromFile("Andrews.png"));
-	paragraph = table[1, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
-	table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
-	table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
-	table[1, 1].AddParagraph().AppendText("TacomaWA USA");
-	//Third row
-	table[2, 0].AddParagraph().AppendPicture(Image.FromFile("Janet.png"));
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
-	table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
-	table[2, 1].AddParagraph().AppendText("KirklandWA USA");
-	//Adds new Paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendBreak(BreakType.PageBreak);
-	//Adds text range
-	paragraph.AppendText("Product Overview");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
-	//Adds a new table into Word document
-	table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	table[0, 0].AddParagraph().AppendPicture(Image.FromFile("Mountain-200.png"));
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	table[1, 1].AddParagraph().AppendPicture(Image.FromFile("Mountain-300.png"));
-	//Third row
-	table[2, 0].AddParagraph().AppendPicture(Image.FromFile("Road-550.png"));
-	table[2, 1].AddParagraph().AppendText("Road-150");
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    //Creates a new word document
+    WordDocument document = new WordDocument();
+    //Adds new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds new paragraph to the section
+    IWParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Adds text range
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //First row
+    table[0, 0].AddParagraph().AppendPicture(Image.FromFile("Nancy.png"));
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Employee Id: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
+    table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
+    table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
+    //Second row
+    table[1, 0].AddParagraph().AppendPicture(Image.FromFile("Andrews.png"));
+    paragraph = table[1, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
+    table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
+    table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
+    table[1, 1].AddParagraph().AppendText("TacomaWA USA");
+    //Third row
+    table[2, 0].AddParagraph().AppendPicture(Image.FromFile("Janet.png"));
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
+    table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
+    table[2, 1].AddParagraph().AppendText("KirklandWA USA");
+    //Adds new Paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendBreak(BreakType.PageBreak);
+    //Adds text range
+    paragraph.AppendText("Product Overview");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
+    //Adds a new table into Word document
+    table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    table[0, 0].AddParagraph().AppendPicture(Image.FromFile("Mountain-200.png"));
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    table[1, 1].AddParagraph().AppendPicture(Image.FromFile("Mountain-300.png"));
+    //Third row
+    table[2, 0].AddParagraph().AppendPicture(Image.FromFile("Road-550.png"));
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
-	'Creates a new word document
-	Dim document As WordDocument = New WordDocument
-	'Adds new section to the document
-	Dim section As IWSection = document.AddSection
-	section.PageSetup.Margins.All = 72
-	'Adds new paragraph to the section
-	Dim paragraph As IWParagraph = CType(section.AddParagraph, WParagraph)
-	'Adds text range
-	Dim textRange As IWTextRange = paragraph.AppendText("Adventure Works Cycles")
-	textRange.CharacterFormat.FontSize = 16
-	textRange.CharacterFormat.Bold = True
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
-	'Adds a new table into Word document
-	Dim table As IWTable = section.AddTable
-	'Specifies the total number of rows & columns
-	table.ResetCells(3, 2)
-	'First row
-	table(0, 0).AddParagraph.AppendPicture(Image.FromFile("Nancy.png"))
-	paragraph = table(0, 1).AddParagraph
-	paragraph.AppendText("Employee Id: ")
-	paragraph.AppendField("Id", FieldType.FieldSequence)
-	table(0, 1).AddParagraph.AppendText("Name: Nancy Davolio")
-	table(0, 1).AddParagraph.AppendText("Title: Sales Representative")
-	table(0, 1).AddParagraph.AppendText("Address: 507 - 20th Ave. E.")
-	table(0, 1).AddParagraph.AppendText("Zip Code: 98122")
-	'Second row
-	table(1, 0).AddParagraph.AppendPicture(Image.FromFile("Andrews.png"))
-	paragraph = table(1, 1).AddParagraph
-	paragraph.AppendText("Employee ID: ")
-	paragraph.AppendField("Id", FieldType.FieldSequence)
-	table(1, 1).AddParagraph.AppendText("Name: Andrew Fuller")
-	table(1, 1).AddParagraph.AppendText("Title: Vice President, Sales")
-	table(1, 1).AddParagraph.AppendText("Address1: 908 W. Capital Way, ")
-	table(1, 1).AddParagraph.AppendText("TacomaWA USA")
-	'Third row
-	table(2, 0).AddParagraph.AppendPicture(Image.FromFile("Janet.png"))
-	paragraph = table(2, 1).AddParagraph
-	paragraph.AppendText("Employee ID: ")
-	paragraph.AppendField("Id", FieldType.FieldSequence)
-	table(2, 1).AddParagraph.AppendText("Name: Janet Leverling")
-	table(2, 1).AddParagraph.AppendText("Title: Sales Representative")
-	table(2, 1).AddParagraph.AppendText("Address1: 722 Moss Bay Blvd,  ")
-	table(2, 1).AddParagraph.AppendText("KirklandWA USA")
-	'Adds new Paragraph to the section
-	paragraph = section.AddParagraph
-	paragraph.AppendBreak(BreakType.PageBreak)
-	'Adds text range
-	paragraph.AppendText("Product Overview")
-	paragraph.ApplyStyle(BuiltinStyle.Heading1)
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
-	'Adds a new table into Word document
-	table = section.AddTable
-	'Specifies the total number of rows & columns
-	table.ResetCells(3, 2)
-	'Accesses the instance of the cell  and adds the content into cell
-	'First row
-	table(0, 0).AddParagraph.AppendPicture(Image.FromFile("Mountain-200.png"))
-	table(0, 1).AddParagraph.AppendText("Mountain-200")
-	paragraph = table(0, 1).AddParagraph
-	paragraph.AppendText("Product No: ")
-	paragraph.AppendField("Id", FieldType.FieldSequence)
-	table(0, 1).AddParagraph.AppendText("Size: 38")
-	table(0, 1).AddParagraph.AppendText("Weight: 25")
-	table(0, 1).AddParagraph.AppendText("Price: $2,294.99")
-	'Second row
-	table(1, 0).AddParagraph.AppendText("Mountain-300")
-	paragraph = table(1, 0).AddParagraph
-	paragraph.AppendText("Product No: ")
-	paragraph.AppendField("Id", FieldType.FieldSequence)
-	table(1, 0).AddParagraph.AppendText("Size: 35")
-	table(1, 0).AddParagraph.AppendText("Weight: 22")
-	table(1, 0).AddParagraph.AppendText("Price: $1,079.99")
-	table(1, 1).AddParagraph.AppendPicture(Image.FromFile("Mountain-300.png"))
-	'Third row
-	table(2, 0).AddParagraph.AppendPicture(Image.FromFile("Road-550.png"))
-	table(2, 1).AddParagraph.AppendText("Road-150")
-	paragraph = table(2, 1).AddParagraph
-	paragraph.AppendText("Product No: ")
-	paragraph.AppendField("Id", FieldType.FieldSequence)
-	table(2, 1).AddParagraph.AppendText("Size: 44")
-	table(2, 1).AddParagraph.AppendText("Weight: 14")
-	table(2, 1).AddParagraph.AppendText("Price: $3,578.27")
-	Return document
+    'Creates a new word document
+    Dim document As WordDocument = New WordDocument
+    'Adds new section to the document
+    Dim section As IWSection = document.AddSection
+    section.PageSetup.Margins.All = 72
+    'Adds new paragraph to the section
+    Dim paragraph As IWParagraph = CType(section.AddParagraph, WParagraph)
+    'Adds text range
+    Dim textRange As IWTextRange = paragraph.AppendText("Adventure Works Cycles")
+    textRange.CharacterFormat.FontSize = 16
+    textRange.CharacterFormat.Bold = True
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+    'Adds a new table into Word document
+    Dim table As IWTable = section.AddTable
+    'Specifies the total number of rows & columns
+    table.ResetCells(3, 2)
+    'First row
+    table(0, 0).AddParagraph.AppendPicture(Image.FromFile("Nancy.png"))
+    paragraph = table(0, 1).AddParagraph
+    paragraph.AppendText("Employee Id: ")
+    paragraph.AppendField("Id", FieldType.FieldSequence)
+    table(0, 1).AddParagraph.AppendText("Name: Nancy Davolio")
+    table(0, 1).AddParagraph.AppendText("Title: Sales Representative")
+    table(0, 1).AddParagraph.AppendText("Address: 507 - 20th Ave. E.")
+    table(0, 1).AddParagraph.AppendText("Zip Code: 98122")
+    'Second row
+    table(1, 0).AddParagraph.AppendPicture(Image.FromFile("Andrews.png"))
+    paragraph = table(1, 1).AddParagraph
+    paragraph.AppendText("Employee ID: ")
+    paragraph.AppendField("Id", FieldType.FieldSequence)
+    table(1, 1).AddParagraph.AppendText("Name: Andrew Fuller")
+    table(1, 1).AddParagraph.AppendText("Title: Vice President, Sales")
+    table(1, 1).AddParagraph.AppendText("Address1: 908 W. Capital Way, ")
+    table(1, 1).AddParagraph.AppendText("TacomaWA USA")
+    'Third row
+    table(2, 0).AddParagraph.AppendPicture(Image.FromFile("Janet.png"))
+    paragraph = table(2, 1).AddParagraph
+    paragraph.AppendText("Employee ID: ")
+    paragraph.AppendField("Id", FieldType.FieldSequence)
+    table(2, 1).AddParagraph.AppendText("Name: Janet Leverling")
+    table(2, 1).AddParagraph.AppendText("Title: Sales Representative")
+    table(2, 1).AddParagraph.AppendText("Address1: 722 Moss Bay Blvd,  ")
+    table(2, 1).AddParagraph.AppendText("KirklandWA USA")
+    'Adds new Paragraph to the section
+    paragraph = section.AddParagraph
+    paragraph.AppendBreak(BreakType.PageBreak)
+    'Adds text range
+    paragraph.AppendText("Product Overview")
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
+    'Adds a new table into Word document
+    table = section.AddTable
+    'Specifies the total number of rows & columns
+    table.ResetCells(3, 2)
+    'Accesses the instance of the cell  and adds the content into cell
+    'First row
+    table(0, 0).AddParagraph.AppendPicture(Image.FromFile("Mountain-200.png"))
+    table(0, 1).AddParagraph.AppendText("Mountain-200")
+    paragraph = table(0, 1).AddParagraph
+    paragraph.AppendText("Product No: ")
+    paragraph.AppendField("Id", FieldType.FieldSequence)
+    table(0, 1).AddParagraph.AppendText("Size: 38")
+    table(0, 1).AddParagraph.AppendText("Weight: 25")
+    table(0, 1).AddParagraph.AppendText("Price: $2,294.99")
+    'Second row
+    table(1, 0).AddParagraph.AppendText("Mountain-300")
+    paragraph = table(1, 0).AddParagraph
+    paragraph.AppendText("Product No: ")
+    paragraph.AppendField("Id", FieldType.FieldSequence)
+    table(1, 0).AddParagraph.AppendText("Size: 35")
+    table(1, 0).AddParagraph.AppendText("Weight: 22")
+    table(1, 0).AddParagraph.AppendText("Price: $1,079.99")
+    table(1, 1).AddParagraph.AppendPicture(Image.FromFile("Mountain-300.png"))
+    'Third row
+    table(2, 0).AddParagraph.AppendPicture(Image.FromFile("Road-550.png"))
+    table(2, 1).AddParagraph.AppendText("Road-150")
+    paragraph = table(2, 1).AddParagraph
+    paragraph.AppendText("Product No: ")
+    paragraph.AppendField("Id", FieldType.FieldSequence)
+    table(2, 1).AddParagraph.AppendText("Size: 44")
+    table(2, 1).AddParagraph.AppendText("Weight: 14")
+    table(2, 1).AddParagraph.AppendText("Price: $3,578.27")
+    Return document
 End Function
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new word document
-	WordDocument document = new WordDocument();
-	//Adds new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds new paragraph to the section
-	IWParagraph paragraph = section.AddParagraph() as WParagraph;
-	//Adds text range
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//First row
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Creates a new word document
+    WordDocument document = new WordDocument();
+    //Adds new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds new paragraph to the section
+    IWParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Adds text range
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //First row
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Nancy.png");
     table[0, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Employee Id: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
-	table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
-	table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
-	//Second row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Andrews.png");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Employee Id: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
+    table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
+    table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
+    //Second row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Andrews.png");
     table[1, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[1, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
-	table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
-	table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
-	table[1, 1].AddParagraph().AppendText("TacomaWA USA");
-	//Third row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Janet.png");
+    paragraph = table[1, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
+    table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
+    table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
+    table[1, 1].AddParagraph().AppendText("TacomaWA USA");
+    //Third row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Janet.png");
     table[2, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
-	table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
-	table[2, 1].AddParagraph().AppendText("KirklandWA USA");
-	//Adds new Paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendBreak(BreakType.PageBreak);
-	//Adds text range
-	paragraph.AppendText("Product Overview");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
-	//Adds a new table into Word document
-	table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
-	table[0, 0].AddParagraph().AppendPicture(imageStream);
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-300.png");
-	table[1, 1].AddParagraph().AppendPicture(imageStream);
-	//Third row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Road-550.png");
-	table[2, 0].AddParagraph().AppendPicture(imageStream);
-	table[2, 1].AddParagraph().AppendText("Road-150");
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
+    table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
+    table[2, 1].AddParagraph().AppendText("KirklandWA USA");
+    //Adds new Paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendBreak(BreakType.PageBreak);
+    //Adds text range
+    paragraph.AppendText("Product Overview");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
+    //Adds a new table into Word document
+    table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
+    table[0, 0].AddParagraph().AppendPicture(imageStream);
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-300.png");
+    table[1, 1].AddParagraph().AppendPicture(imageStream);
+    //Third row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Road-550.png");
+    table[2, 0].AddParagraph().AppendPicture(imageStream);
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new word document
-	WordDocument document = new WordDocument();
-	//Adds new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds new paragraph to the section
-	IWParagraph paragraph = section.AddParagraph() as WParagraph;
-	//Adds text range
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//First row
-	FileStream imageStream = new FileStream("Nancy.png", FileMode.Open, FileAccess.ReadWrite);
+    //Creates a new word document
+    WordDocument document = new WordDocument();
+    //Adds new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds new paragraph to the section
+    IWParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Adds text range
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //First row
+    FileStream imageStream = new FileStream("Nancy.png", FileMode.Open, FileAccess.ReadWrite);
     table[0, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Employee Id: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
-	table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
-	table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
-	//Second row
-	imageStream = new FileStream("Andrews.png", FileMode.Open, FileAccess.ReadWrite);
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Employee Id: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
+    table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
+    table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
+    //Second row
+    imageStream = new FileStream("Andrews.png", FileMode.Open, FileAccess.ReadWrite);
     table[1, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[1, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
-	table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
-	table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
-	table[1, 1].AddParagraph().AppendText("TacomaWA USA");
-	//Third row
-	imageStream = new FileStream("Janet.png", FileMode.Open, FileAccess.ReadWrite);
+    paragraph = table[1, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
+    table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
+    table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
+    table[1, 1].AddParagraph().AppendText("TacomaWA USA");
+    //Third row
+    imageStream = new FileStream("Janet.png", FileMode.Open, FileAccess.ReadWrite);
     table[2, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
-	table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
-	table[2, 1].AddParagraph().AppendText("KirklandWA USA");
-	//Adds new Paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendBreak(BreakType.PageBreak);
-	//Adds text range
-	paragraph.AppendText("Product Overview");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
-	//Adds a new table into Word document
-	table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
+    table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
+    table[2, 1].AddParagraph().AppendText("KirklandWA USA");
+    //Adds new Paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendBreak(BreakType.PageBreak);
+    //Adds text range
+    paragraph.AppendText("Product Overview");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
+    //Adds a new table into Word document
+    table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
     table[0, 0].AddParagraph().AppendPicture(imageStream);
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
     table[1, 1].AddParagraph().AppendPicture(imageStream);
     //Third row
     imageStream = new FileStream("Road-550.png", FileMode.Open, FileAccess.ReadWrite);
     table[2, 0].AddParagraph().AppendPicture(imageStream);
-	table[2, 1].AddParagraph().AppendText("Road-150");
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new word document
-	WordDocument document = new WordDocument();
-	//Adds new section to the document
-	IWSection section = document.AddSection();
-	//Sets margin of the section
-	section.PageSetup.Margins.All = 72;
-	//Adds new paragraph to the section
-	IWParagraph paragraph = section.AddParagraph() as WParagraph;
-	//Adds text range
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//First row
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Creates a new word document
+    WordDocument document = new WordDocument();
+    //Adds new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds new paragraph to the section
+    IWParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Adds text range
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //First row
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Nancy.png");
     table[0, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Employee Id: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
-	table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
-	table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
-	//Second row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Andrews.png");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Employee Id: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
+    table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
+    table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
+    //Second row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Andrews.png");
     table[1, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[1, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
-	table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
-	table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
-	table[1, 1].AddParagraph().AppendText("TacomaWA USA");
-	//Third row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Janet.png");
+    paragraph = table[1, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
+    table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
+    table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
+    table[1, 1].AddParagraph().AppendText("TacomaWA USA");
+    //Third row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Janet.png");
     table[2, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Employee ID: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
-	table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
-	table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
-	table[2, 1].AddParagraph().AppendText("KirklandWA USA");
-	//Adds new Paragraph to the section
-	paragraph = section.AddParagraph();
-	paragraph.AppendBreak(BreakType.PageBreak);
-	//Adds text range
-	paragraph.AppendText("Product Overview");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
-	//Adds a new table into Word document
-	table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
+    table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
+    table[2, 1].AddParagraph().AppendText("KirklandWA USA");
+    //Adds new Paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendBreak(BreakType.PageBreak);
+    //Adds text range
+    paragraph.AppendText("Product Overview");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
+    //Adds a new table into Word document
+    table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
     table[0, 0].AddParagraph().AppendPicture(imageStream);
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-300.png");
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-300.png");
     table[1, 1].AddParagraph().AppendPicture(imageStream);
     //Third row
     imageStream = assembly.GetManifestResourceStream("Sample.Assets.Road-550.png");
     table[2, 0].AddParagraph().AppendPicture(imageStream);
-	table[2, 1].AddParagraph().AppendText("Road-150");
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Id", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
@@ -2067,7 +2060,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output of reset numbering in SEQ field](WorkingWithFields_images/SEQField_ResetNumbering.png)
 
 ### Repeat nearest number 
-You can insert the closest preceding sequence number (\c) using `RepeatNearestNumber` property.
+You can insert the closest preceding sequence number (\c) using [RepeatNearestNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_RepeatNearestNumber) property.
 
 For example, if you need to display total number of products in a page, you can repeat the closest preceding sequence number which referred for products.
 
@@ -2119,7 +2112,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
-            
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -2159,7 +2151,6 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -2173,294 +2164,294 @@ The following code example provides supporting methods for the above code.
 {% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Inserts the default page header
-	IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-	paragraph.AppendText("Total No. of Products: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	//Adds a paragraph to the section
-	section.AddParagraph().AppendText("Product Overview");
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	table[0, 0].AddParagraph().AppendPicture(Image.FromFile("Mountain-200.png"));
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	table[1, 1].AddParagraph().AppendPicture(Image.FromFile("Mountain-300.png"));
-	//Third row
-	table[2, 0].AddParagraph().AppendPicture(Image.FromFile("Road-550.png"));
-	table[2, 1].AddParagraph().AppendText("Road-150");
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Inserts the default page header
+    IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    paragraph.AppendText("Total No. of Products: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    //Adds a paragraph to the section
+    section.AddParagraph().AppendText("Product Overview");
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    table[0, 0].AddParagraph().AppendPicture(Image.FromFile("Mountain-200.png"));
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    table[1, 1].AddParagraph().AppendPicture(Image.FromFile("Mountain-300.png"));
+    //Third row
+    table[2, 0].AddParagraph().AppendPicture(Image.FromFile("Road-550.png"));
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
-	'Creates a new word document
-	Dim document As WordDocument = New WordDocument
-	'Adds a new section to the document
-	Dim section As IWSection = document.AddSection
-	'Inserts the default page header
-	Dim paragraph As IWParagraph = section.HeadersFooters.OddHeader.AddParagraph
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
-	paragraph.AppendText("Total No. of Products: ")
-	paragraph.AppendField("Product count", FieldType.FieldSequence)
-	'Adds a paragraph to the section
-	paragraph = section.AddParagraph
-	Dim textRange As IWTextRange = paragraph.AppendText("Adventure Works Cycles")
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
-	textRange.CharacterFormat.FontSize = 16
-	textRange.CharacterFormat.Bold = True
-	'Adds a paragraph to the section
-	section.AddParagraph.AppendText("Product Overview")
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1)
-	'Adds a new table into Word document
-	Dim table As IWTable = section.AddTable
-	'Specifies the total number of rows & columns
-	table.ResetCells(3, 2)
-	'Accesses the instance of the cell  and adds the content into cell
-	'First row
-	table(0, 0).AddParagraph.AppendPicture(Image.FromFile("Mountain-200.png"))
-	table(0, 1).AddParagraph.AppendText("Mountain-200")
-	paragraph = table(0, 1).AddParagraph
-	paragraph.AppendText("Product No: ")
-	paragraph.AppendField("Product count", FieldType.FieldSequence)
-	table(0, 1).AddParagraph.AppendText("Size: 38")
-	table(0, 1).AddParagraph.AppendText("Weight: 25")
-	table(0, 1).AddParagraph.AppendText("Price: $2,294.99")
-	'Second row
-	table(1, 0).AddParagraph.AppendText("Mountain-300")
-	paragraph = table(1, 0).AddParagraph
-	paragraph.AppendText("Product No: ")
-	paragraph.AppendField("Product count", FieldType.FieldSequence)
-	table(1, 0).AddParagraph.AppendText("Size: 35")
-	table(1, 0).AddParagraph.AppendText("Weight: 22")
-	table(1, 0).AddParagraph.AppendText("Price: $1,079.99")
-	table(1, 1).AddParagraph.AppendPicture(Image.FromFile("Mountain-300.png"))
-	'Third row
-	table(2, 0).AddParagraph.AppendPicture(Image.FromFile("Road-550.png"))
-	table(2, 1).AddParagraph.AppendText("Road-150")
-	paragraph = table(2, 1).AddParagraph
-	paragraph.AppendText("Product No: ")
-	paragraph.AppendField("Product count", FieldType.FieldSequence)
-	table(2, 1).AddParagraph.AppendText("Size: 44")
-	table(2, 1).AddParagraph.AppendText("Weight: 14")
-	table(2, 1).AddParagraph.AppendText("Price: $3,578.27")
-	Return document
+    'Creates a new word document
+    Dim document As WordDocument = New WordDocument
+    'Adds a new section to the document
+    Dim section As IWSection = document.AddSection
+    'Inserts the default page header
+    Dim paragraph As IWParagraph = section.HeadersFooters.OddHeader.AddParagraph
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
+    paragraph.AppendText("Total No. of Products: ")
+    paragraph.AppendField("Product count", FieldType.FieldSequence)
+    'Adds a paragraph to the section
+    paragraph = section.AddParagraph
+    Dim textRange As IWTextRange = paragraph.AppendText("Adventure Works Cycles")
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+    textRange.CharacterFormat.FontSize = 16
+    textRange.CharacterFormat.Bold = True
+    'Adds a paragraph to the section
+    section.AddParagraph.AppendText("Product Overview")
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1)
+    'Adds a new table into Word document
+    Dim table As IWTable = section.AddTable
+    'Specifies the total number of rows & columns
+    table.ResetCells(3, 2)
+    'Accesses the instance of the cell  and adds the content into cell
+    'First row
+    table(0, 0).AddParagraph.AppendPicture(Image.FromFile("Mountain-200.png"))
+    table(0, 1).AddParagraph.AppendText("Mountain-200")
+    paragraph = table(0, 1).AddParagraph
+    paragraph.AppendText("Product No: ")
+    paragraph.AppendField("Product count", FieldType.FieldSequence)
+    table(0, 1).AddParagraph.AppendText("Size: 38")
+    table(0, 1).AddParagraph.AppendText("Weight: 25")
+    table(0, 1).AddParagraph.AppendText("Price: $2,294.99")
+    'Second row
+    table(1, 0).AddParagraph.AppendText("Mountain-300")
+    paragraph = table(1, 0).AddParagraph
+    paragraph.AppendText("Product No: ")
+    paragraph.AppendField("Product count", FieldType.FieldSequence)
+    table(1, 0).AddParagraph.AppendText("Size: 35")
+    table(1, 0).AddParagraph.AppendText("Weight: 22")
+    table(1, 0).AddParagraph.AppendText("Price: $1,079.99")
+    table(1, 1).AddParagraph.AppendPicture(Image.FromFile("Mountain-300.png"))
+    'Third row
+    table(2, 0).AddParagraph.AppendPicture(Image.FromFile("Road-550.png"))
+    table(2, 1).AddParagraph.AppendText("Road-150")
+    paragraph = table(2, 1).AddParagraph
+    paragraph.AppendText("Product No: ")
+    paragraph.AppendField("Product count", FieldType.FieldSequence)
+    table(2, 1).AddParagraph.AppendText("Size: 44")
+    table(2, 1).AddParagraph.AppendText("Weight: 14")
+    table(2, 1).AddParagraph.AppendText("Price: $3,578.27")
+    Return document
 End Function
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Inserts the default page header
-	IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-	paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-	paragraph.AppendText("Total No. of Products: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	//Adds a paragraph to the section
-	section.AddParagraph().AppendText("Product Overview");
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
-	table[0, 0].AddParagraph().AppendPicture(imageStream);
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-300.png");
-	table[1, 1].AddParagraph().AppendPicture(imageStream);
-	//Third row
-	imageStream = assembly.GetManifestResourceStream("Sample.Assets.Road-550.png");
-	table[2, 0].AddParagraph().AppendPicture(imageStream);
-	table[2, 1].AddParagraph().AppendText("Road-150");
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Inserts the default page header
+    IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+    paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
+    paragraph.AppendText("Total No. of Products: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    //Adds a paragraph to the section
+    section.AddParagraph().AppendText("Product Overview");
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
+    table[0, 0].AddParagraph().AppendPicture(imageStream);
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-300.png");
+    table[1, 1].AddParagraph().AppendPicture(imageStream);
+    //Third row
+    imageStream = assembly.GetManifestResourceStream("Sample.Assets.Road-550.png");
+    table[2, 0].AddParagraph().AppendPicture(imageStream);
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Inserts the default page header
-	IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-	paragraph.AppendText("Total No. of Products: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	//Adds a paragraph to the section
-	section.AddParagraph().AppendText("Product Overview");
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	FileStream imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
-	table[0, 0].AddParagraph().AppendPicture(imageStream);
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
-	table[1, 1].AddParagraph().AppendPicture(imageStream);
-	//Third row
-	imageStream = new FileStream("Road-550.png", FileMode.Open, FileAccess.ReadWrite);
-	table[2, 0].AddParagraph().AppendPicture(imageStream);
-	table[2, 1].AddParagraph().AppendText("Road-150");
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Inserts the default page header
+    IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    paragraph.AppendText("Total No. of Products: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    //Adds a paragraph to the section
+    section.AddParagraph().AppendText("Product Overview");
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    FileStream imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
+    table[0, 0].AddParagraph().AppendPicture(imageStream);
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
+    table[1, 1].AddParagraph().AppendPicture(imageStream);
+    //Third row
+    imageStream = new FileStream("Road-550.png", FileMode.Open, FileAccess.ReadWrite);
+    table[2, 0].AddParagraph().AppendPicture(imageStream);
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Inserts the default page header
-	IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-	paragraph.AppendText("Total No. of Products: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	//Adds a paragraph to the section
-	paragraph = section.AddParagraph();
-	IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-	paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-	textRange.CharacterFormat.FontSize = 16;
-	textRange.CharacterFormat.Bold = true;
-	//Adds a paragraph to the section
-	section.AddParagraph().AppendText("Product Overview");
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell  and adds the content into cell
-	//First row
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
-	table[0, 0].AddParagraph().AppendPicture(imageStream);
-	table[0, 1].AddParagraph().AppendText("Mountain-200");
-	paragraph = table[0, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[0, 1].AddParagraph().AppendText("Size: 38");
-	table[0, 1].AddParagraph().AppendText("Weight: 25");
-	table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-	//Second row
-	table[1, 0].AddParagraph().AppendText("Mountain-300");
-	paragraph = table[1, 0].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[1, 0].AddParagraph().AppendText("Size: 35");
-	table[1, 0].AddParagraph().AppendText("Weight: 22");
-	table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-	imageStream = assembly.GetManifestResourceStream("Samle.Assets.Mountain-300.png");
-	table[1, 1].AddParagraph().AppendPicture(imageStream);
-	//Third row
-	imageStream = assembly.GetManifestResourceStream("Samle.Assets.Road-550.png");
-	table[2, 0].AddParagraph().AppendPicture(imageStream);
-	paragraph = table[2, 1].AddParagraph();
-	paragraph.AppendText("Product No: ");
-	paragraph.AppendField("Product count", FieldType.FieldSequence);
-	table[2, 1].AddParagraph().AppendText("Size: 44");
-	table[2, 1].AddParagraph().AppendText("Weight: 14");
-	table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-	return document;
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Inserts the default page header
+    IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    paragraph.AppendText("Total No. of Products: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    //Adds a paragraph to the section
+    section.AddParagraph().AppendText("Product Overview");
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.png");
+    table[0, 0].AddParagraph().AppendPicture(imageStream);
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = assembly.GetManifestResourceStream("Samle.Assets.Mountain-300.png");
+    table[1, 1].AddParagraph().AppendPicture(imageStream);
+    //Third row
+    imageStream = assembly.GetManifestResourceStream("Samle.Assets.Road-550.png");
+    table[2, 0].AddParagraph().AppendPicture(imageStream);
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
 }
 {% endhighlight %}
 
@@ -2473,7 +2464,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output of repeating Nearest number of SEQ field](WorkingWithFields_images/SEQField_RepeatNearestNumber.png)
 
 ### Hide
-You can hide the field result of the sequence field using `HideResult` property.
+You can hide the field result of the sequence field using [HideResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_HideResult) property.
 
 For example, if you need to consider the sequence numbering for list of products, but not need to print the numbering for retired products, then you can hide those sequence fields alone.
 
@@ -2599,259 +2590,259 @@ document.Close();
 
 The following code example provides supporting methods for the above code.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new Word document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendText("Syncfusion Product Details");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table 
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(6, 4);
-	//Accesses the instance of the cell and add the content into cell
-	//First row
-	table[0, 0].AddParagraph().AppendText("S.No");
-	table[0, 1].AddParagraph().AppendText("Platform Id");
-	table[0, 2].AddParagraph().AppendText("Platform");
-	table[0, 3].AddParagraph().AppendText("Status ");
-	table[1, 0].AddParagraph().AppendText("1.");
-	//Second row
-	table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[1, 2].AddParagraph().AppendText("ASP.NET Core");
-	table[1, 3].AddParagraph().AppendText("Live");
-	//Third row
-	table[2, 0].AddParagraph().AppendText("2.");
-	table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[2, 2].AddParagraph().AppendText("LightSwitch");
-	table[2, 3].AddParagraph().AppendText("Retired");
-	//Fourth row
-	table[3, 0].AddParagraph().AppendText("3.");
-	table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
-	table[3, 3].AddParagraph().AppendText("Live");
-	//Fifth row
-	table[4, 0].AddParagraph().AppendText("4.");
-	table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[4, 2].AddParagraph().AppendText("Silverlight ");
-	table[4, 3].AddParagraph().AppendText("Retired");
-	//Sixth row
-	table[5, 0].AddParagraph().AppendText("5.");
-	table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[5, 2].AddParagraph().AppendText("Blazor");
-	table[5, 3].AddParagraph().AppendText("Live");
-	section.AddParagraph().AppendText("Total No. of Platforms : 5");
-	return document;
+    //Creates a new Word document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("Syncfusion Product Details");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table 
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(6, 4);
+    //Accesses the instance of the cell and add the content into cell
+    //First row
+    table[0, 0].AddParagraph().AppendText("S.No");
+    table[0, 1].AddParagraph().AppendText("Platform Id");
+    table[0, 2].AddParagraph().AppendText("Platform");
+    table[0, 3].AddParagraph().AppendText("Status ");
+    table[1, 0].AddParagraph().AppendText("1.");
+    //Second row
+    table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[1, 2].AddParagraph().AppendText("ASP.NET Core");
+    table[1, 3].AddParagraph().AppendText("Live");
+    //Third row
+    table[2, 0].AddParagraph().AppendText("2.");
+    table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[2, 2].AddParagraph().AppendText("LightSwitch");
+    table[2, 3].AddParagraph().AppendText("Retired");
+    //Fourth row
+    table[3, 0].AddParagraph().AppendText("3.");
+    table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
+    table[3, 3].AddParagraph().AppendText("Live");
+    //Fifth row
+    table[4, 0].AddParagraph().AppendText("4.");
+    table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[4, 2].AddParagraph().AppendText("Silverlight ");
+    table[4, 3].AddParagraph().AppendText("Retired");
+    //Sixth row
+    table[5, 0].AddParagraph().AppendText("5.");
+    table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[5, 2].AddParagraph().AppendText("Blazor");
+    table[5, 3].AddParagraph().AppendText("Live");
+    section.AddParagraph().AppendText("Total No. of Platforms : 5");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Function CreateDocument() As WordDocument
-	'Creates a new Word document
-	Dim document As WordDocument = New WordDocument
-	'Adds a new section to the document
-	Dim section As IWSection = document.AddSection
-	'Adds a paragraph to the section
-	Dim paragraph As IWParagraph = section.AddParagraph
-	paragraph.AppendText("Syncfusion Product Details")
-	paragraph.ApplyStyle(BuiltinStyle.Heading1)
-	'Adds a new table 
-	Dim table As IWTable = section.AddTable
-	'Specifies the total number of rows & columns
-	table.ResetCells(6, 4)
-	'Accesses the instance of the cell and add the content into cell
-	'First row
-	table(0, 0).AddParagraph.AppendText("S.No")
-	table(0, 1).AddParagraph.AppendText("Platform Id")
-	table(0, 2).AddParagraph.AppendText("Platform")
-	table(0, 3).AddParagraph.AppendText("Status ")
-	table(1, 0).AddParagraph.AppendText("1.")
-	'Second row
-	table(1, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
-	table(1, 2).AddParagraph.AppendText("ASP.NET Core")
-	table(1, 3).AddParagraph.AppendText("Live")
-	'Third row
-	table(2, 0).AddParagraph.AppendText("2.")
-	table(2, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
-	table(2, 2).AddParagraph.AppendText("LightSwitch")
-	table(2, 3).AddParagraph.AppendText("Retired")
-	'Fourth row
-	table(3, 0).AddParagraph.AppendText("3.")
-	table(3, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
-	table(3, 2).AddParagraph.AppendText("ASP.NET MVC")
-	table(3, 3).AddParagraph.AppendText("Live")
-	'Fifth row
-	table(4, 0).AddParagraph.AppendText("4.")
-	table(4, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
-	table(4, 2).AddParagraph.AppendText("Silverlight ")
-	table(4, 3).AddParagraph.AppendText("Retired")
-	'Sixth row
-	table(5, 0).AddParagraph.AppendText("5.")
-	table(5, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
-	table(5, 2).AddParagraph.AppendText("Blazor")
-	table(5, 3).AddParagraph.AppendText("Live")
-	section.AddParagraph.AppendText("Total No. of Platforms : 5")
-	Return document
+    'Creates a new Word document
+    Dim document As WordDocument = New WordDocument
+    'Adds a new section to the document
+    Dim section As IWSection = document.AddSection
+    'Adds a paragraph to the section
+    Dim paragraph As IWParagraph = section.AddParagraph
+    paragraph.AppendText("Syncfusion Product Details")
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    'Adds a new table 
+    Dim table As IWTable = section.AddTable
+    'Specifies the total number of rows & columns
+    table.ResetCells(6, 4)
+    'Accesses the instance of the cell and add the content into cell
+    'First row
+    table(0, 0).AddParagraph.AppendText("S.No")
+    table(0, 1).AddParagraph.AppendText("Platform Id")
+    table(0, 2).AddParagraph.AppendText("Platform")
+    table(0, 3).AddParagraph.AppendText("Status ")
+    table(1, 0).AddParagraph.AppendText("1.")
+    'Second row
+    table(1, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
+    table(1, 2).AddParagraph.AppendText("ASP.NET Core")
+    table(1, 3).AddParagraph.AppendText("Live")
+    'Third row
+    table(2, 0).AddParagraph.AppendText("2.")
+    table(2, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
+    table(2, 2).AddParagraph.AppendText("LightSwitch")
+    table(2, 3).AddParagraph.AppendText("Retired")
+    'Fourth row
+    table(3, 0).AddParagraph.AppendText("3.")
+    table(3, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
+    table(3, 2).AddParagraph.AppendText("ASP.NET MVC")
+    table(3, 3).AddParagraph.AppendText("Live")
+    'Fifth row
+    table(4, 0).AddParagraph.AppendText("4.")
+    table(4, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
+    table(4, 2).AddParagraph.AppendText("Silverlight ")
+    table(4, 3).AddParagraph.AppendText("Retired")
+    'Sixth row
+    table(5, 0).AddParagraph.AppendText("5.")
+    table(5, 1).AddParagraph.AppendField("PlatformCount", FieldType.FieldSequence)
+    table(5, 2).AddParagraph.AppendText("Blazor")
+    table(5, 3).AddParagraph.AppendText("Live")
+    section.AddParagraph.AppendText("Total No. of Platforms : 5")
+    Return document
 End Function
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new Word document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendText("Syncfusion Product Details");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table 
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(6, 4);
-	//Accesses the instance of the cell and add the content into cell
-	//First row
-	table[0, 0].AddParagraph().AppendText("S.No");
-	table[0, 1].AddParagraph().AppendText("Platform Id");
-	table[0, 2].AddParagraph().AppendText("Platform");
-	table[0, 3].AddParagraph().AppendText("Status ");
-	table[1, 0].AddParagraph().AppendText("1.");
-	//Second row
-	table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[1, 2].AddParagraph().AppendText("ASP.NET Core");
-	table[1, 3].AddParagraph().AppendText("Live");
-	//Third row
-	table[2, 0].AddParagraph().AppendText("2.");
-	table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[2, 2].AddParagraph().AppendText("LightSwitch");
-	table[2, 3].AddParagraph().AppendText("Retired");
-	//Fourth row
-	table[3, 0].AddParagraph().AppendText("3.");
-	table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
-	table[3, 3].AddParagraph().AppendText("Live");
-	//Fifth row
-	table[4, 0].AddParagraph().AppendText("4.");
-	table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[4, 2].AddParagraph().AppendText("Silverlight ");
-	table[4, 3].AddParagraph().AppendText("Retired");
-	//Sixth row
-	table[5, 0].AddParagraph().AppendText("5.");
-	table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[5, 2].AddParagraph().AppendText("Blazor");
-	table[5, 3].AddParagraph().AppendText("Live");
-	section.AddParagraph().AppendText("Total No. of Platforms : 5");
-	return document;
+    //Creates a new Word document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("Syncfusion Product Details");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table 
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(6, 4);
+    //Accesses the instance of the cell and add the content into cell
+    //First row
+    table[0, 0].AddParagraph().AppendText("S.No");
+    table[0, 1].AddParagraph().AppendText("Platform Id");
+    table[0, 2].AddParagraph().AppendText("Platform");
+    table[0, 3].AddParagraph().AppendText("Status ");
+    table[1, 0].AddParagraph().AppendText("1.");
+    //Second row
+    table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[1, 2].AddParagraph().AppendText("ASP.NET Core");
+    table[1, 3].AddParagraph().AppendText("Live");
+    //Third row
+    table[2, 0].AddParagraph().AppendText("2.");
+    table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[2, 2].AddParagraph().AppendText("LightSwitch");
+    table[2, 3].AddParagraph().AppendText("Retired");
+    //Fourth row
+    table[3, 0].AddParagraph().AppendText("3.");
+    table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
+    table[3, 3].AddParagraph().AppendText("Live");
+    //Fifth row
+    table[4, 0].AddParagraph().AppendText("4.");
+    table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[4, 2].AddParagraph().AppendText("Silverlight ");
+    table[4, 3].AddParagraph().AppendText("Retired");
+    //Sixth row
+    table[5, 0].AddParagraph().AppendText("5.");
+    table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[5, 2].AddParagraph().AppendText("Blazor");
+    table[5, 3].AddParagraph().AppendText("Live");
+    section.AddParagraph().AppendText("Total No. of Platforms : 5");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new Word document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendText("Syncfusion Product Details");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table 
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(6, 4);
-	//Accesses the instance of the cell and add the content into cell
-	//First row
-	table[0, 0].AddParagraph().AppendText("S.No");
-	table[0, 1].AddParagraph().AppendText("Platform Id");
-	table[0, 2].AddParagraph().AppendText("Platform");
-	table[0, 3].AddParagraph().AppendText("Status ");
-	table[1, 0].AddParagraph().AppendText("1.");
-	//Second row
-	table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[1, 2].AddParagraph().AppendText("ASP.NET Core");
-	table[1, 3].AddParagraph().AppendText("Live");
-	//Third row
-	table[2, 0].AddParagraph().AppendText("2.");
-	table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[2, 2].AddParagraph().AppendText("LightSwitch");
-	table[2, 3].AddParagraph().AppendText("Retired");
-	//Fourth row
-	table[3, 0].AddParagraph().AppendText("3.");
-	table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
-	table[3, 3].AddParagraph().AppendText("Live");
-	//Fifth row
-	table[4, 0].AddParagraph().AppendText("4.");
-	table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[4, 2].AddParagraph().AppendText("Silverlight ");
-	table[4, 3].AddParagraph().AppendText("Retired");
-	//Sixth row
-	table[5, 0].AddParagraph().AppendText("5.");
-	table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[5, 2].AddParagraph().AppendText("Blazor");
-	table[5, 3].AddParagraph().AppendText("Live");
-	section.AddParagraph().AppendText("Total No. of Platforms : 5");
-	return document;
+    //Creates a new Word document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("Syncfusion Product Details");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table 
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(6, 4);
+    //Accesses the instance of the cell and add the content into cell
+    //First row
+    table[0, 0].AddParagraph().AppendText("S.No");
+    table[0, 1].AddParagraph().AppendText("Platform Id");
+    table[0, 2].AddParagraph().AppendText("Platform");
+    table[0, 3].AddParagraph().AppendText("Status ");
+    table[1, 0].AddParagraph().AppendText("1.");
+    //Second row
+    table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[1, 2].AddParagraph().AppendText("ASP.NET Core");
+    table[1, 3].AddParagraph().AppendText("Live");
+    //Third row
+    table[2, 0].AddParagraph().AppendText("2.");
+    table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[2, 2].AddParagraph().AppendText("LightSwitch");
+    table[2, 3].AddParagraph().AppendText("Retired");
+    //Fourth row
+    table[3, 0].AddParagraph().AppendText("3.");
+    table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
+    table[3, 3].AddParagraph().AppendText("Live");
+    //Fifth row
+    table[4, 0].AddParagraph().AppendText("4.");
+    table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[4, 2].AddParagraph().AppendText("Silverlight ");
+    table[4, 3].AddParagraph().AppendText("Retired");
+    //Sixth row
+    table[5, 0].AddParagraph().AppendText("5.");
+    table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[5, 2].AddParagraph().AppendText("Blazor");
+    table[5, 3].AddParagraph().AppendText("Live");
+    section.AddParagraph().AppendText("Total No. of Platforms : 5");
+    return document;
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 private WordDocument CreateDocument()
 {
-	//Creates a new Word document
-	WordDocument document = new WordDocument();
-	//Adds a new section to the document
-	IWSection section = document.AddSection();
-	//Adds a paragraph to the section
-	IWParagraph paragraph = section.AddParagraph();
-	paragraph.AppendText("Syncfusion Product Details");
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a new table 
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(6, 4);
-	//Accesses the instance of the cell and add the content into cell
-	//First row
-	table[0, 0].AddParagraph().AppendText("S.No");
-	table[0, 1].AddParagraph().AppendText("Platform Id");
-	table[0, 2].AddParagraph().AppendText("Platform");
-	table[0, 3].AddParagraph().AppendText("Status ");
-	table[1, 0].AddParagraph().AppendText("1.");
-	//Second row
-	table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[1, 2].AddParagraph().AppendText("ASP.NET Core");
-	table[1, 3].AddParagraph().AppendText("Live");
-	//Third row
-	table[2, 0].AddParagraph().AppendText("2.");
-	table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[2, 2].AddParagraph().AppendText("LightSwitch");
-	table[2, 3].AddParagraph().AppendText("Retired");
-	//Fourth row
-	table[3, 0].AddParagraph().AppendText("3.");
-	table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
-	table[3, 3].AddParagraph().AppendText("Live");
-	//Fifth row
-	table[4, 0].AddParagraph().AppendText("4.");
-	table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[4, 2].AddParagraph().AppendText("Silverlight ");
-	table[4, 3].AddParagraph().AppendText("Retired");
-	//Sixth row
-	table[5, 0].AddParagraph().AppendText("5.");
-	table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-	table[5, 2].AddParagraph().AppendText("Blazor");
-	table[5, 3].AddParagraph().AppendText("Live");
-	section.AddParagraph().AppendText("Total No. of Platforms : 5");
-	return document;
+    //Creates a new Word document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("Syncfusion Product Details");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table 
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(6, 4);
+    //Accesses the instance of the cell and add the content into cell
+    //First row
+    table[0, 0].AddParagraph().AppendText("S.No");
+    table[0, 1].AddParagraph().AppendText("Platform Id");
+    table[0, 2].AddParagraph().AppendText("Platform");
+    table[0, 3].AddParagraph().AppendText("Status ");
+    table[1, 0].AddParagraph().AppendText("1.");
+    //Second row
+    table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[1, 2].AddParagraph().AppendText("ASP.NET Core");
+    table[1, 3].AddParagraph().AppendText("Live");
+    //Third row
+    table[2, 0].AddParagraph().AppendText("2.");
+    table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[2, 2].AddParagraph().AppendText("LightSwitch");
+    table[2, 3].AddParagraph().AppendText("Retired");
+    //Fourth row
+    table[3, 0].AddParagraph().AppendText("3.");
+    table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
+    table[3, 3].AddParagraph().AppendText("Live");
+    //Fifth row
+    table[4, 0].AddParagraph().AppendText("4.");
+    table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[4, 2].AddParagraph().AppendText("Silverlight ");
+    table[4, 3].AddParagraph().AppendText("Retired");
+    //Sixth row
+    table[5, 0].AddParagraph().AppendText("5.");
+    table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[5, 2].AddParagraph().AppendText("Blazor");
+    table[5, 3].AddParagraph().AppendText("Live");
+    section.AddParagraph().AppendText("Total No. of Platforms : 5");
+    return document;
 }
 {% endhighlight %}
 
@@ -2864,7 +2855,7 @@ By executing the above code example, it generates output Word document as follow
 ![Output after hiding the sequence field](WorkingWithFields_images/SEQField_Hide.png)
 
 ### Next Sequence number
-You can insert the next sequence number for the specified items using `InsertNextNumber` property. This is the default.
+You can insert the next sequence number for the specified items using [InsertNextNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_InsertNextNumber) property. This is the default.
 
 The following code example shows how to insert the next sequence number for the specified item.
 
@@ -2907,7 +2898,6 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Sample.docx");
 //Closes the document instance
 document.Close();
-
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -2952,7 +2942,6 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
-            
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}

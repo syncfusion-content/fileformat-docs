@@ -11,7 +11,7 @@ You can print a Word document by utilizing DocIO’s capability to convert the d
 
 Initially you have to render the pages as images as shown below
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the Word document
@@ -49,7 +49,7 @@ You can specify the printer settings and page settings through the [PrintDocumen
 
 The following code example demonstrates how to print the Word document pages that have been rendered as an image:
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 int endPageIndex = images.Length;
@@ -67,18 +67,18 @@ printDialog.PrinterSettings.ToPage = images.Length;
 //Opens the print dialog box
 if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 {
-	//Checks whether the selected page range is valid
-	if (printDialog.PrinterSettings.FromPage > 0 && printDialog.PrinterSettings.ToPage <= images.Length)
-	{
-		//Updates the start page of the document to print
-		startPageIndex = printDialog.PrinterSettings.FromPage - 1;
-		//Updates the end page of the document to print
-		endPageIndex = printDialog.PrinterSettings.ToPage;
-		//Hooks the PrintPage event to handle the drawing pages for printing
-		printDialog.Document.PrintPage += new PrintPageEventHandler(PrintPageMethod);
-		//Print the document
-		printDialog.Document.Print();
-	}
+    //Checks whether the selected page range is valid
+    if (printDialog.PrinterSettings.FromPage > 0 && printDialog.PrinterSettings.ToPage <= images.Length)
+    {
+        //Updates the start page of the document to print
+        startPageIndex = printDialog.PrinterSettings.FromPage - 1;
+        //Updates the end page of the document to print
+        endPageIndex = printDialog.PrinterSettings.ToPage;
+        //Hooks the PrintPage event to handle the drawing pages for printing
+        printDialog.Document.PrintPage += new PrintPageEventHandler(PrintPageMethod);
+        //Print the document
+        printDialog.Document.Print();
+    }
 }
 {% endhighlight %}
 
@@ -97,17 +97,17 @@ printDialog.PrinterSettings.FromPage = 1
 printDialog.PrinterSettings.ToPage = images.Length
 'Opens the print dialog box
 If printDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-	'Checks whether the selected page range is valid or not
-	If printDialog.PrinterSettings.FromPage > 0 AndAlso printDialog.PrinterSettings.ToPage <= images.Length Then
-		'Updates the start page of the document to print
-		startPageIndex = printDialog.PrinterSettings.FromPage - 1
-		'Updates the end page of the document to print
-		endPageIndex = printDialog.PrinterSettings.ToPage
-		'Hooks the PrintPage event to handle the drawing pages for printing
-		printDialog.Document.PrintPage += New PrintPageEventHandler(PrintPageMethod)
-		'Prints the document
-		printDialog.Document.Print()
-	End If
+    'Checks whether the selected page range is valid or not
+    If printDialog.PrinterSettings.FromPage > 0 AndAlso printDialog.PrinterSettings.ToPage <= images.Length Then
+        'Updates the start page of the document to print
+        startPageIndex = printDialog.PrinterSettings.FromPage - 1
+        'Updates the end page of the document to print
+        endPageIndex = printDialog.PrinterSettings.ToPage
+        'Hooks the PrintPage event to handle the drawing pages for printing
+        printDialog.Document.PrintPage += New PrintPageEventHandler(PrintPageMethod)
+        'Prints the document
+        printDialog.Document.Print()
+    End If
 End If
 {% endhighlight %}
 
@@ -177,15 +177,15 @@ Dim visibleClipBoundsWidth As Integer = CInt(e.Graphics.VisibleClipBounds.Width)
 Dim visibleClipBoundsHeight As Integer = CInt(e.Graphics.VisibleClipBounds.Height)
 'Checks whether the page layout is landscape or portrait
 If currentPageWidth > currentPageHeight Then
-	'Translates the position
+    'Translates the position
     e.Graphics.TranslateTransform(0, visibleClipBoundsHeight)
-	'Rotates the object at 270 degrees
-	e.Graphics.RotateTransform(270.0F)
-	'Draws the current page image
-	e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight))
+    'Rotates the object at 270 degrees
+    e.Graphics.RotateTransform(270.0F)
+    'Draws the current page image
+    e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight))
 Else
-	'Draws the current page image
-	e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight))
+    'Draws the current page image
+    e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight))
 End If
 'Disposes the current page image after drawing
 images(startPageIndex).Dispose()

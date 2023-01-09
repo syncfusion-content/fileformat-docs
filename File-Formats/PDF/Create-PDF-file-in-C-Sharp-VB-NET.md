@@ -8,7 +8,9 @@ keywords: create pdf, edit pdf, write pdf, merge, pdf form, fill form, digital s
 ---
 # Create or Generate PDF file in C# and VB.NET
 
-To create a [.NET PDF](https://www.syncfusion.com/document-processing/pdf-framework/net) document from scratch and saving it to disk or stream, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+The [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) used to create PDF document from scratch and saving it to disk or stream. 
+
+To include the .NET PDF library into your ASP.NET MVC application, please refer to the [NuGet Package Required](https://help.syncfusion.com/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](https://help.syncfusion.com/File-Formats/PDF/Assemblies-Required) documentation.
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Unlike System.Drawing APIs all the units are measured in point instead of pixel.
@@ -29,7 +31,7 @@ Imports Syncfusion.Pdf.Graphics
 Imports Syncfusion.Pdf.Grid
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Graphics;
@@ -89,7 +91,7 @@ document.Save("Output.pdf")
 document.Close(True)
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
 //Add a page to the document.
@@ -203,7 +205,7 @@ doc.Save("Output.pdf")
 doc.Close(True)
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
 //Add a page to the document.
@@ -348,7 +350,7 @@ doc.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 ///Create a new PDF document
 PdfDocument doc = new PdfDocument();
 //Add a page
@@ -491,7 +493,7 @@ Dim page As PdfPage = document.Pages.Add()
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -551,10 +553,9 @@ Dim image As PdfImage = PdfImage.FromFile("AdventureCycle.jpg")
 'Draws the image to the PDF page
 page.Graphics.DrawImage(image, New RectangleF(176, 0, 390, 130))
 
-
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Loads the image as stream
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.AdventureCycle.jpg");
@@ -645,11 +646,9 @@ result = element.Draw(page, New RectangleF(10, (result.Bounds.Bottom + 3), (g.Cl
 'Draw Bill line
 g.DrawLine(New PdfPen(New PdfColor(126, 151, 173), 0.7!), New PointF(0, (result.Bounds.Bottom + 3)), New PointF(g.ClientSize.Width, (result.Bounds.Bottom + 3)))
 
-
-
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
@@ -672,7 +671,6 @@ element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
 //Draw Bill line
 g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(g.ClientSize.Width, result.Bounds.Bottom + 3));
-
 
 {% endhighlight %}
 
@@ -700,7 +698,6 @@ result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.Clien
 //Draw Bill line
 g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(g.ClientSize.Width, result.Bounds.Bottom + 3));
 
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -727,7 +724,6 @@ result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.Clien
 //Draw Bill line
 g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(g.ClientSize.Width, result.Bounds.Bottom + 3));
 
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -738,7 +734,6 @@ Since the invoice document requires only simple cell customizations, the given c
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 
 //Creates the datasource for the table
 DataTable invoiceDetails = GetProductDetailsAsDataTable();
@@ -820,8 +815,7 @@ Dim gridResult As PdfGridLayoutResult = grid.Draw(page, New RectangleF(New Point
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
-
+{% highlight c# tabtitle="UWP" %}
 
 //Creates the datasource for the table
 DataTable invoiceDetails = GetProductDetailsAsDataTable();
@@ -892,13 +886,11 @@ gridResult.Page.Graphics.DrawString("Total Due", font, new PdfSolidBrush(new Pdf
 gridResult.Page.Graphics.DrawString("Thank you for your business!", new PdfStandardFont(PdfFontFamily.TimesRoman, 12), new PdfSolidBrush(new PdfColor(89, 89, 93)), new PointF(pos - 55, gridResult.Bounds.Bottom + 60));
 pos += grid.Columns[4].Width;
 gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush(new PdfColor(131, 130, 136)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[4].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-
 //Creates the datasource for the table
 DataTable invoiceDetails = GetProductDetailsAsDataTable();
 //Creates a PDF grid
@@ -968,13 +960,11 @@ gridResult.Page.Graphics.DrawString("Total Due", font, new PdfSolidBrush(new Pdf
 gridResult.Page.Graphics.DrawString("Thank you for your business!", new PdfStandardFont(PdfFontFamily.TimesRoman, 12), new PdfSolidBrush(new PdfColor(89, 89, 93)), new PointF(pos - 55, gridResult.Bounds.Bottom + 60));
 pos += grid.Columns[4].Width;
 gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush(new PdfColor(131, 130, 136)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[4].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
-
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-
 //Creates the datasource for the table
 DataTable invoiceDetails = GetProductDetailsAsDataTable();
 //Creates a PDF grid
@@ -1044,7 +1034,6 @@ gridResult.Page.Graphics.DrawString("Total Due", font, new PdfSolidBrush(new Pdf
 gridResult.Page.Graphics.DrawString("Thank you for your business!", new PdfStandardFont(PdfFontFamily.TimesRoman, 12), new PdfSolidBrush(new PdfColor(89, 89, 93)), new PointF(pos - 55, gridResult.Bounds.Bottom + 60));
 pos += grid.Columns[4].Width;
 gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush(new PdfColor(131, 130, 136)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[4].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
-
 
 {% endhighlight %}
 
@@ -1059,7 +1048,6 @@ The following code example shows how to save the invoice document to disk and di
 document.Save("Sample.pdf");
 document.Close(true);
 
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
@@ -1070,7 +1058,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
@@ -1113,9 +1101,7 @@ else
 {% endtabs %}
 
 The following screenshot shows the invoice PDF document created by using .NET PDF library.
-
-![ASP.NET PDF Invoices](GettingStarted_images/pdf-invoice.jpeg)
-
+<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
 
 ## Filling forms
 
@@ -1127,9 +1113,7 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill a sample PDF form programmatically.
-
-![Filling .NET PDF forms](GettingStarted_images/fill-pdf-forms.jpeg)
-
+<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
 
 .NET PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -1184,7 +1168,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the file open picker
 var picker = new FileOpenPicker();
@@ -1296,223 +1280,151 @@ else
 {% endtabs %}
 
 The filled form is shown in adobe reader application as follows.
+<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form output" width="100%" Height="Auto"/>
 
-![Filled .NET PDF Forms](GettingStarted_images/filled-form-in-pdf.jpeg)
+## Converting HTML files to PDF
 
-## Converting HTML contents to PDF
+The [HTML-to-PDF converter](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML files to PDF using C#. It uses the popular rendering engine [Blink](https://en.wikipedia.org/wiki/Blink_(browser_engine)) (Google Chrome) and the result preserves all graphics, images, text, fonts, and the layout of the original HTML document or webpage.  
 
-Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF conversion functionality by using [WebKit rendering engine](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlRenderingEngine.html), the following assemblies need to be added as reference to the project.
+The HTML-to-PDF converter works seamlessly in various platforms: [Azure App Services](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/azure#azure-app-service-linux), [Azure Functions](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/azure#azure-app-function-linux), [AWS Lambda](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/aws#steps-to-convert-html-to-pdf-in-aws-lambda), [Docker](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/docker), [WinForms](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/windows-forms), [WPF](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/wpf), [Blazor](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/blazor), [ASP.NET MVC](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/aspnet-mvc), [ASP.NET Core](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/net-core) with [Windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/windows-forms), [Linux](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/linux), and [MacOS](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/mac).
 
-<table>
-  <tr>
-    <th>Assembly Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Syncfusion.Pdf.Base</td>
-    <td>This assembly contains the core feature for creating, manipulating and saving PDF documents.</td>
-  </tr>
-  <tr>
-    <td>Syncfusion.Compression.Base</td>
-    <td>This assembly is required for compressing the internal contents of a PDF document.</td>
-  </tr>
-  <tr>
-    <td>Syncfusion.HtmlConverter.Base.dll</td>
-    <td>This assembly is required for converting the HTML to PDF</td>
-  </tr>
-</table>
+### Install HTML to PDF .NET library to your project
 
-The QtBinaries available in the WebKitHTMLConverter installed location __**($System drive\Program Files(x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)**__ should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the [WebKitPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.WebKitConverterSettings.html#Syncfusion_HtmlConverter_WebKitConverterSettings_WebKitPath) property of the [WebKitConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.WebKitConverterSettings.html) class, as shown. By default it will search for WebKit assemblies in bin folder.
+To include the HTML to PDF .NET library into your application, please refer to the [NuGet Package Required](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#nuget-packages-required-recommended) or [Assemblies Required](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#assemblies-required) documentation. 
+
+### Convert website URL to PDF  
+
+To convert website URL or local HTML file to PDF document, refer to the following code example.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
-//Create a WebKitConverterSettings instance
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert URL to PDF document. 
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+//Save and close the PDF document.
+document.Save("Output.pdf");
+document.Close(true);
+
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Create a WebKitConverterSettings instance
-Dim webKitSettings As New WebKitConverterSettings()
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'Convert URL to PDF document. 
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+'Save and close the PDF document.
+document.Save("Output.pdf")
+document.Close(True)
+
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+//Syncfusion .NET PDF library supports converting HTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Create a WebKitConverterSettings instance
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save and close the document. 
+document.Save(stream);
+document.Close(); 
+return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "Output.pdf");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+//Syncfusion .NET PDF library supports converting HTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 {% endtabs %}
 
-For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
+### HTML String to PDF 
 
-[OpenSSL](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064 )
+The HTML to PDF converter provides support for converting HTML string to PDF. While converting HTML string to PDF, converter provides option to specify the base URL.
 
-WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
+<b>baseURL:</b> Path of the resources (images, style sheets, scripts.,) used in the input HTML string.
 
-[https://www.microsoft.com/en-in/download/details.aspx?id=26999](https://www.microsoft.com/en-in/download/details.aspx?id=26999)
+For the following HTML string, the baseURL will be the path of the syncfusion_logo.gif image. For example, if the above image is in "C:/Temp/ HTMLFiles/syncfusion_logo.gif" location, then the baseURL will be as follows.
+*baseURL: C:/Temp/HTMLFiles/*
 
-To convert website URL or local HTML file to PDF by using WebKit rendering engine, refer to the following code example.
+To convert the HTML string to PDF, refer to the following code example.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
-//Create an instance of HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-//Create a WebKitConverterSettings instance
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign the WebKit settings to converter
-htmlConverter.ConverterSettings = webKitSettings;
-//Convert the URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.google.com");
-//Save and close the document.
-document.Save("Sample.pdf");
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//HTML string and Base URL.
+string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+string baseUrl = @"C:/Temp/HTMLFiles/";
+//Convert URL to PDF.
+PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
 document.Close(true);
+
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Create an instance of HTML to PDF converter
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-'Create a WebKitConverterSettings instance
-Dim webKitSettings As New WebKitConverterSettings()
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign the WebKit settings to converter
-htmlConverter.ConverterSettings = webKitSettings
-'Convert the URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.google.com")
-'Save and close the document.
-document.Save("Sample.pdf")
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'HTML string and Base URL.
+Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
+Dim baseUrl As String = "C:/Temp/HTMLFiles/"
+'Convert URL to PDF document. 
+Dim document As PdfDocument = htmlConverter.Convert(htmlText, baseUrl)
+'Save and close the PDF document.
+document.Save("Output.pdf")
 document.Close(True)
+
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
-//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+//Syncfusion .NET PDF library supports converting HTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Create an instance of HTML to PDF converter
+//Initialize HTML to PDF converter with Blink rendering engine.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Create a WebKitConverterSettings instance
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign the WebKit settings to converter
-htmlConverter.ConverterSettings = webKitSettings;
-//Convert the URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.google.com");
-//Save the document into stream
+//HTML string and Base URL.
+string htmlText = "<html><body><img src=\"syncfusion_logo.png\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+string baseUrl = Path.GetFullPath("C:/Temp/HTMLFiles/");
+//Convert HTML string to PDF document. 
+PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
+//Create memory stream.
 MemoryStream stream = new MemoryStream();
+//Save and close the document. 
 document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
-
-{% endhighlight %}
-{% endtabs %}
-
-To convert the HTML string to PDF, use the following code example.
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-//Create an instance of HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-//Create a WebKitConverterSettings instance
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign the WebKit settings to converter
-htmlConverter.ConverterSettings = webKitSettings;
-//Convert the HTML string to PDF
-PdfDocument document = htmlConverter.Convert("<html><head><title></title></head><body><div>Hello World!!!</div></body></html>","");
-//Save and close the document.
-document.Save("Sample.pdf");
-document.Close(true);
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Create an instance of HTML to PDF converter
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-'Create a WebKitConverterSettings instance
-Dim webKitSettings As New WebKitConverterSettings() 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign the WebKit settings to converter
-htmlConverter.ConverterSettings = webKitSettings
-'Convert the HTML string to PDF
-Dim document As PdfDocument = htmlConverter.Convert("<html><head><title></title></head><body><div>Hello World!!!</div></body></html>", "")
-'Save and close the document.
-document.Save("Sample.pdf")
-document.Close(True)
-{% endhighlight %}
-
-  {% highlight c# tabtitle="UWP" %}
-//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create an instance of HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Create a WebKitConverterSettings instance
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign the WebKit settings to converter
-htmlConverter.ConverterSettings = webKitSettings;
-//Convert the HTML string to PDF
-PdfDocument document = htmlConverter.Convert("<html><head><title></title></head><body><div>Hello World!!!</div></body></html>", "");
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
+document.Close(); 
+return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "Output.pdf");
 
 {% endhighlight %}
 
 {% highlight  Xamarin%}
-//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+//Syncfusion .NET PDF library supports converting HTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
 {% endhighlight %}
 {% endtabs %}
+
 ## Merge PDF Documents
 
 Essential PDF supports merging multiple PDF documents from disk and stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method. You can merge the multiple PDF documents from disk by specifying the path of the documents in a string array.
@@ -1529,29 +1441,27 @@ string[] source = { "file1.pdf, file2.pdf" };
 PdfDocument.Merge(finalDoc, source);
 //Saves the final document
 finalDoc.Save("Sample.pdf");
-//closes the document
+//Closes the document
 finalDoc.Close(true);
 
 {% endhighlight %}
-
-
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Generate the new PDF document
 Dim finalDoc As New PdfDocument()
-' Creates a string array of source files to be merged.
+'Creates a string array of source files to be merged.
 Dim source As String() = {"file1.pdf, file2.pdf"}
-' Merges PDFDocument.
+'Merges PDFDocument.
 PdfDocument.Merge(finalDoc, source)
 'Saves the final document
 finalDoc.Save("Sample.pdf")
-'closes the document
+'Closes the document
 finalDoc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //PDF supports merging multiple PDF documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -1578,37 +1488,35 @@ You can merge the [PDF document](https://help.syncfusion.com/cr/file-formats/Syn
 PdfDocument finalDoc = new PdfDocument();
 Stream stream1 = File.OpenRead("file1.pdf");
 Stream stream2 = File.OpenRead("file2.pdf");
-// Creates a PDF stream for merging.
+//Creates a PDF stream for merging.
 Stream[] streams = { stream1, stream2 };
-// Merges PDFDocument.
+//Merges PDFDocument.
 PdfDocumentBase.Merge(finalDoc, streams);
 //Saves the document
 finalDoc.Save("sample.pdf");
-//closes the document
+//Closes the document
 finalDoc.Close(true);
 
 {% endhighlight %}
 
-
-
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'creates the destination document
+'Creates the destination document
 Dim finalDoc As New PdfDocument()
 Dim stream1 As Stream = File.OpenRead("file1.pdf")
 Dim stream2 As Stream = File.OpenRead("file2.pdf")
-' Creates a PDF stream for merging.
+'Creates a PDF stream for merging.
 Dim streams As Stream() = {stream1, stream2}
-' Merges PDFDocument.
+'Merges PDFDocument.
 PdfDocumentBase.Merge(finalDoc, streams)
 'Saves the document
 finalDoc.Save("sample.pdf")
-'closes the document
+'Closes the document
 finalDoc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //PDF supports merging multiple PDF documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
@@ -1616,13 +1524,13 @@ finalDoc.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Generate the PDF document
+//Generate the PDF document.
 PdfDocument finalDoc = new PdfDocument();
 FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
 FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
-// Creates a PDF stream for merging
+//Creates a PDF stream for merging.
 Stream[] streams = { stream1, stream2 };
-// Merges PDFDocument.
+//Merges PDFDocument.
 PdfDocumentBase.Merge(finalDoc, streams);
 //Save the PDF document to stream
 MemoryStream stream = new MemoryStream();

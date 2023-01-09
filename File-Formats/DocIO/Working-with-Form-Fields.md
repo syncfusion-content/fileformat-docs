@@ -11,18 +11,18 @@ You can create template document with form fields such as Text, Checkbox and Dro
 
 The following are the types of form field in the Word document
 
-* Checkbox – represented by an instance of WCheckBox
-* Drop-down – represented by an instance of WDropDownFormField
-* Text input – represented by an instance of WTextFormField
+* Checkbox – represented by an instance of [WCheckBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WCheckBox.html)
+* Drop-down – represented by an instance of [WDropDownFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WDropDownFormField.html)
+* Text input – represented by an instance of [WTextFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextFormField.html)
 
 
 ## Check Box
 
-You can add new Checkbox form field to a Word document by using `AppendCheckBox` method of `WParagraph` class.
+You can add new Checkbox form field to a Word document by using [AppendCheckBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendCheckBox) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code illustrates how to add new checkbox form field.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -78,7 +78,7 @@ paragraph.AppendText("Female")
 document.Save("Checkbox.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
@@ -178,13 +178,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Checkbox.docx", "appli
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Add-checkbox-form-field).
 
 You can modify the checkbox properties such as checked state, size, help text in a Word document. The following code illustrates how to modify the checkbox form field properties.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document 
@@ -212,20 +212,20 @@ document.Close();
 Dim document As New WordDocument("Checkbox.docx")
 'Iterates through paragraph items
 For Each item As ParagraphItem In document.LastParagraph.ChildEntities
-	If TypeOf item Is WCheckBox Then
-		Dim checkbox As WCheckBox = TryCast(item, WCheckBox)
-		'Modifies check box properties
-		If checkbox.Checked Then
-			checkbox.Checked = False
-		End If
-		checkbox.SizeType = CheckBoxSizeType.Exactly
-	End If
+    If TypeOf item Is WCheckBox Then
+        Dim checkbox As WCheckBox = TryCast(item, WCheckBox)
+        'Modifies check box properties
+        If checkbox.Checked Then
+            checkbox.Checked = False
+        End If
+        checkbox.SizeType = CheckBoxSizeType.Exactly
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}  
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Loads the template document 
@@ -307,17 +307,17 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Modify-checkbox-form-field).
 
 ## Drop-Down
 
-You can add new Dropdown form field to a Word document by using `AppendDropDownFormField` method of `WParagraph` class.
+You can add new Dropdown form field to a Word document by using [AppendDropDownFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendDropDownFormField) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code illustrates how to add a new dropdown field.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -451,15 +451,15 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Dropdown.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}  
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Add-dropdown-form-field).
 
 You can add or modify list of items of a Dropdown form field in a Word document. The following code illustrates how to modify the dropdown list of a Dropdown form field.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document 
@@ -487,13 +487,13 @@ document.Close();
 Dim document As New WordDocument("Dropdown.docx")
 'Iterates through paragraph items
 For Each item As ParagraphItem In document.LastParagraph.ChildEntities
-	If TypeOf item Is WDropDownFormField Then
-		Dim dropdown As WDropDownFormField = TryCast(item, WDropDownFormField)
-		'Modifies the dropdown items
-		dropdown.DropDownItems.Remove(1)
-		dropdown.DropDownSelectedIndex = 0
-		dropdown.CharacterFormat.FontName = "Arial"
-	End If
+    If TypeOf item Is WDropDownFormField Then
+        Dim dropdown As WDropDownFormField = TryCast(item, WDropDownFormField)
+        'Modifies the dropdown items
+        dropdown.DropDownItems.Remove(1)
+        dropdown.DropDownSelectedIndex = 0
+        dropdown.CharacterFormat.FontName = "Arial"
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -581,17 +581,17 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Modify-dropdown-form-field).
 
 ## Text Form field
 
-You can add new text form field to a Word document by using `AppendTextFormField` method of `WParagraph` class.
+You can add new text form field to a Word document by using [AppendTextFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendTextFormField_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code illustrates how to add new text form field.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -659,7 +659,7 @@ textField.CalculateOnExit = True
 document.Save("textField.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}  
+{% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 //Creates a new Word document 
@@ -777,13 +777,13 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Form-Fields/Add-text-form-field).
 
 You can add or modify text form field properties such as default text, type in a Word document. The following code illustrates how to modify the text form field
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document 
@@ -824,25 +824,25 @@ document.Close();
 Dim document As New WordDocument("Template.docx")
 'Iterates through section
 For Each section As WSection In document.Sections
-	'Iterates through section child elements
-	For Each textBody As WTextBody In section.ChildEntities
-		'Iterates through form fields
-		For Each formField As WFormField In textBody.FormFields
-			Select Case formField.FormFieldType
-				Case FormFieldType.TextInput
-					Dim textField As WTextFormField = TryCast(formField, WTextFormField)
-					If textField.Type = TextFormFieldType.DateText Then
-						'Modifies the text form field
-						textField.Type = TextFormFieldType.RegularText
-						textField.StringFormat = ""
-						textField.DefaultText = "Default text"
-						textField.Text = "Default text"
-						textField.CalculateOnExit = False
-					End If
-					Exit Select
-			End Select
-		Next
-	Next
+    'Iterates through section child elements
+    For Each textBody As WTextBody In section.ChildEntities
+        'Iterates through form fields
+        For Each formField As WFormField In textBody.FormFields
+            Select Case formField.FormFieldType
+                Case FormFieldType.TextInput
+                    Dim textField As WTextFormField = TryCast(formField, WTextFormField)
+                    If textField.Type = TextFormFieldType.DateText Then
+                        'Modifies the text form field
+                        textField.Type = TextFormFieldType.RegularText
+                        textField.StringFormat = ""
+                        textField.DefaultText = "Default text"
+                        textField.Text = "Default text"
+                        textField.CalculateOnExit = False
+                    End If
+                    Exit Select
+            End Select
+        Next
+    Next
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)

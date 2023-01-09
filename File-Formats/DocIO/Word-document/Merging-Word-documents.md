@@ -13,7 +13,7 @@ You can merge multiple Word documents into single Word document by using DocIOâ€
 
 The following code example illustrates how to import the contents from source document into destination document where the contents are appended. 
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the source document 
@@ -48,19 +48,19 @@ destinationDocument.Close()
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
 {
-	//Opens the destination document 
-	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Letter Formatting.docx"), FormatType.Docx);
-	//Imports the contents of source document at the end of destination document
-	destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await destinationDocument.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine.Please find Save method in [link](https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp)
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
-	destinationDocument.Close();
+    //Opens the destination document 
+    WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Letter Formatting.docx"), FormatType.Docx);
+    //Imports the contents of source document at the end of destination document
+    destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await destinationDocument.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine.Please find Save method in [link](https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp)
+    Save(stream, "Result.docx");
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    document.Close();
+    destinationDocument.Close();
 }
 {% endhighlight %}
 
@@ -70,18 +70,18 @@ FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
 {
-	//Opens the destination document 
-	WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
-	//Imports the contents of source document at the end of destination document
-	destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	destinationDocument.Save(stream, FormatType.Docx);
-	destinationDocument.Close();
-	document.Close(); 
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+    //Opens the destination document 
+    WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
+    //Imports the contents of source document at the end of destination document
+    destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+    MemoryStream stream = new MemoryStream();
+    //Saves and closes the destination document to  MemoryStream
+    destinationDocument.Save(stream, FormatType.Docx);
+    destinationDocument.Close();
+    document.Close(); 
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -90,23 +90,23 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
 {
-	//Opens the destination document 
-	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Letter Formatting.docx"), FormatType.Docx);
-	//Imports the contents of source document at the end of destination document
-	destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
-	MemoryStream stream = new MemoryStream();
-	destinationDocument.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the documents               
-	document.Close();
-	destinationDocument.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Opens the destination document 
+    WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Letter Formatting.docx"), FormatType.Docx);
+    //Imports the contents of source document at the end of destination document
+    destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+    MemoryStream stream = new MemoryStream();
+    destinationDocument.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+    //Closes the documents               
+    document.Close();
+    destinationDocument.Close();
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Merge-documents-in-new-page).
 
@@ -114,9 +114,9 @@ In the resultant document, the imported contents start from a new page followed 
 
 ## Merge document in same page
 
-When your requirement is to append the contents from the same page instead of starting from a new page, you need to set the break code of first section of Source document as NoBreak. The following code example illustrates the importing contents from the same page.
+When your requirement is to append the contents from the same page instead of starting from a new page, you need to set the break code of first section of Source document as [NoBreak](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SectionBreakCode.html). The following code example illustrates the importing contents from the same page.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the source document 
@@ -155,21 +155,21 @@ destinationDocument.Close()
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
 {
-	//Opens the destination document 
-	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Letter Formatting.docx"), FormatType.Docx);
-	//Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
-	document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
-	//Imports the contents of source document at the end of destination document
-	destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await destinationDocument.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
-	destinationDocument.Close();
+    //Opens the destination document 
+    WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Letter Formatting.docx"), FormatType.Docx);
+    //Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
+    document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
+    //Imports the contents of source document at the end of destination document
+    destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+    MemoryStream stream = new MemoryStream();
+    //Saves the Word file to MemoryStream
+    await destinationDocument.SaveAsync(stream, FormatType.Docx);
+    //Saves the stream as Word file in local machine
+    Save(stream, "Result.docx");
+    //Please refer the below link to save Word document in UWP platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+    document.Close();
+    destinationDocument.Close();
 }
 {% endhighlight %}
 
@@ -179,20 +179,20 @@ FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
 {
-	//Opens the destination document 
-	WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
-	//Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
-	document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
-	//Imports the contents of source document at the end of destination document
-	destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	destinationDocument.Save(stream, FormatType.Docx);
-	destinationDocument.Close();
-	document.Close(); 
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+    //Opens the destination document 
+    WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
+    //Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
+    document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
+    //Imports the contents of source document at the end of destination document
+    destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+    MemoryStream stream = new MemoryStream();
+    //Saves and closes the destination document to  MemoryStream
+    destinationDocument.Save(stream, FormatType.Docx);
+    destinationDocument.Close();
+    document.Close(); 
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -201,25 +201,25 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
 {
-	//Opens the destination document 
-	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Letter Formatting.docx"), FormatType.Docx);
-	//Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
-	document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
-	//Imports the contents of source document at the end of destination document
-	destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
-	MemoryStream stream = new MemoryStream();
-	destinationDocument.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the documents               
-	document.Close();
-	destinationDocument.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Opens the destination document 
+    WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Letter Formatting.docx"), FormatType.Docx);
+    //Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
+    document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
+    //Imports the contents of source document at the end of destination document
+    destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+    MemoryStream stream = new MemoryStream();
+    destinationDocument.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+    //Closes the documents
+    document.Close();
+    destinationDocument.Close();
+    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Merge-documents-in-same-page).
 
@@ -227,7 +227,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example shows how to maintain information about imported list styles in a Word document while cloning and merging multiple Word documents.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens the source document
@@ -238,13 +238,13 @@ WordDocument destinationDocument = new WordDocument(targetFileName);
 destinationDocument.Settings.MaintainImportedListCache = true;
 //Processes the body contents for each section in the Word document
 foreach (WSection section in sourceDocument.Sections)
-{   
-	//Accesses the body of section where all the contents in document are apart
-	foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
-	{
-		destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
-	}
-}   
+{
+    //Accesses the body of section where all the contents in document are apart
+    foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+    {
+        destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+    }
+}
 //Closes the source document
 sourceDocument.Close();
 //Sets false value to exclude imported list style cache to destination document
@@ -264,11 +264,11 @@ Dim destinationDocument As New WordDocument(targetFileName)
 destinationDocument.Settings.MaintainImportedListCache = True
 'Processes the body contents for each section in the Word document
 For Each section As WSection In sourceDocument.Sections
-	'Accesses the body of section where all the contents in document are apart     
-	For Each bodyItem As TextBodyItem In section.Body.ChildEntities
-		destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone())
-	Next
-Next   
+    'Accesses the body of section where all the contents in document are apart     
+    For Each bodyItem As TextBodyItem In section.Body.ChildEntities
+        destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone())
+    Next
+Next
 'Closes the source document
 sourceDocument.Close()
 'Sets false value to exclude imported list style cache to destination document
@@ -288,13 +288,13 @@ WordDocument destinationDocument = new WordDocument(assembly.GetManifestResource
 destinationDocument.Settings.MaintainImportedListCache = true;
 //Processes the body contents for each section in the Word document
 foreach (WSection section in sourceDocument.Sections)
-{   
-	//Accesses the body of section where all the contents in document are apart
-	foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
-	{
-		destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
-	}
-}   
+{
+    //Accesses the body of section where all the contents in document are apart
+    foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+    {
+        destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+    }
+}
 //Closes the source document
 sourceDocument.Close();
 //Sets false value to exclude imported list style cache to destination document
@@ -320,13 +320,13 @@ WordDocument destinationDocument = new WordDocument(DestinationFileStream, Forma
 destinationDocument.Settings.MaintainImportedListCache = true;
 //Processes the body contents for each section in the Word document
 foreach (WSection section in sourceDocument.Sections)
-{   
-	//Accesses the body of section where all the contents in document are apart
-	foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
-	{
-		destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
-	}
-}   
+{
+    //Accesses the body of section where all the contents in document are apart
+    foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+    {
+        destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+    }
+}
 //Closes the source document
 sourceDocument.Close();
 //Sets false value to exclude imported list style cache to destination document
@@ -352,13 +352,13 @@ WordDocument destinationDocument = new WordDocument(destinationStream, FormatTyp
 destinationDocument.Settings.MaintainImportedListCache = true;
 //Processes the body contents for each section in the Word document
 foreach (WSection section in sourceDocument.Sections)
-{   
-	//Accesses the body of section where all the contents in document are apart
-	foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
-	{
-		destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
-	}
-}   
+{
+    //Accesses the body of section where all the contents in document are apart
+    foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+    {
+        destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+    }
+}
 //Closes the source document
 sourceDocument.Close();
 //Sets false value to exclude imported list style cache to destination document

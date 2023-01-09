@@ -10,49 +10,42 @@ documentation: UG
 
 The Syncfusion [Blazor PDF library](https://www.syncfusion.com/document-processing/pdf-framework/blazor/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
-In your Blazor application, add the following assemblies to use Essential PDF:
-
-* Syncfusion.Compression.Portable.dll
-* Syncfusion.Pdf.Portable.dll 
-
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
-
+To include the Syncfusion Blazor PDF library into your Blazor application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## Steps to create PDF document in Blazor Server-Side application
 
 Step 1: Create a new C# Blazor server-side application project. Select Blazor App from the template and click the Next button.
-
-![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_create_project.png)
+<img src="Create-PDF-Blazor/Blazor_project_step1.png" alt="Blazor sample creation step1" width="100%" Height="Auto"/>
 
 Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
-
-
-![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_images_Server_Creation.png)
+<img src="Create-PDF-Blazor/Blazor_project_step2.png" alt="Blazor sample creation step2" width="100%" Height="Auto"/>
 
 Step 3: Choose Blazor Server App from the dashboard and click Create button to create a new Blazor server-side application.
-
-![Create Blazor Server Side application in Visual Studio](Create-PDF-Blazor/Blazor_images_Server.png)
+<img src="Create-PDF-Blazor/Blazor_project_step3.png" alt="Blazor sample creation step3" width="100%" Height="Auto"/>
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
-
-![Add PDF reference to the project](Create-PDF-Blazor/Blazor_reference.png)
+<img src="Create-PDF-Blazor/Blazor_server_NuGet.png" alt="Blazor NuGet installation" width="100%" Height="Auto"/>
 
 Step 5: Create a new cs file named  ``ExportService`` under ``Data`` folder and include the following namespaces in the file.
 
-
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
+
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
 using Syncfusion.Drawing;
+
 {% endhighlight %}
 {% endtabs %}
 
-Add the following method in the ``ExportService`` class
+Step 6: The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) is used to add text in a PDF document and which provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. The [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create table by entering data manually or from an external data sources. 
+
+Add the following code sample in ``ExportService`` class which illustrates how to create a simple PDF document using ``PdfTextElement`` and ``PdfGrid``. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
+
 //Export weather data to PDF document.
 public static MemoryStream CreatePdf(WeatherForecast[] forecasts)
 {
@@ -60,59 +53,50 @@ public static MemoryStream CreatePdf(WeatherForecast[] forecasts)
     {
         throw new ArgumentNullException("Forecast cannot be null");
     }
-   //Create a new PDF document
+    //Create a new PDF document.
     using (PdfDocument pdfDocument = new PdfDocument())
     {
-
         int paragraphAfterSpacing = 8;
         int cellMargin = 8;
-
-        //Add page to the PDF document
+        //Add page to the PDF document.
         PdfPage page = pdfDocument.Pages.Add();
-
-        //Create a new font
+        //Create a new font.
         PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 16);
 
-        //Create a text element to draw a text in PDF page
+        //Create a text element to draw a text in PDF page.
         PdfTextElement title = new PdfTextElement("Weather Forecast", font, PdfBrushes.Black);
         PdfLayoutResult result = title.Draw(page, new PointF(0, 0));
-
-
         PdfStandardFont contentFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
         PdfTextElement content = new PdfTextElement("This component demonstrates fetching data from a service and Exporting the data to PDF document using Syncfusion .NET PDF library.", contentFont, PdfBrushes.Black);
         PdfLayoutFormat format = new PdfLayoutFormat();
         format.Layout = PdfLayoutType.Paginate;
-
-        //Draw a text to the PDF document
+        //Draw a text to the PDF document.
         result = content.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphAfterSpacing, page.GetClientSize().Width, page.GetClientSize().Height), format);
 
-        //Create a PdfGrid
+        //Create a PdfGrid.
         PdfGrid pdfGrid = new PdfGrid();
         pdfGrid.Style.CellPadding.Left = cellMargin;
         pdfGrid.Style.CellPadding.Right = cellMargin;
-
-        //Applying built-in style to the PDF grid
+        //Applying built-in style to the PDF grid.
         pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
 
-        //Assign data source
-        pdfGrid.DataSource = forecasts;
-
+        //Assign data source.
+        pdfGrid.DataSource = forecasts
         pdfGrid.Style.Font = contentFont;
-
-        //Draw PDF grid into the PDF page
+        //Draw PDF grid into the PDF page.
         pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(0, result.Bounds.Bottom + paragraphAfterSpacing));
 
         using (MemoryStream stream = new MemoryStream())
         {
-            //Saving the PDF document into the stream
+            //Saving the PDF document into the stream.
             pdfDocument.Save(stream);
-            //Closing the PDF document
+            //Closing the PDF document.
             pdfDocument.Close(true);
-            return stream;
-                
+            return stream;                
         }
     }
 }
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -129,14 +113,15 @@ public void ConfigureServices(IServiceCollection services)
 {% endhighlight %}
 {% endtabs %}
 
-
 Step 6: Inject ``ExportService`` in-to ``FetchData.razor`` using the following code.
 
 {% tabs %}
 {% highlight CSHTML %}
+
 @inject ExportToFileService exportService
 @inject Microsoft.JSInterop.IJSRuntime JS
 @using  System.IO;
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -154,7 +139,6 @@ Add the ``ExportToPdf`` method in ``FetchData.razor`` page to call the export se
 {% highlight c# tabtitle="C#" %}
 @functions
 {
-
     protected async Task ExportToPdf()
     {
         using (MemoryStream excelStream = ExportService.CreatePdf(forecasts))
@@ -218,40 +202,36 @@ Step 8: Add the following JavaScript function in the  ``_Host.cshtml`` available
 
 {% endtabs %}
 
-By executing the program, you will get the following output in the browser.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ServerSideApplication).
 
-![Blazor Server-side browser output](Create-PDF-Blazor/Blazor_browser_output.png)
+By executing the program, you will get the following output in the browser.
+<img src="Create-PDF-Blazor/Blazor_browser_output.png" alt="Blazor browser output" width="100%" Height="Auto"/>
 
 Click the Export to PDF button, and you will get the PDF document with the following output.
-
-![Blazor Server-side PDF output](Create-PDF-Blazor/Blazor_PDF_output.png)
+<img src="Create-PDF-Blazor/Blazor_PDF_output.png" alt="Blazor browser output" width="100%" Height="Auto"/>
 
 N> It is recommended to use Blazor Server-Side application to reduce the pay back load which is high in Blazor Client-Side.
-
 
 
 ## Steps to create PDF document in Blazor client-side application:
 
 Step 1: Create a new C# Blazor client-side application project. Select Blazor App from the template and click the Next button.
-
-![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_create_project.png)
+<img src="Create-PDF-Blazor/Blazor_project_step1.png" alt="Blazor client project creation step1" width="100%" Height="Auto"/>
 
 Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
-
-![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_Client_NewProject.png)
+<img src="Create-PDF-Blazor/Blazor_Client_NewProject.png" alt="Blazor client project creation step2" width="100%" Height="Auto"/>
 
 Step 3: Blazor WebAssembly App from the dashboard and click Create button to create a new Blazor client-side application. 
-
-![Create Blazor Client Side application in Visual Studio](Create-PDF-Blazor/Blazor_Client_Template.png)
+<img src="Create-PDF-Blazor/Blazor_Client_Template.png" alt="Blazor client project creation step3" width="100%" Height="Auto"/>
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
-
-![Add PDF reference to the project](Create-PDF-Blazor/Blazor_Client_NuGet.png)
+<img src="Create-PDF-Blazor/Blazor_server_NuGet.png" alt="Blazor NuGet installation" width="100%" Height="Auto"/>
 
 Step 5: Next, include the following namespaces in that  ``FetchData.razor`` file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
+
 @using Syncfusion.Pdf
 @using Syncfusion.Pdf.Grid;
 @using Syncfusion.Drawing;
@@ -270,9 +250,11 @@ Step 6: Create a button in the ``FetchData.razor`` using the following code.
 {% endhighlight %}
 {% endtabs %}
 
- Next, define ``@ExportToPdf`` click function on ``FetchData.razor``  file.
+Step 7: Define the ``@ExportToPdf`` click function on ``FetchData.razor`` file.
+
+The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it. The [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) is used to add text in a PDF document and which provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. The [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create table by entering data manually or from an external data sources. 
  
- {% tabs %}
+{% tabs %}
 {% highlight c# tabtitle="C#" %}
 
 @functions {
@@ -280,23 +262,21 @@ void ExportToPdf()
 {
 int paragraphAfterSpacing = 8;
 int cellMargin = 8;
+//Create a new PDF document.
 PdfDocument pdfDocument = new PdfDocument();
 //Add Page to the PDF document.
 PdfPage page = pdfDocument.Pages.Add();
 
 //Create a new font.
 PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 16);
-
 //Create a text element to draw a text in PDF page.
 PdfTextElement title = new PdfTextElement("Weather Forecast", font, PdfBrushes.Black);
 PdfLayoutResult result = title.Draw(page, new PointF(0, 0));
-
-
 PdfStandardFont contentFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
+//Create text element. 
 PdfTextElement content = new PdfTextElement("This component demonstrates fetching data from a client side and Exporting the data to PDF document using Syncfusion .NET PDF library.", contentFont, PdfBrushes.Black);
 PdfLayoutFormat format = new PdfLayoutFormat();
 format.Layout = PdfLayoutType.Paginate;
-
 //Draw a text to the PDF document.
 result = content.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphAfterSpacing, page.GetClientSize().Width, page.GetClientSize().Height), format);
 
@@ -304,26 +284,20 @@ result = content.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphAf
 PdfGrid pdfGrid = new PdfGrid();
 pdfGrid.Style.CellPadding.Left = cellMargin;
 pdfGrid.Style.CellPadding.Right = cellMargin;
-
 //Applying built-in style to the PDF grid
 pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
-
 //Assign data source.
 pdfGrid.DataSource = forecasts;
-
 pdfGrid.Style.Font = contentFont;
-
 //Draw PDF grid into the PDF page.
 pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(0, result.Bounds.Bottom + paragraphAfterSpacing));
 
+//Create memory stream. 
 MemoryStream memoryStream = new MemoryStream();
-
-// Save the PDF document.
+//Save the PDF document.
 pdfDocument.Save(memoryStream);
-
-// Download the PDF document
+//Download the PDF document
 JS.SaveAs("Sample.pdf", memoryStream.ToArray());
-
 }
 }
 
@@ -381,12 +355,13 @@ Step 8: Add the following JavaScript function in the ``index.html`` available un
 {% endhighlight %}
 
 {% endtabs %}
-By executing the program, you will get the following output in the browser.
 
-![Blazor Client-side browser output](Create-PDF-Blazor/Blazor_Client_WebResult.png)
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ClientSideApplication).
+
+By executing the program, you will get the following output in the browser.
+<img src="Create-PDF-Blazor/Blazor_Client_WebResult.png" alt="Blazor client browser result" width="100%" Height="Auto"/>
 
 Click the Export to PDF button and you will get the PDF document with the following output.
-
-![Blazor Client-side PDF output](Create-PDF-Blazor/Blazor_PDF_output.png)
+<img src="Create-PDF-Blazor/Blazor_PDF_output.png" alt="Blazor client PDF output" width="100%" Height="Auto"/>
 
 N> You can also explore our [Blazor PDF library demo](https://blazor.syncfusion.com/demos/pdf/hello-world) that shows how to create and modify PDF files from C# with just five lines of code.

@@ -15,10 +15,9 @@ The following link shows how to create a macro in the Word document.
 
 The following code illustrates how to load and save a macro enabled document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Loads the macro-enabled template
 WordDocument document = new WordDocument("Template.dotm");
 //Gets the table
@@ -28,11 +27,9 @@ document.MailMerge.ExecuteGroup(table);
 //Saves and closes the document
 document.Save("Sample.docm", FormatType.Word2013Docm);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Loads the macro-enabled template
 Dim document As New WordDocument("Template.dotm")
 'Gets the table
@@ -42,7 +39,6 @@ document.MailMerge.ExecuteGroup(table)
 'Saves and closes the document
 document.Save("Sample.docm", FormatType.Word2013Docm)
 document.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -57,36 +53,36 @@ document.Close()
 //DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code example illustrates the method used to get the tables from data set.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
 private DataTable GetDataTable()
 {
-	//List of syncfusion products name
-	string[] products = { "DocIO", "PDF", "XlsIO" };
-	//Adds new Tables to the data set
-	DataRow row;
-	DataTable table = new DataTable();
-	//Adds fields to the Products table
-	table.TableName = "Products";
-	table.Columns.Add("ProductName");
-	table.Columns.Add("Binary");
-	table.Columns.Add("Source");
-	//Inserts values to the tables
-	foreach (string product in products)
-	{
-		row = table.NewRow();
-		row["ProductName"] = string.Concat("Essential ", product);
-		row["Binary"] = "$895.00";
-		row["Source"] = "$1,295.00";
-		table.Rows.Add(row);
-	}
-	return table;
+    //List of syncfusion products name
+    string[] products = { "DocIO", "PDF", "XlsIO" };
+    //Adds new Tables to the data set
+    DataRow row;
+    DataTable table = new DataTable();
+    //Adds fields to the Products table
+    table.TableName = "Products";
+    table.Columns.Add("ProductName");
+    table.Columns.Add("Binary");
+    table.Columns.Add("Source");
+    //Inserts values to the tables
+    foreach (string product in products)
+    {
+        row = table.NewRow();
+        row["ProductName"] = string.Concat("Essential ", product);
+        row["Binary"] = "$895.00";
+        row["Source"] = "$1,295.00";
+        table.Rows.Add(row);
+    }
+    return table;
 }
 
 {% endhighlight %}
@@ -94,27 +90,26 @@ private DataTable GetDataTable()
 {% highlight vb.net tabtitle="VB.NET" %}
 
 Private Function GetDataTable() As DataTable
-	'List of syncfusion products name
-	Dim products As String() = {"DocIO", "PDF", "XlsIO"}
-	'Adds new Tables to the data set
-	Dim row As DataRow
-	Dim table As New DataTable()
-	'Adds fields to the Products table
-	table.TableName = "Products"
-	table.Columns.Add("ProductName")
-	table.Columns.Add("Binary")
-	table.Columns.Add("Source")
-	'Inserts values to the tables
-	For Each product As String In products
-		row = table.NewRow()
-		row("ProductName") = String.Concat("Essential ", product)
-		row("Binary") = "$895.00"
-		row("Source") = "$1,295.00"
-		table.Rows.Add(row)
-	Next
-	Return table
-End Function 
-
+    'List of syncfusion products name
+    Dim products As String() = {"DocIO", "PDF", "XlsIO"}
+    'Adds new Tables to the data set
+    Dim row As DataRow
+    Dim table As New DataTable()
+    'Adds fields to the Products table
+    table.TableName = "Products"
+    table.Columns.Add("ProductName")
+    table.Columns.Add("Binary")
+    table.Columns.Add("Source")
+    'Inserts values to the tables
+    For Each product As String In products
+        row = table.NewRow()
+        row("ProductName") = String.Concat("Essential ", product)
+        row("Binary") = "$895.00"
+        row("Source") = "$1,295.00"
+        table.Rows.Add(row)
+    Next
+    Return table
+End Function
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -129,41 +124,37 @@ End Function
 //DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %} 
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Macros/Open-and-save-macro-enabled-document).
 
-The following code example illustrates how to remove the macros present in the document by using `RemoveMacros` method.
+The following code example illustrates how to remove the macros present in the document by using [RemoveMacros](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_RemoveMacros) method.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Loads the document with macros
 WordDocument document = new WordDocument("Sample.docm");
 //Checks whether the document has macros and then removes them
 if (document.HasMacros)
-	document.RemoveMacros();
+    document.RemoveMacros();
 //Saves the document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Loads the document with macros
 Dim document As New WordDocument("Sample.docm")
 'Checks whether the document has macros and then removes them
 If document.HasMacros Then
-	document.RemoveMacros()
+    document.RemoveMacros()
 End If
 'Saves the document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -172,7 +163,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Sample.docm"), FormatType.Docx);
 //Checks whether the document has macros and then removes them
 if (document.HasMacros)
-	document.RemoveMacros();
+    document.RemoveMacros();
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
@@ -190,7 +181,7 @@ FileStream fileStreamPath = new FileStream("Sample.docm", FileMode.Open, FileAcc
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Checks whether the document has macros and then removes them
 if (document.HasMacros)
-	document.RemoveMacros();
+    document.RemoveMacros();
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -207,7 +198,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Sample.docm"), FormatType.Docx);
 //Checks whether the document has macros and then removes them
 if (document.HasMacros)
-	document.RemoveMacros();
+    document.RemoveMacros();
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -219,6 +210,6 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Macros/Remove-macros-in-document).

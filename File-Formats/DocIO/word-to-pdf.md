@@ -72,8 +72,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -89,7 +88,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -167,14 +165,15 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 pdfDocument.Close();
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
 
 N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, and Universal applications.
 N> 2. Word to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application.
-N> 3. For .NET Framework, creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
-N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards and .NET Core 2.0 onwards.
+N> 3. For .NET Framework, creating an instance of the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
+N> 4. The [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards and .NET Core 2.0 onwards.
 N> 5. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
 N> 6. "DocIO supports Word to PDF conversion in UWP application using DocIORenderer." For further information, please refer [here](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
 
@@ -182,10 +181,9 @@ N> 6. "DocIO supports Word to PDF conversion in UWP application using DocIORende
 
 In Linux OS, you can perform the Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Word to PDF conversion capabilities.
 
-From v20.1, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.0-preview.209](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.0-preview.209) and [HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209) NuGets to perform Word to PDF conversion in Linux environment.
+From v20.3.0.56, in addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2) and [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2) NuGets to perform Word to PDF conversion in Linux environment.
 
-If you are using prior to v20.1 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os) to know about how to perform Word to PDF conversion in Linux.
-
+If you are using prior to v20.3.0.56 release, please refer [here](https://help.syncfusion.com/file-formats/docio/faq#what-are-the-nuget-packages-to-be-installed-to-perform-word-to-pdf-conversion-in-linux-os) to know about how to perform Word to PDF conversion in Linux.
 
 **Frequently Asked Questions**
 * [How to copy necessary fonts to Linux containers?](https://help.syncfusion.com/file-formats/docio/faq#how-to-copy-necessary-fonts-to-linux-containers)
@@ -254,6 +252,7 @@ wordDocument.Close()
 {% highlight c# tabtitle="Xamarin" %}
 //DocIO supports Word to PDF fast rendering in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Enable-fast-rendering).
@@ -313,8 +312,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -331,7 +329,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -465,8 +462,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -483,7 +479,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -609,8 +604,7 @@ wordDocument.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -627,7 +621,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -753,8 +746,7 @@ wordDocument.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -771,7 +763,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -893,8 +884,7 @@ wordDocument.Close()
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -911,7 +901,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -1037,8 +1026,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -1055,7 +1043,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -1090,7 +1077,6 @@ async void Save(MemoryStream streams, string filename)
     //Launch the saved Word file
     await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -1208,11 +1194,12 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ### Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images present in the Word document during PDF conversion.
+
 This property is recommended to resolve the scaling problem of nested metafile images by regenerating the nested metafile images present in the Word document.
 
 The following code sample shows how to use this property to regenerate the nested EMF images present in the Word document during PDF conversion.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -1316,8 +1303,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer render = new DocIORenderer();
@@ -1334,7 +1320,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -1422,7 +1407,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 This setting allows you to set the PDF conformance level.
 
-The following code sample shows how to set the PdfConformanceLevel while converting Word to PDF.
+The following code sample shows how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_PdfConformanceLevel) while converting Word to PDF.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1469,8 +1454,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -1487,7 +1471,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -1621,8 +1604,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -1639,7 +1621,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -1726,7 +1707,7 @@ This setting allows you to **preserve the complex script text** in the converted
 
 The following code sample shows how to preserve the complex script text in the converted PDF document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -1766,13 +1747,12 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
     //Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
-	docIORenderer.Settings.AutoDetectComplexScript = true;
+    docIORenderer.Settings.AutoDetectComplexScript = true;
     //Converts Word document into PDF document
     PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
     //Save the document into stream.
@@ -1784,7 +1764,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -1871,10 +1850,10 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
 
-N> 1. If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument.Properties.Hyphenation.AutoHyphenation of DocIO.
+N> If automatic hyphenation is not enabled in the Word document, you can enable it by using [WordDocument.Properties.Hyphenation.AutoHyphenation](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyphenation.html#Syncfusion_DocIO_DLS_Hyphenation_AutoHyphenation) of DocIO.
 
 The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -1920,8 +1899,7 @@ wordDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
@@ -1940,7 +1918,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -2032,7 +2009,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code sample shows how to **preserve revision marks in a generated PDF** when converting Word documents with tracked changes or revisions.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -2077,8 +2054,7 @@ pdfDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Sets revision types to preserve track changes in  Word when converting to PDF
     document.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
@@ -2095,7 +2071,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -2184,7 +2159,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can customize how track changes markup appears in a generated PDF when converting Word documents into PDF. The following code sample shows how to customize revision marks colors.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -2245,12 +2220,11 @@ pdfDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Sets revision types to preserve track changes in  Word when converting to PDF
     document.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
-	//Sets the color to be used for revision bars that identify document lines containing revised information
+    //Sets the color to be used for revision bars that identify document lines containing revised information
     wordDocument.RevisionOptions.RevisionBarsColor = RevisionColor.Blue;
     //Sets the color to be used for inserted content Insertion
     wordDocument.RevisionOptions.InsertedTextColor = RevisionColor.ClassicBlue;
@@ -2271,7 +2245,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -2374,9 +2347,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 #### Show or Hide Revisions in Balloons
 
-The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling ShowMarkup property. However, you can hide revisions in balloons by using following code example.
+The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling [ShowMarkup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RevisionOptions.html#Syncfusion_DocIO_DLS_RevisionOptions_ShowMarkup) property. However, you can hide revisions in balloons by using following code example.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -2425,8 +2398,7 @@ pdfDocument.Close()
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),
-              FormatType.Docx))
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
 {
     //Sets revision types to preserve track changes in Word when converting to PDF
     wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
@@ -2445,7 +2417,6 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     document.Close();
     pdfDocument.Close();
 }
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -2537,52 +2508,52 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ### Comments in Word-to-PDF conversion
 The following code sample shows how to **preserve comments balloon in a generated PDF** when converting Word documents with comments. Also you can customize how comments balloon color appears in a generated PDF.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
 {
-	//Sets ShowInBalloons to render a document comments in converted PDF document.
-	wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
-	//Sets the color to be used for Comment Balloon.
-	wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
-	//Initializes the ChartToImageConverter for converting charts during Word to pdf conversion.
-	wordDocument.ChartToImageConverter = new ChartToImageConverter();
-	//Sets the scaling mode for charts.
-	wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-	//Creates an instance of the DocToPDFConverter.
-	using (DocToPDFConverter converter = new DocToPDFConverter())
-	{
-		//Converts Word document into PDF document.
-		using (PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument))
-		{
-			//Saves the PDF file to file system.
-			pdfDocument.Save("Sample.pdf");
-		}
-	}
+    //Sets ShowInBalloons to render a document comments in converted PDF document.
+    wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
+    //Sets the color to be used for Comment Balloon.
+    wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
+    //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion.
+    wordDocument.ChartToImageConverter = new ChartToImageConverter();
+    //Sets the scaling mode for charts.
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
+    //Creates an instance of the DocToPDFConverter.
+    using (DocToPDFConverter converter = new DocToPDFConverter())
+    {
+        //Converts Word document into PDF document.
+        using (PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument))
+        {
+            //Saves the PDF file to file system.
+            pdfDocument.Save("Sample.pdf");
+        }
+    }
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Loads an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
-	'Sets ShowInBalloons to render a document comments in converted PDF document.
-	wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons
-	'Sets the color to be used for Comment Balloon.
-	wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue
-	'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion.
-	wordDocument.ChartToImageConverter = New ChartToImageConverter
-	'Sets the scaling mode for charts.
-	wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-	'Creates an instance of the DocToPDFConverter.
-	Using converter As New DocToPDFConverter()
-		'Converts Word document into PDF document.
-		Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
-			'Saves the PDF file to file system.
-			pdfDocument.Save("Sample.pdf")
-		End Using
-	End Using
+    'Sets ShowInBalloons to render a document comments in converted PDF document.
+    wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons
+    'Sets the color to be used for Comment Balloon.
+    wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue
+    'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion.
+    wordDocument.ChartToImageConverter = New ChartToImageConverter
+    'Sets the scaling mode for charts.
+    wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
+    'Creates an instance of the DocToPDFConverter.
+    Using converter As New DocToPDFConverter()
+        'Converts Word document into PDF document.
+        Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+            'Saves the PDF file to file system.
+            pdfDocument.Save("Sample.pdf")
+        End Using
+    End Using
 End Using
 {% endhighlight %}
 
@@ -2592,86 +2563,86 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")),FormatType.Docx))
 {
-	//Sets ShowInBalloons to render a document comments in converted PDF document.
-	wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
-	//Sets the color to be used for Comment Balloon.
-	wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
-	//Creates an instance of DocIORenderer.
-	using (DocIORenderer docIORenderer = new DocIORenderer())
-	{
-		//Converts Word document into PDF document.
-		using (PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument))
-		{
-			//Save the document into stream.
-			using (MemoryStream stream = new MemoryStream())
-			{
-				pdfDocument.Save(stream);
-				//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-				Save(stream, "Sample.pdf");
-			}
-		}
-	}
+    //Sets ShowInBalloons to render a document comments in converted PDF document.
+    wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
+    //Sets the color to be used for Comment Balloon.
+    wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
+    //Creates an instance of DocIORenderer.
+    using (DocIORenderer docIORenderer = new DocIORenderer())
+    {
+        //Converts Word document into PDF document.
+        using (PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument))
+        {
+            //Save the document into stream.
+            using (MemoryStream stream = new MemoryStream())
+            {
+                pdfDocument.Save(stream);
+                //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+                Save(stream, "Sample.pdf");
+            }
+        }
+    }
 }
 //Saves the PDF document.
 async void Save(MemoryStream streams, string filename)
 {
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".pdf";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".pdf" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file.
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file.
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file.
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file.
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 using (FileStream fileStream = new FileStream("Template.docx", FileMode.Open))
 {
-	//Loads an existing Word document.
-	using (WordDocument wordDocument = new WordDocument(fileStream,FormatType.Docx))
-	{
-		//Sets ShowInBalloons to render a document comments in converted PDF document.
-		wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
-		//Sets the color to be used for Comment Balloon.
-		wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
-		//Creates an instance of DocIORenderer.
-		using (DocIORenderer renderer = new DocIORenderer())
-		{
-			//Converts Word document into PDF document.
-			using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
-			{
-				//Saves the PDF file to file system.    
-				using (FileStream outputStream = new FileStream("Sample.pdf", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-				{
-					pdfDocument.Save(outputStream);
-				}
-			}
-		}
-	}
+    //Loads an existing Word document.
+    using (WordDocument wordDocument = new WordDocument(fileStream,FormatType.Docx))
+    {
+        //Sets ShowInBalloons to render a document comments in converted PDF document.
+        wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
+        //Sets the color to be used for Comment Balloon.
+        wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
+        //Creates an instance of DocIORenderer.
+        using (DocIORenderer renderer = new DocIORenderer())
+        {
+            //Converts Word document into PDF document.
+            using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+            {
+                //Saves the PDF file to file system.    
+                using (FileStream outputStream = new FileStream("Sample.pdf", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                {
+                    pdfDocument.Save(outputStream);
+                }
+            }
+        }
+    }
 }
 {% endhighlight %}
 
@@ -2681,28 +2652,28 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing wod document
 using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic))
 {
-	//Sets ShowInBalloons to render a document comments in converted PDF document.
-	wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
-	//Sets the color to be used for Comment Balloon.
-	wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
-	//Creates an instance of DocIORenderer.
-	using (DocIORenderer docIORenderer = new DocIORenderer())
-	{
-		//Converts Word document into PDF document.
-		using (PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument))
-		{
-			//Saves the Word document to MemoryStream
-			using (MemoryStream stream = new MemoryStream())
-			{
-				pdfDocument.Save(stream);
-				//Save the stream as a file in the device and invoke it for viewing
-				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pdf", "application/pdf", stream);
+    //Sets ShowInBalloons to render a document comments in converted PDF document.
+    wordDocument.RevisionOptions.CommentDisplayMode = CommentDisplayMode.ShowInBalloons;
+    //Sets the color to be used for Comment Balloon.
+    wordDocument.RevisionOptions.CommentColor = RevisionColor.Blue;
+    //Creates an instance of DocIORenderer.
+    using (DocIORenderer docIORenderer = new DocIORenderer())
+    {
+        //Converts Word document into PDF document.
+        using (PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument))
+        {
+            //Saves the Word document to MemoryStream
+            using (MemoryStream stream = new MemoryStream())
+            {
+                pdfDocument.Save(stream);
+                //Save the stream as a file in the device and invoke it for viewing
+                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.pdf", "application/pdf", stream);
 
-				//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-				//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-			}
-		}
-	}
+                //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+                //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+            }
+        }
+    }
 }
 {% endhighlight %}
 
@@ -2716,7 +2687,7 @@ This setting allows you to preserve Ole Equation as bitmap image in the converte
 
 The following code sample shows how to preserve Ole Equation as bitmap image in the converted PDF document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads an existing Word document
@@ -2770,7 +2741,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Restrict all permission in a PDF document
 
-you can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html)
+You can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html).
 
 The below code example shows how to restrict Copying and Printing permission of the PDF document.
 
@@ -2845,7 +2816,6 @@ pdfDocument.Save(stream);
 //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
 Save(stream, "Output.pdf");
 pdfDocument.Close();
-			
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -2952,7 +2922,7 @@ To avoid this, the Essential DocIO library allows you to set an alternate font f
 
 You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using the [SubstituteFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.FontSettings.html) event.
 
-The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font not installed in the machine. 
+The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font is not installed in the machine. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3024,7 +2994,6 @@ pdfDocument.Save(stream);
 Save(stream, "WordToPDF.pdf");
 //Closes the PDF document
 pdfDocument.Close();
-
 //Saves the PDF document
 async void Save(MemoryStream streams, string filename)
 {
@@ -3172,7 +3141,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
     //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
@@ -3183,6 +3152,7 @@ void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-installed-font).
@@ -3192,14 +3162,15 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to use the alternate fonts instead of "Microsoft Sans Serif" **without installing the fonts** into production machine.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
-	if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
-	    args.AlternateFontStream =  new FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-	else
-	    args.AlternateFontName = "Times New Roman";
+    if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream =  new FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    else
+        args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
@@ -3209,7 +3180,7 @@ Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontE
     If args.OrignalFontName = "Arial Unicode MS" && args.FontStyle == FontStyle.Regular Then
         args.AlternateFontStream = New FileStream("Arial.TTF" ,FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
     Else
-	    args.AlternateFontName = "Times New Roman"
+        args.AlternateFontName = "Times New Roman"
     End If
 End Sub
 {% endhighlight %}
@@ -3232,7 +3203,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
     if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
         args.AlternateFontStream = new FileStream("Arial.TTF", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
     else
-	    args.AlternateFontName = "Times New Roman";
+        args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
@@ -3243,7 +3214,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
     if (args.OrignalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
         args.AlternateFontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.TTF");
     else
-	    args.AlternateFontName = "Times New Roman";
+        args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
@@ -3286,14 +3257,6 @@ Table Styles
 </td>
 <td>
 Only DOCX and WordML format documents are supported.
-</td>
-</tr>
-<tr>
-<td>
-Underline
-</td>
-<td>
-Only Single, Dotted, Dash, DotDash, DotDotDash, Words, DashHeavy, DashLong, DashLongHeavy, DotDashHeavy, DotDotDashHeavy, DottedHeavy and Thick underline styles are supported.
 </td>
 </tr>
 <tr>

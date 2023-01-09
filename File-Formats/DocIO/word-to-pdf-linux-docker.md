@@ -12,12 +12,12 @@ Docker is an open platform for developing, shipping and running applications. Yo
 
 ## Steps to convert a Word document to PDF in Linux Docker
 
-1.Create a new Core Console application.
+Step 1: Create a new Core Console application.
 
 ![Create console app](LinuxDockerImages/Step-1.png)
 ![Name console app](LinuxDockerImages/Step-2.png)
 
-2.Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 2: Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)
 * [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
@@ -27,21 +27,18 @@ Docker is an open platform for developing, shipping and running applications. Yo
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-3.Include the following namespaces in the Program.cs file.
+Step 3: Include the following namespaces in the Program.cs file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 using System.IO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 using Syncfusion.Pdf;
-
 {% endhighlight %}
 {% endtabs %}
 
-
-4.Add the following code snippet in Program.cs file.
+Step 4: Add the following code snippet in Program.cs file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -69,15 +66,15 @@ using (FileStream docStream = new FileStream(@"Adventure.docx", FileMode.Open, F
 {% endhighlight %}
 {% endtabs %}
 
-5.Add Docker support to that application by clicking <b>Add -> Docker Support.</b>
+Step 5: Add Docker support to that application by clicking <b>Add -> Docker Support.</b>
 
 ![Add Docker support to that console app](LinuxDockerImages/Step-5.png)
 
-6.Choose Linux option in order to run the application in Linux Docker container.
+Step 6: Choose Linux option in order to run the application in Linux Docker container.
 
 ![Choose Linux option](LinuxDockerImages/Step-6.png)
 
-7.Open the Dockerfile to see the default Docker commands that are shown below.
+Step 7: Open the Dockerfile to see the default Docker commands that are shown below.
 
 {% tabs %}
 {% highlight Dockerfile %}
@@ -104,7 +101,7 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 {% endhighlight %}
 {% endtabs %}
 
-8.Select Docker option and Run the application.
+Step 8: Select Docker option and Run the application.
 
 ![Run console app](LinuxDockerImages/Step-7.png)
 

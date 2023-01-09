@@ -247,6 +247,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Encrypt-PDF-with-RC4-using-user-password/).
+
 N> While using both user and owner passwords, please specify different user and owner password while encrypting the PDF document for better security.
 
 You can protect the PDF document from printing, editing, copying with the [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_OwnerPassword) by using the following code snippet.
@@ -511,6 +513,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Encrypt-PDF-with-RC4-using-owner-password/).
+
 ## Working with AES Encryption
 
 You can encrypt PDF document using AES algorithm with 40bit or 128bit or 256bit key size. The following code snippet illustrates how to encrypt the PDF document with the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_UserPassword).
@@ -741,6 +745,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Encrypt-PDF-with-AES-using-user-password/).
 
 You can protect the PDF document from printing, editing, copying with the [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_OwnerPassword) by using the following code snippet.
 
@@ -1001,6 +1007,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Encrypt-PDF-with-AES-using-owner-password/).
+
 ## Encryption Options
 
 Now, the Syncfusion PDF library has provided options to encrypt the PDF document as follows: 
@@ -1260,6 +1268,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Encrypt-all-contents-of-the-PDF-document/).
+
 ### Encrypt all contents except metadata
 
 The Syncfusion Essential PDF library now supports encrypting the PDF document except the document information (metadata) by using the EncryptAllContentsExceptMetadata option. The document information will not be encrypted when using this EncryptionOption.
@@ -1511,6 +1521,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Encrypt-all-contents-except-metadata-of-the-PDF/).
 
 ### Encrypt only attachments
 
@@ -1834,6 +1845,7 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Encrypt-only-attachment-in-the-PDF-document).
 
 ## Opening an encrypt-only-attachment document
 
@@ -1978,6 +1990,8 @@ document.Close(true);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Load-an-encrypt-only-attachment-document).
 
 ## Set user password using event when accessing the attachment
 
@@ -2160,6 +2174,8 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Set-user-password-when-accessing-the-attachment).
 
 ## Protect attachments in existing PDF document
 
@@ -2385,6 +2401,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Protect-attachments-in-existing-PDF-document/).
+
 ## Protect an existing document
 
 You can protect an existing PDF document with both [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_UserPassword) and [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_OwnerPassword) by using the following code snippet.
@@ -2598,6 +2616,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Protect-an-existing-PDF-document/).
+
 ## Changing the password of the PDF document
 
 You can change the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_UserPassword) of the existing PDF document by using following code snippet.
@@ -2746,6 +2766,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Change-password-of-the-PDF-document/).
 
 ## Change the permission of the PDF document
 
@@ -2897,6 +2919,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Change-the-permission-of-the-PDF-document/).
+
 ## Remove password from the user password PDF document
 
 You can remove the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSecurity.html#Syncfusion_Pdf_Security_PdfSecurity_UserPassword) from the encrypted PDF document by using the following code snippet.
@@ -3045,6 +3069,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Remove-password-from-user-password-PDF-document/).
+
 ## How to determine whether the PDF document is password protected or not?
 
 You can determine whether the existing PDF document is password protected or not by catching the [PdfDocumentException](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentException.html) as shown below.
@@ -3142,6 +3168,8 @@ catch (PdfDocumentException exception)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Determine-whether-the-PDF-is-protected-or-not/).
 
 ## How to determine whether the PDF document is protected by user or owner password
 

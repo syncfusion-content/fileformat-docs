@@ -11,7 +11,7 @@ documentation: UG
 
 The following namespaces of Essential DocIO need to be included in your application to load and save the Word document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.DocIO;
@@ -42,9 +42,9 @@ using Syncfusion.DocIO.DLS;
 
 ## Opening an existing document
 
-You can open an existing Word document by using either the `Open` method or the constructor of `WordDocument` class
+You can open an existing Word document by using either the [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_String_) class
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing document from file system through constructor of WordDocument class
@@ -123,15 +123,15 @@ WordDocument document = new WordDocument();
 document.Open(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"),FormatType.Automatic);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
 
 ## Opening an existing document from Stream
 
-You can open an existing document from stream by using either the overloads of `Open` methods or the constructor of `WordDocument` class
+You can open an existing document from stream by using either the overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_IO_Stream_Syncfusion_DocIO_FormatType_) methods or the constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_IO_Stream_Syncfusion_DocIO_FormatType_) class
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing document from stream through constructor of WordDocument class
@@ -168,9 +168,9 @@ Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets
 WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
@@ -192,10 +192,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
-	//Loads or opens an existing Word document through Open method of WordDocument class
-	document.Open(inputStream, FormatType.Docx);
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Docx);
 }
 {% endhighlight %}
 
@@ -203,10 +203,10 @@ using (WordDocument document = new WordDocument())
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-	//Loads or opens an existing Word document through Open method of WordDocument class 
-	document.Open(fileStreamPath, FormatType.Automatic);
+    //Loads or opens an existing Word document from stream
+    FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    //Loads or opens an existing Word document through Open method of WordDocument class 
+    document.Open(fileStreamPath, FormatType.Automatic);
 }
 {% endhighlight %}
 
@@ -216,14 +216,14 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-	//Loads or opens an existing Word document through Open method of WordDocument class
-	document.Open(inputStream, FormatType.Automatic);
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Automatic);
 }
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from Stream from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
 
@@ -231,7 +231,7 @@ You can download a complete working sample from Stream from [GitHub](https://git
 
 You can open an existing encrypted Word document from either the file system or the stream by using the following overloads as shown. 
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Opens an existing encrypted document through constructor of WordDocument class
@@ -262,9 +262,9 @@ await document.OpenAsync(inputStorageFile, FormatType.Docx, "password");
 //DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
 
-{% tabs %}  
+{% tabs %}
   
 {% highlight c# tabtitle="C#" %}
 //Creates an empty Word document instance
@@ -286,10 +286,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
-	//Loads or opens an existing encrypted Word document through Open method of WordDocument class
-	document.Open(inputStream, FormatType.Docx, "password");
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+    //Loads or opens an existing encrypted Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Docx, "password");
 }
 {% endhighlight %}
 
@@ -307,9 +307,9 @@ You can download a complete working sample from Stream from [GitHub](https://git
 
 ## Opening the read only Word document
 
-You can open the ready only documents or read only streams using the OpenReadOnly method. If the Word document for reading is opened by any other application such as Microsoft Word, then the same document can be opened using DocIO in ReadOnly mode. The following code sample demonstrates the same.
+You can open the ready only documents or read only streams using the [OpenReadOnly](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_OpenReadOnly_System_String_Syncfusion_DocIO_FormatType_) method. If the Word document for reading is opened by any other application such as Microsoft Word, then the same document can be opened using DocIO in ReadOnly mode. The following code sample demonstrates the same.
 
-{% tabs %}  
+{% tabs %}
   
 {% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
@@ -341,7 +341,7 @@ document.OpenReadOnly("Template.docx", Syncfusion.DocIO.FormatType.Docx)
 
 You can also open an existing encrypted document in read only mode using the overloads as mentioned below.
 
-{% tabs %}  
+{% tabs %}
   
 {% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
@@ -375,9 +375,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Saving a Word document to file system
 
-You can save the created or manipulated Word document to file system using `Save` method of `WordDocument` class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
+You can save the created or manipulated Word document to file system using [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
@@ -456,15 +456,15 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin 
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
 
 ## Saving a Word document to Stream
 
-You can also save the created or manipulated word document to stream by using overloads of `Save` methods
+You can also save the created or manipulated word document to stream by using overloads of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_IO_Stream_Syncfusion_DocIO_FormatType_) methods
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
@@ -517,21 +517,21 @@ Save(stream, "Result.docx");
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-	//Loads or opens an existing Word document through Open method of WordDocument class 
-	document.Open(fileStreamPath, FormatType.Automatic);
-	//To-Do some manipulation
-	//To-Do some manipulation
-	//Creates an instance of memory stream
-	MemoryStream stream = new MemoryStream();
-	//Saves the document to stream
-	document.Save(stream, FormatType.Docx);
-	//Closes the document
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+    //Loads or opens an existing Word document from stream
+    FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    //Loads or opens an existing Word document through Open method of WordDocument class 
+    document.Open(fileStreamPath, FormatType.Automatic);
+    //To-Do some manipulation
+    //To-Do some manipulation
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Saves the document to stream
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -541,32 +541,32 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-	//Loads or opens an existing Word document through Open method of WordDocument class
-	document.Open(inputStream, FormatType.Automatic);
-	//To-Do some manipulation
-	//To-Do some manipulation
-	//Creates an instance of memory stream
-	MemoryStream stream = new MemoryStream();
-	//Saves the document to stream
-	document.Save(stream, FormatType.Docx);
-	//Closes the document
-	document.Close();
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Automatic);
+    //To-Do some manipulation
+    //To-Do some manipulation
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Saves the document to stream
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close();
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 }
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document).
 
 ## Sending to a client browser
 
-You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of `Save` method.  This method explicitly makes use of an instance of [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
+You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_System_Web_HttpResponse_Syncfusion_DocIO_HttpContentDisposition_) method.  This method explicitly makes use of an instance of [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
 
 {% tabs %}  
 
@@ -628,9 +628,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Closing a document
 
-Once the document manipulation and save operation are completed, you should close the instance of `WordDocument`, in order to release all the memory consumed by DocIO’s DOM. The following code example illustrates how to close a WordDocument instance.
+Once the document manipulation and save operation are completed, you should close the instance of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html), in order to release all the memory consumed by DocIO’s DOM. The following code example illustrates how to close a WordDocument instance.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates an empty WordDocument instance
@@ -689,21 +689,21 @@ document.Close();
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-	//Loads or opens an existing Word document through Open method of WordDocument class 
-	document.Open(fileStreamPath, FormatType.Automatic);
-	//To-Do some manipulation
-	//To-Do some manipulation
-	//Creates an instance of memory stream
-	MemoryStream stream = new MemoryStream();
-	//Saves the document to stream
-	document.Save(stream, FormatType.Docx);
-	//Closes the document
-	document.Close()
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
+    //Loads or opens an existing Word document from stream
+    FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    //Loads or opens an existing Word document through Open method of WordDocument class 
+    document.Open(fileStreamPath, FormatType.Automatic);
+    //To-Do some manipulation
+    //To-Do some manipulation
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Saves the document to stream
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close()
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
 
@@ -713,20 +713,20 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
-	//Loads or opens an existing Word document from stream
-	Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-	//Loads or opens an existing Word document through Open method of WordDocument class
-	document.Open(inputStream, FormatType.Automatic);
-	//To-Do some manipulation
-	//To-Do some manipulation
-	//Creates an instance of memory stream
-	MemoryStream stream = new MemoryStream();
-	//Saves the document to stream
-	document.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-	//Closes the document
-	document.Close();
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Automatic);
+    //To-Do some manipulation
+    //To-Do some manipulation
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Saves the document to stream
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    //Closes the document
+    document.Close();
 }
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin 

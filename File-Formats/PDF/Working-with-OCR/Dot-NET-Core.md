@@ -78,7 +78,7 @@ N> TesseractBinaries and tessdata folders can be copied automatically from the N
 ## Prerequisites for Windows 
 
 *   Provide the TesseractBinaries windows folder path when creating a new OCR processor. Please refer to the following code snippet for windows.
-
+{% capture codesnippet1 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -89,10 +89,12 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows");
 
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }} 
 
 *   Provide the tesseract language data folder path (tessdata) when performing the OCR to recognize different language images.
-
+{% capture codesnippet2 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -104,6 +106,8 @@ processor.PerformOCR(lDoc, "tessdata/");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 You can download the language packages from the following link
 
@@ -120,7 +124,7 @@ You can download the language packages from the following link
         3. sudo apt-get install y- libopenjp2-7
  
 *	Provide the TesseractBinaries Linux folder path when creating a new OCR processor. Please refer to the following code snippet for Linux.
-
+{% capture codesnippet3 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -132,9 +136,11 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Linux");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 *	Provide the tesseract language data folder path (tessdata) when performing the OCR to recognize different language images.
-              
+ {% capture codesnippet4 %}             
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -146,10 +152,12 @@ processor.PerformOCR(lDoc, "tessdata/");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
 You can download the language packages from the following link
         
-[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list)
+[https://code.google.com/p/tesseract-ocr/downloads/list](https://github.com/tesseract-ocr/tessdata)
 
 
 ## Prerequisites for Mac
@@ -161,7 +169,7 @@ You can download the language packages from the following link
         2. brew install tesseract
 
 *	Provide the TesseractBinaries Mac folder path when creating a new OCR processor. Please refer to the following code snippet for Mac.
-
+{% capture codesnippet5 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -173,9 +181,11 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Mac");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet5 | OrderList_Indent_Level_1 }}
 
 *	Provide the tesseract language data folder path (tessdata) when performing the OCR to recognize different language images.
-
+{% capture codesnippet6 %}
 {% tabs %}  
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -187,6 +197,8 @@ processor.PerformOCR(lDoc, "tessdata/");
 {% endhighlight %}
 
 {% endtabs %} 
+{% endcapture %}
+{{ codesnippet6 | OrderList_Indent_Level_1 }}
 
 You can download the language packages from the following link
         
@@ -240,6 +252,8 @@ return File(outputStream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-for-the-entire-PDF-document).
 
 ## Performing OCR in Linux
 
@@ -403,6 +417,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-particular-region-of-PDF-document).
 
 ## Performing OCR with rotated pages
 
@@ -459,6 +474,8 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-the-rotated-page-of-the-PDF-document).
+
 ## Performing OCR with Unicode characters 
 
 You can perform OCR on Images with Unicode characters. To preserve the Unicode characters in the PDF document, use the UnicodeFont property. Refer to the following code snippet.
@@ -514,7 +531,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %}  
 
- 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-with-unicode-characters-in-a-PDF-document).
 
 ## Layout result 
 
@@ -574,6 +591,7 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Get-the-OCR'ed-text-and-its-bounds-from-an-input-PDF).
 
 ## Performing OCR with image
 
@@ -638,6 +656,8 @@ string ocrText = processor.PerformOCR(stream, @"tessdata/");
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-image-file).
+
 ## OCR an Image to PDF
 
 You can perform OCR on an image and convert it to a searchable PDF document. It is also possible to set PdfConformanceLevel to the output PDF document using OCRSettings. 
@@ -684,6 +704,7 @@ document.Close(true);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-an-image-and-convert-it-to-a-PDF-document).
 
 ## Temporary folder
 
@@ -739,6 +760,338 @@ return File(outputStream, contentType, fileName);
 
 {% endtabs %} 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Set-temp-folder-while-performing-OCR).
+
+## Performing OCR with Azure Vision
+The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as Azure Computer Vision and more. 
+Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with Azure computer vision.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
+{
+//Load a PDF document.
+FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
+
+//Set the OCR language.
+processor.Settings.Language = Languages.English;
+
+//Initialize the Azure vision external OCR engine.
+IOcrEngine azureOcrEngine = new AzureExternalOcrEngine();
+
+processor.ExternalEngine = azureOcrEngine;
+
+//Perform OCR with an input document.
+processor.PerformOCR(lDoc);
+
+FileStream outputStream = new FileStream(@"Output.pdf", FileMode.CreateNew);
+
+//Save the document into the stream.
+lDoc.Save(outputStream);
+
+//If the position is not set to '0,' a PDF will be empty. 
+outputStream.Position = 0;
+
+//Close the document. 
+lDoc.Close(true);
+outputStream.Close();
+}
+
+
+{% endhighlight %}
+
+{% endtabs %} 
+
+Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image. 
+
+N> Provide a valid subscription key and endpoint to work with Azure computer vision. 
+
+Refer to the following code sample to perform OCR with Azure computer vision. 
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+
+class AzureExternalOcrEngine : IOcrEngine
+{
+private string subscriptionKey = "SubscriptionKey";
+private string endpoint = "endpoint";
+
+public OCRLayoutResult PerformOCR(Stream imgStream)
+{
+ComputerVisionClient client = Authenticate();
+ReadResult azureOcrResult = ReadFileUrl(client, imgStream).Result;
+
+
+OCRLayoutResult result = ConvertAzureVisionOcrToOcrLayoutResult(azureOcrResult);
+
+return result;
+}
+
+public ComputerVisionClient Authenticate()
+{
+ComputerVisionClient client = new ComputerVisionClient(new ApiKeyServiceClientCredentials(subscriptionKey))
+{
+Endpoint = endpoint
+};
+return client;
+}
+
+public async Task<ReadResult> ReadFileUrl(ComputerVisionClient client, Stream stream)
+{
+stream.Position = 0;
+var textHeaders = await client.ReadInStreamAsync(stream);
+string operationLocation = textHeaders.OperationLocation;
+
+const int numberOfCharsInOperationId = 36;
+
+string operationId = operationLocation.Substring(operationLocation.Length - numberOfCharsInOperationId);
+//Extract the text.
+ReadOperationResult results;
+do
+{
+results = await client.GetReadResultAsync(Guid.Parse(operationId));
+}
+while ((results.Status == OperationStatusCodes.Running || results.Status == OperationStatusCodes.NotStarted));
+
+ReadResult azureOcrResult = results.AnalyzeResult.ReadResults[0];
+
+return azureOcrResult;
+}
+
+private OCRLayoutResult ConvertAzureVisionOcrToOcrLayoutResult(ReadResult azureVisionOcr)
+{
+Syncfusion.OCRProcessor.Line ocrLine;
+Syncfusion.OCRProcessor.Word ocrWord;
+
+OCRLayoutResult ocrlayoutResult = new OCRLayoutResult();
+
+ocrlayoutResult.ImageWidth = (float)azureVisionOcr.Width;
+ocrlayoutResult.ImageHeight = (float)azureVisionOcr.Height;
+
+//Page
+Syncfusion.OCRProcessor.Page normalPage = new Syncfusion.OCRProcessor.Page();
+
+//Lines
+foreach (var line in azureVisionOcr.Lines)
+{
+ocrLine = new Syncfusion.OCRProcessor.Line();
+
+//Word
+foreach (var word in line.Words)
+{
+ocrWord = new Syncfusion.OCRProcessor.Word();
+
+Rectangle rect = GetAzureVisionBounds(word.BoundingBox);
+
+ocrWord.Text = word.Text;
+ocrWord.Rectangle = rect;
+
+ocrLine.Add(ocrWord);
+}
+normalPage.Add(ocrLine);
+}
+
+ocrlayoutResult.Add(normalPage);
+
+return ocrlayoutResult;
+}
+
+private Rectangle GetAzureVisionBounds(IList<double?> bbox)
+{
+Rectangle rect = Rectangle.Empty;
+PointF[] pointCollection = new PointF[bbox.Count / 2];
+int count = 0;
+for (int i = 0; i < bbox.Count; i = i + 2)
+{
+pointCollection[count] = new PointF((float)bbox[i], (float)bbox[i + 1]);
+count++;
+}
+float xMin = 0;
+float yMin = 0;
+float xMax = 0;
+float yMax = 0;
+bool first = true;
+
+foreach (PointF point in pointCollection)
+{
+if (first)
+{
+xMin = point.X;
+yMin = point.Y;
+first = false;
+}
+else
+{
+if (point.X < xMin)
+xMin = point.X;
+else if (point.X > xMax)
+xMax = point.X;
+if (point.Y < yMin)
+yMin = point.Y;
+else if (point.Y > yMax)
+yMax = point.Y;
+}
+}
+
+int x = Convert.ToInt32(xMin);
+int y = Convert.ToInt32(yMin);
+int w = Convert.ToInt32(xMax);
+int h = Convert.ToInt32(yMax);
+
+return new Rectangle(x, y, w, h);
+}
+}
+
+
+{% endhighlight %}
+
+{% endtabs %} 
+
+## Performing OCR with AWS Textract
+The OCR processor supports external engines to process the OCR on Image and PDF documents. Perform the OCR using external OCR engines such as AWS Textract and more. 
+Using the IOcrEngine interface, create an external OCR engine. Refer to the following code sample to perform OCR with AWS Textract.
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
+{
+//Load a PDF document.
+FileStream stream = new FileStream(@"Input.pdf", FileMode.Open);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
+
+//Set the OCR language.
+processor.Settings.Language = Languages.English;
+
+//Initialize the  AWS Textract external OCR engine.
+IOcrEngine azureOcrEngine = new AWSExternalOcrEngine();
+
+processor.ExternalEngine = azureOcrEngine;
+
+//Perform OCR with input document.
+string text = processor.PerformOCR(lDoc);
+
+FileStream outputStream = new FileStream(@"Output.pdf", FileMode.Create);
+
+//Save the document into stream.
+lDoc.Save(outputStream);
+
+//If the position is not set to '0' then the PDF will be empty.
+outputStream.Position = 0;
+
+//Close the document.
+lDoc.Close();
+stream.Dispose();
+outputStream.Dispose();
+}
+
+
+{% endhighlight %}
+
+{% endtabs %}
+Create a new class and implement the IOcrEngine interface. Get the image stream in the PerformOCR method and process the image stream with an external OCR engine and return the OCRLayoutResult for the image. 
+
+N> Provide a valid Access key and Secret Access Key to work with AWS Textract.
+
+Refer to the following code sample to perform OCR with AWS Textract.
+
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+class AWSExternalOcrEngine : IOcrEngine
+{
+private string awsAccessKeyId = "Access key ID";
+private string awsSecretAccessKey = "Secret access key";
+private float imageHeight;
+private float imageWidth;
+public OCRLayoutResult PerformOCR(Stream stream)
+{
+AmazonTextractClient clientText = Authenticate();
+
+DetectDocumentTextResponse textResponse = GetAWSTextractResult(clientText, stream).Result;
+            
+OCRLayoutResult oCRLayoutResult = ConvertAWSTextractResultToOcrLayoutResult(textResponse);
+return oCRLayoutResult;
+}
+
+public AmazonTextractClient Authenticate()
+{
+AmazonTextractClient client = new AmazonTextractClient(awsAccessKeyId, awsSecretAccessKey, RegionEndpoint.USEast1);
+return client;
+}
+        
+public async Task<DetectDocumentTextResponse> GetAWSTextractResult(AmazonTextractClient client, Stream stream)
+{
+stream.Position = 0;
+MemoryStream memoryStream = new MemoryStream();
+stream.CopyTo(memoryStream);
+PdfBitmap bitmap = new PdfBitmap(memoryStream);
+imageHeight = bitmap.Height;
+imageWidth = bitmap.Width;
+
+DetectDocumentTextResponse response = await client.DetectDocumentTextAsync(new DetectDocumentTextRequest
+{
+Document = new Document
+{
+Bytes = memoryStream
+}
+});
+return response;
+}
+        
+public OCRLayoutResult ConvertAWSTextractResultToOcrLayoutResult(DetectDocumentTextResponse textResponse)
+{
+OCRLayoutResult layoutResult = new OCRLayoutResult();
+Syncfusion.OCRProcessor.Page ocrPage = new Page();
+Syncfusion.OCRProcessor.Line ocrLine;
+Syncfusion.OCRProcessor.Word ocrWord;
+layoutResult.ImageHeight = imageHeight;
+layoutResult.ImageWidth = imageWidth;
+foreach (var page in textResponse.Blocks)
+{                   
+ocrLine = new Line();
+if (page.BlockType == "WORD")
+{
+ocrWord = new Word();
+ocrWord.Text = page.Text;
+                    
+float left = page.Geometry.BoundingBox.Left;
+float top = page.Geometry.BoundingBox.Top;
+float width = page.Geometry.BoundingBox.Width;
+float height = page.Geometry.BoundingBox.Height;
+Rectangle rect = GetBoundingBox(left,top,width,height);
+ocrWord.Rectangle = rect;
+ocrLine.Add(ocrWord);
+ocrPage.Add(ocrLine);
+}               
+}
+layoutResult.Add(ocrPage);
+return layoutResult;
+}
+public Rectangle GetBoundingBox(float left, float top, float width, float height)
+{
+int x = Convert.ToInt32(left * imageWidth);
+int y = Convert.ToInt32(top * imageHeight);
+int bboxWidth = Convert.ToInt32((width * imageWidth) + x);
+int bboxHeight = Convert.ToInt32((height * imageHeight) + y);
+Rectangle rect = new Rectangle(x,y, bboxWidth, bboxHeight);
+return rect;
+}
+}
+
+
+{% endhighlight %}
+
+{% endtabs %} 
 
 ## Troubleshooting
 

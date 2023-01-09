@@ -254,6 +254,7 @@ else
 
 {% endtabs %}  
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Portfolio/Create-a-portfolio-and-attach-variety-of-documents).
 
 ## Extracting file from PDF Portfolio
 
@@ -390,7 +391,8 @@ return File(stream, contentType, fileName);
 
  {% endtabs %}  
 
- 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Portfolio/Extracting-the-files-from-PDF-portfolio).
+
 ## Removing files from PDF Portfolio
 
 You can also remove the files from PDF Portfolio using following code.
@@ -554,4 +556,6 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Portfolio/Remove-the-files-from-PDF-portfolio).

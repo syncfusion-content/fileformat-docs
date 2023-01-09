@@ -13,7 +13,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 **Prerequisites:**
 
 * Visual Studio 2019 Preview
-* Install [.NET Core SDK 3.0 Preview](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* Install the [.NET Core SDK 3.1 Preview](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
 
 **Creating a Blazor project**
 
@@ -25,25 +25,25 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Server-side application
 
-1.Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
 
-2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/Blazor_images_Server_ProjectName.png)
 
-3.Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor Server side.](Blazor_Images/Select_Server.png)
 
-4.To **create a Word document in server-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **create a Word document in server-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 ![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as **DocIO** under **Pages** folder and include the following namespaces in the file.
+Step 5: Create a razor file with name as **DocIO** under **Pages** folder and include the following namespaces in the file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -55,7 +55,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 {% endtabs %}
 
-6.Add the following code in **DocIO.razor** file to create a new button.
+Step 6: Add the following code in **DocIO.razor** file to create a new button.
 
 {% tabs %}
 {% highlight CSHTML %}
@@ -65,13 +65,12 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 {% endtabs %}
 
-7.Add the following code in **DocIO.razor** file to create and download the **Word document**.
+Step 7: Add the following code in **DocIO.razor** file to create and download the **Word document**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 @code {
     MemoryStream documentStream;
-
     /// <summary>
     /// Create and download the Word document
     /// </summary>
@@ -84,21 +83,19 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 {% endtabs %}
 
-8.Create a new cs file with name as **WordService** under Data folder and include the following namespaces in the file.
+Step 8: Create a new cs file with name as **WordService** under Data folder and include the following namespaces in the file.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
-
 {% endhighlight %}
 
 {% endtabs %}
 
-9.Create a new MemoryStream method with name as **CreateWord** in **WordService** class and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
+Step 9: Create a new MemoryStream method with name as **CreateWord** in **WordService** class and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
 
 {% tabs %}
 
@@ -133,8 +130,8 @@ public MemoryStream CreateWord()
     style.ParagraphFormat.Keep = true;
     style.ParagraphFormat.KeepFollow = true;
     style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
     paragraph.ApplyStyle("Normal");
     paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
     WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
@@ -170,14 +167,13 @@ public MemoryStream CreateWord()
     //Closes the Word document
     document.Close();
     stream.Position = 0;
-
     return stream;
 }
 {% endhighlight %}
 
 {% endtabs %}
 
-10.Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 10: Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
@@ -187,16 +183,15 @@ public static class FileUtils
 {
     public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
-           "saveAsFile",
-           filename,
-           Convert.ToBase64String(data));
+            "saveAsFile",
+            filename,
+            Convert.ToBase64String(data));
 }
-
 {% endhighlight %}
 
 {% endtabs %}
 
-11.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+Step 11: Add the following JavaScript function in the _Host.cshtml in the Pages folder.
 
 {% tabs %}
 
@@ -229,16 +224,16 @@ public static class FileUtils
 
 {% endtabs %}
 
-12.Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+Step 12: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
 
 {% tabs %}
 
 {% highlight HTML %}
 
 <li class="nav-item px-3">
-     <NavLink class="nav-link" href="docio">
-         <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
-     </NavLink>
+    <NavLink class="nav-link" href="docio">
+        <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
+    </NavLink>
 </li>
 
 {% endhighlight %}
@@ -253,25 +248,25 @@ By executing the program, you will get the **Word document** as follows.
 
 ## Client-side application
 
-1.Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
 
-2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/Blazor_image_Client_ProjectName.png)
 
-3.Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor Client side.](Blazor_Images/Select_Client.png)
 
-4.To **create a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **create a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 ![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
+Step 5: Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
 
@@ -285,7 +280,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-6.Add the following code to create a new button.
+Step 6: Add the following code to create a new button.
 
 {% tabs %}
 
@@ -299,14 +294,13 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-7.Create a new async method with name as ``CreateWord`` and include the following code snippet to **create a Word document in Blazor** Client-Side application.
+Step 7: Create a new async method with name as ``CreateWord`` and include the following code snippet to **create a Word document in Blazor** Client-Side application.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
 @functions {
-
     async void CreateWord()
     {
         //Creating a new document
@@ -336,8 +330,8 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
         style.ParagraphFormat.Keep = true;
         style.ParagraphFormat.KeepFollow = true;
         style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-        IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+        IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
         paragraph.ApplyStyle("Normal");
         paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
         WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
@@ -352,7 +346,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
         textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
         textRange.CharacterFormat.FontSize = 18f;
         textRange.CharacterFormat.FontName = "Calibri";
-	
+
         //Appends paragraph
         paragraph = section.AddParagraph();
         paragraph.ParagraphFormat.FirstLineIndent = 36;
@@ -373,17 +367,15 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
         //Closes the Word document
         document.Close();
         stream.Position = 0;
-
         //Download the Word document in the browser
         JS.SaveAs("Sample.docx", stream.ToArray());
     }
 }
-
 {% endhighlight %}
 
 {% endtabs %}
 
-8.Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 8: Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
@@ -393,16 +385,16 @@ public static class FileUtils
 {
     public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
-           "saveAsFile",
-           filename,
-           Convert.ToBase64String(data));
+            "saveAsFile",
+            filename,
+            Convert.ToBase64String(data));
 }
 
 {% endhighlight %}
 
 {% endtabs %}
 
-9.Add the following JavaScript function in the Index.html file present under ``wwwroot``.
+Step 9: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
 
 {% tabs %}
 
@@ -435,16 +427,16 @@ public static class FileUtils
 
 {% endtabs %}
 
-10.Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+Step 10: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
 
 {% tabs %}
 
 {% highlight HTML %}
 
 <li class="nav-item px-3">
-     <NavLink class="nav-link" href="docio">
-         <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
-     </NavLink>
+    <NavLink class="nav-link" href="docio">
+        <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
+    </NavLink>
 </li>
 
 {% endhighlight %}

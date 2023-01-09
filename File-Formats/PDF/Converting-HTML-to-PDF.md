@@ -7,227 +7,307 @@ documentation: UG
 ---
 # Converting HTML to PDF
 
-Essential PDF supports converting HTML pages to PDF document. The converter offers full support for HTML tags, HTML5, CSS3, JavaScript, SVG and page breaks. The following are the three rendering engines:
+The HTML to PDF converter is a .NET library for converting webpages, SVG, MHTML, and HTML files to PDF using C#. It uses popular rendering engines such as Blink (Google Chrome) and is reliable and accurate. The result preserves all graphics, images, text, fonts, and the layout of the original HTML document or webpage.
 
-* WebKit rendering
-* Blink rendering
-* IE rendering
+Syncfusion HTML-to-PDF converter will work seamlessly in various platforms like Azure Cloud or web apps, Azure Functions, Amazon Web Service (AWS), Docker, WinForms, WPF, ASP.NET MVC, ASP.NET Core with Windows, Linux, and macOS.
 
-N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+## Key features for HTML Converter
 
-## Steps to download the HTML converter installer
+* Converts any [webpage to PDF](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-pdf).
+* Converts any raw [HTML string to PDF](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#html-string-to-pdf).
+* Converts [HTML form to fillable PDF form](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#html-form-to-pdf-form).
+* Automatically creates [Table of Contents](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#table-of-contents).
+* Automatically creates [bookmark hierarchy](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#bookmarks).
+* Converts only a [part of the web page to PDF](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#partial-webpage-to-pdf).
+* Supports PDF header and PDF footer.
+* Repeats HTML table header and footer in PDF.
+* Supports HTML5, CSS3, SVG, and Web fonts.
+* Converts any [HTML to an image](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-image).
+* Converts any [SVG to image](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#url-to-image).
+* Supports accessing HTML pages using both [HTTP POST and GET](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#http-get-and-post) methods.
+* Supports [HTTP cookies](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#form-authentication).
+* Supports [cookies-based form authentication](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#form-authentication).
+* Thread safe.
+* Supports internal and external [hyperlinks](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features#hyperlinks).
+* Sets document properties, page settings, security, viewer preferences, and more.
+* Protects PDF document with password and permission.
+* Compatible with .NET Framework 4.5 and above. 
+* Compatible with .NET Core 2.0 and above. 
 
+## Install HTML to PDF .NET library to your project
 
-* The latest version of Essential HTML converter can be downloaded from 
+Include the HTML to PDF converter in your project using two approaches. 
+* NuGet packages (Recommended)
+* Assemblies.  
 
-    [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
-	
+### NuGet Packages Required (Recommended)
 
-* Click more downloads option from the required product version. Refer to the following screenshot.  
-	![Download page](DocumentConversion_images/download_page.png)
-	
-* The HTML converter is available under the Add-On section. Refer to the following screenshot.
-	![HTML converter](DocumentConversion_images/htmlconverter.png)
+Directly install the NuGet packages to your .NET application from [nuget.org](https://www.nuget.org/).  
 
-	
-## Getting Started
-
-Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF conversion functionality, add the following assemblies as reference to the project.
+N> The HTML to PDF converter library internally uses the Blink rendering engine for the conversion. The binaries will differ for Windows, Linux, Mac, and AWS. So, separate packages are provided based on OS. Include the packages based on your requirement. 
 
 <table>
-  <tr>
-    <th>Assembly Name</th>
-    <th>Description</th>
-  </tr>
-    <tr>
-    <td>Syncfusion.HtmlConverter.Base</td>
-    <td>This is required for converting HTML to PDF.</td>
-  </tr>
-  <tr>
-    <td>Syncfusion.Pdf.Base</td>
-    <td>Contains the core feature for creating, manipulating, and saving PDF documents.</td>
-  </tr>
-  <tr>
-    <td>Syncfusion.Compression.Base</td>
-    <td>This is required for compressing the internal contents of a PDF document.</td>
-  </tr>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+(.NET Core, .NET 5, .NET 6) Windows
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Net.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+(.NET Core, .NET 5, .NET 6) Linux
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Net.Linux.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+(.NET Core, .NET 5, .NET 6) Mac
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Net.Mac.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+(.NET Core, .NET 5, .NET 6) AWS
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Net.Aws.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/)'| markdownify }}
+</td>
+</tr>
 </table>
 
-Include the following namespaces in your .cs or .vb file as follows.
+Use the following packages for .NET Framework targeted applications. If you are using other Syncfusion libraries or components, use the HTML to PDF converter library with the same platform packages.
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WinForms/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+</table>
+
+### Assemblies Required
+
+Get the following required assemblies by downloading the HTML converter installer. Download and install the HTML converter for [Windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/advanced-installation#windows), [Linux](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/advanced-installation#linux), and [Mac](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/advanced-installation#mac), respectively. Please refer to the [advanced installation](/file-formats/pdf/convert-html-to-pdf/advanced-installation) steps for more details. 
+
+<table>
+<tr>
+<thead>
+<th>
+Platforms</th>
+<th>
+Assemblies
+</th>
+</thead>
+</tr>
+<tr>
+<td> 
+WinForms
+WPF
+ASP.NET
+ASP.NET MVC
+</td>
+<td>
+<ul>
+<li>Syncfusion.Compression.Base.dll</li>
+<li>Syncfusion.Pdf.Base.dll</li>
+<li>Syncfusion.HtmlConverter.Base.dll</li>
+<li>Newtonsoft.Json package (v13.0.1 or above)</li>
+</ul>
+</td></tr>
+<tr>
+<td>
+.NET/.NET Core
+Blazor 
+</td>
+<td>
+<ul>
+<li>Syncfusion.Compression.Portable.dll</li>
+<li>Syncfusion.Pdf.Portable.dll</li>
+<li>Syncfusion.HtmlConverter.Portable.dll</li>
+<li>Newtonsoft.Json package (v13.0.1 or above)</li>
+</ul>
+</td></tr>
+</table>
+
+## Get Started with HTML to PDF conversion
+
+### Convert HTML to PDF in C# 
+
+Integrating HTML to PDF converter library in any .NET application is simple. Please refer to the following steps to include HTML to PDF conversion in your application. 
+
+<b>Steps to convert HTML to PDF in .NET application</b>
+
+Step 1: Create a new .NET console application.
+<img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample1.png" alt="Create .net core console sample" width="100%" Height="Auto"/>
+
+<img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample2.png" alt="Select target .net core version" width="100%" Height="Auto"/>
+
+Step 2: Install [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows) NuGet package as a reference to your .NET application from [NuGet.org](https://www.nuget.org/). 
+<img src="Convert-HTML-To-PDF/htmlconversion_images/createconsolesample3.png" alt="Install HTML to PDF converter .NET package" width="100%" Height="Auto"/>
+
+Step 3: Include the following namespace in your class file. 
+
+{% highlight c# tabtitle="C#" %}
+
+using Syncfusion.Pdf;
+using Syncfusion.HtmlConverter;
+
+{% endhighlight %}
+
+Step 4: Use the following code sample to convert the URL to PDF in the program.cs.
 
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
-using Syncfusion.Pdf;
-using Syncfusion.HtmlConverter;
-{% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-Imports Syncfusion.Pdf
-Imports Syncfusion.HtmlConverter
-{% endhighlight %}
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+//Create a filestream.
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-using Syncfusion.Pdf;
-using Syncfusion.HtmlConverter;
 {% endhighlight %}
 
 {% endtabs %}
 
-### Converting HTML to PDF using WebKit rendering engine
+By executing the program, you will get the PDF document as follows.
+<img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="htmltopdfoutput" width="100%" Height="Auto"/>
 
-To convert website URL or local HTML file to PDF using WebKit rendering engine, refer to the following code snippet. Click the following link for more details to convert the HTML to PDF using WebKit rendering engine.
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/.NET).
 
-[Conversion using WebKit Rendering](/file-formats/pdf/convert-html-to-pdf/webkit "Conversion using WebKit Rendering")
+### Convert HTML to PDF in Linux
+
+HTML to PDF converter .NET library supports conversion in Linux. Refer to [this](/file-formats/pdf/convert-html-to-pdf/linux) section for more information about HTML to PDF conversion in Linux.
+
+### Convert HTML to PDF in Docker
+
+HTML to PDF converter .NET library supports conversion in Docker. Refer to [this](/file-formats/pdf/convert-html-to-pdf/docker) section for more information about HTML to PDF conversion in Docker. 
+
+### Convert HTML to PDF in Mac
+
+HTML to PDF converter .NET library supports conversion in Mac. Refer to [this](/file-formats/pdf/convert-html-to-pdf/mac) section for more information about HTML to PDF conversion in Mac. 
+
+### Convert HTML to PDF in ASP.NET Core
+
+HTML to PDF converter .NET library supports conversion in ASP.NET Core. Refer to [this](/file-formats/pdf/convert-html-to-pdf/net-core) section for more information about HTML to PDF conversion in ASP.NET Core. 
+
+### Convert HTML to PDF in ASP.NET MVC
+HTML to PDF converter .NET library supports conversion in ASP.NET MVC. Refer to [this](/file-formats/pdf/convert-html-to-pdf/aspnet-mvc) section for more information about HTML to PDF conversion in ASP.NET MVC.
+
+### Convert HTML to PDF in Blazor
+HTML to PDF converter .NET library supports conversion in Blazor. Refer to [this](/file-formats/pdf/convert-html-to-pdf/blazor) section for more information about HTML to PDF conversion in Blazor.
+
+### Convert HTML to PDF in Azure
+HTML to PDF converter .NET library supports conversion in Azure. Refer to [this](/file-formats/pdf/convert-html-to-pdf/azure) section for more information about HTML to PDF conversion in Azure.
+
+### Convert HTML to PDF in AWS
+HTML to PDF converter .NET library supports conversion in AWS. Refer to [this](/file-formats/pdf/convert-html-to-pdf/aws) section for more information about HTML to PDF conversion in AWS.
+
+## Features
+
+Refer to [this](/file-formats/pdf/convert-html-to-pdf/features) section for more information about features in HTML to PDF converter, you can get the details, code examples and demo from this section. 
+
+## Troubleshooting and FAQ
+
+Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting) section for troubleshooting HTML to PDF conversion failures and frequently asked questions.
+
+## Steps to disable WebKit warning while performing HTML to PDF
+
+By default, the PDF document generated with the WebKit rendering engine comes with the following warning message.
+
+<img src="Convert-HTML-To-PDF/htmlconversion_images/WebKitWarning.png" alt="WebKitWarning" width="100%" Height="Auto"/>
+
+Please refer to the below code snippet to use the DisableWebKitWarning API to remove the default WebKit warning message from the PDF document.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the HTML to PDF converter 
+//Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-
+//Initialize the WebKit converter settings
+WebKitConverterSettings settings = new WebKitConverterSettings();
+//Disable WebKit warning message
+settings.DisableWebKitWarning = true;
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 
 //Save and close the PDF document 
-document.Save("Output.pdf");
-
+document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-
-'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
-
-'Save and close the PDF document 
-document.Save("Output.pdf")
-
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize the HTML to PDF converter 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-            
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
-{% endtabs %}
-
-### Converting HTML to PDF using Blink rendering engine
-
-To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet. Click the following link for more details to convert the HTML to PDF using Blink rendering engine.
-
-[Conversion using Blink Rendering](/file-formats/pdf/convert-html-to-pdf/blink "Conversion using Blink Rendering")
-
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
-
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-//Save and close the PDF document 
-document.Save("Output.pdf");
-
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
-
-'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
-
-'Save and close the PDF document 
-document.Save("Output.pdf")
-
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
-{% endtabs %}
-
-### Converting HTML to PDF using IE rendering engine
-
-To convert website URL or local HTML file to PDF using IE rendering engine, refer to the following code snippet. Click the following link for more details to convert the HTML to PDF using IE rendering engine.
-
-[Conversion using IE Rendering](/file-formats/pdf/convert-html-to-pdf/ie "Conversion using IE Rendering")
-
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
-
-//Initialize the HTML to PDF converter 
- HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.IE);
-
-IEConverterSettings settings = new IEConverterSettings();
-            
-//Assign IE settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-//Save and close the PDF document 
-document.Save("Output.pdf");
-
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Initialize the HTML to PDF converter 
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
-
-Dim settings As New IEConverterSettings()
-
-'Assign IE settings to HTML converter
+Dim settings As New WebKitConverterSettings()
+'Disable Default WebKit Warning Message
+settings.DisableWebKitWarning = true
+'Assign WebKit settings to HTML converter
 htmlConverter.ConverterSettings = settings
-
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 
 'Save and close the PDF document 
 document.Save("Output.pdf")
-
 document.Close(True)
 
 {% endhighlight %}
@@ -238,12 +318,13 @@ document.Close(True)
 
 {% endtabs %}
 
-### Steps to disable IE warning while performing HTML To PDF using the IE rendering engine
+N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf) engine for best quality and accuracy in HTML to PDF conversion.
+
+## Steps to disable IE warning while performing HTML To PDF using the IE rendering engine
 
 By default, the PDF document generated with the IE rendering engine comes with the following warning message.
 
-![IEWarning message in the PDF Document](Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png)
-
+<img src="Convert-HTML-To-PDF/htmlconversion_images/IEWarning.png" alt="IEWarning" width="100%" Height="Auto"/>
 Please refer to the below code snippet to use the DisableIEWarning API to remove the default IE warning from the PDF document.
 
 {% tabs %}
@@ -252,46 +333,34 @@ Please refer to the below code snippet to use the DisableIEWarning API to remove
 
 //Initialize the HTML to PDF converter 
  HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.IE);
-
 IEConverterSettings settings = new IEConverterSettings();
-
 //Disable Default IE warning message.
-settings.DisableIEWarning = true;
-            
+settings.DisableIEWarning = true;      
 //Assign IE settings to HTML converter
 htmlConverter.ConverterSettings = settings;
-
 //Convert URL to PDF
 PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document 
 document.Save("Output.pdf");
-
 document.Close(true);
-
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Initialize the HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
-
 Dim settings As New IEConverterSettings()
-
 'Disable Default IE Warning Message
 settings.DisableIEWarning = true
-
 'Assign IE settings to HTML converter
 htmlConverter.ConverterSettings = settings
-
 'Convert URL to PDF
 Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 
 'Save and close the PDF document 
 document.Save("Output.pdf")
-
 document.Close(True)
-
 
 {% endhighlight %}
 
@@ -301,313 +370,4 @@ document.Close(True)
 
 {% endtabs %}
 
-N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/blink) or [WebKit](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) engines to improve the quality and accuracy of the HTML to PDF conversion.
-
-## Steps to apply the patch for HTML converter.
-
-Download and extract the patch provided in the incident. Before applying the patch assemblies, the older assemblies should be removed from the GAC.
-
-
-N> You can uninstall or remove the specific version assemblies in GAC using the Syncfusion Assembly Manager Utility. Refer to the following Assembly Manager Documentation link for more information.
-https://help.syncfusion.com/common/essential-studio/utilities#assembly-manager
-
-
-### Steps to replace the patch assemblies, if a customer using the HTML converter installer
-
-This patch should replace the files HTML Converter patch assemblies under the following folder.
-
-$system drive:\ Files\Syncfusion\Essential Studio\$Version # \precompiledassemblies\$Version#\4.6
-
-Eg: $system drive:\Program Files\Syncfusion\Essential Studio\XX.X.X.XX\precompiledassemblies\XX.X.X.XX\4.6
-
-The provided patch assembly should be used in your application. 
-
-### Steps to replace the patch assemblies, if a customer using NuGet packages
-
-1.	Uninstall the HTML to PDF converter NuGet package from the application.
-2.	Download and extract the provided patch NuGet package. 
-3.	Now, you can install the required package in the .NET Framework or .Net Core application by using the NuGet package manager.
-4.	Refer to this documentation link for installing NuGet packages.
-
-### Steps to update patch for QtBinaries or BinkBinaries folders
-
-1.	Download and extract the Patch file for QtBinaries or BlinkBinaries folder. 
-2.	Copy the files from the Patch folder and replace or copy the files into the existing QtBinaries or BlinkBinaries folder.
-3.	The patch applied QtBinaries or BlinkBinaries should be used in the applications to resolve the issue or the latest features. 
-
-<b>WebKit</b>
-Eg: $system drive:\Program Files\Syncfusion\HTMLConverter\version\QtBinaries\
-
-<b>Blink</b>
-Eg: $system drive:\Program Files\Syncfusion\HTMLConverter\version\BlinkBinaries\
-
-## Supported and Unsupported Features by Rendering Engines
-
-The following table shows the WebKit, Blink and IE rendering engines supported features:
-
-
-<table>
-<th style="font-size:14px">Feature</th>
-<th style="font-size:14px">WebKit Renderer</th>
-<th style="font-size:14px">Blink Renderer</th>
-<th style="font-size:14px">IE Renderer</th>
-<tr>
-<td>Convert URLs to PDF</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Convert HTML string to PDF</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Images</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Hyperlinks</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>CSS</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>JavaScript</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>ActiveX plugin</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>HTML 5</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Page breaks</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Vector Graphics (Selectable/searchable text)</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td>HTML 5 pages are rendered as bitmap.</td>
-</tr>
-
-<tr>
-<td>Handling image and text split across pages</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Pdf A1-B</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Tagged PDF</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Page settings</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Header and Footer</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Windows Authentication</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Form Authentication</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>HTML to Image</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>HTML to SVG</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>HTML to MHTML</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>SVG to PDF</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>HTML Form to PDF Form</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>HTTP GET and POST</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Partial HTML to PDF</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Bookmarks</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Repeat HTML Table Header and Footer</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Works only with print media)</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Auto Create Table of Contents</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Windows status</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Print Media Type</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Offline mode conversion</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>System proxy</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Manual proxy</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Azure App Service</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Except free and shared plan)</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Works in Azure App Service on Linux)</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Azure Cloud Service</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-</tr>
-
-<tr>
-<td>Azure Function</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Except consumption plan)</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Works in Azure Function on Linux)</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>Azure App Service with Linux docker</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-<tr>
-<td>AWS Lambda</td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
-</tr>
-
-</table>
+N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf) engine to improve the quality and accuracy of the HTML to PDF conversion.

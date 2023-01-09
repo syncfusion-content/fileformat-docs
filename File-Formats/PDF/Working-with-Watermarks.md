@@ -234,6 +234,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Adding-text-watermark-in-PDF-document).
+
 The following screenshot shows the output of adding text watermark to PDF document. 
 
 ![watermark](Watermark_images/Watermark_img1.png)
@@ -463,6 +465,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Add-text-watermark-in-an-existing-PDF-document/).
+
 The following screenshot shows the output of adding text watermark to an existing PDF document. 
 
 ![watermark](Watermark_images/Watermark_img2.png)
@@ -489,7 +493,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Image watermark.
 
-PdfImage image = new PdfBitmap("GifImage.gif");
+PdfImage image = new PdfBitmap("Image.jpeg");
 
 PdfGraphicsState state = graphics.Save();
 
@@ -519,7 +523,7 @@ Dim graphics As PdfGraphics = pdfPage.Graphics
 
 'Image watermark.
 
-Dim image As PdfImage = New PdfBitmap("GifImage.gif")
+Dim image As PdfImage = New PdfBitmap("Image.jpeg")
 
 Dim state As PdfGraphicsState = graphics.Save()
 
@@ -549,7 +553,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Load the image as stream.
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.GifImage.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.jpeg");
 
 //Image watermark.
 
@@ -591,7 +595,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Load the image as stream.
 
-FileStream imageStream = new FileStream("GifImage.gif", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("Image.jpeg", FileMode.Open, FileAccess.Read);
 
 //Image watermark.
 
@@ -643,7 +647,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Load the image as stream.
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.GifImage.gif ");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpeg ");
 
 PdfImage image = new PdfBitmap(imageStream);
 
@@ -680,6 +684,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Adding-image-watermark-in-PDF-document).
+
 The following screenshot shows the output of adding image watermark to PDF document. 
 
 ![watermark](Watermark_images/Watermark_img3.jpg)
@@ -700,7 +706,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Image watermark.
 
-PdfImage image = new PdfBitmap("GifImage.gif");
+PdfImage image = new PdfBitmap("Image.jpeg");
 
 PdfGraphicsState state = graphics.Save();
 
@@ -728,7 +734,7 @@ Dim graphics As PdfGraphics = loadedPage.Graphics
 
 'Image watermark.
 
-Dim image As PdfImage = New PdfBitmap("GifImage.gif")
+Dim image As PdfImage = New PdfBitmap("Image.jpeg")
 
 Dim state As PdfGraphicsState = graphics.Save()
 
@@ -770,7 +776,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Load the image as stream
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.GifImage.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.jpeg");
 
 //Image watermark.
 
@@ -812,7 +818,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Load the image file as stream
 
-FileStream imageStream = new FileStream("GifImage.gif", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("Image.jpeg", FileMode.Open, FileAccess.Read);
 
 PdfImage image = new PdfBitmap(imageStream);
 
@@ -862,7 +868,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Load the image as stream.
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.GifImage.gif");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpeg");
 
 PdfImage image = new PdfBitmap(imageStream);
 
@@ -898,6 +904,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Draw-the-image-watermark-in-an-existing-PDF-document).
 
 The following screenshot shows the output of adding image watermark to an existing PDF document. 
 

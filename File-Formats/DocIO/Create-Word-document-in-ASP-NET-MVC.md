@@ -12,17 +12,17 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/w
 
 ## Steps to create Word document programmatically:
 
-1.Create a new ASP.NET MVC application project.
+Step 1: Create a new ASP.NET MVC application project.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/CreateProject.png)
 
-2.Install the [Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 2: Install the [Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO ASP.NET MVC NuGet package](ASP-NET-MVC_images/Install_Nuget.jpg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-3.Include the following namespace in that HomeController.cs file.
+Step 3: Include the following namespace in that HomeController.cs file.
 
 {% tabs %}
 
@@ -37,9 +37,9 @@ using System.Drawing;
 
 {% endtabs %}
 
-4.A default action method named **Index** will be present in HomeController.cs. Right click on this action method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
+Step 4: A default action method named **Index** will be present in HomeController.cs. Right click on this action method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
-5.Add a new button in the Index.cshtml as shown below.
+Step 5: Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}
 
@@ -58,7 +58,7 @@ Html.EndForm();
 
 {% endtabs %}
 
-6.Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
+Step 6: Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
 
 {% tabs %}
 
@@ -91,8 +91,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 IWPicture picture = paragraph.AppendPicture(new Bitmap("AdventureCycle.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -138,12 +138,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -170,7 +170,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -237,7 +236,6 @@ picture.HeightScale = 75;
 paragraph = table[2, 0].AddParagraph();
 paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.LineSpacing = 12f;
-	
 //Appends picture to the paragraph.
 picture = paragraph.AppendPicture(new Bitmap("Road-550-W.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -274,7 +272,7 @@ textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
 //Appends paragraph.
 section.AddParagraph();
-	
+
 //Saves the Word document to disk in DOCX format
 document.Save("Sample.docx", FormatType.Docx, HttpContext.ApplicationInstance.Response, HttpContentDisposition.Attachment);
 
