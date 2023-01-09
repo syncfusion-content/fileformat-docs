@@ -129,6 +129,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Clone-PowerPoint-presentation).
+
 ## Printing a PowerPoint presentation
 
 You can print the Presentation document by converting the PowerPoint presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](/file-formats/presentation/getting-started). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx) class to print the converted images by the default printer or to any of the available printer with customized settings.
@@ -290,6 +292,8 @@ End Sub
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Print-PowerPoint-presentation).
+
 ## Working with PowerPoint presentation properties
 
 Document properties, also known as meta data, are details about a file that describe or identify it. Document properties are classified into two categories. 
@@ -328,6 +332,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Access-built-in-document-properties).
 
 The following code example demonstrates how to modify the existing built in document property
 
@@ -418,6 +424,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Modify-built-in-document-properties).
 
 ## Custom Document properties
 
@@ -530,6 +538,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Add-custom-document-properties).
+
 ### Accessing and Modifying Custom Document Properties
 
 The following code example demonstrates how to access and modify an existing custom document property:
@@ -625,6 +635,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Modify-custom-document-properties).
+
 ## Marking a PowerPoint presentation as final
 
 PowerPoint presentation can be made read-only to prevent the readers from making inadvertent changes to it. However, making presentation as final is not a security feature. Anyone can disable the final status and edit the presentation.
@@ -713,3 +725,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Mark-as-final).

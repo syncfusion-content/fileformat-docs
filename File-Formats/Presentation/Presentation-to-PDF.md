@@ -22,6 +22,7 @@ using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.Presentation;
 using Syncfusion.PresentationToPdfConverter;
 using Syncfusion.Pdf;
+
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
@@ -127,11 +128,10 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
-N> 1. PowerPoint Presentation to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application. 
-N> 2. Creating an instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
-N> 3. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
-N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
-N> 5. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
+N> 1. Creating an instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
+N> 2. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
+N> 3. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS (Federal Information Processing Standard) algorithm policy.
+N> 4. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
 
 N> 1. To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Presentation to PDF conversion.
 N> 2. Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) Forms platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) code examples for it. But in Mac and Linux environment, using the WPF or Windows Forms platform NuGet packages have limitations.
@@ -1099,6 +1099,7 @@ pdfDoc.Close()
 ## Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images in the PowerPoint presentation document during PDF conversion.
+
 This property is recommended to resolve the scaling problem of the nested metafile images by regenerating the nested metafile images present in the PowerPoint presentation document.
 
 The following code sample shows how to use this property to regenerate the nested EMF images in the PowerPoint presentation document during PDF conversion.
@@ -1295,8 +1296,8 @@ using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStr
 
 The Presentation library provides an option to decide the quality of the charts to optimize the converted PDF document size. 
 
-N> 1. The default 'ScalingMode' for charts is 'ScalingMode.Normal'. 
-N> 2. Setting the 'Best' scaling mode will improve the quality of the converted charts and increase the converted PDF document size.
+N> 1. The default [ScalingMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_ScalingMode) for charts is [ScalingMode.Normal](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.ScalingMode.html). 
+N> 2. Setting the [Best](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.ScalingMode.html) scaling mode will improve the quality of the converted charts and increase the converted PDF document size.
 
 The following code sample demonstrates how to set the quality of the charts while PowerPoint presentation to PDF conversion
 
