@@ -8,7 +8,7 @@ keywords: sections in PowerPoint presentation
 ---
 # Working with Sections in PowerPoint Library
 
-Sections helps to manage the slides of a PowerPoint presentation. If a presentation has many slides, you can organize the slides using sections to make the navigation easier.
+[Sections](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Sections) helps to manage the slides of a PowerPoint presentation. If a presentation has many slides, you can organize the slides using sections to make the navigation easier.
 
 ## Creating a section 
 

@@ -1256,9 +1256,9 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ## Remove Headers and Footers from Title Slides
 
-Essential Presentation library facilitates removing Footers from all the Title slides in the PowerPoint Presentation. 
+Essential Presentation library facilitates removing Footers from all the [Title](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.SlideLayoutType.html) slides in the PowerPoint Presentation. 
 
-The following code example demonstrates how to remove Footers from all the Title slides in the presentation.
+The following code example demonstrates how to remove Footers from all the [Title](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.SlideLayoutType.html) slides in the presentation.
 
 {% tabs %}
 

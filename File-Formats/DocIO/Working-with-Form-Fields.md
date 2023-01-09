@@ -11,9 +11,9 @@ You can create template document with form fields such as Text, Checkbox and Dro
 
 The following are the types of form field in the Word document
 
-* Checkbox – represented by an instance of WCheckBox
-* Drop-down – represented by an instance of WDropDownFormField
-* Text input – represented by an instance of WTextFormField
+* Checkbox – represented by an instance of [WCheckBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WCheckBox.html)
+* Drop-down – represented by an instance of [WDropDownFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WDropDownFormField.html)
+* Text input – represented by an instance of [WTextFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextFormField.html)
 
 
 ## Check Box

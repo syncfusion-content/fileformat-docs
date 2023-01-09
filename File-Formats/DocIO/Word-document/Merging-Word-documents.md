@@ -114,7 +114,7 @@ In the resultant document, the imported contents start from a new page followed 
 
 ## Merge document in same page
 
-When your requirement is to append the contents from the same page instead of starting from a new page, you need to set the break code of first section of Source document as NoBreak. The following code example illustrates the importing contents from the same page.
+When your requirement is to append the contents from the same page instead of starting from a new page, you need to set the break code of first section of Source document as [NoBreak](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SectionBreakCode.html). The following code example illustrates the importing contents from the same page.
 
 {% tabs %}
 
