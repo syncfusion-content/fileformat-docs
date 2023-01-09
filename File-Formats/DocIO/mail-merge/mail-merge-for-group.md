@@ -18,9 +18,8 @@ The region where the Mail merge operations are to be performed must be marked by
 
   * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region.
 
-  1.*TableStart* and *TableEnd* region is preferred for performing Mail merge inside the table cell.
-
-  2.*BeginGroup* and *EndGroup* region is preferred for performing Mail merge inside the document body contents.
+  1. *TableStart* and *TableEnd* region is preferred for performing Mail merge inside the table cell.
+  2. *BeginGroup* and *EndGroup* region is preferred for performing Mail merge inside the document body contents.
 
 For example, consider that you have a template document as shown.
 

@@ -55,7 +55,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Opening an existing Presentation from stream
 
-You can open an existing PowerPoint Presentation from stream by using the overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.Presentation.html#Syncfusion_Presentation_Presentation_Open_System_IO_Stream_System_String_) method.
+You can open an existing PowerPoint Presentation from stream by using the overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.Presentation.html#Syncfusion_Presentation_Presentation_Open_System_IO_Stream_) method.
 
 {% tabs %}
 

@@ -330,7 +330,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 {% endtabs %}
   
-The following code example shows how to bind the image from file system during Mail merge process by using [MergeImageFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html).
+The following code example shows how to bind the image from file system during Mail merge process by using [MergeImageFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeImageFieldEventHandler.html).
 
 {% tabs %}
 

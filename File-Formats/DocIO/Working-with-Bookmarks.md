@@ -10,7 +10,6 @@ documentation: UG
 A bookmark identifies a location or a selection of text within a document that you can name and identify for future reference.
 
 In Essential DocIO, bookmark is represented by [Bookmark](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Bookmark.html) instance that is a pair of [BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html).
-
 [BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) represents start point of a bookmark and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html) represents end point of a bookmark. Every Word document contains a collection of bookmarks that are accessible through the [Bookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Bookmarks) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class.
 
 ## Adding a bookmark
