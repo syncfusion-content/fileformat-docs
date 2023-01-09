@@ -3337,7 +3337,7 @@ The following code example explains how to validate all the signatures in digita
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
 //X509Certificate2Collection to check the signer's identity using root certificates
-X509CertificateCollection collection = new X509CertificateCollection();
+X509Certificate2Collection collection = new X509Certificate2Collection();
 //Create new X509Certificate2 with the root certificate
 X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "password123");
 //Add the certificate to the collection
@@ -3357,7 +3357,7 @@ loadedDocument.Close(true);
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
 'X509Certificate2Collection to check the signer's identity using root certificates
-Dim collection As X509CertificateCollection = New X509CertificateCollection()
+Dim collection As X509Certificate2Collection = New X509Certificate2Collection()
 'Create new X509Certificate2 with the root certificate
 Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "password123")
 'Add the certificate to the collection
@@ -3379,7 +3379,7 @@ Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResou
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
 
 //X509Certificate2Collection to check the signer's identity using root certificates
-X509CertificateCollection collection = new X509CertificateCollection();
+X509Certificate2Collection collection = new X509Certificate2Collection();
 //Creates a certificate instance from PFX file with private key
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
 byte[] data = new byte[certificateStream.Length];
@@ -3405,8 +3405,7 @@ FileStream documentStream = new FileStream("Input.pdf", FileMode.Open, FileAcces
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
 
 //X509Certificate2Collection to check the signer's identity using root certificates
-X509CertificateCollection collection = new X509CertificateCollection();
-
+X509Certificate2Collection collection = new X509Certificate2Collection();
 //Creates a certificate instance from PFX file with private key
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 byte[] data = new byte[certificateStream.Length];
@@ -3432,7 +3431,7 @@ Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResou
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
 
 //X509Certificate2Collection to check the signer's identity using root certificates
-X509CertificateCollection collection = new X509CertificateCollection();
+X509Certificate2Collection collection = new X509Certificate2Collection();
 //Creates a certificate instance from PFX file with private key
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 byte[] data = new byte[certificateStream.Length];
