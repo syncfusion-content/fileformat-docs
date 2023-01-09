@@ -9,7 +9,7 @@ documentation: UG
 
 ## Creating a Chart from scratch
 
-An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint Presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
+An instance of [IOfficeChart](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeChart.html) can be used to create or modify the charts in PowerPoint Presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
 
 {% tabs %}
 
@@ -304,6 +304,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-PowerPoint-chart).
+
 ## Creating charts from excel sheet
 
 You can also create a chart with the data from an existing excel worksheet. The following code example demonstrates the same.
@@ -403,11 +405,13 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-chart-from-excel-sheet).
+
 ## Creating Custom Charts 
 
 Essential Presentation facilitates you to create custom charts by adding different charts series for a single chart. 
 
-For example, you can use a Bar- clustered chart for the first data series and a scatter- line- marker chart for the second series. As a result, you can have a Bar-clustered chart combined with a scatter-line-marker chart.
+For example, you can use a Bar-clustered chart for the first data series and a scatter-line-marker chart for the second series. As a result, you can have a Bar-clustered chart combined with a scatter-line-marker chart.
 
 The following code example demonstrates how to create custom charts.
 
@@ -719,6 +723,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-customized-chart).
+
 The above code example creates a chart in the following screenshot.
 
 ![PowerPoint Example Chart1](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
@@ -825,6 +831,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Refresh-PowerPoint-chart).
 
 ## Editing the Chart Data
 
@@ -987,6 +995,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Edit-chart-data).
+
 ## Customizing the chart
 
 ### Chart Basics
@@ -1038,7 +1048,6 @@ chartArea.Border.LineColor = Color.Blue;
 //Weight
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 //Chart Area Settings
-
 //Fill Effects
 chartArea.Fill.FillType = OfficeFillType.Gradient;
 //Two Color
@@ -1049,7 +1058,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1090,18 +1098,14 @@ chart__2.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNon
 chart__2.HasDataTable = True
 'Formats Chart Area.
 Dim chartArea As IOfficeChartFrameFormat = chart__2.ChartArea
-
 'Chart Area Border Settings
-
 'Style
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid
 'Color
 chartArea.Border.LineColor = Color.Blue
 'Weight
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline
-
 'Chart Area Settings
-
 'Fill Effects
 chartArea.Fill.FillType = OfficeFillType.Gradient
 'Two Color
@@ -1153,7 +1157,6 @@ chart.HasDataTable = true;
 //Formats Chart Area.
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 //Chart Area Border Settings
-
 //Style
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1171,7 +1174,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1236,7 +1238,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1297,7 +1298,6 @@ chartArea.Fill.ForeColor = Color.White;
 //Plot Area
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 //Color
@@ -1326,6 +1326,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Modify-chart-appearance).
 
 ### Modifying the Plot and Legends of chart
 
@@ -1708,6 +1710,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Modify-chart-legend-and-plot-areas).
+
 ### Positioning Chart Elements
 
 The following code examples illustrate how to position the different chart elements.
@@ -1721,20 +1725,17 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 IPresentationChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
 //Sets the data range of chart
 chart.DataRange = chart.ChartData[1, 2, 4, 3];
-
 //Sets data to the chart- RowIndex, columnIndex and data
 chart.ChartData.SetValue(1, 2, "2012");
 chart.ChartData.SetValue(2, 2, 330);
 chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
-
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -1758,21 +1759,17 @@ Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 Dim chart As IPresentationChart = slide.Shapes.AddChart(100, 120, 500, 300)
 'Sets the data range of chart
 chart.DataRange = chart.ChartData(1, 2, 4, 3)
-
 'Sets data to the chart- RowIndex, columnIndex, and data
 chart.ChartData.SetValue(1, 2, "2012")
 chart.ChartData.SetValue(2, 2, 330)
 chart.ChartData.SetValue(3, 2, 490)
 chart.ChartData.SetValue(4, 2, 700)
 chart.ChartType = OfficeChartType.Area
-
 'Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
 'Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto
 chart.PlotArea.Layout.TopMode = LayoutModes.factor
 'Value in points should not be negative value, when LayoutMode is Edge
-
 'It can be negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10
 chart.ChartTitleArea.Layout.Top = 100
@@ -1803,12 +1800,10 @@ chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -1844,12 +1839,10 @@ chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -1881,12 +1874,10 @@ chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
 //Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
 //Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
@@ -1912,6 +1903,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Positioning-chart-elements).
 
 ## Applying 3D Formats
 
@@ -2050,6 +2043,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Apply-chart-3D-formats).
+
 ## Chart to Image conversion
 
 The following code example demonstrates how to convert the charts in a Presentation slide to image.
@@ -2108,6 +2103,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Convert-chart-to-image).
 
 ## Removing the chart from slide
 
@@ -2216,6 +2213,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Remove-existing-chart).
+
 ## Creating a Scatter chart
 
 The following code example demonstrates creating a Scatter chart.
@@ -2234,7 +2233,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data  
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");  
 chart.ChartData.SetValue(1, 2, "Y-Axis");  
@@ -2271,7 +2269,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers
 'Assign data  
 chart.DataRange = chart.ChartData[1, 1, 4, 2]  
 chart.IsSeriesInRows = false  
-
 'Set data to the chart RowIndex, columnIndex, and data
 chart.ChartData.SetValue(1, 1, "X-Axis")  
 chart.ChartData.SetValue(1, 2, "Y-Axis")  
@@ -2281,7 +2278,6 @@ chart.ChartData.SetValue(4, 1, 10)
 chart.ChartData.SetValue(2, 2, 10)
 chart.ChartData.SetValue(3, 2, 5)
 chart.ChartData.SetValue(4, 2, 1)
-
 'Apply chart elements
 'Set chart title
 chart.ChartTitle = "Scatter Markers Chart"
@@ -2309,7 +2305,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data  
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");  
 chart.ChartData.SetValue(1, 2, "Y-Axis");  
@@ -2319,7 +2314,6 @@ chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);  
 chart.ChartData.SetValue(3, 2, 5);  
 chart.ChartData.SetValue(4, 2, 1);
-
 //Apply chart elements
 //Set chart title  
 chart.ChartTitle = "Scatter Markers Chart";
@@ -2352,7 +2346,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");
 chart.ChartData.SetValue(1, 2, "Y-Axis");
@@ -2362,7 +2355,6 @@ chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);
 chart.ChartData.SetValue(3, 2, 5);
 chart.ChartData.SetValue(4, 2, 1);
-
 //Apply chart elements
 //Set chart title
 chart.ChartTitle = "Scatter Markers Chart";  
@@ -2391,7 +2383,6 @@ chart.ChartType = OfficeChartType.Scatter_Markers;
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 4, 2];
 chart.IsSeriesInRows = false;  
-
 //Set data to the chart RowIndex, columnIndex, and data  
 chart.ChartData.SetValue(1, 1, "X-Axis");
 chart.ChartData.SetValue(1, 2, "Y-Axis");
@@ -2401,7 +2392,6 @@ chart.ChartData.SetValue(4, 1, 10);
 chart.ChartData.SetValue(2, 2, 10);
 chart.ChartData.SetValue(3, 2, 5);
 chart.ChartData.SetValue(4, 2, 1);
-
 //Apply chart elements
 //Set chart title
 chart.ChartTitle = "Scatter Markers Chart";
@@ -2427,13 +2417,15 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-scatter-chart).
+
 ## PowerPoint 2016 Charts
 
 Essential Presentation supports creating and manipulating new and modern chart types such as waterfall, histogram, pareto, box and whisker, tree map, and sunburst, which are introduced in Microsoft PowerPoint 2016.
 
 ### Funnel
 
-[Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process. Refer to the following code example to create a Funnel chart.
+[Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process. Refer to the following code example to create a [Funnel](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2449,7 +2441,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Assign data
     chart.DataRange = chart.ChartData[1, 1, 6, 2];
     chart.IsSeriesInRows = false;
-
     //Set data
     chart.ChartData.SetValue(1, 1, "Web sales");
     chart.ChartData.SetValue(1, 2, "Users count");
@@ -2463,13 +2454,11 @@ using (IPresentation pptxDoc = Presentation.Create())
     chart.ChartData.SetValue(5, 2, "2000");
     chart.ChartData.SetValue(6, 1, "Finalized");
     chart.ChartData.SetValue(6, 2, "1000");
-
     //Formatting the legend and data label option
     chart.HasLegend = false;
     IOfficeChartSerie serie = chart.Series[0];
     chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
     chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
     //Save and close the presentation
     pptxDoc.Save("FunnelChart.pptx");
     pptxDoc.Close();
@@ -2489,7 +2478,6 @@ chart.ChartTitle = "Funnel"
 'Assign data
 chart.DataRange = chart.ChartData(1, 1, 6, 2)
 chart.IsSeriesInRows = False
-
 'Set data
 chart.ChartData.SetValue(1, 1, "Web sales")
 chart.ChartData.SetValue(1, 2, "Users count")
@@ -2503,13 +2491,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent")
 chart.ChartData.SetValue(5, 2, "2000")
 chart.ChartData.SetValue(6, 1, "Finalized")
 chart.ChartData.SetValue(6, 2, "1000")
-
 'Formatting the legend and data label option
 chart.HasLegend = False
 Dim serie As IOfficeChartSerie = chart.Series(0)
 chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
-
 'Save and close the presentation
 pptxDoc.Save("FunnelChart.pptx")
 pptxDoc.Close()
@@ -2529,7 +2515,6 @@ chart.ChartTitle = "Funnel";
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 6, 2];
 chart.IsSeriesInRows = false;
-
 //Set data
 chart.ChartData.SetValue(1, 1, "Web sales");
 chart.ChartData.SetValue(1, 2, "Users count");
@@ -2543,13 +2528,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent");
 chart.ChartData.SetValue(5, 2, "2000");
 chart.ChartData.SetValue(6, 1, "Finalized");
 chart.ChartData.SetValue(6, 2, "1000");
-
 //Formatting the legend and data label option
 chart.HasLegend = false;
 IOfficeChartSerie serie = chart.Series[0];
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -2575,7 +2558,6 @@ chart.ChartTitle = "Funnel";
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 6, 2];
 chart.IsSeriesInRows = false;
-
 //Set data
 chart.ChartData.SetValue(1, 1, "Web sales");
 chart.ChartData.SetValue(1, 2, "Users count");
@@ -2589,13 +2571,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent");
 chart.ChartData.SetValue(5, 2, "2000");
 chart.ChartData.SetValue(6, 1, "Finalized");
 chart.ChartData.SetValue(6, 2, "1000");
-
 //Formatting the legend and data label option
 chart.HasLegend = false;
 IOfficeChartSerie serie = chart.Series[0];
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
 //Save and close the presentation
 pptxDoc.Save("FunnelChart.pptx");
 pptxDoc.Close();
@@ -2615,7 +2595,6 @@ chart.ChartTitle = "Funnel";
 //Assign data
 chart.DataRange = chart.ChartData[1, 1, 6, 2];
 chart.IsSeriesInRows = false;
-
 //Set data
 chart.ChartData.SetValue(1, 1, "Web sales");
 chart.ChartData.SetValue(1, 2, "Users count");
@@ -2629,13 +2608,11 @@ chart.ChartData.SetValue(5, 1, "Invoice sent");
 chart.ChartData.SetValue(5, 2, "2000");
 chart.ChartData.SetValue(6, 1, "Finalized");
 chart.ChartData.SetValue(6, 2, "1000");
-
 //Formatting the legend and data label option
 chart.HasLegend = false;
 IOfficeChartSerie serie = chart.Series[0];
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.
@@ -2652,13 +2629,15 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-funnel-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint Funnel Chart](WorkingwithCharts_images/Funnel.png)
 
 ### Box and Whisker
 
-[Box and Whisker](https://support.office.com/en-us/article/Create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d#) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis. Refer to the following code example to create the Box and Whisker chart.
+[Box and Whisker](https://support.office.com/en-us/article/Create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d#) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis. Refer to the following code example to create the [Box and Whisker](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 
@@ -2706,7 +2685,6 @@ private static void TestBox_Whisker()
         pptxDoc.Close();
     }
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>
@@ -2837,7 +2815,6 @@ Sub TestBoxAndWhiskerChart()
     pptxDoc.Save("BoxAndWhisker.pptx")
     pptxDoc.Close()
 End Sub
-
 ''' <summary>
 ''' Set the values for the chart
 ''' </summary>
@@ -2971,13 +2948,11 @@ private static void TestBox_Whisker()
     savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
     savePicker.SuggestedFileName = "BoxAndWhisker";
     savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
     //Creates a storage file from FileSavePicker
     StorageFile storageFile = await savePicker.PickSaveFileAsync();
     //Saves changes to the specified storage file
     await pptxDoc.SaveAsync(storageFile);
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>
@@ -3110,7 +3085,6 @@ private static void TestBox_Whisker()
         pptxDoc.Close();
     }
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>
@@ -3252,7 +3226,6 @@ private static void TestBox_Whisker()
             Xamarin.Forms.DependencyService.Get<ISave>().Save("BoxAndWhisker.pptx.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
     }
 }
-
 /// <summary>
 /// Set the values for the chart
 /// </summary>
@@ -3343,13 +3316,15 @@ private static void SetChartData(IPresentationChart chart)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Box-And-Whisker-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint Box And Whisker Chart](WorkingwithCharts_images/BoxAndWhisker.png)
 
 ### Waterfall
 
-[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart. Refer to the following code to create a Waterfall chart.
+[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart. Refer to the following code to create a [Waterfall](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 
@@ -3593,13 +3568,15 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Waterfall-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint WaterFall Chart](WorkingwithCharts_images/WaterFall.png)
 
 ### Histogram
 
-[Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data. Refer to the following code example to create a Histogram.
+[Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data. Refer to the following code example to create a [Histogram](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html).
 
 {% tabs %}
 
@@ -3816,13 +3793,15 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Histogram-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint Histogram Chart](WorkingwithCharts_images/Histogram.png)
 
 ### Pareto
 
-[Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram in which the columns sorted in descending order and a line representing the cumulative total percentage. . Refer to the following code example to create a Pareto chart.
+[Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram in which the columns sorted in descending order and a line representing the cumulative total percentage. . Refer to the following code example to create a [Pareto](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 
@@ -4047,11 +4026,13 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Create-Pareto-chart).
+
 The following screenshot shows the output of previous code.
 
 ![PowerPoint Pareto Chart](WorkingwithCharts_images/Pareto.png)
 
-N>These charts are supported only in PowerPoint 2016 and are not supported in the previous versions.
+N> These charts are supported only in PowerPoint 2016 and are not supported in the previous versions.
 
 ## Supported Chart Types 
 

@@ -16,8 +16,8 @@ N> You can use content controls only in documents that are saved in the Open XML
 
 Content controls can be categorized based on its occurrence in a document as follows,
 
-* InlineContentControl: Among inline content inside, as a child of a paragraph.
-* BlockContentControl: Among paragraphs and tables, as a child of a Body, HeaderFooter, Comment, Footnote, or a Shape node.
+* [InlineContentControl](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.InlineContentControl.html): Among inline content inside, as a child of a paragraph.
+* [BlockContentControl](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BlockContentControl.html): Among paragraphs and tables, as a child of a Body, HeaderFooter, Comment, Footnote, or a Shape node.
 
 ### Block Content Control
 
@@ -309,9 +309,9 @@ The tag value to identify the content control.
 
 This property allows you to define the appearance of the content controls. The appearance can be any one of the following:
 
-* BoundingBox: Displays the contents of content control within a box.
-* Tags: Displays the contents of content control within tags.
-* Hidden: Displays the contents of content control without any box or tags.
+* [BoundingBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ContentControlAppearance.html): Displays the contents of content control within a box.
+* [Tags](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ContentControlAppearance.html): Displays the contents of content control within tags.
+* [Hidden](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ContentControlAppearance.html): Displays the contents of content control without any box or tags.
 
 ### Color
 
@@ -534,8 +534,8 @@ Content controls provides options to prevent users from editing or deleting part
 
 To protect contents inside a content control, you can use properties of the content control to prevent editing or deleting the content control:
 
-* The **LockContents** property prevents from editing the contents of the content control.
-* The **LockContentControl** property prevents from deleting the content control.
+* The [LockContents](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ContentControlProperties.html#Syncfusion_DocIO_DLS_ContentControlProperties_LockContents) property prevents from editing the contents of the content control.
+* The [LockContentControl](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ContentControlProperties.html#Syncfusion_DocIO_DLS_ContentControlProperties_LockContentControl) property prevents from deleting the content control.
 
 The following code sample shows how to protect the content control and its contents.
 

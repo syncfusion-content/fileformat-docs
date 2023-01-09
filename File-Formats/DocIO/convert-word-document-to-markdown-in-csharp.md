@@ -8,7 +8,7 @@ documentation: UG
 
 # Word to Markdown Conversion
 
-Markdown is a lightweight markup language that adds formatting elements to plaintext text documents. The .NET Word (DocIO) library supports the conversion of a Word document to a Markdown file, which mostly follows the CommonMark specification and GitHub-flavored syntax.
+Markdown is a lightweight markup language that adds formatting elements to plain text documents. The .NET Word (DocIO) library supports the conversion of a Word document to a Markdown file, which mostly follows the CommonMark specification and GitHub-flavored syntax.
 
 ## Convert Word to Markdown
 
@@ -120,6 +120,8 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Convert-Word-to-Markdown).
+
 ## Supported Markdown elements
 
 The following table illustrates the supported Markdown elements in Word to Markdown conversion and how to set that Markdown elements in input Word document.
@@ -160,7 +162,7 @@ The following table illustrates the supported Markdown elements in Word to Markd
 <td style="width: 557.014px;">Apply numbered or bulleted list format to paragraphs.&nbsp;</td>
 </tr>
 <tr>
-<td style="width: 182.986px;">Codespan</td>
+<td style="width: 182.986px;">Code span</td>
 <td style="width: 557.014px;">Set &ldquo;InlineCode&rdquo; character style for text.</td>
 </tr>
 <tr>
@@ -364,6 +366,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Code-block-in-Markdown).
+
 ### Block quotes
 
 Create block quotes in a Word document by applying the “Quote” paragraph style to the paragraphs.
@@ -471,19 +475,21 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Block-quote-in-Markdown).
+
 N> Nested block quotes are not supported in a Word to the Markdown conversion. To preserve nested block quotes, add the number of “>” characters at the beginning of the paragraph in a Word document as equivalent to the nth nested level of the block quote. For example, to insert the 2nd nested level block quote, add two “>” characters at the start of the sentence, and no need to apply the “Quote” style to the paragraph.
 
 ## Customize image saving
 
-When converting a Word document to a Markdown using the Save(fileName) overloads, DocIO creates a new folder parallel to the output file name and exports all the images into it as default.
+When converting a Word document to a Markdown using the [Save(fileName)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_) overloads, DocIO creates a new folder parallel to the output file name and exports all the images into it as default.
 
-When converting a Word document to a Markdown using the Save(Stream, FormatType) overloads, DocIO preserves the images as base64 format in the output Markdown file as default.
+When converting a Word document to a Markdown using the [Save(Stream, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_IO_Stream_Syncfusion_DocIO_FormatType_) overloads, DocIO preserves the images as base64 format in the output Markdown file as default.
 
 Also, customize the above default behaviors using the following options in DocIO.
 
 ### Export images to folder
 
-Specify the folder location to export the images using the MarkdownExportImagesFolder API.
+Specify the folder location to export the images using the [MarkdownExportImagesFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_MarkdownExportImagesFolder) API.
 
 The following code example illustrates how set the images folder to export the images while converting a Word document to a Markdown file.
 
@@ -537,9 +543,11 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Export-images-to-folder).
+
 ### Customize the image path
 
-DocIO provides an ImageNodeVisited event, which is used to customize the image path to set in the output Markdown file and save images externally while converting a Word document to a Markdown.
+DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event, which is used to customize the image path to set in the output Markdown file and save images externally while converting a Word document to a Markdown.
 
 The following code example illustrates how to save Image files during a Word to Markdown Conversion.
 
@@ -668,6 +676,8 @@ static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Customize-image-path).
+
 ## Supported Word document elements
 
 The following table shows the list of Word document elements supported in Word to Markdown conversion.
@@ -690,7 +700,7 @@ The following table shows the list of Word document elements supported in Word t
 <td style="width: 269.931px; height: 13px;">Table</td>
 <td style="width: 465.069px; height: 13px;">
 <ul>
-<li>Preserves as per GitHub flavoured Markdown syntax.</li>
+<li>Preserves as per GitHub flavored Markdown syntax.</li>
 <li>Column alignment is based on alignment of first paragraph in cells of row.</li>
 <li>Nested tables are not supported in Markdown, and they are merged with contents of parent cell.</li>
 </ul>

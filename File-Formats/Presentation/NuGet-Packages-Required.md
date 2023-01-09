@@ -90,8 +90,8 @@ Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </tr>
 </table>
 
-N> 1.Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to learn about registering Syncfusion license key in your applications to use the components.
-N> 2.From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to learn about registering Syncfusion license key in your applications to use the components.
+N> 2. From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
 ## Converting PowerPoint Presentation into PDF
 

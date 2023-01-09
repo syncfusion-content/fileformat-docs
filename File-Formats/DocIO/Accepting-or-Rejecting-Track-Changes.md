@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Accepting or Rejecting Track Changes
 
-It is used to keep track of the changes made to a Word document. It helps to maintain the record of author, name and time for every insertion, deletion, or modification in a document. This can be enabled by using the TrackChanges property of the Word document.
+It is used to keep track of the changes made to a Word document. It helps to maintain the record of author, name and time for every insertion, deletion, or modification in a document. This can be enabled by using the [TrackChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_TrackChanges) property of the Word document.
 
 N> With this support, the changes made in the Word document by DocIO library cannot be tracked.
 

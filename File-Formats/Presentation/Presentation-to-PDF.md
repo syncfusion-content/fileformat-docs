@@ -12,7 +12,7 @@ PowerPoint allows you to convert an entire Presentation or a single slide into P
 * [Assemblies Information](https://help.syncfusion.com/file-formats/presentation/assemblies-required)
 * [NuGet Information](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf)
 
-**PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert a PowerPoint presentation to PDF.
+[PresentationToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PresentationToPdfConverter.html) class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert a PowerPoint presentation to PDF.
 
 {% tabs %}
 
@@ -22,6 +22,7 @@ using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.Presentation;
 using Syncfusion.PresentationToPdfConverter;
 using Syncfusion.Pdf;
+
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
@@ -127,11 +128,10 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
-N> 1. PowerPoint Presentation to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application. 
-N> 2. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
-N> 3. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
-N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
-N> 5. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
+N> 1. Creating an instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
+N> 2. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
+N> 3. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS (Federal Information Processing Standard) algorithm policy.
+N> 4. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
 
 N> 1. To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Presentation to PDF conversion.
 N> 2. Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) Forms platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) code examples for it. But in Mac and Linux environment, using the WPF or Windows Forms platform NuGet packages have limitations.
@@ -141,7 +141,7 @@ N> 2. Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion
 
 Essential Presentation library provides you the ability to customize the Presentation to PDF conversion with the following options:
 
-* Specify the number of slides per PDF page with ‘Handouts’ option. 
+* Specify the number of slides per PDF page with [Handouts](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PublishOptions.html) option. 
 * Convert slides with notes pages to PDF.
 * Embed fonts in a PowerPoint file into the converted PDF document to avoid font-related issues across different machines and different platforms. 
 * Convert a PowerPoint document to PDF with the PDF-A1B conformance standards.
@@ -968,9 +968,9 @@ public class DocumentWarning : IWarning
 
 ## Handouts
 
-The Presentation library allows you to convert a PowerPoint presentation to PDF document with 'Handouts' option. Thus, the library allows selecting the number of slides to be included per PDF page. This helps converting multiple PowerPoint slides within a single PDF page. 
+The Presentation library allows you to convert a PowerPoint presentation to PDF document with [Handouts](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PublishOptions.html) option. Thus, the library allows selecting the number of slides to be included per PDF page. This helps converting multiple PowerPoint slides within a single PDF page. 
  
-The following code sample demonstrates how to convert a PowerPoint presentation to PDF document with 'Handouts' property.
+The following code sample demonstrates how to convert a PowerPoint presentation to PDF document with [Handouts](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PublishOptions.html) property.
 
 {% tabs %}
 
@@ -1099,6 +1099,7 @@ pdfDoc.Close()
 ## Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images in the PowerPoint presentation document during PDF conversion.
+
 This property is recommended to resolve the scaling problem of the nested metafile images by regenerating the nested metafile images present in the PowerPoint presentation document.
 
 The following code sample shows how to use this property to regenerate the nested EMF images in the PowerPoint presentation document during PDF conversion.
@@ -1295,8 +1296,8 @@ using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStr
 
 The Presentation library provides an option to decide the quality of the charts to optimize the converted PDF document size. 
 
-N> 1. The default 'ScalingMode' for charts is 'ScalingMode.Normal'. 
-N> 2. Setting the 'Best' scaling mode will improve the quality of the converted charts and increase the converted PDF document size.
+N> 1. The default [ScalingMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_ScalingMode) for charts is [ScalingMode.Normal](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.ScalingMode.html). 
+N> 2. Setting the [Best](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.ScalingMode.html) scaling mode will improve the quality of the converted charts and increase the converted PDF document size.
 
 The following code sample demonstrates how to set the quality of the charts while PowerPoint presentation to PDF conversion
 

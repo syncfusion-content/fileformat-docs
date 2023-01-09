@@ -10,7 +10,8 @@ keywords: PowerPoint, slide, connectors, pptx, shapes
 # Adding connectors in PowerPoint slides
 
 Essential Presentation library supports adding, editing, and removing the connectors in a PowerPoint file. The following code example demonstrates how to add a connector between two shapes.
-The following code example demonstrates how to add a connector in PowerPoint slide.knfjnfjnf
+
+The following code example demonstrates how to add a connector in PowerPoint slide.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -135,7 +136,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
@@ -159,7 +159,6 @@ Using pptxDoc As IPresentation = Presentation.Create
     'Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow
     'Change the connector color
-
     'Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid
     'Set the connector solid fill as black
@@ -184,7 +183,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
@@ -216,7 +214,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
@@ -242,7 +239,6 @@ using (IPresentation pptxDoc = Presentation.Create())
     //Set the beginning cap of the connector as arrow
     connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
     //Change the connector color
-
     //Set the connector fill type as solid
     connector.LineFormat.Fill.FillType = FillType.Solid;
     //Set the connector solid fill as black
@@ -266,7 +262,6 @@ The following code example demonstrates how to edit an existing connector in a P
 {% highlight c# tabtitle="C#" %}
 
 //Open an existing PowerPoint file
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
     //Get the first slide of a PowerPoint file
@@ -415,7 +410,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
     //Declare the end connection site index
     int connectionSiteIndex = 4;
     //Reconnect the end point of connector with triangle shape if its connection site count is greater than 4
-   if (connectionSiteIndex < triangle.ConnectionSiteCount)
+    if (connectionSiteIndex < triangle.ConnectionSiteCount)
         connector.EndConnect(triangle, connectionSiteIndex);
     //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)

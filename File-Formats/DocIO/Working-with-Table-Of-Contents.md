@@ -9,7 +9,7 @@ documentation: UG
 
 [Table of contents](https://support.office.com/en-in/article/Create-a-table-of-contents-or-update-a-table-of-contents-eb275189-b93e-4559-8dd9-c279457bfd72#__create_a_table ) (TOC) is used to provide an outline of the Word document. By default table of contents will be created automatically from heading styles. 
 
-You can add the TOC into the paragraph by specifying the `LowerHeadingLevel` and `UpperHeadingLevel`. The heading level range must be from 1 to 9.
+You can add the TOC into the paragraph by specifying the [LowerHeadingLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.TableOfContent.html#Syncfusion_DocIO_DLS_TableOfContent_LowerHeadingLevel) and [UpperHeadingLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.TableOfContent.html#Syncfusion_DocIO_DLS_TableOfContent_UpperHeadingLevel). The heading level range must be from 1 to 9.
 
 Basically TOC determines the TOC entries based on the TOC switches. 
 

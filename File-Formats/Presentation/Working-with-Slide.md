@@ -88,6 +88,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-PowerPoint-slide).
+
 ## Create a slide with predefined LayoutSlide
 
 The Syncfusion PowerPoint library supports the following predefined slide layout types to create a slide as equivalent to Microsoft PowerPoint:
@@ -182,6 +184,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-predefined-blank-slide-layout-type).
 
 The following code example demonstrates how to add a slide with all other predefined slide layout types.
 
@@ -360,6 +364,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-all-predefined-slide-layout-types).
+
 ## Adding Custom layout slide
 
 The slide layout are template design for the PowerPoint slides. Slide layout can contains formatting, positioning, and placeholders for a slide. There are 9 predefined layouts and custom slide layouts can also be designed.
@@ -491,6 +497,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Create-and-use-custom-layout-slide).
+
 The following code example demonstrates how to add a slide with an existing slide’s layout.
 
 {% tabs %}
@@ -504,12 +512,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-	//Check if the layout slide has desired custom layout name
-	if (layout.Name == "CustomSlideLayout")
-	{
-		slideLayout = layout;
-		break;
-	}
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
@@ -527,11 +535,11 @@ Dim layoutSlides As ILayoutSlides = pptxDoc.Masters(0).LayoutSlides
 Dim slideLayout As ILayoutSlide = Nothing
 'Get each layout slide from the collection
 For Each layout As ILayoutSlide In layoutSlides
-	'Check if the layout slide has desired custom layout name
-	If layout.Name = "CustomSlideLayout" Then
-		slideLayout = layout
-		Exit For
-	End If
+    'Check if the layout slide has desired custom layout name
+    If layout.Name = "CustomSlideLayout" Then
+        slideLayout = layout
+        Exit For
+    End If
 Next
 'Add slide with the desired layout.
 Dim slide As ISlide = pptxDoc.Slides.Add(slideLayout)
@@ -558,12 +566,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-   //Check if the layout slide has desired custom layout name
-   if (layout.Name == "CustomSlideLayout")
-   {
-      slideLayout = layout;
-	  break;
-   }
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
@@ -588,12 +596,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-	//Check if the layout slide has desired custom layout name
-	if (layout.Name == "CustomSlideLayout")
-	{
-		slideLayout = layout;
-		break;
-	}
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
@@ -618,12 +626,12 @@ ILayoutSlide slideLayout = null;
 //Get each layout slide from the collection
 foreach (ILayoutSlide layout in layoutSlides)
 {
-	//Check if the layout slide has desired custom layout name
-	if (layout.Name == "CustomSlideLayout")
-	{
-		slideLayout = layout;
-		break;
-	}
+    //Check if the layout slide has desired custom layout name
+    if (layout.Name == "CustomSlideLayout")
+    {
+        slideLayout = layout;
+        break;
+    }
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
@@ -642,6 +650,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Add-slide-with-existing-slide-layout).
 
 ## Cloning slide
 
@@ -772,9 +782,11 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Clone-PowerPoint-slide).
+
 ## Merging slide
 
-The Essential Presentation provides ability to clone slides from one Presentation to another Presentation. With this ability, you can split a large Presentation into small ones and also merge multiple presentations to one Presentation. You can choose the theme for the cloned slide by using the enum PasteOption.
+The Essential Presentation provides ability to clone slides from one Presentation to another Presentation. With this ability, you can split a large Presentation into small ones and also merge multiple presentations to one Presentation. You can choose the theme for the cloned slide by using the enum [PasteOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.PasteOptions.html).
 
 {% tabs %}
 
@@ -890,6 +902,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Merge-PowerPoint-slide).
+
 ## Removing slide
 
 The Essential Presentation provides the ability to delete a slide by its instance or by its index position in slide collection. The following code demonstrates how to delete a slide from a presentation. 
@@ -998,6 +1012,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Remove-PowerPoint-slide).
 
 ## Converting to image
 
@@ -1204,3 +1220,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Change-PowerPoint-slide-background).

@@ -24,7 +24,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
 
-{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -35,36 +34,30 @@ using System.Windows;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 4: Add a new button in **MainWindow.xaml** to create Word file as follows.
 
-{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 <Button Click="btnCreate_Click" Margin="0,0,10,12" VerticalAlignment="Bottom" Height="30" BorderBrush="LightBlue" HorizontalAlignment="Right" Width="180">
-<Button.Background>
-    <LinearGradientBrush EndPoint="0.5,-0.04" StartPoint="0.5,1.04">
-        <GradientStop Color="#FFD9E9F7" Offset="0"/>
-        <GradientStop Color="#FFEFF8FF" Offset="1"/>
-    </LinearGradientBrush>
-</Button.Background>
-<StackPanel Orientation="Horizontal" Height="23" Margin="0,0,0,-2.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100">
-    <Image Name="image2" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-    <TextBlock Text="Create Document" Height="15.96" Width="126" Margin="0,4,0,3" />
-</StackPanel>
+    <Button.Background>
+        <LinearGradientBrush EndPoint="0.5,-0.04" StartPoint="0.5,1.04">
+            <GradientStop Color="#FFD9E9F7" Offset="0"/>
+            <GradientStop Color="#FFEFF8FF" Offset="1"/>
+        </LinearGradientBrush>
+    </Button.Background>
+    <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,0,-2.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100">
+        <Image Name="image2" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Text="Create Document" Height="15.96" Width="126" Margin="0,4,0,3" />
+    </StackPanel>
 </Button>
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 5: Add the following code in **btnCreate_Click** to **create Word document** with simple text.
 
-{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -282,8 +275,6 @@ document.Save("Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WPF).
 

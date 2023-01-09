@@ -29,8 +29,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 4: Include the following Namespaces in the Program.cs file.
 
-{% capture codesnippet1 %}
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -41,12 +39,7 @@ using System.IO;
 
 {% endtabs %}
 
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
-
 Step 5: Add the following code snippet in Program.cs file.
-
-{% capture codesnippet2 %}
 
 {% tabs %}
 
@@ -275,9 +268,6 @@ outputStream.Dispose();
 {% endhighlight %}
 
 {% endtabs %}
-
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Mac).
 

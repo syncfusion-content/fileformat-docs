@@ -11,19 +11,18 @@ documentation: UG
 To get all the slides in same format, you should perform those changes in the Slide Master or Layout Master. The changes will be applied to all the slides, which inherits the master slide or layout slide.
 
 The [Syncfusion PowerPoint library](https://www.syncfusion.com/powerpoint-framework/net) supports the following:
-<ol>
-<li>Access the <b>MasterSlide</b> in PowerPoint file.</li>
-<li>Add <b>LayoutSlide</b> to the <b>MasterSlide</b>.</li>
-<li>Customize the <b>LayoutSlide</b>.</li>
-<li>Create a slide with 9 pre-defined layout slides.</li>
-<li>Customize the layout slides to fit your own scenarios.</li>
-</ol>
+
+1. Access the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) in PowerPoint file.
+2. Add [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html) to the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html).
+3. Customize the [LayoutSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ILayoutSlide.html).
+4. Create a slide with 9 pre-defined layout slides.
+5. Customize the layout slides to fit your own scenarios.
 
 ## Access the MasterSlide
 
-In PowerPoint presentation, the **MasterSlide** is the top slide that controls all information about the theme, layout, background, color, fonts, and positioning of all slides. Using this MasterSlide, you can easily adjust the look of an existing theme or make overall changes to all your slides.
+In PowerPoint presentation, the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) is the top slide that controls all information about the theme, layout, background, color, fonts, and positioning of all slides. Using this MasterSlide, you can easily adjust the look of an existing theme or make overall changes to all your slides.
 
-The following code example demonstrates how to access the **MasterSlide** in a PowerPoint presentation.
+The following code example demonstrates how to access the [MasterSlide](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IMasterSlide.html) in a PowerPoint presentation.
 
 {% tabs %}
 
@@ -54,6 +53,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Master-and-Layout-slides/Access-PowerPoint-master-slide).
 
 ## Change background of Master slide
 
@@ -175,6 +176,8 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Master-and-Layout-slides/Modify-PowerPoint-master-slide-background).
+
 ## Create a custom LayoutSlide
 
 The real-world scenarios always require more predefined templates. The Syncfusion PowerPoint library lets you build your own custom layout designs and use them to create individual slides.
@@ -214,3 +217,5 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Master-and-Layout-slides/Create-custom-layout-slide).

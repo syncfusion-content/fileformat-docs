@@ -45,7 +45,6 @@ Include the following namespaces in your .cs or .vb file
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
@@ -53,7 +52,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight vb.net tabtitle="VB.NET" %}
 
 Imports Syncfusion.DocIO
-
 Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
@@ -61,7 +59,6 @@ Imports Syncfusion.DocIO.DLS
 {% highlight c# tabtitle="UWP" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -69,7 +66,6 @@ using Syncfusion.DocIO.DLS;
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 using Syncfusion.DocIO;
-
 using Syncfusion.DocIO.DLS;
 
 {% endhighlight %} 
@@ -170,7 +166,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Creating a new Word document from scratch with basic elements
 
-An entire Word document is represented by an instance of WordDocument and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
+An entire Word document is represented by an instance of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
 
 A section represents group of paragraphs, tables etc., that have a specific set of properties used to define the pages, number of columns, headers and footers and so on that decides how the text appears. A section should contain at least one paragraph in this body.
 
@@ -965,7 +961,7 @@ Essential DocIO allows you to manipulate an existing Word document, RTF, WordML,
 
 Here, you can see how an existing Word document is loaded into DocIO’s DOM, replaces an existing content with another and finally saves the Word document.
 
-You can open an existing Word document either by using constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class or by using [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
+You can open an existing Word document either by using constructor of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument__ctor_System_String_) class or by using [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
 
 {% tabs %}
 
@@ -1805,8 +1801,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "applicat
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
 
-N> 1. When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
-N> 2. ChartToImageConverter is supported from .NET Framework 4.0 onwards
+N> 1. When the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
+N> 2. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards
 
 ## See Also
 

@@ -3274,8 +3274,7 @@ By executing the above code example, it generates the resultant Word document as
 
 ![Output Word document of start at new page](../MailMerge_images/StartAtNewPage_output.png)
 
-N> 
-This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This `StartAtNewPage` property is not valid when the group start and group end are present in the table, headers, and footers.
+N> This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is not valid when the group start and group end are present in the table, headers, and footers.
 
 ## Remove mail merge settings
 
