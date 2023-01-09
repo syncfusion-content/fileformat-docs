@@ -68,8 +68,6 @@ Using processor As OCRProcessor = New OCRProcessor("@TesseractBinaries/")
     document.Close(True)
 End Using
 
-End Using
-
 {% endhighlight %}
 
 {% endtabs %} 
@@ -255,7 +253,7 @@ The following code sample explains the OCR processor with Tesseract version 4.0 
 {% tabs %} 
 
 {% highlight c# tabtitle="C#" %}
-i
+
 //Initialize the OCR processor with tesseract binaries folder path.
 using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/4.0/"))
 {
@@ -365,6 +363,8 @@ End Using
 You can downloaded a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-image-file).
 
 You can get the OCRed Unicode text from an image file by using the ``UnicodeFont`` property in OCR Processor. For more information, refer to the following code sample. 
+
+{% tabs %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
@@ -755,7 +755,6 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
 }
 
 {% endhighlight %}
-
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
