@@ -66,3 +66,5 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to apply formatting to pivot table in Excel protected view?](faqs/how-to-apply-formatting-to-pivottable-in-Excel-protected-view)
 * [Does XlsIO support multi threading?](faqs/does-xlsio-support-multi-threading)
 * [How to check whether the given range is valid or not?](faqs/how-to-check-whether-the-given-range-is-valid-or-not)
+* [How to convert hidden worksheets alone to image?](faqs/how-to-convert-hidden-worksheets-alone-to-image)
+* [How to find and highlight data in Excel?](faqs/how-to-find-and-highlight-data-in-Excel)

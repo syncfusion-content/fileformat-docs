@@ -245,4 +245,35 @@ pivotChart.ShowValueFieldButtons = false;
   
 A complete working example to create pivot chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Charts/Create%20Pivot%20Chart). 
 
+## PivotChart Series
 
+When pivot chart is created with pivot table as data source, Syncfusion XlsIO cannot create the series because the range of the pivot table is different from normal worksheet range. This is the limitation of XlsIO. To use any chart series formatting, the series should be added manually.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
+pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked)
+pivotChartSheet.Series(0).SerieFormat.CommonSerieOptions.Overlap = 100
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
+pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
+pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
+pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
+{% endhighlight %}
+{% endtabs %} 
+
+ 
