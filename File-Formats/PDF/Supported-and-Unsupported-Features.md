@@ -74,7 +74,7 @@ Yes<br/><br/></td></tr>
 Text Extraction<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
+Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
@@ -180,8 +180,7 @@ Yes<br/><br/></td>
 </tbody>
 </table>
 
-
-Document–level Operations :
+Document–level Operations:
 
 <table>
 <thead>
@@ -204,7 +203,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
@@ -433,7 +432,7 @@ Yes*<br/><br/></td>
 </table>
 
 *Supported on ASP.NET Core 2.0 and above
-
+<br>
 Document Conversion:
 
 <table>
@@ -543,7 +542,7 @@ No<br/><br/></td>
 </table>
 
 *Supported on .NETStandard 2.0 and above
-
+<br>
 PDF Standards:
 
 <table>
@@ -714,10 +713,8 @@ Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
-
 </tbody>
 </table>
-
 
 Tables:
 
