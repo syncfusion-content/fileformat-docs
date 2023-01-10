@@ -291,7 +291,7 @@ N> Excel to PDF conversion works proper in Blazor server-side alone and not in c
 
 ### Converting a Workbook to PDF
 
-The following code illustrates how to convert a workbook to PDF Document using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html).
+The following code illustrates how to convert a workbook to PDF Document using [IWorkbook](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html) type in [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverter__ctor_Syncfusion_XlsIO_IWorkbook_) class.
 
 {% tabs %}
 
@@ -304,7 +304,6 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   //Open the Excel document to Convert.
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-
   //Initialize PDF document.
   PdfDocument pdfDocument = new PdfDocument();
   //Convert Excel document into PDF document.
@@ -324,7 +323,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   'Open the Excel document to convert
   Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
-
   'Initialize the PDF document
   Dim pdfDocument As PdfDocument = New PdfDocument()
   'Convert Excel document into PDF document
@@ -346,7 +344,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets input Excel document from an embedded resource collection.
   Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");	
   IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-
   //Initialize XlsIO renderer.
   XlsIORenderer renderer = new XlsIORenderer();
   //Convert Excel document into PDF document. 
@@ -372,7 +369,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Load the document.
   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(excelStream);
-
   //Initialize XlsIO renderer.
   XlsIORenderer renderer = new XlsIORenderer();
   //Convert Excel document into PDF document.
@@ -398,7 +394,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets input Excel document from an embedded resource collection.
   Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
   IWorkbook workbook = application.Workbooks.Open(excelStream);
-
   //Initialize XlsIO renderer.
   XlsIORenderer renderer = new XlsIORenderer();
   //Convert Excel document into PDF document. 
@@ -431,7 +426,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Converting a Worksheet to PDF
 
-The following code shows how to convert a particular sheet to PDF Document using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html).
+The following code shows how to convert a particular sheet to PDF Document using [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) type in [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverter__ctor_Syncfusion_XlsIO_IWorksheet_) class.
 
 {% tabs %}
 
@@ -574,7 +569,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Creating individual PDF document for each worksheet
 
-The following code snippet shows how to create an individual PDF document for each worksheet in a workbook.
+The following code snippet shows how to create an individual PDF document for each worksheet in a workbook using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverter__ctor_Syncfusion_XlsIO_IWorksheet_) class.
 
 {% tabs %}
 
@@ -595,7 +590,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
     pdfDocument = converter.Convert();
 
     //Save the PDF file.
-    pdfDocument.Save(sheet.Name+".pdf");
+    pdfDocument.Save(sheet.Name +".pdf");
     converter.Dispose();
   }
 }
