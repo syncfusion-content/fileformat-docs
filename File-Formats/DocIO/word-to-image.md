@@ -509,7 +509,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code snippet illustrates how to convert a Word document to an image using custom image resolution.
 
-
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Load an existing Word document.
@@ -589,8 +588,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT and Universal applications.
 N> 2. In Azure Web Service and Azure APP Service, .NET GDI+ (System.Drawing) does not support the Metafile image (vector image). So, the image will be generated as Bitmap (raster image).
-N> 3. Creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
-N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
+N> 3. Creating an instance of the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
+N> 4. The [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards.
 N> 5. Total number of images may vary based on unsupported elements in the input Word document.
 N> 6. Word to Image conversion has the same limitations and unsupported elements of Word to PDF conversion.
 N> 7. Different styles of borders are known limitations in Word to Image conversion in ASP.NET Core, Xamarin, Blazor, WinUI, and .NET MAUI platforms.

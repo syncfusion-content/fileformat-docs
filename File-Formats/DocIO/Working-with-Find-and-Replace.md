@@ -912,7 +912,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace text with other text
 
-You can find text in a Word document and replace it with other text. Unlike the [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Find_System_String_System_Boolean_System_Boolean_) method, the Replace method replaces all occurrences of the text. You can customize it to replace only the first occurrence of a text by setting the [ReplaceFirst](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceFirst) property of the WordDocument class to true.
+You can find text in a Word document and replace it with other text. Unlike the [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Find_System_String_System_Boolean_System_Boolean_) method, the Replace method replaces all occurrences of the text. You can customize it to replace only the first occurrence of a text by setting the [ReplaceFirst](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ReplaceFirst) property of the [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class to true.
 
 The following code example illustrates how to replace all occurrences of a misspelled word with the correctly spelled word.
 

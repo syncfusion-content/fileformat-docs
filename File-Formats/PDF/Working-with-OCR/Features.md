@@ -756,7 +756,6 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
 
 {% endhighlight %}
 
-
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize the OCR processor with tesseract binaries folder path. 

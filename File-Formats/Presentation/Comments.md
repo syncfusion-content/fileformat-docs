@@ -414,6 +414,7 @@ else
 ## Deleting the comment
 
 Deleting a comment will remove all its replies from the PowerPoint slide. You can also delete a particular reply comment from a slide. You can delete a comment by specifying its reference or by specifying its position.
+
 The following code example demonstrates how to delete a comment from a slide.
 
 {% tabs %}

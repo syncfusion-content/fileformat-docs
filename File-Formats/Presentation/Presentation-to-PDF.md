@@ -141,7 +141,7 @@ N> 2. Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion
 
 Essential Presentation library provides you the ability to customize the Presentation to PDF conversion with the following options:
 
-* Specify the number of slides per PDF page with ‘Handouts’ option. 
+* Specify the number of slides per PDF page with [Handouts](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PublishOptions.html) option. 
 * Convert slides with notes pages to PDF.
 * Embed fonts in a PowerPoint file into the converted PDF document to avoid font-related issues across different machines and different platforms. 
 * Convert a PowerPoint document to PDF with the PDF-A1B conformance standards.
@@ -968,9 +968,9 @@ public class DocumentWarning : IWarning
 
 ## Handouts
 
-The Presentation library allows you to convert a PowerPoint presentation to PDF document with 'Handouts' option. Thus, the library allows selecting the number of slides to be included per PDF page. This helps converting multiple PowerPoint slides within a single PDF page. 
+The Presentation library allows you to convert a PowerPoint presentation to PDF document with [Handouts](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PublishOptions.html) option. Thus, the library allows selecting the number of slides to be included per PDF page. This helps converting multiple PowerPoint slides within a single PDF page. 
  
-The following code sample demonstrates how to convert a PowerPoint presentation to PDF document with 'Handouts' property.
+The following code sample demonstrates how to convert a PowerPoint presentation to PDF document with [Handouts](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PublishOptions.html) property.
 
 {% tabs %}
 
