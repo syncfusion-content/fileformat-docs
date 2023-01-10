@@ -724,7 +724,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> Install `wasm-tools` and `wasm-tools-net6` using `dotnet workload install wasm-tools` and `dotnet workload install wasm-tools-net6` commands respectively, while facing issues related to skiashrp, during runtime.
+N> Install `wasm-tools` and `wasm-tools-net6` using `dotnet workload install wasm-tools` and `dotnet workload install wasm-tools-net6` commands respectively, while facing issues related to skiasharp, during runtime.
 
 4. Enable the below properties in csproj file.
 
@@ -782,7 +782,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> Install `wasm-tools` and `wasm-tools-net6` using `dotnet workload install wasm-tools` and `dotnet workload install wasm-tools-net6` commands respectively, while facing issues related to skiashrp, during runtime.
+N> Install `wasm-tools` and `wasm-tools-net6` using `dotnet workload install wasm-tools` and `dotnet workload install wasm-tools-net6` commands respectively, while facing issues related to skiasharp, during runtime.
 
 4. Enable the below properties in csproj file.
 
