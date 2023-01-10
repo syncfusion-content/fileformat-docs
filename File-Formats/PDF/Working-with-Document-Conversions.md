@@ -569,7 +569,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Creating individual PDF document for each worksheet
 
-The following code snippet shows how to create an individual PDF document for each worksheet in a workbook.
+The following code snippet shows how to create an individual PDF document for each worksheet in a workbook using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverter__ctor_Syncfusion_XlsIO_IWorksheet_) class.
 
 {% tabs %}
 
@@ -590,7 +590,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
     pdfDocument = converter.Convert();
 
     //Save the PDF file.
-    pdfDocument.Save(sheet.Name+".pdf");
+    pdfDocument.Save(sheet.Name +".pdf");
     converter.Dispose();
   }
 }
