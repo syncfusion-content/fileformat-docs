@@ -93,7 +93,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 {% endtabs %}
 
-The following code example shows how to set text color to the alternate Mail merge record by using MergeFieldEventHandler.
+The following code example shows how to set text color to the alternate Mail merge record by using [MergeFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html).
 
 {% tabs %} 
 
@@ -145,7 +145,7 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 
 {% endtabs %}
 
-The following code example shows GetDataTable method which are is to get data for mail merge.
+The following code example shows GetDataTable method which is used to get data for mail merge.
 
 {% tabs %}
 
@@ -330,7 +330,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 {% endtabs %}
   
-The following code example shows how to bind the image from file system during Mail merge process by using MergeImageFieldEventHandler.
+The following code example shows how to bind the image from file system during Mail merge process by using [MergeImageFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeImageFieldEventHandler.html).
 
 {% tabs %}
 
@@ -512,7 +512,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
-The following code example shows how to bind the data to unmerged fields during Mail merge process by using BeforeClearFieldEventHandler.
+The following code example shows how to bind the data to unmerged fields during Mail merge process by using [BeforeClearFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearFieldEventHandler.html).
 
 {% tabs %}
 
@@ -862,7 +862,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
-The following code example shows how to bind the data to unmerged group fields during Mail merge process by using BeforeClearGroupFieldEventHandler.
+The following code example shows how to bind the data to unmerged group fields during Mail merge process by using [BeforeClearGroupFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearGroupFieldEventHandler.html).
 
 {% tabs %}
 

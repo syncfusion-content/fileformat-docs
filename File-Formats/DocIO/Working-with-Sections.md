@@ -757,12 +757,12 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Header and footer also represent the group of paragraphs and tables that occur at the top and bottom of the page respectively. Header and footer may vary for each section. The following are the types of Headers/Footers:
 
-  * FirstPageHeader – Represents the first page header of the document.
-  * FirstPageFooter – Represents the first page footer of the document. 
-  * OddHeader – Represents the odd page header of the document and it is the default header for the section. 
-  * OddFooter – Represents the odd page footer of the document and it is the default footer for the section.
-  * EvenHeader – Represents the even page header of the document.
-  * Even Footer - Represents the even page footer of the document.
+  * [FirstPageHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageHeader) – Represents the first page header of the document.
+  * [FirstPageFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageFooter) – Represents the first page footer of the document. 
+  * [OddHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddHeader) – Represents the odd page header of the document and it is the default header for the section. 
+  * [OddFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddFooter) – Represents the odd page footer of the document and it is the default footer for the section.
+  * [EvenHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenHeader) – Represents the even page header of the document.
+  * [EvenFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenFooter) - Represents the even page footer of the document.
 
 The following code example illustrates how to add simple header and footer into a Word document.
 

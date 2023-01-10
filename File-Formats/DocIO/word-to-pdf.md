@@ -172,8 +172,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, and Universal applications.
 N> 2. Word to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application.
-N> 3. For .NET Framework, creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
-N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards and .NET Core 2.0 onwards.
+N> 3. For .NET Framework, creating an instance of the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
+N> 4. The [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards and .NET Core 2.0 onwards.
 N> 5. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
 N> 6. "DocIO supports Word to PDF conversion in UWP application using DocIORenderer." For further information, please refer [here](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
 
@@ -1194,6 +1194,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ### Recreate Nested Metafile
 
 This setting allows you to regenerate the nested EMF images present in the Word document during PDF conversion.
+
 This property is recommended to resolve the scaling problem of nested metafile images by regenerating the nested metafile images present in the Word document.
 
 The following code sample shows how to use this property to regenerate the nested EMF images present in the Word document during PDF conversion.
@@ -1406,7 +1407,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 This setting allows you to set the PDF conformance level.
 
-The following code sample shows how to set the PdfConformanceLevel while converting Word to PDF.
+The following code sample shows how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_PdfConformanceLevel) while converting Word to PDF.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1751,7 +1752,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
     //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
     DocIORenderer docIORenderer = new DocIORenderer();
     //Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
-	docIORenderer.Settings.AutoDetectComplexScript = true;
+    docIORenderer.Settings.AutoDetectComplexScript = true;
     //Converts Word document into PDF document
     PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
     //Save the document into stream.
@@ -1849,7 +1850,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
 
-N> If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument.Properties.Hyphenation.AutoHyphenation of DocIO.
+N> If automatic hyphenation is not enabled in the Word document, you can enable it by using [WordDocument.Properties.Hyphenation.AutoHyphenation](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyphenation.html#Syncfusion_DocIO_DLS_Hyphenation_AutoHyphenation) of DocIO.
 
 The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
 {% tabs %}
@@ -2346,7 +2347,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 #### Show or Hide Revisions in Balloons
 
-The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling ShowMarkup property. However, you can hide revisions in balloons by using following code example.
+The default Word to PDF conversion renders the deletion and formatting changes in balloons when enabling [ShowMarkup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RevisionOptions.html#Syncfusion_DocIO_DLS_RevisionOptions_ShowMarkup) property. However, you can hide revisions in balloons by using following code example.
 
 {% tabs %}
 
@@ -2740,7 +2741,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Restrict all permission in a PDF document
 
-you can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html)
+You can restrict all the permission in a PDF document using [PdfPermissionsFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfPermissionsFlags.html).
 
 The below code example shows how to restrict Copying and Printing permission of the PDF document.
 
@@ -2921,7 +2922,7 @@ To avoid this, the Essential DocIO library allows you to set an alternate font f
 
 You can use any other alternate fonts instead of "Microsoft Sans Serif" to layout and render the text during Word to PDF conversion by using the [SubstituteFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.FontSettings.html) event.
 
-The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font not installed in the machine. 
+The following code example shows how to use alternate font instead of "Microsoft Sans Serif" when the specified font is not installed in the machine. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

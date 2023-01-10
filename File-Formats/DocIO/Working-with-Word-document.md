@@ -212,7 +212,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Link Paragraph and Character Style
 
-You can link character styles with paragraph and vice versa in a Word document using LinkedStyleName property.
+You can link character styles with paragraph and vice versa in a Word document using [LinkedStyleName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Style.html#Syncfusion_DocIO_DLS_Style_LinkedStyleName) property.
 
 The following code example explains how to link character and paragraph style.
 
@@ -855,7 +855,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Working with Content Type Properties
 
-Content type properties refers the metadata stored in a Word document, such as author name, subject, and company. DocIO represents metadata with MetaProperty instance and you can access in the Word document (DOCX, WordML) by using the ContentTypeProperties collection of WordDocument class.
+Content type properties refers the metadata stored in a Word document, such as author name, subject, and company. DocIO represents metadata with [MetaProperty](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.MetaProperty.html) instance and you can access in the Word document (DOCX, WordML) by using the [ContentTypeProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ContentTypeProperties) collection of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class.
 
 The following screenshots shows the content type property in the input Word document.
 ![Resultant output Word document](WorkingwithWordDocument_images/QuickPart.png)

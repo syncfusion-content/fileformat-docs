@@ -22,7 +22,6 @@ Paragraph is the basic element in a Word document that contains a textual and gr
 * Fields: Represented by an instance of [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html).
 * Form Fields: Represented by an instance of [WFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFormField.html).
 * Bookmarks: Represented by instances of [BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html). 
-* Absolute Tab: Represented by an instance of `WAbsoluteTab`.
 * Footnotes and Endnotes: Represented by an instance of [WFootnote](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFootnote.html).
 
 The following code example explains how to add a new paragraph.
@@ -6085,7 +6084,7 @@ OLE (Object Linking and Embedding) objects allow embedding and linking to docume
 * Linked: The content is linked to the source file
 * Embedded: The content is copied to the Word document and is not linked to the source file 
 
-You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using [WOleObject]{https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html} instance.
+You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using [WOleObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html) instance.
 
 ### Add OLE Objects in Word document
 

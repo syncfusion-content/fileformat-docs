@@ -15,12 +15,12 @@ You can perform Mail merge and append multiple records from data source within a
 The region where the Mail merge operations are to be performed must be marked by two merge fields with the following names.
 
   * «TableStart:TableName» and «BeginGroup:GroupName» - For the entry point of the region.
-  
+
   * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region.
-  
-  1.*TableStart* and *TableEnd* region is preferred for performing Mail merge inside the table cell.  
-  2.*BeginGroup* and *EndGroup* region is preferred for performing Mail merge inside the document body contents.
-  
+
+  1. *TableStart* and *TableEnd* region is preferred for performing Mail merge inside the table cell.
+  2. *BeginGroup* and *EndGroup* region is preferred for performing Mail merge inside the document body contents.
+
 For example, consider that you have a template document as shown.
 
 ![Mail merge for a group](../MailMerge_images/Group_mail_merge_template.png)
