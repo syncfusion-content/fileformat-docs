@@ -1510,7 +1510,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Lock or Unlock layers
 
-The layers can be locked or unlocker while creating a new layer in a PDF document by enabling or disabling the [Locked](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html#Syncfusion_Pdf_PdfLayer_Locked) property in [PdfLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html) class.  
+The layers can be locked or unlocked while creating a new layer in a PDF document by enabling or disabling the [Locked](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html#Syncfusion_Pdf_PdfLayer_Locked) property in [PdfLayer](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLayer.html) class.  
 
 The following code sample shows how to add a lock state to the layer in a new PDF document.
  
