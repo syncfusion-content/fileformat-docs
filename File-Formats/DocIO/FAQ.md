@@ -13,7 +13,7 @@ The frequently asked questions in Essential DocIO are listed below.
 
 The following code illustrates how to modify the built-in style while creating new Word document.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates a new Word document 
@@ -67,7 +67,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 A document can be opened as stream by using HttpWebResponse. This stream does not support seek operation and so the contents should be read manually to get the position and length of the stream. The following code illustrates how to load the document from stream.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Gets the document as stream
@@ -111,11 +111,11 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 The following code illustrates the method used to read the stream and convert the stream to bytes.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 public static byte[] ReadFully(Stream stream, int initialLength)
@@ -141,14 +141,12 @@ public static byte[] ReadFully(Stream stream, int initialLength)
             Array.Copy(buffer, newBuffer, buffer.Length);
             newBuffer[read] = (byte)nextByte;
             buffer = newBuffer;
-
             read++;
         }
     }
     //Buffer is now too big. Shrink it.
     byte[] ret = new byte[read];
     Array.Copy(buffer, ret, read);
-
     return ret;
 }
 {% endhighlight %}
@@ -173,25 +171,25 @@ Public Shared Function ReadFully(stream As Stream, initialLength As Integer) As 
             Array.Copy(buffer, newBuffer, buffer.Length)
             newBuffer(read) = CByte(nextByte)
             buffer = newBuffer
-
             read += 1
         End If
     End While
     'Buffer is now too big. Shrink it.
     Dim ret As Byte() = New Byte(read - 1) {}
     Array.Copy(buffer, ret, read)
-
     Return ret
 End Function
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-Word-document-from-url).
 
 ## How to set OpenType Font Features?
 
-The Open type features provide special effects for the text. This feature is specific to Word 2010 and later version documents. The OpenType features includes the following:
+The Open type features provide special effects for the text. This feature is specific to Word 2010 and later version documents.
+
+The OpenType features includes the following:
 
 * Ligatures – combination of characters, written as glyph
 * Use Contextual Alternates – combination of letters based on surrounding characters
@@ -631,7 +629,7 @@ Private Sub GetDataTable(dataset As DataSet)
 End Sub
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Insert-data-table-in-Word-document).
 
@@ -639,7 +637,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 An HTML string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the HTML string.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -667,9 +665,9 @@ textbody.InsertXHTML(htmlString)
 'Saves and closes the document
 document.Save("Sample.docx")
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Insert-table-from-html-string).
 
@@ -677,7 +675,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Each cell in the table can have its own width. The following code illustrates how to set the width of the cell.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Creates new word document
@@ -732,7 +730,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Set-table-cell-width).
 
@@ -740,7 +738,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can position a table in a Word document by setting position properties. The following code illustrates how to set position properties for a table.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -820,9 +818,9 @@ Next
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Set-text-direction-to-table). 
 
@@ -830,7 +828,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code illustrates how to extract the images in the document.
 
-{% tabs %} 
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -919,7 +917,7 @@ export.SaveAsXhtml(document, "Template.html")
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Extract-images-from-Word-document).
 
@@ -927,7 +925,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code illustrates how to remove the header contents from the document.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Loads the template document
@@ -1129,11 +1127,11 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 DocIO performs Mail merge by using the following methods:
 
-* Execute
-* ExecuteGroup
-* ExecuteNestedGroup
+* [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_)
+* [ExecuteGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataTable_)
+* [ExecuteNestedGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_Syncfusion_DocIO_DLS_MailMergeDataTable_)
 
-The following code example performs Mail merge by using the `Execute` method.
+The following code example performs Mail merge by using the [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_) method.
 
 {% tabs %}
 
@@ -1181,9 +1179,7 @@ doc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-using-OleDbConnection).
 
-N>
-For more information on Mail merge using DocIO, you can refer to online documentation link:
-[MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
+N> For more information on Mail merge using DocIO, you can refer to online documentation link: [MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
 
 ### Find and Replace
 
@@ -1307,8 +1303,7 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Find-and-replace-text-using-regex).
 
-N>  For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
-[Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
+N> For more information on performing the find and replace operation using DocIO, you can refer to online documentation link: [Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
 
 ### Bookmarks
 
@@ -1386,7 +1381,7 @@ wordApp.Quit()
 
 ### Using DocIO
 
-The following code example illustrates how to insert the bookmark by using DocIO. Here, the `AppendBookmarkStart()` and `AppendBookmarkEnd()` methods are used to add the bookmark.
+The following code example illustrates how to insert the bookmark by using DocIO. Here, the [AppendBookmarkStart()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendBookmarkStart_System_String_) and [AppendBookmarkEnd()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendBookmarkEnd_System_String_) methods are used to add the bookmark.
 
 {% tabs %}
 
@@ -1444,7 +1439,7 @@ Using Microsoft Office Automation
 
 The following code example illustrates how page numbers can be inserted to the footer of the Word document by adding a page number field.
 
-{% tabs %}   
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 using word = Microsoft.Office.Interop.Word;
@@ -1676,8 +1671,7 @@ doc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Watermark/Add-picture-watermark).
 
-N>  For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
-[Applying Watermark](/file-formats/docio/applying-watermark)
+N> For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link: [Applying Watermark](/file-formats/docio/applying-watermark)
 
 ### Headers and Footers
 
@@ -1760,14 +1754,14 @@ wordApp.Quit()
 
 ### Using DocIO
 
-You can set the header and footer by using the HeadersFooters property in the Word document section. To access a particular header/footer, you can use the following properties of `WHeadersFooters` class:
+You can set the header and footer by using the [HeadersFooters](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSection.html#Syncfusion_DocIO_DLS_WSection_HeadersFooters) property in the Word document section. To access a particular header/footer, you can use the following properties of [WHeadersFooters](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html) class:
 
-* FirstPageHeader
-* FirstPageFooter
-* OddHeader
-* OddFooter
-* EvenHeader
-* EvenFooter
+* [FirstPageHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageHeader)
+* [FirstPageFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageFooter)
+* [OddHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddHeader)
+* [OddFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddFooter)
+* [EvenHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenHeader)
+* [EvenFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenFooter)
 
 {% tabs %}
 
@@ -1898,7 +1892,7 @@ Using Microsoft Office Automation
 
 The following code example illustrates how to insert a table to a Word document, where the table contains three rows and two columns.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 using word = Microsoft.Office.Interop.Word;
@@ -1956,7 +1950,7 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 ### Using DocIO
 
-The following code example shows how to insert an empty table to a Word document. The `ResetCells()` method is used to specify the number of rows and columns in a table.
+The following code example shows how to insert an empty table to a Word document. The [ResetCells()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWTable.html#Syncfusion_DocIO_DLS_IWTable_ResetCells_System_Int32_System_Int32_) method is used to specify the number of rows and columns in a table.
 
 {% tabs %}
 
@@ -1990,9 +1984,7 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Insert-empty-table).
 
-N>  For more information on creating tables using DocIO, refer to online documentation link:
-[Working with Tables](/file-formats/docio/working-with-tables)
-
+N> For more information on creating tables using DocIO, refer to online documentation link: [Working with Tables](/file-formats/docio/working-with-tables)
 
 ### Comments 
 
@@ -2099,8 +2091,7 @@ doc.Save("Sample.doc", FormatType.Doc)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
 
-N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
-[Working with Comments](/file-formats/docio/working-with-comments) 
+N> For more information on working with the comments using DocIO, you can refer to the online documentation link: [Working with Comments](/file-formats/docio/working-with-comments)
 
 ### Document Protection
 
@@ -2160,17 +2151,17 @@ document.Close(nullobject, nullobject, nullobject)
 wordApp.Quit(nullobject, nullobject, nullobject)
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 ### Using DocIO
 
-DocIO uses ProtectionType property to specify the protection type of the Word document. This property uses the following values:
+DocIO uses [ProtectionType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ProtectionType) property to specify the protection type of the Word document. This property uses the following values:
 
-* AllowOnlyComments: Allows only comments to be added to the document.
-* AllowOnlyFormFields: Allows content to be added to the document through form fields only.
-* AllowOnlyRevisions: Allows only revisions to be made to the existing content.
-* AllowOnlyReading: All kinds of editing are restricted here and it makes the Word document as read-only document.
-* NoProtection: Does not protect the document.
+* [AllowOnlyComments](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Allows only comments to be added to the document.
+* [AllowOnlyFormFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Allows content to be added to the document through form fields only.
+* [AllowOnlyRevisions](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Allows only revisions to be made to the existing content.
+* [AllowOnlyReading](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): All kinds of editing are restricted here and it makes the Word document as read-only document.
+* [NoProtection](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.ProtectionType.html): Does not protect the document.
 
 {% tabs %}
 
@@ -2312,7 +2303,7 @@ Refer to the online documentation link for more information about adding the tab
 
 ## How to copy necessary fonts to Linux containers
 
-The fonts present in the location(in Docker container) "/usr/local/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the container.
+The fonts present in the location (in Docker container) "/usr/local/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the container.
 
 You should copy necessary fonts to this location "/usr/local/share/fonts/" before conversion.
 
@@ -2330,7 +2321,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to copy necessary Microsoft compatible fonts to Linux
 
-The fonts present in the location(in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
+The fonts present in the location (in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
 
 Use the following code example to install the Microsoft compatible fonts to Linux.
 
@@ -2476,7 +2467,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to check whether a Word document contains tracked changes or not? 
 
-You can check whether a Word document contains tracked changes by using `HasChanges` property in Essential DocIO.
+You can check whether a Word document contains tracked changes by using [HasChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_HasChanges) property in Essential DocIO.
 
 The following code example shows how to check whether a Word document contains tracked changes.
 
@@ -2715,7 +2706,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to enable track changes for Word document?
 
-TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the TrackChanges property of the Word document.
+TrackChanges is used to keep track of the changes made to a Word document. This can be enabled by using the [TrackChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_TrackChanges) property of the Word document.
 
 The following code example shows how to enable track changes of the document.
 
@@ -2858,28 +2849,28 @@ In addition to the previous NuGet packages, SkiaSharp.Linux helper NuGet package
 2. Create a folder and name it as SkiaSharp.Linux and place the downloaded file in the folder structure "SkiaSharp.Linux\runtimes\linux-x64\native"
 3. Create a nuspec file with name SkiaSharp.Linux.nuspec using the following metadata information and place it inside SkiaSharp.Linux folder. The nuspec file can be customized.
 
-    {% tabs %}
-    {% highlight XML %}
-    <?xml version="1.0" encoding="utf-8"?>
-    <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-        <metadata>
-            <id>SkiaSharp.Linux</id>
-            <version>1.59.3</version>
-            <title>SkiaSharp for Linux</title>
-            <authors>Syncfusion Inc.</authors>
-            <owners>Syncfusion Inc.</owners>
-            <requireLicenseAcceptance>false</requireLicenseAcceptance>
-            <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
-            <tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
-            <dependencies>
-                <group targetFramework=".NETStandard1.4">
-                    <dependency id="SkiaSharp" version="1.59.3" />
-                </group>
-            </dependencies>
-        </metadata>
-    </package>
-    {% endhighlight %}
-    {% endtabs %}
+{% tabs %}
+{% highlight XML %}
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>SkiaSharp.Linux</id>
+        <version>1.59.3</version>
+        <title>SkiaSharp for Linux</title>
+        <authors>Syncfusion Inc.</authors>
+        <owners>Syncfusion Inc.</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>SkiaSharp for Linux is a supporting package for Linux platforms.</description>
+        <tags>linux,cross-platform,skiasharp,net-standard,net-core,word-to-pdf</tags>
+        <dependencies>
+            <group targetFramework=".NETStandard1.4">
+                <dependency id="SkiaSharp" version="1.59.3" />
+            </group>
+        </dependencies>
+    </metadata>
+</package>
+{% endhighlight %}
+{% endtabs %}
 
 4. Make sure that the nuget.exe file is present along with SkiaSharp.Linux folder (in the parent folder of SkiaSharp.Linux folder). If not, download it from [here](https://www.nuget.org/downloads#).
 5. Open a command prompt and navigate to SkiaSharp.Linux folder.
@@ -2903,7 +2894,7 @@ We have found metafile images (*.emf, *.wmf) that are not supported in Azure App
 
 To preserve the expected images in the PDF, we suggest you convert the metafile image formats to bitmap image format (JPEG or PNG) and then perform Word to PDF conversion.
 
-Otherwise, you can use the[WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/docio/word-to-pdf) code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages have limitations.
+Otherwise, you can use the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/docio/word-to-pdf) code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/) platform NuGet packages have limitations.
 
 ## What are the NuGet packages to be installed to perform Word to PDF conversion in Linux OS?
 In Linux OS, you can perform Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) applications with Word to PDF conversion capabilities.

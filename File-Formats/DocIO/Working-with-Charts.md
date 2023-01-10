@@ -19,12 +19,12 @@ A Chart is a graphical representation of data where the data is represented as s
 * Stock chart
 * Radar chart
 
-N> DocIO provides chart support in following platforms – Windows, ASP.NET, WPF, ASP.NET MVC
-N> DocIO supports chart only in DOCX and WordML format documents.
+N> 1. DocIO provides chart support in following platforms – Windows, ASP.NET, WPF, ASP.NET MVC
+N> 2. DocIO supports chart only in DOCX and WordML format documents.
 
 ## Creating a simple Chart from scratch
 
-A new chart can be created or an existing chart can be modified by using the WChart instance. The following code example illustrates how to create a new chart.
+A new chart can be created or an existing chart can be modified by using the [WChart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WChart.html) instance. The following code example illustrates how to create a new chart.
 
 {% tabs %}
 
@@ -2301,9 +2301,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Convert chart to image
 
-You can convert the chart in Word document as image using the `SaveAsImage` method in ChartToImageConverter.
+You can convert the chart in Word document as image using the [SaveAsImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_SaveAsImage_Syncfusion_OfficeChart_IOfficeChart_System_IO_Stream_) method in [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ChartToImageConverter).
 
-The following code example shows how to chart in the Word document as image.
+The following code example shows how to convert chart in the Word document as image.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2484,7 +2484,7 @@ Essential DocIO supports creating and manipulating new and modern chart types su
 
 [Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart.
 
-The following code example illustrates how to create a Waterfall chart.
+The following code example illustrates how to create a [Waterfall](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.OfficeChartType.html) chart.
 
 {% tabs %}
 

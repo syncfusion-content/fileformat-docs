@@ -9,7 +9,7 @@ documentation: UG
 
 ## Adding Paragraph to slide
 
-All the textual contents in a Presentation document is represented by Paragraphs. You can have any number of paragraphs within a TextBody of a textbox or shape in a PowerPoint presentation. 
+All the textual contents in a Presentation document is represented by Paragraphs. You can have any number of paragraphs within a [TextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ITextBody.html) of a textbox or shape in a PowerPoint presentation. 
 
 The following code example demonstrates how to add a paragraph in a slide.
 
@@ -126,9 +126,11 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Paragraphs/Add-paragraph-to-PowerPoint-slide).
+
 ## Applying Paragraph formatting
 
-Each paragraph in a slide can has its own formatting types such as alignment, indent etc. The following code example demonstrates how to format a paragraph in PowerPoint presentation.
+Each paragraph in a slide can have its own formatting types such as alignment, indent etc. The following code example demonstrates how to format a paragraph in PowerPoint presentation.
 
 {% tabs %}
 
@@ -265,9 +267,11 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Paragraphs/Apply-paragraph-formatting).
+
 ## Working with text
 
-With Essential Presentation, you can add or modify the text in a Presentation. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text with different formatting into a single paragraph.
+With Essential Presentation, you can add or modify the text in a Presentation. Within the paragraph, textual contents are grouped into one or more child elements as [TextParts](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ITextParts.html). Each [TextPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ITextPart.html) represents a region of text with a common set of formatted text. The following code example demonstrates how to add text with different formatting into a single paragraph.
 
 {% tabs %}
 
@@ -472,6 +476,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Paragraphs/Add-text-with-different-formattings).
+
 ## Modifying text
 
 You can modify a text by accessing the existing paragraphs in a Presentation. The following code example demonstrates how to modify the content in a paragraph.
@@ -599,9 +605,11 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Paragraphs/Modify-existing-text).
+
 ### Edit a language of TextPart
 
-With Essential Presentation, you can modify the language of Presentation TextPart. This allows viewer application to check spelling and grammar according to the language of each TextPart. The following code example demonstrates how to modify a language of Presentation TextPart.
+With Essential Presentation, you can modify the language of Presentation [TextPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ITextPart.html). This allows viewer application to check spelling and grammar according to the language of each [TextPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ITextPart.html). The following code example demonstrates how to modify a language of Presentation [TextPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ITextPart.html).
 
 {% tabs %}
 
@@ -726,9 +734,11 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Paragraphs/Modify-text-language).
+
 ## Enabling shrink text on overflow option
 
-In a PowerPoint slide, if you add a text more than a shape can hold, the text will overflow from the shape. But by using a Shrink text on overflow option, you can fit a large text within a shape.The following code example demonstrates how to enable this property.
+In a PowerPoint slide, if you add a text more than a shape can hold, the text will overflow from the shape. But by using a Shrink text on overflow option, you can fit a large text within a shape. The following code example demonstrates how to enable this property.
 
 {% tabs %}
 
@@ -767,6 +777,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Paragraphs/Enable-text-shrink-on-overflow).
 
 N> The shrink text on overflow is not supported in UWP, ASP.NET CORE and Xamarin platforms.
 
@@ -886,3 +898,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Paragraphs/Remove-paragraph).

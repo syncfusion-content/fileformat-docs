@@ -114,6 +114,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Add-image-into-PowerPoint-Slide).
+
 ## Replacing Images
 
 The following code example demonstrates how to replace an existing image in a slide.
@@ -253,6 +255,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Replace-existing-image).
+
 ## Adding SVG Images
 
 SVG images can be inserted in PowerPoint slide for displaying images with accuracy when scaling or zooming page. The Essential Presentation library allows you to insert and edit an SVG image along with its fallback image.
@@ -381,6 +385,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Add-SVG-image).
 
 ## Replacing SVG Images
 
@@ -526,6 +532,8 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Replace-SVG-Image).
+
 ## Removing Images
 
 The following code example demonstrates how to remove an existing image in a PowerPoint slide.
@@ -646,4 +654,6 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Remove-all-images).
 

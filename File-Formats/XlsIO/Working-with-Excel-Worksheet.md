@@ -1403,6 +1403,182 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example for Excel page setup settings in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/PageSetup). 
 
+## Headers and Footers
+
+The following code snippet illustrates how to add headers and footers for Excel document.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding values in worksheet
+  worksheet.Range["A1:A600"].Text = "HelloWorld";
+
+  //Adding text with formatting to page headers 
+  worksheet.PageSetup.LeftHeader = "&KFF0000 Left Header";
+  worksheet.PageSetup.CenterHeader = "&KFF0000 Center Header";
+  worksheet.PageSetup.RightHeader = "&KFF0000 Right Header";
+
+  //Adding text with formatting and image to page footers
+  worksheet.PageSetup.LeftFooter = "&B &18 &K0000FF Left Footer";
+  worksheet.PageSetup.CenterFooter = "&G";
+  worksheet.PageSetup.CenterFooterImage = Image.FromFile("Image.jpg");
+  worksheet.PageSetup.RightFooter = "&P &K0000FF Right Footer";
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding values in worksheet
+  worksheet.Range("A1:A600").Text = "HelloWorld"
+
+  'Adding text with formatting to page headers
+  worksheet.PageSetup.LeftHeader = "&KFF0000 Left Header"
+  worksheet.PageSetup.CenterHeader = "&KFF0000 Center Header"
+  worksheet.PageSetup.RightHeader = "&KFF0000 Right Header"
+
+  'Adding text with formatting and image to page footers
+  worksheet.PageSetup.LeftFooter = "&B &18 &K0000FF Left Footer"
+  worksheet.PageSetup.CenterFooter = "&G"
+  worksheet.PageSetup.CenterFooterImage = Image.FromFile("Image.jpg")
+  worksheet.PageSetup.RightFooter = "&P &K0000FF Right Footer"
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding values in worksheet
+  worksheet.Range["A1:A600"].Text = "HelloWorld";
+
+  //Adding text with formatting to page headers 
+  worksheet.PageSetup.LeftHeader = "&KFF0000 Left Header";
+  worksheet.PageSetup.CenterHeader = "&KFF0000 Center Header";
+  worksheet.PageSetup.RightHeader = "&KFF0000 Right Header";
+
+  //Adding text with formatting and image to page footers
+  worksheet.PageSetup.LeftFooter = "&B &18 &K0000FF Left Footer";
+  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.Image.jpg");
+  worksheet.PageSetup.CenterFooter = "&G";
+  worksheet.PageSetup.CenterFooterImage = Syncfusion.XlsIO.Image.FromStream(imageStream);
+  worksheet.PageSetup.RightFooter = "&P &K0000FF Right Footer";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding values in worksheet
+  worksheet.Range["A1:A600"].Text = "HelloWorld";
+
+  //Adding text with formatting to page headers 
+  worksheet.PageSetup.LeftHeader = "&KFF0000 Left Header";
+  worksheet.PageSetup.CenterHeader = "&KFF0000 Center Header";
+  worksheet.PageSetup.RightHeader = "&KFF0000 Right Header";
+
+  //Adding text with formatting and image to page footers
+  worksheet.PageSetup.LeftFooter = "&B &18 &K0000FF Left Footer";
+  FileStream imageStream = new FileStream("Image.jpg", FileMode.Open);
+  worksheet.PageSetup.CenterFooter = "&G";
+  worksheet.PageSetup.CenterFooterImage = Image.FromStream(imageStream);
+  worksheet.PageSetup.RightFooter = "&P &K0000FF Right Footer";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding values in worksheet
+  worksheet.Range["A1:A600"].Text = "HelloWorld";
+
+  //Adding text with formatting to page headers 
+  worksheet.PageSetup.LeftHeader = "&KFF0000 Left Header";
+  worksheet.PageSetup.CenterHeader = "&KFF0000 Center Header";
+  worksheet.PageSetup.RightHeader = "&KFF0000 Right Header";
+
+  //Adding text with formatting and image to page footers
+  worksheet.PageSetup.LeftFooter = "&B &18 &K0000FF Left Footer";
+  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.jpg");
+  worksheet.PageSetup.CenterFooter = "&G";
+  worksheet.PageSetup.CenterFooterImage = Syncfusion.Drawing.Image.FromStream(imageStream);
+  worksheet.PageSetup.RightFooter = "&P &K0000FF Right Footer";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Show or Hide Worksheet 
 
 The following code snippet shows how to hide the worksheets using [Visibility](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITabSheet.html#Syncfusion_XlsIO_ITabSheet_Visibility) property.

@@ -571,9 +571,9 @@ else
 The speed is the customized property provided by Syncfusion PowerPoint library to set the transition duration mentioned [above](/file-formats/presentation/create-edit-slide-transitions-in-powerpoint-presentation-slides-cs-vb-net#set-the-transition-duration) (in this page) to a customized enumeration values. By default, each transition will happen for 2 seconds. You can change the following enumeration values to change the duration of a slide transition:
 
 1. Default       - 2 seconds
-2. Fast          - 0.5 seconds
-3. Slow          - 1.0 seconds
-4. Medium        - 0.75 seconds
+2. [Fast](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.TransitionSpeed.html)          - 0.5 seconds
+3. [Slow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.TransitionSpeed.html)          - 1.0 seconds
+4. [Medium](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.TransitionSpeed.html)        - 0.75 seconds
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

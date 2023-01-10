@@ -883,11 +883,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Open a Word (*.doc) document containing incremental save information
 
-Essential DocIO process the content that are preserved in the last complete save operation alone from a Word (.doc) document and it doesn't process the incremental save information. 
-Hence it throws "Complex format is not supported" exception when attempting to open a Word (.doc) document containing incremental save information.
+Essential DocIO process the content that are preserved in the last complete save operation alone from a Word (.doc) document and it doesn't process the incremental save information. Hence it throws "Complex format is not supported" exception when attempting to open a Word (.doc) document containing incremental save information.
 
-You can open the Word (*.doc) documents containing incremental save information without exception by setting SkipIncrementalSaveValidation property of Settings class as true. 
-Whereas the recent changes saved as incremental save information using older Microsoft Word application can't be preserved.
+You can open the Word (*.doc) documents containing incremental save information without exception by setting [SkipIncrementalSaveValidation](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Settings.html#Syncfusion_DocIO_DLS_Settings_SkipIncrementalSaveValidation) property of Settings class as true. Whereas the recent changes saved as incremental save information using older Microsoft Word application can't be preserved.
 
 The following code example shows how to open a Word (*.doc) document containing incremental save information without exception.
 
@@ -1022,9 +1020,9 @@ using (WordDocument document = new WordDocument())
 
 Essential DocIO keeps the entire document contents (paragraphs, images, tables and all other supported items along with the formatting) in main memory. So, there is a chance for "Out of memory exception" when the memory utilization exceeds the maximum level. For further information, please refer [here](https://www.syncfusion.com/kb/3931/why-does-out-of-memory-exception-arise-on-processing-large-size-documents-in-essential).
 
-You can reduce the memory usage in DocIO DOM when the Word document has embedded Ole image of large file size. You can preserve these embedded Ole images as normal images by setting `PreserveOleImageAsImage` property of Settings class as true, before opening the Word document.
+You can reduce the memory usage in DocIO DOM when the Word document has embedded Ole image of large file size. You can preserve these embedded Ole images as normal images by setting [PreserveOleImageAsImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Settings.html#Syncfusion_DocIO_DLS_Settings_PreserveOleImageAsImage) property of Settings class as true, before opening the Word document.
 
-If  `PreserveOleImageAsImage` flag is enabled, DocIO internally skips to read the embedded Ole image of large file size (.bin), instead DocIO reuses the Ole image from Word document as normal image for the same visual appearance. This will reduce the memory usage in DocIO DOM and resolves “Out of memory exception” at some cases.
+If [PreserveOleImageAsImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Settings.html#Syncfusion_DocIO_DLS_Settings_PreserveOleImageAsImage) flag is enabled, DocIO internally skips to read the embedded Ole image of large file size (.bin), instead DocIO reuses the Ole image from Word document as normal image for the same visual appearance. This will reduce the memory usage in DocIO DOM and resolves “Out of memory exception” at some cases.
 
 The following code example shows how to preserve embedded Ole image as normal image in a Word document.
 

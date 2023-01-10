@@ -11,14 +11,14 @@ You can create template document with form fields such as Text, Checkbox and Dro
 
 The following are the types of form field in the Word document
 
-* Checkbox – represented by an instance of WCheckBox
-* Drop-down – represented by an instance of WDropDownFormField
-* Text input – represented by an instance of WTextFormField
+* Checkbox – represented by an instance of [WCheckBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WCheckBox.html)
+* Drop-down – represented by an instance of [WDropDownFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WDropDownFormField.html)
+* Text input – represented by an instance of [WTextFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextFormField.html)
 
 
 ## Check Box
 
-You can add new Checkbox form field to a Word document by using `AppendCheckBox` method of `WParagraph` class.
+You can add new Checkbox form field to a Word document by using [AppendCheckBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendCheckBox) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code illustrates how to add new checkbox form field.
 
@@ -313,7 +313,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Drop-Down
 
-You can add new Dropdown form field to a Word document by using `AppendDropDownFormField` method of `WParagraph` class.
+You can add new Dropdown form field to a Word document by using [AppendDropDownFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendDropDownFormField) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code illustrates how to add a new dropdown field.
 
@@ -587,7 +587,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Text Form field
 
-You can add new text form field to a Word document by using `AppendTextFormField` method of `WParagraph` class.
+You can add new text form field to a Word document by using [AppendTextFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendTextFormField_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
 The following code illustrates how to add new text form field.
 

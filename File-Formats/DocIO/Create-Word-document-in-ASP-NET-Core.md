@@ -28,7 +28,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 4: Include the following namespaces in the HomeController.cs file.
 
-{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -40,14 +39,11 @@ using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 5: A default action method named Index will be present in HomeController.cs. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
 Step 6: Add a new button in the Index.cshtml as shown below.
 
-{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -64,12 +60,9 @@ Html.EndForm();
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 7: Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create Word document** and download it.
 
-{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -101,8 +94,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
 IWPicture picture = paragraph.AppendPicture(imageStream);
@@ -149,12 +142,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -182,7 +175,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -292,16 +284,12 @@ section.AddParagraph();
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
-
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/ASP.NET-Core).
 

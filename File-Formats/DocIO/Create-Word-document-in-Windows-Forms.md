@@ -24,8 +24,6 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 Step 3: Include the following namespaces in the **Form1.Designer.cs** file.
 
-{% capture codesnippet1 %}
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -39,12 +37,8 @@ using System.Windows.Forms;
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 4: Add a new button in **Form1.Designer.cs** to create Word file as follows.
-
-{% capture codesnippet2 %}
 
 {% tabs %}
 
@@ -57,7 +51,6 @@ private void InitializeComponent()
 {
     label = new Label();
     btnCreate = new Button();
-  
     //Label
     label.Location = new System.Drawing.Point(0, 40);
     label.Size = new System.Drawing.Size(426, 35);
@@ -76,17 +69,11 @@ private void InitializeComponent()
     Controls.Add(btnCreate);
     Text = "Create Word";
 }
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
-
 
 Step 5: Add the following code in **btnCreate_Click** to **create Word document** with simple text.
-
-{% capture codesnippet3 %}
 
 {% tabs %}
 
@@ -118,8 +105,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 IWPicture picture = paragraph.AppendPicture(new Bitmap("AdventureCycle.jpg")) as WPicture;
 picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -165,12 +152,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalA
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -197,7 +184,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -280,7 +266,6 @@ paragraph.ApplyStyle("Heading 1");
 paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.AppendText("Road-150 ");
-
 //Appends paragraph.
 paragraph = table[2, 1].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -304,12 +289,9 @@ section.AddParagraph();
 
 //Saves the Word document
 document.Save("Sample.docx");
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Windows-Forms).
 

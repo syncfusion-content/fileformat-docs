@@ -10,8 +10,8 @@ documentation: UG
 The following are the important points to be remembered while iterating the document elements
 
 * Document consists of one or more sections.
-* Section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`.
-* `WTextBody` contains three type of elements – either paragraph, table or block content control.
+* Section contains the contents present in Headers, Footers and main document through the instances of [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html).
+* [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html) contains three type of elements – either paragraph, table or block content control.
 
 ## Remove paragraph with style
 
@@ -419,7 +419,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Modify Hyperlink Uri
 
-The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink)Uri and specific text (WTextRange)with another.
+The following code example shows how to iterate throughout the paragraph and modify the hyperlink ([Hyperlink](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyperlink.html)) Uri and specific text ([WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html)) with another.
 
 {% tabs %}
 

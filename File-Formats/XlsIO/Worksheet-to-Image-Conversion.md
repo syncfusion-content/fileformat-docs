@@ -15,8 +15,6 @@ Refer to the following links for assemblies/nuget packages required based on pla
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-worksheet-to-image) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-worksheet-to-image)
 
-N> Worksheet to Image conversion works proper in Blazor server-side alone and not in client-side.
-
 ## Convert as bitmap
 
 The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.

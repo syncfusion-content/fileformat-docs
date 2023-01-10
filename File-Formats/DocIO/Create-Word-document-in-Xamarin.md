@@ -38,26 +38,20 @@ In App class of <b>portable project</b> (App.cs), replace the existing construct
 </li>
 </ul>
 
-{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 public App()
 {
     // The root page of your application
     MainPage = new MainXamlPage();
 }
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
 Step 5: In the MainXamlPage.xaml add new button as shown below.
 
-{% capture codesnippet2 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -65,39 +59,31 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         x:Class="GettingStarted. MainXamlPage">
-<StackLayout VerticalOptions="Center">
 
-<Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
-
-</StackLayout> </ContentPage>
+    <StackLayout VerticalOptions="Center">
+        <Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+    </StackLayout>
+</ContentPage>
 
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
 Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
 
-{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.Reflection;
 using System.IO;
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create Word document and save it in a stream.
 
-{% capture codesnippet4 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -106,7 +92,6 @@ void OnButtonClicked(object sender, EventArgs args)
 {
     //"App" is the class of Portable project
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
     //Creating a new document
     WordDocument document = new WordDocument();
     //Adding a new section to the document
@@ -134,8 +119,8 @@ void OnButtonClicked(object sender, EventArgs args)
     style.ParagraphFormat.Keep = true;
     style.ParagraphFormat.KeepFollow = true;
     style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+    IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
     //Gets the image stream
     Stream imageStream1 = assembly.GetManifestResourceStream("GettingStarted.Templates.AdventureCycle.jpg");
     IWPicture picture = paragraph.AppendPicture(imageStream1);
@@ -182,12 +167,12 @@ void OnButtonClicked(object sender, EventArgs args)
     textRange = paragraph.AppendText("Product Overview") as WTextRange;
     textRange.CharacterFormat.FontSize = 16f;
     textRange.CharacterFormat.FontName = "Calibri";
+
     //Appends table
     IWTable table = section.AddTable();
     table.ResetCells(3, 2);
     table.TableFormat.Borders.BorderType = BorderStyle.None;
     table.TableFormat.IsAutoResized = true;
-
     //Appends paragraph
     paragraph = table[0, 0].AddParagraph();
     paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -215,7 +200,6 @@ void OnButtonClicked(object sender, EventArgs args)
     paragraph.ParagraphFormat.LineSpacing = 12f;
     paragraph.BreakCharacterFormat.FontSize = 12f;
     paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
     textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
     textRange.CharacterFormat.FontSize = 12f;
     textRange.CharacterFormat.FontName = "Times New Roman";
@@ -324,16 +308,12 @@ void OnButtonClicked(object sender, EventArgs args)
     //Saves the Word document to MemoryStream
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
-
     //Save the stream as a file in the device and invoke it for viewing
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);          
 }
-
 {% endhighlight %}
 
 {% endtabs %}
-{% endcapture %}
-{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
 ## Helper files for Xamarin
 

@@ -128,7 +128,7 @@ End Function
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Macros/Open-and-save-macro-enabled-document).
 
-The following code example illustrates how to remove the macros present in the document by using `RemoveMacros` method.
+The following code example illustrates how to remove the macros present in the document by using [RemoveMacros](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_RemoveMacros) method.
 
 {% tabs %}
 

@@ -51,9 +51,11 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
+
 ## Opening an existing Presentation from stream
 
-You can open an existing PowerPoint Presentation from stream by using the overloads of Open method.
+You can open an existing PowerPoint Presentation from stream by using the overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.Presentation.html#Syncfusion_Presentation_Presentation_Open_System_IO_Stream_) method.
 
 {% tabs %}
 
@@ -90,9 +92,11 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
+
 ## Opening an encrypted Presentation
 
-You can open an encrypted PowerPoint presentation from either file path or stream by using the following overloads of Open method as follows.
+You can open an encrypted PowerPoint presentation from either file path or stream by using the following overloads of [Open](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.Presentation.html#Syncfusion_Presentation_Presentation_Open_System_IO_Stream_System_String_) method as follows.
 
 {% tabs %}
 
@@ -148,9 +152,11 @@ IPresentation pptxDoc = Presentation.OpenAsync(fileName, password);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-encrypted-PowerPoint).
+
 ## Saving a PowerPoint Presentation to file system
 
-You can save the created or manipulated PowerPoint Presentation to file system by using Save() method of **IPresentation** interface. Default format type is *.PPTX.
+You can save the created or manipulated PowerPoint Presentation to file system by using [Save()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Save_System_String_) method of [IPresentation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html) interface. Default format type is *.PPTX.
 
 {% tabs %}
 
@@ -158,7 +164,6 @@ You can save the created or manipulated PowerPoint Presentation to file system b
 //Opens an existing PowerPoint Presentation 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Saves the Presentation in file system
 pptxDoc.Save("Output.pptx");
 {% endhighlight %}
@@ -167,10 +172,8 @@ pptxDoc.Save("Output.pptx");
 'Opens an existing PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Saves the Presentation in file system
 pptxDoc.Save("Output.pptx")
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -183,7 +186,6 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 //To-Do some manipulation
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -193,14 +195,12 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(fileName, FileMode.Open);
 //To-Do some manipulation
-
 FileStream outputStream = new FileStream("output.pptx", FileMode.Create);
 pptxDoc.SaveAs(outputStream);
 {% endhighlight %}
@@ -212,7 +212,6 @@ Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.
@@ -229,9 +228,11 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
+
 ## Saving a PowerPoint Presentation to stream
 
-You can save the created or manipulated PowerPoint Presentation to stream by using overloads of Save method.
+You can save the created or manipulated PowerPoint Presentation to stream by using overloads of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Save_System_IO_Stream_) method.
 
 {% tabs %}
 
@@ -239,7 +240,6 @@ You can save the created or manipulated PowerPoint Presentation to stream by usi
 //Opens an existing PowerPoint Presentation 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Creates an instance of memory stream
 MemoryStream stream = new MemoryStream();
 //Saves the Presentation to stream
@@ -250,7 +250,6 @@ pptxDoc.Save(stream);
 'Opens an existing PowerPoint Presentation 
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Creates an instance of memory stream
 Dim stream As New MemoryStream()
 'Saves the Presentation to stream
@@ -267,7 +266,6 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
 //To-Do some manipulation
-
 //Saves changes to the specified storage file
 MemoryStream outputStream = new MemoryStream();
 await pptxDoc.SaveAsync(outputStream);
@@ -277,7 +275,6 @@ await pptxDoc.SaveAsync(outputStream);
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 //To-Do some manipulation
-
 FileStream outputStream = new FileStream(outputFileName, FileMode.Create);
 pptxDoc.SaveAs(outputStream);
 {% endhighlight %}
@@ -289,16 +286,17 @@ Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 MemoryStream outputStream = new MemoryStream();
 pptxDoc.Save(outputStream);
 {% endhighlight %}
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).
+
 ## Sending to a client browser
 
-You can save and send the Presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://docs.microsoft.com/en-us/previous-versions/gg145018(v=vs.110)) assembly.
+You can save and send the Presentation to a client browser from a website or web application by invoking the overload of [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Save_System_String_Syncfusion_Presentation_FormatType_System_Web_HttpResponse_) method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://docs.microsoft.com/en-us/previous-versions/gg145018(v=vs.110)) assembly.
 
 {% tabs %}
 
@@ -306,7 +304,6 @@ You can save and send the Presentation to a client browser from a website or web
 //Opens an existing PowerPoint Presentation 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Saves the Presentation to the client browser
 pptxDoc.Save("Output.pptx", FormatType.Pptx, Response);
 {% endhighlight %}
@@ -315,7 +312,6 @@ pptxDoc.Save("Output.pptx", FormatType.Pptx, Response);
 'Opens an existing PowerPoint Presentation 
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Saves the Presentation to the client browser
 pptxDoc.Save("Output.pptx", FormatType.Pptx, Response)
 {% endhighlight %}
@@ -328,7 +324,6 @@ pptxDoc.Save("Output.pptx", FormatType.Pptx, Response)
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName, FileMode.Open);
 //To-Do some manipulation
-
 //Initialize content type
 string ContentType = null;
 //Save the PowerPoint Presentation to stream
@@ -345,9 +340,11 @@ return File(outputStream, ContentType, outputFileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Send-PowerPoint-to-client-browser).
+
 ## Closing a PowerPoint Presentation
 
-When you are done with the Presentation instance, you should close the instance of **IPresentation** in order to release the memory consumed by Essential Presentation library. The following code example illustrates how to close an IPresentation instance.
+When you are done with the Presentation instance, you should close the instance of [IPresentation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html) in order to release the memory consumed by Essential Presentation library. The following code example illustrates how to close an [IPresentation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html) instance.
 
 {% tabs %}
 
@@ -355,21 +352,18 @@ When you are done with the Presentation instance, you should close the instance 
 //Opens an existing Presentation from file system 
 IPresentation pptxDoc = Presentation.Open(fileName);
 //To-Do some manipulation
-
 //Creates an instance of memory stream
 MemoryStream stream = new MemoryStream();
 //Saves the Presentation to stream
 pptxDoc.Save(stream);
 //Closes the Presentation instance and free the memory consumed.
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 'Opens an existing Presentation from file system 
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 'To-Do some manipulation
-
 'Creates an instance of memory stream
 Dim stream As New MemoryStream()
 'Saves the Presentation to stream
@@ -387,10 +381,8 @@ openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-
 //MemoryStream outputStream = new MemoryStream();
 //await pptxDoc.SaveAsync(outputStream);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -409,7 +401,6 @@ pptxDoc.Close();
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -424,7 +415,6 @@ Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
 //To-Do some manipulation
-
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.
@@ -441,3 +431,5 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint).

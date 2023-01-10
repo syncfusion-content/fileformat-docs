@@ -702,7 +702,6 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 ~~~
 // Install package
 Install-Package Syncfusion.DocIORenderer.Net.Core
-
 ~~~
 ~~~
 // Uninstall package
@@ -731,7 +730,6 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 ~~~
 // Install package
 Install-Package Syncfusion.Xamarin.DocIORenderer
-
 ~~~
 ~~~
 // Uninstall package
@@ -748,7 +746,6 @@ The package contains DocIO library that allows you to create, read and edit Word
 // Install package
 Install-Package Syncfusion.DocIO.UWP
 ~~~
-
 ~~~
 // Uninstall package
 Uninstall-Package Syncfusion.DocIO.UWP -RemoveDependencies 
@@ -764,7 +761,6 @@ The package contains DocIO library that allows you to create, read and edit Word
 // Install package
 Install-Package Syncfusion.DocIO.NET
 ~~~
-
 ~~~
 // Uninstall package
 Uninstall-Package Syncfusion.DocIO.NET -RemoveDependencies 
@@ -777,7 +773,6 @@ The package contains the DocIORenderer .NET library that allows you to convert t
 ~~~
 // Install package
 Install-Package Syncfusion.DocIORenderer.NET
-
 ~~~
 ~~~
 // Uninstall package

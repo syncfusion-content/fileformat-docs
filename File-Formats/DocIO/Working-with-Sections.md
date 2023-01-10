@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Sections
 
-A section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`. A section also has a specific set of properties used to define the page settings, number of columns, headers and footers and so on that decide how the text appears. `WTextBody` represents group of paragraphs and tables etc. 
+A section contains the contents present in Headers, Footers and main document through the instances of [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html). A section also has a specific set of properties used to define the page settings, number of columns, headers and footers and so on that decide how the text appears. [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html) represents group of paragraphs and tables etc. 
 
 {% tabs %}
 
@@ -101,7 +101,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add the multiple sections into the document. When you add more than one section into the word document, the section starts from the next page by default.
 
-You can also add a new section that starts on a same page by specifying the `BreakCode` as shown in following code example.
+You can also add a new section that starts on a same page by specifying the [BreakCode](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSection.html#Syncfusion_DocIO_DLS_WSection_BreakCode) as shown in following code example.
 
 {% tabs %}
 
@@ -757,12 +757,12 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Header and footer also represent the group of paragraphs and tables that occur at the top and bottom of the page respectively. Header and footer may vary for each section. The following are the types of Headers/Footers:
 
-  * FirstPageHeader – Represents the first page header of the document.
-  * FirstPageFooter – Represents the first page footer of the document. 
-  * OddHeader – Represents the odd page header of the document and it is the default header for the section. 
-  * OddFooter – Represents the odd page footer of the document and it is the default footer for the section.
-  * EvenHeader – Represents the even page header of the document.
-  * Even Footer - Represents the even page footer of the document.
+  * [FirstPageHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageHeader) – Represents the first page header of the document.
+  * [FirstPageFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_FirstPageFooter) – Represents the first page footer of the document. 
+  * [OddHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddHeader) – Represents the odd page header of the document and it is the default header for the section. 
+  * [OddFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_OddFooter) – Represents the odd page footer of the document and it is the default footer for the section.
+  * [EvenHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenHeader) – Represents the even page header of the document.
+  * [EvenFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_EvenFooter) - Represents the even page footer of the document.
 
 The following code example illustrates how to add simple header and footer into a Word document.
 
@@ -1356,7 +1356,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Odd-and-even-page-header-footer).
 
-You can use the previous section header and footer for the current section by using `LinkToPrevious` property.
+You can use the previous section header and footer for the current section by using [LinkToPrevious](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WHeadersFooters.html#Syncfusion_DocIO_DLS_WHeadersFooters_LinkToPrevious) property.
 
 The following code example shows how to link the previous section header and footer for the current section.
 
@@ -2324,10 +2324,10 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Remove-section-from-document).
 
-N> The Word document is a flow document in which contents will not be preserved page by page; instead the contents will be preserved sequentially section by section. Each section may extend to various pages based on its contents like table, text, images etc.
-N> Word viewer/editor renders the contents of the Word document page by page dynamically when opened for viewing or editing and this page wise rendered information will not be preserved in the document level as per the Word file format specification.
-N> Whereas Essential DocIO is a non-UI component that provides a full-fledged document object model to manipulate the Word document contents. Hence it is not feasible to set different page margins or page settings to each page instead we can do the same for each section.
-N> And also, it is not feasible to get the page-wise details from Word document and split the Word document in page by page. 
+N> * The Word document is a flow document in which contents will not be preserved page by page; instead the contents will be preserved sequentially section by section. Each section may extend to various pages based on its contents like table, text, images etc.
+N> * Word viewer/editor renders the contents of the Word document page by page dynamically when opened for viewing or editing and this page wise rendered information will not be preserved in the document level as per the Word file format specification.
+N> * Whereas Essential DocIO is a non-UI component that provides a full-fledged document object model to manipulate the Word document contents. Hence it is not feasible to set different page margins or page settings to each page instead we can do the same for each section.
+N> * And also, it is not feasible to get the page-wise details from Word document and split the Word document in page by page. 
 
 ## See Also
 
