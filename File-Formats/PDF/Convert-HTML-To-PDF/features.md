@@ -1097,9 +1097,9 @@ By default, the Blink rendering engine use system proxy settings for converting 
 
 <b>Please refer below screenshots:</b>
  
-![Manual proxy](htmlconversion_images/proxy.png)
+<img src="htmlconversion_images/proxy.png" alt="Manual proxy" width="100%" Height="Auto"/>
 
-![Manual proxy settings](htmlconversion_images/proxy2.png)
+<img src="htmlconversion_images/proxy2.png" alt="Manual proxy settings" width="100%" Height="Auto"/>
 
 ## Manual proxy
 
