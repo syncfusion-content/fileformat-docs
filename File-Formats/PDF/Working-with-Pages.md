@@ -1677,7 +1677,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Rotating an existing PDF page
 
-You can also rotate a PDF page in the existing PDF document using PdfPageRotateAngle(https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageRotateAngle.html) as shown in the following code snippet.
+You can also rotate a PDF page in the existing PDF document using [PdfPageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageRotateAngle.html) as shown in the following code snippet.
 
 {% tabs %}  
 
