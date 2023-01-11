@@ -13,8 +13,6 @@ documentation: UG
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-document-to-pdf) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf)
 
-N> Excel to PDF conversion works proper in Blazor server-side alone and not in client-side.
-
 ## Workbook to PDF
 
 The following code illustrates how to convert an entire Excel workbook to PDF.
