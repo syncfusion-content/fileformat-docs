@@ -279,9 +279,9 @@ Essential PDF provides support for importing the pages from one document to anot
 {% tabs %}
 {% highlight c# tabtitle="C#" %}     
 
-//Loads document.
+//Load the PDF document.
 PdfLoadedDocument lDoc = new PdfLoadedDocument("file1.pdf");
-//Creates a new document.
+//Create a new document.
 PdfDocument document = new PdfDocument();
 //Imports the page at 1 from the lDoc.
 document.ImportPage(lDoc, 1);
@@ -296,7 +296,7 @@ lDoc.Close(true)
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Loads document
+'Load the PDF document
 Dim lDoc As New PdfLoadedDocument("file1.pdf")
 'Creates a new document
 Dim document As New PdfDocument()

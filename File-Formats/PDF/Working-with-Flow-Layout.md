@@ -1,6 +1,6 @@
 ---
 title: Working with Flow layout | Syncfusion
-description: This section explains creating PDF document using flow layout model using Syncfusion .NET PDF library
+description: This section explains how to create a PDF document using the flow layout model with the Syncfusion .NET PDF library.
 platform: file-formats
 control: PDF
 documentation: UG
