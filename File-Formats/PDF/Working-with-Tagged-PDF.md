@@ -26,16 +26,13 @@ The following code sample explains you how to add tag for the text element in PD
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
-
 //represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element";
 
@@ -43,13 +40,10 @@ string text = "Adventure Works Cycles, the fictitious company on which the Adven
 
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
-
 //Adding tag to the text element
 element.PdfTag = structureElement;
-
 //Creates font for the text element
 element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
-
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
 //Draws text
@@ -57,7 +51,6 @@ PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.C
 
 //Save the document and dispose it
 doc.Save("Output.pdf");
-
 doc.Close(true);
 
 {% endhighlight %}
@@ -65,16 +58,13 @@ doc.Close(true);
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
-
 'Set the document title
 doc.DocumentInformation.Title = "PdfTextElement"
-
 'Creates new page
 Dim page As PdfPage = doc.Pages.Add()
 
 'Initialize the structure element with tag type paragraph
 Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
-
 'represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element"
 
@@ -82,13 +72,10 @@ Dim text As String = "Adventure Works Cycles, the fictitious company on which th
 
 'Initialize the PDF text element
 Dim element As PdfTextElement = New PdfTextElement(text)
-
 'Adding tag to the text element
 element.PdfTag = structureElement
-
 'Creates font for the text element
 element.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12)
-
 element.Brush = New PdfSolidBrush(New PdfColor(89, 89, 93))
 
 'Draws text
@@ -96,25 +83,21 @@ Dim result As PdfLayoutResult = element.Draw(page, New RectangleF(0, 0, page.Gra
 
 'Save the document and dispose it
 doc.Save("Output.pdf")
-
 doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Initialize the structure element with tag type paragraph.
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
-
 //Represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element";
 
@@ -122,13 +105,10 @@ string text = "Adventure Works Cycles, the fictitious company on which the Adven
 
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
-
 //Adding tag to the text element
 element.PdfTag = structureElement;
-
 //Creates font for the text element
 element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
-
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
 //Draws text
@@ -136,12 +116,9 @@ PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.C
 
 //Save the PDF document to stream
 MemoryStream stream = new MemoryStream();
-
 await doc.SaveAsync(stream);
-
 //Close the document
 doc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(stream, "Output.pdf");
 
@@ -151,16 +128,13 @@ Save(stream, "Output.pdf");
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
-
 //Represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element";
 
@@ -168,13 +142,10 @@ string text = "Adventure Works Cycles, the fictitious company on which the Adven
 
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
-
 //Adding tag to the text element
 element.PdfTag = structureElement;
-
 //Creates font for the text element
 element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
-
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
 //Draws text
@@ -182,20 +153,14 @@ PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.C
 
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
 doc.Close(true);
-
 //Defining the ContentType for PDF file
 string contentType = "application/pdf";
-
 //Define the file name
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
 
@@ -205,16 +170,13 @@ return File(stream, contentType, fileName);
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
-
 //represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element";
 
@@ -222,13 +184,10 @@ string text = "Adventure Works Cycles, the fictitious company on which the Adven
 
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
-
 //Adding tag to the text element.
 element.PdfTag = structureElement;
-
 //Creates font for the text element
 element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
-
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
 //Draws text
@@ -236,12 +195,9 @@ PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.C
 
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 //Close the document
 doc.Close(true);
-
 //Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -270,10 +226,8 @@ The following code explains how to add tag for image element in PDF document.
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "Image";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
@@ -282,22 +236,17 @@ page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap("syncfusion.jpg");
-
 //Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
-
 //Set the alternate text
 imageElement.AlternateText = "GreenTree";
-
 //adding tag to the PDF image
 bitmap.PdfTag = imageElement;
-
 //Draw image
 bitmap.Draw(page.Graphics, new PointF(50, 20));
 
 //Save the document and dispose it
 doc.Save("Image.pdf");
-
 doc.Close(true);
 
 {% endhighlight %}
@@ -305,10 +254,8 @@ doc.Close(true);
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
-
 'Set the document title
 doc.DocumentInformation.Title = "Image"
-
 'Creates new page
 Dim page As PdfPage = doc.Pages.Add()
 
@@ -317,34 +264,27 @@ page.Graphics.DrawString("JPEG Image:", New PdfStandardFont(PdfFontFamily.Helvet
 
 'Create a new PDF bitmap object
 Dim bitmap As PdfBitmap = New PdfBitmap("syncfusion.jpg")
-
 'Set the tag type
 Dim imageElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Figure)
-
 'Set the alternate text
 imageElement.AlternateText = "GreenTree"
-
 'adding tag to the PDF image
 bitmap.PdfTag = imageElement
-
 'Draw image
 bitmap.Draw(page.Graphics, New PointF(50, 20))
 
 'Save the document and dispose it
 doc.Save("Image.pdf")
-
 doc.Close(True) 
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "Image";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
@@ -353,34 +293,23 @@ page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Load the image as stream
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.syncfusion.jpg");
-
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap(imageStream);
-
 //Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
-
 //Set the alternate text
 imageElement.AlternateText = "GreenTree";
-
 //Adding tag to the PDF image
 bitmap.PdfTag = imageElement;
-
 //Draw image
 bitmap.Draw(page.Graphics, new PointF(50, 20));
 
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await doc.SaveAsync(stream);
-
 //Close the document
-
 doc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Image.pdf");
 
 {% endhighlight %}
@@ -389,10 +318,8 @@ Save(stream, "Image.pdf");
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "Image";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
@@ -401,44 +328,28 @@ page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Load the image as stream
 FileStream imageStream = new FileStream("syncfusion.jpg", FileMode.Open, FileAccess.Read);
-
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap(imageStream);
-
 //Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
-
 //Set the alternate text
 imageElement.AlternateText = "GreenTree";
-
 //adding tag to the PDF image
 bitmap.PdfTag = imageElement;
-
 //Draw image
 bitmap.Draw(page.Graphics, new PointF(50, 20));
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 doc.Close(true);
-
 //Defining the ContentType for PDF file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Image.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -447,10 +358,8 @@ return File(stream, contentType, fileName);
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "Image";
-
 //Creates new page
 PdfPage page = doc.Pages.Add();
 
@@ -459,32 +368,22 @@ page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Load the file as stream
 Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion.jpg");
-
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap(imageStream);
-
 //Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
-
 //Set the alternate text
 imageElement.AlternateText = "GreenTree";
-
 //adding tag to the PDF image
 bitmap.PdfTag = imageElement;
-
 //Draw image
 bitmap.Draw(page.Graphics, new PointF(50, 20));
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 //Close the document
-
 doc.Close(true);
-
 //Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -513,10 +412,8 @@ The following code explains how to add tag for shape element in the PDF document
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "LineShape";
-
 //Add new page
 PdfPage page = doc.Pages.Add();
 
@@ -525,33 +422,27 @@ page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Initialize structure element with tag type as Figure
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
-
 //Set alternate text
 element.AlternateText = "Line Sample";
-
 //Initialize the line shape
 PdfLine line = new PdfLine(100, 100, 100, 300);
-
 line.Pen = new PdfPen(Color.Red);
-
 //Adding tag to the line element
 line.PdfTag = element;
-
 //Draws the line
 line.Draw(page.Graphics);
 
 //Save the document and dispose it
 doc.Save("Output.pdf"); 
+doc.Close(true);
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
-
 'Set the document title
 doc.DocumentInformation.Title = "LineShape"
-
 'Add new page
 Dim page As PdfPage = doc.Pages.Add()
 
@@ -560,34 +451,28 @@ page.Graphics.DrawString("Line Shape:", New PdfStandardFont(PdfFontFamily.Helvet
 
 'Initialize structure element with tag type as Figure
 Dim element As PdfStructureElement = New PdfStructureElement(PdfTagType.Figure)
-
 'Set alternate text
 element.AlternateText = "Line Sample"
-
 'Initialize the line shape
 Dim line As PdfLine = New PdfLine(100, 100, 100, 300)
-
 line.Pen = New PdfPen(Color.Red)
-
 'Adding tag to the line element
 line.PdfTag = element
-
 'Draws the line
 line.Draw(page.Graphics)
 
 'Save the document and dispose it
 doc.Save("Output.pdf")
+doc.Close(true)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "LineShape";
-
 //Add new page
 PdfPage page = doc.Pages.Add();
 
@@ -596,29 +481,21 @@ page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Initialize structure element with tag type as Figure
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
-
 //Set alternate text
 element.AlternateText = "Line Sample";
-
 //Initialize the line shape
 PdfLine line = new PdfLine(100, 100, 100, 300);
-
 line.Pen = new PdfPen(new PdfColor(255, 0, 0));
-
 //Adding tag to the line element
 line.PdfTag = element;
-
 //Draws the line
 line.Draw(page.Graphics);
 
 //Save the PDF document to stream
 MemoryStream stream = new MemoryStream();
-
 await doc.SaveAsync(stream);
-
 //Close the document
 doc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(stream, "Output.pdf");
 
@@ -628,10 +505,8 @@ Save(stream, "Output.pdf");
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "LineShape";
-
 //Add new page
 PdfPage page = doc.Pages.Add();
 
@@ -640,43 +515,27 @@ page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Initialize structure element with tag type as figure
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
-
 //Set alternate text
 element.AlternateText = "Line Sample";
-
 //Initialize the line shape
 PdfLine line = new PdfLine(100, 100, 100, 300);
-
 line.Pen = new PdfPen(Color.Red);
-
 //Adding tag to the line element
 line.PdfTag = element;
-
 //Draws the line
 line.Draw(page.Graphics);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 doc.Close(true);
-
 //Defining the ContentType for PDF file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -685,10 +544,8 @@ return File(stream, contentType, fileName);
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
 //Set the document title
 doc.DocumentInformation.Title = "LineShape";
-
 //Add new page
 PdfPage page = doc.Pages.Add();
 
@@ -697,31 +554,21 @@ page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvet
 
 //Initialize structure element with tag type as figure
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
-
 //Set alternate text
 element.AlternateText = "Line Sample";
-
 //Initialize the line shape
 PdfLine line = new PdfLine(100, 100, 100, 300);
-
 line.Pen = new PdfPen(Syncfusion.Drawing.Color.Red);
-
 //Adding tag to the line element
 line.PdfTag = element;
-
 //Draws the line
 line.Draw(page.Graphics);
 
 //Save the document into stream.
-
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 //Close the document
-
 doc.Close(true);
-
 //Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -750,36 +597,28 @@ The following code explains how to add tag for the form fields in PDF document.
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
+//Set the document information 
 doc.DocumentInformation.Title = "Form Fields";
-
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a text box field
+//Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
-
 //Adding tag to the text box field
 textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
-
 textBoxField.Text = "Filled text box";
-
 //Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
 textBoxField.BorderColor = new PdfColor(Color.Gray);
-
 textBoxField.BorderStyle = PdfBorderStyle.Beveled;
-
 textBoxField.Bounds = new RectangleF(200, 0, 90, 20);
-
 textBoxField.ToolTip = "TextBox field";
 
+//Add the form field to the document
 doc.Form.Fields.Add(textBoxField);
 
 //Save the document and dispose it
 doc.Save("Output.pdf");
-
 doc.Close(true);
 
 {% endhighlight %}
@@ -787,83 +626,62 @@ doc.Close(true);
 
 'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
-
+'Set the document information 
 doc.DocumentInformation.Title = "Form Fields"
-
 'Adds new page
 Dim page As PdfPage = doc.Pages.Add()
 
-' Create a text box field
+'Create a text box field
 Dim textBoxField As PdfTextBoxField = New PdfTextBoxField(page, "This is form field text box")
-
 'Adding tag to the text box field
 textBoxField.PdfTag = New PdfStructureElement(PdfTagType.Form)
-
 textBoxField.Text = "Filled text box"
-
 'Set properties to the text box
 textBoxField.Font = New PdfStandardFont(PdfFontFamily.Helvetica, 12)
-
 textBoxField.BorderColor = New PdfColor(Color.Gray)
-
 textBoxField.BorderStyle = PdfBorderStyle.Beveled
-
 textBoxField.Bounds = New RectangleF(200, 0, 90, 20)
-
 textBoxField.ToolTip = "TextBox field"
 
+'Add the form field to the document
 doc.Form.Fields.Add(textBoxField)
 
 'Save the document and dispose it
 doc.Save("Output.pdf")
-
 doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
+//Set document information 
 doc.DocumentInformation.Title = "Form Fields";
-
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a text box field
+//Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
-
 //Adding tag to the text box field
 textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
-
 textBoxField.Text = "Filled text box";
-
 //Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
 textBoxField.BorderColor = new PdfColor(128,128,128);
-
 textBoxField.BorderStyle = PdfBorderStyle.Beveled;
-
 textBoxField.Bounds = new RectangleF(200, 0, 90, 20);
-
 textBoxField.ToolTip = "TextBox field";
 
+//Add the form field to the document
 doc.Form.Fields.Add(textBoxField);
 
 //Save the PDF document to stream
-
 MemoryStream stream = new MemoryStream();
-
 await doc.SaveAsync(stream);
-
 //Close the document
-
 doc.Close(true);
-
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -872,55 +690,37 @@ Save(stream, "Output.pdf");
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
+//Set document information 
 doc.DocumentInformation.Title = "Form Fields";
-
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a text box field
+//Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
-
 //Adding tag to the text box field
 textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
-
 textBoxField.Text = "Filled text box";
-
 //Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
 textBoxField.BorderColor = new PdfColor(Color.Gray);
-
 textBoxField.BorderStyle = PdfBorderStyle.Beveled;
-
 textBoxField.Bounds = new RectangleF(200, 0, 90, 20);
-
 textBoxField.ToolTip = "TextBox field";
 
+//Add the form field to the document.
 doc.Form.Fields.Add(textBoxField);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 stream.Position = 0;
-
 //Closes the document
-
 doc.Close(true);
-
 //Defining the ContentType for PDF file
-
 string contentType = "application/pdf";
-
 //Define the file name
-
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name
-
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
@@ -929,43 +729,31 @@ return File(stream, contentType, fileName);
 
 //Creates new PDF document
 PdfDocument doc = new PdfDocument();
-
+//Add document information 
 doc.DocumentInformation.Title = "Form Fields";
-
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a text box field
+//Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
-
 //Adding tag to the text box field
 textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
-
 textBoxField.Text = "Filled text box";
-
 //Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
 textBoxField.BorderColor = new PdfColor(Syncfusion.Drawing.Color.Gray);
-
 textBoxField.BorderStyle = PdfBorderStyle.Beveled;
-
 textBoxField.Bounds = new RectangleF(200, 0, 90, 20);
-
 textBoxField.ToolTip = "TextBox field";
 
+//Add the form field to the document
 doc.Form.Fields.Add(textBoxField);
 
 //Save the document into stream
-
 MemoryStream stream = new MemoryStream();
-
 doc.Save(stream);
-
 //Close the document
-
 doc.Close(true);
-
 //Save the stream into pdf file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
