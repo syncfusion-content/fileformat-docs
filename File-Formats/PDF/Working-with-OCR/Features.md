@@ -1267,6 +1267,8 @@ End Using
 
 You can perform OCR on Images with Unicode characters. To preserve the Unicode characters in the PDF document, use the ``UnicodeFont`` property. For more information, refer to the following code sample.
 
+{% tabs %}
+
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize the OCR processor with tesseract binaries folder path.
