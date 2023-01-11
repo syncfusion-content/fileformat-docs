@@ -30,7 +30,7 @@ using Syncfusion.OCRProcessor;
 using Syncfusion.Pdf.Parsing;
 {% endhighlight %}
 
-Step 4: Use the following code sample to perform OCR on a PDF document with Azure Vision in the Program.cs file. 
+Step 4: Use the following code sample to perform OCR on a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class with Azure Vision.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -40,26 +40,19 @@ using (OCRProcessor processor = new OCRProcessor())
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
     PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
-
     //Set OCR language.
     processor.Settings.Language = Languages.English;
-
     //Initialize the Azure vision OCR external engine.
     IOcrEngine azureOcrEngine = new AzureExternalOcrEngine();
     processor.ExternalEngine = azureOcrEngine;
-
     //Perform OCR.
     processor.PerformOCR(lDoc);
-
     //Create file stream.
     FileStream outputStream = new FileStream("OCR.pdf", FileMode.CreateNew);
-
     //Save the document into stream.
     lDoc.Save(outputStream);
-
     //If the position is not set to '0' then the PDF will be empty. 
     outputStream.Position = 0;
-
     //Close the document. 
     lDoc.Close(true);
     outputStream.Close();
@@ -100,8 +93,7 @@ class AzureExternalOcrEngine : IOcrEngine
         var textHeaders = await client.ReadInStreamAsync(stream);
         string operationLocation = textHeaders.OperationLocation;
         const int numberOfCharsInOperationId = 36;
-        string operationId = operationLocation.Substring(operationLocation.Length - numberOfCharsInOperationId);
-        
+        string operationId = operationLocation.Substring(operationLocation.Length - numberOfCharsInOperationId);        
         //Extract the text
         ReadOperationResult results;
         do
@@ -109,27 +101,22 @@ class AzureExternalOcrEngine : IOcrEngine
             results = await client.GetReadResultAsync(Guid.Parse(operationId));
         }
         while ((results.Status == OperationStatusCodes.Running || results.Status == OperationStatusCodes.NotStarted));
-
         ReadResult azureOcrResult = results.AnalyzeResult.ReadResults[0];
         return azureOcrResult;
     }
     private OCRLayoutResult ConvertAzureVisionOcrToOcrLayoutResult(ReadResult azureVisionOcr)
     {
         Syncfusion.OCRProcessor.Line ocrLine;
-        Syncfusion.OCRProcessor.Word ocrWord;
-        
+        Syncfusion.OCRProcessor.Word ocrWord;        
         OCRLayoutResult ocrlayoutResult = new OCRLayoutResult();         
         ocrlayoutResult.ImageWidth = (float)azureVisionOcr.Width;
         ocrlayoutResult.ImageHeight = (float)azureVisionOcr.Height;
-
         //Page
         Syncfusion.OCRProcessor.Page normalPage = new Syncfusion.OCRProcessor.Page();
-
         //Lines
         foreach (var line in azureVisionOcr.Lines)
         {
             ocrLine = new Syncfusion.OCRProcessor.Line();
-
             //Word
             foreach (var word in line.Words)
             {
@@ -144,7 +131,6 @@ class AzureExternalOcrEngine : IOcrEngine
             }
             normalPage.Add(ocrLine);
         }
-
         ocrlayoutResult.Add(normalPage);
         return ocrlayoutResult;
     }
@@ -185,12 +171,10 @@ class AzureExternalOcrEngine : IOcrEngine
                     yMax = point.Y;
             }
         }
-
         int x = Convert.ToInt32(xMin);
         int y = Convert.ToInt32(yMin);
         int w = Convert.ToInt32(xMax);
         int h = Convert.ToInt32(yMax);
-
         return new Rectangle(x, y, w, h);
     }
 }

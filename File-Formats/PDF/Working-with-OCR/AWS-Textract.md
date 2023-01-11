@@ -30,7 +30,7 @@ using Syncfusion.OCRProcessor;
 using Syncfusion.Pdf.Parsing;
 {% endhighlight %}
 
-Step 4: Use the following code sample to perform OCR on a PDF document with AWS Textract.
+Step 4: Use the following code sample to perform OCR on a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class with AWS Textract.
 
 {% highlight c# tabtitle="C#" %}
 //Initialize the OCR processor.
