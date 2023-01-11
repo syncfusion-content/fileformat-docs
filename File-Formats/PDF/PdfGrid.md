@@ -7647,11 +7647,11 @@ private static void PdfGrid_BeginCellLayout(object sender, PdfGridBeginCellLayou
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Insert-image-in-a-particular-table-cell).
 
-## Draw borderless table 
+## Draw border less table 
 
-The Syncfusion .NET PDF library allows you to draw borderless tables by setting the ``Transparent`` color to all [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCellStyle.html#Syncfusion_Pdf_Grid_PdfGridCellStyle_Borders) property of the [PdfGridCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCellStyle.html). Also change or remove the border of either side of the table cell. 
+The Syncfusion .NET PDF library allows you to draw border less tables by setting the ``Transparent`` color to all [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCellStyle.html#Syncfusion_Pdf_Grid_PdfGridCellStyle_Borders) property of the [PdfGridCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridCellStyle.html). Also change or remove the border of either side of the table cell. 
 
-The following code sample illustrates how to draw a borderless table in a PDF document using the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html). 
+The following code sample illustrates how to draw a border less table in a PDF document using the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html). 
 
 {% tabs %}
 
