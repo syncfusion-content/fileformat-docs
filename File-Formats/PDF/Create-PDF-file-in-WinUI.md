@@ -236,6 +236,8 @@ using (FileStream outputStream = new FileStream(filePath, FileMode.Create, FileA
 
 A complete working example of creating a PDF document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample208256365).
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/WinUI).
+
 By executing the program, you will get the PDF document as follows.
 <img src="WinUI_Images/GettingStartedOutput.png" alt="Output PDF image" width="100%" Height="Auto"/>
 
