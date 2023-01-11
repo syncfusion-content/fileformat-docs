@@ -35,7 +35,7 @@ Step 2: In configuration window, name the project and select Create.
 Step 3: Select Blueprint as Empty Function and click Finish.
 <img src="htmlconversion_images/AWS3.png" alt="Convert HTMLToPDF AWS Step3" width="100%" Height="Auto"/> 
 
-Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your Aws lambda project from [NuGet.org.](https://www.nuget.org/)
+Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your AWS lambda project from [NuGet.org.](https://www.nuget.org/)
 <img src="htmlconversion_images/AWS4.png" alt="Convert HTMLToPDF AWS Step4" width="100%" Height="Auto"/> 
 
 Step 5: Using the following namespaces in the Function.cs file.
@@ -148,7 +148,7 @@ Step 2: Create a project name and select the location.
 Step 3: Select Blueprint as .NET 6 (Container Image) Function and click Finish.
 <img src="htmlconversion_images/awslambda3.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
 
-Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) and [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) NuGet package as a reference to your Aws lambda project from [NuGet.org](https://www.nuget.org/).
+Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) and [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) NuGet package as a reference to your AWS lambda project from [NuGet.org](https://www.nuget.org/).
 <img src="htmlconversion_images/awslambda4.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
 
 Step 5: Using the following namespaces in the Function.cs file.
