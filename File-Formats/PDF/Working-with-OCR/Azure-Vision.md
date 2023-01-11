@@ -13,15 +13,15 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 
 ## Steps to perform OCR with Azure Computer Vision 
 Step 1: Create a new .NET Console application project. 
-<img src="OCR-Images/.NET-sample-Azure-step1.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-Azure-step1.png" alt="NET-sample-creation-step1" width="100%" Height="Auto"/>
 
 In project configuration window, name your project and select Next. 
-<img src="OCR-Images/.NET-sample-Azure-step2.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-Azure-step2.png" alt="NET-sample-creation-step2" width="100%" Height="Auto"/>
 
 Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
 
-<img src="OCR-Images/.NET-sample-Azure-step3.png" alt=".NET-sample-creation-step3" width="100%" Height="Auto"/>
-<img src="OCR-Images/.NET-sample-Azure-step4.png" alt=".NET-sample-creation-step4" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-Azure-step3.png" alt="NET-sample-creation-step3" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-Azure-step4.png" alt="NET-sample-creation-step4" width="100%" Height="Auto"/>
 
 Step 3: Include the following namespaces in the Program.cs file. 
 
