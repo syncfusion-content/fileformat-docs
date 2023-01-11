@@ -54,8 +54,7 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Save the document.
 doc.Save("Output.pdf");
-
-//Close the document
+//Close the document.
 doc.Close(true);
 
 {% endhighlight %}
@@ -90,7 +89,6 @@ pdfGrid.Draw(page, New PointF(10, 10))
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document. 
 doc.Close(True)
 
@@ -109,16 +107,13 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -128,10 +123,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -152,13 +145,11 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -167,22 +158,16 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -203,13 +188,11 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -219,13 +202,10 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a pdf file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -266,14 +246,12 @@ pdfGrid.Columns.Add(3);
 //Add header.
 pdfGrid.Headers.Add(1);
 PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
-
 pdfGridHeader.Cells[0].Value = "Employee ID";
 pdfGridHeader.Cells[1].Value = "Employee Name";
 pdfGridHeader.Cells[2].Value = "Salary";
 
 //Add rows.
 PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
-
 pdfGridRow.Cells[0].Value = "E01";
 pdfGridRow.Cells[1].Value = "Clay";
 pdfGridRow.Cells[2].Value = "$10,000";
@@ -283,7 +261,6 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -305,7 +282,6 @@ pdfGrid.Columns.Add(3)
 
 'Add header.
 pdfGrid.Headers.Add(1)
-
 Dim pdfGridHeader As PdfGridRow = pdfGrid.Headers(0)
 pdfGridHeader.Cells(0).Value = "Employee ID"
 pdfGridHeader.Cells(1).Value = "Employee Name"
@@ -322,7 +298,6 @@ pdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("Output.pdf")
-
 'Close the document
 pdfDocument.Close(True)
 
@@ -344,7 +319,6 @@ pdfGrid.Columns.Add(3);
 
 //Add header.
 pdfGrid.Headers.Add(1);
-
 PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
 pdfGridHeader.Cells[0].Value = "Employee ID";
 pdfGridHeader.Cells[1].Value = "Employee Name";
@@ -362,10 +336,8 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the PDF document into the stream
 MemoryStream stream = new MemoryStream();
 await pdfDocument.SaveAsync(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for respective code samples.
 Save(stream, "Output.pdf");
 
@@ -404,22 +376,16 @@ pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 pdfDocument.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -458,13 +424,10 @@ pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream into a pdf file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -502,14 +465,12 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "1", Name = "Clay" };
 Object row2 = new { ID = "2", Name = "Gray" };
 Object row3 = new { ID = "3", Name = "Ash" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> tableData = data;
-
 //Assign data source.
 pdfGrid.DataSource = tableData;
 
@@ -518,7 +479,6 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Save the document.
 doc.Save("Sample.pdf");
-
 //Close the document.
 doc.Close(true);
 
@@ -540,14 +500,12 @@ Dim data As New List(Of Object)()
 Dim row1 As Object = New With {Key .ID = "1", Key .Name = "Clay"}
 Dim row2 As Object = New With {Key .ID = "2", Key .Name = "Gray"}
 Dim row3 As Object = New With {Key .ID = "3", Key .Name = "Ash"}
-
 data.Add(row1)
 data.Add(row2)
 data.Add(row3)
 
 'Add list to IEnumerable.
 Dim tableData As IEnumerable(Of Object) = data
-
 'Assign data source.
 pdfGrid.DataSource = tableData
 
@@ -556,7 +514,6 @@ pdfGrid.Draw(page, New PointF(10, 10))
 
 'Save the document.
 doc.Save("Sample.pdf")
-
 'Close the document.
 doc.Close(True)
 
@@ -578,14 +535,12 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "1", Name = "Clay" };
 Object row2 = new { ID = "2", Name = "Gray" };
 Object row3 = new { ID = "3", Name = "Ash" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> tableData = data;
-
 //Assign data source.
 pdfGrid.DataSource = tableData;
 
@@ -595,10 +550,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -620,14 +573,12 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "1", Name = "Clay" };
 Object row2 = new { ID = "2", Name = "Gray" };
 Object row3 = new { ID = "3", Name = "Ash" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> tableData = data;
-
 //Assign data source.
 pdfGrid.DataSource = tableData;
 
@@ -636,22 +587,16 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -673,14 +618,12 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "1", Name = "Clay" };
 Object row2 = new { ID = "2", Name = "Gray" };
 Object row3 = new { ID = "3", Name = "Ash" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> tableData = data;
-
 //Assign data source.
 pdfGrid.DataSource = tableData;
 
@@ -690,14 +633,10 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
-//Save the stream into a pdf file.
-
+//Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -752,7 +691,6 @@ pdfGrid.Draw(graphics, new PointF(10, 10));
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document.
 doc.Close(true);
 
@@ -791,24 +729,20 @@ pdfGrid.Draw(graphics, New PointF(10, 10))
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document
 doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create the open file picker.
 var picker = new FileOpenPicker();
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
 //Create an empty PDF loaded document instance.
 PdfLoadedDocument doc = new PdfLoadedDocument();
-
 //Load or open an existing PDF document through the Open method of the PdfLoadedDocument class.
 await doc.OpenAsync(file);
 
@@ -825,13 +759,11 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 Object row1 = new { ID = "1", Name = "Clay" };
 Object row2 = new { ID = "2", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -841,10 +773,8 @@ pdfGrid.Draw(graphics, new PointF(10, 10));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -869,13 +799,11 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 Object row1 = new { ID = "1", Name = "Clay" };
 Object row2 = new { ID = "2", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -884,22 +812,16 @@ pdfGrid.Draw(graphics, new Syncfusion.Drawing.PointF(10, 10));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -924,13 +846,11 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 Object row1 = new { ID = "1", Name = "Clay" };
 Object row2 = new { ID = "2", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -940,13 +860,10 @@ pdfGrid.Draw(graphics, new Syncfusion.Drawing.PointF(10, 10));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a pdf file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -1032,7 +949,6 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -1069,15 +985,10 @@ Dim childPdfGrid As New PdfGrid()
 childPdfGrid.Columns.Add(5)
 
 For i As Integer = 0 To 4
-
-Dim row As PdfGridRow = childPdfGrid.Rows.Add()
-
-For j As Integer = 0 To 4
-
-row.Cells(j).Value = String.Format("Cell [{0} {1}]", j, i)
-
-Next j
-
+    Dim row As PdfGridRow = childPdfGrid.Rows.Add()
+    For j As Integer = 0 To 4
+        row.Cells(j).Value = String.Format("Cell [{0} {1}]", j, i)
+    Next j
 Next i
 
 'Set the value as another PdfGrid in a cell.
@@ -1102,7 +1013,6 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("Output.pdf")
-
 'Close the document.
 pdfDocument.Close(True)
 
@@ -1139,19 +1049,13 @@ PdfGrid childPdfGrid = new PdfGrid();
 childPdfGrid.Columns.Add(5);
 
 for (int i = 0; i < 5; i++)
-
 {
-
     PdfGridRow row = childPdfGrid.Rows.Add();
-
+    //Apply value to all the cells. 
     for (int j = 0; j < 5; j++)
-
     {
-
         row.Cells[j].Value = String.Format("Cell [{0} {1}]", j, i);
-
     }
-
 }
 
 //Set the value as another PdfGrid in a cell.
@@ -1179,10 +1083,8 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await pdfDocument.SaveAsync(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -1219,19 +1121,12 @@ PdfGrid childPdfGrid = new PdfGrid();
 childPdfGrid.Columns.Add(5);
 
 for (int i = 0; i < 5; i++)
-
 {
-
     PdfGridRow row = childPdfGrid.Rows.Add();
-
     for (int j = 0; j < 5; j++)
-
     {
-
         row.Cells[j].Value = String.Format("Cell [{0} {1}]", j, i);
-
     }
-
 }
 
 //Set the value as another PdfGrid in a cell.
@@ -1258,22 +1153,16 @@ parentPdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 pdfDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -1310,19 +1199,12 @@ PdfGrid childPdfGrid = new PdfGrid();
 childPdfGrid.Columns.Add(5);
 
 for (int i = 0; i < 5; i++)
-
 {
-
     PdfGridRow row = childPdfGrid.Rows.Add();
-
     for (int j = 0; j < 5; j++)
-
     {
-
         row.Cells[j].Value = String.Format("Cell [{0} {1}]", j, i);
-
     }
-
 }
 
 //Set the value as another PdfGrid in a cell.
@@ -1333,6 +1215,7 @@ PdfGridCellStyle pdfGridCellStyle = new PdfGridCellStyle();
 pdfGridCellStyle.TextPen = PdfPens.Red;
 pdfGridCellStyle.Borders.All = PdfPens.Red;
 
+//Add image as background in PdfGridCell. 
 Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpg");
 pdfGridCellStyle.BackgroundImage = new PdfBitmap(imageStream);
 PdfGridCell pdfGridCell = parentPdfGrid.Rows[0].Cells[0];
@@ -1349,14 +1232,10 @@ parentPdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream into a pdf file
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -1424,7 +1303,6 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the document
 pdfDocument.Close(true);
 
@@ -1474,7 +1352,6 @@ Dim result As PdfGridLayoutResult = pdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("Output.pdf")
-
 'Close the document
 pdfDocument.Close(True)
 
@@ -1496,14 +1373,12 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "John" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "Peter" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -1526,10 +1401,8 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await pdfDocument.SaveAsync(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -1551,14 +1424,12 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "John" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "Peter" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -1580,22 +1451,16 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Emp
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 pdfDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -1617,14 +1482,12 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "John" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "Peter" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -1647,14 +1510,10 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Emp
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream into a PDF file.
-
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -1720,7 +1579,6 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -1768,7 +1626,6 @@ Dim result As PdfGridLayoutResult = pdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("Output.pdf")
-
 'Close the document.
 pdfDocument.Close(True)
 
@@ -1787,11 +1644,9 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E02", Name = "Peter" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -1819,10 +1674,8 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await pdfDocument.SaveAsync(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -1841,18 +1694,15 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E02", Name = "Peter" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -1872,22 +1722,16 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Emp
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 pdfDocument.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -1910,11 +1754,9 @@ List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E02", Name = "Peter" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
-
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
 
@@ -1938,14 +1780,10 @@ PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Emp
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream into a pdf file
-
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -2014,7 +1852,6 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Save the document.
 document.Save("Output.pdf");
-
 //Close the document.
 document.Close(true);
 
@@ -2065,12 +1902,8 @@ pdfGrid.Draw(page, New PointF(10, 10))
 
 'Save the document.
 document.Save("Output.pdf")
-
 'Close the document.
 document.Close(True)
-
-'This will open the PDF file, so the result will be seen in the default PDF viewer.
-Process.Start("Output.pdf")
 
 {% endhighlight %}
 
@@ -2089,13 +1922,11 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -2120,10 +1951,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -2144,13 +1973,11 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -2174,10 +2001,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the document as a stream.
 document.Save(stream);
-
 //If the position is not set to '0', then the PDF will be empty.
 stream.Position = 0;
 
@@ -2241,14 +2066,10 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the document as a stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document instances.
 document.Close(true);
-
 //Save the stream into a PDF file.
-
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-
 if (Device.RuntimePlatform == Device.UWP)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -2266,7 +2087,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Built-in table styles 
 
-In-built table styles can be applied to [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html), and the appearance is made similar to Microsoft Word’s built-in table styles. You can also apply in-built table styles with the following additional table style options.
+In-built table styles can be applied to [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html), and the appearance is made similar to Microsoft Word's built-in table styles. You can also apply in-built table styles with the following additional table style options.
 
 * Banded columns
 * Banded rows
@@ -2276,7 +2097,6 @@ In-built table styles can be applied to [PdfGrid](https://help.syncfusion.com/cr
 * Last row
 
 The below code example illustrates how to apply built-in table style using [ApplyBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_ApplyBuiltinStyle_Syncfusion_Pdf_PdfGridBuiltinStyle_) method of the ``PdfGrid`` with styles from [PdfGridBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfGridBuiltinStyle.html) Enum.
-
 
 {% tabs %}
 
@@ -2316,7 +2136,6 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document
 doc.Close(true);
 
@@ -2358,7 +2177,6 @@ pdfGrid.Draw(page, New PointF(10, 10))
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document.
 doc.Close(True)
 
@@ -2377,13 +2195,11 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2392,7 +2208,6 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -2405,7 +2220,6 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
 
@@ -2427,13 +2241,11 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2442,7 +2254,6 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -2454,22 +2265,16 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the document as a stream.
 doc.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -2488,13 +2293,11 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2503,7 +2306,6 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -2516,13 +2318,10 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a pdf file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -2540,7 +2339,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following image shows the PDF document with the ```PdfGridBuiltinStyle.GridTable4Accent1```.
 ![GridTable4Accent1 image](Table_images/Gridtable4Accent1.png)
-
 
 The below code example illustrates how to apply built-in table styles with table options to [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) using [PdfGridBuiltinStyleSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridBuiltinStyleSettings.html) in [ApplyBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_ApplyBuiltinStyle_Syncfusion_Pdf_PdfGridBuiltinStyle_Syncfusion_Pdf_Grid_PdfGridBuiltinStyleSettings_) method with [PdfGridBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfGridBuiltinStyle.html) Enum.
 
@@ -2574,6 +2372,7 @@ dataTable.Rows.Add(new object[] { "E05", "Mathew" });
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
+//Initialize grid built-in style.
 PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
 tableStyleOption.ApplyStyleForBandedRows = true;
 tableStyleOption.ApplyStyleForHeaderRow = true;
@@ -2586,7 +2385,6 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document
 doc.Close(true);
 
@@ -2620,6 +2418,7 @@ dataTable.Rows.Add(new object() { "E05", "Mathew"})
 'Assign data source.
 pdfGrid.DataSource = dataTable
 
+'Initialize grid built-in style. 
 Dim tableStyleOption As New PdfGridBuiltinStyleSettings()
 tableStyleOption.ApplyStyleForBandedRows = True
 tableStyleOption.ApplyStyleForHeaderRow = True
@@ -2632,8 +2431,7 @@ pdfGrid.Draw(page, New PointF(10, 10))
 
 'Save the document.
 doc.Save("Output.pdf")
-
-'close the document
+'Close the document
 doc.Close(True)
 
 {% endhighlight %}
@@ -2651,13 +2449,11 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2666,10 +2462,10 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
+//Initialize grid built-in style.
 PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
 tableStyleOption.ApplyStyleForBandedRows = true;
 tableStyleOption.ApplyStyleForHeaderRow = true;
@@ -2683,10 +2479,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -2705,13 +2499,11 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2720,10 +2512,10 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
+//Initialize grid built-in style.
 PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
 tableStyleOption.ApplyStyleForBandedRows = true;
 tableStyleOption.ApplyStyleForHeaderRow = true;
@@ -2736,22 +2528,16 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the document as a stream.
 doc.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
-//Defining the ContentType for pdf file.
+//Defining the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -2770,13 +2556,11 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2785,10 +2569,10 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
+//Initialize grid built-in style.
 PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
 tableStyleOption.ApplyStyleForBandedRows = true;
 tableStyleOption.ApplyStyleForHeaderRow = true;
@@ -2802,12 +2586,9 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
-//Save the stream into a pdf file.
-
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -2832,7 +2613,6 @@ The following image shows the PDF document with `PdfGridBuiltinStyle.Gridtable4A
 Essential PDF supports to paginate the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) using [PdfGridLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridLayoutFormat.html) class.
 
 The below sample illustrates how to allow the ``PdfGrid`` to flow across pages.
-
 
 {% tabs %}
 
@@ -2871,7 +2651,6 @@ pdfGrid.Draw(page, new PointF(10, 10),layoutFormat);
 
 //Save the document.
 document.Save("Output.pdf");
-
 //Close the document.
 document.Close(true);
 
@@ -2912,7 +2691,6 @@ pdfGrid.Draw(page, New PointF(10, 10), layoutFormat)
 
 'Save the document.
 document.Save("Output.pdf")
-
 'Close the document.
 document.Close(True)
 
@@ -2931,17 +2709,14 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 //You can add multiple rows.
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -2978,11 +2753,9 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 //You can add multiple rows here.
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
@@ -3002,22 +2775,16 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10), layoutFormat);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the document as a stream.
 document.Save(stream);
-
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 document.Close(true);
-
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -3036,17 +2803,14 @@ PdfGrid pdfGrid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 //You can add multiple rows.
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
-
 data.Add(row1);
 data.Add(row2);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -3061,14 +2825,10 @@ pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10), layoutFormat);
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
-//Save the stream into a pdf file.
-
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -3133,7 +2893,6 @@ grid.Draw(page, PointF.Empty);
 
 //Save the PDF document.
 document.Save("Output.pdf");
-
 //Close the instance of PdfDocument.
 document.Close(true);
 
@@ -3182,7 +2941,6 @@ grid.Draw(page, PointF.Empty)
 
 'Save the PDF document.
 document.Save("Output.pdf")
-
 'Close the instance of PdfDocument.
 document.Close(True)
 
@@ -3208,7 +2966,6 @@ Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_R
 Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
 Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
 Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
@@ -3216,7 +2973,6 @@ data.Add(grid1row4);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source to the grid.
 grid.DataSource = dataTable;
 
@@ -3231,13 +2987,10 @@ grid.Draw(page, PointF.Empty);
 
 //Create a memory stream.
 MemoryStream stream = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(stream);
-
 //Close the instance of PdfDocument.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -3263,7 +3016,6 @@ Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_R
 Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
 Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
 Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
@@ -3271,7 +3023,6 @@ data.Add(grid1row4);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source to the grid.
 grid.DataSource = dataTable;
 
@@ -3287,10 +3038,8 @@ grid.Draw(page, PointF.Empty);
 //Saving the PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0'.
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -3318,7 +3067,6 @@ Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_R
 Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
 Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
 Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
@@ -3342,10 +3090,8 @@ grid.Draw(page, PointF.Empty);
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the instance of PdfDocument.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -3356,6 +3102,7 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -3364,7 +3111,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## Adding multiple tables 
 
 The Essential PDF supports maintaining the position of a PDF grid drawn on a PDF page using [PdfGridLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridLayoutResult.html). It provides the rendered bounds of the previously added grid, which can be used to place successive elements without overlapping. Add multiple PDF grids using the bottom position of the previously rendered PDF grid. The following code sample illustrates this.
-
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3419,7 +3165,6 @@ pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
 
 //Save the document.
 document.Save("Output.pdf");
-
 //Close the document.
 document.Close(true);
 
@@ -3477,7 +3222,6 @@ pdfGrid.Draw(page, New PointF(10, (pdfGridLayoutResult.Bounds.Bottom + 20)))
 
 'Save the document.
 document.Save("Output.pdf")
-
 'Close the document.
 document.Close(True)
 {% endhighlight %}
@@ -3514,20 +3258,18 @@ PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10))
 
 //Initialize PdfGrid and list.
 pdfGrid = new PdfGrid();
-data = new List<object>();
 
+data = new List<object>();
 //Add values to the list.
 Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
 Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
 Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
-
 data.Add(grid2row1);
 data.Add(grid2row2);
 data.Add(grid2row3);
 
 //Add list to IEnumerable.
 dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -3536,13 +3278,10 @@ pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
 
 //Create a memory stream.
 MemoryStream stream = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -3564,14 +3303,12 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -3586,14 +3323,12 @@ data = new List<object>();
 Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
 Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
 Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
-
 data.Add(grid2row1);
 data.Add(grid2row2);
 data.Add(grid2row3);
 
 //Add list to IEnumerable.
 dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -3603,10 +3338,8 @@ pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
 //Saving the PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0'.
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -3630,14 +3363,12 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -3647,19 +3378,16 @@ PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10))
 //Initialize PdfGrid and list.
 pdfGrid = new PdfGrid();
 data = new List<object>();
-
 //Add values to the list.
 Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
 Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
 Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
-
 data.Add(grid2row1);
 data.Add(grid2row2);
 data.Add(grid2row3);
 
 //Add list to IEnumerable.
 dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -3669,10 +3397,8 @@ pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -3683,6 +3409,7 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -3838,13 +3565,10 @@ grid.Draw(page, new PointF(10, 10));
 
 //Create a memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(ms, "Output.pdf");
 
@@ -3866,7 +3590,6 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
@@ -3895,10 +3618,8 @@ grid.Draw(page, new PointF(10, 10));
 //Saving the PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0'.
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -3951,10 +3672,8 @@ grid.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -4084,7 +3803,6 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
@@ -4109,13 +3827,10 @@ grid.Draw(page, new PointF(10, 10));
 
 //Create a memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for respective code samples.
 Save(ms, "Output.pdf");
 
@@ -4163,10 +3878,8 @@ grid.Draw(page, new PointF(10, 10));
 //Saving the PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0'.
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -4190,7 +3903,6 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
@@ -4216,10 +3928,8 @@ grid.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -4368,15 +4078,13 @@ grid.Draw(page, new PointF(10, 10));
 
 //Create a memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(ms, "Output.pdf");
+
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
@@ -4419,14 +4127,13 @@ grid.Draw(page, new PointF(10, 10));
 //Save the PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
 return fileStreamResult;
+
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -4469,10 +4176,8 @@ grid.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to a PDF or Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -4483,6 +4188,7 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -4606,14 +4312,12 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 grid.DataSource = dataTable;
 
@@ -4634,13 +4338,10 @@ grid.Draw(page, new PointF(10, 10));
 
 //Create the memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to a PDF or UWP section for respective code samples.
 Save(ms, "Output.pdf");
 
@@ -4662,14 +4363,12 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 grid.DataSource = dataTable;
 
@@ -4691,10 +4390,8 @@ grid.Draw(page, new PointF(10, 10));
 //Save a PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -4718,18 +4415,16 @@ List<object> data = new List<object>();
 Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
 Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
 Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
-
 data.Add(grid1row1);
 data.Add(grid1row2);
 data.Add(grid1row3);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 grid.DataSource = dataTable;
 
-//create and customize the string formats.
+//Create and customize the string formats.
 PdfStringFormat stringFormat = new PdfStringFormat();
 stringFormat.Alignment = PdfTextAlignment.Center;
 stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
@@ -4747,10 +4442,8 @@ grid.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to a PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -4859,7 +4552,6 @@ pdfGrid.Draw(page, New PointF(10, 10))
 
 'Save the document.
 document.Save("Output.pdf")
-
 'Close the document.
 document.Close(True)
 
@@ -4903,13 +4595,10 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Create the memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for the respective code samples.
 Save(ms, "Sample.pdf");
 
@@ -4954,10 +4643,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Saving the PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Sample.pdf";
@@ -5004,10 +4691,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -5069,7 +4754,6 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Save the document.
 document.Save("Output.pdf");
-
 //Close the document.
 document.Close(true);
 {% endhighlight %}
@@ -5111,7 +4795,6 @@ pdfGrid.Draw(page, New PointF(10, 10))
 
 'Save the document.
 document.Save("Output.pdf")
-
 'Close the document.
 document.Close(True)
 
@@ -5155,13 +4838,10 @@ pdfGrid.Draw(page, new PointF(10, 10));
 
 //Create the memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(ms, "Sample.pdf");
 {% endhighlight %}
@@ -5205,10 +4885,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save a PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Sample.pdf";
@@ -5255,10 +4933,8 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -5365,7 +5041,6 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the instance of the PdfDocument.
 pdfDocument.Close(true);
 
@@ -5452,7 +5127,6 @@ pdfGrid.Draw(pdfPage, New PointF(10, 10))
 
 'Save the document.
 pdfDocument.Save("Output.pdf")
-
 'Close the instance of the PdfDocument.
 pdfDocument.Close(True)
 {% endhighlight %}
@@ -5539,13 +5213,10 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 
 //Create the memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 pdfDocument.Save(ms);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(ms, "Output.pdf");
 
@@ -5634,10 +5305,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save a PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -5728,10 +5397,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -5823,7 +5490,6 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the instance of the PdfDocument.
 pdfDocument.Close(true);
 
@@ -5897,7 +5563,6 @@ pdfGrid.Draw(pdfPage, New PointF(10, 10))
 
 'Save the document.
 pdfDocument.Save("Output.pdf")
-
 'Close the instance of the PdfDocument.
 pdfDocument.Close(True)
 
@@ -5972,10 +5637,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 
 //Create the memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 pdfDocument.Save(ms);
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -6054,10 +5717,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save a PDF to the Memory Stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -6135,10 +5796,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -6321,10 +5980,8 @@ grid.Draw(page, new PointF(10, 20));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the PDF document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -6343,18 +6000,15 @@ PdfGrid grid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 object row1 = new { CustomerID = "ALFKI", CompanyName = "Alfreds Futterkiste", ContactName = "Maria Anders", Address = "Obere Str. 57", City = "Berlin", PostalCode = "12209", Country = "Germany" };
 object row2 = new { CustomerID = "ANATR", CompanyName = "Ana Trujillo Emparedados yhelados", ContactName = "Ana Trujillo", Address = "Avda. de la Constitucion 2222", City = "Mexico D.F.", PostalCode = "05021", Country = "Mexico" };
 object row3 = new { CustomerID = "ANTON", CompanyName = "Antonio Moreno Taqueria", ContactName = "Antonio Moreno", Address = "Mataderos 2312", City = "Mexico D.F.", PostalCode = "05023", Country = "Mexico" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to the IEnumerable
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 grid.DataSource = dataTable;
 
@@ -6379,19 +6033,14 @@ grid.Draw(page, new PointF(10, 20));
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 document.Close(true);
-
 //Define the ContentType for a pdf file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -6410,18 +6059,15 @@ PdfGrid grid = new PdfGrid();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 object row1 = new { CustomerID = "ALFKI", CompanyName = "Alfreds Futterkiste", ContactName = "Maria Anders", Address = "Obere Str. 57", City = "Berlin", PostalCode = "12209", Country = "Germany" };
 object row2 = new { CustomerID = "ANATR", CompanyName = "Ana Trujillo Emparedados yhelados", ContactName = "Ana Trujillo", Address = "Avda. de la Constitucion 2222", City = "Mexico D.F.", PostalCode = "05021", Country = "Mexico" };
 object row3 = new { CustomerID = "ANTON", CompanyName = "Antonio Moreno Taqueria", ContactName = "Antonio Moreno", Address = "Mataderos 2312", City = "Mexico D.F.", PostalCode = "05023", Country = "Mexico" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 grid.DataSource = dataTable;
 
@@ -6446,10 +6092,8 @@ grid.Draw(page, new PointF(10, 20));
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a pdf file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -6515,10 +6159,8 @@ pdfGrid.Draw(page, new RectangleF(100,20,0,page.GetClientSize().Width));
 
 //Save the document.
 document.Save("RotatedTable.pdf");
-
 //Close the document.
 document.Close(true);
-
 
 private void PdfGrid_BeginPageLayout(object sender, Syncfusion.Pdf.Graphics.BeginPageLayoutEventArgs e)
 {
@@ -6575,10 +6217,8 @@ pdfGrid.Draw(page, New RectangleF(100, 20, 0, page.GetClientSize().Width))
 
 'Save the document. 
 document.Save("RotatedTable.pdf")
-
 'Close the document. 
 document.Close(True)
-
 
 Private Sub PdfGrid_BeginPageLayout(ByVal sender As Object, ByVal e As Syncfusion.Pdf.Graphics.BeginPageLayoutEventArgs)
     Dim page As PdfPage = e.Page
@@ -6609,18 +6249,15 @@ pdfGrid.BeginPageLayout += PdfGrid_BeginPageLayout;
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "57", Name = "AAA", Type = "ABC", Date = DateTime.Now };
 Object row2 = new { ID = "130", Name = "BBB", Type = "BCD", Date = DateTime.Now };
 Object row3 = new { ID = "92", Name = "CCC", Type = "CDE", Date = DateTime.Now };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -6633,13 +6270,10 @@ pdfGrid.Draw(page, new RectangleF(100, 20, 0, page.GetClientSize().Width));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the PDF document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
-
 
 private void PdfGrid_BeginPageLayout(object sender, BeginPageLayoutEventArgs e)
 {
@@ -6671,18 +6305,15 @@ pdfGrid.BeginPageLayout += PdfGrid_BeginPageLayout;
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "57", Name = "AAA", Type = "ABC", Date = DateTime.Now };
 Object row2 = new { ID = "130", Name = "BBB", Type = "BCD", Date = DateTime.Now };
 Object row3 = new { ID = "92", Name = "CCC", Type = "CDE", Date = DateTime.Now };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to the IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -6695,22 +6326,16 @@ pdfGrid.Draw(page, new RectangleF(100, 20, 0, page.GetClientSize().Width));
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 document.Close(true);
-
-//Define the ContentType for a pdf file. 
+//Define the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
-
 
 private void PdfGrid_BeginPageLayout(object sender, BeginPageLayoutEventArgs e)
 {
@@ -6742,18 +6367,15 @@ pdfGrid.BeginPageLayout += PdfGrid_BeginPageLayout; ;
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "57", Name = "AAA", Type = "ABC", Date = DateTime.Now };
 Object row2 = new { ID = "130", Name = "BBB", Type = "BCD", Date = DateTime.Now };
 Object row3 = new { ID = "92", Name = "CCC", Type = "CDE", Date = DateTime.Now };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfGrid.DataSource = dataTable;
 
@@ -6766,10 +6388,8 @@ pdfGrid.Draw(page, new RectangleF(100, 20, 0, page.GetClientSize().Width));
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a pdf file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -6780,7 +6400,6 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
-
 
 private void PdfGrid_BeginPageLayout(object sender, BeginPageLayoutEventArgs e)
 {
@@ -6855,7 +6474,6 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("Table.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -6896,7 +6514,6 @@ pdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("Table.pdf")
-
 'Close the document.
 pdfDocument.Close(True)
 
@@ -6938,10 +6555,8 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the PDF document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -6983,19 +6598,14 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Define the ContentType for a pdf file. 
+//Define the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -7037,11 +6647,9 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
-//Save the stream into a pdf file.
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -7115,7 +6723,6 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("Table.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -7168,7 +6775,6 @@ pdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("Table.pdf")
-
 'Close the document.
 pdfDocument.Close(True)
 
@@ -7228,10 +6834,8 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the PDF document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -7291,19 +6895,14 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Define the ContentType for a pdf file. 
+//Define the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -7363,11 +6962,9 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document as a stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Save the stream into a pdf file.
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -7438,7 +7035,6 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("Table.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -7505,14 +7101,11 @@ pdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("Table.pdf")
-
 'Close the document.
 pdfDocument.Close(True)
-
 'This will open the PDF file, so the result will be seen in the default PDF viewer. 
 System.Diagnostics.Process.Start("Table.pdf")
 
- 
 Private Shared Sub PdfGrid_BeginCellLayout(ByVal sender As Object, ByVal args As PdfGridBeginCellLayoutEventArgs)
     'Draw multiple fonts in a single table cell.
     If args.RowIndex = 2 AndAlso args.CellIndex = 2 Then
@@ -7575,10 +7168,8 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the PDF document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -7646,19 +7237,14 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Define the ContentType for a pdf file. 
+//Define the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -7726,11 +7312,9 @@ pdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Save the stream into a pdf file.
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -7806,10 +7390,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
-
 
 private static void PdfGrid_BeginCellLayout(object sender, PdfGridBeginCellLayoutEventArgs args)
 {
@@ -7860,7 +7442,6 @@ pdfGrid.Draw(pdfPage, New PointF(10, 10))
 
 'Save the PDF document. 
 pdfDocument.Save("Output.pdf")
-
 'Close the document. 
 pdfDocument.Close(True)
 
@@ -7915,10 +7496,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the PDF document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -7972,19 +7551,14 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Define the ContentType for a pdf file. 
+//Define the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -8039,13 +7613,10 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Save the stream into a pdf file.
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8156,7 +7727,6 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 
 //Save the document.
 pdfDocument.Save("Output.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -8232,7 +7802,6 @@ pdfGrid.Draw(pdfPage, New PointF(10, 10))
 
 'Save the document.
 pdfDocument.Save("Output.pdf")
-
 'Close the document. 
 pdfDocument.Close(True)
 
@@ -8311,10 +7880,8 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the PDF document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -8393,19 +7960,14 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Define the ContentType for a pdf file. 
+//Define the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -8484,13 +8046,10 @@ pdfGrid.Draw(pdfPage, new PointF(10, 10));
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Save the stream into a pdf file.
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8568,7 +8127,6 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document.
 pdfDocument.Save("NestedTable.pdf");
-
 //Close the document.
 pdfDocument.Close(true);
 
@@ -8630,7 +8188,6 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty)
 
 'Save the document.
 pdfDocument.Save("NestedTable.pdf")
-
 'Close the document.
 pdfDocument.Close(True)
 
@@ -8693,10 +8250,8 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the PDF document.
 pdfDocument.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -8759,19 +8314,14 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Defining the ContentType for a pdf file. 
+//Defining the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -8834,13 +8384,10 @@ parentPdfGrid.Draw(pdfPage, PointF.Empty);
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-
 //Close the document.
 pdfDocument.Close(true);
-
-//Save the stream into a pdf file.
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8996,10 +8543,8 @@ grid.Draw(page, new PointF(0, 0));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the PDF document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -9047,19 +8592,14 @@ grid.Draw(page, new PointF(0, 0));
 //Save the document into the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty. 
 stream.Position = 0;
-
 //Close the document.
 document.Close(true);
-
-//Define the ContentType for a pdf file. 
+//Define the ContentType for a PDF file. 
 string contentType = "application/pdf";
-
 //Define the file name. 
 string fileName = "Output.pdf";
-
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
 
@@ -9107,13 +8647,10 @@ grid.Draw(page, new PointF(0, 0));
 //Save the document to the stream. 
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
-//Save the stream into a pdf file.
+//Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
