@@ -323,11 +323,11 @@ A complete working sample can be downloaded from [GitHub](https://github.com/Syn
 
 ### Perform OCR in Linux 
 
-The Syncfusion .NET OCR library supports performing OCR in Linux. Refer to [this](/File-Formats/PDF/Working-with-OCR/Linux) section for more information about performing OCR on an entire PDF document in Linux.  
+The Syncfusion .NET OCR library supports performing OCR in Linux. Refer to [this](/file-formats/pdf/working-with-ocr/linux) section for more information about performing OCR on an entire PDF document in Linux.  
 
 ### Perform OCR in Docker 
 
-The Syncfusion .NET OCR library supports performing OCR in Docker. Refer to [this](/File-Formats/PDF/Working-with-OCR/Docker) section for more information about performing OCR on an entire PDF document in Docker.  
+The Syncfusion .NET OCR library supports performing OCR in Docker. Refer to [this](/file-formats/pdf/working-with-ocr/docker) section for more information about performing OCR on an entire PDF document in Docker.  
 
 ### Perform OCR in Mac
 
@@ -335,32 +335,32 @@ The Syncfusion .NET OCR library supports performing OCR on Mac. Refer to [this](
 
 ### Perform OCR in ASP.NET Core 
 
-The Syncfusion .NET OCR library supports performing OCR in ASP.NET Core. Refer to [this](/File-Formats/PDF/Working-with-OCR/net-core) section for more information about performing OCR on an entire PDF document in ASP.NET Core.  
+The Syncfusion .NET OCR library supports performing OCR in ASP.NET Core. Refer to [this](/file-formats/pdf/working-with-ocr/net-core) section for more information about performing OCR on an entire PDF document in ASP.NET Core.  
 
 ### Perform OCR in ASP.NET MVC
 
-The Syncfusion .NET OCR library supports performing OCR in ASP.NET MVC. Refer to [this](/File-Formats/PDF/Working-with-OCR/aspnet-mvc) section for more information about performing OCR on an entire PDF document in ASP.NET MVC. 
+The Syncfusion .NET OCR library supports performing OCR in ASP.NET MVC. Refer to [this](/file-formats/pdf/working-with-ocr/aspnet-mvc) section for more information about performing OCR on an entire PDF document in ASP.NET MVC. 
 
 ### Perform OCR in Blazor
 
-The Syncfusion .NET OCR library supports performing OCR in Blazor. Refer to [this](/File-Formats/PDF/Working-with-OCR/blazor) section for more information about performing OCR on an entire PDF document in Blazor.  
+The Syncfusion .NET OCR library supports performing OCR in Blazor. Refer to [this](/file-formats/pdf/working-with-ocr/blazor) section for more information about performing OCR on an entire PDF document in Blazor.  
 
 ### Perform OCR in Azure
 
-The Syncfusion .NET OCR library supports performing OCR in Azure. Refer to [this](/File-Formats/PDF/Working-with-OCR/azure) section for more information about performing OCR on an entire PDF document in Azure.  
+The Syncfusion .NET OCR library supports performing OCR in Azure. Refer to [this](/file-formats/pdf/working-with-ocr/azure) section for more information about performing OCR on an entire PDF document in Azure.  
 
 ### Perform OCR in Azure Vision
-The Syncfusion .NET OCR library supports performing OCR with Azure Vision (external engine). Refer to [this](/File-Formats/PDF/Working-with-OCR/Azure-Vision) section for more information about performing OCR on an entire PDF document. 
+The Syncfusion .NET OCR library supports performing OCR with Azure Vision (external engine). Refer to [this](/file-formats/pdf/working-with-ocr/azure-vision) section for more information about performing OCR on an entire PDF document. 
 
 ### Perform OCR in AWS Textract
 
-The Syncfusion .NET OCR library supports performing OCR with AWS Textract. Refer to [this](/File-Formats/PDF/Working-with-OCR/AWS-Textract) section for more information about performing OCR on an entire PDF document in AWS.  
+The Syncfusion .NET OCR library supports performing OCR with AWS Textract. Refer to [this](/file-formats/pdf/working-with-ocr/aws-textract) section for more information about performing OCR on an entire PDF document in AWS.  
 
 ## Features 
 
-Refer to [this](/File-Formats/PDF/Working-with-OCR/Features) section for more information about features in PDF OCR. Get the details, code examples and demo from this section. 
+Refer to [this](/file-formats/pdf/working-with-ocr/features) section for more information about features in PDF OCR. Get the details, code examples and demo from this section. 
 
 ## Troubleshooting 
 
-Refer to [this](/File-Formats/PDF/Working-with-OCR/Troubleshooting) section for troubleshooting PDF OCR failures. 
+Refer to [this](/file-formats/pdf/working-with-ocr/troubleshooting) section for troubleshooting PDF OCR failures. 
 
