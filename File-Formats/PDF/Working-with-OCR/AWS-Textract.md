@@ -14,10 +14,10 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 ## Steps to perform OCR with AWS Textract 
 
 Step 1: Create a new .NET Console application project. 
-<img src="OCR-Images/.NET-sample-creation-step1.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-creation-step1.png" alt="NET-sample-creation-step1" width="100%" Height="Auto"/>
 
 In project configuration window, name your project and select Next. 
-<img src="OCR-Images/.NET-sample-creation-step2.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-creation-step2.png" alt="NET-sample-creation-step2" width="100%" Height="Auto"/>
 
 Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
 <img src="OCR-Images/.NET-sample-creation-step3.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
