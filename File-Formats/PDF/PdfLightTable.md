@@ -52,7 +52,6 @@ pdfLightTable.Draw(page, new PointF(0, 0));
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document.
 doc.Close(true);
 
@@ -88,7 +87,6 @@ pdfLightTable.Draw(page, New PointF(0, 0))
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document.
 doc.Close(True)
 
@@ -122,10 +120,8 @@ pdfLightTable.Draw(page, new PointF(0, 0));
 //Save the PDF document to the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -149,7 +145,6 @@ data.Add(row);
 
 //Add list to the IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
@@ -158,22 +153,16 @@ pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0));
 
 //Create the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -197,7 +186,6 @@ data.Add(row);
 
 //Add list to the IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
@@ -207,13 +195,10 @@ pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0));
 //Save the PDF document to the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -340,10 +325,8 @@ pdfLightTable.Draw(page, PointF.Empty);
 //Save the PDF document into the stream
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -379,22 +362,16 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 
 //Creating the stream object
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -431,13 +408,10 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -473,7 +447,7 @@ PdfGraphics graphics = page.Graphics;
 // Create a PdfLightTable.
 PdfLightTable pdfLightTable = new PdfLightTable();
 
-// Initialize DataTable to assign as DateSource to the light table.
+//Initialize DataTable to assign as DateSource to the light table.
 DataTable table = new DataTable();
 
 //Include columns in the DataTable.
@@ -492,7 +466,6 @@ pdfLightTable.Draw(graphics, new PointF(0, 0));
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document.
 doc.Close(true);
 
@@ -531,7 +504,6 @@ pdfLightTable.Draw(graphics, New PointF(0, 0))
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document.
 doc.Close(True)
 
@@ -542,13 +514,10 @@ doc.Close(True)
 //Create the open file picker.
 var picker = new FileOpenPicker();
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and choose the file.
 StorageFile file = await picker.PickSingleFileAsync();
-
 //Create an empty PDF loaded document instance.
 PdfLoadedDocument doc = new PdfLoadedDocument();
-
 //Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class.
 await doc.OpenAsync(file);
 
@@ -578,10 +547,8 @@ pdfLightTable.Draw(graphics, new PointF(0, 0));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -591,7 +558,6 @@ Save(stream, "Output.pdf");
 
 //Get stream from an existing PDF document. 
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-
 //Load the PDF document. 
 PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
 
@@ -620,22 +586,16 @@ pdfLightTable.Draw(graphics, new Syncfusion.Drawing.PointF(0, 0));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -643,9 +603,8 @@ return File(stream, contentType, fileName);
 
 {% highlight c# tabtitle="Xamarin" %}
 
- //Get stream from an existing PDF document. 
+//Get stream from an existing PDF document. 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-
 //Load the PDF document. 
 PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
 
@@ -675,10 +634,8 @@ pdfLightTable.Draw(graphics, new Syncfusion.Drawing.PointF(0, 0));
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -750,7 +707,6 @@ pdfLightTable.Draw(page, PointF.Empty);
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document.
 doc.Close(true);
 
@@ -802,7 +758,6 @@ pdfLightTable.Draw(page, PointF.Empty)
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document.
 doc.Close(True)
 
@@ -855,10 +810,8 @@ pdfLightTable.Draw(page, PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -910,22 +863,16 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -937,7 +884,6 @@ return File(stream, contentType, fileName);
 PdfDocument doc = new PdfDocument();
 
 //Add a page.
-
 PdfPage page = doc.Pages.Add();
 
 //Create a PdfLightTable.
@@ -979,13 +925,10 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -1044,24 +987,23 @@ pdfLightTable.Draw(page, PointF.Empty);
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document.
 doc.Close(true);
 
 private void pdfLightTable_EndCellLayout(object sender, EndCellLayoutEventArgs args)
 {
-if(args.RowIndex==0 &&args.CellIndex==0)
-{
-args.Graphics.DrawImage(new PdfBitmap(imageFileName), args.Bounds);
-}
+    if (args.RowIndex == 0 && args.CellIndex == 0)
+    {
+        args.Graphics.DrawImage(new PdfBitmap(imageFileName), args.Bounds);
+    }
 }
 
 private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventArgs args)
 {
-if (args.RowIndex == 0 && args.CellIndex == 1)
-{
-args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
-}
+    if (args.RowIndex == 0 && args.CellIndex == 1)
+    {
+        args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
+    }
 }
 
 {% endhighlight %}
@@ -1101,28 +1043,19 @@ pdfLightTable.Draw(page, PointF.Empty)
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document.
 doc.Close(True)
 
 Private Sub pdfLightTable_EndCellLayout(ByVal sender As Object, ByVal args As EndCellLayoutEventArgs)
-
-If args.RowIndex = 0 AndAlso args.CellIndex = 0 Then
-
-args.Graphics.DrawImage(New PdfBitmap(imageFileName), args.Bounds)
-
-End If
-
+    If args.RowIndex = 0 AndAlso args.CellIndex = 0 Then
+        args.Graphics.DrawImage(New PdfBitmap(imageFileName), args.Bounds)
+    End If
 End Sub
 
 Private Sub pdfLightTable_BeginCellLayout(ByVal sender As Object, ByVal args As BeginCellLayoutEventArgs)
-
-If args.RowIndex = 0 AndAlso args.CellIndex = 1 Then
-
-args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds)
-
-End If
-
+    If args.RowIndex = 0 AndAlso args.CellIndex = 1 Then
+        args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds)
+    End If
 End Sub
 
 {% endhighlight %}
@@ -1163,10 +1096,8 @@ pdfLightTable.Draw(page, PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -1188,7 +1119,6 @@ private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventAr
         args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
     }
 }
-
 
 {% endhighlight %}
 
@@ -1227,22 +1157,16 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -1252,7 +1176,6 @@ private void pdfLightTable_EndCellLayout(object sender, EndCellLayoutEventArgs a
     {
         //Load the image as a stream.
         FileStream imageStream = new FileStream("Image.jpg", FileMode.Open, FileAccess.Read);
-
         args.Graphics.DrawImage(new PdfBitmap(imageStream), args.Bounds);
     }
 }
@@ -1304,13 +1227,10 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -1325,9 +1245,7 @@ private void pdfLightTable_EndCellLayout(object sender, EndCellLayoutEventArgs a
     if (args.RowIndex == 0 && args.CellIndex == 0)
     {
         //Load the image as a stream.
-
         Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpg");
-
         args.Graphics.DrawImage(new PdfBitmap(imageStream), args.Bounds);
     }
 }
@@ -1388,31 +1306,30 @@ pdfLightTable.Draw(page, PointF.Empty);
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document.
 doc.Close(true);
 
 private void pdfLightTable_EndRowLayout(object sender, EndRowLayoutEventArgs args)
 {
-//Customize the rows when the row layout ends.
-if (args.RowIndex == 3)
-args.Cancel = true;
+    //Customize the rows when the row layout ends.
+    if (args.RowIndex == 3)
+        args.Cancel = true;
 }
 
 private void pdfLightTable_BeginRowLayout(object sender, BeginRowLayoutEventArgs args)
 {
-//Apply column span.
-if(args.RowIndex==1)
-{
-PdfLightTable table = (PdfLightTable)sender;
-int count = table.Columns.Count;
-int[] spanMap = new int[count];
+    //Apply column span.
+    if (args.RowIndex == 1)
+    {
+        PdfLightTable table = (PdfLightTable)sender;
+        int count = table.Columns.Count;
+        int[] spanMap = new int[count];
 
-//Set just spanned cells. Negative values are not allowed.
-spanMap[0] = 2;
-spanMap[1] = 3;
-args.ColumnSpanMap = spanMap;
-}
+        //Set just spanned cells. Negative values are not allowed.
+        spanMap[0] = 2;
+        spanMap[1] = 3;
+        args.ColumnSpanMap = spanMap;
+    }
 }
 
 {% endhighlight %}
@@ -1451,42 +1368,27 @@ pdfLightTable.Draw(page, PointF.Empty)
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document.
 doc.Close(True)
 
 Private Sub pdfLightTable_EndRowLayout(ByVal sender As Object, ByVal args As EndRowLayoutEventArgs)
-
-'Customize the rows when the row layout ends.
-
-If args.RowIndex = 3 Then
-args.Cancel = True
-End If
-
+    'Customize the rows when the row layout ends.
+    If args.RowIndex = 3 Then
+        args.Cancel = True
+    End If
 End Sub
 
 Private Sub pdfLightTable_BeginRowLayout(ByVal sender As Object, ByVal args As BeginRowLayoutEventArgs)
-
-'Apply column span.
-
-If args.RowIndex=1 Then
-
-Dim table As PdfLightTable = CType(sender, PdfLightTable)
-
-Dim count As Integer = table.Columns.Count
-
-Dim spanMap(count - 1) As Integer
-
-' Set just spanned cells. Negative values are not allowed.
-
-spanMap(0) = 2
-
-spanMap(1) = 3
-
-args.ColumnSpanMap = spanMap
-
-End If
-
+    'Apply column span.
+    If args.RowIndex = 1 Then
+        Dim table As PdfLightTable = CType(sender, PdfLightTable)
+        Dim count As Integer = table.Columns.Count
+        Dim spanMap(count - 1) As Integer
+        ' Set just spanned cells. Negative values are not allowed.
+        spanMap(0) = 2
+        spanMap(1) = 3
+        args.ColumnSpanMap = spanMap
+    End If
 End Sub
 
 {% endhighlight %}
@@ -1535,7 +1437,6 @@ Save(stream, "Output.pdf");
 
 private void pdfLightTable_EndRowLayout(object sender, EndRowLayoutEventArgs args)
 {
-
    //Customize the rows when the row layout ends.
     if (args.RowIndex == 3)
     args.Cancel = true;
@@ -1593,32 +1494,24 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 
 //Create the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to the stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for a PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
 private void pdfLightTable_EndRowLayout(object sender, EndRowLayoutEventArgs args)
 {
-
     //Customize the rows when the row layout ends.
     if (args.RowIndex == 3)
     args.Cancel = true;
-
 }
 
 private void pdfLightTable_BeginRowLayout(object sender, BeginRowLayoutEventArgs args)
@@ -1629,14 +1522,12 @@ private void pdfLightTable_BeginRowLayout(object sender, BeginRowLayoutEventArgs
         PdfLightTable table = (PdfLightTable)sender;
         int count = table.Columns.Count;
         int[] spanMap = new int[count];
-
         //Set just spanned cells. Negative values are not allowed.
         spanMap[0] = 2;
         spanMap[1] = 3;
         args.ColumnSpanMap = spanMap;
     }
 }
-
 
 {% endhighlight %}
 
@@ -1675,13 +1566,10 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -1747,7 +1635,6 @@ pdfLightTable.Draw(page, PointF.Empty);
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document.
 doc.Close(true);
 
@@ -1797,7 +1684,6 @@ pdfLightTable.Draw(page, PointF.Empty)
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document.
 doc.Close(True)
 
@@ -1848,10 +1734,8 @@ pdfLightTable.Draw(page, PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -1901,22 +1785,16 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the PDF document to the stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -1967,13 +1845,10 @@ pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
 //Save the PDF document into the stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -2024,19 +1899,14 @@ pdfLightTable.DataSource = table;
 
 //Declare and define light table style.
 PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();
-
 //Set cell padding, which specifies the space between the border and content of the cell.
 lightTableStyle.CellPadding = 2;
-
 //Set cell spacing, which specifies the space between the adjacent cells.
 lightTableStyle.CellSpacing = 2;
-
 //Sets to show header in the table.
 lightTableStyle.ShowHeader = true;
-
 //Sets to repeat the header on each page.
 lightTableStyle.RepeatHeader = true;
-
 //Apply the style.
 pdfLightTable.Style = lightTableStyle;
 
@@ -2045,7 +1915,6 @@ pdfLightTable.Draw(page, new PointF(0, 0));
 
 //Save the document.
 document.Save("Output.pdf");
-
 //Close the document.
 document.Close(true);
 
@@ -2078,19 +1947,14 @@ pdfLightTable.DataSource = table
 
 'Declare and define light table style.
 Dim lightTableStyle As New PdfLightTableStyle()
-
 'Set cell padding, which specifies the space between the border and content of the cell.
 lightTableStyle.CellPadding = 2
-
 'Set cell spacing, which specifies the space between the adjacent cells.
 lightTableStyle.CellSpacing = 2
-
 'Sets to show header in the table.
 lightTableStyle.ShowHeader = True
-
 'Sets to repeat the header on each page.
 lightTableStyle.RepeatHeader = True
-
 'Apply the style.
 pdfLightTable.Style = lightTableStyle
 
@@ -2123,25 +1987,19 @@ data.Add(row);
 
 //Add list to IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
 //Declare and define light table style.
 PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();
-
 //Set cell padding, which specifies the space between the border and content of the cell.
 lightTableStyle.CellPadding = 2;
-
 //Set cell spacing, which specifies the space between the adjacent cells.
 lightTableStyle.CellSpacing = 2;
-
 //Sets to show header in the table.
 lightTableStyle.ShowHeader = true;
-
 //Sets to repeat the header on each page.
 lightTableStyle.RepeatHeader = true;
-
 //Apply style.
 pdfLightTable.Style = lightTableStyle;
 
@@ -2151,10 +2009,8 @@ pdfLightTable.Draw(page, new PointF(0, 0));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for respective code samples.
 Save(stream, "Output.pdf");
 
@@ -2178,25 +2034,19 @@ data.Add(row);
 
 //Add list to IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
 //Declare and define light table style.
 PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();
-
 //Set cell padding, which specifies the space between the border and content of the cell.
 lightTableStyle.CellPadding = 2;
-
 //Set cell spacing, which specifies the space between the adjacent cells.
 lightTableStyle.CellSpacing = 2;
-
 //Sets to show header in the table.
 lightTableStyle.ShowHeader = true;
-
 //Sets to repeat the header on each page.
 lightTableStyle.RepeatHeader = true;
-
 //Apply style.
 pdfLightTable.Style = lightTableStyle;
 
@@ -2205,22 +2055,16 @@ pdfLightTable.Draw(page, new PointF(0, 0));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the document as a stream.
 document.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 document.Close(true);
-
 //Define the ContentType for a PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -2244,25 +2088,19 @@ data.Add(row);
 
 //Add list to IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
 //Declare and define light table style.
 PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();	
-
 //Set cell padding, which specifies the space between the border and content of the cell.
 lightTableStyle.CellPadding = 2;
-
 //Set cell spacing, which specifies the space between the adjacent cells.
 lightTableStyle.CellSpacing = 2;
-
 //Set to show header in the table.
 lightTableStyle.ShowHeader = true;
-
 //Set the repeat header on each page.
 lightTableStyle.RepeatHeader = true;
-
 //Apply style.
 pdfLightTable.Style = lightTableStyle;
 
@@ -2272,13 +2110,10 @@ pdfLightTable.Draw(page, new PointF(0, 0));
 //Save the document as a stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document instances.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples.
-
 if (Device.RuntimePlatform == Device.UWP)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -2345,7 +2180,6 @@ pdfLightTable.Draw(page, new PointF(10, 10));
 
 //Save the document.
 doc.Save("Output.pdf");
-
 //Close the document
 doc.Close(true);
 
@@ -2387,13 +2221,12 @@ pdfLightTable.Draw(page, New PointF(10, 10))
 
 'Save the document.
 doc.Save("Output.pdf")
-
 'Close the document
 doc.Close(True)
 
 {% endhighlight %}
 
-  {% highlight c# tabtitle="UWP" %}
+{% highlight c# tabtitle="UWP" %}
 
 //Create a new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -2406,13 +2239,11 @@ PdfLightTable pdfLightTable = new PdfLightTable();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2421,7 +2252,6 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfLightTable.DataSource = dataTable;
 
@@ -2434,10 +2264,8 @@ pdfLightTable.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 await doc.SaveAsync(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -2456,13 +2284,11 @@ PdfLightTable pdfLightTable = new PdfLightTable();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2471,7 +2297,6 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfLightTable.DataSource = dataTable;
 
@@ -2483,22 +2308,16 @@ pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the document as a stream.
 doc.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 doc.Close(true);
-
 //Define the ContentType for PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -2517,13 +2336,11 @@ PdfLightTable pdfLightTable = new PdfLightTable();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 Object row1 = new { ID = "E01", Name = "Clay" };
 Object row2 = new { ID = "E02", Name = "Thomas" };
 Object row3 = new { ID = "E03", Name = "George" };
 Object row4 = new { ID = "E04", Name = "Steffen" };
 Object row5 = new { ID = "E05", Name = "Mathew" };
-
 data.Add(row1);
 data.Add(row2);
 data.Add(row3);
@@ -2532,7 +2349,6 @@ data.Add(row5);
 
 //Add list to IEnumerable.
 IEnumerable<object> dataTable = data;
-
 //Assign data source.
 pdfLightTable.DataSource = dataTable;
 
@@ -2545,13 +2361,10 @@ pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-
 //Close the document.
 doc.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
-
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -2614,7 +2427,6 @@ pdfLightTable.Draw(page, new PointF(0, 0), layoutFormat);
 
 //Save the document.
 document.Save("Output.pdf");
-
 //Close the document.
 document.Close(true);
 
@@ -2655,7 +2467,6 @@ pdfLightTable.Draw(page, New PointF(0, 0), layoutFormat)
 
 'Save the document.
 document.Save("Output.pdf")
-
 'Close the document.
 document.Close(True)
 
@@ -2674,14 +2485,12 @@ PdfLightTable pdfLightTable = new PdfLightTable();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 //You can add multiple rows.
 Object row = new { Name = "abc", Age = "21", Sex = "Male" };
 data.Add(row);
 
 //Add list to IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
@@ -2696,10 +2505,8 @@ pdfLightTable.Draw(page, new PointF(0, 0), layoutFormat);
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(stream, "Output.pdf");
 
@@ -2718,14 +2525,12 @@ PdfLightTable pdfLightTable = new PdfLightTable();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 //You can add multiple rows.
 Object row = new { Name = "abc", Age = "21", Sex = "Male" };
 data.Add(row);
 
 //Add list to IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
@@ -2739,22 +2544,16 @@ pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0), layoutFormat);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
-
 //Save the document as a stream.
 document.Save(stream);
-
 //If the position is not set to '0,' a PDF will be empty.
 stream.Position = 0;
-
 //Close the document.
 document.Close(true);
-
 //Define the ContentType for a PDF file.
 string contentType = "application/pdf";
-
 //Define the file name.
 string fileName = "Output.pdf";
-
 //Create a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
@@ -2773,14 +2572,12 @@ PdfLightTable pdfLightTable = new PdfLightTable();
 
 //Add values to the list.
 List<object> data = new List<object>();
-
 //Add multiple rows.
 Object row = new { Name = "abc", Age = "21", Sex = "Male" };
 data.Add(row);
 
 //Add list to the IEnumerable.
 IEnumerable<object> table = data;
-
 //Assign data source.
 pdfLightTable.DataSource = table;
 
@@ -2795,10 +2592,8 @@ pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0), layoutFormat);
 //Save the PDF document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF or Xamarin section for respective code samples.
 
@@ -2966,13 +2761,10 @@ lightTable.Draw(page, new PointF(10, 10));
 
 //Create a memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(ms, "Output.pdf");
 
@@ -3023,10 +2815,8 @@ lightTable.Draw(page, new PointF(10, 10));
 //Save a PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download a PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -3079,10 +2869,8 @@ lightTable.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -3239,13 +3027,10 @@ lightTable.Draw(page, new PointF(10, 10));
 
 //Create a memory stream.
 MemoryStream ms = new MemoryStream();
-
 //Open the document in the browser after saving it.
 document.Save(ms);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respective code samples.
 Save(ms, "Output.pdf");
 
@@ -3293,10 +3078,8 @@ lightTable.Draw(page, new PointF(10, 10));
 //Save the PDF to the MemoryStream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Set the position as '0.'
 stream.Position = 0;
-
 //Download the PDF document in the browser.
 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
 fileStreamResult.FileDownloadName = "Output.pdf";
@@ -3346,10 +3129,8 @@ lightTable.Draw(page, new PointF(10, 10));
 //Save the document to the stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-
 //Close the document.
 document.Close(true);
-
 //Save the stream into a PDF file.
 //The operation in the Save under Xamarin varies between the Windows Phone, Android, and iOS platforms. Refer to the PDF or Xamarin section for the respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
