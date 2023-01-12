@@ -182,11 +182,9 @@ public string FunctionHandler(string input, ILambdaContext context)
  
    //Save the document into a stream.
    MemoryStream memoryStream = new MemoryStream();
- 
    //Save and close the PDFDocument.
    document.Save(memoryStream);
    document.Close(true);
- 
    string base64 = Convert.ToBase64String(memoryStream.ToArray());
    memoryStream.Close();
    memoryStream.Dispose();
@@ -308,7 +306,7 @@ Step 14: By executing the program, you will get the PDF document as follows.
 
 <img src="htmlconversion_images/awslambda11.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
 
-A complete working sample can be downloaded from GitHub.
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS/HTML_to_PDF_Lambda_Docker_Container).
 
 
 
