@@ -9,7 +9,7 @@ keywords: Assemblies
 
 # Perform OCR in Blazor
 
-The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/ocr-process) is used to extract text from scanned PDFs and images in the Blazor application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
+The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net-core/pdf-library/ocr-process) is used to extract text from scanned PDFs and images in the Blazor application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
 
 ## Steps to perform OCR on the entire PDF document in the Blazor application
 
@@ -52,7 +52,7 @@ using System.IO;
 
 {% endhighlight %}
 
-Step 7: Use the following code sample to perform OCR in the ExportService class.
+Step 7: Use the following code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in the **ExportService** file.  
 
 {% highlight c# tabtitle="C#" %}
 
@@ -78,7 +78,7 @@ public MemoryStream CreatePdf()
 
 {% endhighlight %}
 
-Step 8: Register your service in the ConfigureServices method available in the Startup.cs class as follows.
+Step 8: Register your service in the ConfigureServices method available in the *Startup.cs* class as follows.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -92,7 +92,7 @@ public void ConfigureServices(IServiceCollection services)
 
 {% endhighlight %}
 
-Step 9: Inject ExportService into FetchData.razor using the following code.
+Step 9: Inject ExportService into *FetchData.razor* using the following code.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -102,7 +102,7 @@ Step 9: Inject ExportService into FetchData.razor using the following code.
 
 {% endhighlight %}
 
-Step 10: Create a button in the FetchData.razor using the following code.
+Step 10: Create a button in the *FetchData.razor* using the following code.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -110,7 +110,7 @@ Step 10: Create a button in the FetchData.razor using the following code.
 
 {% endhighlight %}
 
-Step 11: Add the PerformOCR method in FetchData.razor page to call the export service.
+Step 11: Add the PerformOCR method in *FetchData.razor* page to call the export service.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -143,7 +143,7 @@ public static class FileUtil
 
 {% endhighlight %}
 
-Step 13: Add the following JavaScript function in the _Host.cshtml available under the Pages folder.
+Step 13: Add the following JavaScript function in the *_Host.cshtml* available under the Pages folder.
 
 {% highlight c# tabtitle="C#" %}
 

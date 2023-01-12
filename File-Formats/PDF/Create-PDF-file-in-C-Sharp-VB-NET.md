@@ -8,9 +8,9 @@ keywords: create pdf, edit pdf, write pdf, merge, pdf form, fill form, digital s
 ---
 # Create or Generate PDF file in C# and VB.NET
 
-The [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) used to create PDF document from scratch and saving it to disk or stream. 
+The [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) used to create PDF document from scratch and saving it to disk or stream. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
-To include the .NET PDF library into your ASP.NET MVC application, please refer to the [NuGet Package Required](https://help.syncfusion.com/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](https://help.syncfusion.com/File-Formats/PDF/Assemblies-Required) documentation.
+To include the .NET PDF library into your application, please refer to the [NuGet Package Required](https://help.syncfusion.com/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](https://help.syncfusion.com/File-Formats/PDF/Assemblies-Required) documentation.
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Unlike System.Drawing APIs all the units are measured in point instead of pixel.
@@ -55,7 +55,8 @@ using Syncfusion.Pdf.Grid;
 
 ## Creating a PDF document with simple text
 
-The following code example shows how to create a PDF document with simple text.
+The following code example shows how to create a PDF document with simple text using the [DrawString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawString_System_String_Syncfusion_Pdf_Graphics_PdfFont_Syncfusion_Pdf_Graphics_PdfBrush_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) object to draw the text on the PDF page.
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
@@ -129,11 +130,11 @@ document.Save(stream);
 stream.Position = 0;
 //Close the document.
 document.Close(true);
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file.
 string contentType = "application/pdf";
 //Define the file name
 string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
+//Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 {% endhighlight %}
 
@@ -153,7 +154,7 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream);
 //Close the document.
 document.Close(true);
-//Save the stream into pdf file
+//Save the stream into PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -167,9 +168,12 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/blob/master/Getting%20Started/.NET/Create_PDF_NET/Create_PDF_NET/Program.cs).
+
 ## Creating a PDF document with image
 
-The following code example shows how to generate a PDF document with an image.
+The following code example shows how to generate a PDF document with an image using the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. 
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document.
@@ -245,7 +249,7 @@ doc.Save(stream);
 stream.Position = 0;
 //Close the document.
 doc.Close(true);
-//Defining the ContentType for pdf file.
+//Defining the ContentType for PDF file.
 string contentType = "application/pdf";
 //Define the file name.
 string fileName = "Output.pdf";
@@ -270,7 +274,7 @@ MemoryStream stream = new MemoryStream();
 doc.Save(stream);
 //Close the document.
 doc.Close(true);
-//Save the stream into pdf file
+//Save the stream into PDF file.
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -284,9 +288,12 @@ else
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/Create_PDF_with_image_NET).
+
 ## Creating a PDF document with table
 
-The following code example shows how to generate a PDF document with a simple table.
+The following code example shows how to generate a PDF document with a simple table from a [DataSource](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_DataSource) using the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) class. The [DataSource](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_DataSource) can be a data set, data table, arrays or an IEnumerable object.
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create a new PDF document
@@ -410,15 +417,15 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0' then the PDF will be empty
 stream.Position = 0;
-//Close the document.
+//Close the document
 doc.Close(true);
-//Defining the ContentType for pdf file.
+//Defining the ContentType for PDF file
 string contentType = "application/pdf";
 //Define the file name.
 string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
 {% endhighlight %}
 
@@ -451,7 +458,7 @@ MemoryStream stream = new MemoryStream();
 doc.Save(stream);
 //Close the document.
 doc.Close(true);
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -464,6 +471,8 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/Create_PDF_with_table_NET).
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
@@ -1100,14 +1109,16 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/Create_PDF_with_basic_elements_NET).
+
 The following screenshot shows the invoice PDF document created by using .NET PDF library.
 <img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
 
 ## Filling forms
 
-An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A [PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) or an [existing PDF document](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
-.NET PDF library allows you to create/write and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+.NET PDF library allows you to [create/write and manipulate existing form](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-form-fields) in PDF document using the [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html) class. To work with existing form documents, the following namespaces are required.
 
 1. Syncfusion.Pdf
 2. Syncfusion.Pdf.Parsing
@@ -1279,6 +1290,8 @@ else
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/Filling_forms_NET).
+
 The filled form is shown in adobe reader application as follows.
 <img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form output" width="100%" Height="Auto"/>
 
@@ -1294,7 +1307,7 @@ To include the HTML to PDF .NET library into your application, please refer to t
 
 ### Convert website URL to PDF  
 
-To convert website URL or local HTML file to PDF document, refer to the following code example.
+To convert website URL or local HTML file to PDF document using [Convert](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html#Syncfusion_HtmlConverter_HtmlToPdfConverter_Convert_System_String_) method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class, refer to the following code example.
 
 {% tabs %}
 
@@ -1350,6 +1363,8 @@ return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "O
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/HTML_to_PDF_NET).
+
 ### HTML String to PDF 
 
 The HTML to PDF converter provides support for converting HTML string to PDF. While converting HTML string to PDF, converter provides option to specify the base URL.
@@ -1359,7 +1374,7 @@ The HTML to PDF converter provides support for converting HTML string to PDF. Wh
 For the following HTML string, the baseURL will be the path of the syncfusion_logo.gif image. For example, if the above image is in "C:/Temp/ HTMLFiles/syncfusion_logo.gif" location, then the baseURL will be as follows.
 *baseURL: C:/Temp/HTMLFiles/*
 
-To convert the HTML string to PDF, refer to the following code example.
+To convert the HTML string to PDF using [Convert](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html#Syncfusion_HtmlConverter_HtmlToPdfConverter_Convert_System_String_System_String_) method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class, refer to the following code example.
 
 {% tabs %}
 
@@ -1425,9 +1440,11 @@ return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "O
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/HTML_string_to_PDF_NET).
+
 ## Merge PDF Documents
 
-Essential PDF supports merging multiple PDF documents from disk and stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method. You can merge the multiple PDF documents from disk by specifying the path of the documents in a string array.
+Essential PDF supports [merging multiple PDF documents](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/merge-pdf) from disk and stream using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_Syncfusion_Pdf_Parsing_PdfLoadedDocument_) method of the [PdfDocumentBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html) class. You can merge the multiple PDF documents from disk by specifying the path of the documents in a string array.
 
 Refer to the following code example to merge multiple documents from disk.
 {% tabs %}
@@ -1555,5 +1572,7 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/Merge_PDF_documents_NET).
 
 N> You can also explore our [.NET PDF framework](https://www.syncfusion.com/demos/fileformats/pdf-library) demo that shows how to create and modify PDF files from C# with just five lines of code on different platforms.

@@ -788,7 +788,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 Annotations can be flattened by removing the existing annotation and replacing it with graphic objects that would resemble the annotation and cannot be edited.
 
-This can be achieved by calling the [FlattenAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations) method. Please refer to the sample for flattening all the annotations in the PDF document without calling the [save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Save) method
+This can be achieved by calling the [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations) method. Please refer to the sample for flattening all the annotations in the PDF document without calling the [save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Save) method.
 
 To flatten the annotation without pop-ups [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations) method to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 

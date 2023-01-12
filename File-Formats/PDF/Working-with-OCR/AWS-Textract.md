@@ -14,14 +14,14 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 ## Steps to perform OCR with AWS Textract 
 
 Step 1: Create a new .NET Console application project. 
-<img src="OCR-Images/.NET-sample-creation-step1.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-creation-step1.png" alt="NET-sample-creation-step1" width="100%" Height="Auto"/>
 
 In project configuration window, name your project and select Next. 
-<img src="OCR-Images/.NET-sample-creation-step2.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-creation-step2.png" alt="NET-sample-creation-step2" width="100%" Height="Auto"/>
 
 Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
-<img src="OCR-Images/.NET-sample-creation-step3.png" alt=".NET-sample-creation-step1" width="100%" Height="Auto"/>
-<img src="OCR-Images/.NET-sample-creation-step4.png" alt=".NET-sample-creation-step2" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-creation-step3.png" alt="NET-sample-creation-step3" width="100%" Height="Auto"/>
+<img src="OCR-Images/NET-sample-creation-step4.png" alt="NET-sample-creation-step4" width="100%" Height="Auto"/>
 
 Step 3: Include the following namespaces in the Program.cs file. 
 
@@ -30,7 +30,7 @@ using Syncfusion.OCRProcessor;
 using Syncfusion.Pdf.Parsing;
 {% endhighlight %}
 
-Step 4: Use the following code sample to perform OCR on a PDF document with AWS Textract.
+Step 4: Use the following code sample to perform OCR on a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class with AWS Textract.
 
 {% highlight c# tabtitle="C#" %}
 //Initialize the OCR processor.

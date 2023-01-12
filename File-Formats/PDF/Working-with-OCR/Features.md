@@ -11,7 +11,7 @@ keywords: Assemblies
 
 ## Performing OCR for an entire document
 
-To perform OCR on a PDF document using [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class, refer to the following code example. 
+To perform OCR for an entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. Refer to the following code example. 
 
 {% tabs %}   
 
@@ -23,20 +23,16 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
     PdfLoadedDocument document = new PdfLoadedDocument(stream);
-
     //Set OCR language.
     processor.Settings.Language = Languages.English;
-
     //Perform OCR with input document and tessdata (Language packs).
     processor.PerformOCR(document, @"Tessdata/");
-
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
     {
         //Save the PDF document to file stream.
         document.Save(outputFileStream);
     }
-
     //Close the document.
     document.Close(true);
 }
@@ -47,23 +43,18 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 'Initialize the OCR processor with tesseract binaries folder path.
 Using processor As OCRProcessor = New OCRProcessor("@TesseractBinaries/")
-
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
-
     'Set OCR language. 
     processor.Settings.Language = Languages.English
-
     'Perform OCR with input document and tessdata (Language packs). 
     processor.PerformOCR(document, "@Tessdata/")
-
     'Create file stream.
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
         'Save the PDF document to file stream.
         document.Save(outputFileStream)
     End Using
-
     'Close the document
     document.Close(True)
 End Using
@@ -72,13 +63,13 @@ End Using
 
 {% endtabs %} 
 
-N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page will not be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
+N> The [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page will not be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
 
 You can downloaded a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-for-the-entire-PDF-document).
 
 ## Performing OCR for a region of the document
 
-To perform OCR on a particular region or several regions of a PDF page with the help of [PageRegion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.PageRegion.html) class, refer to the following code sample. 
+To perform OCR on a particular region or several regions of a PDF page with the help of [PageRegion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.PageRegion.html) class in [OCRSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html), refer to the following code sample. 
 
 {% tabs %} 
 
@@ -93,7 +84,6 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
     //Set OCR language.
     processor.Settings.Language = Languages.English;
-
     //Assign rectangles to the page.
     RectangleF rect = new RectangleF(0, 100, 950, 150);
     List<PageRegion> pageRegions = new List<PageRegion>();
@@ -117,7 +107,6 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
         //Save the PDF document to file stream.
         document.Save(outputFileStream);
     }
-
     //Close the document.
     document.Close(true);
 }
@@ -128,14 +117,12 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 'Initialize the OCR processor with tesseract binaries folder path. 
 Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
-
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
 
     'Set OCR language. 
     processor.Settings.Language = Languages.English
-
     'Assign rectangles to the page.
     Dim rect As RectangleF = New RectangleF(0, 100, 950, 150)
     Dim pageRegions As List(Of PageRegion) = New List(Of PageRegion)()
@@ -158,7 +145,6 @@ Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
         'Save the PDF document to file stream.
         document.Save(outputFileStream)
     End Using
-
     'Close the document. 
     document.Close(True)
 End Using
@@ -190,10 +176,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
 
     //Set OCR language.
     processor.Settings.Language = Languages.English;
-
     //Set tesseract OCR Engine.
     processor.Settings.TesseractVersion = TesseractVersion.Version3_05;
-
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
     processor.PerformOCR(document, @"Tessdata/", true);
 
@@ -203,7 +187,6 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
         //Save the PDF document to file stream.
         document.Save(outputFileStream);
     }
-
     //Close the document.
     document.Close(true);
 }
@@ -214,17 +197,14 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
 
 'Initialize the OCR processor with tesseract binaries folder path. 
 Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/3.05/")
-
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
 
     'Set OCR language. 
     processor.Settings.Language = Languages.English
-
     'Set tesseract OCR Engine. 
     processor.Settings.TesseractVersion = TesseractVersion.Version3_05
-
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
     processor.PerformOCR(document, "Tessdata/", True)
 
@@ -233,7 +213,6 @@ Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/3.05/")
         'Save the PDF document to file stream.
         document.Save(outputFileStream)
     End Using
-
     'Close the document. 
     document.Close(True)
 End Using
@@ -263,10 +242,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/4.0/"))
 
     //Set OCR language.
     processor.Settings.Language = Languages.English;
-
     //Set tesseract OCR Engine.
     processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
-
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
     processor.PerformOCR(document, @"Tessdata/", true);
 
@@ -276,7 +253,6 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/4.0/"))
         //Save the PDF document to file stream.
         document.Save(outputFileStream);
     }
-
     //Close the document.
     document.Close(true);
 }
@@ -287,17 +263,14 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/4.0/"))
 
 'Initialize the OCR processor with tesseract binaries folder path. 
 Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/4.0/")
-
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
 
     'Set OCR language. 
     processor.Settings.Language = Languages.English
-
     'Set tesseract OCR Engine. 
     processor.Settings.TesseractVersion = TesseractVersion.Version4_0
-
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
     processor.PerformOCR(document, "Tessdata/", True)
 
@@ -306,7 +279,6 @@ Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/4.0/")
         'Save the PDF document to file stream.
         document.Save(outputFileStream)
     End Using
-
     'Close the document. 
     document.Close(True)
 End Using
@@ -317,7 +289,7 @@ End Using
 
 ## Performing OCR on image
 
-To perform OCR on an image file, refer the below code sample for the same.
+The below code example illustrates how to perform OCR on image file using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_System_Drawing_Bitmap_System_String_) method in [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class.
 
 {% tabs %} 
 
@@ -329,10 +301,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
     //Load the input image. 
     FileStream imageStream = new FileStream("Input.jpg", FileMode.Open);
     Bitmap bitmap = new Bitmap(imageStream);
-
     //Set OCR language.
     processor.Settings.Language = Languages.English;
-
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
     String OCRText = processor.PerformOCR(bitmap, @"Tessdata/");
 }
@@ -343,17 +313,13 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 'Initialize the OCR processor with tesseract binaries folder path. 
 Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
-
     'Load the input image. 
     Dim imageStream As FileStream = New FileStream("Input.jpg", FileMode.Open)
     Dim bitmap As Bitmap = New Bitmap(imageStream)
-
     'Set OCR language.
     processor.Settings.Language = Languages.English
-
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
     Dim ocrText As String = processor.PerformOCR(bitmap, "Tessdata/")
-
 End Using
 
 {% endhighlight %}
@@ -362,7 +328,7 @@ End Using
 
 You can downloaded a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Perform-OCR-on-image-file).
 
-You can get the OCRed Unicode text from an image file by using the ``UnicodeFont`` property in OCR Processor. For more information, refer to the following code sample. 
+You can get the OCRed Unicode text from an image file by using the ``UnicodeFont`` property in [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html). For more information, refer to the following code sample. 
 
 {% tabs %} 
 

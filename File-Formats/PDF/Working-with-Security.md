@@ -1472,7 +1472,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Set user password using event when accessing the attachment
 
-The following code example illustrates how to provide the password when accessing attachments from encrypt-only-attachment document using OnPdfPasswordEventArgs class.
+The following code example illustrates how to provide the password when accessing attachments from encrypt-only-attachment document using [OnPdfPasswordEventArgs](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.OnPdfPasswordEventArgs.html) class.
 
 {% tabs %}
 
