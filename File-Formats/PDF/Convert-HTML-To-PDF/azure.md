@@ -158,7 +158,7 @@ Step 2: Choose your project's target framework, select Configure for HTTPS and E
 
 Step 3: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 
-<img src="htmlconversion_images/DockerStep.png" alt="Convert HTMLToPDF Azure Docker Step" width="100%" Height="Auto"/> 
+<img src="htmlconversion_images/DockerStep.PNG" alt="Convert HTMLToPDF Azure Docker Step" width="100%" Height="Auto"/> 
 
 Step 4: Include the following commands in the docker file to install the dependent packages in the docker container.
 
