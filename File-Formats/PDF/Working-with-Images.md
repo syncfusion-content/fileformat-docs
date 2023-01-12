@@ -1082,7 +1082,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Converting multi page TIFF to PDF
 
-Multi frame TIFF image can be converted to PDF document. This can be done by accessing each frame of the multi frame TIFF image and rendering it in each page of the PDF document.
+Multi frame TIFF image can be converted to PDF document. This can be done by accessing each frame of the multi frame TIFF image and rendering it in each page of the PDF document using [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html) class.
 
 The code snippet to illustrate the same is given below.
 

@@ -352,7 +352,7 @@ N> 2.  Using this overload may cause performance delay when compared with other 
 
 ## Saving a PDF document to file system
 
-You can save the manipulated PDF document to file system using [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~Save(String).html) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
+You can save the manipulated PDF document to file system using [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Save) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
