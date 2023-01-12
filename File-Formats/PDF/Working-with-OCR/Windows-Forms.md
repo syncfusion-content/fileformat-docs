@@ -83,7 +83,7 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 7: Create the btnCreate_Click event and add the following code to perform OCR on the entire PDF document. 
+Step 7: Create the btnCreate_Click event and add the following code to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
 
 {% highlight c# tabtitle="C#" %}
 
@@ -92,16 +92,12 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 {
     //Load an existing PDF document.
     PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
-
     //Set the tesseract version 
     processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
-
     //Set OCR language to process.
     processor.Settings.Language = Languages.English;
-
     //Process OCR by providing the PDF document and Tesseract data.
-    processor.PerformOCR(loadedDocument, @"Tessdata/");
-        
+    processor.PerformOCR(loadedDocument, @"Tessdata/");  
     //Save the OCR processed PDF document in the disk.
     loadedDocument.Save("OCR.pdf");
     loadedDocument.Close(true);
