@@ -142,7 +142,7 @@ A complete working sample can be downloaded from [Github](https://github.com/Syn
 Step 1: Create a new AWS Lambda project with Tests as follows.
 <img src="htmlconversion_images/awslambda1.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
 
-Step 2: Create a project name and select the location.
+Step 2: In configuration window, name the project and select Create.
 <img src="htmlconversion_images/awslambda2.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
 
 Step 3: Select Blueprint as .NET 6 (Container Image) Function and click Finish.
