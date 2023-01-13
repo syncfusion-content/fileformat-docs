@@ -62,7 +62,7 @@ pptxDoc.Close()
 //Namespaces to perform PPTX to PDF conversion
 using Syncfusion.Pdf;
 using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
+using Syncfusion.PresentationRenderer;
 using System.IO;
 
 //Load the PowerPoint presentation into stream.
@@ -96,7 +96,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 //Namespaces to perform PPTX to PDF conversion
 using Syncfusion.Pdf;
 using Syncfusion.Presentation;
-using Syncfusion.PresentationToPdfConverter;
+using Syncfusion.PresentationRenderer;
 using System.IO;
 
 //Load the PowerPoint presentation into stream.
