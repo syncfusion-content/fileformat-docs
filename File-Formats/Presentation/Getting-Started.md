@@ -549,6 +549,20 @@ Imports Syncfusion.Pdf
 Imports Syncfusion.PresentationToPdfConverter
 {% endhighlight %}
 
+{% highlight c# tabtitle="ASP.NET Core" %}
+using Syncfusion.Presentation;
+using Syncfusion.OfficeChartToImageConverter;
+using Syncfusion.Pdf;
+using Syncfusion.PresentationRenderer;
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+using Syncfusion.Presentation;
+using Syncfusion.OfficeChartToImageConverter;
+using Syncfusion.Pdf;
+using Syncfusion.PresentationRenderer;
+{% endhighlight %}
+
 {% endtabs %}
 
 [PresentationToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PresentationToPdfConverter.html) class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert the PowerPoint presentation to PDF.
