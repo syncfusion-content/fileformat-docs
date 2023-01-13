@@ -550,17 +550,17 @@ Imports Syncfusion.PresentationToPdfConverter
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-using Syncfusion.Presentation;
-using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.Pdf;
+using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
+using System.IO;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-using Syncfusion.Presentation;
-using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.Pdf;
+using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
+using System.IO;
 {% endhighlight %}
 
 {% endtabs %}
