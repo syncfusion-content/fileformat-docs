@@ -11,7 +11,7 @@ Essential PDF provides support to add, remove and modify the named destination i
 
 Another example that uses "nameddest" parameter in URL:
 
-e.g. [http://www.syncfusion.com/downloads/support/directtrac/general/pd/mydocument-1524150305.pdf#nameddest=Chapter3](http://www.syncfusion.com/downloads/support/directtrac/general/pd/mydocument-1524150305.pdf#nameddest=Chapter3)
+e.g. [Named Destination document](http://www.syncfusion.com/downloads/support/directtrac/general/pd/mydocument-1524150305.pdf#nameddest=Chapter3)
 
 **Points to remembers:**
 

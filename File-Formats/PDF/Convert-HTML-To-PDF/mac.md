@@ -50,7 +50,7 @@ Step 6: A default action method named Index will be present in HomeController.cs
 
 {% endhighlight %}
 
-Step 7: Add a new action method ExportToPDF in HomeController.cs and include the below code snippet to convert HTML to PDF file and download it.
+Step 7: Add a new action method ExportToPDF in HomeController.cs and include the below code example to convert HTML to PDF file using [Convert](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html#Syncfusion_HtmlConverter_HtmlToPdfConverter_Convert_System_String_) method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class.
 
 {% highlight c# tabtitle="C#" %}
 

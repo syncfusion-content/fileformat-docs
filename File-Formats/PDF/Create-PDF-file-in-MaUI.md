@@ -59,7 +59,7 @@ Step 4: Add a new button to the *MainWindow.xaml* as shown below.
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5. Include the following namespaces in the *MainWindow.xaml.cs* file.
+Step 5: Include the following namespaces in the *MainWindow.xaml.cs* file.
 {% capture codesnippet2 %}
 {% tabs %}
 
@@ -78,7 +78,7 @@ using System.Xml.Linq;
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6. Add a new action method *createPdf_Click* in *MainWindow.xaml.cs* and include the below code snippet to generate a PDF document using the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) class. The [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) is used to add text in a PDF document and which provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create table by entering data manually or from an external data sources and include helper classes, methods and required files in the assets folder.
+Step 6: Add a new action method *createPdf_Click* in *MainWindow.xaml.cs* and include the below code snippet to generate a PDF document using the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) class. The [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) is used to add text in a PDF document and which provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create table by entering data manually or from an external data sources and include helper classes, methods and required files in the assets folder.
 {% capture codesnippet3 %}
 {% tabs %}
 
@@ -346,6 +346,8 @@ private float GetTotalAmount(PdfGrid grid)
 {{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example of creating a PDF document in the .NET MAUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/PdfSampleMaUI-1356433164887362210.zip).
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/MAUI/CreatePdfDemoSample).
 
 By executing the program in windows, you will get the PDF document as follows.
 <img src="MAUI_images/invoice.png" alt=".NET MAUI output image" width="100%" Height="Auto"/>
