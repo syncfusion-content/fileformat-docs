@@ -2338,7 +2338,7 @@ else
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Create-table-with-built-in-style).
 
 The following image shows the PDF document with the ```PdfGridBuiltinStyle.GridTable4Accent1```.
-![GridTable4Accent1 image](Table_images/Gridtable4Accent1.png)
+<img src="Table_images/Gridtable4Accent1.png" alt="GridTable4Accent1 image" width="100%" Height="Auto"/>
 
 The below code example illustrates how to apply built-in table styles with table options to [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) using [PdfGridBuiltinStyleSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridBuiltinStyleSettings.html) in [ApplyBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_ApplyBuiltinStyle_Syncfusion_Pdf_PdfGridBuiltinStyle_Syncfusion_Pdf_Grid_PdfGridBuiltinStyleSettings_) method with [PdfGridBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfGridBuiltinStyle.html) Enum.
 
@@ -2606,7 +2606,7 @@ else
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfGrid/Apply-built-in-style-to-table-with-table-option).
 
 The following image shows the PDF document with `PdfGridBuiltinStyle.Gridtable4Accent4`.
-![Gridtable4Accent4 image](Table_images/Gridtable4Accent4.png)
+<img src="Table_images/Gridtable4Accent4.png" alt="Gridtable4Accent4 image" width="100%" Height="Auto"/>
 
 ## Pagination 
 

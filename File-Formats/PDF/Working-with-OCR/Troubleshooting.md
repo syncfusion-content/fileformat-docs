@@ -32,9 +32,9 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/");
 processor.PerformOCR(lDoc, @"TessData/");
 
 {% endhighlight %}
+</td>
 </tr>
 <tr>
-</td>
 <th style="font-size:14px">Solution2</th>
 <td>
 Ensure that your data file version is 3.02 since the OCR processor is built with the Tesseract version 3.02.
@@ -95,7 +95,7 @@ To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/e
 <th style="font-size:14px">Solution</th>
 <td>
 The essential PDF supports all the languages the Tesseract engine supports in the OCR processor.
-The dictionary packs for the languages can be downloaded from the following online location:<<br/>
+The dictionary packs for the languages can be downloaded from the following online location:<br/>
 <a href="https://code.google.com/p/tesseract-ocr/downloads/list">https://code.google.com/p/tesseract-ocr/downloads/list</a>
 <br/><br/>
 It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property.  <br/>
