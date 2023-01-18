@@ -575,7 +575,7 @@ The list of supported and non-supported Excel features in Blazor platform is giv
   <tr>
     <td>Save chart as image.</td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>    
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>    
   </tr>
 </table>
 
@@ -621,23 +621,23 @@ The list of supported and non-supported Excel features in Blazor platform is giv
   </tr>
   <tr>
     <td>Excel to PDF</td>
-	<td>N/A</td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>	
   </tr>
   <tr>
     <td>Excel to HTML</td>
-	<td>N/A</td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>	
   </tr>
   <tr>
     <td>Worksheet to Image (PNG, JPEG)</td>
-	<td>N/A</td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>	
   </tr>
 </table>
