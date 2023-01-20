@@ -1349,7 +1349,7 @@ You can refer various exporting options in the [Working with Data](https://help.
 
 ## Export Data from Excel Worksheets 
 
-The worksheet data can be exported to a data table using the [ExportDataTable()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ExportDataTable_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelExportDataTableOptions_) method. This method provides various options that allows to export data through ExcelExportDataTableOptions. 
+The worksheet data can be exported to a data table using the [ExportDataTable()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ExportDataTable_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelExportDataTableOptions_) method. This method provides various options that allows to export data through [ExcelExportDataTableOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelExportDataTableOptions.html). 
 
 The following code demonstrates how to export data from a worksheet to a data table with the **ColumnNames** and **DetectColumnTypes** options.
 
@@ -1614,7 +1614,7 @@ This functionality supports the following data sources.
 * DataTable
 * Array
 
-Each marker starts with a prefix "%", which is followed by a **MarkerVariable** and its **property**. The arguments are delimited by semicolon (;). The following syntax shows the usage of marker in input template document. 
+Each marker starts with a prefix "%", which is followed by a **MarkerVariable** and its **Property**. The arguments are delimited by semicolon (;). The following syntax shows the usage of marker in input template document. 
 
 <table>
 <tr>
