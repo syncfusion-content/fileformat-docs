@@ -9,7 +9,7 @@ keywords: c#, vb.net, excel, syncfusion, xlsio, read excel, extract data, data f
 
 # Working with Excel Worksheet 
 
-A Workbook contains a collection of worksheets where the actual contents resides. It is possible to add and manipulate worksheets and [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) instance represents an Excel worksheet.
+A workbook contains a collection of worksheets where the actual contents resides. It is possible to add and manipulate worksheets and [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) instance represents an Excel worksheet.
 
 ## Create a Worksheet 
 
@@ -2353,7 +2353,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Maximum Rows and Columns for CSV
 
-By default, XlsIO allows only 1048576 rows and 16256 columns while loading or saving a CSV document. This limit can be increased by modifying the MaximumRowsForCSV and MaximumColumnsForCSV properties. The following code snippet explains this.
+By default, XlsIO allows only 1048576 rows and 16256 columns while loading or saving a CSV document. This limit can be increased by modifying the [MaximumRowsForCsv](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_MaximumRowsForCsv) and [MaximumColumnsForCsv](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_MaximumColumnsForCsv) properties. The following code snippet explains this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2362,8 +2362,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   
-  application.MaximumRowsForCSV = 3000000;
-  application.MaximumColumnsForCSV = 20000;
+  application.MaximumRowsForCsv = 3000000;
+  application.MaximumColumnsForCsv = 20000;
   
   IWorkbook workbook = application.Workbooks.Open("Sample.csv");
   IWorksheet sheet = workbook.Worksheets[0];
@@ -2380,8 +2380,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
   
-  application.MaximumRowsForCSV = 3000000
-  application.MaximumColumnsForCSV = 20000
+  application.MaximumRowsForCsv = 3000000
+  application.MaximumColumnsForCsv = 20000
   
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.csv")
   Dim sheet As IWorksheet = workbook.Worksheets(0)
@@ -2399,8 +2399,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   
-  application.MaximumRowsForCSV = 3000000;
-  application.MaximumColumnsForCSV = 20000;
+  application.MaximumRowsForCsv = 3000000;
+  application.MaximumColumnsForCsv = 20000;
   
   //Instantiates the File Picker
   FileOpenPicker openPicker = new FileOpenPicker();
@@ -2435,8 +2435,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   
-  application.MaximumRowsForCSV = 3000000;
-  application.MaximumColumnsForCSV = 20000;
+  application.MaximumRowsForCsv = 3000000;
+  application.MaximumColumnsForCsv = 20000;
   
   FileStream inputStream = new FileStream("Sample.csv", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
@@ -2456,8 +2456,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
   
-  application.MaximumRowsForCSV = 3000000;
-  application.MaximumColumnsForCSV = 20000;
+  application.MaximumRowsForCsv = 3000000;
+  application.MaximumColumnsForCsv = 20000;
   
   //"App" is the class of Portable project
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3011,5 +3011,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example to save an Excel worksheet as HTML file using HtmlSaveOptions in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Save%20HTML).
+A complete working example to save an Excel worksheet as HTML file using [HtmlSaveOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.HtmlSaveOptions.html) in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Worksheet%20Features/Save%20HTML).
 
