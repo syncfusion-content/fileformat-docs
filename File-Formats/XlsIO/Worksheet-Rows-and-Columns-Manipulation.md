@@ -1131,7 +1131,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 N> Row and Column indexes are "one based".
 
-There is an alternative way to auto-fit row or column is by accessing the row or column, which is shown in the following code snippet.
+There is an alternative way to auto-fit row or column by accessing the row or column, which is shown in the following code snippet.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}

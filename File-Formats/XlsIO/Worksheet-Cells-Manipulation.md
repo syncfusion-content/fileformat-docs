@@ -193,7 +193,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to access a cell or range in an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cells/Access%20Cell%20or%20Range).
 
-T> You can make use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
+T> You can make use of [GetText](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_GetText_System_Int32_System_Int32_), [SetText](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_SetText_System_Int32_System_Int32_System_String_), [GetNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_GetNumber_System_Int32_System_Int32_) and [SetNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_SetNumber_System_Int32_System_Int32_System_Double_) methods from worksheet object that enable users to get/set values without range object.
 
 ## Accessing Relative Range
 
