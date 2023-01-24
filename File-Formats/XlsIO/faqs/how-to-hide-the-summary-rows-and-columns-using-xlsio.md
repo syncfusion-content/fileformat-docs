@@ -8,7 +8,7 @@ documentation: UG
 
 # How to hide the summary rows and columns using XlsIO?
 
-You can hide the summary rows and columns by using the **IsSummaryRowBelow** and **IsSummaryColumnRight** properties. The following code snippet illustrates this.
+You can hide the summary rows and columns by using the [IsSummaryRowBelow](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPageSetup.html#Syncfusion_XlsIO_IPageSetup_IsSummaryRowBelow) and [IsSummaryColumnRight](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPageSetup.html#Syncfusion_XlsIO_IPageSetup_IsSummaryColumnRight) properties. The following code snippet illustrates this.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}

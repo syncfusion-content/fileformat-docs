@@ -10,7 +10,7 @@ documentation: UG
 
 **Printing** **Title** **Rows**
 
-XlsIO allows to designate row header to repeat on all pages of a printed workbook using **PrintTitleRows** property. The following code snippet illustrates this.
+XlsIO allows to designate row header to repeat on all pages of a printed workbook using [PrintTitleRows](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPageSetup.html#Syncfusion_XlsIO_IPageSetup_PrintTitleRows) property. The following code snippet illustrates this.
 
 {% tabs %}  
 

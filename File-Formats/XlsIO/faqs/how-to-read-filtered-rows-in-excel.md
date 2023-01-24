@@ -8,7 +8,7 @@ documentation: UG
 
 # How to read filtered rows in Excel?
 
-The filtered rows in an Excel document can be read through RowHeight property. The filtered rows, also called as hidden rows, will have the row height as 0. The following code explains this.
+The filtered rows in an Excel document can be read through [RowHeight](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_RowHeight) property. The filtered rows, also called as hidden rows, will have the row height as 0. The following code explains this.
 
 {% tabs %}  
 
