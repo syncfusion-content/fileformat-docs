@@ -7295,3 +7295,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to create the deep level numbering( 1.1-1.2.1-1.2.2 etc.) using DocIO](https://www.syncfusion.com/kb/289/how-to-create-the-deep-level-numbering-1-1-1-2-1-1-2-2-etc-using-docio)
 * [How to replace URL of image hyperlink in Word document](https://www.syncfusion.com/kb/12861/how-to-replace-url-of-image-hyperlink-in-word-document)
 * [How to fit image within a text box in the Word document](https://www.syncfusion.com/kb/11787/how-to-fit-image-within-a-text-box-in-the-word-document)
+* [How to find and modify hyperlink address in Word document?](https://www.syncfusion.com/kb/13718/how-to-find-and-modify-hyperlink-address-in-word-document)
+* [How to change the character/symbol used for bullet points in Word document?](https://www.syncfusion.com/kb/13710/how-to-change-the-character-symbol-used-for-bullet-points-in-word-document)

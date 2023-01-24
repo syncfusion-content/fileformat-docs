@@ -2338,3 +2338,4 @@ N> * And also, it is not feasible to get the page-wise details from Word documen
 * [How to insert headers and footers in a document](https://www.syncfusion.com/kb/275/how-do-i-insert-headers-and-footers-in-a-document)
 * [Is it possible to create different Header and footer in a word document](https://www.syncfusion.com/kb/291/is-it-possible-to-create-different-header-and-footer-in-a-word-document)
 * [How to change section break in Word document as page break?](https://www.syncfusion.com/support/kb/13649/how-to-change-section-break-in-word-document-as-page-break)
+* [How to add multiple page number formats in Word document?](https://www.syncfusion.com/kb/13701/how-to-add-multiple-page-number-formats-in-word-document)
