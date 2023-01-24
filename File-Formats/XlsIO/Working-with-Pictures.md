@@ -122,7 +122,7 @@ A complete working example to insert picture in C# is present on [this GitHub pa
 
 ## Positioning and Re-Sizing Pictures
 
-Pictures can be re-sized, positioned, and formatted using various properties of **IPictureShape** interface. Refer to the following code snippet.
+Pictures can be re-sized, positioned, and formatted using various properties of [IPictureShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPictureShape.html) interface. Refer to the following code snippet.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
