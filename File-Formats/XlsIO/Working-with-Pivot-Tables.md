@@ -22,7 +22,7 @@ Steps to create a simple pivot table:
 * Add row and column fields
 * Add data fields
 
-Pivot tables do not take data directly from the source data, but take from the pivot cache that memorizes a snapshot of the data. The **IPivotCache** interface caches the data that needs to be summarized. 
+Pivot tables do not take data directly from the source data, but take from the pivot cache that memorizes a snapshot of the data. The [IPivotCache](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotCache.html) interface caches the data that needs to be summarized. 
 
 The data in worksheet is added to the pivot cache as follows.
 
@@ -53,7 +53,7 @@ IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% endhighlight %}
 {% endtabs %}  
 
-**IPivotTable** represents a single pivot table object created from the cache. It has properties that customizes the pivot table. The following code creates a blank pivot table. 
+[IPivotTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTable.html) represents a single pivot table object created from the cache. It has properties that customizes the pivot table. The following code creates a blank pivot table. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -82,7 +82,7 @@ IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"
 {% endhighlight %}
 {% endtabs %}  
 
-The pivot table should be populated with required fields. The **IPivotField** represents a single field in the pivot table, which includes row, column, and data field axes. 
+The pivot table should be populated with required fields. The [IPivotField](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html) represents a single field in the pivot table, which includes row, column, and data field axes. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -121,7 +121,7 @@ pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 {% endtabs %}  
 
-The **IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using the **PivotSubtotalTypes** enumeration. To learn more about different subtotal types supported in pivot tables, refer to the **PivotSubtotalTypes** in API section. The following code explains how to configure a pivot field as a data field.
+The [IPivotDataFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotDataFields.html) represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using the [PivotSubtotalTypes](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.PivotSubtotalTypes.html) enumeration. The following code explains how to configure a pivot field as a data field.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -347,11 +347,11 @@ A complete working example to create a pivot table in C# is present on [this Git
 
 ## Editing and formatting a pivot table
 
-A pivot table can be accessed from the **IPivotTables** interface that have the collection of pivot tables in the worksheet. You can modify the pivot table format or pivot cell format using IPivotTable properties and methods.
+A pivot table can be accessed from the [IPivotTables](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTables.html) interface that have the collection of pivot tables in the worksheet. You can modify the pivot table format or pivot cell format using [IPivotTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTable.html) properties and methods.
 
 ### Pivot Table Formatting
 
-XlsIO supports 85 built-in styles of Microsoft Excel used to create a table with rich formatting using the PivotBuiltInStyles property as follows. To learn more about various built-in styles supported, refer to the PivotBuiltInStyles enumeration in API section.
+XlsIO supports 85 built-in styles of Microsoft Excel used to create a table with rich formatting using the [PivotBuiltInStyles](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.PivotBuiltInStyles.html) property as follows.
 
 The following code snippet illustrates how to apply built-in style to pivot table
 
@@ -490,7 +490,7 @@ A complete working example to format a pivot table in C# is present on [this Git
 
 ### Pivot Cell Formatting
 
-When you apply the cell formatting to pivot table cells, Microsoft Excel maintains the formatting information in pivot table and shows the cell formatting on pivot table cells from that pivot formats. XlsIO supports to apply cell formatting to pivot table range cells. You can apply all the cell formatting using IPivotTable GetCellFormat method and IPivotCellFormat interface.
+When you apply the cell formatting to pivot table cells, Microsoft Excel maintains the formatting information in pivot table and shows the cell formatting on pivot table cells from that pivot formats. XlsIO supports to apply cell formatting to pivot table range cells. You can apply all the cell formatting using [IPivotTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTable.html) [GetCellFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTable.html#Syncfusion_XlsIO_IPivotTable_GetCellFormat_System_String_) method and [IPivotCellFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotCellFormat.html) interface.
 
 The following code snippet illustrates how to apply cell formatting to pivot table cells.
 
@@ -629,13 +629,13 @@ The following screenshot represents the generated Excel file with pivot table in
 <img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png" alt="Pivot Tables inline format" width="100%" Height="Auto"/>
 
 ## Refresh a pivot table
-When you update the pivot table data source, you should refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through IsRefreshOnLoad property of PivotCacheImpl.
+When you update the pivot table data source, you should refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through [IsRefreshOnLoad](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html#Syncfusion_XlsIO_Implementation_PivotTables_PivotCacheImpl_IsRefreshOnLoad) property of [PivotCacheImpl](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html).
 
 The following code shows how to dynamically refresh the data in a pivot table. In prior:
 
 * Create the pivot table using Excel GUI.
 * Specify the named range to be the data source of the pivot table.
-* Make sure that the "Refresh on Open" option of the pivot table is selected.
+* Make sure that the **Refresh on Open** option of the pivot table is selected.
 * Dynamically refresh the data in the named range.
 
 {% tabs %}
@@ -1190,7 +1190,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Pivot table with classic layout
 
-For classic layout, you can set the **ShowGridDropZone** property to true as below.
+For classic layout, you can set the [ShowGridDropZone](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotTableOptions.html#Syncfusion_XlsIO_Implementation_PivotTables_PivotTableOptions_ShowGridDropZone) property to true as below.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1341,7 +1341,7 @@ A complete working example to layout a pivot table classically in C# is present 
 
 ## Expand or collapse rows in pivot table
 
-Essential XlsIO allows you to expand and collapse the **PivotFieldItems** or simply the pivot table rows using **IsHiddenDetails** of **PivotItemOptions**.
+Essential XlsIO allows you to expand and collapse the [PivotFieldItems](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotFieldItems.html) or simply the pivot table rows using [IsHiddenDetails](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotItemOptions.html#Syncfusion_XlsIO_Implementation_PivotTables_PivotItemOptions_IsHiddenDetails) of [PivotItemOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotItemOptions.html).
 
 Refer the following complete code snippets.
 
@@ -1562,7 +1562,7 @@ A complete working example to expand or collapse rows in pivot table in C# is pr
 
 ## Applying pivot table filters 
 
-The filtered data of a pivot table displays only the subset of data that meets the specified criteria. This can be achieved in XlsIO using the **IPivotFilters** interface.
+The filtered data of a pivot table displays only the subset of data that meets the specified criteria. This can be achieved in XlsIO using the [IPivotFilters](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotFilters.html) interface.
 
 ### Applying page filters
 
@@ -2010,9 +2010,9 @@ A complete working example to apply pivot filter in C# is present on [this GitHu
   
 ## Applying pivot table settings  
 
-Excel provides various options through the PivotTableOptions dialog box to customize the appearance of the pivot table.
+Excel provides various options through the [PivotTableOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotTableOptions.html) dialog box to customize the appearance of the pivot table.
 
-XlsIO supports these pivot table options using the IPivotTableOptions interface to control various settings for the existing pivot table.  To learn more about various pivot table options, refer to the **IPivotTableOptions** in API section. The following code illustrates how to access the PivotTableOptions object. 
+XlsIO supports these pivot table options using the [IPivotTableOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTableOptions.html) interface to control various settings for the existing pivot table. The following code illustrates how to access the **PivotTableOptions** object. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2048,7 +2048,7 @@ IPivotTableOptions options = pivotTable.Options;
 
 ### Show or hide the field list
 
-To show or hide the pivot table field list pane, use the ShowFieldList property.
+To show or hide the pivot table field list pane, use the [ShowFieldList](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTableOptions.html#Syncfusion_XlsIO_IPivotTableOptions_ShowFieldList) property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2079,7 +2079,7 @@ options.ShowFieldList = false;
 
 ### Header caption
 
-The **RowHeaderCaption** and **ColumnHeaderCaption** properties allows to edit the respective pivot table headers. The header caption can be enabled or disabled using the **DisplayFieldCaption** property.
+The [RowHeaderCaption](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTableOptions.html#Syncfusion_XlsIO_IPivotTableOptions_RowHeaderCaption) and [ColumnHeaderCaption](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTableOptions.html#Syncfusion_XlsIO_IPivotTableOptions_ColumnHeaderCaption) properties allows to edit the respective pivot table headers. The header caption can be enabled or disabled using the [DisplayFieldCaptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTableOptions.html#Syncfusion_XlsIO_IPivotTableOptions_DisplayFieldCaptions) property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2310,14 +2310,14 @@ pivotTable.Options.RepeatAllLabels(true);
 
 ## Sort by value in Pivot Table
 
-Pivot field AutoSort allows you to sort the pivot row or column fields based on the data field values. You can perform the sorting in following direction:
+Pivot field [AutoSort](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html#Syncfusion_XlsIO_IPivotField_AutoSort_Syncfusion_XlsIO_PivotFieldSortType_System_Int32_) allows you to sort the pivot row or column fields based on the data field values. You can perform the sorting in following direction:
 
 * Top to Bottom
 * Left to Right 
 
 ### Sort a Pivot Table Field Top to Bottom
 
-Top to Bottom sorting can sort the pivot table column field values based on the sort type. To apply Top to Bottom sorting in pivot table, you should apply the sorting in pivot row field by AutoSort method. The following code example illustrates how to apply Top to Bottom sorting to a pivot table.
+Top to Bottom sorting can sort the pivot table column field values based on the sort type. To apply Top to Bottom sorting in pivot table, you should apply the sorting in pivot row field by [AutoSort](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html#Syncfusion_XlsIO_IPivotField_AutoSort_Syncfusion_XlsIO_PivotFieldSortType_System_Int32_) method. The following code example illustrates how to apply Top to Bottom sorting to a pivot table.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2455,7 +2455,7 @@ A complete working example for top to bottom sort in pivot table in C# is presen
 
 ### Sort a Pivot Table Field Left to Right
 
-Left to Right sorting can sort the pivot table row field values based on the sort type. To apply Left to Right sorting in pivot table, you should apply the sorting in pivot column field by AutoSort method. The following code example illustrates how to apply Left to Right sorting to a pivot table.
+Left to Right sorting can sort the pivot table row field values based on the sort type. To apply Left to Right sorting in pivot table, you should apply the sorting in pivot column field by [AutoSort](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html#Syncfusion_XlsIO_IPivotField_AutoSort_Syncfusion_XlsIO_PivotFieldSortType_System_Int32_) method. The following code example illustrates how to apply Left to Right sorting to a pivot table.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2591,7 +2591,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example for left to right sort in pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Sort%20Left%20to%20Right). 
 
-N> PivotCacheImpl.IsRefreshOnLoad property is set as true when applying AutoSort to pivot fields.
+N> [IsRefreshOnLoad](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html#Syncfusion_XlsIO_Implementation_PivotTables_PivotCacheImpl_IsRefreshOnLoad) property of [PivotCacheImpl](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html) is set as true when applying [AutoSort](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html#Syncfusion_XlsIO_IPivotField_AutoSort_Syncfusion_XlsIO_PivotFieldSortType_System_Int32_) to pivot fields.
 
 ## Other pivot table operations
 

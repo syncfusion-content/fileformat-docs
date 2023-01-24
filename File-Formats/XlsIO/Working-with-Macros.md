@@ -11,15 +11,15 @@ Macro is a set of process that can be run repeatedly in Excel document.
 
 ## Creating a Macro
 
-XlsIO allows to create macros in Excel document through **IVbaProject** interface. The macro document can be saved into different formats such as XLS, XLTM and XLSM.
-XlsIO supports creating macro in following types using **VbaModuleType** enum.
+XlsIO allows to create macros in Excel document through [IVbaProject](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaProject.html) interface. The macro document can be saved into different formats such as XLS, XLTM and XLSM.
+XlsIO supports creating macro in following types using [VbaModuleType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.VbaModuleType.html) enum.
 
 * Document 
 * StdModule
 * Class
 * MsForm
 
-You can add a Vba module through **IVbaModules** interface in XlsIO.
+You can add a Vba module through [IVbaModules](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html) interface in XlsIO.
 
 ### Document
 Document is the default module type which will be added for every worksheet and one for entire workbook while creating VbaProject. 
@@ -227,7 +227,7 @@ The macro output in the Excel document looks like below.
 ### StdModule
 StdModule is the module created for whenever a macro process is recorded in Excel document.
 
-The following code illustrate how to add a StdModule using Add method. Here, the parameters name and **VbaModuleType** enum value is used.
+The following code illustrate how to add a StdModule using Add method. Here, the parameters name and [VbaModuleType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.VbaModuleType.html) enum value is used.
 
 * Test – Macro module name added to the Vba project.
 * StdModule – Type of the Vba module.
@@ -434,7 +434,7 @@ The Macro output in the Excel document looks like below.
 ### Class
 Class module allows us to create our own object model to use it where same kind of objects needs to be added with different values such as creating the employee information list. XlsIO supports creating a class module in Excel document.
 
-The following code illustrate how to add a class in XlsIO. Here, the parameters name and VbaModuleType enum value is used.
+The following code illustrate how to add a class in XlsIO. Here, the parameters name and [VbaModuleType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.VbaModuleType.html) enum value is used.
 
 * Test – Class name used in the Vba project
 * ClassModule – Type of Vba module
@@ -657,7 +657,7 @@ The Macro output in the Excel document looks like below.
 ### MsForm
 MsForm is the form module in which we can have form controls such as textbox, label, buttons etc. Form module cannot be created by XlsIO, but it allows to copy from a form module existing another workbook to new workbook.
 
-The following code illustrate how to add a class in XlsIO. Here, the parameters name and VbaModuleType enum value is used.
+The following code illustrate how to add a class in XlsIO. Here, the parameters name and [VbaModuleType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.VbaModuleType.html) enum value is used.
 
 * UserForm – Class name used in the Vba project
 * MsForm – Type of Vba module
@@ -923,7 +923,7 @@ The Vba project in the output Excel document looks like below.
 <img src="Working-with-Macros_images/Working-with-Macros_image7.png" alt="working with macros" width="100%" Height="Auto"/>
 
 ### Assigning Macro to Shapes
-XlsIO supports assigning macros to the shape controls in the Excel document through **OnAction** property. 
+XlsIO supports assigning macros to the shape controls in the Excel document through [OnAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IShape.html#Syncfusion_XlsIO_IShape_OnAction) property. 
 
 The following code illustrate how to assign macros to shapes in Excel document.
 {% tabs %}  
@@ -1126,7 +1126,7 @@ When the shape is clicked, the output looks like below.
 <img src="Working-with-Macros_images/Working-with-Macros_image8.png" alt="working with macros" width="100%" Height="Auto"/>
 
 ### Saving macro enabled document into stream
-By default, while saving the Excel workbook into stream, the file type will be based on the Excel version used. For Excel97to2003 version, the file format will be XLS type.  Above this version, the document will be saved as XLSX format. So, while saving the macro enabled documents into XLSM and XLTM formats into stream, the **ExcelSaveType** should be provided as **SaveAsMacro** and **SaveAsMacroTemplate**. 
+By default, while saving the Excel workbook into stream, the file type will be based on the Excel version used. For Excel97to2003 version, the file format will be XLS type.  Above this version, the document will be saved as XLSX format. So, while saving the macro enabled documents into XLSM and XLTM formats into stream, the [ExcelSaveType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelSaveType.html) should be provided as **SaveAsMacro** and **SaveAsMacroTemplate**. 
 
 The following code illustrate how to save macro-enabled documents into stream.
 
@@ -1483,7 +1483,7 @@ Macro process exist in the Vba project’s code modules. To remove a macro, the 
 
 * name – Name of the Vba module needs to be removed.
 
-The following code illustrate how to remove a module using Remove method.
+The following code illustrate how to remove a module using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html#Syncfusion_Office_IVbaModules_Remove_System_String_) method.
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -1647,7 +1647,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to remove macro using name in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Name).    
 
 ### RemoveAt(int index)
-Vba module can be removed using the position from the IVbaModules collection.
+Vba module can be removed using the position from the [IVbaModules](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html) collection.
 
 * Index – Position of the Vba module in the modules collection.
 
@@ -1815,9 +1815,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to remove macro using index in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Index).      
 
 ### Clear()
-Clear() method removes all the Vba modules at once by clearing the module collection.
+[Clear()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html#Syncfusion_Office_IVbaModules_Clear) method removes all the Vba modules at once by clearing the module collection.
 
-The following code illustrate how to remove all macros using clear method.
+The following code illustrate how to remove all macros using **Clear** method.
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -1980,7 +1980,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to remove all macros in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Clear%20All%20Macros).      
 
 ### SkipOnSave
-SkipOnSave allows to resave the Excel document into normal XLSX and XLS documents.
+[SkipOnSave](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_SkipOnSave) allows to resave the Excel document into normal XLSX and XLS documents.
 
 The following code illustrate how to save the macro-enabled document into normal Excel document.
 
