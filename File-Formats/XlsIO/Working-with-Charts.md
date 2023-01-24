@@ -11,7 +11,7 @@ Essential XlsIO has support for creating and modifying Excel charts inside a wor
 
 ## Creating a Chart 
 
-The **IChartShape** interface represents the chart in a worksheet. A chart can be created either through the existing data in the worksheet, directly entering series or by adding series one by one.
+The [IChartShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartShape.html) interface represents the chart in a worksheet. A chart can be created either through the existing data in the worksheet, directly entering series or by adding series one by one.
 
 The following code example illustrates how to create a chart through the existing data in the worksheet.
 
@@ -1753,7 +1753,7 @@ A complete working example to create a custom chart in C# is present on [this Gi
 
 ## Remove a chart 
 
-The following code snippet shows how to remove the chart from the worksheet using **Remove** method.
+The following code snippet shows how to remove the chart from the worksheet using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IShape.html#Syncfusion_XlsIO_IShape_Remove) method.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -2321,7 +2321,7 @@ A complete working example for chart appearance in C# is present on [this GitHub
 
 ### Font settings for chart legend and data labels
 
-Essential XlsIO allows you to set the desired font to legend and series data labels for legend through [TextArea](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartLegend.html#Syncfusion_XlsIO_IChartLegend_TextArea) in **IChartLegend**. Similarly, desired font for data labels of chart series can be set through [DataLabels](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartDataPoint.html#Syncfusion_XlsIO_IChartDataPoint_DataLabels) in **IChartDataPoints**.
+Essential XlsIO allows you to set the desired font to legend and series data labels for legend through [TextArea](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartLegend.html#Syncfusion_XlsIO_IChartLegend_TextArea) in [IChartLegend](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartLegend.html). Similarly, desired font for data labels of chart series can be set through [DataLabels](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartDataPoint.html#Syncfusion_XlsIO_IChartDataPoint_DataLabels) in [IChartDataPoints](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartDataPoints.html).
 
 The font style includes font name, font size and font color which are set through [FontName](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFont.html#Syncfusion_XlsIO_IFont_FontName), [Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFont.html#Syncfusion_XlsIO_IFont_Size) and [Color](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFont.html#Syncfusion_XlsIO_IFont_Color) properties respectively. 
 
@@ -2720,7 +2720,7 @@ Spaces between chart bars are of two types.
 1. **Series Overlap** : Space between bars of different data series of single category.
 2. **Gap Width** : Space between different categories.
 
-Essential XlsIO allows you to adjust the space between chart bars using [Overlap](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartFormat.html#Syncfusion_XlsIO_IChartFormat_Overlap) and [GapWidth](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartFormat.html#Syncfusion_XlsIO_IChartFormat_GapWidth) properties of **IChartFormat** interface.
+Essential XlsIO allows you to adjust the space between chart bars using [Overlap](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartFormat.html#Syncfusion_XlsIO_IChartFormat_Overlap) and [GapWidth](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartFormat.html#Syncfusion_XlsIO_IChartFormat_GapWidth) properties of [IChartFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartFormat.html) interface.
 
 Refer the following complete code snippets.
 
@@ -2891,9 +2891,9 @@ A complete working example for adjusting space between chart bars in C# is prese
 
 ### Hide Chart Gridlines
 
-Excel chart consists of two types of gridlines such as **major gridlines** and **minor gridlines**. Major gridlines represent the main values in the axis and minor gridlines represent possible values between two adjacent axis values. You can show or hide these gridlines using [HasMajorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMajorGridLines) and [HasMinorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMinorGridLines) of **IChartAxis** interface.
+Excel chart consists of two types of gridlines such as **major gridlines** and **minor gridlines**. Major gridlines represent the main values in the axis and minor gridlines represent possible values between two adjacent axis values. You can show or hide these gridlines using [HasMajorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMajorGridLines) and [HasMinorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_HasMinorGridLines) of [IChartAxis](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html) interface.
 
-Essential XlsIO supports formatting of gridlines as well through the [MajorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_MajorGridLines) and [MinorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_MinorGridLines) of **IChartAxis**.
+Essential XlsIO supports formatting of gridlines as well through the [MajorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_MajorGridLines) and [MinorGridlines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html#Syncfusion_XlsIO_IChartAxis_MinorGridLines) of [IChartAxis](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartAxis.html).
 
 Refer the following complete code snippets.
 
@@ -3551,7 +3551,7 @@ Chart elements helps in modifying the chart appearance. The different chart elem
 
 Plot area holds the data series of a chart. This plot area can be filled with solid colors, texture, picture, and pattern. 
 
-Essential XlsIO allows you to fill plot area with picture using the [UserPicture](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_UserPicture_System_Drawing_Image_System_String_) of **IFill** interface. Refer to the following complete code snippets.
+Essential XlsIO allows you to fill plot area with picture using the [UserPicture](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_UserPicture_System_Drawing_Image_System_String_) of [IFill](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFill.html) interface. Refer to the following complete code snippets.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3722,7 +3722,7 @@ A complete working example to fill plot area with picture in C# is present on [t
 
 Chart area holds plot area, legend, axes, data table, and so on. This chart area can be filled with solid colors, texture, picture, and pattern. 
 
-Similar to plot area, chart area can be filled with picture using [UserPicture](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_UserPicture_System_Drawing_Image_System_String_) of **IFill** interface. Refer to the following complete code snippets.
+Similar to plot area, chart area can be filled with picture using [UserPicture](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_UserPicture_System_Drawing_Image_System_String_) of [IFill](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFill.html) interface. Refer to the following complete code snippets.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -4784,9 +4784,9 @@ N> In order to position the chart elements, plot area should be smaller than cha
 
 ## Explode a Pie Chart
 
-Essential XlsIO allows you to explode either all data points at a single explosion value or each data point at different explosion using [Percent](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartSerieDataFormat.html#Syncfusion_XlsIO_IChartSerieDataFormat_Percent) of **IChartSerieDataFormat** interface.
+Essential XlsIO allows you to explode either all data points at a single explosion value or each data point at different explosion using [Percent](https://help.syncfusion.com/cr/windowsforms/Syncfusion.XlsIO.IChartSerieDataFormat.html#Syncfusion_XlsIO_IChartSerieDataFormat_Percent) of [IChartSerieDataFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChartSerieDataFormat.html) interface.
 
-You can either create a pie chart and then explode it or directly create an exploded pie chart using XlsIO. Selecting `Pie_Exploded` as **ChartType** inserts a pie chart with a default explosion of **25%**. Learn how to [Create an Exploded Pie Chart](https://www.syncfusion.com/kb/8539/how-to-create-excel-exploded-pie-chart-in-c-vb-net).
+You can either create a pie chart and then explode it or directly create an exploded pie chart using XlsIO. Selecting `Pie_Exploded` as [ChartType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChart.html#Syncfusion_XlsIO_IChart_ChartType) inserts a pie chart with a default explosion of **25%**. Learn how to [Create an Exploded Pie Chart](https://www.syncfusion.com/kb/8539/how-to-create-excel-exploded-pie-chart-in-c-vb-net).
 
 Refer the following complete code snippets.
 
@@ -4957,7 +4957,7 @@ A complete working example to explode a pie chart in C# is present on [this GitH
 
 ## Add Picture to Chart and assign Hyperlink
 
-Essential XlsIO supports assigning hyperlink to the picture added in a chart in the Excel workbook. To achieve this, create a [chart in workbook](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart-sheet) and add picture to the chart using [AddPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Ipictures.html#Syncfusion_XlsIO_IPictures_AddPicture_System_String_) of **IPictures** interface. You can assign hyperlink to the picture using [Add](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IHyperLinks.html#Syncfusion_XlsIO_IHyperLinks_Add_Syncfusion_XlsIO_IShape_Syncfusion_XlsIO_ExcelHyperLinkType_System_String_System_String_) property of **IHyperlinks** interface.
+Essential XlsIO supports assigning hyperlink to the picture added in a chart in the Excel workbook. To achieve this, create a [chart in workbook](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart-sheet) and add picture to the chart using [AddPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Ipictures.html#Syncfusion_XlsIO_IPictures_AddPicture_System_String_) of [IPictures](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPictures.html) interface. You can assign hyperlink to the picture using [Add](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IHyperLinks.html#Syncfusion_XlsIO_IHyperLinks_Add_Syncfusion_XlsIO_IShape_Syncfusion_XlsIO_ExcelHyperLinkType_System_String_System_String_) property of [IHyperLinks](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IHyperLinks.html) interface.
 
 Refer to the following complete code snippets.
 
@@ -5144,7 +5144,7 @@ N> XlsIO supports adding picture only to a chart in the workbook,but does not su
 
 Data table beneath the chart clearly represents the chart content in table format. While creating a chart, the data table is hidden, and the option should be manually enabled to view it.
 
-Essential XlsIO supports adding data table using [HasDataTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChart.html#Syncfusion_XlsIO_IChart_HasDataTable) of **IChart** interface. Enabling this property adds the data table beneath the chart.
+Essential XlsIO supports adding data table using [HasDataTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChart.html#Syncfusion_XlsIO_IChart_HasDataTable) of [IChart](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IChart.html) interface. Enabling this property adds the data table beneath the chart.
 
 Refer the following complete code snippets.
 
@@ -5422,10 +5422,10 @@ A complete working example to add data table in chart in C# is present on [this 
 
 XlsIO provides support for creation, modification and removal of Sparklines.
 
-* **ISparklineGroups** interface caches the SparklineGroup that need to be added to the Spreadsheet. 
-* **ISparklineGroup** represents Sparklines in object, and has properties that allows  to customize it. 
-* **ISparklines** interface returns the collection of Sparkline present in a Worksheet. 
-* **ISparkline** represents a sparkline in the Sparklines. Currently, XlsIO supports all the three types of sparklines - Line, Column, Win/Loss.
+* [ISparklineGroups](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ISparklineGroups.html) interface caches the SparklineGroup that need to be added to the Spreadsheet. 
+* [ISparklineGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ISparklineGroup.html) represents Sparklines in object, and has properties that allows  to customize it. 
+* [ISparklines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ISparklines.html) interface returns the collection of Sparkline present in a Worksheet. 
+* [ISparkline](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ISparkline.html) represents a sparkline in the Sparklines. Currently, XlsIO supports all the three types of sparklines - Line, Column, Win/Loss.
 
 Following code example illustrates how to create Sparklines by using XlsIO.
 

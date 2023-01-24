@@ -53,7 +53,7 @@ sheet.EnableSheetCalculations();
 {% endhighlight %}
 {% endtabs %}   
 
-On completion of worksheet calculation, it is recommended to invoke [DisableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_DisableSheetCalculations) method of [https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). This will dispose all the [CalcEngine](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#calculation-engine) objects.
+On completion of worksheet calculation, it is recommended to invoke [DisableSheetCalculations](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_DisableSheetCalculations) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). This will dispose all the [CalcEngine](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#calculation-engine) objects.
 
 The following code sample illustrates on how to disable worksheet formula calculations.
 

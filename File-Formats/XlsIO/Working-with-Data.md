@@ -20,7 +20,7 @@ XlsIO provides the ability to import data into a worksheet from the following da
 
 ### Import Data from DataTable
 
-The following code snippet illustrates on how to import a DataTable into a worksheet using **ImportDataTable** method.
+The following code snippet illustrates on how to import a DataTable into a worksheet using [ImportDataTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataTable_System_Data_DataTable_Syncfusion_XlsIO_IName_System_Boolean_System_Int32_System_Int32_) method.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -89,7 +89,7 @@ A complete working example to import data from DataTable to Excel worksheet in C
 
 ### Import Data from DataColumn
 
-The following code snippet illustrates how to import DataColumn into a worksheet using **ImportDataColumn** method.
+The following code snippet illustrates how to import DataColumn into a worksheet using [ImportDataColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataColumn_System_Data_DataColumn_System_Boolean_System_Int32_System_Int32_) method.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -161,7 +161,7 @@ A complete working example to import data from DataColumn to Excel worksheet in 
 
 ### Import Data from DataView
 
-The following code snippet illustrates how to import DataView into a worksheet using **ImportDataView** method.
+The following code snippet illustrates how to import DataView into a worksheet using [ImportDataView](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataView_System_Data_DataView_System_Boolean_System_Int32_System_Int32_) method.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -533,16 +533,16 @@ A complete working example to import data from Collection Objects to Excel works
 
 ### Import Data Options
 
-ExcelImportDataOptions is a support class for ImportData() method which contains various properties to import data with formatting. 
+[ExcelImportDataOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelImportDataOptions.html) is a support class for [ImportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportData_System_Collections_IEnumerable_Syncfusion_XlsIO_ExcelImportDataOptions_) method which contains various properties to import data with formatting. 
 
-ExcelImportDataOptions class contains the following properties:
+**ExcelImportDataOptions** class contains the following properties:
 
 FirstRow - Specifies first row from where the data should be imported.
 FirstColumn - Specifies first column from where the data should be imported.
 IncludeHeader - Specifies whether class properties names must be imported or not.
 PreserveTypes - Indicates whether XlsIO should preserve column types from Data. By default, preserve type is TRUE. Setting it to True will import data based on column type, otherwise will import based on value type.
 
-The following code snippet illustrates how to import collection objects into a worksheet using ImportData method with ExcelImportDataOptions class.
+The following code snippet illustrates how to import collection objects into a worksheet using **ImportData** method with **ExcelImportDataOptions** class.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -2006,7 +2006,7 @@ The following are the options that is supported to group on import.
 * **Expand** – Imported data will be grouped and expanded.
 * **Collapse** – Imported data will be grouped and collapsed at first level, by default.
 
-In addition, `CollapseLevel` will group and collapse the mentioned level, upto the maximum of 8 levels.
+In addition, [CollapseLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelImportDataOptions.html#Syncfusion_XlsIO_ExcelImportDataOptions_CollapseLevel) will group and collapse the mentioned level, upto the maximum of 8 levels.
 
 The following code snippet illustrates how to import data directly from nested collection objects with collapse group option.
 
@@ -3491,7 +3491,7 @@ A complete working example to import data from collection objects with hyperlink
 
 ### Import Data from Array
 
-The following code snippet shows how to import array of data into a worksheet using **ImportArray** method.
+The following code snippet shows how to import array of data into a worksheet using [ImportArray](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ImportArray_System_DateTime___System_Int32_System_Int32_System_Boolean_) method.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -3613,7 +3613,7 @@ A complete working example to import data from array to Excel worksheet in C# is
 
 ## Exporting from Worksheet to Data Table 
 
-XlsIO allows to export the sheet data to a **DataTable** by using the **ExportDataTable****()** method. This method provides various options that allows to export data with specific requirement through ExcelExportDataTableOptions. 
+XlsIO allows to export the sheet data to a **DataTable** by using the [ExportDataTable()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ExportDataTable_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelExportDataTableOptions_) method. This method provides various options that allows to export data with specific requirement through ExcelExportDataTableOptions. 
 
 The following code snippet illustrates on how to export data from worksheet to Data grid using **DataTable**.
 
@@ -3720,7 +3720,7 @@ A complete working example to export data from Excel worksheet to DataTable in C
 
 ### Export to Data Table with an Event
 
-Sometimes there may be a need to control the data export from Excel to a data table. XlsIO provides an event **ExportDataTableEvent** to trigger while exporting data from an Excel worksheet to a data table. This event helps to perform the following actions through the **ExportDataTableActions** enumeration.
+Sometimes there may be a need to control the data export from Excel to a data table. XlsIO provides an event [ExportDataTableEvent](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.ExportDataTableEventHandler.html) to trigger while exporting data from an Excel worksheet to a data table. This event helps to perform the following actions through the [ExportDataTableActions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.ExportDataTableEventArgs.html#Syncfusion_XlsIO_Implementation_ExportDataTableEventArgs_ExportDataTableAction) enumeration.
 
 * Default          -     Exports worksheet data to the data table without any action.
 * SkipRows         -     Exports worksheet data to the data table by skipping a specific row(s).
@@ -3913,7 +3913,7 @@ private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
 
 ## Exporting from Worksheet to Collection Objects 
 
-XlsIO allows to export the sheet data to a **Collection Objects** by using the **ExportData&lt;T&gt;()** method.
+XlsIO allows to export the sheet data to a **Collection Objects** by using the [ExportData&lt;T&gt;()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ExportData__1_System_Int32_System_Int32_System_Int32_System_Int32_) method.
 
 The following code snippet illustrates on how to export worksheet data into Collection Objects using **ExportData&lt;T&gt;**.
 
@@ -4034,7 +4034,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following code snippet provides supporting class for the above code. Here, the attributes DisplayNameAttribute and Bindable are used.
+The following code snippet provides supporting class for the above code. Here, the attributes **DisplayNameAttribute** and **Bindable** are used.
 
 * [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) - to match the column headers with set of properties while exporting.
 * [BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8) - to skip a property while exporting.
@@ -4146,7 +4146,7 @@ A complete working example to export data from Excel worksheet to collection obj
 
 ## Export data from Excel to Nested Class Objects
 
-XlsIO allows to export worksheet data to nested class objects. A new overload to the existing `ExportData<T>()` method helps to achieve this requirement by mapping column headers with class properties.
+XlsIO allows to export worksheet data to nested class objects. A new overload to the existing [ExportData<T>()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ExportData__1_System_Int32_System_Int32_System_Int32_System_Int32_System_Collections_Generic_Dictionary_System_String_System_String__) method helps to achieve this requirement by mapping column headers with class properties.
 
 Let’s consider the input Excel document has the data as shown in the below screenshot. 
 
@@ -4702,7 +4702,7 @@ excelEngine.Dispose()
 
 ### Import HTML Table
 
-Essential XlsIO supports importing HTML tables into Excel worksheets. The **ImportHtmlTable** method loads an HTML file and imports all the tables in the file to the worksheet.  This import operation includes the table formatting that is defined within the HTML file.
+Essential XlsIO supports importing HTML tables into Excel worksheets. The [ImportHtmlTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ImportHtmlTable_System_IO_Stream_System_Int32_System_Int32_) method loads an HTML file and imports all the tables in the file to the worksheet.  This import operation includes the table formatting that is defined within the HTML file.
 
 The following code snippet shows how to import HTML table into Excel worksheet.
 {% tabs %}

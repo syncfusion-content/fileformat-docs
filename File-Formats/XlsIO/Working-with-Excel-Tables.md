@@ -11,8 +11,8 @@ documentation: UG
 
 XlsIO supports reading and writing the table which helps to organize and analyze the related data. 
 
-* **IListObjects** represents a collection of tables in the worksheet. 
-* **IListObject** represent a table in the worksheet.
+* [IListObjects](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IListObjects.html) represents a collection of tables in the worksheet. 
+* [IListObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IListObject.html) represent a table in the worksheet.
 
 You can also create a calculated column in the table. For more details, refer [here](/file-formats/xlsio/working-with-formulas#calculated-column).
 
@@ -435,7 +435,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example for formatting a table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Table/Format%20Table).
 
 ### Apply Custom Table Style
-You can apply custom table style to the table using XlsIO. You can create custom table style in which you can specified border, font, back ground color and format. You can also customized table in with other table style options such as Header/total row, first/last column, banded rows q to make a table easier to read.
+You can apply custom table style to the table using XlsIO. You can create custom table style in which you can specified border, font, back ground color and format. You can also customized table in with other table style options such as Header/total row, first/last column, banded rows to make a table easier to read.
 
 The below code example shows how to apply custom table style in XlsIO.
 
@@ -949,7 +949,7 @@ The following screenshot represents generated Excel file with custom table style
 
 ## Insert or remove columns in a table
 
-IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColumn**. XlsIO supports to insert or remove columns from the table using worksheet, as follows.
+[IListObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IListObject.html) is a collection of columns, whereas a single column is represented by an instance of [IListObjectColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IListObjectColumn.html). XlsIO supports to insert or remove columns from the table using worksheet, as follows.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1111,7 +1111,7 @@ N> Inserting rows or columns in a worksheet within the table range modifies tabl
 
 ## Adding a total row
 
-The "Total Row" is added to a table by accessing the **Table** **Columns**. It is possible to set calculation function to be used to the total row cells by using the ExcelTotalsCalculation enumerator. To learn more about this enumerator, refer to the **ExcelTotalsCalculation** in API section. These cells are updated after they are calculated.
+The "Total Row" is added to a table by accessing the **Table** **Columns**. It is possible to set calculation function to be used to the total row cells by using the [ExcelTotalsCalculation](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelTotalsCalculation.html) enumerator. These cells are updated after they are calculated.
 
 {% tabs %}  
 
@@ -1490,7 +1490,7 @@ N> Excel table must be refreshed to obtain the filtered result with parameters. 
 
 ### Set parameter as Prompt
 
-The following code example illustrates how to set parameter through prompt event.
+The following code example illustrates how to set parameter through **prompt** event.
  
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1674,7 +1674,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Set parameter as Constant
 
-The following code example illustrates how to set parameter through _constant_ type.
+The following code example illustrates how to set parameter through **constant** type.
  
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1844,7 +1844,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Set parameter as Range
 
-The following code example illustrates how to set parameter type to a specific range.
+The following code example illustrates how to set parameter type to a specific **range**.
  
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
