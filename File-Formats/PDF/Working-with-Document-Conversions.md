@@ -1851,7 +1851,7 @@ N> For converting PDF into Image in Windows Forms platform, please refer the [Pd
 
 The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) provides support for converting the MHTML file to PDF document. Please refer the below code example. 
 
-*Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
@@ -1923,7 +1923,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) provides support for converting the webpage to MHTML file. Please refer the below code example. 
 
-*Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
@@ -1973,7 +1973,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) provides support for converting the webpage to image. Please refer the below code example. 
 
-*Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
@@ -2033,7 +2033,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) provides support for converting HTML string to image. Please refer the below code example. 
 
-*Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
@@ -2100,7 +2100,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) provides support for converting partial webpage to image. Please refer the below code example. 
 
-*Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
@@ -2179,7 +2179,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) provides support for converting HTML to SVG file. Please refer the below code example. 
 
-*Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
@@ -2241,7 +2241,7 @@ N> HTML to SVG conversion is not supported in the Mac platforms.
 
 The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting partial webpage to SVG. Please refer the below code snippet,
 
-*Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
