@@ -7,11 +7,11 @@ documentation: UG
 ---
 # Working with Conditional Formatting
 
-Conditional formatting allows to format the contents of a cell dynamically. This can be defined and applied in XlsIO through the **IConditionalFormat** interface.
+Conditional formatting allows to format the contents of a cell dynamically. This can be defined and applied in XlsIO through the [IConditionalFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormat.html) interface.
 
 ## Create a Conditional Format 
 
-The IConditionalFormats represents a collection of conditional formats for a single IRange. One or more conditional formats can be added to the range as follows.
+The [IConditionalFormats](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormats.html) represents a collection of conditional formats for a single [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html). One or more conditional formats can be added to the range as follows.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -45,7 +45,7 @@ IConditionalFormat condition1 = condition.AddCondition();
 {% endhighlight %}
 {% endtabs %}  
 
-The target range should meet the criteria, which is set using the **IConditionalFormat** interface. The  desired format type is set through the **ExcelCFType** enumerator, which are the supported conditional format types in XlsIO. Refer to the following code.
+The target range should meet the criteria, which is set using the **IConditionalFormat** interface. The  desired format type is set through the [ExcelCFType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelCFType.html) enumerator, which are the supported conditional format types in XlsIO. Refer to the following code.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -586,7 +586,7 @@ A complete working example to read conditional formatting in C# is present on [t
 
 ## Removing Conditional Formats
 
-All the conditional formats for a specified range can be removed using the **Remove** method. This is illustrated as follows.
+All the conditional formats for a specified range can be removed using the [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormats.html#Syncfusion_XlsIO_IConditionalFormats_Remove) method. This is illustrated as follows.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -711,7 +711,7 @@ A complete working example to remove conditional formatting in C# is present on 
 
 ### Removing Conditional Formats at specified index value
 
-A particular conditional format at the specified range can be removed by using the *RemoveAt** method as follows.
+A particular conditional format at the specified range can be removed by using the [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormats.html#Syncfusion_XlsIO_IConditionalFormats_RemoveAt_System_Int32_) method as follows.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1086,7 +1086,7 @@ A complete working example to create conditional formatting with R1C1 in C# is p
 
 ## Format Unique and Duplicate Values
 
-Format unique and duplicate values of an Excel range using conditional formatting. The values, Unique and Duplicate of the enumeration ExcelCFType helps to achieve the requirement.
+Format unique and duplicate values of an Excel range using conditional formatting. The values, **Unique** and **Duplicate** of the enumeration [ExcelCFType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelCFType.html) helps to achieve the requirement.
 
 The below code example shows how to format unique and duplicate values using conditional formatting in XlsIO.
 
@@ -1500,9 +1500,9 @@ The following screenshot represents generated Excel file with unique and duplica
 
 ## Format Top or Bottom Values
 
-Top/Bottom rule in conditional formatting is used to highlight the top or bottom ranked cells in a data range. Top/Bottom conditional formatting rule can be created and customized using the `ITopBottom` interface in XlsIO.
+Top/Bottom rule in conditional formatting is used to highlight the top or bottom ranked cells in a data range. Top/Bottom conditional formatting rule can be created and customized using the [ITopBottom](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html) interface in XlsIO.
 
-The properties of `ITopBottom` interface are:
+The properties of **ITopBottom** interface are:
 
 * **Type** - Specifies whether the rank is evaluated from the top or bottom.
 * **Percent** - Specifies whether the rank is determined by a percentage value.
@@ -1514,7 +1514,7 @@ The following screenshot represents the input template of conditional formatting
 
 ### Top/Bottom ‘n’ rank values
 
-The below code example shows how to format top 10 rank values from the given data range using `ITopBottom` `Type` and `Rank` properties in XlsIO.
+The below code example shows how to format top 10 rank values from the given data range using [ITopBottom](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html) [Type](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Type) and [Rank](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Rank) properties in XlsIO.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1706,15 +1706,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to format top and bottom rank values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Top%20to%20Bottom%20Rank).
 
-The following screenshot represents the Excel file generated with TopBottom conditional format with `Rank` set to 10 in XlsIO.
+The following screenshot represents the Excel file generated with TopBottom conditional format with [Rank](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Rank) set to 10 in XlsIO.
 
 <img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png" alt="Top or Bottom conditional format" width="100%" Height="Auto"/>
 
-N> `ITopBottom` `Rank` value should be in a range between 1 and 1000.
+N> **ITopBottom** **Rank** value should be in a range between 1 and 1000.
 
 ### Top/Bottom ‘n’% rank values
 
-The below code example shows how to format top 50 percentage rank values from the given data range using `ITopBottom` `Type`, `Rank` and `Percent` properties in XlsIO
+The below code example shows how to format top 50 percentage rank values from the given data range using [ITopBottom](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html) [Type](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Type), [Rank](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Rank) and [Percent](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Percent) properties in XlsIO
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1921,26 +1921,26 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to format top and bottom rank percentage in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Top%20To%20Bottom%20Percent).
 
-The following screenshot represents the Excel file generated with TopBottom conditional format with `Percent` value set to 50 in XlsIO.
+The following screenshot represents the Excel file generated with TopBottom conditional format with [Percent](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Percent) value set to 50 in XlsIO.
 
 <img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png" alt="Top or Bottom conditional format" width="100%" Height="Auto"/>
 
-N> `ITopBottom` `Rank` value should be in a range between 1 and 100 when set true to `Percent` property.
+N> **ITopBottom** **Rank** value should be in a range between 1 and 100 when set true to **Percent** property.
 
 ## Format Above or Below Average Values
 
-Above/Below average rule in conditional formatting is used to highlight the cells which contains above/below the average values in a data range. Top/Bottom conditional formatting rule can be created and customized using the `IAboveBelowAverage` interface in XlsIO.
+Above/Below average rule in conditional formatting is used to highlight the cells which contains above/below the average values in a data range. Top/Bottom conditional formatting rule can be created and customized using the [IAboveBelowAverage](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html) interface in XlsIO.
 
-The properties of `IAboveBelowAverage` are:
+The properties of **IAboveBelowAverage** are:
 
 * **AverageType** - Specifies whether the conditional formatting rule looks for cell values that are above average or below average or standard deviation.
-* **StdDevValue** - Specifies standard deviation number for `AboveBelowAverage` conditional formatting rule.
+* **StdDevValue** - Specifies standard deviation number for **AboveBelowAverage** conditional formatting rule.
 
 The following screenshot represents the input template of conditional formatting.
 
 <img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png" alt="Conditional formatting input template" width="100%" Height="Auto"/>
 
-The below code example shows how to format a range with values that are below average using `IAboveBelowAverage` `AverageType` property in XlsIO.
+The below code example shows how to format a range with values that are below average using **IAboveBelowAverage** [AverageType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_AverageType) property in XlsIO.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -2122,13 +2122,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to format above and below average values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Above%20and%20Below%20Average).
 
-The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format with `AverageType` set as `Below` in XlsIO.
+The following screenshot represents the Excel file generated with **AboveBelowAverage** conditional format with [AverageType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_AverageType) set as **Below** in XlsIO.
 
 <img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img7.png" alt="Above or Below Average conditional format" width="100%" Height="Auto"/>
 
 ### Above or Below Standard Deviation values
 
-The below code example shows how to format a range with values above standard deviation, using `IAboveBelowAverage` `AverageType` and `StdDevValue` properties in XlsIO.
+The below code example shows how to format a range with values above standard deviation, using [IAboveBelowAverage](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html) [AverageType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_AverageType) and [StdDevValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_StdDevValue) properties in XlsIO.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -2325,11 +2325,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to format above and below standard deviation values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Above%20and%20Below%20Standard%20Deviation).
 
-The following screenshot represents the Excel file generated with `AboveBelowAverage` conditional format when `AverageType` is set as `AboveStdDev` in XlsIO.
+The following screenshot represents the Excel file generated with **AboveBelowAverage** conditional format when [AverageType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_AverageType) is set as **AboveStdDev** in XlsIO.
 
 <img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img8.png" alt="Above or Below Average conditional format" width="100%" Height="Auto"/>
 
-N> `IAboveBelowAverage` `StdDevValue` can be applied only if the `AverageType` is `AboveStdDev` or `BelowStdDev`. The `StdDevValue` value should be in a range between 1 and 3.
+N> **IAboveBelowAverage** **StdDevValue** can be applied only if the **AverageType** is **AboveStdDev** or **BelowStdDev**. The **StdDevValue** value should be in a range between 1 and 3.
 
 ## Advanced Conditional Format Types 
 
@@ -2339,7 +2339,7 @@ In conjunction with basic conditional formatting, the new formatting visualizati
 
 Here, the values in each of the selected cells are compared, and a data bar is drawn in each cell representing the value of that cell relative to the other cells in the selected range. This bar provides a clear visual cue for users, making it easier to pick out larger and smaller values in a range.
 
-This can be set and manipulated using the IDataBar interface as follows.
+This can be set and manipulated using the [IDataBar](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IDataBar.html) interface as follows.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -2442,7 +2442,7 @@ dataBar.BarColor = Color.Aqua;
 
 Color Scales let you create visual effects in your data to see how the value of a cell is compared with the values in a range of cells. A color scale uses cell shading, as opposed to bars, to communicate relative values, beyond the relative size of the value of a cell.
 
-Creation of color scales and its formatting rules using the **IColorScale** interface in XlsIO is illustrated as follows.
+Creation of color scales and its formatting rules using the [IColorScale](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IColorScale.html) interface in XlsIO is illustrated as follows.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -2658,7 +2658,7 @@ iconSet.ShowIconOnly = true;
 
 ### Custom Icon Sets
 
-You can customize the icon set by changing the IconSet and Index properties for each icon criteria.
+You can customize the icon set by changing the [IconSet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IIconConditionValue.html#Syncfusion_XlsIO_IIconConditionValue_IconSet) and [Index](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IIconConditionValue.html#Syncfusion_XlsIO_IIconConditionValue_Index) properties for each icon criteria.
 
 Custom Icon sets can be created and customized in XlsIO as follows.
 
