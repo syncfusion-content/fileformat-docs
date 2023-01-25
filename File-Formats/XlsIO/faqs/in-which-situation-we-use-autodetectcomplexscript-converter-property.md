@@ -10,7 +10,7 @@ documentation: UG
 
 Complex script languages are some languages (eg., Arabic) which stores text differently from how it is displayed. Many such languages use bidirectional script which means, words and sentences are written from right to left, while some text such as numbers and Roman-based words are written from left to right. 
 
-If your input Excel file contains such complex script languages, then the AutoDetectComplexScript property can be used to render them in PDF.
+If your input Excel file contains such complex script languages, then the [AutoDetectComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_AutoDetectComplexScript) property can be used to render them in PDF.
 
 ## See Also
 

@@ -15,7 +15,7 @@ XlsIO provides following options to perform find and replace for text and number
 
 To know more about these options, please refer the [ExcelFindType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
 
-All the occurrences of a text in Excel worksheet can be found through **FindAll** method.
+All the occurrences of a text in Excel worksheet can be found through [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_FindAll_System_String_Syncfusion_XlsIO_ExcelFindType_) method.
 
 The following code illustrates how to find all the occurrences of a value in a worksheet and highlight that data.
 

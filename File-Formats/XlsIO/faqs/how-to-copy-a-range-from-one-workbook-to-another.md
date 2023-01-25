@@ -8,7 +8,7 @@ documentation: UG
 
 # How to copy a range from one workbook to another?
 
-You can copy the range from source workbook to the destination workbook through CopyTo method. 
+You can copy the range from source workbook to the destination workbook through [CopyTo](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CopyTo_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelCopyRangeOptions_) method. 
 
 The following code snippet illustrates this.
 

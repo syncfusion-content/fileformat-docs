@@ -8,7 +8,7 @@ documentation: UG
 
 # How to copy/paste the cell values that contain only formula?
 
-You can copy and paste the values of the cell which contain only formula using CopyTo method by specifying the ExcelCopyRangeOptions as None. The following code snippet illustrates this.
+You can copy and paste the values of the cell which contain only formula using [CopyTo](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_CopyTo_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelCopyRangeOptions_) method by specifying the [ExcelCopyRangeOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelCopyRangeOptions.html) as **None**. The following code snippet illustrates this.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}

@@ -8,4 +8,4 @@ documentation: UG
 
 # How to overcome Parameter Not valid exception?
 
-ParameterNotValid exception occurs while trying to convert Excel document to PDF with large CustomPaperSize. Syncfusion XlsIO cannot handle such large values. Also, the values are considered in inches. Using height and width below 200 would resolve the issue.
+**ParameterNotValid** exception occurs while trying to convert Excel document to PDF with large [CustomPaperSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_CustomPaperSize). Syncfusion XlsIO cannot handle such large values. Also, the values are considered in inches. Using height and width below 200 would resolve the issue.

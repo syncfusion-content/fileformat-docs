@@ -8,7 +8,7 @@ documentation: UG
 
 # How to apply formatting to pivot table in Excel protected view?
 
-Syncfusion XlsIO supports applying formatting to pivot table during creation. But, in the protected view, to get the formatting applied to pivot table, [Layout](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTable.html#Syncfusion_XlsIO_IPivotTable_Layout) method of **IPivotTable** should be called. The following code snippet explains this.
+Syncfusion XlsIO supports applying formatting to pivot table during creation. But, in the protected view, to get the formatting applied to pivot table, [Layout](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTable.html#Syncfusion_XlsIO_IPivotTable_Layout) method of [IPivotTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotTable.html) should be called. The following code snippet explains this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
