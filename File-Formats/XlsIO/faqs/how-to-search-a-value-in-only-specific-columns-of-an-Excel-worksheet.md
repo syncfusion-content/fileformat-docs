@@ -7,7 +7,7 @@ documentation: UG
 ---
 
 # How to search a value in only specific columns of an Excel worksheet?
-XlsIO allows searching for a value in different columns in an Excel worksheet through the **FindAll** method. The following code illustrates this.
+XlsIO allows searching for a value in different columns in an Excel worksheet through the [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_FindAll_System_String_Syncfusion_XlsIO_ExcelFindType_) method. The following code illustrates this.
 
 {% tabs %}  
 

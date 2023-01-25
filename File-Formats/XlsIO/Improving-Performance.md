@@ -11,7 +11,7 @@ This section gives you an idea for improving performance while developing with X
 
 ## UsedRange
 
-Get **UsedRange** globally. It is recommended to get the UsedRange in loops as follows
+Get [UsedRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_UsedRange) globally. It is recommended to get the **UsedRange** in loops as follows
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -43,7 +43,7 @@ Next
 
 ## Range Access
 
-Use IMigrantRange instead of IRange to optimize performance while dealing with large data.
+Use [IMigrantRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IMigrantRange.html) instead of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html) to optimize performance while dealing with large data.
 
 The **IMigrantRange** interface can be used to access and manipulate worksheet range. This is an optimal method of writing values with better memory performance. 
 
@@ -90,7 +90,7 @@ Next
 {% endhighlight %}
 {% endtabs %}  
 
-**IMigrantRange** provides us a SetValue method in which different value for the range can be assigned. Following code snippet illustrates regarding this.
+**IMigrantRange** provides us a [SetValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IMigrantRange.html#Syncfusion_XlsIO_IMigrantRange_SetValue_System_Int32_) method in which different value for the range can be assigned. Following code snippet illustrates regarding this.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -166,7 +166,7 @@ excelEngine.Dispose()
 
 Use global styles, rather than using different cell styles for each cell/range. See [Applying global styles](/file-formats/xlsio/working-with-cell-or-range-formatting#apply-global-style).
 
-Use Begin and End call while using more than one global style for a worksheet.
+Use [BeginUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Interfaces.IOptimizedUpdate.html#Syncfusion_XlsIO_Interfaces_IOptimizedUpdate_BeginUpdate) and [EndUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Interfaces.IOptimizedUpdate.html#Syncfusion_XlsIO_Interfaces_IOptimizedUpdate_EndUpdate) call while using more than one global style for a worksheet.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -258,7 +258,7 @@ worksheet.SetDefaultColumnStyle(2, 12, style)
 
 Minimize AutoFit manipulations which reduces the time consumption.
 
-For improved performance in Excel to PDF conversion, it is recommended to set the **IApplication.SkipAutoFitRow** property as TRUE.
+For improved performance in Excel to PDF conversion, it is recommended to set the [SkipAutoFitRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_SkipAutoFitRow) property of [IApplication](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html) as TRUE.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -280,7 +280,7 @@ application.SkipAutoFitRow = True
 
 ## Importing DataTable
 
-**ImportDataTable** overload method which has **ImportOnSave** argument allows you to import data with less memory consumption along with improved method performance by serializing the data directly on save method. This option is preferred for larger data that need to be imported in short time.
+[ImportDataTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataTable_System_Data_DataTable_System_Int32_System_Int32_System_Boolean_) overload method which has **ImportOnSave** argument allows you to import data with less memory consumption along with improved method performance by serializing the data directly on save method. This option is preferred for larger data that need to be imported in short time.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -311,7 +311,7 @@ workbook.SaveAs("Output.xlsx")
 
 ## Data Validation
 
-Use of BeginUpdate and EndUpdate methods for large blocks of Data Validation greatly improves the performance.
+Use of [BeginUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Interfaces.IOptimizedUpdate.html#Syncfusion_XlsIO_Interfaces_IOptimizedUpdate_BeginUpdate) and [EndUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Interfaces.IOptimizedUpdate.html#Syncfusion_XlsIO_Interfaces_IOptimizedUpdate_EndUpdate) methods for large blocks of Data Validation greatly improves the performance.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}

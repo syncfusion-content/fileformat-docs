@@ -16,7 +16,7 @@ Essential XlsIO supports the following functionalities with Custom XML:
 
 **Add** **Custom** **XML** 
 
-Adding Custom XML part to workbook is achieved by using the **Add** method of **ICustomXmlPart** interface. 
+Adding Custom XML part to workbook is achieved by using the [Add](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICustomXmlPartCollection.html#Syncfusion_XlsIO_ICustomXmlPartCollection_Add_Syncfusion_XlsIO_ICustomXmlPart_) method of [ICustomXmlPartCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICustomXmlPartCollection.html) interface. 
 
 The following code snippet illustrates on how to add a Custom XML part.
 
@@ -161,7 +161,7 @@ A complete working example to add custom XML in C# is present on [this GitHub pa
 
 **Read** **Custom** **XML** 
 
-Reading Custom XML part from workbook is achieved by using the **GetById** method of **ICustomXmlPart** interface. The following code snippet illustrates on how to read Custom XML parts from workbook.
+Reading Custom XML part from workbook is achieved by using the [GetById](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICustomXmlPartCollection.html#Syncfusion_XlsIO_ICustomXmlPartCollection_GetById_System_String_) method of [ICustomXmlPartCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICustomXmlPartCollection.html) interface. The following code snippet illustrates on how to read Custom XML parts from workbook.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

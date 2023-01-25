@@ -10,7 +10,7 @@ documentation: UG
 
 **Creating** **Excel** **Template** **Files**
 
-Excel template files (XLT or XLTX) can be created in XlsIO by saving a file as **Template** using **ExcelSaveType** enumeration. The following code snippet illustrates this.
+Excel template files (XLT or XLTX) can be created in XlsIO by saving a file as **Template** using [ExcelSaveType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelSaveType.html) enumeration. The following code snippet illustrates this.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}

@@ -8,7 +8,7 @@ documentation: UG
 
 # How to ignore print areas set in a worksheet?
 
-You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the **PrintArea** property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
+You can set the print area to null or empty to ignore the print areas in a worksheet as below. Setting the [PrintArea](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPageSetup.html#Syncfusion_XlsIO_IPageSetup_PrintArea) property will impact the process of exporting to PDF. If the print area is set, the export to PDF includes only the print area.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
