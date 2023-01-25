@@ -2819,11 +2819,11 @@ The following chart types are supported in DocIO.
 * Stock_OpenHighLowClose
 * Stock_VolumeHighLowClose
 * Stock_VolumeOpenHighLowClose
-* Surface_3D
-* Surface_Contour
-* Surface_NoColor_3D
-* Surface_NoColor_Contour
-* WaterFall
+* [Surface_3D](https://www.syncfusion.com/kb/13870/how-to-create-3d-surface-chart-in-word-document-using-c)
+* [Surface_Contour](https://www.syncfusion.com/kb/13866/how-to-create-contour-surface-chart-in-word-document-using-c)
+* [Surface_NoColor_3D](https://www.syncfusion.com/kb/13867/how-to-create-wireframe-3d-surface-chart-in-word-document-using-c)
+* [Surface_NoColor_Contour](https://www.syncfusion.com/kb/13868/how-to-create-wireframe-contour-surface-chart-in-word-document-using-c)
+* [WaterFall](https://www.syncfusion.com/kb/13869/how-to-create-waterfall-chart-in-word-document-using-c)
 
 ## See Also
 
